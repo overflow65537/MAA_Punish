@@ -31,6 +31,6 @@
     "back_to_main":{
         "recognition":"OCR",
         "expected":"主菜单",
-        "action":"click",
+        "action":"click"
     }
 }

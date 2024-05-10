@@ -36,4 +36,7 @@
         },
         {
             "name": "领取邮件",
-            "entry": "mail",
+            "entry": "mail"
+            }
+        ]
+}
