@@ -1,36 +1,36 @@
 {
-    "startup": {
+    "StartUp": {
         "recognition": "OCR",
-        "expected":"点击任意处进行游戏",
-        "action":"click"
+        "expected": "点击任意处进行游戏",
+        "action": "Click"
     },
-    "daily_login": {
-        "recognition":"OCR",
-        "expected":"点击空白处关闭",
-        "action":"click",
-        "next":[
-            "mail"
+    "Daily_Login": {
+        "recognition": "OCR",
+        "expected": "点击空白处关闭",
+        "action": "Click",
+        "next": [
+            "Mail"
         ]
     },
-    "mail": {
-        "recognition":"OCR",
-        "expected":"邮件",
-        "action":"click",
-        "next":[
-            "mail_end"
+    "Mail": {
+        "recognition": "OCR",
+        "expected": "邮件",
+        "action": "Click",
+        "next": [
+            "Mail_End"
         ]
     },
-    "mail_end":{
-        "recognition":"OCR",
-        "expected":"领取全部",
-        "action":"click",
-        "next":[
-            "back_to_main"
+    "Mail_End": {
+        "recognition": "OCR",
+        "expected": "领取全部",
+        "action": "Click",
+        "next": [
+            "Back_To_Main"
         ]
     },
-    "back_to_main":{
-        "recognition":"OCR",
-        "expected":"主菜单",
-        "action":"click"
+    "Back_To_Main": {
+        "recognition": "OCR",
+        "expected": "主菜单",
+        "action": "Click"
     }
 }
