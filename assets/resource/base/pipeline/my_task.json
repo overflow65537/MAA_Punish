@@ -1,5 +1,36 @@
 {
-    "MyTask1": {},
-    "MyTask2": {},
-    "MyTask3": {}
+    "startup": {
+        "recognition": "OCR",
+        "expected":"点击任意处进行游戏",
+        "action":"click"
+    },
+    "daily_login": {
+        "recognition":"OCR",
+        "expected":"点击空白处关闭",
+        "action":"click",
+        "next":[
+            "mail"
+        ]
+    },
+    "mail": {
+        "recognition":"OCR",
+        "expected":"邮件",
+        "action":"click",
+        "next":[
+            "mail_end"
+        ]
+    },
+    "mail_end":{
+        "recognition":"OCR",
+        "expected":"领取全部",
+        "action":"click",
+        "next":[
+            "back_to_main"
+        ]
+    },
+    "back_to_main":{
+        "recognition":"OCR",
+        "expected":"主菜单",
+        "action":"click",
+    }
 }
