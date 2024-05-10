@@ -1,0 +1,7 @@
+{
+    "StartUp": {
+        "recognition": "OCR",
+        "expected": "点击任意处进行游戏",
+        "action": "Click"
+    }
+}
