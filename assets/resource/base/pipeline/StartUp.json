@@ -2,6 +2,18 @@
     "StartUp": {
         "recognition": "OCR",
         "expected": "点击任意处进入游戏",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "StartUp",
+            "Daily_Login"
+        ]
+    },
+    "Daily_Login": {
+        "recognition": "OCR",
+        "expected": "点击空白处关闭",
+        "action": "Click",
+        "next": [
+            "Mail"
+        ]
     }
 }

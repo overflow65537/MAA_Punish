@@ -1,12 +1,4 @@
 {
-    "Daily_Login": {
-        "recognition": "OCR",
-        "expected": "点击空白处关闭",
-        "action": "Click",
-        "next": [
-            "Mail"
-        ]
-    },
     "Mail": {
         "recognition": "OCR",
         "expected": "邮件",
@@ -20,12 +12,17 @@
         "expected": "领取全部",
         "action": "Click",
         "next": [
-            "Back_To_Main"
+            "Tap"
         ]
+    },
+    "Tap": {
+        "recognition": "OCR",
+        "expected": "奖励",
+        "action": "Click"
     },
     "Back_To_Main": {
         "recognition": "OCR",
-        "expected": "主菜单",
+        "expected": "主界面",
         "action": "Click"
     }
 }
