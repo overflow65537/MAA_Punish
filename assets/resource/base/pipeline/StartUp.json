@@ -1,19 +1,31 @@
 {
     "StartUp": {
-        "recognition": "OCR",
-        "expected": "点击任意处进入游戏",
-        "action": "Click",
         "next": [
-            "StartUp",
-            "Daily_Login"
+            "CheckMain",
+            "EnterGame",
+            "CheckMain"
         ]
     },
-    "Daily_Login": {
+    "EnterGame": {
+        "is_sub": true,
         "recognition": "OCR",
-        "expected": "点击空白处关闭",
-        "action": "Click",
-        "next": [
-            "Mail"
-        ]
+        "roi": [
+            530,
+            626,
+            218,
+            30
+        ],
+        "expected": "点击任意处进入游戏",
+        "action": "Click"
+    },
+    "CheckMain": {
+        "recognition": "OCR",
+        "roi": [
+            1074,
+            309,
+            95,
+            52
+        ],
+        "expected": "战斗"
     }
 }

@@ -1,0 +1,12 @@
+{
+    "DailySupplies": {
+        "next": [
+            "OpenShop",
+            "Supplies",
+            "Supplies_2",
+            "ReceiveDaliySuppliese",
+            "ReceiveWeeklySuppliese"
+        ]
+    },
+    "OpenShop": {}
+}
