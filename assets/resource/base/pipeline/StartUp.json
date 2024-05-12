@@ -3,6 +3,8 @@
         "next": [
             "CheckMain",
             "EnterGame",
+            "CloseLogin",
+            "DailyLogin",
             "CheckMain"
         ]
     },
@@ -27,5 +29,41 @@
             52
         ],
         "expected": "战斗"
+    },
+    "DailyLogin": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            622,
+            227,
+            91,
+            50
+        ],
+        "expected": "奖励",
+        "action": "Click",
+        "target": [
+            616,
+            30,
+            0,
+            0
+        ]
+    },
+    "CloseLogin": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            842,
+            131,
+            127,
+            80
+        ],
+        "expected": "日常",
+        "action": "Click",
+        "target": [
+            616,
+            30,
+            0,
+            0
+        ]
     }
 }

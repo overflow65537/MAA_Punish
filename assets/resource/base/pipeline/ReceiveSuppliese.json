@@ -1,0 +1,216 @@
+{
+    "DailySupplies": {
+        "next": [
+            "ReceiveWeeklySuppliese",
+            "BackToMain_sub",
+            "OpenShop"
+        ]
+    },
+    "ReceiveDaliySuppliese": {
+        "next": [
+            "DaliySupplieseReceived",
+            "ConfirmDaliySuppliese"
+        ]
+    },
+    "ReceiveWeeklySuppliese": {
+        "next": [
+            "WeeklySupplieseReceived",
+            "ConfirmWaliySuppliese"
+        ]
+    },
+    "OpenShop": {
+        "is_sub": true,
+        "next": [
+            "OpenShop4",
+            "BackToMain_sub",
+            "OpenShop3",
+            "OpenShop2",
+            "OpenShop1"
+        ]
+    },
+    "BackToMain": {
+        "recognition": "OCR",
+        "roi": [
+            238,
+            27,
+            78,
+            38
+        ],
+        "expected": "主界面",
+        "action": "Click",
+        "target": [
+            238,
+            27,
+            78,
+            38
+        ]
+    },
+    "BackToMain_sub": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            238,
+            27,
+            78,
+            38
+        ],
+        "expected": "主界面",
+        "action": "Click",
+        "target": [
+            238,
+            27,
+            78,
+            38
+        ]
+    },
+    "ConfirmDaliySuppliese": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            353,
+            353,
+            121,
+            31
+        ],
+        "expected": "每日血清补给包",
+        "action": "Click",
+        "target": [
+            353,
+            353,
+            121,
+            31
+        ],
+        "next": [
+            "ConfirmAndClose"
+        ]
+    },
+    "ConfirmWaliySuppliese": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            353,
+            353,
+            121,
+            31
+        ],
+        "expected": "每周限购补给包",
+        "action": "Click",
+        "target": [
+            353,
+            353,
+            121,
+            31
+        ],
+        "next": [
+            "ConfirmAndClose"
+        ]
+    },
+    "ConfirmAndClose": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            598,
+            641,
+            94,
+            33
+        ],
+        "expected": "免费购买",
+        "action": "Click",
+        "target": [
+            598,
+            641,
+            94,
+            33
+        ]
+    },
+    "DaliySupplieseReceived": {
+        "recognition": "OCR",
+        "roi": [
+            605,
+            605,
+            120,
+            33
+        ],
+        "expected": "每日血清补给包",
+        "next": [
+            "BackToMain"
+        ]
+    },
+    "WeeklySupplieseReceived": {
+        "recognition": "OCR",
+        "roi": [
+            588,
+            357,
+            142,
+            27
+        ],
+        "expected": "每周限购补给包",
+        "next": [
+            "ReceiveDaliySuppliese"
+        ]
+    },
+    "OpenShop4": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1,
+            227,
+            180,
+            60
+        ],
+        "template": "Suppliese/日常补给包_选中.png"
+    },
+    "OpenShop3": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            1,
+            227,
+            180,
+            60
+        ],
+        "template": "Suppliese/日常补给包_非选中.png",
+        "action": "Click",
+        "target": [
+            1,
+            227,
+            180,
+            60
+        ]
+    },
+    "OpenShop2": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            490,
+            89,
+            111,
+            35
+        ],
+        "template": "Suppliese/补给包_非选中.png",
+        "action": "Click",
+        "target": [
+            490,
+            89,
+            111,
+            35
+        ]
+    },
+    "OpenShop1": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            987,
+            31,
+            50,
+            42
+        ],
+        "expected": "采购",
+        "action": "Click",
+        "target": [
+            987,
+            31,
+            50,
+            42
+        ]
+    }
+}
