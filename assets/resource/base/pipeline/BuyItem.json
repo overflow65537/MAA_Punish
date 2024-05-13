@@ -16,6 +16,12 @@
         ],
         "expected": "逆元碎片",
         "action": "Click",
+        "target": [
+            950,
+            500,
+            0,
+            0
+        ],
         "next": [
             "Buy"
         ]
@@ -55,7 +61,19 @@
         ],
         "expected": "购买",
         "action": "Click",
-        "post_delay": 5000,
+        "next": [
+            "Tap"
+        ]
+    },
+    "Tap": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            487,
+            25,
+            0,
+            0
+        ],
         "next": [
             "BackToMain"
         ]
