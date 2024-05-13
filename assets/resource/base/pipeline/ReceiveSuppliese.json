@@ -2,27 +2,27 @@
     "DailySupplies": {
         "next": [
             "ReceiveWeeklySuppliese",
-            "BackToMain_sub",
-            "OpenShop"
+            "BackToMain_sub"
         ]
     },
     "ReceiveDaliySuppliese": {
         "next": [
             "DaliySupplieseReceived",
-            "ConfirmDaliySuppliese"
+            "ConfirmDaliySuppliese",
+            "OpenShop"
         ]
     },
     "ReceiveWeeklySuppliese": {
         "next": [
             "WeeklySupplieseReceived",
-            "ConfirmWaliySuppliese"
+            "ConfirmWeekliySuppliese",
+            "OpenShop"
         ]
     },
     "OpenShop": {
         "is_sub": true,
         "next": [
             "OpenShop4",
-            "BackToMain_sub",
             "OpenShop3",
             "OpenShop2",
             "OpenShop1"
@@ -84,7 +84,7 @@
             "ConfirmAndClose"
         ]
     },
-    "ConfirmWaliySuppliese": {
+    "ConfirmWeekliySuppliese": {
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -102,7 +102,8 @@
             31
         ],
         "next": [
-            "ConfirmAndClose"
+            "BackToMain_sub",
+            "DailySupplies"
         ]
     },
     "ConfirmAndClose": {
@@ -121,15 +122,18 @@
             641,
             94,
             33
+        ],
+        "next": [
+            "CloseAward"
         ]
     },
     "DaliySupplieseReceived": {
         "recognition": "OCR",
         "roi": [
-            605,
-            605,
-            120,
-            33
+            588,
+            350,
+            142,
+            290
         ],
         "expected": "每日血清补给包",
         "next": [
@@ -140,9 +144,9 @@
         "recognition": "OCR",
         "roi": [
             588,
-            357,
+            350,
             142,
-            27
+            290
         ],
         "expected": "每周限购补给包",
         "next": [
@@ -153,7 +157,7 @@
         "recognition": "TemplateMatch",
         "roi": [
             1,
-            227,
+            244,
             180,
             60
         ],
@@ -163,16 +167,16 @@
         "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
-            1,
-            227,
-            180,
-            60
+            18,
+            248,
+            134,
+            50
         ],
-        "template": "Suppliese/日常补给包_非选中.png",
+        "template": "Suppliese/185830_18_248_134_50__0_198_234_150.png",
         "action": "Click",
         "target": [
             1,
-            227,
+            244,
             180,
             60
         ]
@@ -199,18 +203,12 @@
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
-            987,
-            31,
-            50,
-            42
+            975,
+            306,
+            75,
+            60
         ],
         "expected": "采购",
-        "action": "Click",
-        "target": [
-            987,
-            31,
-            50,
-            42
-        ]
+        "action": "Click"
     }
 }

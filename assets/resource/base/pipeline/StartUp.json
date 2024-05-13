@@ -2,10 +2,9 @@
     "StartUp": {
         "next": [
             "CheckMain",
-            "EnterGame",
-            "CloseLogin",
-            "DailyLogin",
-            "CheckMain"
+            "CloseNotify",
+            "CloseAward",
+            "EnterGame"
         ]
     },
     "EnterGame": {
@@ -28,18 +27,16 @@
             95,
             52
         ],
-        "expected": "战斗"
+        "expected": "战斗",
+        "next": [
+            "CheckMain2",
+            "CloseNotify"
+        ]
     },
-    "DailyLogin": {
+    "CloseNotify": {
         "is_sub": true,
         "recognition": "OCR",
-        "roi": [
-            622,
-            227,
-            91,
-            50
-        ],
-        "expected": "奖励",
+        "expected": "点击空白处关闭",
         "action": "Click",
         "target": [
             616,
@@ -48,16 +45,20 @@
             0
         ]
     },
-    "CloseLogin": {
-        "is_sub": true,
+    "CheckMain2": {
         "recognition": "OCR",
         "roi": [
-            842,
-            131,
-            127,
-            80
+            1074,
+            309,
+            95,
+            52
         ],
-        "expected": "日常",
+        "expected": "战斗"
+    },
+    "CloseAward": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": "奖励",
         "action": "Click",
         "target": [
             616,
