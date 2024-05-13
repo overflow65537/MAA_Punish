@@ -1,0 +1,63 @@
+{
+    "BuyItem": {
+        "next": [
+            "CheckItem",
+            "SoldOut",
+            "OpenStore"
+        ]
+    },
+    "CheckItem": {
+        "recognition": "OCR",
+        "roi": [
+            902,
+            347,
+            82,
+            28
+        ],
+        "expected": "逆元碎片",
+        "action": "Click",
+        "next": [
+            "Buy"
+        ]
+    },
+    "SoldOut": {
+        "recognition": "OCR",
+        "roi": [
+            887,
+            346,
+            130,
+            33
+        ],
+        "expected": "武器突破核心",
+        "next": [
+            "BackToMain"
+        ]
+    },
+    "OpenStore": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            876,
+            485,
+            50,
+            30
+        ],
+        "expected": "商店",
+        "action": "Click"
+    },
+    "Buy": {
+        "recognition": "OCR",
+        "roi": [
+            729,
+            648,
+            70,
+            40
+        ],
+        "expected": "购买",
+        "action": "Click",
+        "post_delay": 5000,
+        "next": [
+            "BackToMain"
+        ]
+    }
+}

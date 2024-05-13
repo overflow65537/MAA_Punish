@@ -2,8 +2,6 @@
     "StartUp": {
         "next": [
             "CheckMain",
-            "CloseNotify",
-            "CloseAward",
             "EnterGame"
         ]
     },
@@ -30,7 +28,8 @@
         "expected": "战斗",
         "next": [
             "CheckMain2",
-            "CloseNotify"
+            "CloseNotify",
+            "CloseAward"
         ]
     },
     "CloseNotify": {
