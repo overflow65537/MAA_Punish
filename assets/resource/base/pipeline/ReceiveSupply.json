@@ -1,21 +1,21 @@
 {
-    "DailySupplies": {
+    "DailySupply": {
         "next": [
-            "ReceiveWeeklySuppliese",
+            "ReceiveWeeklySupply",
             "BackToMain_sub"
         ]
     },
-    "ReceiveDaliySuppliese": {
+    "ReceiveDaliySupply": {
         "next": [
-            "DaliySupplieseReceived",
-            "ConfirmDaliySuppliese",
+            "DaliySupplyReceived",
+            "ConfirmDaliySupply",
             "OpenShop"
         ]
     },
-    "ReceiveWeeklySuppliese": {
+    "ReceiveWeeklySupply": {
         "next": [
-            "WeeklySupplieseReceived",
-            "ConfirmWeekliySuppliese",
+            "WeeklySupplyReceived",
+            "ConfirmWeekliySupply",
             "OpenShop"
         ]
     },
@@ -63,7 +63,7 @@
             38
         ]
     },
-    "ConfirmDaliySuppliese": {
+    "ConfirmDaliySupply": {
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -84,7 +84,7 @@
             "ConfirmAndClose"
         ]
     },
-    "ConfirmWeekliySuppliese": {
+    "ConfirmWeekliySupply": {
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -103,7 +103,7 @@
         ],
         "next": [
             "BackToMain_sub",
-            "DailySupplies"
+            "DailySupply"
         ]
     },
     "ConfirmAndClose": {
@@ -123,11 +123,13 @@
             94,
             33
         ],
+        "times_limit": 20,
         "next": [
-            "CloseAward"
+            "CloseAward",
+            "BackToMain"
         ]
     },
-    "DaliySupplieseReceived": {
+    "DaliySupplyReceived": {
         "recognition": "OCR",
         "roi": [
             588,
@@ -140,7 +142,7 @@
             "BackToMain"
         ]
     },
-    "WeeklySupplieseReceived": {
+    "WeeklySupplyReceived": {
         "recognition": "OCR",
         "roi": [
             588,
@@ -150,7 +152,7 @@
         ],
         "expected": "每周限购补给包",
         "next": [
-            "ReceiveDaliySuppliese"
+            "ReceiveDaliySupply"
         ]
     },
     "OpenShop4": {
@@ -161,7 +163,7 @@
             180,
             60
         ],
-        "template": "Suppliese/日常补给包_选中.png"
+        "template": "Supply/日常补给包_选中.png"
     },
     "OpenShop3": {
         "is_sub": true,
@@ -172,7 +174,7 @@
             134,
             50
         ],
-        "template": "Suppliese/185830_18_248_134_50__0_198_234_150.png",
+        "template": "Supply/185830_18_248_134_50__0_198_234_150.png",
         "action": "Click",
         "target": [
             1,
@@ -190,7 +192,7 @@
             111,
             35
         ],
-        "template": "Suppliese/补给包_非选中.png",
+        "template": "Supply/补给包_非选中.png",
         "action": "Click",
         "target": [
             490,

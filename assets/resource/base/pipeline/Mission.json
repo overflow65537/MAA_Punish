@@ -1,0 +1,14 @@
+{
+    "OpenMission": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            900,
+            250,
+            50,
+            30
+        ],
+        "expected": "任务",
+        "action": "Click"
+    }
+}

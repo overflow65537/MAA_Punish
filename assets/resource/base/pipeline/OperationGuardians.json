@@ -1,0 +1,67 @@
+{
+    "OperationGuardians": {
+        "next": [
+            "Actionlimit",
+            "ActionStart",
+            "OpenGuardians",
+            "BackToMain_sub"
+        ]
+    },
+    "Actionlimit": {
+        "recognition": "OCR",
+        "roi": [
+            510,
+            340,
+            250,
+            40
+        ],
+        "expected": "每日行动次数已达上限",
+        "action": "Click",
+        "target": [
+            420,
+            20,
+            0,
+            0
+        ],
+        "next": [
+            "BackToMain"
+        ]
+    },
+    "ActionStart": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            85,
+            600,
+            90,
+            40
+        ],
+        "expected": "战斗任务",
+        "action": "Click",
+        "target": [
+            960,
+            640,
+            0,
+            0
+        ]
+    },
+    "OpenGuardians": {
+        "next": [
+            "OpenMission",
+            "OpenGuardians1",
+            "OperationGuardians"
+        ]
+    },
+    "OpenGuardians1": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            40,
+            660,
+            120,
+            30
+        ],
+        "expected": "维系者行动",
+        "action": "Click"
+    }
+}

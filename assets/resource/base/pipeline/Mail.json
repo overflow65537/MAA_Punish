@@ -1,0 +1,36 @@
+{
+    "Mail": {
+        "next": [
+            "CheckReceiveALL",
+            "OpenMail",
+            "BackToMain_sub"
+        ]
+    },
+    "CheckReceiveALL": {
+        "recognition": "OCR",
+        "roi": [
+            212,
+            612,
+            207,
+            55
+        ],
+        "expected": "领取全部",
+        "action": "Click",
+        "next": [
+            "CloseAward",
+            "BackToMain"
+        ]
+    },
+    "OpenMail": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": "邮件",
+        "roi": [
+            125,
+            445,
+            50,
+            27
+        ],
+        "action": "Click"
+    }
+}
