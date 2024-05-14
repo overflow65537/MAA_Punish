@@ -1,0 +1,68 @@
+{
+    "Combat": {
+        "next": [
+            "fight",
+            "OpenCombat",
+            "BackToMain_sub"
+        ]
+    },
+    "Fight": {
+        "recognition": "OCR",
+        "roi": [
+            630,
+            540,
+            90,
+            30
+        ],
+        "expected": "拟战场域",
+        "action": "Click",
+        "next": [
+            "StartCombat"
+        ]
+    },
+    "OpenCombat": {
+        "is_sub": true,
+        "next": [
+            "OpenCombat3",
+            "OpenCombat2",
+            "OpenCombat1",
+            "BackToMain_sub"
+        ]
+    },
+    "StartCombat": {
+        "next": [
+            "AutoCombat",
+            "ConfirmCombat",
+            "CloseCombat",
+            "UseSupply"
+        ]
+    },
+    "AutoCombat": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": "自动作战",
+        "action": "Click"
+    },
+    "UseSupply": {
+        "recognition": "OCR",
+        "roi": [
+            852,
+            272,
+            177,
+            52
+        ],
+        "expected": "注射血清",
+        "action": "Click",
+        "target": [
+            900,
+            600,
+            0,
+            0
+        ],
+        "next": [
+            "AutoCombat",
+            "CloseSupply",
+            "CloseAward"
+        ]
+    }
+}
