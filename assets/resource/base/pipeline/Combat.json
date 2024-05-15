@@ -12,6 +12,7 @@
         "action": "Click",
         "next": [
             "Checkstamina",
+            "UseSupplyFail",
             "UseSupply",
             "AutoCombat"
         ]
@@ -42,6 +43,7 @@
         "is_sub": true,
         "recognition": "OCR",
         "expected": "注射血清",
+        "action": "Click",
         "target": [
             878,
             600,
@@ -50,7 +52,19 @@
         ],
         "next": [
             "CloseAward",
-            "CloseSupply",
+            "CloseSupply"
         ]
+    },
+    "CloseSupply": {
+        "recognition": "OCR",
+        "expected": "请选择血清组",
+        "action": "Click",
+        "target": [
+            700,
+            600,
+            0,
+            0
+        ],
+        "next": []
     }
 }
