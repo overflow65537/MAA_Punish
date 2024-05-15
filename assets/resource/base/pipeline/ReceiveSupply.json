@@ -123,7 +123,7 @@
             94,
             33
         ],
-        "times_limit": 20,
+        "times_limit": 10,
         "next": [
             "CloseAward",
             "BackToMain"

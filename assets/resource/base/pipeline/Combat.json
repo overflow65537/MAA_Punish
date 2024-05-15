@@ -1,68 +1,56 @@
 {
     "Combat": {
         "next": [
-            "fight",
+            "Fight",
             "OpenCombat",
             "BackToMain_sub"
         ]
     },
     "Fight": {
         "recognition": "OCR",
-        "roi": [
-            630,
-            540,
-            90,
-            30
-        ],
-        "expected": "拟战场域",
+        "expected": "AE-5",
         "action": "Click",
         "next": [
-            "StartCombat"
+            "Checkstamina",
+            "UseSupply",
+            "AutoCombat"
         ]
     },
-    "OpenCombat": {
-        "is_sub": true,
-        "next": [
-            "OpenCombat3",
-            "OpenCombat2",
-            "OpenCombat1",
-            "BackToMain_sub"
-        ]
-    },
-    "StartCombat": {
-        "next": [
-            "AutoCombat",
-            "ConfirmCombat",
-            "CloseCombat",
-            "UseSupply"
-        ]
-    },
-    "AutoCombat": {
-        "is_sub": true,
-        "recognition": "OCR",
-        "expected": "自动作战",
-        "action": "Click"
-    },
-    "UseSupply": {
+    "Checkstamina": {
         "recognition": "OCR",
         "roi": [
-            852,
-            272,
-            177,
-            52
+            415,
+            389,
+            79,
+            43
         ],
-        "expected": "注射血清",
+        "expected": "黑卡",
         "action": "Click",
         "target": [
-            900,
+            640,
             600,
             0,
             0
         ],
         "next": [
-            "AutoCombat",
+            "BackToMain",
+            "BackToMain",
+            "BackToMain"
+        ]
+    },
+    "UseSupply": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": "注射血清",
+        "target": [
+            878,
+            600,
+            0,
+            0
+        ],
+        "next": [
+            "CloseAward",
             "CloseSupply",
-            "CloseAward"
         ]
     }
 }
