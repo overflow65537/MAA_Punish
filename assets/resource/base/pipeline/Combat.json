@@ -1,52 +1,150 @@
 {
-    "Combat": {
-        "next": [
-            "Fight",
-            "OpenCombat",
-            "BackToMain_sub"
-        ]
-    },
     "Fight": {
-        "recognition": "OCR",
-        "expected": "AE-5",
-        "action": "Click",
         "next": [
-            "Checkstamina",
-            "UseSupplyFail",
-            "UseSupply",
-            "AutoCombat"
+            "AutoCombat",
+            "TapAutoCombat",
+            "ChooseFight",
+            "OpenCombatBar"
         ]
     },
-    "Checkstamina": {
+    "OpenCombatBar": {
+        "is_sub": true,
+        "next": [
+            "OpenCombatBar3",
+            "OpenCombatBar2",
+            "OpenCombatBar1"
+        ]
+    },
+    "OpenCombatBar1": {
+        "is_sub": true,
         "recognition": "OCR",
         "roi": [
-            415,
-            389,
-            79,
-            43
+            1076,
+            307,
+            100,
+            60
+        ],
+        "expected": "战斗",
+        "action": "Click"
+    },
+    "OpenCombatBar2": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            930,
+            665,
+            63,
+            36
+        ],
+        "expected": "资源",
+        "action": "Click"
+    },
+    "OpenCombatBar3": {
+        "recognition": "OCR",
+        "roi": [
+            476,
+            483,
+            105,
+            42
+        ],
+        "expected": "作战补给",
+        "action": "Click"
+    },
+    "ChooseFight": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            1110,
+            280,
+            58,
+            31
+        ],
+        "expected": "AE-5",
+        "action": "Click",
+        "target": [
+            1114,
+            330,
+            0,
+            0
+        ]
+    },
+    "TapAutoCombat": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": "自动作战",
+        "action": "Click"
+    },
+    "AutoCombat": {
+        "recognition": "OCR",
+        "expected": "确认出战",
+        "action": "Click",
+        "next": [
+            "SupplyLow",
+            "SerumLow",
+            "CloseCombat"
+        ]
+    },
+    "CloseCombat": {
+        "recognition": "OCR",
+        "roi": [
+            1130,
+            652,
+            73,
+            33
+        ],
+        "expected": "确定",
+        "action": "Click",
+        "next": [
+            "Fight"
+        ]
+    },
+    "SupplyLow": {
+        "recognition": "OCR",
+        "roi": [
+            414,
+            382,
+            80,
+            53
         ],
         "expected": "黑卡",
         "action": "Click",
         "target": [
-            640,
+            656,
             600,
             0,
             0
         ],
         "next": [
-            "BackToMain",
-            "BackToMain",
+            "CloseAutoCombat",
+            "CloseFight",
             "BackToMain"
         ]
     },
-    "UseSupply": {
-        "is_sub": true,
+    "StopTask": {
         "recognition": "OCR",
+        "roi": [
+            1,
+            1,
+            0,
+            0
+        ],
+        "expected": "停止任务",
+        "is_sub": true,
+        "times_limit": 1
+    },
+    "SerumLow": {
+        "recognition": "OCR",
+        "roi": [
+            846,
+            269,
+            185,
+            61
+        ],
         "expected": "注射血清",
         "action": "Click",
         "target": [
-            878,
-            600,
+            920,
+            610,
             0,
             0
         ],
@@ -57,7 +155,13 @@
     },
     "CloseSupply": {
         "recognition": "OCR",
-        "expected": "请选择血清组",
+        "roi": [
+            846,
+            269,
+            185,
+            61
+        ],
+        "expected": "注射血清",
         "action": "Click",
         "target": [
             700,
@@ -65,6 +169,32 @@
             0,
             0
         ],
-        "next": []
+        "next": [
+            "Fight"
+        ]
+    },
+    "CloseAutoCombat": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": "确认出战",
+        "action": "Click",
+        "target": [
+            410,
+            25,
+            0,
+            0
+        ]
+    },
+    "CloseFight": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": "自动作战",
+        "action": "Click",
+        "target": [
+            410,
+            25,
+            0,
+            0
+        ]
     }
 }

@@ -1,0 +1,128 @@
+{
+    "DormitoryEntrustment": {
+        "next": [
+            "StartEntrustment",
+            "OpenEntrustment",
+            "OpenDormitory"
+        ]
+    },
+    "StartEntrustment": {
+        "recognition": "OCR",
+        "roi": [
+            21,
+            67,
+            146,
+            46
+        ],
+        "expected": "委托系统",
+        "next": [
+            "NotificationN",
+            "NotificationY",
+            "Dispatch",
+            "ConfirmDispatch",
+            "GetEntrustment",
+            "ChooseEntrustment"
+        ]
+    },
+    "NotificationN": {
+        "recognition": "OCR",
+        "expected": "队伍已达上限",
+        "action": "Click",
+        "next": [
+            "Tap"
+        ]
+    },
+    "NotificationY": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": "委托已接取",
+        "action": "Click"
+    },
+    "GetEntrustment": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            793,
+            636,
+            92,
+            36
+        ],
+        "expected": "花费时间",
+        "action": "Click",
+        "target": [
+            1085,
+            632,
+            86,
+            31
+        ]
+    },
+    "Dispatch": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            734,
+            632,
+            110,
+            38
+        ],
+        "expected": "一键派遣",
+        "action": "Click"
+    },
+    "ChooseEntrustment": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            162,
+            146,
+            964,
+            257
+        ],
+        "expected": [
+            "好多文件啊",
+            "军事交流活动",
+            "清理研究所遗址",
+            "重建保育区",
+            "保育区支援",
+            "医疗援助请求",
+            "清理九龙城遗迹",
+            "拾荒者谈判"
+        ],
+        "action": "Click"
+    },
+    "OpenDormitory": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            867,
+            389,
+            53,
+            37
+        ],
+        "expected": "宿舍",
+        "action": "Click"
+    },
+    "OpenEntrustment": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            1163,
+            660,
+            50,
+            29
+        ],
+        "expected": "委托",
+        "action": "Click"
+    },
+    "ConfirmDispatch": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            916,
+            631,
+            163,
+            41
+        ],
+        "expected": "确认",
+        "action": "Click"
+    }
+}
