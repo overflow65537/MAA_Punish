@@ -1,9 +1,42 @@
 {
     "DormitoryEntrustment": {
         "next": [
+            "CompleteEntrustment",
             "StartEntrustment",
             "OpenEntrustment",
             "OpenDormitory"
+        ]
+    },
+    "CompleteEntrustment": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            282,
+            649,
+            112,
+            36
+        ],
+        "expected": "领取奖励",
+        "action": "Click",
+        "next": [
+            "CloseEntrustment"
+        ]
+    },
+    "CloseEntrustment": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            256,
+            66,
+            202,
+            63
+        ],
+        "action": "Click",
+        "target": [
+            1200,
+            700,
+            0,
+            0
         ]
     },
     "StartEntrustment": {
@@ -79,6 +112,20 @@
         ],
         "expected": [
             "好多文件啊",
+            "帮我整理文档",
+            "回收遗失物资",
+            "地面救护行动",
+            "紧急维修",
+            "战场医疗援助",
+            "清理列车感染体",
+            "康斯塔雷耶重建",
+            "支援演习指导",
+            "文物整理",
+            "医疗工程指导",
+            "黄金时代遗迹",
+            "遗迹异动侦察",
+            "档案整理",
+            "战场医疗支援",
             "军事交流活动",
             "清理研究所遗址",
             "重建保育区",

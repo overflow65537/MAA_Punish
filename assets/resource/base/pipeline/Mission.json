@@ -1,4 +1,10 @@
 {
+    "Mission": {
+        "next": [
+            "CompleteMission",
+            "OpenMission"
+        ]
+    },
     "OpenMission": {
         "is_sub": true,
         "recognition": "OCR",
@@ -10,5 +16,41 @@
         ],
         "expected": "任务",
         "action": "Click"
+    },
+    "CompleteMission": {
+        "recognition": "OCR",
+        "roi": [
+            1072,
+            128,
+            112,
+            40
+        ],
+        "expected": "一键领取",
+        "action": "Click",
+        "next": [
+            "CloseAward",
+            "DailyActivity"
+        ]
+    },
+    "DailyActivity": {
+        "recognition": "OCR",
+        "roi": [
+            287,
+            617,
+            120,
+            34
+        ],
+        "expected": "今日活跃度",
+        "action": "Click",
+        "target": [
+            585,
+            628,
+            0,
+            0
+        ],
+        "next": [
+            "CloseAward",
+            "BackToMain"
+        ]
     }
 }
