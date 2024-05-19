@@ -1,0 +1,115 @@
+{
+    "BattlePass": {
+        "next": [
+            "OpenBattlePass"
+        ]
+    },
+    "CloseAtuoBattlePass": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            327,
+            196,
+            187,
+            47
+        ],
+        "expected": "系统自动领取",
+        "action": "Click",
+        "target": [
+            824,
+            507,
+            0,
+            0
+        ]
+    },
+    "OpenBattlePass": {
+        "recognition": "OCR",
+        "roi": [
+            1074,
+            309,
+            95,
+            52
+        ],
+        "expected": "战斗",
+        "action": "Click",
+        "target": [
+            332,
+            100,
+            0,
+            0
+        ],
+        "next": [
+            "CloseAtuoBattlePass",
+            "GoToAssessmentTasks"
+        ]
+    },
+    "GoToAssessmentTasks": {
+        "recognition": "OCR",
+        "roi": [
+            39,
+            262,
+            96,
+            234
+        ],
+        "expected": "评定任务",
+        "action": "Click",
+        "next": [
+            "ReceiveTask_Assessment"
+        ]
+    },
+    "ReceiveTask_Assessment": {
+        "recognition": "OCR",
+        "roi": [
+            992,
+            630,
+            250,
+            90
+        ],
+        "expected": "一键领取",
+        "action": "Click",
+        "next": [
+            "Tap_sub"
+        ]
+    },
+    "ReceiveTask_sub": {
+        "recognition": "OCR",
+        "roi": [
+            1037,
+            661,
+            276,
+            28
+        ],
+        "expected": "键领取",
+        "action": "Click",
+        "next": [
+            "Tap"
+        ]
+    },
+    "Tap_sub": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            487,
+            25,
+            0,
+            0
+        ],
+        "next": [
+            "GoToBattlePass"
+        ]
+    },
+    "GoToBattlePass": {
+        "recognition": "OCR",
+        "roi": [
+            37,
+            260,
+            96,
+            234
+        ],
+        "expected": "战略补给",
+        "action": "Click",
+        "next": [
+            "ReceiveTask_sub"
+        ]
+    }
+}

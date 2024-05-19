@@ -32,11 +32,39 @@
     "task": [
         {
             "name": "进入游戏",
-            "entry": "startup"
+            "entry": "StartUp"
         },
         {
             "name": "领取邮件",
-            "entry": "mail"
-            }
-        ]
+            "entry": "Mail"
+        },
+        {
+            "name": "战令",
+            "entry": "BattlePass"
+        },
+        {
+            "name": "购买碎片",
+            "entry": "BuyItem"
+        },
+        {
+            "name": "战斗",
+            "entry": "Fight"
+        },
+        {
+            "name": "领取体力",
+            "entry": "DailySupply"
+        },
+        {
+            "name": "宿舍委托",
+            "entry": "DormitoryEntrustment"
+        },
+        {
+            "name": "守护者行动",
+            "entry": "OperationGuardians"
+        },
+        {
+            "name": "领取任务",
+            "entry": "Mission"
+        }
+    ]
 }
