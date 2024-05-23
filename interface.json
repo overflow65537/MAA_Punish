@@ -65,6 +65,14 @@
         {
             "name": "领取任务",
             "entry": "Mission"
+        },
+        {
+            "name": "指挥局",
+            "entry": "CommandCenter"
+        },
+        {
+            "name": "关闭应用",
+            "entry": "StopApp"
         }
     ]
 }

@@ -2,7 +2,8 @@
     "StartUp": {
         "next": [
             "CheckMain",
-            "EnterGame"
+            "EnterGame",
+            "StartApp"
         ]
     },
     "EnterGame": {
@@ -71,5 +72,10 @@
             0,
             0
         ]
+    },
+    "StartApp": {
+        "is_sub": true,
+        "action": "StartApp",
+        "package": "com.kurogame.haru.bilibili/com.haru.herousdk.SplashActivity"
     }
 }
