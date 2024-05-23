@@ -37,7 +37,8 @@
             700,
             0,
             0
-        ]
+        ],
+        "times_limit": 8
     },
     "StartEntrustment": {
         "recognition": "OCR",
