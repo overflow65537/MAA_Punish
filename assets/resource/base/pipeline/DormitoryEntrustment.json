@@ -55,7 +55,8 @@
             "Dispatch",
             "ConfirmDispatch",
             "GetEntrustment",
-            "ChooseEntrustment"
+            "ChooseEntrustment",
+            "BackToMain"
         ]
     },
     "NotificationN": {
