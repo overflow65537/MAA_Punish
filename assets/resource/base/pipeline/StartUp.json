@@ -57,6 +57,12 @@
     "CloseAward": {
         "is_sub": true,
         "recognition": "OCR",
+        "roi": [
+            409,
+            176,
+            491,
+            150
+        ],
         "expected": "奖励",
         "action": "Click",
         "target": [

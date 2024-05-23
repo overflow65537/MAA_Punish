@@ -7,12 +7,6 @@
     "CloseAtuoBattlePass": {
         "is_sub": true,
         "recognition": "OCR",
-        "roi": [
-            327,
-            196,
-            187,
-            47
-        ],
         "expected": "系统自动领取",
         "action": "Click",
         "target": [

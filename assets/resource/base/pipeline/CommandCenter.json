@@ -1,0 +1,93 @@
+{
+    "CommandCenter": {
+        "next": [
+            "IsInCommandCenter",
+            "OpenCommandCenter"
+        ]
+    },
+    "IsInCommandCenter": {
+        "recognition": "OCR",
+        "roi": [
+            301,
+            14,
+            123,
+            34
+        ],
+        "expected": "新版指挥局",
+        "next": [
+            "CheckButton",
+            "Move"
+        ]
+    },
+    "CheckButton": {
+        "recognition": "OCR",
+        "roi": [
+            926,
+            323,
+            92,
+            57
+        ],
+        "expected": [
+            "算一签",
+            "查看签文"
+        ],
+        "action": "Click",
+        "next": [
+            "CloseAward_Command"
+        ]
+    },
+    "Move": {
+        "is_sub": true,
+        "action": "Click",
+        "target": [
+            301,
+            540,
+            0,
+            0
+        ]
+    },
+    "OpenCommandCenter": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            999,
+            392,
+            62,
+            38
+        ],
+        "expected": "公会",
+        "action": "Click"
+    },
+    "CloseAward_Command": {
+        "recognition": "OCR",
+        "roi": [
+            600,
+            570,
+            76,
+            34
+        ],
+        "expected": "已领取",
+        "action": "Click",
+        "target": [
+            833,
+            100,
+            0,
+            0
+        ],
+        "pre_delay": 1000,
+        "next": [
+            "Back"
+        ]
+    },
+    "Back": {
+        "recognition": "OCR",
+        "roi": [
+            76,
+            18,
+            62,
+            34
+        ],
+        "expected": "返回",
+        "action": "Click"
+    }
+}

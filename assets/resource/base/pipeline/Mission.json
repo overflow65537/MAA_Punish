@@ -33,18 +33,10 @@
         ]
     },
     "DailyActivity": {
-        "recognition": "OCR",
-        "roi": [
-            287,
-            617,
-            120,
-            34
-        ],
-        "expected": "今日活跃度",
         "action": "Click",
         "target": [
-            585,
-            628,
+            589,
+            630,
             0,
             0
         ],

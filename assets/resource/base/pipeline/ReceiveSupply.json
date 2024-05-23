@@ -64,7 +64,6 @@
         ]
     },
     "ConfirmDaliySupply": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             353,
@@ -102,6 +101,7 @@
             31
         ],
         "next": [
+            "ConfirmAndClose",
             "BackToMain_sub",
             "DailySupply"
         ]
