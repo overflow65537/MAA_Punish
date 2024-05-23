@@ -16,8 +16,13 @@
         ],
         "expected": "领取全部",
         "action": "Click",
+        "target_offset": [
+            1,
+            1,
+            0,
+            0
+        ],
         "next": [
-            "CloseAward",
             "BackToMain"
         ]
     },

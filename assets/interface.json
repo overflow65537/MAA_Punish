@@ -69,6 +69,10 @@
         {
             "name": "指挥局",
             "entry": "CommandCenter"
+        },
+        {
+            "name": "结束游戏",
+            "entry": "StopApp"
         }
     ]
 }

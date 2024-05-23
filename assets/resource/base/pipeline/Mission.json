@@ -2,10 +2,12 @@
     "Mission": {
         "next": [
             "CompleteMission",
-            "OpenMission"
+            "OpenMission",
+            "BackToMain"
         ]
     },
     "OpenMission": {
+        "post_wait_freezes": 2,
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
