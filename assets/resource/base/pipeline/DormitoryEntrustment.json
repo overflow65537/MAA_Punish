@@ -8,7 +8,6 @@
         ]
     },
     "CompleteEntrustment": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             282,
@@ -23,7 +22,6 @@
         ]
     },
     "CloseEntrustment": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             256,
@@ -38,7 +36,9 @@
             0,
             0
         ],
-        "times_limit": 8
+        "next": [
+            "DormitoryEntrustment"
+        ]
     },
     "StartEntrustment": {
         "recognition": "OCR",
