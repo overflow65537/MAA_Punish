@@ -3,11 +3,12 @@
         "next": [
             "CompleteMission",
             "OpenMission",
+            "DailyActivity",
             "BackToMain"
         ]
     },
     "OpenMission": {
-        "post_wait_freezes": 2,
+        "pre_wait_freezes": 5,
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -20,6 +21,7 @@
         "action": "Click"
     },
     "CompleteMission": {
+        "pre_wait_freezes": 5,
         "recognition": "OCR",
         "roi": [
             1072,
@@ -31,10 +33,11 @@
         "action": "Click",
         "next": [
             "CloseAward",
-            "DailyActivity"
+            "Mission"
         ]
     },
     "DailyActivity": {
+        "pre_wait_freezes": 5,
         "action": "Click",
         "target": [
             589,

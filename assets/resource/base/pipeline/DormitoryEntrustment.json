@@ -1,6 +1,7 @@
 {
     "DormitoryEntrustment": {
         "next": [
+            "CloseEntrustment",
             "CompleteEntrustment",
             "StartEntrustment",
             "OpenEntrustment",
@@ -18,11 +19,12 @@
         "expected": "领取奖励",
         "action": "Click",
         "next": [
-            "CloseEntrustment"
+            "DormitoryEntrustment"
         ]
     },
     "CloseEntrustment": {
         "recognition": "OCR",
+        "expected": "委托完成",
         "roi": [
             256,
             66,
