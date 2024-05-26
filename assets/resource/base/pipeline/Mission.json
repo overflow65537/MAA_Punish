@@ -3,13 +3,11 @@
         "next": [
             "CompleteMission",
             "OpenMission",
-            "DailyActivity",
-            "BackToMain"
+            "DailyActivity"
         ]
     },
     "OpenMission": {
-        "pre_wait_freezes": 5,
-        "is_sub": true,
+        "post_delay": 5000,
         "recognition": "OCR",
         "roi": [
             900,
@@ -18,10 +16,13 @@
             30
         ],
         "expected": "任务",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "Mission"
+        ]
     },
     "CompleteMission": {
-        "pre_wait_freezes": 5,
+        "pre_delay": 2000,
         "recognition": "OCR",
         "roi": [
             1072,
@@ -29,7 +30,10 @@
             112,
             40
         ],
-        "expected": "一键领取",
+        "expected": [
+            "一键领取",
+            "键领取"
+        ],
         "action": "Click",
         "next": [
             "CloseAward",
@@ -37,10 +41,10 @@
         ]
     },
     "DailyActivity": {
-        "pre_wait_freezes": 5,
+        "pre_delay": 2000,
         "action": "Click",
         "target": [
-            589,
+            1194,
             630,
             0,
             0
