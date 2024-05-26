@@ -55,25 +55,6 @@
         ],
         "expected": "战斗"
     },
-    "CloseAward": {
-        "pre_wait_freezes": 5,
-        "is_sub": true,
-        "recognition": "OCR",
-        "roi": [
-            409,
-            176,
-            491,
-            150
-        ],
-        "expected": "奖励",
-        "action": "Click",
-        "target": [
-            446,
-            30,
-            0,
-            0
-        ]
-    },
     "StartApp": {
         "is_sub": true,
         "action": "StartApp",

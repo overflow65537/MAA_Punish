@@ -7,6 +7,7 @@
         ]
     },
     "OpenMission": {
+        "is_sub": true,
         "post_delay": 5000,
         "recognition": "OCR",
         "roi": [
@@ -16,10 +17,7 @@
             30
         ],
         "expected": "任务",
-        "action": "Click",
-        "next": [
-            "Mission"
-        ]
+        "action": "Click"
     },
     "CompleteMission": {
         "pre_delay": 2000,

@@ -1,0 +1,56 @@
+{
+    "CloseAward": {
+        "pre_wait_freezes": 5,
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            409,
+            176,
+            491,
+            150
+        ],
+        "expected": "奖励",
+        "action": "Click",
+        "target": [
+            446,
+            30,
+            0,
+            0
+        ]
+    },
+    "BackToMain": {
+        "recognition": "OCR",
+        "roi": [
+            238,
+            27,
+            78,
+            38
+        ],
+        "expected": "主界面",
+        "action": "Click",
+        "target": [
+            238,
+            27,
+            78,
+            38
+        ]
+    },
+    "BackToMain_sub": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            238,
+            27,
+            78,
+            38
+        ],
+        "expected": "主界面",
+        "action": "Click",
+        "target": [
+            238,
+            27,
+            78,
+            38
+        ]
+    }
+}
