@@ -1,7 +1,9 @@
 {
     "DailySupply": {
         "next": [
-            "ReceiveWeeklySupply",
+            "WeeklySupplyReceived",
+            "ConfirmWeekliySupply",
+            "OpenShop",
             "BackToMain_sub"
         ]
     },
@@ -9,13 +11,6 @@
         "next": [
             "DaliySupplyReceived",
             "ConfirmDaliySupply",
-            "OpenShop"
-        ]
-    },
-    "ReceiveWeeklySupply": {
-        "next": [
-            "WeeklySupplyReceived",
-            "ConfirmWeekliySupply",
             "OpenShop"
         ]
     },

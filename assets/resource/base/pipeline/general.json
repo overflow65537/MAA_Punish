@@ -2,14 +2,14 @@
     "CloseAward": {
         "pre_wait_freezes": 5,
         "is_sub": true,
-        "recognition": "OCR",
+        "recognition": "TemplateMatch",
         "roi": [
             409,
             176,
             491,
             150
         ],
-        "expected": "奖励",
+        "template": "General/105157_624_220_86_57__574_170_186_157.png",
         "action": "Click",
         "target": [
             446,
