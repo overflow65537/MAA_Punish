@@ -1,12 +1,12 @@
 {
-    "Mail": {
+    "邮件": {
         "next": [
-            "CheckReceiveALL",
-            "OpenMail",
-            "BackToMain_sub"
+            "领取全部",
+            "打开邮件",
+            "返回主菜单_sub"
         ]
     },
-    "CheckReceiveALL": {
+    "领取全部": {
         "recognition": "OCR",
         "roi": [
             212,
@@ -16,17 +16,12 @@
         ],
         "expected": "领取全部",
         "action": "Click",
-        "target_offset": [
-            1,
-            1,
-            0,
-            0
-        ],
         "next": [
-            "BackToMain"
+            "关闭奖励",
+            "返回主菜单"
         ]
     },
-    "OpenMail": {
+    "打开邮件": {
         "is_sub": true,
         "recognition": "OCR",
         "expected": "邮件",

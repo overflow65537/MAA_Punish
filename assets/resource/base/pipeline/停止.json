@@ -1,5 +1,5 @@
 {
-    "StopApp": {
+    "停止": {
         "action": "StopApp",
         "package": "com.kurogame.haru.bilibili"
     }

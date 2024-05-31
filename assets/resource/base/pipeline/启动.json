@@ -1,12 +1,12 @@
 {
-    "StartUp": {
+    "启动": {
         "next": [
-            "CheckMain",
-            "EnterGame",
-            "StartApp"
+            "检查主界面",
+            "进入游戏",
+            "打开应用"
         ]
     },
-    "EnterGame": {
+    "进入游戏": {
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -18,7 +18,7 @@
         "expected": "点击任意处进入游戏",
         "action": "Click"
     },
-    "CheckMain": {
+    "检查主界面": {
         "recognition": "OCR",
         "roi": [
             1074,
@@ -28,12 +28,12 @@
         ],
         "expected": "战斗",
         "next": [
-            "CheckMain2",
-            "CloseNotify",
-            "CloseAward"
+            "检查主界面2",
+            "关闭公告",
+            "关闭奖励"
         ]
     },
-    "CloseNotify": {
+    "关闭公告": {
         "is_sub": true,
         "recognition": "OCR",
         "expected": "点击空白处关闭",
@@ -45,7 +45,7 @@
             0
         ]
     },
-    "CheckMain2": {
+    "检查主界面2": {
         "recognition": "OCR",
         "roi": [
             1074,
@@ -55,7 +55,7 @@
         ],
         "expected": "战斗"
     },
-    "StartApp": {
+    "打开应用": {
         "is_sub": true,
         "action": "StartApp",
         "package": "com.kurogame.haru.bilibili/com.haru.herousdk.SplashActivity"

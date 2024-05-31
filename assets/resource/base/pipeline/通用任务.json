@@ -1,5 +1,5 @@
 {
-    "CloseAward": {
+    "关闭奖励": {
         "pre_wait_freezes": 5,
         "is_sub": true,
         "recognition": "TemplateMatch",
@@ -9,7 +9,7 @@
             491,
             150
         ],
-        "template": "General/105157_624_220_86_57__574_170_186_157.png",
+        "template": "通用任务/105157_624_220_86_57__574_170_186_157.png",
         "action": "Click",
         "target": [
             446,
@@ -18,7 +18,7 @@
             0
         ]
     },
-    "BackToMain": {
+    "返回主菜单": {
         "recognition": "OCR",
         "roi": [
             238,
@@ -35,7 +35,7 @@
             38
         ]
     },
-    "BackToMain_sub": {
+    "返回主菜单_sub": {
         "is_sub": true,
         "recognition": "OCR",
         "roi": [

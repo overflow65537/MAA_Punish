@@ -1,0 +1,89 @@
+{
+    "通行证": {
+        "next": [
+            "每日任务",
+            "通行证奖励",
+            "打开通行证",
+            "返回主菜单"
+        ]
+    },
+    "一键领取_通行证": {
+        "post_wait_freezes": 10,
+        "recognition": "OCR",
+        "roi": [
+            974,
+            611,
+            258,
+            100
+        ],
+        "expected": [
+            "一键领取",
+            "键领取"
+        ],
+        "action": "Click",
+        "next": [
+            "关闭奖励",
+            "关闭通知",
+            "通行证"
+        ]
+    },
+    "关闭通知": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            562,
+            337,
+            154,
+            43
+        ],
+        "expected": "无可领取奖励",
+        "action": "Click"
+    },
+    "每日任务": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            225,
+            411,
+            25,
+            25
+        ],
+        "template": "通行证/评定任务奖励存在_225_411_25_25__175_361_125_125.png",
+        "action": "Click",
+        "target": [
+            77,
+            443,
+            0,
+            0
+        ],
+        "next": [
+            "一键领取_通行证"
+        ]
+    },
+    "通行证奖励": {
+        "recognition": "OCR",
+        "roi": [
+            32,
+            257,
+            99,
+            161
+        ],
+        "expected": "战略补给",
+        "action": "Click",
+        "next": [
+            "一键领取_通行证"
+        ]
+    },
+    "打开通行证": {
+        "post_wait_freezes": 20,
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            307,
+            76,
+            64,
+            51
+        ],
+        "template": "通行证/通行证_307_76_64_51__257_26_164_151.png",
+        "action": "Click"
+    }
+}

@@ -1,0 +1,134 @@
+{
+    "购买碎片": {
+        "next": [
+            "购买",
+            "检查碎片",
+            "滑动",
+            "打开商店",
+            "返回主菜单_sub"
+        ]
+    },
+    "检查碎片": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            333,
+            338,
+            930,
+            37
+        ],
+        "expected": "逆元碎片",
+        "action": "Click",
+        "target_offset": [
+            0,
+            140,
+            0,
+            0
+        ]
+    },
+    "滑动": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "expected": "补给商店",
+        "action": "Swipe",
+        "begin": [
+            1200,
+            350,
+            0,
+            0
+        ],
+        "end": [
+            200,
+            350,
+            0,
+            0
+        ]
+    },
+    "打开商店": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            876,
+            485,
+            50,
+            30
+        ],
+        "expected": "商店",
+        "action": "Click"
+    },
+    "购买": {
+        "recognition": "OCR",
+        "roi": [
+            729,
+            648,
+            70,
+            40
+        ],
+        "expected": "购买",
+        "action": "Click",
+        "next": [
+            "购买成功",
+            "购买失败"
+        ]
+    },
+    "购买成功": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            521,
+            338,
+            240,
+            37
+        ],
+        "expected": "购买成功",
+        "action": "Click",
+        "target": [
+            1,
+            0,
+            0,
+            0
+        ],
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "购买失败": {
+        "recognition": "OCR",
+        "roi": [
+            521,
+            338,
+            240,
+            37
+        ],
+        "expected": "超过商店可购买的数量",
+        "action": "Click",
+        "target": [
+            1,
+            0,
+            0,
+            0
+        ],
+        "next": [
+            "关闭界面",
+            "返回主菜单"
+        ]
+    },
+    "关闭界面": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            1195,
+            30,
+            61,
+            61
+        ],
+        "template": "购买碎片/关闭_1195_30_61_61__1119_0_161_161.png",
+        "action": "Click"
+    }
+}

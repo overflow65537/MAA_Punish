@@ -1,21 +1,16 @@
 {
-    "Fight": {
+    "战斗": {
         "next": [
-            "AutoCombat",
-            "TapAutoCombat",
-            "ChooseFight",
-            "OpenCombatBar"
+            "自动战斗",
+            "开始自动战斗",
+            "选择战斗",
+            "打开作战补给",
+            "打开资源",
+            "打开战斗"
         ]
     },
-    "OpenCombatBar": {
-        "is_sub": true,
-        "next": [
-            "OpenCombatBar3",
-            "OpenCombatBar2",
-            "OpenCombatBar1"
-        ]
-    },
-    "OpenCombatBar1": {
+    "打开战斗": {
+        "post_delay": 1000,
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -27,7 +22,7 @@
         "expected": "战斗",
         "action": "Click"
     },
-    "OpenCombatBar2": {
+    "打开资源": {
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -39,7 +34,8 @@
         "expected": "资源",
         "action": "Click"
     },
-    "OpenCombatBar3": {
+    "打开作战补给": {
+        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             476,
@@ -50,7 +46,7 @@
         "expected": "作战补给",
         "action": "Click"
     },
-    "ChooseFight": {
+    "选择战斗": {
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -68,23 +64,29 @@
             0
         ]
     },
-    "TapAutoCombat": {
+    "开始自动战斗": {
         "is_sub": true,
         "recognition": "OCR",
+        "roi": [
+            747,
+            456,
+            444,
+            263
+        ],
         "expected": "自动作战",
         "action": "Click"
     },
-    "AutoCombat": {
+    "自动战斗": {
         "recognition": "OCR",
         "expected": "确认出战",
         "action": "Click",
         "next": [
-            "SupplyLow",
-            "SerumLow",
-            "CloseCombat"
+            "补给包不足",
+            "体力不足",
+            "退出战斗"
         ]
     },
-    "CloseCombat": {
+    "退出战斗": {
         "recognition": "OCR",
         "roi": [
             1130,
@@ -95,10 +97,10 @@
         "expected": "确定",
         "action": "Click",
         "next": [
-            "Fight"
+            "战斗"
         ]
     },
-    "SupplyLow": {
+    "补给包不足": {
         "recognition": "OCR",
         "roi": [
             414,
@@ -115,24 +117,12 @@
             0
         ],
         "next": [
-            "CloseAutoCombat",
-            "CloseFight",
-            "BackToMain"
+            "退出自动作战",
+            "退出战斗界面",
+            "返回主菜单"
         ]
     },
-    "StopTask": {
-        "recognition": "OCR",
-        "roi": [
-            1,
-            1,
-            0,
-            0
-        ],
-        "expected": "停止任务",
-        "is_sub": true,
-        "times_limit": 1
-    },
-    "SerumLow": {
+    "体力不足": {
         "recognition": "OCR",
         "roi": [
             846,
@@ -149,11 +139,11 @@
             0
         ],
         "next": [
-            "CloseAward",
-            "CloseSupply"
+            "关闭奖励",
+            "退出血清界面"
         ]
     },
-    "CloseSupply": {
+    "退出血清界面": {
         "recognition": "OCR",
         "roi": [
             846,
@@ -170,10 +160,10 @@
             0
         ],
         "next": [
-            "Fight"
+            "战斗"
         ]
     },
-    "CloseAutoCombat": {
+    "退出自动作战": {
         "is_sub": true,
         "recognition": "OCR",
         "expected": "确认出战",
@@ -185,7 +175,7 @@
             0
         ]
     },
-    "CloseFight": {
+    "退出战斗界面": {
         "is_sub": true,
         "recognition": "OCR",
         "expected": "自动作战",
@@ -196,5 +186,39 @@
             0,
             0
         ]
+    },
+    "拟战场域": {
+        "next": [
+            "自动战斗",
+            "开始自动战斗",
+            "选择拟战场域",
+            "打开拟战场域",
+            "打开资源",
+            "打开战斗"
+        ]
+    },
+    "打开拟战场域": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            285,
+            486,
+            99,
+            38
+        ],
+        "expected": "拟战场域",
+        "action": "Click"
+    },
+    "选择拟战场域": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            630,
+            539,
+            96,
+            31
+        ],
+        "expected": "拟战场域",
+        "action": "Click"
     }
 }

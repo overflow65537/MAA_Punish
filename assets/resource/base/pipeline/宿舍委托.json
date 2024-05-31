@@ -1,14 +1,14 @@
 {
-    "DormitoryEntrustment": {
+    "宿舍委托": {
         "next": [
-            "CloseEntrustment",
-            "CompleteEntrustment",
-            "StartEntrustment",
-            "OpenEntrustment",
-            "OpenDormitory"
+            "关闭委托完成通知",
+            "领取委托完成奖励",
+            "启动委托",
+            "打开委托界面",
+            "打开宿舍"
         ]
     },
-    "CompleteEntrustment": {
+    "领取委托完成奖励": {
         "recognition": "OCR",
         "roi": [
             282,
@@ -19,10 +19,10 @@
         "expected": "领取奖励",
         "action": "Click",
         "next": [
-            "DormitoryEntrustment"
+            "宿舍委托"
         ]
     },
-    "CloseEntrustment": {
+    "关闭委托完成通知": {
         "recognition": "OCR",
         "expected": "委托完成",
         "roi": [
@@ -39,10 +39,10 @@
             0
         ],
         "next": [
-            "DormitoryEntrustment"
+            "宿舍委托"
         ]
     },
-    "StartEntrustment": {
+    "启动委托": {
         "recognition": "OCR",
         "roi": [
             21,
@@ -52,48 +52,67 @@
         ],
         "expected": "委托系统",
         "next": [
-            "NotificationN",
-            "NotificationY",
-            "Dispatch",
-            "ConfirmDispatch",
-            "GetEntrustment",
-            "ChooseEntrustment",
-            "BackToMain"
+            "委托上限",
+            "委托接取完成",
+            "派遣",
+            "确认派遣",
+            "接取委托",
+            "选择委托",
+            "返回主菜单"
         ]
     },
-    "NotificationN": {
+    "委托上限": {
         "recognition": "OCR",
         "expected": "队伍已达上限",
         "action": "Click",
+        "target": [
+            1,
+            0,
+            0,
+            0
+        ],
         "next": [
-            "Tap"
+            "关闭委托界面",
+            "返回主菜单"
         ]
     },
-    "NotificationY": {
+    "关闭委托界面": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            1085,
+            632,
+            86,
+            31
+        ],
+        "expected": "接取委托",
+        "action": "Click",
+        "target": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    "委托接取完成": {
         "is_sub": true,
         "recognition": "OCR",
         "expected": "委托已接取",
         "action": "Click"
     },
-    "GetEntrustment": {
+    "接取委托": {
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
-            793,
-            636,
-            92,
-            36
-        ],
-        "expected": "花费时间",
-        "action": "Click",
-        "target": [
             1085,
             632,
             86,
             31
-        ]
+        ],
+        "expected": "接取委托",
+        "action": "Click"
     },
-    "Dispatch": {
+    "派遣": {
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -105,7 +124,7 @@
         "expected": "一键派遣",
         "action": "Click"
     },
-    "ChooseEntrustment": {
+    "选择委托": {
         "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
@@ -115,15 +134,15 @@
             329
         ],
         "template": [
-            "DormitoryEntrustment/Sp_A.png",
-            "DormitoryEntrustment/Class_S.png",
-            "DormitoryEntrustment/Class_A.png",
-            "DormitoryEntrustment/Class_B.png",
-            "DormitoryEntrustment/Class_C.png"
+            "宿舍委托/Sp_A.png",
+            "宿舍委托/Class_S.png",
+            "宿舍委托/Class_A.png",
+            "宿舍委托/Class_B.png",
+            "宿舍委托/Class_C.png"
         ],
         "action": "Click"
     },
-    "OpenDormitory": {
+    "打开宿舍": {
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -135,19 +154,19 @@
         "expected": "宿舍",
         "action": "Click"
     },
-    "OpenEntrustment": {
+    "打开委托界面": {
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
             1163,
-            660,
-            50,
-            29
+            678,
+            62,
+            30
         ],
         "expected": "委托",
         "action": "Click"
     },
-    "ConfirmDispatch": {
+    "确认派遣": {
         "is_sub": true,
         "recognition": "OCR",
         "roi": [

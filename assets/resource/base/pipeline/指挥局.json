@@ -1,11 +1,11 @@
 {
-    "CommandCenter": {
+    "指挥局": {
         "next": [
-            "IsInCommandCenter",
-            "OpenCommandCenter"
+            "检查是否在指挥局内部",
+            "打开指挥局"
         ]
     },
-    "IsInCommandCenter": {
+    "检查是否在指挥局内部": {
         "recognition": "OCR",
         "roi": [
             301,
@@ -15,11 +15,11 @@
         ],
         "expected": "新版指挥局",
         "next": [
-            "CheckButton",
-            "Move"
+            "检查指定按钮",
+            "移动"
         ]
     },
-    "CheckButton": {
+    "检查指定按钮": {
         "recognition": "OCR",
         "roi": [
             926,
@@ -33,10 +33,10 @@
         ],
         "action": "Click",
         "next": [
-            "CloseAward_Command"
+            "关闭奖励_指挥局"
         ]
     },
-    "Move": {
+    "移动": {
         "is_sub": true,
         "action": "Click",
         "target": [
@@ -46,7 +46,7 @@
             0
         ]
     },
-    "OpenCommandCenter": {
+    "打开指挥局": {
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -58,7 +58,7 @@
         "expected": "公会",
         "action": "Click"
     },
-    "CloseAward_Command": {
+    "关闭奖励_指挥局": {
         "recognition": "OCR",
         "roi": [
             600,
@@ -76,10 +76,10 @@
         ],
         "pre_delay": 1000,
         "next": [
-            "Back"
+            "返回"
         ]
     },
-    "Back": {
+    "返回": {
         "recognition": "OCR",
         "roi": [
             76,

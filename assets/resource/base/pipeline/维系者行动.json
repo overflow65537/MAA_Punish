@@ -1,13 +1,14 @@
 {
-    "OperationGuardians": {
+    "维系者行动": {
         "next": [
-            "Actionlimit",
-            "ActionStart",
-            "OpenGuardians",
-            "BackToMain_sub"
+            "行动上限",
+            "开始行动",
+            "打开维系者行动",
+            "打开任务",
+            "返回主菜单_sub"
         ]
     },
-    "Actionlimit": {
+    "行动上限": {
         "recognition": "OCR",
         "roi": [
             510,
@@ -24,10 +25,10 @@
             0
         ],
         "next": [
-            "BackToMain"
+            "返回主菜单"
         ]
     },
-    "ActionStart": {
+    "开始行动": {
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -45,14 +46,7 @@
             0
         ]
     },
-    "OpenGuardians": {
-        "next": [
-            "OpenMission",
-            "OpenGuardians1",
-            "OperationGuardians"
-        ]
-    },
-    "OpenGuardians1": {
+    "打开维系者行动": {
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
