@@ -32,47 +32,47 @@
     "task": [
         {
             "name": "进入游戏",
-            "entry": "StartUp"
+            "entry": "启动"
         },
         {
             "name": "领取邮件",
-            "entry": "Mail"
+            "entry": "邮件"
         },
         {
             "name": "战令",
-            "entry": "BattlePass"
+            "entry": "通行证"
         },
         {
             "name": "购买碎片",
-            "entry": "BuyItem"
+            "entry": "购买碎片"
         },
         {
             "name": "战斗",
-            "entry": "Fight"
+            "entry": "战斗"
         },
         {
             "name": "领取体力",
-            "entry": "DailySupply"
+            "entry": "领取奖励"
         },
         {
             "name": "宿舍委托",
-            "entry": "DormitoryEntrustment"
+            "entry": "宿舍委托"
         },
         {
             "name": "守护者行动",
-            "entry": "OperationGuardians"
+            "entry": "维系者行动"
         },
         {
             "name": "领取任务",
-            "entry": "Mission"
+            "entry": "任务"
         },
         {
             "name": "指挥局",
-            "entry": "CommandCenter"
+            "entry": "指挥局"
         },
         {
             "name": "结束游戏",
-            "entry": "StopApp"
+            "entry": "停止"
         }
     ]
 }
