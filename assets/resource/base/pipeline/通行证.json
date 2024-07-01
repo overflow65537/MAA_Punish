@@ -1,14 +1,29 @@
 {
     "通行证": {
         "next": [
-            "每日任务",
-            "通行证奖励",
+            "关闭奖励",
+            "判断评定任务",
             "打开通行证",
             "返回主菜单"
         ]
     },
+    "判断评定任务": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            225,
+            245,
+            26,
+            300
+        ],
+        "template": "通行证/评定任务奖励存在_225_411_25_25__175_361_125_125.png",
+        "green_mask": true,
+        "action": "Click",
+        "next": [
+            "一键领取_通行证"
+        ]
+    },
     "一键领取_通行证": {
-        "post_wait_freezes": 10,
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             974,
@@ -22,55 +37,7 @@
         ],
         "action": "Click",
         "next": [
-            "关闭奖励",
-            "关闭通知",
             "通行证"
-        ]
-    },
-    "关闭通知": {
-        "is_sub": true,
-        "recognition": "OCR",
-        "roi": [
-            562,
-            337,
-            154,
-            43
-        ],
-        "expected": "无可领取奖励",
-        "action": "Click"
-    },
-    "每日任务": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            225,
-            411,
-            25,
-            25
-        ],
-        "template": "通行证/评定任务奖励存在_225_411_25_25__175_361_125_125.png",
-        "action": "Click",
-        "target": [
-            77,
-            443,
-            0,
-            0
-        ],
-        "next": [
-            "一键领取_通行证"
-        ]
-    },
-    "通行证奖励": {
-        "recognition": "OCR",
-        "roi": [
-            32,
-            257,
-            99,
-            161
-        ],
-        "expected": "战略补给",
-        "action": "Click",
-        "next": [
-            "一键领取_通行证"
         ]
     },
     "打开通行证": {

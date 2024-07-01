@@ -1,0 +1,7 @@
+{
+    "打开应用": {
+        "is_sub": true,
+        "action": "StartApp",
+        "package": "com.kurogame.haru.bilibili/com.haru.herousdk.SplashActivity"
+    }
+}

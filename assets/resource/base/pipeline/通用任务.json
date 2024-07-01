@@ -1,6 +1,6 @@
 {
     "关闭奖励": {
-        "pre_wait_freezes": 5,
+        "pre_delay": 1000,
         "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
@@ -52,5 +52,6 @@
             78,
             38
         ]
-    }
+    },
+    "空任务": {}
 }
