@@ -34,6 +34,7 @@
         ],
         "expected": "战斗",
         "next": [
+            "切换主界面状态",
             "启动"
         ]
     },
@@ -63,5 +64,17 @@
         "is_sub": true,
         "action": "StartApp",
         "package": "com.kurogame.haru.hero/com.haru.herousdk.SplashActivity"
+    },
+    "切换主界面状态": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            1183,
+            487,
+            43,
+            37
+        ],
+        "template": "启动/切换主界面状态_1183_487_42_36__1133_437_142_136.png",
+        "action": "Click"
     }
 }
