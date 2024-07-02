@@ -3,15 +3,6 @@
         {
             "name": "安卓端",
             "type": "Adb"
-        },
-        {
-            "name": "桌面端",
-            "type": "Win32",
-            "win32": {
-                "method": "Search",
-                "class_name": ".*",
-                "window_name": "Visual Studio"
-            }
         }
     ],
     "resource": [
@@ -35,28 +26,28 @@
             "entry": "启动"
         },
         {
-            "name": "领取邮件",
-            "entry": "邮件"
-        },
-        {
-            "name": "战令",
-            "entry": "通行证"
-        },
-        {
-            "name": "购买碎片",
-            "entry": "购买碎片"
-        },
-        {
-            "name": "战斗",
-            "entry": "战斗"
+            "name": "指挥局",
+            "entry": "指挥局"
         },
         {
             "name": "领取体力",
             "entry": "领取奖励"
         },
         {
+            "name": "领取邮件",
+            "entry": "邮件"
+        },
+        {
+            "name": "购买碎片",
+            "entry": "购买碎片"
+        },
+        {
             "name": "宿舍委托",
             "entry": "宿舍委托"
+        },
+        {
+            "name": "拟战场域",
+            "entry": "拟战场域"
         },
         {
             "name": "守护者行动",
@@ -67,8 +58,8 @@
             "entry": "任务"
         },
         {
-            "name": "指挥局",
-            "entry": "指挥局"
+            "name": "战令",
+            "entry": "通行证"
         },
         {
             "name": "结束游戏",
