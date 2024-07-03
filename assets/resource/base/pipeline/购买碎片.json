@@ -11,6 +11,7 @@
         ]
     },
     "检查碎片": {
+        "post_delay": 1000,
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -29,6 +30,7 @@
         ]
     },
     "滑动": {
+        "post_delay": 1000,
         "is_sub": true,
         "recognition": "OCR",
         "roi": [

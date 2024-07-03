@@ -1,12 +1,407 @@
 {
+    "宿舍任务_领取": {
+        "next": [
+            "关闭奖励",
+            "一键领取_任务",
+            "打开宿舍任务",
+            "打开宿舍",
+            "返回主菜单"
+        ]
+    },
+    "宿舍任务_执勤": {
+        "next": [
+            "休息中",
+            "关闭奖励",
+            "立即完成代工",
+            "一键代工",
+            "选择执勤伙伴",
+            "开始执勤",
+            "打开执勤",
+            "打开宿舍"
+        ]
+    },
+    "宿舍任务_事件": {
+        "next": [
+            "关闭完成事件",
+            "完成事件",
+            "打开宿舍",
+            "宿舍任务_执勤"
+        ]
+    },
+    "宿舍任务_制造": {
+        "next": [
+            "关闭回收界面",
+            "选择C级",
+            "批量回收",
+            "开始制造",
+            "选择数量",
+            "选择沙发",
+            "添加类型",
+            "打开制造",
+            "打开宿舍"
+        ]
+    },
+    "打开宿舍任务": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            1181,
+            82,
+            56,
+            56
+        ],
+        "template": "宿舍委托/宿舍任务_1181_82_55_55__1125_32_155_155.png",
+        "action": "Click"
+    },
+    "立即完成代工": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            877,
+            580,
+            96,
+            37
+        ],
+        "expected": "立即完成",
+        "action": "Click"
+    },
+    "一键代工": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            1237,
+            372,
+            43,
+            27
+        ],
+        "expected": "执勤",
+        "action": "Click",
+        "target": [
+            1112,
+            666,
+            0,
+            0
+        ]
+    },
+    "点击开始执勤": {
+        "recognition": "OCR",
+        "roi": [
+            872,
+            620,
+            96,
+            39
+        ],
+        "expected": "开始执勤",
+        "action": "Click",
+        "next": [
+            "宿舍任务_执勤"
+        ]
+    },
+    "选择执勤伙伴": {
+        "recognition": "OCR",
+        "roi": [
+            230,
+            95,
+            213,
+            46
+        ],
+        "expected": "选择执勤伙伴",
+        "action": "Click",
+        "target": [
+            357,
+            238,
+            0,
+            0
+        ],
+        "next": [
+            "点击开始执勤"
+        ]
+    },
+    "休息中": {
+        "recognition": "OCR",
+        "roi": [
+            1147,
+            390,
+            132,
+            55
+        ],
+        "expected": "休息中",
+        "next": [
+            "宿舍任务_返回2"
+        ]
+    },
+    "开始执勤": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            1196,
+            395,
+            52,
+            46
+        ],
+        "expected": [
+            "十",
+            "一"
+        ],
+        "action": "Click"
+    },
+    "打开执勤": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            1030,
+            678,
+            62,
+            32
+        ],
+        "expected": "执勤",
+        "action": "Click"
+    },
+    "关闭完成事件": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            565,
+            144,
+            156,
+            52
+        ],
+        "expected": "完成事件",
+        "action": "Click",
+        "target": [
+            614,
+            94,
+            0,
+            0
+        ]
+    },
+    "完成事件": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            887,
+            680,
+            81,
+            26
+        ],
+        "expected": "完成事件",
+        "action": "Click"
+    },
+    "关闭回收界面": {
+        "post_delay": 1500,
+        "recognition": "OCR",
+        "roi": [
+            69,
+            444,
+            150,
+            42
+        ],
+        "expected": "获得回收奖励",
+        "action": "Click",
+        "next": [
+            "宿舍任务_返回"
+        ]
+    },
+    "宿舍任务_返回": {
+        "recognition": "OCR",
+        "roi": [
+            83,
+            20,
+            55,
+            34
+        ],
+        "expected": "返回",
+        "action": "Click",
+        "next": [
+            "宿舍任务_事件"
+        ]
+    },
+    "宿舍任务_返回2": {
+        "recognition": "OCR",
+        "roi": [
+            83,
+            20,
+            55,
+            34
+        ],
+        "expected": "返回",
+        "action": "Click",
+        "next": [
+            "宿舍任务_领取"
+        ]
+    },
+    "选择C级": {
+        "recognition": "OCR",
+        "roi": [
+            1040,
+            154,
+            46,
+            31
+        ],
+        "expected": "C级",
+        "action": "Click",
+        "next": [
+            "回收"
+        ]
+    },
+    "回收": {
+        "recognition": "OCR",
+        "roi": [
+            907,
+            598,
+            59,
+            43
+        ],
+        "expected": "回收",
+        "action": "Click",
+        "next": [
+            "宿舍任务_制造"
+        ]
+    },
+    "批量回收": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            964,
+            153,
+            84,
+            33
+        ],
+        "expected": "批量回收",
+        "action": "Click"
+    },
+    "开始制造": {
+        "post_delay": 1000,
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            919,
+            621,
+            36,
+            43
+        ],
+        "expected": [
+            "9"
+        ],
+        "action": "Click",
+        "target": [
+            999,
+            643,
+            0,
+            0
+        ]
+    },
+    "选择数量": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            476,
+            624,
+            40,
+            37
+        ],
+        "expected": [
+            "1",
+            "2"
+        ],
+        "action": "Click",
+        "target": [
+            586,
+            642,
+            0,
+            0
+        ]
+    },
+    "打开制造": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            107,
+            649,
+            62,
+            37
+        ],
+        "expected": "制造",
+        "action": "Click"
+    },
+    "添加类型": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            935,
+            373,
+            120,
+            37
+        ],
+        "expected": "添加类型",
+        "action": "Click"
+    },
+    "选择沙发": {
+        "recognition": "OCR",
+        "roi": [
+            296,
+            477,
+            71,
+            39
+        ],
+        "expected": "沙发",
+        "action": "Click",
+        "next": [
+            "确认选择"
+        ]
+    },
+    "确认选择": {
+        "recognition": "OCR",
+        "roi": [
+            872,
+            616,
+            59,
+            35
+        ],
+        "expected": "选择",
+        "action": "Click",
+        "next": [
+            "宿舍任务_制造"
+        ]
+    },
     "宿舍委托": {
         "next": [
             "关闭委托完成通知",
             "领取委托完成奖励",
-            "启动委托",
+            "一键派遣",
             "打开委托界面",
             "打开宿舍"
         ]
+    },
+    "一键派遣": {
+        "recognition": "OCR",
+        "roi": [
+            41,
+            610,
+            71,
+            75
+        ],
+        "expected": [
+            "一键",
+            "派遣"
+        ],
+        "action": "Click",
+        "next": [
+            "关闭弹出通知",
+            "返回主菜单"
+        ]
+    },
+    "关闭弹出通知": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            458,
+            342,
+            379,
+            34
+        ],
+        "expected": "暂无空闲的队伍位置",
+        "action": "Click"
     },
     "领取委托完成奖励": {
         "recognition": "OCR",
@@ -42,40 +437,6 @@
             "宿舍委托"
         ]
     },
-    "启动委托": {
-        "recognition": "OCR",
-        "roi": [
-            21,
-            67,
-            146,
-            46
-        ],
-        "expected": "委托系统",
-        "next": [
-            "委托上限",
-            "委托接取完成",
-            "派遣",
-            "确认派遣",
-            "接取委托",
-            "选择委托",
-            "返回主菜单"
-        ]
-    },
-    "委托上限": {
-        "recognition": "OCR",
-        "expected": "队伍已达上限",
-        "action": "Click",
-        "target": [
-            1,
-            0,
-            0,
-            0
-        ],
-        "next": [
-            "关闭委托界面",
-            "返回主菜单"
-        ]
-    },
     "关闭委托界面": {
         "is_sub": true,
         "recognition": "OCR",
@@ -93,54 +454,6 @@
             0,
             0
         ]
-    },
-    "委托接取完成": {
-        "is_sub": true,
-        "recognition": "OCR",
-        "expected": "委托已接取",
-        "action": "Click"
-    },
-    "接取委托": {
-        "is_sub": true,
-        "recognition": "OCR",
-        "roi": [
-            1085,
-            632,
-            86,
-            31
-        ],
-        "expected": "接取委托",
-        "action": "Click"
-    },
-    "派遣": {
-        "is_sub": true,
-        "recognition": "OCR",
-        "roi": [
-            734,
-            632,
-            110,
-            38
-        ],
-        "expected": "一键派遣",
-        "action": "Click"
-    },
-    "选择委托": {
-        "is_sub": true,
-        "recognition": "TemplateMatch",
-        "roi": [
-            226,
-            115,
-            845,
-            329
-        ],
-        "template": [
-            "宿舍委托/Sp_A.png",
-            "宿舍委托/Class_S.png",
-            "宿舍委托/Class_A.png",
-            "宿舍委托/Class_B.png",
-            "宿舍委托/Class_C.png"
-        ],
-        "action": "Click"
     },
     "打开宿舍": {
         "is_sub": true,
@@ -164,18 +477,6 @@
             30
         ],
         "expected": "委托",
-        "action": "Click"
-    },
-    "确认派遣": {
-        "is_sub": true,
-        "recognition": "OCR",
-        "roi": [
-            916,
-            631,
-            163,
-            41
-        ],
-        "expected": "确认",
         "action": "Click"
     }
 }
