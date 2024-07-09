@@ -66,10 +66,10 @@
         ],
         "recognition": "OCR",
         "roi": [
-            588,
-            340,
-            105,
-            39
+            561,
+            331,
+            171,
+            56
         ],
         "expected": "体力不足",
         "action": "Click",
@@ -180,6 +180,7 @@
     },
     "开始自动战斗": {
         "is_sub": true,
+        "post_delay": 2000,
         "recognition": "OCR",
         "roi": [
             747,
