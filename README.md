@@ -20,7 +20,15 @@
 - 领取体力
 - 自动刷拟战场域(没解锁自动战斗也可以)
 - 领取凭证和任务奖励
+  
+## 图形化界面
 
+### [Tkinter_MAA](https://github.com/overflow65537/Tkinter_MAA-GUI)测试版
+- 基于pythonTkinter编写的GUI,理论上支持所有Maaframework所编写的maapicli程序
+- 下载后解压
+- 将需要启动的MAApicli程序所有内容放入MAA_bin文件夹
+- 启动MAA-GUI.exe
+  
 ## 使用说明
 
 下载地址：<https://github.com/overflow65537/MAA_Punish/releases>
