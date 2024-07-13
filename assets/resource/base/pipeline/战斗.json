@@ -294,6 +294,7 @@
         ]
     },
     "退出血清界面": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             846,
