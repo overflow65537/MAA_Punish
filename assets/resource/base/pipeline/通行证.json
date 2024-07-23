@@ -41,14 +41,14 @@
         ]
     },
     "打开通行证": {
-        "post_wait_freezes": 20,
+        "post_delay": 1000,
         "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
-            307,
-            76,
-            64,
-            51
+            257,
+            26,
+            164,
+            151
         ],
         "template": "通行证/通行证_307_76_64_51__257_26_164_151.png",
         "action": "Click"
