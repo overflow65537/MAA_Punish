@@ -1,8 +1,9 @@
 {
     "拟战场域": {
         "post_delay": 1000,
-        "timeout_next": [
-            "返回主菜单"
+        "times_limit": 20,
+        "runout_next": [
+            "返回主菜单_sub"
         ],
         "next": [
             "补给包不足_拟战场域",
@@ -61,8 +62,9 @@
         "action": "Click"
     },
     "体力不足_拟战场域": {
-        "timeout_next": [
-            "返回主菜单"
+        "times_limit": 20,
+        "runout_next": [
+            "返回主菜单_sub"
         ],
         "recognition": "OCR",
         "roi": [
@@ -78,8 +80,9 @@
         ]
     },
     "吃体力药": {
-        "timeout_next": [
-            "返回主菜单"
+        "times_limit": 20,
+        "runout_next": [
+            "返回主菜单_sub"
         ],
         "recognition": "TemplateMatch",
         "roi": [
@@ -117,17 +120,6 @@
             36
         ],
         "expected": "资源",
-        "action": "Click"
-    },
-    "选择战斗类型": {
-        "is_sub": true,
-        "recognition": "OCR",
-        "roi": [
-            280,
-            484,
-            963,
-            38
-        ],
         "action": "Click"
     },
     "打开拟战场域": {

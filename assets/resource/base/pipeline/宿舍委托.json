@@ -409,6 +409,7 @@
         ]
     },
     "一键派遣": {
+        "post_delay": 1500,
         "recognition": "OCR",
         "roi": [
             41,
@@ -427,6 +428,7 @@
         ]
     },
     "关闭弹出通知": {
+        "post_delay": 2000,
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -435,8 +437,17 @@
             379,
             34
         ],
-        "expected": "暂无空闲的队伍位置",
-        "action": "Click"
+        "expected": [
+            "暂无空闲的队伍位置",
+            "暂无空闲的成员或可接取委托"
+        ],
+        "action": "Click",
+        "target": [
+            100,
+            100,
+            0,
+            0
+        ]
     },
     "领取委托完成奖励": {
         "recognition": "OCR",

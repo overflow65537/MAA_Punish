@@ -2,9 +2,27 @@
     "通行证": {
         "next": [
             "关闭奖励",
+            "系统自动领取",
             "判断评定任务",
             "打开通行证",
             "返回主菜单"
+        ]
+    },
+    "系统自动领取": {
+        "recognition": "OCR",
+        "roi": [
+            315,
+            188,
+            210,
+            56
+        ],
+        "expected": "系统自动领取",
+        "action": "Click",
+        "target": [
+            769,
+            501,
+            5,
+            3
         ]
     },
     "判断评定任务": {
@@ -41,14 +59,15 @@
         ]
     },
     "打开通行证": {
-        "post_wait_freezes": 20,
+        "green_mask": true,
+        "post_delay": 2000,
         "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
-            307,
-            76,
-            64,
-            51
+            257,
+            26,
+            164,
+            151
         ],
         "template": "通行证/通行证_307_76_64_51__257_26_164_151.png",
         "action": "Click"
