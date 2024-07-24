@@ -59,17 +59,16 @@
         ]
     },
     "打开通行证": {
-        "green_mask": true,
         "post_delay": 2000,
         "is_sub": true,
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             257,
             26,
             164,
             151
         ],
-        "template": "通行证/通行证_307_76_64_51__257_26_164_151.png",
+        "expected": "BP",
         "action": "Click"
     }
 }
