@@ -23,11 +23,9 @@
   
 ## 图形化界面
 
-### [Tkinter_MAA](https://github.com/overflow65537/Tkinter_MAA-GUI)
- 基于pythonTkinter编写的GUI,理论上支持所有Maaframework所编写的maapicli程序
-- 下载[MPA-win-x86_64-vXXXX-with_MAA-GUI.zip](https://github.com/overflow65537/MAA_Punish/releases)
-- 解压
-- 启动MAA-GUI.exe
+### [MFAWPF](https://github.com/SweetSmellFox/MFAWPF)
+ 由社区大佬编写的基于WPF的GUI,通过内置的MAAframework来直接控制任务流程
+ -下载`MPA-win-x86_64-vXXX-with-GUI.zip`
   
 ## 使用说明
 
