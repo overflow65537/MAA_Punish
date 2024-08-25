@@ -408,15 +408,12 @@
         "post_delay": 1500,
         "recognition": "OCR",
         "roi": [
-            41,
-            610,
-            71,
-            75
+            1147,
+            602,
+            102,
+            90
         ],
-        "expected": [
-            "一键",
-            "派遣"
-        ],
+        "expected": "派遣",
         "action": "Click",
         "next": [
             "关闭弹出通知",
@@ -448,12 +445,12 @@
     "领取委托完成奖励": {
         "recognition": "OCR",
         "roi": [
-            282,
-            649,
-            112,
-            36
+            1147,
+            602,
+            102,
+            90
         ],
-        "expected": "领取奖励",
+        "expected": "归队",
         "action": "Click",
         "next": [
             "宿舍委托"
