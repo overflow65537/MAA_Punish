@@ -10,18 +10,15 @@
         ]
     },
     "选择每日任务": {
-        "times_limit": 3,
-        "runout_next": [
-            "返回主菜单"
-        ],
-        "recognition": "OCR",
+        "threshold": 0.9,
+        "recognition": "TemplateMatch",
         "roi": [
-            30,
-            382,
-            64,
-            41
+            0,
+            243,
+            308,
+            200
         ],
-        "expected": "每日",
+        "template": "任务\\每日_32_293_208_40__0_243_308_140.png",
         "action": "Click",
         "next": [
             "宿舍任务_领取"
