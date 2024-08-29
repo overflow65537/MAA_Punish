@@ -24,8 +24,8 @@
 ## 图形化界面
 
 ### [MFAWPF](https://github.com/SweetSmellFox/MFAWPF)
- 由社区大佬编写的基于WPF的GUI,通过内置的MAAframework来直接控制任务流程
- -下载`MPA-win-x86_64-vXXX-with-GUI.zip`
+ 由社区大佬[SweetSmellFox](https://github.com/SweetSmellFox)编写的基于WPF的GUI,通过内置的MAAframework来直接控制任务流程
+ -下载`MPA-win-x86_64-with-GUI-vXXX.zip`
   
 ## 使用说明
 
@@ -177,5 +177,16 @@ Tasks:
 
 ## 鸣谢
 
-本项目由 **[MaaFramework](https://github.com/MaaXYZ/MaaFramework)** 强力驱动！
+### 开源库
+- [MaaFramework](https://github.com/MaaXYZ/MaaFramework)
+  基于图像识别的自动化黑盒测试框架 | An automation black-box testing framework based on image recognition
+- [MFAWPF](https://github.com/SweetSmellFox/MFAWPF)
+  本项目是一个基于WPF框架开发的用户界面，旨在提供类似于MaaPiCli的功能
 
+### 开发者
+
+感谢以下开发者对 MAA_SnowBreak 作出的贡献：
+
+<a href="https://github.com/overflow65537/MAA_SnowBreak/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=overflow65537/MAA_SnowBreak&max=1000" />
+</a>
