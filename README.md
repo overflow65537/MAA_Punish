@@ -185,8 +185,8 @@ Tasks:
 
 ### 开发者
 
-感谢以下开发者对 MAA_SnowBreak 作出的贡献：
+感谢以下开发者对 MAA_Punish 作出的贡献：
 
-<a href="https://github.com/overflow65537/MAA_SnowBreak/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=overflow65537/MAA_SnowBreak&max=1000" />
+<a href="https://github.com/overflow65537/MAA_Punish/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=overflow65537/MAA_Punish&max=1000" />
 </a>
