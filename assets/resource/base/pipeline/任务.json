@@ -11,7 +11,7 @@
     },
     "进入每日任务": {
         "recognition": "TemplateMatch",
-        "threshold":0.9,
+        "threshold": 0.9,
         "roi": [
             0,
             243,
@@ -55,7 +55,6 @@
     },
     "每日活跃": {
         "post_delay": 1000,
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
             [
@@ -90,6 +89,10 @@
             ]
         ],
         "template": "任务/活跃_1176_616_47_44__1126_566_147_144.png",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "关闭奖励",
+            "返回主菜单"
+        ]
     }
 }
