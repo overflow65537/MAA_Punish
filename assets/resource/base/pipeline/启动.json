@@ -1,16 +1,17 @@
 {
     "启动": {
         "next": [
+            "检查主界面"
+        ],
+        "interrupt": [
             "关闭公告",
             "关闭奖励",
-            "检查主界面",
             "进入游戏",
             "更新",
             "打开应用"
         ]
     },
     "更新": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             352,
@@ -28,7 +29,6 @@
         ]
     },
     "进入游戏": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             530,
@@ -40,10 +40,7 @@
         "action": "Click"
     },
     "检查主界面": {
-        "times_limit": 2,
-        "timeout_next": [
-            "空任务"
-        ],
+        "post_delay": 500,
         "recognition": "OCR",
         "roi": [
             1074,
@@ -53,12 +50,11 @@
         ],
         "expected": "战斗",
         "next": [
-            "切换主界面状态",
+            "检查主界面2",
             "启动"
         ]
     },
     "关闭公告": {
-        "is_sub": true,
         "recognition": "OCR",
         "expected": "点击空白处关闭",
         "action": "Click",
@@ -77,15 +73,16 @@
             95,
             52
         ],
-        "expected": "战斗"
+        "expected": "战斗",
+        "next": [
+            "切换主界面状态"
+        ]
     },
     "打开应用": {
-        "is_sub": true,
         "action": "StartApp",
         "package": "com.kurogame.haru.hero/com.haru.herousdk.SplashActivity"
     },
     "切换主界面状态": {
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
             1183,

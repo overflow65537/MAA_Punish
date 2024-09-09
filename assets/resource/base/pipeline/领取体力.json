@@ -1,17 +1,31 @@
 {
     "领取体力": {
         "next": [
+            "补给包售罄"
+        ],
+        "interrupt": [
             "领取补给包成功",
             "领取",
             "检查限购",
             "点击日常补给包",
             "点击补给包",
-            "进入采购",
-            "返回主菜单_sub"
+            "进入采购"
+        ]
+    },
+    "补给包售罄": {
+        "recognition": "OCR",
+        "roi": [
+            549,
+            247,
+            126,
+            83
+        ],
+        "expected": "已售罄",
+        "next": [
+            "返回主菜单"
         ]
     },
     "进入采购": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             975,
@@ -23,7 +37,6 @@
         "action": "Click"
     },
     "点击补给包": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             530,
@@ -35,10 +48,6 @@
         "action": "Click"
     },
     "点击日常补给包": {
-        "times_limit": 2,
-        "runout_next": [
-            "返回主菜单"
-        ],
         "recognition": "OCR",
         "roi": [
             26,
@@ -47,13 +56,9 @@
             34
         ],
         "expected": "日常补给包",
-        "action": "Click",
-        "next": [
-            "领取体力"
-        ]
+        "action": "Click"
     },
     "检查限购": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             349,
@@ -68,7 +73,6 @@
         "action": "Click"
     },
     "领取": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             599,
@@ -84,7 +88,6 @@
         "action": "Click"
     },
     "领取补给包成功": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             624,
