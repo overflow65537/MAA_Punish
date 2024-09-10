@@ -1,18 +1,15 @@
 {
     "拟战场域": {
         "post_delay": 1000,
-        "times_limit": 20,
-        "runout_next": [
-            "返回主菜单_sub"
-        ],
         "next": [
             "补给包不足_拟战场域",
             "结束战斗任务",
             "体力不足",
             "退出战斗_拟战场域",
             "体力不足_拟战场域",
-            "开始自动战斗",
-            "拟战场域_手动",
+            "开始自动战斗"
+        ],
+        "interrupt": [
             "选择战斗_拟战场域",
             "打开拟战场域",
             "打开资源",
@@ -30,11 +27,13 @@
         "expected": "多重挑战",
         "action": "Click",
         "next": [
-            "战斗中",
-            "作战开始",
             "补给包不足",
             "结束战斗任务",
-            "体力不足",
+            "体力不足"
+        ],
+        "interrupt": [
+            "战斗中",
+            "作战开始",
             "退出战斗"
         ]
     },
@@ -55,7 +54,6 @@
     },
     "战斗中": {
         "pre_delay": 50,
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
             1133,
@@ -67,7 +65,6 @@
         "action": "Click"
     },
     "作战开始": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             1042,
@@ -79,10 +76,6 @@
         "action": "Click"
     },
     "体力不足_拟战场域": {
-        "times_limit": 20,
-        "runout_next": [
-            "返回主菜单_sub"
-        ],
         "post_delay": 3500,
         "recognition": "OCR",
         "roi": [
@@ -104,10 +97,6 @@
         ]
     },
     "吃体力药": {
-        "times_limit": 20,
-        "runout_next": [
-            "返回主菜单_sub"
-        ],
         "recognition": "TemplateMatch",
         "roi": [
             993,
@@ -123,7 +112,6 @@
     },
     "打开战斗": {
         "post_delay": 1000,
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             1076,
@@ -135,7 +123,6 @@
         "action": "Click"
     },
     "打开资源": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             930,
@@ -147,7 +134,6 @@
         "action": "Click"
     },
     "打开拟战场域": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             280,
@@ -159,7 +145,6 @@
         "action": "Click"
     },
     "选择战斗_拟战场域": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             629,
@@ -177,7 +162,6 @@
         ]
     },
     "选择战斗": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             1110,
@@ -195,7 +179,6 @@
         ]
     },
     "开始自动战斗": {
-        "is_sub": true,
         "post_delay": 2000,
         "recognition": "OCR",
         "roi": [
@@ -264,6 +247,11 @@
             0
         ],
         "next": [
+            "补给包不足_next"
+        ]
+    },
+    "补给包不足_next": {
+        "next": [
             "退出自动作战",
             "退出战斗界面",
             "返回主菜单"
@@ -307,8 +295,10 @@
             0
         ],
         "next": [
-            "关闭奖励",
             "退出血清界面"
+        ],
+        "interrupt": [
+            "关闭奖励"
         ]
     },
     "退出血清界面": {
@@ -327,7 +317,6 @@
         ]
     },
     "退出自动作战": {
-        "is_sub": true,
         "recognition": "OCR",
         "expected": "确认出战",
         "action": "Click",
@@ -336,10 +325,12 @@
             25,
             0,
             0
+        ],
+        "next": [
+            "补给包不足_next"
         ]
     },
     "退出战斗界面": {
-        "is_sub": true,
         "recognition": "OCR",
         "expected": "自动作战",
         "action": "Click",
@@ -348,6 +339,9 @@
             25,
             0,
             0
+        ],
+        "next": [
+            "补给包不足_next"
         ]
     }
 }

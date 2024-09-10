@@ -1,7 +1,6 @@
 {
     "关闭奖励": {
         "post_delay": 1000,
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
             409,
@@ -45,27 +44,5 @@
             "0"
         ],
         "action": "Click"
-    },
-    "返回主菜单_sub": {
-        "timeout_next": [
-            "空任务"
-        ],
-        "is_sub": true,
-        "recognition": "OCR",
-        "roi": [
-            238,
-            27,
-            78,
-            38
-        ],
-        "expected": "主界面",
-        "action": "Click",
-        "target": [
-            238,
-            27,
-            78,
-            38
-        ]
-    },
-    "空任务": {}
+    }
 }
