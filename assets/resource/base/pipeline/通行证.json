@@ -10,20 +10,8 @@
     },
     "系统自动领取": {
         "recognition": "OCR",
-        "roi": [
-            315,
-            188,
-            210,
-            56
-        ],
-        "expected": "系统自动领取",
-        "action": "Click",
-        "target": [
-            769,
-            501,
-            5,
-            3
-        ]
+        "expected": "确定",
+        "action": "Click"
     },
     "评定任务": {
         "recognition": "OCR",
