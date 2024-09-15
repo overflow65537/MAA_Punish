@@ -1,19 +1,41 @@
 {
     "通行证": {
         "next": [
+            "系统自动领取",
             "评定任务"
         ],
         "interrupt": [
             "关闭奖励",
-            "系统自动领取",
-            "打开通行证",
-            "返回主菜单"
+            "打开通行证"
         ]
     },
     "系统自动领取": {
         "recognition": "OCR",
+        "roi": [
+            328,
+            191,
+            196,
+            49
+        ],
+        "expected": "系统自动领取",
+        "action": "Click",
+        "next": [
+            "系统自动领取_确定"
+        ]
+    },
+    "系统自动领取_确定": {
+        "recognition": "OCR",
+        "roi": [
+            734,
+            479,
+            80,
+            44
+        ],
         "expected": "确定",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "通行证"
+        ]
     },
     "评定任务": {
         "recognition": "OCR",
