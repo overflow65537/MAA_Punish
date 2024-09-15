@@ -8,8 +8,21 @@
             "购买",
             "检查碎片",
             "滑动",
-            "打开商店"
+            "打开商店",
+            "错误点击_商品"
         ]
+    },
+    "错误点击_商品": {
+        "post_wait_freezes": 500,
+        "recognition": "TemplateMatch",
+        "roi": [
+            1195,
+            30,
+            61,
+            61
+        ],
+        "template": "购买碎片/关闭_1195_30_61_61__1119_0_161_161.png",
+        "action": "Click"
     },
     "检查碎片": {
         "post_delay": 1000,
@@ -68,12 +81,18 @@
         "post_delay": 2000,
         "recognition": "OCR",
         "roi": [
-            729,
-            648,
-            70,
-            40
+            536,
+            205,
+            217,
+            41
         ],
-        "expected": "购买",
+        "expected": "逆元碎片",
+        "target": [
+            768,
+            666,
+            0,
+            0
+        ],
         "action": "Click"
     },
     "购买碎片成功": {
@@ -97,6 +116,7 @@
         ]
     },
     "购买碎片失败": {
+        "post_wait_freezes": 500,
         "recognition": "OCR",
         "roi": [
             521,
@@ -107,8 +127,8 @@
         "expected": "超过商店可购买的数量",
         "action": "Click",
         "target": [
-            1,
-            0,
+            646,
+            115,
             0,
             0
         ],
@@ -117,6 +137,7 @@
         ]
     },
     "关闭界面": {
+        "post_wait_freezes": 500,
         "recognition": "TemplateMatch",
         "roi": [
             1195,
