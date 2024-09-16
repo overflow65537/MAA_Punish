@@ -62,6 +62,7 @@
         "action": "Click"
     },
     "检查限购": {
+        "post_wait_freezes": 500,
         "recognition": "OCR",
         "roi": [
             349,
@@ -76,6 +77,7 @@
         "action": "Click"
     },
     "领取": {
+        "post_wait_freezes": 500,
         "recognition": "OCR",
         "roi": [
             599,
