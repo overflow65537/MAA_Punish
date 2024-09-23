@@ -358,15 +358,16 @@
     },
     "开始制造": {
         "post_delay": 1000,
-        "recognition": "OCR",
+        "threshold": 0.9,
+        "recognition": "TemplateMatch",
         "roi": [
-            476,
-            624,
-            40,
-            37
+            470,
+            613,
+            51,
+            54
         ],
-        "expected": [
-            "3"
+        "template": [
+            "宿舍委托\\开始制造.png"
         ],
         "action": "Click",
         "target": [
