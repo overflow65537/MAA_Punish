@@ -48,5 +48,22 @@
             "0"
         ],
         "action": "Click"
+    },
+    "意外点击_主界面": {
+        "recognition": "OCR",
+        "roi": [
+            758,
+            199,
+            361,
+            368
+        ],
+        "expected": "库街区",
+        "action": "Click",
+        "target": [
+            10,
+            10,
+            0,
+            0
+        ]
     }
 }
