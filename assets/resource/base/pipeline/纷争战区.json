@@ -1,0 +1,164 @@
+{
+    "纷争战区战斗": {
+        "next": [
+            "纷争战区内部"
+        ],
+        "interrupt": [
+            "战斗准备",
+            "作战开始",
+            "战斗中",
+            "退出战斗",
+            "打开战斗",
+            "打开纷争战区"
+        ]
+    },
+    "纷争战区内部": {
+        "recognition": "OCR",
+        "roi": [
+            448,
+            114,
+            73,
+            70
+        ],
+        "expected": [
+            "积分",
+            "排行"
+        ],
+        "next": [
+            "首通未完成",
+            "首通已完成"
+        ]
+    },
+    "首通未完成": {
+        "recognition": "OCR",
+        "roi": [
+            544,
+            45,
+            722,
+            666
+        ],
+        "expected": "未挑战",
+        "action": "Click",
+        "next": [
+            "纷争战区战斗"
+        ]
+    },
+    "首通已完成": {
+        "inverse": true,
+        "recognition": "OCR",
+        "roi": [
+            544,
+            45,
+            722,
+            666
+        ],
+        "expected": "未挑战",
+        "next": [
+            "进入战区奖励",
+            "返回主菜单"
+        ]
+    },
+    "进入战区奖励": {
+        "recognition": "OCR",
+        "roi": [
+            1189,
+            502,
+            58,
+            52
+        ],
+        "expected": [
+            "任务"
+        ],
+        "action": "Click",
+        "next": [
+            "领取战区奖励",
+            "返回主菜单"
+        ]
+    },
+    "领取战区奖励": {
+        "recognition": "OCR",
+        "roi": [
+            1034,
+            132,
+            210,
+            538
+        ],
+        "expected": "^领取$",
+        "action": "Click",
+        "next": [
+            "领取战区奖励",
+            "返回主菜单"
+        ],
+        "interrupt": [
+            "关闭奖励"
+        ]
+    },
+    "打开纷争战区": {
+        "recognition": "OCR",
+        "roi": [
+            56,
+            331,
+            506,
+            44
+        ],
+        "expected": "纷争战区",
+        "action": "Click"
+    },
+    "战斗准备": {
+        "recognition": "OCR",
+        "roi": [
+            1020,
+            644,
+            109,
+            53
+        ],
+        "expected": "战斗准备",
+        "action": "Click"
+    },
+    "作战开始": {
+        "recognition": "OCR",
+        "roi": [
+            1032,
+            641,
+            148,
+            53
+        ],
+        "expected": "作战开始",
+        "action": "Click"
+    },
+    "战斗中": {
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            990,
+            567,
+            131,
+            131
+        ],
+        "template": "战斗\\闪避.png",
+        "action": "Swipe",
+        "begin": [
+            179,
+            495,
+            0,
+            0
+        ],
+        "end": [
+            179,
+            495,
+            0,
+            0
+        ]
+    },
+    "退出战斗": {
+        "recognition": "OCR",
+        "roi": [
+            1051,
+            641,
+            113,
+            44
+        ],
+        "expected": "退出战斗",
+        "action": "Click"
+    }
+}
