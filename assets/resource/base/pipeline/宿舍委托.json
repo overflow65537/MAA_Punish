@@ -125,6 +125,7 @@
         "action": "Click"
     },
     "打开宿舍任务": {
+        "post_delay": 1000,
         "recognition": "TemplateMatch",
         "roi": [
             1181,
@@ -517,7 +518,8 @@
         "expected": "归队",
         "action": "Click",
         "next": [
-            "关闭委托完成通知"
+            "关闭委托完成通知",
+            "领取委托完成奖励"
         ]
     },
     "关闭委托完成通知": {
