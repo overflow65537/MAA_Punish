@@ -14,6 +14,7 @@
 - 指挥局抽签
 - 宿舍委托
 - 宿舍任务
+- 纷争战区自动首通
 - 维系者行动
 - 领取邮件
 - 商店自动购买逆元碎片
@@ -25,7 +26,7 @@
 
 ### [MFAWPF](https://github.com/SweetSmellFox/MFAWPF)
  由社区大佬[SweetSmellFox](https://github.com/SweetSmellFox)编写的基于WPF的GUI,通过内置的MAAframework来直接控制任务流程
- -下载`MPA-win-x86_64-with-GUI-vXXX.zip`
+ - 下载`MPA-win-x86_64-with-GUI-vXXX.zip`
   
 ## 使用说明
 
