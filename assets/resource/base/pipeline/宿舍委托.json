@@ -295,7 +295,22 @@
         "expected": "体力",
         "action": "Click",
         "next": [
+            "执勤界面主菜单"
+        ],
+        "interrupt": [
             "点击开始执勤"
+        ]
+    },
+    "执勤界面主菜单": {
+        "recognition": "OCR",
+        "roi": [
+            366,
+            105,
+            90,
+            52
+        ],
+        "expected": [
+            "执勤"
         ]
     },
     "休息中": {
