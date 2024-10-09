@@ -99,7 +99,26 @@
         ],
         "action": "Click",
         "next": [
+            "战区奖励已领取"
+        ],
+        "interrupt": [
             "领取战区奖励",
+            "关闭奖励"
+        ]
+    },
+    "战区奖励已领取": {
+        "recognition": "OCR",
+        "roi": [
+            1054,
+            159,
+            176,
+            65
+        ],
+        "expected": [
+            "前往",
+            "^已领取$"
+        ],
+        "next": [
             "返回主菜单"
         ]
     },
@@ -112,14 +131,7 @@
             538
         ],
         "expected": "^领取$",
-        "action": "Click",
-        "next": [
-            "领取战区奖励",
-            "返回主菜单"
-        ],
-        "interrupt": [
-            "关闭奖励"
-        ]
+        "action": "Click"
     },
     "打开纷争战区": {
         "recognition": "OCR",
