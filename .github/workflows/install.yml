@@ -100,7 +100,7 @@ jobs:
           repository: MaaXYZ/MaaFramework
           fileName: "MAA-win-${{ matrix.arch }}*"
           latest: true
-          out-file-path: "MFA"
+          out-file-path: MFA
           extract: true
 
       - name: Install
