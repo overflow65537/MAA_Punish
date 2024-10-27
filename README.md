@@ -22,6 +22,8 @@
 - 自动刷拟战场域(需解锁自动作战)
 - 领取凭证和任务奖励
   
+## 反馈QQ群
+- 965061066
 ## 图形化界面
 
 ### [MFAWPF](https://github.com/SweetSmellFox/MFAWPF)
