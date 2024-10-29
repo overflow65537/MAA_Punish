@@ -102,11 +102,20 @@ jobs:
           latest: true
           out-file-path: "deps"
           extract: true
+      - name: Download Latest MFAWPF  
+        uses: robinraju/release-downloader@v1  
+        with:  
+          repository: SweetSmellFox/MFAWPF  
+          fileName: MFAWPF*
+          latest: true  
+          out-file-path: MFAWPF  
+          extract: true  
 
       - name: Install
         shell: bash
         run: |
           python ./install.py ${{ needs.meta.outputs.tag }}
+          cp ./MFAWPF/MFAWPF.exe ./install/
 
       - uses: actions/upload-artifact@v4
         with:
