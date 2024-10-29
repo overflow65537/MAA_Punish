@@ -479,8 +479,78 @@
         "expected": "编入队伍",
         "action": "Click",
         "next": [
+            "编入队伍_next"
+        ]
+    },
+    "编入队伍_next": {
+        "next": [
+            "是否为队长",
             "作战开始"
         ]
+    },
+    "是否为队长": {
+        "recognition": "OCR",
+        "roi": [
+            36,
+            627,
+            133,
+            40
+        ],
+        "expected": [
+            "未选择队长"
+        ],
+        "next": [
+            "队长选择完毕"
+        ],
+        "interrupt": [
+            "选择队长",
+            "选择更换按钮"
+        ]
+    },
+    "队长选择完毕": {
+        "recognition": "OCR",
+        "roi": [
+            264,
+            487,
+            788,
+            98
+        ],
+        "expected": [
+            "当前选择"
+        ],
+        "action": "Click",
+        "target": [
+            10,
+            10,
+            0,
+            0
+        ],
+        "next": [
+            "编入队伍_next"
+        ]
+    },
+    "选择更换按钮": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            288,
+            623,
+            78,
+            46
+        ],
+        "expected": "更换",
+        "action": "Click"
+    },
+    "选择队长": {
+        "recognition": "OCR",
+        "roi": [
+            264,
+            487,
+            788,
+            98
+        ],
+        "expected": "选择",
+        "action": "Click"
     },
     "保存分数": {
         "recognition": "OCR",
