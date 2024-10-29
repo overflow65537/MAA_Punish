@@ -181,7 +181,165 @@
             53
         ],
         "expected": "战斗准备",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "清除队伍_战区"
+        ]
+    },
+    "清除队伍_战区": {
+        "next": [
+            "队伍净空_红_战区"
+        ],
+        "interrupt": [
+            "清空红色位"
+        ]
+    },
+    "队伍净空_红_战区": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            571,
+            388,
+            145,
+            109
+        ],
+        "template": "幻痛囚笼\\队伍净空_红.png",
+        "next": [
+            "队伍净空_黄_战区"
+        ],
+        "interrupt": [
+            "清空黄色位"
+        ]
+    },
+    "队伍净空_黄_战区": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            223,
+            346,
+            132,
+            118
+        ],
+        "template": "幻痛囚笼\\队伍净空_蓝黄.png",
+        "next": [
+            "队伍净空_蓝_战区"
+        ],
+        "interrupt": [
+            "清空蓝色位"
+        ]
+    },
+    "队伍净空_蓝_战区": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            905,
+            351,
+            113,
+            108
+        ],
+        "template": "幻痛囚笼\\队伍净空_蓝黄.png",
+        "next": [
+            "选择人物_战区"
+        ]
+    },
+    "选择人物_战区": {
+        "recognition": "OCR",
+        "roi": [
+            204,
+            323,
+            852,
+            122
+        ],
+        "expected": "首发",
+        "action": "Click",
+        "next": [
+            "滑动_战区1"
+        ]
+    },
+    "滑动_战区1": {
+        "post_wait_freezes": 10,
+        "action": "Swipe",
+        "begin": [
+            195,
+            613,
+            0,
+            0
+        ],
+        "end": [
+            203,
+            79,
+            0,
+            0
+        ],
+        "next": [
+            "滑动_战区2"
+        ]
+    },
+    "滑动_战区2": {
+        "post_wait_freezes": 10,
+        "action": "Swipe",
+        "begin": [
+            195,
+            613,
+            0,
+            0
+        ],
+        "end": [
+            203,
+            79,
+            0,
+            0
+        ],
+        "next": [
+            "滑动_战区3"
+        ]
+    },
+    "滑动_战区3": {
+        "post_wait_freezes": 10,
+        "action": "Swipe",
+        "begin": [
+            195,
+            613,
+            0,
+            0
+        ],
+        "end": [
+            203,
+            79,
+            0,
+            0
+        ],
+        "next": [
+            "滑动_战区4"
+        ]
+    },
+    "滑动_战区4": {
+        "post_wait_freezes": 10,
+        "action": "Swipe",
+        "begin": [
+            195,
+            613,
+            0,
+            0
+        ],
+        "end": [
+            203,
+            79,
+            0,
+            0
+        ],
+        "next": [
+            "选择最后一位人物_战区"
+        ]
+    },
+    "选择最后一位人物_战区": {
+        "action": "Click",
+        "target": [
+            185,
+            591,
+            0,
+            0
+        ],
+        "next": [
+            "编入队伍"
+        ]
     },
     "作战开始": {
         "post_delay": 15000,
