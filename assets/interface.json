@@ -1,4 +1,8 @@
 {
+    "name": "MPA",
+    "url": "https://github.com/overflow65537/MAA_Punish",
+    "custom_title": "MFAWPF_MPA",
+    "default_controller": "adb",
     "controller": [
         {
             "name": "安卓端",
