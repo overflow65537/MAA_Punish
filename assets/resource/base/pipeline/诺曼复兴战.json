@@ -33,7 +33,7 @@
             "当前难度下使用不多于"
         ],
         "next": [
-            "返回主菜单_err"
+            "返回主菜单"
         ]
     },
     "当前矿区清理完成": {
@@ -44,7 +44,7 @@
             691,
             96
         ],
-        "expected": "",
+        "expected": "AAAAAAAAAAA",
         "next": [
             "返回"
         ]
@@ -73,6 +73,7 @@
         "action": "Click"
     },
     "直达深巢": {
+        "post_delay": 500,
         "recognition": "OCR",
         "roi": [
             1006,
@@ -95,10 +96,10 @@
     "打开诺曼复兴战": {
         "recognition": "OCR",
         "roi": [
-            85,
-            337,
-            1194,
-            181
+            5,
+            315,
+            1274,
+            188
         ],
         "expected": "诺曼复兴战",
         "action": "Click"
@@ -114,10 +115,20 @@
         "expected": "挑战",
         "action": "Click",
         "next": [
-            "滑动"
+            "滑动_诺曼复兴战",
+            "打开诺曼复兴战"
         ]
     },
     "滑动_诺曼复兴战": {
+        "inverse": true,
+        "recognition": "OCR",
+        "roi": [
+            5,
+            315,
+            1274,
+            188
+        ],
+        "expected": "诺曼复兴战",
         "action": "Swipe",
         "begin": [
             100,
