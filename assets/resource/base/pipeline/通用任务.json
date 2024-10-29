@@ -76,5 +76,16 @@
             "返回主菜单",
             "返回主菜单_图标"
         ]
+    },
+    "意外点击_物品": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1130,
+            24,
+            124,
+            96
+        ],
+        "template": "幻痛囚笼\\关闭奖励.png",
+        "action": "Click"
     }
 }
