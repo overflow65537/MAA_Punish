@@ -7,7 +7,6 @@
         "interrupt": [
             "保存分数",
             "确认目标",
-            "尝试自动作战",
             "战斗中",
             "手动作战",
             "查找目标",
@@ -129,17 +128,6 @@
         "next": [
             "返回"
         ]
-    },
-    "尝试自动作战": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            755,
-            649,
-            131,
-            53
-        ],
-        "template": "幻痛囚笼\\自动作战.png",
-        "action": "Click"
     },
     "查找目标": {
         "recognition": "OCR",
