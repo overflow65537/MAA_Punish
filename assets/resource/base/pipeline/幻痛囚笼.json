@@ -146,12 +146,32 @@
     "选择区域": {
         "recognition": "OCR",
         "roi": [
-            233,
-            91,
-            949,
-            302
+            796,
+            216,
+            111,
+            51
         ],
-        "expected": "终极区",
+        "expected": "终级区",
+        "action": "Click",
+        "target_offset": [
+            0,
+            150,
+            0,
+            0
+        ],
+        "next": [
+            "确认区域选择"
+        ]
+    },
+    "确认区域选择": {
+        "recognition": "OCR",
+        "roi": [
+            921,
+            580,
+            113,
+            46
+        ],
+        "expected": "确定",
         "action": "Click"
     },
     "打开幻痛囚笼": {
