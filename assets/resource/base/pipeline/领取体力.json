@@ -81,10 +81,10 @@
         "post_wait_freezes": 500,
         "recognition": "OCR",
         "roi": [
-            599,
-            643,
-            100,
-            35
+            1073,
+            632,
+            162,
+            60
         ],
         "expected": [
             "免费",

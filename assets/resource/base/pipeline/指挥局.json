@@ -160,27 +160,5 @@
             "返回",
             "返回_图标"
         ]
-    },
-    "返回": {
-        "recognition": "OCR",
-        "roi": [
-            76,
-            18,
-            62,
-            34
-        ],
-        "expected": "返回",
-        "action": "Click"
-    },
-    "返回_图标": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            27,
-            10,
-            51,
-            53
-        ],
-        "template": "指挥局\\返回.png",
-        "action": "Click"
     }
 }
