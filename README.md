@@ -24,8 +24,9 @@
 - 自动刷拟战场域(需解锁自动作战)
 - 领取凭证和任务奖励
   
-## 反馈QQ群
-- 965061066
+## 注意事项
+- 打开无法运行首先尝试安装运行库 https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170
+- 如有其他问题可以提交issue或者加群反馈965061066
 ## 图形化界面
 
 ### [MFAWPF](https://github.com/SweetSmellFox/MFAWPF)
