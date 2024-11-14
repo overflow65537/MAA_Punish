@@ -106,7 +106,8 @@
             "关闭奖励",
             "返回",
             "返回_图标"
-        ]
+        ],
+        "on_error": []
     },
     "意外点击_物品": {
         "recognition": "TemplateMatch",
