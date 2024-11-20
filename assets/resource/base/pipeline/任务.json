@@ -67,7 +67,10 @@
             50,
             30
         ],
-        "expected": "任务",
+        "expected": [
+            "任务",
+            "任笋"
+        ],
         "action": "Click",
         "next": [
             "选择活动战斗",
