@@ -30,6 +30,7 @@
         ]
     },
     "打开挑战_纷争战区": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             1130,
@@ -56,13 +57,13 @@
         "expected": "纷争战区",
         "action": "Swipe",
         "begin": [
-            100,
+            800,
             400,
             0,
             0
         ],
         "end": [
-            800,
+            400,
             400,
             0,
             0
@@ -173,6 +174,7 @@
         "action": "Click"
     },
     "战斗准备": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             1020,

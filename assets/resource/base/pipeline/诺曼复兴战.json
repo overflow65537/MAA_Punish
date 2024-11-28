@@ -198,6 +198,7 @@
         "action": "Click"
     },
     "打开挑战_诺曼复兴战": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             1130,
@@ -224,13 +225,13 @@
         "expected": "诺曼复兴战",
         "action": "Swipe",
         "begin": [
-            100,
+            800,
             400,
             0,
             0
         ],
         "end": [
-            800,
+            400,
             400,
             0,
             0

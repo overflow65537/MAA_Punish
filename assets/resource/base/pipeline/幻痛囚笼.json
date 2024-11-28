@@ -204,19 +204,20 @@
         "expected": "幻痛囚笼",
         "action": "Swipe",
         "begin": [
-            100,
+            800,
             400,
             0,
             0
         ],
         "end": [
-            800,
+            400,
             400,
             0,
             0
         ]
     },
     "打开挑战_幻痛囚笼": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             1130,
@@ -232,7 +233,7 @@
         ]
     },
     "手动作战": {
-        "post_delay": 500,
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             1029,
@@ -289,6 +290,14 @@
         "action": "Click"
     },
     "清空红色位": {
+        "recognition": "OCR",
+        "roi": [
+            1032,
+            641,
+            148,
+            53
+        ],
+        "expected": "作战开始",
         "action": "Click",
         "target": [
             635,
@@ -301,6 +310,14 @@
         ]
     },
     "清空黄色位": {
+        "recognition": "OCR",
+        "roi": [
+            1032,
+            641,
+            148,
+            53
+        ],
+        "expected": "作战开始",
         "action": "Click",
         "target": [
             961,
@@ -313,6 +330,14 @@
         ]
     },
     "清空蓝色位": {
+        "recognition": "OCR",
+        "roi": [
+            1032,
+            641,
+            148,
+            53
+        ],
+        "expected": "作战开始",
         "action": "Click",
         "target": [
             287,
