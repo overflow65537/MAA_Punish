@@ -10,6 +10,7 @@
         ]
     },
     "每日任务": {
+        "post_delay": 1000,
         "recognition": "TemplateMatch",
         "threshold": 0.9,
         "roi": [
