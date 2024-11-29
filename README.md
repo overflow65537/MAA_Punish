@@ -27,6 +27,8 @@
 ## 注意事项
 - 打开无法运行首先尝试安装运行库 https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170
 - 如有其他问题可以提交issue或者加群反馈965061066
+- pc 端需先启动游戏
+
 ## 图形化界面
 
 ### [MFAWPF](https://github.com/SweetSmellFox/MFAWPF)
@@ -34,6 +36,8 @@
  - 下载`MPA-win-x86_64-vXXX.zip`
  - 运行`MFAWPF.exe`
   
+战双pc端时左上角点击 `win32`，下拉列表中选择 `战双帕弥什`， 捕获方式选择 `GDI`，触控模式选择 `Seize`
+
 ## 使用说明
 
 下载地址：<https://github.com/overflow65537/MAA_Punish/releases>
