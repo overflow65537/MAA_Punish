@@ -8,6 +8,16 @@
         {
             "name": "安卓端",
             "type": "Adb"
+        },
+        {
+            "name": "桌面端",
+            "type": "Win32",
+            "win32": {
+                "class_regex": ".*",
+                "window_regex": "战双帕弥什",
+                "screencap": 1,
+                "input": 1
+            }
         }
     ],
     "resource": [
