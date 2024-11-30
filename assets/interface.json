@@ -92,7 +92,7 @@
     ],
     "option": {
         "使用临期体力": {
-            "case": [
+            "cases": [
                 {
                     "name": "是",
                     "pipeline_override": {
