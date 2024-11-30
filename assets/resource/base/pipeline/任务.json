@@ -35,9 +35,9 @@
         "recognition": "TemplateMatch",
         "roi": [
             11,
-            373,
-            228,
-            68
+            334,
+            255,
+            142
         ],
         "template": "任务\\每周任务.png",
         "action": "Click",
@@ -52,9 +52,9 @@
         "threshold": 0.9,
         "roi": [
             0,
-            243,
-            308,
-            200
+            238,
+            272,
+            151
         ],
         "template": "任务\\每日_32_293_208_40__0_243_308_140.png",
         "action": "Click"
@@ -81,10 +81,10 @@
     "选择活动战斗": {
         "recognition": "OCR",
         "roi": [
-            21,
-            473,
-            103,
-            49
+            16,
+            372,
+            113,
+            150
         ],
         "expected": "活动",
         "action": "Click"
