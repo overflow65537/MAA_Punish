@@ -68,7 +68,10 @@
         },
         {
             "name": "拟战场域",
-            "entry": "拟战场域"
+            "entry": "拟战场域",
+            "option": [
+                "使用临期体力"
+            ]
         },
         {
             "name": "守护者行动",
@@ -86,5 +89,36 @@
             "name": "结束游戏",
             "entry": "停止"
         }
-    ]
+    ],
+    "option": {
+        "使用临期体力": {
+            "case": [
+                {
+                    "name": "是",
+                    "pipeline_override": {
+                        "补给包不足_拟战场域": {
+                            "enabled": true
+                        },
+                        "暂无血清组可使用": {
+                            "enabled": true
+                        },
+                        "使用体力界面": {
+                            "enabled": true
+                        },
+                        "结束战斗任务_使用体力": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "否",
+                    "pipeline_override": {
+                        "结束战斗任务_不使用体力": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        }
+    }
 }

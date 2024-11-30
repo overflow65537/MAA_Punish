@@ -3,11 +3,12 @@
         "post_delay": 1000,
         "next": [
             "补给包不足_拟战场域",
-            "结束战斗任务"
+            "暂无血清组可使用",
+            "使用体力界面",
+            "结束战斗任务_不使用体力"
         ],
         "interrupt": [
-            "体力不足",
-            "体力不足_拟战场域",
+            "结束战斗任务_使用体力",
             "退出战斗_拟战场域",
             "开始自动战斗",
             "选择战斗_拟战场域",
@@ -17,7 +18,23 @@
             "意外点击_主界面"
         ]
     },
-    "结束战斗任务": {
+    "结束战斗任务_不使用体力": {
+        "enabled": false,
+        "post_delay": 3500,
+        "recognition": "OCR",
+        "roi": [
+            561,
+            331,
+            171,
+            56
+        ],
+        "expected": "体力不足",
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "暂无血清组可使用": {
+        "enabled": false,
         "post_delay": 3500,
         "recognition": "OCR",
         "roi": [
@@ -32,7 +49,8 @@
             "返回主菜单"
         ]
     },
-    "体力不足_拟战场域": {
+    "结束战斗任务_使用体力": {
+        "enabled": false,
         "post_delay": 3500,
         "recognition": "OCR",
         "roi": [
@@ -145,17 +163,6 @@
         "expected": "自动作战",
         "action": "Click"
     },
-    "自动战斗": {
-        "recognition": "OCR",
-        "expected": "确认出战",
-        "action": "Click",
-        "next": [
-            "补给包不足",
-            "结束战斗任务",
-            "体力不足",
-            "退出战斗"
-        ]
-    },
     "退出战斗_拟战场域": {
         "recognition": "OCR",
         "roi": [
@@ -195,6 +202,7 @@
         ]
     },
     "补给包不足_拟战场域": {
+        "enabled": false,
         "recognition": "OCR",
         "roi": [
             341,
@@ -214,28 +222,73 @@
             "返回主菜单"
         ]
     },
-    "体力不足": {
-        "post_delay": 3500,
+    "使用体力界面": {
+        "enabled": true,
+        "post_delay": 1500,
         "recognition": "TemplateMatch",
         "roi": [
-            60,
-            9,
-            808,
-            613
+            319,
+            183,
+            61,
+            56
         ],
-        "template": "战斗\\使用体力界面_416_207_91_95__366_157_191_195.png",
+        "template": "战斗\\取消选择体力药.png",
         "action": "Click",
-        "target": [
-            920,
-            610,
-            0,
-            0
+        "next": [
+            "使用体力界面",
+            "选择临期体力",
+            "退出血清界面_无临期体力"
+        ]
+    },
+    "选择临期体力": {
+        "recognition": "OCR",
+        "roi": [
+            235,
+            175,
+            485,
+            379
         ],
+        "expected": [
+            "1天",
+            "2天",
+            "5天"
+        ],
+        "action": "Click",
+        "next": [
+            "确认使用"
+        ]
+    },
+    "确认使用": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            864,
+            588,
+            77,
+            45
+        ],
+        "expected": "确定",
+        "action": "Click",
         "next": [
             "退出血清界面"
         ],
         "interrupt": [
             "关闭奖励"
+        ]
+    },
+    "退出血清界面_无临期体力": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            601,
+            533,
+            266,
+            148
+        ],
+        "expected": "取消",
+        "action": "Click",
+        "next": [
+            "返回主菜单"
         ]
     },
     "退出血清界面": {
@@ -248,7 +301,10 @@
             148
         ],
         "expected": "取消",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "拟战场域"
+        ]
     },
     "退出自动作战": {
         "recognition": "OCR",
