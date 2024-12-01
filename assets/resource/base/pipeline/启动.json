@@ -45,7 +45,7 @@
             60
         ],
         "expected": [
-            "你在纷争战区英勇奋战"
+            "你在纷争战区"
         ],
         "action": "Click",
         "target": [
