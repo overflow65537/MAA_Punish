@@ -223,7 +223,7 @@
         ]
     },
     "使用体力界面": {
-        "enabled": true,
+        "enabled": false,
         "post_delay": 1500,
         "recognition": "TemplateMatch",
         "roi": [
