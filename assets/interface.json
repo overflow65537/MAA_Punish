@@ -96,25 +96,25 @@
                 {
                     "name": "是",
                     "pipeline_override": {
-                        "补给包不足_拟战场域": {
-                            "enabled": true
-                        },
-                        "暂无血清组可使用": {
-                            "enabled": true
-                        },
-                        "使用体力界面": {
-                            "enabled": true
-                        },
-                        "结束战斗任务_使用体力": {
-                            "enabled": true
+                        "结束战斗任务_不使用体力": {
+                            "enabled": false
                         }
                     }
                 },
                 {
                     "name": "否",
                     "pipeline_override": {
-                        "结束战斗任务_不使用体力": {
-                            "enabled": true
+                        "补给包不足_拟战场域": {
+                            "enabled": false
+                        },
+                        "暂无血清组可使用": {
+                            "enabled": false
+                        },
+                        "使用体力界面": {
+                            "enabled": false
+                        },
+                        "结束战斗任务_使用体力": {
+                            "enabled": false
                         }
                     }
                 }

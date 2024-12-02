@@ -19,7 +19,6 @@
         ]
     },
     "结束战斗任务_不使用体力": {
-        "enabled": false,
         "post_delay": 3500,
         "recognition": "OCR",
         "roi": [
@@ -34,7 +33,6 @@
         ]
     },
     "暂无血清组可使用": {
-        "enabled": false,
         "post_delay": 3500,
         "recognition": "OCR",
         "roi": [
@@ -50,7 +48,6 @@
         ]
     },
     "结束战斗任务_使用体力": {
-        "enabled": false,
         "post_delay": 3500,
         "recognition": "OCR",
         "roi": [
@@ -202,7 +199,6 @@
         ]
     },
     "补给包不足_拟战场域": {
-        "enabled": false,
         "recognition": "OCR",
         "roi": [
             341,
@@ -223,7 +219,6 @@
         ]
     },
     "使用体力界面": {
-        "enabled": false,
         "post_delay": 1500,
         "recognition": "TemplateMatch",
         "roi": [
