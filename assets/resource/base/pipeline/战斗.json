@@ -246,7 +246,7 @@
         "expected": [
             "1天",
             "2天",
-            "5天"
+            "3天"
         ],
         "action": "Click",
         "next": [
