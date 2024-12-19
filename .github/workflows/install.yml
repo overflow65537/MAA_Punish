@@ -48,6 +48,28 @@ jobs:
     outputs:
       tag: ${{ steps.set_tag.outputs.tag }}
       is_release: ${{ steps.set_tag.outputs.is_release }}
+  update:
+    needs: meta
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+    
+      - name: update
+        shell: bash
+        run: |
+          mkdir -p ./update
+          rsync -av --exclude='MaaCommonAssets' ./assets/ ./update/
+    
+    
+      - uses: actions/upload-artifact@v4
+        with:
+          name: update
+          path: "update"
 
   windows:
     needs: meta
@@ -154,42 +176,9 @@ jobs:
           name: MPA-macos-${{ matrix.arch }}
           path: "install"
 
-  android:
-    needs: meta
-    runs-on: macos-latest
-    strategy:
-      matrix:
-        arch: [aarch64, x86_64]
-      fail-fast: false
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: true
-
-      - name: Download MaaFramework
-        uses: robinraju/release-downloader@v1
-        with:
-          repository: MaaXYZ/MaaFramework
-          fileName: "MAA-android-${{ matrix.arch }}*"
-          latest: true
-          
-          out-file-path: "deps"
-          extract: true
-
-      - name: Install
-        shell: bash
-        run: |
-          python ./install.py ${{ needs.meta.outputs.tag }}
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: MPA-android-${{ matrix.arch }}
-          path: "install"
-
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
-    needs: [meta, windows, ubuntu, macos, android]
+    needs: [meta, windows, ubuntu, macos, update]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
