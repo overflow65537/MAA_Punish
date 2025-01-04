@@ -15,8 +15,8 @@
 - 宿舍委托
 - 宿舍任务
 - 纷争战区自动首通
-- 诺曼矿区自动首通(测试中)
-- 幻痛囚笼自动首通(测试中)
+- 诺曼矿区自动首通
+- 幻痛囚笼自动首通
 - 维系者行动
 - 领取邮件
 - 商店自动购买逆元碎片
@@ -33,6 +33,11 @@
  由社区大佬[SweetSmellFox](https://github.com/SweetSmellFox)编写的基于WPF的GUI,通过内置的MAAframework来直接控制任务流程
  - 下载`MPA-win-x86_64-vXXX.zip`
  - 运行`MFAWPF.exe`
+   
+### [MFW-PyQt6](https://github.com/overflow65537/MFW-PyQt6)
+ 一个基于PyQt6的MAAFramework图形化操作界面
+ - 下载对应系统架构,后缀带有MFW-PyQt的压缩包,比如`MPA-win-x86_64-MFW-PyQt-vXXX.zip`
+ - 解压后运行main.exe或者MFW.exe
   
 ## 使用说明
 
