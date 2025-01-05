@@ -1,0 +1,90 @@
+{
+    "test": {
+        "action": "Custom",
+        "custom_action": "CrimsonWeave",
+        "next": [
+            "test"
+        ]
+    },
+    "检查红": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            348,
+            467,
+            919,
+            86
+        ],
+        "template": [
+            "自定义战斗\\深红囚影_红球.png"
+        ]
+    },
+    "检查黄": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            348,
+            467,
+            919,
+            86
+        ],
+        "template": [
+            "自定义战斗\\深红囚影_黄球.png"
+        ]
+    },
+    "检查蓝": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            348,
+            467,
+            919,
+            86
+        ],
+        "template": [
+            "自定义战斗\\深红囚影_蓝球.png"
+        ]
+    },
+    "检查u1": {
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "template": [
+            "自定义战斗\\深红囚影_u1.png",
+            "自定义战斗\\深红囚影_u2.png"
+        ],
+        "roi": [
+            809,
+            556,
+            159,
+            140
+        ]
+    },
+    "检查600": {
+        "recognition": "OCR",
+        "expected": "^(474|[4-5][0-9][0-9]|600)$",
+        "roi": [
+            473,
+            598,
+            41,
+            27
+        ]
+    },
+    "检查u2": {
+        "recognition": "TemplateMatch",
+        "green_mask": true,
+        "template": "自定义战斗\\深红囚影_u2.png",
+        "roi": [
+            809,
+            556,
+            159,
+            140
+        ]
+    },
+    "检查短刀": {
+        "recognition": "OCR",
+        "expected": "^(0|[1-5][0-9][0-9]|600)$",
+        "roi": [
+            540,
+            598,
+            37,
+            28
+        ]
+    }
+}
