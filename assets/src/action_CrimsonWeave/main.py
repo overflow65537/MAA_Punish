@@ -8,10 +8,10 @@ class CrimsonWeave(CustomAction):
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
         image = context.tasker.controller.post_screencap().wait().get()
-        uskill_status = context.run_recognition("检查短刀", image)
+        uskill_status = context.run_recognition("检查短刀_囚影", image)
         if uskill_status:
             print("短刀流程")
-            blue_ball = context.run_recognition("检查蓝", image)
+            blue_ball = context.run_recognition("检查蓝_囚影", image)
             if blue_ball:  # 检查是否有蓝球
                 x, y = (
                     blue_ball.best_result.box[0] + blue_ball.best_result.box[2] // 2,
@@ -20,14 +20,12 @@ class CrimsonWeave(CustomAction):
                 context.tasker.controller.post_click(x, y).wait()
                 print("蓝球")
             image = context.tasker.controller.post_screencap().wait().get()
-            u1 = context.run_recognition("检查u1", image)
+            u1 = context.run_recognition("检查u1_囚影", image)
             if u1:  # 检查一段大招
-                context.tasker.controller.post_click(910, 631).wait()
+                context.tasker.controller.post_click(910, 631).wait() # 崩落的束缚化为利刃
                 return CustomAction.RunResult(success=True)
-            print("没有大招")
         else:
-            print("长刀流程")
-            red_ball = context.run_recognition("检查红", image)
+            red_ball = context.run_recognition("检查红_囚影", image)
 
             if red_ball:  # 检查是否有红球
                 x, y = (
@@ -40,7 +38,7 @@ class CrimsonWeave(CustomAction):
                 print("红球")
                 return CustomAction.RunResult(success=True)
 
-            yellow_ball = context.run_recognition("检查黄", image)
+            yellow_ball = context.run_recognition("检查黄_囚影", image)
             if yellow_ball:  # 检查是否有黄球
                 x, y = (
                     yellow_ball.best_result.box[0]
@@ -54,23 +52,22 @@ class CrimsonWeave(CustomAction):
                 print("黄球")
                 return CustomAction.RunResult(success=True)
 
-            non_light_value = context.run_recognition("检查600", image)  # 无光值600
+            non_light_value = context.run_recognition("检查无光值_囚影", image)
             if non_light_value:  # 检查无光值大于474
                 print("无光值大于474")
-                context.tasker.controller.post_swipe(1055, 629, 1055, 629, 2000).wait()
+                context.tasker.controller.post_swipe(1055, 629, 1055, 629, 2000).wait() # 生死只在一瞬
                 time.sleep(0.5)
                 context.tasker.controller.post_swipe(
                     1201, 632, 1201, 632, 2000
                 ).wait()  # 登龙
 
                 image = context.tasker.controller.post_screencap().wait().get()
-                u2 = context.run_recognition("检查u2", image)
+                u2 = context.run_recognition("检查u2_囚影", image)
                 if u2:  # 检查是否有u2
-                    print("u2")
                     while u2:
-                        print("点击u2")
-                        image = context.tasker.controller.post_screencap().wait().get()
-                        u2 = context.run_recognition("检查u2", image)
+                        image = context.tasker.controller.post_screencap().wait().get() # 宿命的囚笼由我斩断
+                        u2 = context.run_recognition("检查u2_囚影", image)
+                        print("u2")
                         context.tasker.controller.post_click(910, 631).wait()
         # context.tasker.controller.post_touch_down(183,442,1).wait()# 按前进
         context.tasker.controller.post_click(1055, 629).wait()  # 按一下闪避

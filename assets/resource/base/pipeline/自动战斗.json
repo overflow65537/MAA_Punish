@@ -1,12 +1,27 @@
 {
     "test": {
         "action": "Custom",
-        "custom_action": "CrimsonWeave",
+        "custom_action": "Stigmata",
         "next": [
             "test"
         ]
     },
-    "检查红": {
+    "检查残月值_终焉": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            506,
+            573,
+            267,
+            115
+        ],
+        "template": [
+            "自定义战斗\\终焉_满.png",
+            "自定义战斗\\终焉_满2.png"
+        ],
+        "green_mask": true,
+        "threshold": 0.9
+    },
+    "检查红_囚影": {
         "recognition": "TemplateMatch",
         "roi": [
             348,
@@ -18,7 +33,7 @@
             "自定义战斗\\深红囚影_红球.png"
         ]
     },
-    "检查黄": {
+    "检查黄_囚影": {
         "recognition": "TemplateMatch",
         "roi": [
             348,
@@ -30,7 +45,7 @@
             "自定义战斗\\深红囚影_黄球.png"
         ]
     },
-    "检查蓝": {
+    "检查蓝_囚影": {
         "recognition": "TemplateMatch",
         "roi": [
             348,
@@ -42,7 +57,7 @@
             "自定义战斗\\深红囚影_蓝球.png"
         ]
     },
-    "检查u1": {
+    "检查u1_囚影": {
         "green_mask": true,
         "recognition": "TemplateMatch",
         "template": [
@@ -56,7 +71,7 @@
             140
         ]
     },
-    "检查600": {
+    "检查无光值_囚影": {
         "recognition": "OCR",
         "expected": "^(474|[4-5][0-9][0-9]|600)$",
         "roi": [
@@ -66,7 +81,7 @@
             27
         ]
     },
-    "检查u2": {
+    "检查u2_囚影": {
         "recognition": "TemplateMatch",
         "green_mask": true,
         "template": "自定义战斗\\深红囚影_u2.png",
@@ -77,7 +92,7 @@
             140
         ]
     },
-    "检查短刀": {
+    "检查短刀_囚影": {
         "recognition": "OCR",
         "expected": "^(0|[1-5][0-9][0-9]|600)$",
         "roi": [
@@ -86,5 +101,66 @@
             37,
             28
         ]
+    },
+    "检查核心被动_深痕": {
+        "recognition": "ColorMatch",
+        "roi": [
+            994,
+            569,
+            122,
+            125
+        ],
+        "upper": [
+            169,
+            165,
+            204
+        ],
+        "lower": [
+            68,
+            69,
+            89
+        ]
+    },
+    "检查u2数值_深痕": {
+        "recognition": "OCR",
+        "roi": [
+            717,
+            601,
+            57,
+            31
+        ],
+        "expected": "^(?:[3-9]\\d|\\d{3,})$"
+    },
+    "检查u1_深痕": {
+        "recognition": "TemplateMatch",
+        "green_mask": true,
+        "roi": [
+            857,
+            578,
+            113,
+            112
+        ],
+        "template": "自定义战斗\\深痕_u1.png"
+    },
+    "检查u2_深痕": {
+        "recognition": "TemplateMatch",
+        "green_mask": true,
+        "roi": [
+            857,
+            578,
+            113,
+            112
+        ],
+        "template": "自定义战斗\\深痕_u2.png"
+    },
+    "检查阶段_深痕": {
+        "recognition": "OCR",
+        "roi": [
+            717,
+            601,
+            57,
+            31
+        ],
+        "expected": "^-?\\d+$"
     }
 }
