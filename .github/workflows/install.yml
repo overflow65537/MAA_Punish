@@ -86,35 +86,12 @@ jobs:
         with:
           submodules: true
 
-      - name: Download MaaFramework
-        uses: robinraju/release-downloader@v1
-        with:
-          repository: MaaXYZ/MaaFramework
-          fileName: "MAA-win-${{ matrix.arch }}*"
-          latest: true
-          out-file-path: "deps"
-          extract: true
-      - name: Download MFA
-        uses: robinraju/release-downloader@v1
-        if: matrix.arch == 'x86_64'
-        with:
-          repository: SweetSmellFox/MFAWPF
-          fileName: "MFAWPF-*"
-
-          latest: true
-          out-file-path: "MFA"
-          extract: true
-        
       - name: Install
         shell: bash
         run: |
+          pip install pyinstaller
+          pip install -r requirements.txt
           python ./install.py ${{ needs.meta.outputs.tag }}
-          
-      - name: Install MFA
-        if: matrix.arch == 'x86_64'
-        shell: bash
-        run: |
-          cp ./MFA/MFAWPF.exe ./install/MFAWPF.exe
         
       - uses: actions/upload-artifact@v4
         with:
@@ -157,18 +134,11 @@ jobs:
         with:
           submodules: true
 
-      - name: Download MaaFramework
-        uses: robinraju/release-downloader@v1
-        with:
-          repository: MaaXYZ/MaaFramework
-          fileName: "MAA-linux-${{ matrix.arch }}*"
-          latest: true
-          out-file-path: "deps"
-          extract: true
-
       - name: Install
         shell: bash
         run: |
+          pip install pyinstaller
+          pip install -r requirements.txt
           python ./install.py ${{ needs.meta.outputs.tag }}
 
       - uses: actions/upload-artifact@v4
@@ -212,18 +182,11 @@ jobs:
         with:
           submodules: true
 
-      - name: Download MaaFramework
-        uses: robinraju/release-downloader@v1
-        with:
-          repository: MaaXYZ/MaaFramework
-          fileName: "MAA-macos-${{ matrix.arch }}*"
-          latest: true
-          out-file-path: "deps"
-          extract: true
-
       - name: Install
         shell: bash
         run: |
+          pip install pyinstaller
+          pip install -r requirements.txt
           python ./install.py ${{ needs.meta.outputs.tag }}
 
       - uses: actions/upload-artifact@v4
