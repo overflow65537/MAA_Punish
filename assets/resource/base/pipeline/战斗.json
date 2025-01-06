@@ -11,6 +11,10 @@
             "结束战斗任务_使用体力",
             "退出战斗_拟战场域",
             "开始自动战斗",
+            "手动作战_custom",
+            "返回_拟战场域",
+            "作战开始",
+            "自动作战程序",
             "选择战斗_拟战场域",
             "打开拟战场域",
             "打开资源",
@@ -18,6 +22,41 @@
             "意外点击_主界面",
             "意外点击_限定活动"
         ]
+    },
+    "手动作战_custom": {
+        "post_delay": 500,
+        "recognition": "OCR",
+        "roi": [
+            1028,
+            638,
+            109,
+            44
+        ],
+        "expected": "多重挑战",
+        "action": "Click"
+    },
+    "返回_拟战场域": {
+        "recognition": "OCR",
+        "roi": [
+            1114,
+            648,
+            99,
+            43
+        ],
+        "expected": "返回",
+        "action": "Click"
+    },
+    "自动作战程序": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1013,
+            546,
+            200,
+            200
+        ],
+        "template": "战斗\\闪避.png",
+        "action": "Custom",
+        "custom_action": "GeneralFight"
     },
     "结束战斗任务_不使用体力": {
         "post_delay": 3500,
