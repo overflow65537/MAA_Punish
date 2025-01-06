@@ -1,7 +1,7 @@
 {
     "test": {
         "action": "Custom",
-        "custom_action": "Stigmata",
+        "custom_action": "Pyroath",
         "next": [
             "test"
         ]
@@ -162,5 +162,64 @@
             31
         ],
         "expected": "^-?\\d+$"
+    },
+    "检查u1_誓焰": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            837,
+            558,
+            163,
+            161
+        ],
+        "template": "自定义战斗\\誓焰_u1.png"
+    },
+    "检查u2_誓焰": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            837,
+            558,
+            163,
+            161
+        ],
+        "template": "自定义战斗\\誓焰_u2.png"
+    },
+    "检查u2max_誓焰": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            837,
+            558,
+            163,
+            161
+        ],
+        "template": "自定义战斗\\誓焰_u2max.png"
+    },
+    "检查u3_誓焰": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            837,
+            558,
+            163,
+            161
+        ],
+        "template": "自定义战斗\\誓焰_u3.png"
+    },
+    "检查p1动能条_誓焰": {
+        "recognition": "ColorMatch",
+        "roi": [
+            765,
+            622,
+            15,
+            16
+        ],
+        "upper": [
+            247,
+            243,
+            174
+        ],
+        "lower": [
+            233,
+            224,
+            148
+        ]
     }
 }
