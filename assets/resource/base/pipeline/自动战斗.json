@@ -1,7 +1,7 @@
 {
     "test": {
         "action": "Custom",
-        "custom_action": "Pyroath",
+        "custom_action": "LostLullaby",
         "next": [
             "test"
         ]
@@ -164,6 +164,7 @@
         "expected": "^-?\\d+$"
     },
     "检查u1_誓焰": {
+        "green_mask": true,
         "recognition": "TemplateMatch",
         "roi": [
             837,
@@ -174,6 +175,7 @@
         "template": "自定义战斗\\誓焰_u1.png"
     },
     "检查u2_誓焰": {
+        "green_mask": true,
         "recognition": "TemplateMatch",
         "roi": [
             837,
@@ -184,6 +186,7 @@
         "template": "自定义战斗\\誓焰_u2.png"
     },
     "检查u2max_誓焰": {
+        "green_mask": true,
         "recognition": "TemplateMatch",
         "roi": [
             837,
@@ -220,6 +223,91 @@
             233,
             224,
             148
+        ]
+    },
+    "检查阶段p1_深谣": {
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            1124,
+            563,
+            142,
+            135
+        ],
+        "template": "自定义战斗\\深谣_p1.png"
+    },
+    "检查阶段p2_深谣": {
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            1124,
+            563,
+            142,
+            135
+        ],
+        "template": "自定义战斗\\深谣_p2.png"
+    },
+    "检查u1_深谣": {
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            837,
+            558,
+            163,
+            161
+        ],
+        "template": "自定义战斗\\深谣_u1.png"
+    },
+    "检查u2_深谣": {
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            837,
+            558,
+            163,
+            161
+        ],
+        "template": "自定义战斗\\深谣_u2.png"
+    },
+    "检查核心被动1_深谣": {
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            1155,
+            458,
+            116,
+            101
+        ],
+        "template": "自定义战斗\\深谣_核心被动1.png"
+    },
+    "检查核心被动2_深谣": {
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            1155,
+            458,
+            116,
+            101
+        ],
+        "template": "自定义战斗\\深谣_核心被动2.png"
+    },
+    "检查p2动能条_深谣": {
+        "recognition": "ColorMatch",
+        "roi": [
+            738,
+            618,
+            15,
+            15
+        ],
+        "upper": [
+            191,
+            192,
+            255
+        ],
+        "lower": [
+            184,
+            184,
+            253
         ]
     }
 }
