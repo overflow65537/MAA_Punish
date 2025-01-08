@@ -43,7 +43,12 @@ class LostLullaby(CustomAction):
                         ).wait()  # 从我眼前,消失
                 else:
                     print("没有核心被动")
-                    context.tasker.controller.post_click(1195, 633).wait()
+                    start_time = time.time()
+                    while time.time() - start_time < 2:
+                        time.sleep(0.1)
+                        context.tasker.controller.post_click(
+                            1197, 636
+                        ).wait()  #攻击
                     context.tasker.controller.post_click(1104, 502).wait()
 
         elif context.run_recognition("检查阶段p2_深谣", image):
@@ -88,7 +93,12 @@ class LostLullaby(CustomAction):
                         ).wait()  # 毁灭吧
                 else:
                     print("没有核心被动")
-                    context.tasker.controller.post_click(1195, 633).wait()
+                    start_time = time.time()
+                    while time.time() - start_time < 2:
+                        time.sleep(0.1)
+                        context.tasker.controller.post_click(
+                            1197, 636
+                        ).wait()  #攻击
                     context.tasker.controller.post_click(1104, 502).wait()
         print("结束")
         return CustomAction.RunResult(success=True)

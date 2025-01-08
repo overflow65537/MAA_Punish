@@ -1,6 +1,6 @@
 from maa.context import Context
 from maa.custom_action import CustomAction
-
+import time
 
 class Oblivion(CustomAction):
     def run(
@@ -13,6 +13,12 @@ class Oblivion(CustomAction):
             context.tasker.controller.post_swipe(1193,633, 1193,633, 1000).wait()
         context.tasker.controller.post_click(915, 626).wait()  # 技能
         context.tasker.controller.post_click(1216, 504).wait()  # 消
-        context.tasker.controller.post_click(1202, 631).wait()  # 攻击
+        start_time = time.time()
+        while time.time() - start_time < 2:
+            time.sleep(0.1)
+            context.tasker.controller.post_click(
+                1197, 636
+            ).wait()  #攻击
+
         
         return CustomAction.RunResult(success=True)
