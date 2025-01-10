@@ -97,6 +97,8 @@
         "action": "Click"
     },
     "返回主菜单_err": {
+        "action": "Custom",
+        "custom_action": "ScreenShot",
         "next": [
             "检查主界面",
             "返回主菜单",
