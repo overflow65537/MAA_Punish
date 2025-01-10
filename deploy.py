@@ -100,7 +100,7 @@ interface_json_path = os.path.join(
 print(f"interface_json_path: {interface_json_path}")
 
 with open(interface_json_path, "r", encoding="utf-8") as f:
-    interface_data = json.load(f)
+    interface_data:dict = json.load(f)
 
 interface_data.update(new_data)
 
