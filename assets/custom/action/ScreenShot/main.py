@@ -10,8 +10,6 @@ class ScreenShot(CustomAction):
     ) -> CustomAction.RunResult:
         image = context.tasker.controller.post_screencap().wait().get()
 
-        
-        
         pil_image = Image.fromarray(image)
         r, g, b = pil_image.split()
         pil_image = Image.merge("RGB", (r, g, b))
