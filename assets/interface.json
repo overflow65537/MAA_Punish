@@ -90,11 +90,128 @@
             "entry": "停止"
         },
         {
-            "name": "肉鸽",
-            "entry": "肉鸽"
+            "name": "寒境曙光",
+            "entry": "肉鸽",
+            "option": [
+                "选择温度",
+                "选择效果"
+            ],
+            "pipeline_override": {
+                "点击宣叙妄响": {
+                    "enabled": false
+                },
+                "点击矩阵循生": {
+                    "enabled": false
+                },
+                "点击厄愿潮声": {
+                    "enabled": false
+                },
+                "宣叙妄响": {
+                    "enabled": false
+                },
+                "点击寒境曙光": {
+                    "enabled": true
+                }
+            }
         }
     ],
     "option": {
+        "选择温度": {
+            "cases": [
+                {
+                    "name": "常温",
+                    "pipeline_override": {
+                        "选择具体难度_寒境曙光": {
+                            "expected": "^常温$"
+                        }
+                    }
+                },
+                {
+                    "name": "初冷",
+                    "pipeline_override": {
+                        "选择具体难度_寒境曙光": {
+                            "expected": "^初冷$"
+                        }
+                    }
+                },
+                {
+                    "name": "微寒",
+                    "pipeline_override": {
+                        "选择具体难度_寒境曙光": {
+                            "expected": "^微寒$"
+                        }
+                    }
+                },
+                {
+                    "name": "冰冽",
+                    "pipeline_override": {
+                        "选择具体难度_寒境曙光": {
+                            "expected": "^冰冽$"
+                        }
+                    }
+                },
+                {
+                    "name": "严霜",
+                    "pipeline_override": {
+                        "选择具体难度_寒境曙光": {
+                            "expected": "^严霜$"
+                        }
+                    }
+                },
+                {
+                    "name": "极寒",
+                    "pipeline_override": {
+                        "选择具体难度_寒境曙光": {
+                            "expected": "^极寒$"
+                        }
+                    }
+                }
+            ]
+        },
+        "选择效果": {
+            "cases": [
+                {
+                    "name": "军事",
+                    "pipeline_override": {
+                        "选择具体开局_寒境曙光": {
+                            "expected": "^军事$"
+                        }
+                    }
+                },
+                {
+                    "name": "基建",
+                    "pipeline_override": {
+                        "选择具体开局_寒境曙光": {
+                            "expected": "^基建$"
+                        }
+                    }
+                },
+                {
+                    "name": "经济",
+                    "pipeline_override": {
+                        "选择具体开局_寒境曙光": {
+                            "expected": "^经济$"
+                        }
+                    }
+                },
+                {
+                    "name": "启动资金",
+                    "pipeline_override": {
+                        "选择具体开局_寒境曙光": {
+                            "expected": "^启动资金$"
+                        }
+                    }
+                },
+                {
+                    "name": "是",
+                    "pipeline_override": {
+                        "选择具体开局_寒境曙光": {
+                            "expected": "^启动资金$"
+                        }
+                    }
+                }
+            ]
+        },
         "使用临期体力": {
             "cases": [
                 {

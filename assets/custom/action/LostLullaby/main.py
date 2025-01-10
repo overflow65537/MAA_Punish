@@ -29,7 +29,7 @@ class LostLullaby(CustomAction):
                         context.tasker.controller.post_click(
                             1224, 513
                         ).wait()  # 从我眼前,消失
-                    time.sleep(0.2)
+                    time.sleep(0.1)
                     context.tasker.controller.post_click(1053, 631).wait()  # 闪避
                     time.sleep(0.2)
                     context.tasker.controller.post_click(1112, 510).wait()  # 消球
