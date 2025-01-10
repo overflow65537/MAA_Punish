@@ -449,3 +449,5 @@ tools/ImageCropper/**/*.png
 assets/config/maa_pi_config.json
 interface.json
 maapicli.spec
+.vscode/settings.json
+assets/README.md

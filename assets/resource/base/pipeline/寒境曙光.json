@@ -1,6 +1,6 @@
 {
     "寒境曙光": {
-        "post_delay": 500,
+        "post_delay": 1500,
         "recognition": "TemplateMatch",
         "roi": [
             994,
@@ -11,7 +11,7 @@
         "template": "寒境曙光\\启程.png",
         "action": "Click",
         "next": [
-            "寒境曙光主界面"
+            "寒境曙光"
         ],
         "interrupt": [
             "选择难度_寒境曙光",

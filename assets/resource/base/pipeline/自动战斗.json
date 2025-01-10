@@ -1,9 +1,28 @@
 {
     "test": {
-        "action": "Custom",
-        "custom_action": "LostLullaby",
         "next": [
-            "test"
+            "局内招募_寒境曙光"
+        ],
+        "interrupt": [
+            "战斗测试"
+        ]
+    },
+    "战斗测试": {
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            990,
+            567,
+            131,
+            131
+        ],
+        "template": "战斗\\闪避.png",
+        "next": [
+            "检查深痕",
+            "检查誓焰",
+            "检查终焉",
+            "检查深红囚影",
+            "检查深谣"
         ]
     },
     "检查深痕": {
@@ -206,7 +225,7 @@
             57,
             31
         ],
-        "expected": "^(?:[3-9]\\d|\\d{3,})$"
+        "expected": "^9\\d|[1-9]\\d{2,}$"
     },
     "检查u1_深痕": {
         "recognition": "TemplateMatch",

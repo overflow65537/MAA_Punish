@@ -14,7 +14,7 @@ class CrimsonWeave(CustomAction):
                 return CustomAction.RunResult(success=True)
             print("短刀流程")
             context.tasker.controller.post_click(1217,510).wait() #消球
-            time.sleep(0.3)
+            time.sleep(0.2)
             context.tasker.controller.post_click(1053, 631).wait() #闪避
             start_time = time.time()
             while time.time() - start_time < 2:
