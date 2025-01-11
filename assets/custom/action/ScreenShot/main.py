@@ -10,11 +10,9 @@ class ScreenShot(CustomAction):
     ) -> CustomAction.RunResult:
         image = context.tasker.controller.post_screencap().wait().get()
 
-        pil_image = Image.fromarray(image)
-        r, g, b = pil_image.split()
-        pil_image = Image.merge("RGB", (r, g, b))
+        b, g, r = Image.fromarray(image).split()
 
         current_time = time.strftime("%Y%m%d%H%M%S") + ".png"
         debug_path = os.path.join("debug", current_time)
-        pil_image.save(debug_path, 'PNG')
+        Image.merge("RGB", (r, g, b)).save(debug_path, 'PNG')
         return CustomAction.RunResult(success=True)
