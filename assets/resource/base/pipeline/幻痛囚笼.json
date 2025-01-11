@@ -506,17 +506,24 @@
         ]
     },
     "选择最后一位人物": {
-        "recognition": "TemplateMatch",
+        "recognition": "ColorMatch",
         "roi": [
             80,
             242,
             280,
             405
         ],
-        "template": [
-            "幻痛囚笼\\人物使用次数1.png",
-            "幻痛囚笼\\人物使用次数2.png",
-            "幻痛囚笼\\人物使用次数满.png"
+        "connected": true,
+        "count": 50,
+        "upper": [
+            56,
+            178,
+            251
+        ],
+        "lower": [
+            50,
+            172,
+            245
         ],
         "action": "Click",
         "target_offset": [
