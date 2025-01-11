@@ -47,6 +47,7 @@
             "旧国遗产_寒境曙光",
             "拦路的废墟_寒境曙光",
             "建筑师的建议_寒境曙光",
+            "鲨鱼置物箱_寒境曙光",
             "难民团到访_寒境曙光",
             "学者来访_寒境曙光",
             "运力紧张_寒境曙光",
@@ -62,6 +63,36 @@
             "启程_寒境曙光"
         ]
     },
+    "鲨鱼置物箱_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            729,
+            48,
+            239,
+            76
+        ],
+        "focus": true,
+        "focus_succeeded": "鲨鱼置物箱",
+        "focus_succeeded_color": "green",
+        "expected": "鲨鱼置物箱",
+        "next": [
+            "完成事件_寒境曙光"
+        ],
+        "interrupt": [
+            "鲨鱼置物箱_对话_寒境曙光"
+        ]
+    },
+    "鲨鱼置物箱_对话_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            750,
+            303,
+            113,
+            66
+        ],
+        "expected": "拒绝",
+        "action": "Click"
+    },
     "学者来访_寒境曙光": {
         "recognition": "OCR",
         "roi": [
@@ -71,6 +102,8 @@
             76
         ],
         "expected": "学者来访",
+        "focus_succeeded": "学者来访",
+        "focus_succeeded_color": "green",
         "next": [
             "完成事件_寒境曙光"
         ],
@@ -98,6 +131,8 @@
             76
         ],
         "expected": "运力紧张",
+        "focus_succeeded": "运力紧张",
+        "focus_succeeded_color": "green",
         "next": [
             "完成事件_寒境曙光"
         ],
@@ -127,7 +162,8 @@
         "expected": "退出挑战",
         "action": "Click",
         "next": [
-            "完成所有任务"
+            "完成所有任务",
+            "挑战失败_寒境曙光"
         ],
         "interrupt": [
             "下一步_寒境曙光",
@@ -143,6 +179,8 @@
             73
         ],
         "expected": "废弃港口",
+        "focus_succeeded": "废弃港口",
+        "focus_succeeded_color": "green",
         "next": [
             "完成事件_寒境曙光"
         ],
@@ -170,6 +208,8 @@
             73
         ],
         "expected": "商队来访",
+        "focus_succeeded": "商队来访",
+        "focus_succeeded_color": "green",
         "next": [
             "完成事件_寒境曙光"
         ],
@@ -189,6 +229,7 @@
         "action": "Click"
     },
     "行动点不足2_寒境曙光": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             1170,
@@ -214,6 +255,8 @@
             63
         ],
         "expected": "拦路的废墟",
+        "focus_succeeded": "拦路的废墟",
+        "focus_succeeded_color": "green",
         "next": [
             "完成事件_寒境曙光"
         ],
@@ -241,6 +284,8 @@
             62
         ],
         "expected": "难民团到访",
+        "focus_succeeded": "难民团到访",
+        "focus_succeeded_color": "green",
         "next": [
             "完成事件_寒境曙光"
         ],
@@ -375,6 +420,8 @@
             58
         ],
         "expected": "建筑师的建议",
+        "focus_succeeded": "建筑师的建议",
+        "focus_succeeded_color": "green",
         "next": [
             "完成事件_寒境曙光"
         ],
@@ -404,6 +451,8 @@
             57
         ],
         "expected": "旧国遗产",
+        "focus_succeeded": "旧国遗产",
+        "focus_succeeded_color": "green",
         "next": [
             "旧国遗产_完成_寒境曙光"
         ],
@@ -493,6 +542,7 @@
         "action": "Click"
     },
     "重启_寒境曙光": {
+        "post_delay": 500,
         "recognition": "OCR",
         "roi": [
             739,
@@ -794,7 +844,8 @@
         "expected": "已达标",
         "action": "Click",
         "next": [
-            "到达下一目标"
+            "到达下一目标",
+            "挑战失败_寒境曙光"
         ],
         "interrupt": [
             "区域未连通",
@@ -816,6 +867,10 @@
             40
         ],
         "expected": "新苏菲亚币资产不足",
+        "replace": [
+            "市",
+            "币"
+        ],
         "action": "Click",
         "target": [
             822,
@@ -824,7 +879,8 @@
             1
         ],
         "next": [
-            "领取奖励界面_结束"
+            "领取奖励界面_结束",
+            "关闭奖励_寒境曙光"
         ],
         "interrupt": [
             "肉鸽战斗_寒境曙光"
@@ -1062,6 +1118,7 @@
         "action": "Click"
     },
     "选择代理_寒境曙光": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             766,
