@@ -53,12 +53,12 @@
             "运力紧张_寒境曙光",
             "商队来访_寒境曙光",
             "废弃港口_寒境曙光",
+            "关闭奖励_寒境曙光",
             "文字地块_寒境曙光",
             "纯色地块蓝_寒境曙光",
             "纯色地块黄_寒境曙光",
             "纯色地块红_寒境曙光",
             "点击空白处关闭",
-            "关闭奖励_寒境曙光",
             "退出_寒境曙光",
             "启程_寒境曙光"
         ]
@@ -102,6 +102,7 @@
             76
         ],
         "expected": "学者来访",
+        "focus": true,
         "focus_succeeded": "学者来访",
         "focus_succeeded_color": "green",
         "next": [
@@ -131,6 +132,7 @@
             76
         ],
         "expected": "运力紧张",
+        "focus": true,
         "focus_succeeded": "运力紧张",
         "focus_succeeded_color": "green",
         "next": [
@@ -179,6 +181,7 @@
             73
         ],
         "expected": "废弃港口",
+        "focus": true,
         "focus_succeeded": "废弃港口",
         "focus_succeeded_color": "green",
         "next": [
@@ -208,6 +211,7 @@
             73
         ],
         "expected": "商队来访",
+        "focus": true,
         "focus_succeeded": "商队来访",
         "focus_succeeded_color": "green",
         "next": [
@@ -255,6 +259,7 @@
             63
         ],
         "expected": "拦路的废墟",
+        "focus": true,
         "focus_succeeded": "拦路的废墟",
         "focus_succeeded_color": "green",
         "next": [
@@ -284,6 +289,7 @@
             62
         ],
         "expected": "难民团到访",
+        "focus": true,
         "focus_succeeded": "难民团到访",
         "focus_succeeded_color": "green",
         "next": [
@@ -338,6 +344,7 @@
         ]
     },
     "选择军事支援_寒境曙光": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             81,
@@ -355,6 +362,7 @@
         ]
     },
     "选择经济支援_寒境曙光": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             81,
@@ -372,6 +380,7 @@
         ]
     },
     "选择基建支援_寒境曙光": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             81,
@@ -420,6 +429,7 @@
             58
         ],
         "expected": "建筑师的建议",
+        "focus": true,
         "focus_succeeded": "建筑师的建议",
         "focus_succeeded_color": "green",
         "next": [
@@ -451,6 +461,7 @@
             57
         ],
         "expected": "旧国遗产",
+        "focus": true,
         "focus_succeeded": "旧国遗产",
         "focus_succeeded_color": "green",
         "next": [
@@ -711,6 +722,7 @@
     "纯色地块黄_寒境曙光": {
         "post_delay": 1000,
         "recognition": "ColorMatch",
+        "count": 1000,
         "roi": [
             298,
             0,
@@ -939,11 +951,11 @@
             "运力紧张_寒境曙光",
             "商队来访_寒境曙光",
             "废弃港口_寒境曙光",
+            "关闭奖励_寒境曙光",
             "文字地块_寒境曙光",
             "纯色地块蓝_寒境曙光",
             "纯色地块黄_寒境曙光",
             "纯色地块红_寒境曙光",
-            "关闭奖励_寒境曙光",
             "点击空白处关闭",
             "回到boss界面_操作",
             "退出_寒境曙光"
@@ -1260,6 +1272,7 @@
         ]
     },
     "休息完成_寒境曙光": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             1134,
@@ -1323,7 +1336,7 @@
         "action": "Click"
     },
     "启程_寒境曙光": {
-        "post_delay": 500,
+        "post_delay": 2000,
         "recognition": "TemplateMatch",
         "roi": [
             994,
