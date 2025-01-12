@@ -2,6 +2,7 @@ import os
 import json
 import shutil
 import site
+import sys
 
 # 这些需要自己设置
 title = "MFW-PyQt6"  # 标题栏
@@ -113,16 +114,22 @@ with open(interface_json_path, "w", encoding="utf-8") as f:
 
 site_packages_paths = site.getsitepackages()
 PIL_path = None
-target_path = os.path.join(
-    ".", "MFW", "bundles", resource_name, "custom", "action", "ScreenShot", "PIL"
-)
+target_path = os.path.join(".", "MFW", "_internal")
 for path in site_packages_paths:
     potential_path = os.path.join(path, "PIL")
     if os.path.exists(potential_path):
         PIL_path = potential_path
         break
-shutil.copytree(
-    PIL_path,
-    target_path,
-    dirs_exist_ok=True,
-)
+if sys.platform == "linux":
+    shutil.copytree(
+        PIL_path,
+        os.path.dirname(target_path),
+        dirs_exist_ok=True,
+    )
+
+else:
+    shutil.copytree(
+        PIL_path,
+        target_path,
+        dirs_exist_ok=True,
+    )
