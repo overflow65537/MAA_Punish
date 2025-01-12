@@ -114,20 +114,22 @@ with open(interface_json_path, "w", encoding="utf-8") as f:
 
 site_packages_paths = site.getsitepackages()
 PIL_path = None
-target_path = os.path.join(".", "MFW", "_internal")
+
 for path in site_packages_paths:
     potential_path = os.path.join(path, "PIL")
     if os.path.exists(potential_path):
         PIL_path = potential_path
         break
 if sys.platform == "linux":
+    target_path = os.path.join(".", "MFW", "PIL")
     shutil.copytree(
         PIL_path,
-        os.path.dirname(target_path),
+        target_path,
         dirs_exist_ok=True,
     )
 
 else:
+    target_path = os.path.join(".", "MFW", "_internal")
     shutil.copytree(
         PIL_path,
         target_path,
