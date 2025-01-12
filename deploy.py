@@ -112,9 +112,9 @@ with open(interface_json_path, "w", encoding="utf-8") as f:
 # 复制自定义内容所需要的库
 
 site_packages_paths = site.getsitepackages()
-PIL_path = ""
+PIL_path = None
 target_path = os.path.join(
-    ".", "MFW", "bundles", resource_name, "custom", "action", "ScreenShot"
+    ".", "MFW", "bundles", resource_name, "custom", "action", "ScreenShot", "PIL"
 )
 for path in site_packages_paths:
     potential_path = os.path.join(path, "PIL")
@@ -123,6 +123,6 @@ for path in site_packages_paths:
         break
 shutil.copytree(
     PIL_path,
-    "target_path",
+    target_path,
     dirs_exist_ok=True,
 )
