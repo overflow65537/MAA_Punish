@@ -129,7 +129,7 @@ if sys.platform == "linux":
     )
 
 else:
-    target_path = os.path.join(".", "MFW", "_internal")
+    target_path = os.path.join(".", "MFW", "_internal", "PIL")
     shutil.copytree(
         PIL_path,
         target_path,
