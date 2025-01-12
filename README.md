@@ -21,23 +21,19 @@
 - 领取邮件
 - 商店自动购买逆元碎片
 - 领取体力
-- 自动刷拟战场域(需解锁自动作战)
+- 自动刷拟战场域
 - 领取凭证和任务奖励
+- 自动肉鸽-寒境曙光(目前只支持刷等级)(测试中)
   
 ## 注意事项
 - 打开无法运行首先尝试安装运行库 https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170
 - 如有其他问题可以提交issue或者加群反馈965061066
 ## 图形化界面
 
-### [MFAWPF](https://github.com/SweetSmellFox/MFAWPF)
- 由社区大佬[SweetSmellFox](https://github.com/SweetSmellFox)编写的基于WPF的GUI,通过内置的MAAframework来直接控制任务流程
- - 下载`MPA-win-x86_64-vXXX.zip`
- - 运行`MFAWPF.exe`
-   
 ### [MFW-PyQt6](https://github.com/overflow65537/MFW-PyQt6)
  一个基于PyQt6的MAAFramework图形化操作界面
  - 下载对应系统架构,后缀带有MFW-PyQt的压缩包,比如`MPA-win-x86_64-MFW-PyQt-vXXX.zip`
- - 解压后运行main.exe或者MFW.exe
+ - 解压后运行MFW.exe
   
 ## 使用说明
 
@@ -191,9 +187,11 @@ Tasks:
 
 ### 开源库
 - [MaaFramework](https://github.com/MaaXYZ/MaaFramework)
+  
   基于图像识别的自动化黑盒测试框架 | An automation black-box testing framework based on image recognition
-- [MFAWPF](https://github.com/SweetSmellFox/MFAWPF)
-  本项目是一个基于WPF框架开发的用户界面，旨在提供类似于MaaPiCli的功能
+- ~~[MFAWPF](https://github.com/SweetSmellFox/MFAWPF)~~
+  
+  ~~本项目是一个基于WPF框架开发的用户界面，旨在提供类似于MaaPiCli的功能~~
 
 ### 开发者
 
