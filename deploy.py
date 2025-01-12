@@ -114,31 +114,31 @@ with open(interface_json_path, "w", encoding="utf-8") as f:
 
 if sys.platform == "linux":
     target_path = os.path.join(".", "MFW")
-    subprocess.Popen(
+    process = subprocess.Popen(
         [
             "python",
             "-m",
             "pip",
             "install",
-            "-r",
-            "requirements.txt",
+            "pillow",
             "--target",
             target_path,
         ]
     )
+    process.wait()
 
 
 else:
     target_path = os.path.join(".", "MFW", "_internal")
-    subprocess.Popen(
+    process = subprocess.Popen(
         [
             "python",
             "-m",
             "pip",
             "install",
-            "-r",
-            "requirements.txt",
+            "pillow",
             "--target",
             target_path,
         ]
     )
+    process.wait()
