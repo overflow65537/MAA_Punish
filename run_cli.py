@@ -4,8 +4,9 @@ from assets.custom.action.GeneralFight.main import GeneralFight
 from assets.custom.action.Oblivion.main import Oblivion
 from assets.custom.action.Pyroath.main import Pyroath
 from assets.custom.action.Stigmata.main import Stigmata
-
+from assets.custom.action.ScreenShot.main import ScreenShot
 from maa.toolkit import Toolkit
+
 
 def main():
     # 注册自定义动作
@@ -18,6 +19,7 @@ def main():
 
     # 启动 MaaPiCli
     Toolkit.pi_run_cli("./", "./", False)
+
 
 if __name__ == "__main__":
     main()
