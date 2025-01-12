@@ -1,7 +1,7 @@
 import os
 import json
 import shutil
-import site
+import subprocess
 import sys
 
 # 这些需要自己设置
@@ -110,28 +110,35 @@ with open(interface_json_path, "w", encoding="utf-8") as f:
     json.dump(interface_data, f, ensure_ascii=False, indent=4)
 
 
-# 复制自定义内容所需要的库
+# 安装自定义内容所需要的库
 
-site_packages_paths = site.getsitepackages()
-PIL_path = None
-
-for path in site_packages_paths:
-    potential_path = os.path.join(path, "PIL")
-    if os.path.exists(potential_path):
-        PIL_path = potential_path
-        break
 if sys.platform == "linux":
-    target_path = os.path.join(".", "MFW", "PIL")
-    shutil.copytree(
-        PIL_path,
-        target_path,
-        dirs_exist_ok=True,
+    target_path = os.path.join(".", "MFW")
+    subprocess.Popen(
+        [
+            "python",
+            "-m",
+            "pip",
+            "install",
+            "-r",
+            "requirements.txt",
+            "--target",
+            target_path,
+        ]
     )
 
+
 else:
-    target_path = os.path.join(".", "MFW", "_internal", "PIL")
-    shutil.copytree(
-        PIL_path,
-        target_path,
-        dirs_exist_ok=True,
+    target_path = os.path.join(".", "MFW", "_internal")
+    subprocess.Popen(
+        [
+            "python",
+            "-m",
+            "pip",
+            "install",
+            "-r",
+            "requirements.txt",
+            "--target",
+            target_path,
+        ]
     )
