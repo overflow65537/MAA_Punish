@@ -1,6 +1,7 @@
 import os
 import json
 import shutil
+import site
 
 # 这些需要自己设置
 title = "MFW-PyQt6"  # 标题栏
@@ -51,7 +52,7 @@ shutil.copytree(
     source_path,
     destination_path,
     dirs_exist_ok=True,
-    ignore=shutil.ignore_patterns("MaaCommonAssets")
+    ignore=shutil.ignore_patterns("MaaCommonAssets"),
 )
 
 pi_config = {
@@ -100,9 +101,28 @@ interface_json_path = os.path.join(
 print(f"interface_json_path: {interface_json_path}")
 
 with open(interface_json_path, "r", encoding="utf-8") as f:
-    interface_data:dict = json.load(f)
+    interface_data: dict = json.load(f)
 
 interface_data.update(new_data)
 
 with open(interface_json_path, "w", encoding="utf-8") as f:
     json.dump(interface_data, f, ensure_ascii=False, indent=4)
+
+
+# 复制自定义内容所需要的库
+
+site_packages_paths = site.getsitepackages()
+PIL_path = ""
+target_path = os.path.join(
+    ".", "MFW", "bundles", resource_name, "custom", "action", "ScreenShot"
+)
+for path in site_packages_paths:
+    potential_path = os.path.join(path, "PIL")
+    if os.path.exists(potential_path):
+        PIL_path = potential_path
+        break
+shutil.copytree(
+    PIL_path,
+    "target_path",
+    dirs_exist_ok=True,
+)

@@ -4,6 +4,7 @@ from PIL import Image
 import time
 import os
 
+
 class ScreenShot(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
@@ -14,5 +15,5 @@ class ScreenShot(CustomAction):
 
         current_time = time.strftime("%Y%m%d%H%M%S") + ".png"
         debug_path = os.path.join("debug", current_time)
-        Image.merge("RGB", (r, g, b)).save(debug_path, 'PNG')
+        Image.merge("RGB", (r, g, b)).save(debug_path, "PNG")
         return CustomAction.RunResult(success=True)

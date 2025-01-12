@@ -14,9 +14,21 @@ working_dir = Path(__file__).parent
 install_path = working_dir / Path("install")
 version = len(sys.argv) > 1 and sys.argv[1] or "v0.0.1"
 
+
 def bulid():
     # 获取 site-packages 目录列表
     site_packages_paths = site.getsitepackages()
+    global PIL_path
+    # 查找PIL的路径
+    PIL_path = None
+    for path in site_packages_paths:
+        potential_path = os.path.join(path, "PIL")
+        if os.path.exists(potential_path):
+            PIL_path = potential_path
+            break
+
+    if PIL_path is None:
+        raise FileNotFoundError("not found PIL")
 
     # 查找包含 maa/bin 的路径
     maa_bin_path = None
@@ -54,7 +66,6 @@ def bulid():
         f"--distpath={install_path}",
         "--onefile",
         "--clean",
-        
     ]
     PyInstaller.__main__.run(command)
 
@@ -80,6 +91,11 @@ def install_resource():
 
     with open(install_path / "interface.json", "w", encoding="utf-8") as f:
         json.dump(interface, f, ensure_ascii=False, indent=4)
+    shutil.copytree(
+        PIL_path,
+        install_path / "resource" / "custom" / "action" / "ScreenShot",
+        dirs_exist_ok=True,
+    )
 
 
 def install_chores():
