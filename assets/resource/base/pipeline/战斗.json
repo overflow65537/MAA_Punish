@@ -20,8 +20,21 @@
             "打开资源",
             "打开战斗",
             "意外点击_主界面",
-            "意外点击_限定活动"
+            "意外点击_限定活动",
+            "作战失败"
         ]
+    },
+    "作战失败": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            254,
+            178,
+            302,
+            96
+        ],
+        "expected": "作战失败",
+        "action": "Click"
     },
     "手动作战_custom": {
         "post_delay": 500,
@@ -214,6 +227,7 @@
         "action": "Click"
     },
     "退出战斗_拟战场域": {
+        "post_wait_freezes": 10,
         "recognition": "OCR",
         "roi": [
             1130,
