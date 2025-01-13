@@ -14,7 +14,7 @@ url = "https://github.com/overflow65537/MAA_Punish"  # 你的項目地址
 config_name = "default"
 resource_path = os.path.join(".", "bundles", resource_name)
 config_path = os.path.join(
-    ".", "config", resource_name, config_name, "maa_pi_config.json"
+    ".", "config", resource_name, "config", config_name, "maa_pi_config.json"
 )
 print(f"title: {title}")
 print(f"resource_name: {resource_name}")
