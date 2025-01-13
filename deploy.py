@@ -85,7 +85,7 @@ pi_config = {
     "exe_parameter": "",
 }
 install_config_path = os.path.join(
-    ".", "MFW", "config", resource_name, config_name, "maa_pi_config.json"
+    ".", "MFW", "config", resource_name, "config", config_name, "maa_pi_config.json"
 )
 os.makedirs(os.path.dirname(install_config_path), exist_ok=True)
 
