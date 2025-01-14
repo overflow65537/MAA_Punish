@@ -1,3 +1,8 @@
+<!-- markdownlint-disable MD033 MD041 -->
+<p align="center">
+  <img alt="LOGO" src="logo.png" width="256" height="256" />
+</p>
+
 <div align="center">
 
 # MAA_Punish
@@ -32,14 +37,18 @@
 - 自动肉鸽-寒境曙光(目前只支持刷等级)(测试中)
   
 ## 注意事项
-- 打开无法运行首先尝试安装运行库 https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170
+
+- 打开无法运行首先尝试安装运行库 <https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170>
 - 如有其他问题可以提交issue或者加群反馈965061066
+
 ## 图形化界面
 
 ### [MFW-PyQt6](https://github.com/overflow65537/MFW-PyQt6)
+
  一个基于PyQt6的MAAFramework图形化操作界面
- - 下载对应系统架构,后缀带有MFW-PyQt的压缩包,比如`MPA-win-x86_64-MFW-PyQt-vXXX.zip`
- - 解压后运行MFW.exe
+
+- 下载对应系统架构,后缀带有MFW-PyQt的压缩包,比如`MPA-win-x86_64-MFW-PyQt-vXXX.zip`
+- 解压后运行MFW.exe
   
 ## 使用说明
 
@@ -65,10 +74,14 @@
 ### Linux
 
 ~~用 Linux 的大佬应该不需要我教~~
+
 ## MaaPiCli使用说明
+
 ### A
+
 - 启动后会出现:
-```
+
+```bash
 Welcome to use Maa Project Interface CLI!
 
 Version: v0.0.1
@@ -80,9 +93,10 @@ Version: v0.0.1
 
 Please input [1-2]:
 ```
+
 - 如无必要，请选择1.Auto detect
 
-```
+```bash
 ### Select ADB ###
 
         1. Auto detect
@@ -100,11 +114,15 @@ Finding device...
 
 Please input [1-1]: 1
 ```
+
 - 选择 1 后会像上面这样，列出若干个模拟器实例，之后选择你需要进行操控的即可。
 - 如果没有出现选项，请检查模拟器是否正常启动。以及管理员权限启动MaaPiCli。
+
 ### B
+
 - 选择完模拟器后就会进入到选择资源界面
-```
+
+```bash
 ### Select resource ###
 
         1. 官服
@@ -112,10 +130,14 @@ Please input [1-1]: 1
 
 Please input [1-2]:
 ```
+
 - 请按照自己的服务器类型选择
+
 ### C
+
 - 在初次启动后，会让你输入启动的任务：
-```
+
+```bash
 ### Add task ###
 
         1. 进入游戏
@@ -132,12 +154,14 @@ Please input [1-2]:
 
 Please input [1-11]:
 ```
+
 - 选择你要执行的任务即可。
 
 ### D
 
 - 之后会反复出现：
-```
+
+```bash
 Tasks:
 
 <这里会列出你已经增加，等待执行的任务>
@@ -152,7 +176,9 @@ Tasks:
         6. Run tasks
         7. Exit
 ```
+
 - 其中分别代表：
+
 1. 调整控制器（也就是adb地址等）
 2. 调整资源（切换官服或者b服）
 3. 新增任务，像**C**中那样
@@ -192,6 +218,7 @@ Tasks:
 ## 鸣谢
 
 ### 开源库
+
 - [MaaFramework](https://github.com/MaaXYZ/MaaFramework)
   
   基于图像识别的自动化黑盒测试框架 | An automation black-box testing framework based on image recognition
@@ -204,5 +231,5 @@ Tasks:
 感谢以下开发者对 MAA_Punish 作出的贡献：
 
 <a href="https://github.com/overflow65537/MAA_Punish/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=overflow65537/MAA_Punish&max=1000" />
+  <img src="https://contrib.rocks/image?repo=overflow65537/MAA_Punish&max=1000" alt="Contributors to MAA_Punish"/>
 </a>
