@@ -1,6 +1,6 @@
 {
     "寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "TemplateMatch",
         "roi": [
             994,
@@ -244,7 +244,7 @@
         "action": "Click"
     },
     "行动点不足2_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             1170,
@@ -311,7 +311,7 @@
         ]
     },
     "完成事件_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "TemplateMatch",
         "roi": [
             997,
@@ -356,7 +356,7 @@
         ]
     },
     "选择军事支援_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             81,
@@ -374,7 +374,7 @@
         ]
     },
     "选择经济支援_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             81,
@@ -392,7 +392,7 @@
         ]
     },
     "选择基建支援_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             81,
@@ -410,7 +410,7 @@
         ]
     },
     "文字地块_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             300,
@@ -537,7 +537,7 @@
         ]
     },
     "战斗中_货币不足": {
-        "post_wait_freezes": 1,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             493,
@@ -569,7 +569,7 @@
         "action": "Click"
     },
     "重启_寒境曙光": {
-        "post_wait_freezes": 1,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             739,
@@ -619,7 +619,7 @@
         "expected": "港口异常点"
     },
     "已选人_寒境曙光": {
-        "post_wait_freezes": 1,
+        "post_wait_freezes": 300,
         "recognition": "TemplateMatch",
         "roi": [
             1002,
@@ -631,7 +631,7 @@
         "action": "Click"
     },
     "未选人_寒境曙光": {
-        "post_wait_freezes": 1,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             41,
@@ -701,7 +701,7 @@
         "template": "肉鸽通用\\作战开始.png"
     },
     "选择对应人物_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             941,
@@ -736,7 +736,7 @@
         "action": "Click"
     },
     "纯色地块黄_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "ColorMatch",
         "count": 1000,
         "roi": [
@@ -759,7 +759,7 @@
         "action": "Click"
     },
     "纯色地块红_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "ColorMatch",
         "count": 1000,
         "method": 40,
@@ -783,7 +783,7 @@
         "action": "Click"
     },
     "纯色地块蓝_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "ColorMatch",
         "method": 40,
         "count": 2000,
@@ -824,7 +824,7 @@
         ]
     },
     "局内招募_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             251,
@@ -854,7 +854,7 @@
         ]
     },
     "退出_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             1169,
@@ -867,7 +867,7 @@
     },
     "港口异常点end_寒境曙光": {
         "recognition": "OCR",
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "roi": [
             300,
             1,
@@ -1056,7 +1056,7 @@
         "expected": "到达地区"
     },
     "完成所有任务": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             1009,
@@ -1075,7 +1075,7 @@
         ]
     },
     "寒境曙光主界面": {
-        "post_wait_freezes": 1,
+        "post_wait_freezes": 300,
         "recognition": "TemplateMatch",
         "roi": [
             994,
@@ -1169,7 +1169,7 @@
         "action": "Click"
     },
     "选择代理_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             766,
@@ -1250,7 +1250,7 @@
         "action": "Click"
     },
     "关闭奖励_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             567,
@@ -1268,7 +1268,7 @@
         ]
     },
     "继续对话_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             731,
@@ -1288,7 +1288,7 @@
         "action": "Click"
     },
     "行动点不足_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             520,
@@ -1312,7 +1312,7 @@
         ]
     },
     "休息完成_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             1134,
@@ -1340,7 +1340,7 @@
         ]
     },
     "选择人物_寒境曙光": {
-        "post_wait_freezes": 1,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             199,
@@ -1363,7 +1363,7 @@
         ]
     },
     "招募人物_寒境曙光": {
-        "post_wait_freezes": 1,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": "选择人物_寒境曙光",
         "roi_offset": [
@@ -1376,7 +1376,7 @@
         "action": "Click"
     },
     "启程_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "TemplateMatch",
         "roi": [
             994,
@@ -1417,7 +1417,7 @@
         ]
     },
     "选择具体难度_寒境曙光": {
-        "post_wait_freezes": 1,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             364,
@@ -1431,7 +1431,7 @@
         ]
     },
     "难度切换_寒境曙光": {
-        "post_wait_freezes": 1,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             911,
@@ -1449,7 +1449,7 @@
         ]
     },
     "选择难度完成_寒境曙光": {
-        "post_wait_freezes": 1,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             911,
@@ -1478,7 +1478,7 @@
         ]
     },
     "选择具体开局_寒境曙光": {
-        "post_wait_freezes": 1,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             29,
@@ -1493,7 +1493,7 @@
         ]
     },
     "开局切换_寒境曙光": {
-        "post_wait_freezes": 1,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": [
             508,
@@ -1517,7 +1517,7 @@
         ]
     },
     "选择开局完成_寒境曙光": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "roi": "选择具体开局_寒境曙光",
         "roi_offset": [
