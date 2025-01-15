@@ -47,4 +47,5 @@ class Identify(CustomAction):
                 }
             )
             print("誓焰战斗")
-        return CustomAction.RunResult(success=True)
+
+        return CustomAction.RunResult(success=False)

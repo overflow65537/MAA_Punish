@@ -14,7 +14,7 @@ class Oblivion(CustomAction):
         context.tasker.controller.post_click(915, 626).wait()  # 技能
         context.tasker.controller.post_click(1216, 504).wait()  # 消
         start_time = time.time()
-        while time.time() - start_time < 2:
+        while time.time() - start_time < 1:
             time.sleep(0.1)
             context.tasker.controller.post_click(
                 1197, 636

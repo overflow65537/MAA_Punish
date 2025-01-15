@@ -25,15 +25,14 @@ class Stigmata(CustomAction):
                     time.sleep(0.1)
 
                 image = context.tasker.controller.post_screencap().wait().get()
-
-                while context.run_recognition("检查u1_深痕", image):
-
-                    print("u1")
-
-                    context.tasker.controller.post_swipe(
-                        915, 629, 915, 629, 1250
-                    ).wait()  # 此刻,见证终焉之光
-                    image = context.tasker.controller.post_screencap().wait().get()
+                if context.run_recognition("检查u1_深痕", image):
+                    start_time = time.time()
+                    while time.time() - start_time < 1:
+                        print("u1")
+                        context.tasker.controller.post_swipe(
+                            915, 629, 915, 629, 1250
+                        ).wait()  # 此刻,见证终焉之光
+                        image = context.tasker.controller.post_screencap().wait().get()
 
         else:
             print("剑形态")
@@ -45,11 +44,13 @@ class Stigmata(CustomAction):
             if context.run_recognition("检查u2数值_深痕", image):
                 print("残光值大于90")
                 image = context.tasker.controller.post_screencap().wait().get()
-                while context.run_recognition("检查u2_深痕", image):
-                    print("u2")
-                    context.tasker.controller.post_swipe(
-                        915, 629, 915, 629, 1500
-                    ).wait()  # 以此宣告,噩梦的崩解
-                    image = context.tasker.controller.post_screencap().wait().get()
+                if context.run_recognition("检查u2_深痕", image):
+                    start_time = time.time()
+                    while time.time() - start_time < 1:
+                        print("u2")
+                        context.tasker.controller.post_swipe(
+                            915, 629, 915, 629, 1500
+                        ).wait()  # 以此宣告,噩梦的崩解
+                        image = context.tasker.controller.post_screencap().wait().get()
                 
         return CustomAction.RunResult(success=True)

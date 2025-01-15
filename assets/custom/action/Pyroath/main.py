@@ -15,10 +15,6 @@ class Pyroath(CustomAction):
                 context.tasker.controller.post_swipe(
                     917, 631, 917, 631, 1250
                 ).wait()  # 汇聚,阳炎之光
-                image = context.tasker.controller.post_screencap().wait().get()
-                while not context.run_recognition("战斗中", image):  # 大招动画
-                    time.sleep(0.5)
-                    image = context.tasker.controller.post_screencap().wait().get()
 
                 context.tasker.controller.post_swipe(
                     1197, 636, 1197, 636, 1000
