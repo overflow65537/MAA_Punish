@@ -7,6 +7,19 @@
             "战斗测试"
         ]
     },
+    "识别人物": {
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            990,
+            567,
+            131,
+            131
+        ],
+        "template": "战斗\\闪避.png",
+        "action": "Custom",
+        "custom_action": "Identify"
+    },
     "战斗测试": {
         "green_mask": true,
         "recognition": "TemplateMatch",
@@ -37,7 +50,9 @@
             "自定义战斗\\深痕.png",
             "自定义战斗\\深痕a2.png"
         ],
-        "green_mask": true,
+        "green_mask": true
+    },
+    "深痕战斗": {
         "action": "Custom",
         "custom_action": "Stigmata"
     },
@@ -53,7 +68,9 @@
             "自定义战斗\\深谣_p1.png",
             "自定义战斗\\深谣_p2.png"
         ],
-        "green_mask": true,
+        "green_mask": true
+    },
+    "深谣战斗": {
         "action": "Custom",
         "custom_action": "LostLullaby"
     },
@@ -68,7 +85,9 @@
         "template": [
             "自定义战斗\\深红囚影.png"
         ],
-        "green_mask": true,
+        "green_mask": true
+    },
+    "深红囚影战斗": {
         "action": "Custom",
         "custom_action": "CrimsonWeave"
     },
@@ -83,7 +102,9 @@
         "template": [
             "自定义战斗\\誓焰.png"
         ],
-        "green_mask": true,
+        "green_mask": true
+    },
+    "誓焰战斗": {
         "action": "Custom",
         "custom_action": "Pyroath"
     },
@@ -98,7 +119,9 @@
         "template": [
             "自定义战斗\\终焉.png"
         ],
-        "green_mask": true,
+        "green_mask": true
+    },
+    "终焉战斗": {
         "action": "Custom",
         "custom_action": "Oblivion"
     },
