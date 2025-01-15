@@ -12,7 +12,8 @@
             "退出战斗",
             "打开战斗",
             "打开挑战_纷争战区",
-            "意外点击_限定活动"
+            "意外点击_限定活动",
+            "载入中"
         ]
     },
     "结算期": {
@@ -365,6 +366,8 @@
         "action": "Click"
     },
     "战斗中": {
+        "post_delay": 0,
+        "pre_delay": 0,
         "green_mask": true,
         "recognition": "TemplateMatch",
         "roi": [
@@ -374,6 +377,16 @@
             131
         ],
         "template": "战斗\\闪避.png"
+    },
+    "载入中": {
+        "recognition": "OCR",
+        "roi": [
+            1168,
+            629,
+            91,
+            54
+        ],
+        "expected": "Loadin"
     },
     "退出战斗": {
         "recognition": "OCR",
