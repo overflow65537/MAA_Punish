@@ -48,4 +48,4 @@ class Identify(CustomAction):
             )
             print("誓焰战斗")
 
-        return CustomAction.RunResult(success=False)
+        return CustomAction.RunResult(success=True)
