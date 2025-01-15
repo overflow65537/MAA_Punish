@@ -59,7 +59,9 @@ class Pyroath(CustomAction):
                         context.tasker.controller.post_click(
                             914, 626
                         ).wait()
-                        context.tasker.controller.post_click(1197, 636).wait()
+                        context.tasker.controller.post_click(1108, 518).wait() # 黄球
+                        context.tasker.controller.post_click(1197, 636).wait() # 攻击
+
                           # 进入u3阶段
 
             else:
