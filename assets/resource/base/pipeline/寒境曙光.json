@@ -766,7 +766,8 @@
             130,
             170
         ],
-        "connected": true
+        "connected": true,
+        "action": "Click"
     },
     "纯色地块蓝_寒境曙光": {
         "post_delay": 1000,
@@ -789,7 +790,8 @@
             140,
             150
         ],
-        "connected": true
+        "connected": true,
+        "action": "Click"
     },
     "支援等级提升_寒境曙光": {
         "recognition": "OCR",
@@ -818,7 +820,9 @@
             42
         ],
         "expected": [
+            "^升$",
             "^升星$",
+            "^招$",
             "^招募$"
         ],
         "action": "Click"
