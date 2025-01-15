@@ -515,6 +515,7 @@
             "战斗中_货币不足"
         ],
         "interrupt": [
+            "识别人物",
             "重启_寒境曙光",
             "战斗中",
             "跳过战斗对话_寒境曙光",
@@ -747,7 +748,7 @@
     "纯色地块红_寒境曙光": {
         "post_delay": 1000,
         "recognition": "ColorMatch",
-        "count": 300,
+        "count": 1000,
         "method": 40,
         "roi": [
             298,
@@ -761,18 +762,17 @@
             120
         ],
         "upper": [
-            180,
-            110,
+            255,
+            130,
             170
         ],
-        "connected": true,
-        "action": "Click"
+        "connected": true
     },
     "纯色地块蓝_寒境曙光": {
         "post_delay": 1000,
         "recognition": "ColorMatch",
         "method": 40,
-        "count": 100,
+        "count": 2000,
         "roi": [
             298,
             0,
@@ -780,17 +780,16 @@
             641
         ],
         "lower": [
-            108,
-            99,
-            130
+            100,
+            70,
+            120
         ],
         "upper": [
-            110,
-            199,
-            139
+            135,
+            140,
+            150
         ],
-        "connected": true,
-        "action": "Click"
+        "connected": true
     },
     "支援等级提升_寒境曙光": {
         "recognition": "OCR",
