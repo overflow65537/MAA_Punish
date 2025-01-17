@@ -1156,6 +1156,7 @@
         "expected": "已达标",
         "action": "Custom",
         "focus": true,
+        "focus_succeeded": "未搜索到目标,重置镜头",
         "custom_action": "CenterCamera"
     },
     "回到boss界面_操作": {
