@@ -62,11 +62,13 @@ class Pyroath(CustomAction):
 
             else:
                 if context.run_recognition("检查u2max_誓焰", image):
-                    context.tasker.controller.post_click(1108, 518).wait() # 黄球
-                    context.tasker.controller.post_click(1197, 636).wait() # 攻击
+                    
+                    
                     start_time = time.time()
                     while time.time() - start_time < 1:
                         time.sleep(0.1)
+                        context.tasker.controller.post_click(1108, 518).wait() # 黄球
+                        context.tasker.controller.post_click(1197, 636).wait() # 攻击
                         context.tasker.controller.post_click(
                             916, 628
                         ).wait()  # 进入u3阶段
