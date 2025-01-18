@@ -430,7 +430,15 @@
         ]
     },
     "滑动_囚笼1": {
-        "post_wait_freezes": 10,
+        "post_wait_freezes": {
+            "time": 50,
+            "target": [
+                79,
+                60,
+                109,
+                569
+            ]
+        },
         "action": "Swipe",
         "begin": [
             195,
@@ -449,7 +457,15 @@
         ]
     },
     "滑动_囚笼2": {
-        "post_wait_freezes": 10,
+        "post_wait_freezes": {
+            "time": 50,
+            "target": [
+                79,
+                60,
+                109,
+                569
+            ]
+        },
         "action": "Swipe",
         "begin": [
             195,
@@ -468,7 +484,15 @@
         ]
     },
     "滑动_囚笼3": {
-        "post_wait_freezes": 10,
+        "post_wait_freezes": {
+            "time": 50,
+            "target": [
+                79,
+                60,
+                109,
+                569
+            ]
+        },
         "action": "Swipe",
         "begin": [
             195,
@@ -487,7 +511,15 @@
         ]
     },
     "滑动_囚笼4": {
-        "post_wait_freezes": 10,
+        "post_wait_freezes": {
+            "time": 50,
+            "target": [
+                79,
+                60,
+                109,
+                569
+            ]
+        },
         "action": "Swipe",
         "begin": [
             195,

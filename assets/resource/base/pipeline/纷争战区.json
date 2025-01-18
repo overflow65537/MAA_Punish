@@ -266,7 +266,15 @@
         ]
     },
     "滑动_战区1": {
-        "post_wait_freezes": 10,
+        "post_wait_freezes": {
+            "time": 50,
+            "target": [
+                79,
+                60,
+                109,
+                569
+            ]
+        },
         "action": "Swipe",
         "begin": [
             195,
@@ -285,7 +293,15 @@
         ]
     },
     "滑动_战区2": {
-        "post_wait_freezes": 10,
+        "post_wait_freezes": {
+            "time": 50,
+            "target": [
+                79,
+                60,
+                109,
+                569
+            ]
+        },
         "action": "Swipe",
         "begin": [
             195,
@@ -304,7 +320,15 @@
         ]
     },
     "滑动_战区3": {
-        "post_wait_freezes": 10,
+        "post_wait_freezes": {
+            "time": 50,
+            "target": [
+                79,
+                60,
+                109,
+                569
+            ]
+        },
         "action": "Swipe",
         "begin": [
             195,
@@ -323,7 +347,15 @@
         ]
     },
     "滑动_战区4": {
-        "post_wait_freezes": 10,
+        "post_wait_freezes": {
+            "time": 50,
+            "target": [
+                79,
+                60,
+                109,
+                569
+            ]
+        },
         "action": "Swipe",
         "begin": [
             195,
