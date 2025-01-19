@@ -38,7 +38,7 @@ jobs:
         id: zip
         run: |
           mkdir MirrorChyan
-          zip -r MirrorChyan/${{ github.event.repository.name }}.zip assets/resource assets/interface.json
+          zip -r MirrorChyan/${{ github.event.repository.name }}.zip assets/resource assets/interface.json assets/custom
 
       - uses: actions/upload-artifact@v4
         with:
