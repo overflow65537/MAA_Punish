@@ -117,7 +117,7 @@
         ]
     },
     "购买碎片失败": {
-        "post_wait_freezes": 500,
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             521,
