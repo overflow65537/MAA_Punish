@@ -1024,14 +1024,8 @@
         "action": "Click"
     },
     "指数确认_寒境曙光": {
-        "recognition": "OCR",
-        "roi": [
-            51,
-            168,
-            196,
-            66
-        ],
-        "expected": "\\b(?:[4-9]\\d{3,}|3[6-9]\\d{2,}|[1-9]\\d{4,})\\b",
+        "recognition": "Custom",
+        "custom_recognition": "IDFscore",
         "next": [
             "港口异常点end_寒境曙光"
         ]
@@ -1728,5 +1722,25 @@
         ],
         "expected": "确定",
         "action": "Click"
+    },
+    "检查当前分数": {
+        "recognition": "OCR",
+        "roi": [
+            49,
+            177,
+            225,
+            44
+        ],
+        "expected": "^\\d*$"
+    },
+    "检查目标分数": {
+        "recognition": "OCR",
+        "roi": [
+            99,
+            76,
+            169,
+            46
+        ],
+        "expected": "^\\d*$"
     }
 }
