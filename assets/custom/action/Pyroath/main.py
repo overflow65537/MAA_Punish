@@ -40,6 +40,8 @@ class Pyroath(CustomAction):
 
         elif context.run_recognition("检查u2_誓焰", image):
             print("誓焰u2")
+            context.tasker.controller.post_click(1108, 518).wait() # 黄球
+            context.tasker.controller.post_click(1197, 636).wait() # 攻击
             context.tasker.controller.post_click(914, 626).wait()  # 进入u3阶段
             if context.run_recognition("检查p1动能条_誓焰", image):
                 print("p2动能条max")
@@ -62,8 +64,7 @@ class Pyroath(CustomAction):
 
             else:
                 if context.run_recognition("检查u2max_誓焰", image):
-                    
-                    
+                    print("p2动能条max")
                     start_time = time.time()
                     while time.time() - start_time < 1:
                         time.sleep(0.1)
@@ -79,6 +80,7 @@ class Pyroath(CustomAction):
                 start_time = time.time()
                 while time.time() - start_time < 2:
                     time.sleep(0.1)
+                    context.tasker.controller.post_click(1108, 518).wait() # 黄球
                     context.tasker.controller.post_click(1197, 636).wait()
                     
 
