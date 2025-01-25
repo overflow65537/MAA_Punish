@@ -215,7 +215,7 @@
         ]
     },
     "开始自动战斗": {
-        "post_delay": 2000,
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             747,

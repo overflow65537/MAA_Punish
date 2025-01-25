@@ -19,7 +19,6 @@
         "expected": "领取全部",
         "action": "Click",
         "next": [
-            "关闭奖励",
             "返回主菜单"
         ]
     },

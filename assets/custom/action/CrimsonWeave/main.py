@@ -25,10 +25,11 @@ class CrimsonWeave(CustomAction):
             
         else:
             if context.run_recognition("检查u2_囚影", image):  # 检查是否有u2
-                while context.run_recognition("检查u2_囚影", image):
-                    image = context.tasker.controller.post_screencap().wait().get() # 宿命的囚笼由我斩断
+                start_time = time.time()
+                while time.time() - start_time < 2:
                     print("u2")
-                    context.tasker.controller.post_click(910, 631).wait()
+                    time.sleep(0.1)
+                    context.tasker.controller.post_click(910, 631).wait() # 宿命的囚笼由我斩断
             elif context.run_recognition("检查无光值_囚影", image):  # 检查无光值大于474
                 print("无光值大于474")
                 context.tasker.controller.post_swipe(1055, 629, 1055, 629, 2000).wait() # 生死只在一瞬

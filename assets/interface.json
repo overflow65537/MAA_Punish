@@ -1,5 +1,6 @@
 {
     "name": "MPA",
+    "mirrorchyan_rid": "MAA_Punish",
     "url": "https://github.com/overflow65537/MAA_Punish",
     "custom_title": "MFAWPF_MPA",
     "default_controller": "adb",
@@ -91,37 +92,11 @@
         },
         {
             "name": "寒境曙光",
-            "entry": "肉鸽",
+            "entry": "寒境曙光",
             "option": [
                 "选择温度",
                 "选择效果"
-            ],
-            "pipeline_override": {
-                "点击宣叙妄响": {
-                    "enabled": false
-                },
-                "点击矩阵循生": {
-                    "enabled": false
-                },
-                "点击厄愿潮声": {
-                    "enabled": false
-                },
-                "宣叙妄响": {
-                    "enabled": false
-                },
-                "点击寒境曙光": {
-                    "enabled": true
-                },
-                "战斗中": {
-                    "next": [
-                        "检查深痕",
-                        "检查誓焰",
-                        "检查终焉",
-                        "检查深红囚影",
-                        "检查深谣"
-                    ]
-                }
-            }
+            ]
         }
     ],
     "option": {

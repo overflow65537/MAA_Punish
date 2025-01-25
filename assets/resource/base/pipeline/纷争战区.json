@@ -5,6 +5,7 @@
             "纷争战区内部"
         ],
         "interrupt": [
+            "识别人物",
             "打开纷争战区",
             "战斗准备",
             "作战开始",
@@ -12,7 +13,8 @@
             "退出战斗",
             "打开战斗",
             "打开挑战_纷争战区",
-            "意外点击_限定活动"
+            "意外点击_限定活动",
+            "载入中"
         ]
     },
     "结算期": {
@@ -95,7 +97,9 @@
             722,
             666
         ],
-        "expected": "未挑战",
+        "expected": [
+            "未挑战"
+        ],
         "action": "Click",
         "next": [
             "纷争战区"
@@ -112,7 +116,6 @@
         ],
         "expected": "未挑战",
         "next": [
-            "进入战区奖励",
             "返回主菜单"
         ]
     },
@@ -252,6 +255,7 @@
     },
     "选择人物_战区": {
         "recognition": "OCR",
+        "post_delay": 1000,
         "roi": [
             204,
             323,
@@ -261,11 +265,40 @@
         "expected": "首发",
         "action": "Click",
         "next": [
+            "选择自动作战人物",
             "滑动_战区1"
         ]
     },
+    "选择自动作战人物": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            70,
+            63,
+            143,
+            576
+        ],
+        "template": [
+            "肉鸽通用\\深痕.png",
+            "肉鸽通用\\深红囚影.png",
+            "肉鸽通用\\深谣.png",
+            "肉鸽通用\\终焉.png",
+            "肉鸽通用\\誓焰.png"
+        ],
+        "action": "Click",
+        "next": [
+            "编入队伍"
+        ]
+    },
     "滑动_战区1": {
-        "post_wait_freezes": 10,
+        "post_wait_freezes": {
+            "time": 50,
+            "target": [
+                79,
+                60,
+                109,
+                569
+            ]
+        },
         "action": "Swipe",
         "begin": [
             195,
@@ -280,11 +313,20 @@
             0
         ],
         "next": [
+            "选择自动作战人物",
             "滑动_战区2"
         ]
     },
     "滑动_战区2": {
-        "post_wait_freezes": 10,
+        "post_wait_freezes": {
+            "time": 50,
+            "target": [
+                79,
+                60,
+                109,
+                569
+            ]
+        },
         "action": "Swipe",
         "begin": [
             195,
@@ -299,11 +341,20 @@
             0
         ],
         "next": [
+            "选择自动作战人物",
             "滑动_战区3"
         ]
     },
     "滑动_战区3": {
-        "post_wait_freezes": 10,
+        "post_wait_freezes": {
+            "time": 50,
+            "target": [
+                79,
+                60,
+                109,
+                569
+            ]
+        },
         "action": "Swipe",
         "begin": [
             195,
@@ -318,11 +369,20 @@
             0
         ],
         "next": [
+            "选择自动作战人物",
             "滑动_战区4"
         ]
     },
     "滑动_战区4": {
-        "post_wait_freezes": 10,
+        "post_wait_freezes": {
+            "time": 50,
+            "target": [
+                79,
+                60,
+                109,
+                569
+            ]
+        },
         "action": "Swipe",
         "begin": [
             195,
@@ -337,6 +397,7 @@
             0
         ],
         "next": [
+            "选择自动作战人物",
             "选择最后一位人物_战区"
         ]
     },
@@ -365,6 +426,8 @@
         "action": "Click"
     },
     "战斗中": {
+        "post_delay": 0,
+        "pre_delay": 0,
         "green_mask": true,
         "recognition": "TemplateMatch",
         "roi": [
@@ -374,6 +437,16 @@
             131
         ],
         "template": "战斗\\闪避.png"
+    },
+    "载入中": {
+        "recognition": "OCR",
+        "roi": [
+            1168,
+            629,
+            91,
+            54
+        ],
+        "expected": "Loadin"
     },
     "退出战斗": {
         "recognition": "OCR",
