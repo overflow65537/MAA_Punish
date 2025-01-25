@@ -52,7 +52,8 @@
         ],
         "next": [
             "宿舍任务_领取执勤",
-            "退出执勤"
+            "退出执勤",
+            "退出执勤_custom"
         ],
         "interrupt": [
             "意外点击_退出代工",
@@ -60,6 +61,13 @@
             "选择执勤伙伴",
             "开始执勤",
             "打开执勤"
+        ]
+    },
+    "退出执勤_custom": {
+        "recognition": "Custom",
+        "custom_recognition": "IDFMembers",
+        "next": [
+            "宿舍任务_返回2"
         ]
     },
     "宿舍任务_事件": {
@@ -880,5 +888,25 @@
         ],
         "expected": "委托",
         "action": "Click"
+    },
+    "检查当前数量": {
+        "recognition": "OCR",
+        "roi": [
+            439,
+            97,
+            40,
+            47
+        ],
+        "expected": "^\\d*$"
+    },
+    "检查目标数量": {
+        "recognition": "OCR",
+        "roi": [
+            476,
+            110,
+            22,
+            35
+        ],
+        "expected": "^\\d*$"
     }
 }
