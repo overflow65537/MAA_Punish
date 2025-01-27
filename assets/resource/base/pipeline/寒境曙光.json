@@ -596,7 +596,7 @@
     "完成事件_寒境曙光": {
         "post_delay": 1000,
         "recognition": "TemplateMatch",
-        "threshold": 0.9,
+        "threshold": 0.8,
         "roi": [
             997,
             604,
