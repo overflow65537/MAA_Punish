@@ -388,7 +388,7 @@
         ]
     },
     "选择每日任务": {
-        "threshold": 0.9,
+        "threshold": 0.8,
         "recognition": "TemplateMatch",
         "roi": [
             0,
