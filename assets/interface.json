@@ -45,7 +45,12 @@
         },
         {
             "name": "幻痛囚笼",
-            "entry": "幻痛囚笼"
+            "entry": "幻痛囚笼",
+            "pipeline_override": {
+                "战斗中": {
+                    "post_delay": 1000
+                }
+            }
         },
         {
             "name": "领取体力",
