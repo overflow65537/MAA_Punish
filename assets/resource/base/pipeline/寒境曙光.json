@@ -930,6 +930,7 @@
         ]
     },
     "关闭未拥有人物提示": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             419,
