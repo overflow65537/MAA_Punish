@@ -289,10 +289,10 @@
         "post_delay": 1500,
         "recognition": "TemplateMatch",
         "roi": [
-            319,
-            183,
-            61,
-            56
+            193,
+            167,
+            570,
+            71
         ],
         "template": "战斗\\取消选择体力药.png",
         "action": "Click",
