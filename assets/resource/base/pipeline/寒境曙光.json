@@ -1492,6 +1492,7 @@
     },
     "继续_寒境曙光": {
         "recognition": "TemplateMatch",
+        "threshold": 0.9,
         "roi": [
             1025,
             617,
