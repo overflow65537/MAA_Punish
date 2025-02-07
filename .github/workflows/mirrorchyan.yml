@@ -1,0 +1,24 @@
+name: mirrorchyan
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  mirrorchyan:
+    runs-on: macos-latest
+    steps:
+      - id: uploading
+        uses: MirrorChyan/uploading-action@v1
+        with:
+          filetype: latest-release
+          filename: "MPA-win-x86_64-*.zip"
+          pick_files: '["resource", "interface.json"]'
+          exclude_files: '["resource/base/model/ocr/**"]'
+          mirrorchyan_rid: MAA_Punish
+
+          owner: overflow65537
+          repo: MAA_Punish
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          upload_token: ${{ secrets.MirrorChyanUploadToken }}
