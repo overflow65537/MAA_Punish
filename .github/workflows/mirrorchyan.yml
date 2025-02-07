@@ -14,8 +14,8 @@ jobs:
         with:
           filetype: latest-release
           filename: "MPA-win-x86_64-MFW*.zip"
-          working-directory: bundles/MPA
-          pick_files: '*'
+          working-directory: bundles/MPA/
+          pick_files: '["resource", "interface.json", "custom"]'
           exclude_files: '["*model/ocr/**"]'
           mirrorchyan_rid: MAA_Punish
 
