@@ -1,11 +1,9 @@
 {
     "购买碎片": {
         "next": [
-            "购买碎片成功",
-            "购买碎片失败"
+            "购买"
         ],
         "interrupt": [
-            "购买",
             "检查碎片",
             "滑动",
             "打开商店",
@@ -79,7 +77,7 @@
         "action": "Click"
     },
     "购买": {
-        "post_delay": 2000,
+        "post_delay": 1750,
         "recognition": "OCR",
         "roi": [
             536,
@@ -94,7 +92,11 @@
             0,
             0
         ],
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "关闭界面",
+            "返回主菜单"
+        ]
     },
     "购买碎片成功": {
         "recognition": "OCR",

@@ -101,7 +101,7 @@
         ]
     },
     "结束战斗任务_使用体力": {
-        "post_delay": 3500,
+        "post_delay": 2000,
         "recognition": "OCR",
         "roi": [
             561,
@@ -110,13 +110,6 @@
             56
         ],
         "expected": "体力不足",
-        "target": [
-            100,
-            0,
-            0,
-            0
-        ],
-        "action": "Click",
         "next": [
             "吃体力药"
         ]
@@ -170,6 +163,7 @@
         "action": "Click"
     },
     "打开拟战场域": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             47,
@@ -215,7 +209,6 @@
         ]
     },
     "开始自动战斗": {
-        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             747,
@@ -224,7 +217,31 @@
             263
         ],
         "expected": "自动作战",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "检查结果_体力不足",
+            "检查结果_战斗完成"
+        ]
+    },
+    "检查结果_体力不足": {
+        "recognition": "OCR",
+        "roi": [
+            561,
+            331,
+            171,
+            56
+        ],
+        "expected": "体力不足"
+    },
+    "检查结果_战斗完成": {
+        "recognition": "OCR",
+        "roi": [
+            1130,
+            652,
+            73,
+            33
+        ],
+        "expected": "确定"
     },
     "退出战斗_拟战场域": {
         "post_wait_freezes": 10,
