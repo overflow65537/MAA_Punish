@@ -13,9 +13,9 @@ jobs:
         uses: MirrorChyan/uploading-action@v1
         with:
           filetype: latest-release
-          filename: "MPA-win-x86_64-*.zip"
-          pick_files: '["resource", "interface.json"]'
-          exclude_files: '["resource/base/model/ocr/**"]'
+          filename: "MPA-win-x86_64-MFW*.zip"
+          pick_files: '["bundles"]'
+          exclude_files: '["*model/ocr/**"]'
           mirrorchyan_rid: MAA_Punish
 
           owner: overflow65537
