@@ -510,6 +510,7 @@
     },
     "点击开始执勤": {
         "recognition": "OCR",
+        "post_delay": 1000,
         "roi": [
             872,
             620,
@@ -517,7 +518,31 @@
             39
         ],
         "expected": "开始执勤",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "未选择执勤伙伴",
+            "空任务"
+        ]
+    },
+    "未选择执勤伙伴": {
+        "recognition": "OCR",
+        "roi": [
+            560,
+            330,
+            157,
+            58
+        ],
+        "expected": "未选择角色",
+        "action": "Click",
+        "target": [
+            1,
+            1,
+            0,
+            0
+        ],
+        "next": [
+            "选择执勤伙伴"
+        ]
     },
     "选择执勤伙伴": {
         "recognition": "OCR",
