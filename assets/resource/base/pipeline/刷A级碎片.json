@@ -1,0 +1,231 @@
+{
+    "刷A级碎片": {
+        "next": [
+            "检查是否是资源副本界面",
+            "检查主界面"
+        ]
+    },
+    "检查是否是资源副本界面": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            887,
+            651,
+            150,
+            66
+        ],
+        "expected": "资源",
+        "next": [
+            "寻找角色"
+        ]
+    },
+    "进入资源副本": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            887,
+            651,
+            150,
+            66
+        ],
+        "expected": "资源",
+        "action": "Click",
+        "next": [
+            "A级角色"
+        ],
+        "interrupt": [
+            "滑动角色碎片界面"
+        ]
+    },
+    "滑动角色碎片界面": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "expected": "角色碎片",
+        "action": "Swipe",
+        "begin": [
+            1215,
+            412,
+            1,
+            1
+        ],
+        "end": [
+            275,
+            412,
+            1,
+            1
+        ],
+        "duration": 12500,
+        "next": [
+            "A_滑动后点击"
+        ]
+    },
+    "A_滑动后点击": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "action": "Click",
+        "target": [
+            628,
+            111,
+            1,
+            1
+        ]
+    },
+    "A级角色": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            253,
+            467,
+            1004,
+            62
+        ],
+        "expected": "",
+        "action": "Click",
+        "next": [
+            "使用体力刷碎片"
+        ]
+    },
+    "使用体力刷碎片": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            939,
+            621,
+            123,
+            69
+        ],
+        "expected": "自动作战",
+        "action": "Click",
+        "next": [
+            "A_MAX",
+            "A_挑战次数不足"
+        ]
+    },
+    "A_挑战次数不足": {
+        "recognition": "OCR",
+        "roi": [
+            551,
+            330,
+            174,
+            46
+        ],
+        "expected": "挑战次数不足",
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "A_MAX": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            286,
+            497,
+            83,
+            48
+        ],
+        "expected": "MAX",
+        "action": "Click",
+        "next": [
+            "A_确认出战"
+        ]
+    },
+    "A_确认出战": {
+        "post_delay": 3000,
+        "recognition": "OCR",
+        "roi": [
+            1012,
+            486,
+            251,
+            63
+        ],
+        "expected": "确认",
+        "action": "Click",
+        "next": [
+            "A_出战结束_确认",
+            "A_血清组",
+            "补给包不足"
+        ]
+    },
+    "A_血清组": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            845,
+            268,
+            195,
+            64
+        ],
+        "expected": "注射血清",
+        "next": [
+            "A_使用体力",
+            "A_不使用体力"
+        ]
+    },
+    "A_使用体力": {
+        "post_delay": 2000,
+        "recognition": "OCR",
+        "roi": [
+            859,
+            586,
+            67,
+            38
+        ],
+        "expected": "确定",
+        "action": "Click",
+        "next": [
+            "A_体力取消"
+        ],
+        "interrupt": [
+            "关闭奖励"
+        ]
+    },
+    "A_体力取消": {
+        "recognition": "OCR",
+        "roi": [
+            664,
+            588,
+            57,
+            44
+        ],
+        "expected": "取消",
+        "action": "Click",
+        "next": [
+            "A_确认出战"
+        ]
+    },
+    "A_不使用体力": {
+        "recognition": "OCR",
+        "roi": [
+            664,
+            588,
+            57,
+            44
+        ],
+        "expected": "取消",
+        "action": "Click",
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "A_出战结束_确认": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1077,
+            623,
+            176,
+            88
+        ],
+        "expected": "确定",
+        "action": "Click",
+        "next": [
+            "返回主菜单"
+        ]
+    }
+}

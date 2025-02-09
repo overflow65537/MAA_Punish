@@ -53,6 +53,22 @@
             }
         },
         {
+            "name": "刷A级碎片",
+            "entry": "刷A级碎片",
+            "pipeline_override": {
+                "检查主界面": {
+                    "action": "Click",
+                    "next": [
+                        "进入资源副本"
+                    ]
+                }
+            },
+            "option": [
+                "选择A级角色",
+                "是否使用体力"
+            ]
+        },
+        {
             "name": "领取体力",
             "entry": "领取体力"
         },
@@ -105,6 +121,26 @@
         }
     ],
     "option": {
+        "是否使用体力": {
+            "cases": [
+                {
+                    "name": "是",
+                    "pipeline_override": {
+                        "A_不使用体力": {
+                            "enabled": false
+                        }
+                    }
+                },
+                {
+                    "name": "否",
+                    "pipeline_override": {
+                        "A_使用体力": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
         "选择温度": {
             "cases": [
                 {
@@ -217,6 +253,210 @@
                         },
                         "结束战斗任务_使用体力": {
                             "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
+        "选择A级角色": {
+            "cases": [
+                {
+                    "name": "徊闪",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "徊闪"
+                        }
+                    }
+                },
+                {
+                    "name": "耀炎",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "耀炎"
+                        }
+                    }
+                },
+                {
+                    "name": "觅语",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "觅语"
+                        }
+                    }
+                },
+                {
+                    "name": "擎驱",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "擎驱"
+                        }
+                    }
+                },
+                {
+                    "name": "清商",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "清商"
+                        }
+                    }
+                },
+                {
+                    "name": "琉璃",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "琉璃"
+                        }
+                    }
+                },
+                {
+                    "name": "XXI",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "XXI"
+                        }
+                    }
+                },
+                {
+                    "name": "明觉",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "明觉"
+                        }
+                    }
+                },
+                {
+                    "name": "游麟",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "游麟"
+                        }
+                    }
+                },
+                {
+                    "name": "瑰丽",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "瑰丽"
+                        }
+                    }
+                },
+                {
+                    "name": "弧光",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "弧光"
+                        }
+                    }
+                },
+                {
+                    "name": "银牙",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "银牙"
+                        }
+                    }
+                },
+                {
+                    "name": "溢彩",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "溢彩"
+                        }
+                    }
+                },
+                {
+                    "name": "重能",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "重能"
+                        }
+                    }
+                },
+                {
+                    "name": "零度",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "零度"
+                        }
+                    }
+                },
+                {
+                    "name": "流光",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "流光"
+                        }
+                    }
+                },
+                {
+                    "name": "夙星",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "夙星"
+                        }
+                    }
+                },
+                {
+                    "name": "夜刃",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "夜刃"
+                        }
+                    }
+                },
+                {
+                    "name": "爆裂",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "爆裂"
+                        }
+                    }
+                },
+                {
+                    "name": "异火",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "异火"
+                        }
+                    }
+                },
+                {
+                    "name": "风暴",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "风暴"
+                        }
+                    }
+                },
+                {
+                    "name": "流光",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "流光"
+                        }
+                    }
+                },
+                {
+                    "name": "蚀暗",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "蚀暗"
+                        }
+                    }
+                },
+                {
+                    "name": "黎明",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "黎明"
+                        }
+                    }
+                },
+                {
+                    "name": "红莲",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "红莲"
                         }
                     }
                 }
