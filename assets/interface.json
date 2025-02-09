@@ -55,8 +55,17 @@
         {
             "name": "刷A级碎片",
             "entry": "刷A级碎片",
+            "pipeline_override": {
+                "检查主界面": {
+                    "action": "Click",
+                    "next": [
+                        "进入资源副本"
+                    ]
+                }
+            },
             "option": [
-                "选择A级角色"
+                "选择A级角色",
+                "是否使用体力"
             ]
         },
         {
@@ -112,6 +121,26 @@
         }
     ],
     "option": {
+        "是否使用体力": {
+            "cases": [
+                {
+                    "name": "是",
+                    "pipeline_override": {
+                        "A_不使用体力": {
+                            "enabled": false
+                        }
+                    }
+                },
+                {
+                    "name": "否",
+                    "pipeline_override": {
+                        "A_使用体力": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
         "选择温度": {
             "cases": [
                 {
@@ -251,7 +280,7 @@
                     "name": "觅语",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "耀炎"
+                            "expected": "觅语"
                         }
                     }
                 },
@@ -327,7 +356,6 @@
                         }
                     }
                 },
-                
                 {
                     "name": "溢彩",
                     "pipeline_override": {
@@ -344,7 +372,6 @@
                         }
                     }
                 },
-                
                 {
                     "name": "零度",
                     "pipeline_override": {
