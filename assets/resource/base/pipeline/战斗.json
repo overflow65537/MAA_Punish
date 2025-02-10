@@ -8,7 +8,6 @@
             "结束战斗任务_不使用体力"
         ],
         "interrupt": [
-            "结束战斗任务_使用体力",
             "退出战斗_拟战场域",
             "开始自动战斗",
             "手动作战_custom",
@@ -100,22 +99,9 @@
             "返回主菜单"
         ]
     },
-    "结束战斗任务_使用体力": {
-        "post_delay": 2000,
-        "recognition": "OCR",
-        "roi": [
-            561,
-            331,
-            171,
-            56
-        ],
-        "expected": "体力不足",
-        "next": [
-            "吃体力药"
-        ]
-    },
     "吃体力药": {
-        "post_wait_freezes": 1000,
+        "pre_delay": 4000,
+        "post_delay": 1000,
         "recognition": "TemplateMatch",
         "roi": [
             993,
@@ -231,7 +217,10 @@
             171,
             56
         ],
-        "expected": "体力不足"
+        "expected": "体力不足",
+        "next": [
+            "吃体力药"
+        ]
     },
     "检查结果_战斗完成": {
         "recognition": "OCR",
