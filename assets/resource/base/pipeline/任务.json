@@ -1,8 +1,7 @@
 {
     "任务": {
         "next": [
-            "每周任务",
-            "每日任务"
+            "每周任务"
         ],
         "interrupt": [
             "打开任务",
@@ -11,15 +10,14 @@
     },
     "每日任务": {
         "post_delay": 1000,
-        "recognition": "TemplateMatch",
-        "threshold": 0.9,
+        "recognition": "OCR",
         "roi": [
-            0,
-            243,
-            308,
-            200
+            9,
+            184,
+            237,
+            355
         ],
-        "template": "任务\\每日_32_293_208_40__0_243_308_140.png",
+        "expected": "每日",
         "action": "Click",
         "next": [
             "一键领取_任务",
@@ -32,32 +30,20 @@
     },
     "每周任务": {
         "post_delay": 1000,
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
-            11,
-            334,
-            255,
-            142
+            9,
+            184,
+            237,
+            355
         ],
-        "template": "任务\\每周任务.png",
+        "expected": "每周",
         "action": "Click",
         "next": [
             "一键领取_定期",
             "每日任务"
         ],
         "interrupt": []
-    },
-    "进入每日任务": {
-        "recognition": "TemplateMatch",
-        "threshold": 0.9,
-        "roi": [
-            0,
-            238,
-            272,
-            151
-        ],
-        "template": "任务\\每日_32_293_208_40__0_243_308_140.png",
-        "action": "Click"
     },
     "打开任务": {
         "post_delay": 2000,
@@ -72,21 +58,6 @@
             "任务",
             "任笋"
         ],
-        "action": "Click",
-        "next": [
-            "选择活动战斗",
-            "空任务"
-        ]
-    },
-    "选择活动战斗": {
-        "recognition": "OCR",
-        "roi": [
-            16,
-            372,
-            113,
-            150
-        ],
-        "expected": "活动",
         "action": "Click"
     },
     "一键领取_定期": {
