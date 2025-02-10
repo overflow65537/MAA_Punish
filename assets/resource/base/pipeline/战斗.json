@@ -233,7 +233,7 @@
         "expected": "确定"
     },
     "退出战斗_拟战场域": {
-        "post_wait_freezes": 10,
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             1130,
