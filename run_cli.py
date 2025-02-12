@@ -2,27 +2,42 @@ import sys
 
 from maa.toolkit import Toolkit
 
-from assets.custom.action.basics import CenterCamera, GeneralFight, Identify, ResetIdentify, ScreenShot, Stigmata
-from assets.custom.action.exclusives import CrimsonWeave, LostLullaby, Oblivion, Pyroath
+from assets.custom.action.basics import (
+    CenterCamera,
+    GeneralFight,
+    Identify,
+    ResetIdentify,
+    ScreenShot,
+)
+from assets.custom.action.exclusives import (
+    CrimsonWeave,
+    LostLullaby,
+    Oblivion,
+    Pyroath,
+    Stigmata,
+)
 from assets.custom.recognition.exclusives import CalculateScore, IDFMembers, IDFscore
 
 
 def main():
-    # 注册自定义动作
-    Toolkit.pi_register_custom_action("CrimsonWeave", CrimsonWeave())
-    Toolkit.pi_register_custom_action("GeneralFight", GeneralFight())
-    Toolkit.pi_register_custom_action("LostLullaby", LostLullaby())
-    Toolkit.pi_register_custom_action("Oblivion", Oblivion())
-    Toolkit.pi_register_custom_action("Pyroath", Pyroath())
-    Toolkit.pi_register_custom_action("Stigmata", Stigmata())
-    Toolkit.pi_register_custom_action("ScreenShot", ScreenShot())
-    Toolkit.pi_register_custom_action("Identify", Identify())
-    Toolkit.pi_register_custom_action("ResetIdentify", ResetIdentify())
-    Toolkit.pi_register_custom_action("CenterCamera", CenterCamera())
+    # 注册自定义动作-角色战斗逻辑
+    Toolkit.pi_register_custom_action("CrimsonWeave", CrimsonWeave())  # 深红囚影
+    Toolkit.pi_register_custom_action("LostLullaby", LostLullaby())  # 深谣
+    Toolkit.pi_register_custom_action("Oblivion", Oblivion())  # 终焉
+    Toolkit.pi_register_custom_action("Pyroath", Pyroath())  # 誓焰
+    Toolkit.pi_register_custom_action("Stigmata", Stigmata())  # 深痕
+    # 注册自定义动作-通用逻辑
+    Toolkit.pi_register_custom_action("GeneralFight", GeneralFight())  # 通用战斗逻辑
+    Toolkit.pi_register_custom_action("ScreenShot", ScreenShot())  # 截图
+    Toolkit.pi_register_custom_action("Identify", Identify())  # 识别人物
+    Toolkit.pi_register_custom_action("ResetIdentify", ResetIdentify())  # 重置识别
+    Toolkit.pi_register_custom_action("CenterCamera", CenterCamera())  # 重置镜头
     # 注册自定义识别
-    Toolkit.pi_register_custom_recognition("CalculateScore", CalculateScore())
-    Toolkit.pi_register_custom_recognition("IDFMembers", IDFMembers())
-    Toolkit.pi_register_custom_recognition("IDFscore", IDFscore())
+    Toolkit.pi_register_custom_recognition(
+        "CalculateScore", CalculateScore()
+    )  # 计算分数
+    Toolkit.pi_register_custom_recognition("IDFMembers", IDFMembers())  # 识别宿舍成员
+    Toolkit.pi_register_custom_recognition("IDFscore", IDFscore())  # 识别分数
 
     directly = "-d" in sys.argv
     Toolkit.pi_run_cli("./", "./", directly)
