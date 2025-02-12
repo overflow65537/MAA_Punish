@@ -1,19 +1,11 @@
-from assets.custom.action.CrimsonWeave.main import CrimsonWeave
-from assets.custom.action.LostLullaby.main import LostLullaby
-from assets.custom.action.GeneralFight.main import GeneralFight
-from assets.custom.action.Oblivion.main import Oblivion
-from assets.custom.action.Pyroath.main import Pyroath
-from assets.custom.action.Stigmata.main import Stigmata
-from assets.custom.action.ScreenShot.main import ScreenShot
-from assets.custom.action.Identify.main import Identify
-from assets.custom.action.ResetIdentify.main import ResetIdentify
-from assets.custom.action.CenterCamera.main import CenterCamera
-from assets.custom.recognition.CalculateScore.main import CalculateScore
-from assets.custom.recognition.IDFMembers.main import IDFMembers
-from assets.custom.recognition.IDFscore.main import IDFscore
+import sys
+
 from maa.toolkit import Toolkit
 
-import sys
+from assets.custom.action.basics import CenterCamera, GeneralFight, Identify, ResetIdentify, ScreenShot, Stigmata
+from assets.custom.action.exclusives import CrimsonWeave, LostLullaby, Oblivion, Pyroath
+from assets.custom.recognition.exclusives import CalculateScore, IDFMembers, IDFscore
+
 
 def main():
     # 注册自定义动作
@@ -29,11 +21,12 @@ def main():
     Toolkit.pi_register_custom_action("CenterCamera", CenterCamera())
     # 注册自定义识别
     Toolkit.pi_register_custom_recognition("CalculateScore", CalculateScore())
-    Toolkit.pi_register_custom_recognition("IDFMembers", IDFMembers())  
+    Toolkit.pi_register_custom_recognition("IDFMembers", IDFMembers())
     Toolkit.pi_register_custom_recognition("IDFscore", IDFscore())
 
     directly = "-d" in sys.argv
     Toolkit.pi_run_cli("./", "./", directly)
+
 
 if __name__ == "__main__":
     main()
