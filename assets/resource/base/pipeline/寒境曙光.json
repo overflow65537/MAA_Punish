@@ -1383,6 +1383,27 @@
             "完成所有任务"
         ]
     },
+    "刷新次数用尽失败_寒镜曙光": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            80,
+            15,
+            59,
+            38
+        ],
+        "expected": "返回",
+        "action": "Click",
+        "next": [
+            "完成所有任务"
+        ],
+        "interrupt": [
+            "下一步_寒境曙光",
+            "点击空白处关闭",
+            "确定终止_寒境曙光",
+            "终止_寒境曙光"
+        ]
+    },
     "寒境曙光主界面": {
         "post_delay": 1000,
         "recognition": "TemplateMatch",
@@ -1670,6 +1691,50 @@
         ]
     },
     "选择人物_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            900,
+            624,
+            103,
+            34
+        ],
+        "expected": "招募次数",
+        "next": [
+            "选择已有战斗逻辑的人物",
+            "无刷新次数_寒境曙光"
+        ],
+        "interrupt": [
+            "刷新人物_寒境曙光"
+        ]
+    },
+    "无刷新次数_寒境曙光": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": [
+            1137,
+            640,
+            38,
+            26
+        ],
+        "expected": "0/1",
+        "action": "Click",
+        "next": [
+            "刷新次数用尽失败_寒镜曙光"
+        ]
+    },
+    "刷新人物_寒境曙光": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": [
+            1137,
+            640,
+            38,
+            26
+        ],
+        "expected": "1/1",
+        "action": "Click"
+    },
+    "选择已有战斗逻辑的人物": {
         "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
