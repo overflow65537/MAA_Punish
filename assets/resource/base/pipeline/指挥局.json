@@ -18,6 +18,76 @@
         ],
         "expected": "新版指挥局",
         "next": [
+            "领取本周贡献"
+        ]
+    },
+    "领取本周贡献": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            14,
+            190,
+            115,
+            39
+        ],
+        "expected": "本周贡献",
+        "action": "Click",
+        "next": [
+            "本周贡献_一键领取",
+            "返回指挥局"
+        ]
+    },
+    "本周贡献_一键领取": {
+        "recognition": "OCR",
+        "roi": [
+            1055,
+            108,
+            195,
+            84
+        ],
+        "expected": "一键领取",
+        "action": "Click",
+        "next": [
+            "返回指挥局"
+        ],
+        "interrupt": [
+            "关闭奖励"
+        ]
+    },
+    "返回指挥局": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            11,
+            328,
+            143,
+            63
+        ],
+        "expected": "拟真围剿",
+        "action": "Click",
+        "target": [
+            54,
+            33,
+            1,
+            1
+        ],
+        "next": [
+            "回到指挥局内部"
+        ],
+        "interrupt": [
+            "返回指挥局"
+        ]
+    },
+    "回到指挥局内部": {
+        "recognition": "OCR",
+        "roi": [
+            301,
+            14,
+            123,
+            34
+        ],
+        "expected": "新版指挥局",
+        "next": [
             "检查指定按钮"
         ],
         "interrupt": [
@@ -31,10 +101,10 @@
     "检查指定按钮": {
         "recognition": "OCR",
         "roi": [
-            926,
-            323,
-            92,
-            57
+            927,
+            326,
+            113,
+            49
         ],
         "expected": [
             "算一签",
