@@ -12,6 +12,7 @@
         ]
     },
     "打开通行证_图片": {
+        "post_delay": 1000,
         "recognition": "TemplateMatch",
         "roi": [
             281,
