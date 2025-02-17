@@ -1,0 +1,73 @@
+{
+    "识别角色名": {
+        "next": [
+            "点击更换"
+        ]
+    },
+    "点击更换": {
+        "recognition": "OCR",
+        "roi": [
+            314,
+            633,
+            49,
+            23
+        ],
+        "expected": "更换",
+        "action": "Click",
+        "target": [
+            326,
+            643,
+            1,
+            1
+        ],
+        "next": [
+            "调用识别方法"
+        ]
+    },
+    "调用识别方法": {
+        "action": "Custom",
+        "custom_action": "Identify_roles",
+        "next": [
+            "出队长界面"
+        ]
+    },
+    "出队长界面": {
+        "action": "Click",
+        "target": [
+            1199,
+            70,
+            1,
+            1
+        ]
+    },
+    "识别第一位角色名": {
+        "recognition": "OCR",
+        "roi": [
+            209,
+            303,
+            259,
+            46
+        ],
+        "expected": "[\\u4e00-\\u9fff]+(?:-[\\u4e00-\\u9fff]+)*"
+    },
+    "识别第二位角色名": {
+        "recognition": "OCR",
+        "roi": [
+            514,
+            308,
+            252,
+            43
+        ],
+        "expected": "[\\u4e00-\\u9fff]+(?:-[\\u4e00-\\u9fff]+)*"
+    },
+    "识别第三位角色名": {
+        "recognition": "OCR",
+        "roi": [
+            821,
+            302,
+            243,
+            51
+        ],
+        "expected": "[\\u4e00-\\u9fff]+(?:-[\\u4e00-\\u9fff]+)*"
+    }
+}

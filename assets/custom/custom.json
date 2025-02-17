@@ -14,6 +14,11 @@
         "class": "Identify",
         "file_path": "{custom_path}\\action\\basics\\Identify.py"
     },
+    "Identify_roles": {
+        "type": "action",
+        "class": "Identify_roles",
+        "file_path": "{custom_path}\\action\\basics\\Identify_roles.py"
+    },
     "ResetIdentify": {
         "type": "action",
         "class": "ResetIdentify",

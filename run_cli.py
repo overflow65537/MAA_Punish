@@ -6,6 +6,7 @@ from assets.custom.action.basics import (
     CenterCamera,
     GeneralFight,
     Identify,
+    Identify_roles,
     ResetIdentify,
     ScreenShot,
 )
@@ -32,6 +33,7 @@ def main():
     Toolkit.pi_register_custom_action("Identify", Identify())  # 识别人物
     Toolkit.pi_register_custom_action("ResetIdentify", ResetIdentify())  # 重置识别
     Toolkit.pi_register_custom_action("CenterCamera", CenterCamera())  # 重置镜头
+    Toolkit.pi_register_custom_action("Identify_roles", Identify_roles())  # 识别人物
     # 注册自定义识别
     Toolkit.pi_register_custom_recognition(
         "CalculateScore", CalculateScore()
