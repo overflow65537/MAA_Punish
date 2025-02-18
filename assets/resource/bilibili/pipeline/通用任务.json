@@ -1,0 +1,9 @@
+{
+    "重启游戏": {
+        "action": "StopApp",
+        "package": "com.kurogame.haru.bilibili",
+        "next": [
+            "启动"
+        ]
+    }
+}
