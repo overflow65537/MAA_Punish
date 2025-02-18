@@ -133,7 +133,7 @@
     },
     "打开应用": {
         "action": "StartApp",
-        "package": "com.kurogame.haru.hero/com.haru.herousdk.SplashActivity"
+        "package": "com.kurogame.haru.hero"
     },
     "切换主界面状态": {
         "recognition": "TemplateMatch",
