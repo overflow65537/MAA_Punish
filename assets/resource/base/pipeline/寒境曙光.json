@@ -94,6 +94,9 @@
         ]
     },
     "物资_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
         "recognition": "OCR",
         "roi": [
             300,
@@ -166,6 +169,9 @@
         ]
     },
     "直接进入战斗_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
         "action": "Click",
         "target": "战斗地块_寒境曙光",
         "next": [
@@ -280,6 +286,9 @@
         ]
     },
     "汇合_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
         "recognition": "OCR",
         "roi": [
             731,
@@ -326,6 +335,9 @@
         "action": "Click"
     },
     "拓荒_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
         "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
@@ -388,6 +400,9 @@
         "action": "Click"
     },
     "前方有陷阱_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
         "recognition": "OCR",
         "roi": [
             300,
@@ -424,6 +439,9 @@
         "action": "Click"
     },
     "剩余资金_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
         "recognition": "OCR",
         "roi": [
             300,
@@ -458,6 +476,9 @@
         "action": "Click"
     },
     "冬日之影_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
         "recognition": "OCR",
         "roi": [
             300,
@@ -524,6 +545,9 @@
         ]
     },
     "战马瑞恩_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
         "recognition": "OCR",
         "roi": [
             300,
@@ -584,6 +608,9 @@
         ]
     },
     "鲨鱼置物箱_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
         "recognition": "OCR",
         "roi": [
             300,
@@ -620,6 +647,9 @@
         "action": "Click"
     },
     "学者来访_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
         "recognition": "OCR",
         "roi": [
             300,
@@ -653,6 +683,9 @@
         "action": "Click"
     },
     "运力紧张_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
         "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
@@ -716,6 +749,9 @@
         "expected": "退出挑战"
     },
     "废弃港口_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
         "recognition": "OCR",
         "roi": [
             300,
@@ -749,6 +785,9 @@
         "action": "Click"
     },
     "商队来访_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
         "recognition": "OCR",
         "roi": [
             300,
@@ -808,6 +847,9 @@
         ]
     },
     "拦路的废墟_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
         "recognition": "OCR",
         "roi": [
             300,
@@ -845,6 +887,9 @@
         "action": "Click"
     },
     "难民团到访_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
         "recognition": "OCR",
         "roi": [
             300,
@@ -996,6 +1041,9 @@
         "action": "Click"
     },
     "建筑师的建议_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
         "recognition": "OCR",
         "roi": [
             300,
@@ -1042,6 +1090,9 @@
         "expected": "开始探索"
     },
     "旧国遗产_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
         "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
