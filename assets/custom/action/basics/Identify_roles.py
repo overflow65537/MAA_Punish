@@ -7,20 +7,29 @@ class Identify_roles(CustomAction):
         image = context.tasker.controller.post_screencap().wait().get()
 
         role_action_mapping = {
-            "终焉": "Oblivion",
-            "深痕": "Stigmata",
-            "深谣": "LostLullaby",
-            "深红囚影": "CrimsonWeave",
-            "誓焰": "Pyroath",
+            "露娜·终焉": "Oblivion",
+            "比安卡·深痕": "Stigmata",
+            "拉弥亚·深谣": "LostLullaby",
+            "露西亚·深红囚影": "CrimsonWeave",
+            "露西亚·誓焰": "Pyroath",
         }
 
+        
         # 识别三位角色名
-        recognition_results = {
-            "first_role_name": context.run_recognition("识别第一位角色名", image).best_result.text,
-            "second_role_name": context.run_recognition("识别第二位角色名", image).best_result.text,
-            "third_role_name": context.run_recognition("识别第三位角色名", image).best_result.text,
-        }
+        recognition_results = {}
+        first_role_name = context.run_recognition("识别第一位角色名", image)
+        second_role_name = context.run_recognition("识别第二位角色名", image)
+        third_role_name = context.run_recognition("识别第三位角色名", image)
+        if first_role_name is not None:
+            recognition_results["first_role_name"] = first_role_name.best_result.text
+        if second_role_name is not None:
+            recognition_results["second_role_name"] = second_role_name.best_result.text
+        if third_role_name is not None:
+            recognition_results["third_role_name"] = third_role_name.best_result.text
+        
+        print(recognition_results)
 
+        
         # 检查哪些角色名在映射中，并构建matched_roles字典
         matched_roles = {}
         for key, role_name in recognition_results.items():
@@ -34,8 +43,7 @@ class Identify_roles(CustomAction):
             role_key, role_value = next(iter(matched_roles.items()))  # 获取字典中的一个项（键，值）
             context.override_pipeline(
                 {
-                    "识别人物": {"enabled": False},
-                    "战斗中": {"action": "Custom", "custom_action": role_action_mapping[role_value]},
+                    "角色特有战斗":{"action": "Custom", "custom_action": role_value},
                 }
             )
 
