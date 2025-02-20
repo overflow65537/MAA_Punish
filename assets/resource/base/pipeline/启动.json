@@ -97,9 +97,10 @@
             95,
             52
         ],
-        "expected": "战斗",
+        "expected": "^战斗$",
         "next": [
             "关闭纷争战区通知",
+            "关闭拟真围剿通知",
             "检查主界面2",
             "启动"
         ]
@@ -123,7 +124,7 @@
             95,
             52
         ],
-        "expected": "战斗",
+        "expected": "^战斗$",
         "next": [
             "切换主界面状态",
             "空任务"
@@ -131,7 +132,7 @@
     },
     "打开应用": {
         "action": "StartApp",
-        "package": "com.kurogame.haru.hero/com.haru.herousdk.SplashActivity"
+        "package": "com.kurogame.haru.hero"
     },
     "切换主界面状态": {
         "recognition": "TemplateMatch",
