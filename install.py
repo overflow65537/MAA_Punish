@@ -19,20 +19,6 @@ def bulid():
     # 获取 site-packages 目录列表
     site_packages_paths = site.getsitepackages()
 
-    # 查找包含 maa/bin 的路径
-    maa_bin_path = None
-    for path in site_packages_paths:
-        potential_path = os.path.join(path, "maa", "bin")
-        if os.path.exists(potential_path):
-            maa_bin_path = potential_path
-            break
-
-    if maa_bin_path is None:
-        raise FileNotFoundError("not found maa/bin")
-
-    # 构建 --add-data 参数
-    add_data_param = f"{maa_bin_path}{os.pathsep}maa/bin"
-
     # 查找包含 MaaAgentBinary 的路径
     maa_bin_path2 = None
     for path in site_packages_paths:
@@ -50,7 +36,6 @@ def bulid():
     command = [
         "run_cli.py",
         "--name=maapicli",
-        f"--add-data={add_data_param}",
         f"--add-data={add_data_param2}",
         f"--distpath={install_path}",
         "--onefile",
