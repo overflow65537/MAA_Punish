@@ -35,13 +35,37 @@ def bulid():
 
     command = [
         "run_cli.py",
-        "--name=maapicli",
+        "--name=install",
         f"--add-data={add_data_param2}",
-        f"--distpath={install_path}",
-        "--onefile",
+        f"--distpath={working_dir}",
         "--clean",
     ]
     PyInstaller.__main__.run(command)
+    
+    if sys.platform == "win32":
+        old_name = install_path / "install.exe"
+        new_name = install_path / "maapicli.exe"
+        old_name.rename(new_name)
+    elif sys.platform == "darwin" or sys.platform == "linux":
+        old_name = install_path / "install"
+        new_name = install_path / "maapicli"
+        old_name.rename(new_name)
+    else:
+        raise NotImplementedError("not supported platform")
+    maa_bin_path = None
+    for path in site_packages_paths:
+        potential_path = os.path.join(path, "maa", "bin")
+        if os.path.exists(potential_path):
+            maa_bin_path = potential_path
+            break
+
+    if maa_bin_path is None:
+        raise FileNotFoundError("not found maa/bin")
+    shutil.copytree(
+        maa_bin_path,
+        install_path,
+        dirs_exist_ok=True,
+    )
 
 
 def install_resource():
