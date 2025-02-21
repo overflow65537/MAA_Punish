@@ -27,13 +27,7 @@
     },
     "单人自动战斗结束": {
         "recognition": "OCR",
-        "roi": [
-            1022,
-            641,
-            235,
-            72
-        ],
-        "expected": "保存分数"
+        "expected": "" 
     },
     "单人自动战斗开始": {
         "post_delay": 0,
@@ -67,6 +61,6 @@
     },
     "角色特有战斗": {
         "action": "Custom",
-        "custom_action": "1"
+        "custom_action": ""
     }
 }

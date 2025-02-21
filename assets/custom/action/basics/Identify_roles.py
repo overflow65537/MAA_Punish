@@ -3,7 +3,7 @@ import time
 from maa.context import Context
 from maa.custom_action import CustomAction
 
-#2025.2.21适配任意单人角色识别（待进行代码优化）
+#2025.2.21适配任意单人角色识别（待进行代码优化），单人自动战斗结束这个node需要单独抽离出来适配不同场景的结束方式
 
 class Identify_roles(CustomAction):
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
