@@ -48,6 +48,17 @@
         "action": "Custom",
         "custom_action": "IdentifyRoles"
     },
+    "等待加载": {
+        "recognition": "OCR",
+        "roi": [
+            1177,
+            625,
+            78,
+            71
+        ],
+        "post_delay": 3000,
+        "expected": "Loading|oadin|adi"
+    },
     "角色特有战斗_1": {
         "action": "Custom",
         "custom_action": "1"
@@ -59,5 +70,15 @@
     "角色特有战斗_3": {
         "action": "Custom",
         "custom_action": "3"
+    },
+    "自动战斗结束": {
+        "recognition": "OCR",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "expected": "保存分数|结束战斗"
     }
 }

@@ -1,5 +1,6 @@
 import time
 from typing import Dict, Optional
+
 from maa.context import Context
 from maa.custom_action import CustomAction
 
@@ -89,6 +90,10 @@ class IdentifyRoles(CustomAction):
                             "custom_action": action if action else ""
                         }
                     })
+                # 须辨别哪个首选下场，一般辅助先下，须进行战斗流程调整，职业选择，队伍调整等，由于有效应队伍，职业选择暂不考虑，
+                # 此时，三个动作已经加载到json，再通过场内的角色头像识别当前角色是否在内，如果包含主c，须切换到主c
+                # 排程 :先开发qte，主c单个下场，辅助目前无计划，是否选择线程进行qte识别
+                # 需求 :需要角色场内头像识别，直接切换主c开打
             case _:  # 无匹配角色
                 print("未找到匹配的角色配置")
 
