@@ -64,9 +64,9 @@
         "class": "IDFscore",
         "file_path": "{custom_path}\\recognition\\exclusives\\IDFscore.py"
     },
-    "Identify_roles": {
+    "IdentifyRoles": {
         "type": "action",
-        "class": "Identify_roles",
-        "file_path": "{custom_path}\\action\\basics\\Identify_roles.py"
+        "class": "IdentifyRoles",
+        "file_path": "{custom_path}\\action\\basics\\IdentifyRoles.py"
     }
 }

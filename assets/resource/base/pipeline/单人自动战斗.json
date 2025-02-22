@@ -7,8 +7,10 @@
     
     "调用识别方法": {
         "action": "Custom",
-        "custom_action": "Identify_roles"
-
+        "custom_action": "IdentifyRoles",
+        "next":[
+            "点击作战开始"
+        ]
     },
     "点击作战开始": {
         "recognition": "OCR",
@@ -26,8 +28,7 @@
         ]
     },
     "单人自动战斗结束": {
-        "recognition": "OCR",
-        "expected": "" 
+        "recognition": "OCR"
     },
     "单人自动战斗开始": {
         "post_delay": 0,
@@ -61,6 +62,6 @@
     },
     "角色特有战斗": {
         "action": "Custom",
-        "custom_action": ""
+        "custom_action": "1"
     }
 }
