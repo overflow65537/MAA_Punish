@@ -65,20 +65,30 @@ class IdentifyRoles(CustomAction):
             case 1:  # 单个角色匹配
                 pos, action = next(iter(matched_roles.items()))
                 
-                # 设置队长位置
+                # 设置队长位置(单个角色特用)
                 if leader_flags.get(pos):
                     color_map = {"pos1": "蓝色", "pos2": "红色", "pos3": "黄色"}
                     context.run_task("点击首选位置", {"点击首选位置": {"expected": color_map[pos]}})
                 
                 # 覆写战斗流程
                 context.override_pipeline({
-                    "角色特有战斗": {"action": "Custom", "custom_action": action},
-                    "单人自动战斗结束":{"roi":[0,0,0,0],"expected":"保存分数"}
+                    "角色特有战斗_1": {"action": "Custom", "custom_action": action},
                 })
+                context.run_task("点击作战开始")
             
             case n if n > 1:  # 多个角色匹配
-                print("检测到多个匹配角色，请检查配置")
-            
+                # 按pos1-pos3顺序填充三个战斗流程
+                actions = [matched_roles.get(f"pos{i}") for i in (1,2,3)]
+                
+                # 覆写三个战斗流程
+                for i in range(3):
+                    action = actions[i] if i < len(actions) else "None"
+                    context.override_pipeline({
+                        f"角色特有战斗_{i+1}": {
+                            "action": "Custom", 
+                            "custom_action": action if action else ""
+                        }
+                    })
             case _:  # 无匹配角色
                 print("未找到匹配的角色配置")
 

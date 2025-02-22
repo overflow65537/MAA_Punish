@@ -43,5 +43,21 @@
             1,
             1
         ]
+    },
+    "调用识别方法": {
+        "action": "Custom",
+        "custom_action": "IdentifyRoles"
+    },
+    "角色特有战斗_1": {
+        "action": "Custom",
+        "custom_action": "1"
+    },
+    "角色特有战斗_2": {
+        "action": "Custom",
+        "custom_action": "2"
+    },
+    "角色特有战斗_3": {
+        "action": "Custom",
+        "custom_action": "3"
     }
 }
