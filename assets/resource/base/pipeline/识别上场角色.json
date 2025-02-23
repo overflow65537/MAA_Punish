@@ -1,0 +1,69 @@
+{
+    "检查比安卡·深痕": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1113,
+            556,
+            138,
+            142
+        ],
+        "template": [
+            "自定义战斗\\深痕.png",
+            "自定义战斗\\深痕a2.png"
+        ],
+        "green_mask": true
+    },
+    "检查露西亚·誓焰": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1113,
+            556,
+            138,
+            142
+        ],
+        "template": [
+            "自定义战斗\\誓焰.png"
+        ],
+        "green_mask": true
+    },
+    "检查露娜·终焉": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1113,
+            556,
+            138,
+            142
+        ],
+        "template": [
+            "自定义战斗\\终焉.png"
+        ],
+        "green_mask": true
+    },
+    "检查露西亚·深红囚影": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1113,
+            556,
+            138,
+            142
+        ],
+        "template": [
+            "自定义战斗\\深红囚影.png"
+        ],
+        "green_mask": true
+    },
+    "检查拉弥亚·深谣": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1113,
+            556,
+            138,
+            142
+        ],
+        "template": [
+            "自定义战斗\\深谣_p1.png",
+            "自定义战斗\\深谣_p2.png"
+        ],
+        "green_mask": true
+    }
+}
