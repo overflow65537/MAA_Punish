@@ -42,8 +42,7 @@
             131,
             131
         ],
-        "template": "战斗\\闪避.png",
-        "post_delay": 3000
+        "template": "战斗\\闪避.png"
     },
     "识别角色名": {
         "recognition": "OCR",

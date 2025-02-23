@@ -1,13 +1,5 @@
 {
     "自动战斗任务": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            991,
-            617,
-            288,
-            97
-        ],
-        "template": "肉鸽通用\\作战开始.png",
         "next": [
             "调用识别方法"
         ]
