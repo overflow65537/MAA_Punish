@@ -73,10 +73,11 @@ class IdentifyRoles(CustomAction):
                 
                 # 覆写战斗流程
                 context.override_pipeline({
-                    "角色特有战斗_1": {"action": "Custom", "custom_action": action},
+                    "角色特有战斗": {"action": "Custom", "custom_action": action},
                 })
                 context.run_task("点击作战开始")
             
+            # 切人时点击后不动
             case n if n > 1:  # 多个角色匹配
                 # 按pos1-pos3顺序填充三个战斗流程
                 actions = [matched_roles.get(f"pos{i}") for i in (1,2,3)]
@@ -90,10 +91,7 @@ class IdentifyRoles(CustomAction):
                             "custom_action": action if action else ""
                         }
                     })
-                # 须辨别哪个首选下场，一般辅助先下，须进行战斗流程调整，职业选择，队伍调整等，由于有效应队伍，职业选择暂不考虑，
-                # 此时，三个动作已经加载到json，再通过场内的角色头像识别当前角色是否在内，如果包含主c，须切换到主c
-                # 排程 :先开发qte，主c单个下场，辅助目前无计划，是否选择线程进行qte识别
-                # 需求 :需要角色场内头像识别，直接切换主c开打
+                context.run_task("点击作战开始")
             case _:  # 无匹配角色
                 print("未找到匹配的角色配置")
 
