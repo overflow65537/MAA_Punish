@@ -42,7 +42,8 @@
             131,
             131
         ],
-        "template": "战斗\\闪避.png"
+        "template": "战斗\\闪避.png",
+        "post_delay":3000
     },
     "识别角色名": {
         "recognition": "OCR",
@@ -87,18 +88,6 @@
         ],
         "post_delay": 3000,
         "expected": "Loading|oadin|adi"
-    },
-    "角色特有战斗_1": {
-        "action": "Custom",
-        "custom_action": "1"
-    },
-    "角色特有战斗_2": {
-        "action": "Custom",
-        "custom_action": "2"
-    },
-    "角色特有战斗_3": {
-        "action": "Custom",
-        "custom_action": "3"
     },
     "角色特有战斗": {
         "action": "Custom",

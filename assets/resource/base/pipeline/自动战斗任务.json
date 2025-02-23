@@ -17,10 +17,31 @@
             "自动战斗结束"
         ],
         "interrupt": [
-            "多人自动战斗"
+            "多人轮切自动战斗-1"
         ]
     },
-    "多人自动战斗": {
+    "多人轮切自动战斗-1":{
+        "action":"Click",
+        "target":[1208, 154,1,1],
+        "next":[
+            "多人轮切自动战斗-2"
+        ]
+    },
+    "多人轮切自动战斗-2": {
+        "action": "Custom",
+        "custom_action": "MultiplayerAutoBattle",
+        "next": [
+            "多人轮切自动战斗-3"
+        ]
+    },
+    "多人轮切自动战斗-3":{
+        "action":"Click",
+        "target":[1208, 265,1,1],
+        "next":[
+            "多人轮切自动战斗-4"
+        ]
+    },
+    "多人轮切自动战斗-4": {
         "action": "Custom",
         "custom_action": "MultiplayerAutoBattle"
     }
