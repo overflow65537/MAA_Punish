@@ -16,6 +16,35 @@
             1
         ]
     },
+    "点击作战开始": {
+        "recognition": "OCR",
+        "roi": [
+            1022,
+            641,
+            235,
+            72
+        ],
+        "expected": "作战开始",
+        "action": "Click",
+        "next": [
+            "自动战斗开始"
+        ],
+        "interrupt": [
+            "等待加载"
+        ]
+    },
+    "自动战斗开始": {
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            990,
+            567,
+            131,
+            131
+        ],
+        "template": "战斗\\闪避.png",
+        "post_delay":3000
+    },
     "识别角色名": {
         "recognition": "OCR",
         "expected": "[\\u4e00-\\u9fa5]+[\\.\\·][\\u4e00-\\u9fa5]+"
@@ -48,6 +77,7 @@
         "action": "Custom",
         "custom_action": "IdentifyRoles"
     },
+
     "等待加载": {
         "recognition": "OCR",
         "roi": [
@@ -59,17 +89,9 @@
         "post_delay": 3000,
         "expected": "Loading|oadin|adi"
     },
-    "角色特有战斗_1": {
+    "角色特有战斗": {
         "action": "Custom",
         "custom_action": "1"
-    },
-    "角色特有战斗_2": {
-        "action": "Custom",
-        "custom_action": "2"
-    },
-    "角色特有战斗_3": {
-        "action": "Custom",
-        "custom_action": "3"
     },
     "自动战斗结束": {
         "recognition": "OCR",

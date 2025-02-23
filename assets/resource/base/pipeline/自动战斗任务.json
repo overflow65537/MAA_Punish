@@ -1,0 +1,48 @@
+{
+    "自动战斗任务": {
+        "next": [
+            "调用识别方法"
+        ]
+    },
+    "单人自动战斗循环": {
+        "next": [
+            "自动战斗结束"
+        ],
+        "interrupt": [
+            "角色特有战斗"
+        ]
+    },
+    "多人轮切自动战斗循环": {
+        "next": [
+            "自动战斗结束"
+        ],
+        "interrupt": [
+            "多人轮切自动战斗-1"
+        ]
+    },
+    "多人轮切自动战斗-1":{
+        "action":"Click",
+        "target":[1208, 154,1,1],
+        "next":[
+            "多人轮切自动战斗-2"
+        ]
+    },
+    "多人轮切自动战斗-2": {
+        "action": "Custom",
+        "custom_action": "MultiplayerAutoBattle",
+        "next": [
+            "多人轮切自动战斗-3"
+        ]
+    },
+    "多人轮切自动战斗-3":{
+        "action":"Click",
+        "target":[1208, 265,1,1],
+        "next":[
+            "多人轮切自动战斗-4"
+        ]
+    },
+    "多人轮切自动战斗-4": {
+        "action": "Custom",
+        "custom_action": "MultiplayerAutoBattle"
+    }
+}

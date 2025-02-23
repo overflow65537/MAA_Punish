@@ -68,5 +68,10 @@
         "type": "action",
         "class": "IdentifyRoles",
         "file_path": "{custom_path}\\action\\basics\\IdentifyRoles.py"
+    },
+    "MultiplayerAutoBattle": {
+        "type": "action",
+        "class": "MultiplayerAutoBattle",
+        "file_path": "{custom_path}\\action\\basics\\MultiplayerAutoBattle.py"
     }
 }

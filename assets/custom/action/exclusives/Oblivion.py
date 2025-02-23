@@ -33,13 +33,12 @@ class Oblivion(CustomAction):
         """检查残月值"""
         try:
             # 获取截图
-            screencap_job = context.tasker.controller.post_screencap()._status_func
-            if not self.__execute_action(screencap_job, "状态检查"):
-                return False
-
+            image = context.tasker.controller.post_screencap().wait().get()
             # 识别残月值
-            image = screencap_job.wait().get()  # 获取截图结果
-            return context.run_recognition("检查残月值_终焉", image)
+            if context.run_recognition("检查残月值_终焉", image):
+                return True
+            else:
+                return False
         except Exception as e:
             print(f"[异常] 残月值检查失败: {str(e)}")
             return False
@@ -50,18 +49,18 @@ class Oblivion(CustomAction):
             if self.__check_moon(context):
                 print("[状态] 残月值满")
                 # 长按普攻
-                swipe_job = context.tasker.controller.post_swipe(1193, 633, 1198, 638, 1200)
+                swipe_job = context.tasker.controller.post_swipe(1193, 633, 1198, 638, 1200).wait()
                 if not self.__execute_action(swipe_job, "长按攻击"):
                     return CustomAction.RunResult(success=False)
 
                 # 释放大招
-                ult_job = context.tasker.controller.post_click(915, 626)
+                ult_job = context.tasker.controller.post_click(915, 626).wait()
                 return CustomAction.RunResult(success=self.__execute_action(ult_job, "释放大招"))
 
             # 消球操作
             print("[阶段] 执行消球")
             for i in range(3):  # 最多尝试3次消球
-                ball_job = context.tasker.controller.post_click(1215, 510)
+                ball_job = context.tasker.controller.post_click(1215, 510).wait()
                 if not self.__execute_action(ball_job, f"消球 #{i+1}"):
                     continue
 
@@ -69,20 +68,20 @@ class Oblivion(CustomAction):
                 if self.__check_moon(context):
                     print("[状态] 消球后残月值满")
                     # 长按普攻
-                    swipe_job = context.tasker.controller.post_swipe(1193, 633, 1198, 638, 1200)
+                    swipe_job = context.tasker.controller.post_swipe(1193, 633, 1198, 638, 1200).wait()
                     if not self.__execute_action(swipe_job, "长按攻击"):
                         continue
 
                     # 释放大招
-                    ult_job = context.tasker.controller.post_click(915, 626)
+                    ult_job = context.tasker.controller.post_click(915, 626).wait()
                     return CustomAction.RunResult(success=self.__execute_action(ult_job, "释放大招"))
 
             # 普攻阶段
             print("[阶段] 进入普攻循环")
             attack_start = time.time()
-            while time.time() - attack_start < 3.0:  # 攻击持续3秒
+            while time.time() - attack_start < 2:  # 攻击持续2秒
                 # 执行普攻
-                attack_job = context.tasker.controller.post_click(1197, 636)
+                attack_job = context.tasker.controller.post_click(1197, 636).wait()
                 if not self.__execute_action(attack_job, "普攻"):
                     time.sleep(0.2)
                     continue
@@ -96,12 +95,12 @@ class Oblivion(CustomAction):
                 if elapsed > 1.0 and self.__check_moon(context):
                     print("[状态] 攻击过程中残月值满")
                     # 长按普攻
-                    swipe_job = context.tasker.controller.post_swipe(1193, 633, 1198, 638, 1200)
+                    swipe_job = context.tasker.controller.post_swipe(1193, 633, 1198, 638, 1200).wait()
                     if not self.__execute_action(swipe_job, "紧急长按攻击"):
                         break
 
                     # 释放大招
-                    ult_job = context.tasker.controller.post_click(915, 626)
+                    ult_job = context.tasker.controller.post_click(915, 626).wait()
                     return CustomAction.RunResult(success=self.__execute_action(ult_job, "紧急释放大招"))
 
             return CustomAction.RunResult(success=True)
