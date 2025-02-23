@@ -43,7 +43,7 @@
             131
         ],
         "template": "战斗\\闪避.png",
-        "post_delay":3000
+        "post_delay": 3000
     },
     "识别角色名": {
         "recognition": "OCR",
@@ -77,7 +77,6 @@
         "action": "Custom",
         "custom_action": "IdentifyRoles"
     },
-
     "等待加载": {
         "recognition": "OCR",
         "roi": [

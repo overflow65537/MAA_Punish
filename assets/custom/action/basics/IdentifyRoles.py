@@ -42,7 +42,8 @@ class IdentifyRoles(CustomAction):
 
         print("识别结果:", role_names)
         print("队长标记:", leader_flags)
-
+        if not leader_flags.get("pos1") and not leader_flags.get("pos2") and not leader_flags.get("pos3"):  # 未找到队长,通常是只有一个角色在1号位,但队长标记在2号位
+            context.run_task("选择队长")# 随便选择一个队长
         # 退出角色选择界面
         context.run_task("出队长界面")
 
