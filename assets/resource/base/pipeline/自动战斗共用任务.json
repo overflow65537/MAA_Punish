@@ -1,0 +1,84 @@
+{
+    "点击更换": {
+        "recognition": "OCR",
+        "roi": [
+            314,
+            633,
+            49,
+            23
+        ],
+        "expected": "更换",
+        "action": "Click",
+        "target": [
+            331,
+            643,
+            1,
+            1
+        ]
+    },
+    "识别角色名": {
+        "recognition": "OCR",
+        "expected": "[\\u4e00-\\u9fa5]+[\\.\\·][\\u4e00-\\u9fa5]+"
+    },
+    "识别队长位置": {
+        "recognition": "OCR",
+        "expected": "当前选择"
+    },
+    "点击首选位置": {
+        "recognition": "OCR",
+        "roi": [
+            1177,
+            327,
+            91,
+            153
+        ],
+        "action": "Click",
+        "target": true
+    },
+    "出队长界面": {
+        "action": "Click",
+        "target": [
+            1199,
+            70,
+            1,
+            1
+        ]
+    },
+    "调用识别方法": {
+        "action": "Custom",
+        "custom_action": "IdentifyRoles"
+    },
+    "等待加载": {
+        "recognition": "OCR",
+        "roi": [
+            1177,
+            625,
+            78,
+            71
+        ],
+        "post_delay": 3000,
+        "expected": "Loading|oadin|adi"
+    },
+    "角色特有战斗_1": {
+        "action": "Custom",
+        "custom_action": "1"
+    },
+    "角色特有战斗_2": {
+        "action": "Custom",
+        "custom_action": "2"
+    },
+    "角色特有战斗_3": {
+        "action": "Custom",
+        "custom_action": "3"
+    },
+    "自动战斗结束": {
+        "recognition": "OCR",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "expected": "保存分数|结束战斗"
+    }
+}
