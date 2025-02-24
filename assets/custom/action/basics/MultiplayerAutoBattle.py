@@ -4,20 +4,14 @@ from typing import Dict, Optional
 from maa.context import Context
 from maa.custom_action import CustomAction
 
-
-# 角色名称到动作的映射表
-ROLE_ACTIONS = {
-    "露娜·终焉": "Oblivion",
-    "比安卡·深痕": "Stigmata",
-    "拉弥亚·深谣": "LostLullaby",
-    "露西亚·深红囚影": "CrimsonWeave",
-    "露西亚·誓焰": "Pyroath",
-}
+from assets.custom.tool import load_role_actions
 
 
 class MultiplayerAutoBattle(CustomAction):
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
         try:
+            # 角色名称到动作的映射表
+            ROLE_ACTIONS = load_role_actions()
             image = context.tasker.controller.post_screencap().wait().get()
             # 检查当前角色
             for role_name, action in ROLE_ACTIONS.items():
