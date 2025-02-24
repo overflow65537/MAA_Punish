@@ -7,7 +7,7 @@ class Identify(CustomAction):
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
         image = context.tasker.controller.post_screencap().wait().get()
-        if context.run_recognition("检查终焉", image):
+        if context.run_recognition("检查露娜·终焉", image):
             context.override_pipeline(
                 {
                     "识别人物": {"enabled": False},
@@ -15,7 +15,7 @@ class Identify(CustomAction):
                 }
             )
             print("终焉战斗")
-        elif context.run_recognition("检查深痕", image):
+        elif context.run_recognition("检查比安卡·深痕", image):
             context.override_pipeline(
                 {
                     "识别人物": {"enabled": False},
@@ -23,7 +23,7 @@ class Identify(CustomAction):
                 }
             )
             print("深痕战斗")
-        elif context.run_recognition("检查深谣", image):
+        elif context.run_recognition("检查拉弥亚·深谣", image):
             context.override_pipeline(
                 {
                     "识别人物": {"enabled": False},
@@ -31,7 +31,7 @@ class Identify(CustomAction):
                 }
             )
             print("深谣战斗")
-        elif context.run_recognition("检查深红囚影", image):
+        elif context.run_recognition("检查露西亚·深红囚影", image):
             context.override_pipeline(
                 {
                     "识别人物": {"enabled": False},
@@ -39,7 +39,7 @@ class Identify(CustomAction):
                 }
             )
             print("深红囚影")
-        elif context.run_recognition("检查誓焰", image):
+        elif context.run_recognition("检查露西亚·誓焰", image):
             context.override_pipeline(
                 {
                     "识别人物": {"enabled": False},
