@@ -47,7 +47,8 @@
             60
         ],
         "expected": [
-            "纷争战区"
+            "纷争战区",
+            "降级保护"
         ],
         "action": "Click",
         "target": [
