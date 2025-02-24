@@ -9,6 +9,8 @@ from assets.custom.action.basics import (
     CenterCamera,
     GeneralFight,
     Identify,
+    IdentifyRoles,
+    MultiplayerAutoBattle,
     ResetIdentify,
     ScreenShot,
 )
@@ -35,12 +37,15 @@ def main():
     Toolkit.pi_register_custom_action("Identify", Identify())  # 识别人物
     Toolkit.pi_register_custom_action("ResetIdentify", ResetIdentify())  # 重置识别
     Toolkit.pi_register_custom_action("CenterCamera", CenterCamera())  # 重置镜头
+    Toolkit.pi_register_custom_action("IdentifyRoles",IdentifyRoles()) #角色识别
+    Toolkit.pi_register_custom_action("MultiplayerAutoBattle", MultiplayerAutoBattle())  # 多人战斗
     # 注册自定义识别
     Toolkit.pi_register_custom_recognition(
         "CalculateScore", CalculateScore()
     )  # 计算分数
     Toolkit.pi_register_custom_recognition("IDFMembers", IDFMembers())  # 识别宿舍成员
     Toolkit.pi_register_custom_recognition("IDFscore", IDFscore())  # 识别分数
+
 
     directly = "-d" in sys.argv
     Toolkit.pi_run_cli("./", "./", directly)

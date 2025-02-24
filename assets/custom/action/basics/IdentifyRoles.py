@@ -1,20 +1,20 @@
+import json
+import os
 import time
 from typing import Dict, Optional
 
 from maa.context import Context
 from maa.custom_action import CustomAction
 
+from assets.custom.tool import load_role_actions
+
+
 
 class IdentifyRoles(CustomAction):
     def run(self, context: Context, _: CustomAction.RunArg) -> CustomAction.RunResult:
+
         # 角色名称到动作的映射表
-        ROLE_ACTIONS = {
-            "露娜·终焉": "Oblivion",
-            "比安卡·深痕": "Stigmata",
-            "拉弥亚·深谣": "LostLullaby",
-            "露西亚·深红囚影": "CrimsonWeave",
-            "露西亚·誓焰": "Pyroath",
-        }
+        ROLE_ACTIONS = load_role_actions()
 
         # ROI区域配置（x, y, w, h）
         ROLE_NAME_ROIS = [("pos1", (209, 303, 259, 46)), ("pos2", (514, 308, 252, 43)), ("pos3", (821, 302, 243, 51))]
