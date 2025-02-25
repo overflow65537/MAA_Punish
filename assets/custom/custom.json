@@ -73,5 +73,10 @@
         "type": "action",
         "class": "MultiplayerAutoBattle",
         "file_path": "{custom_path}\\action\\basics\\MultiplayerAutoBattle.py"
+    },
+    "CombatActions": {
+        "type": "action",
+        "class": "CombatActions",
+        "file_path": "{custom_path}\\action\\basics\\CombatActions.py"
     }
 }

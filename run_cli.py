@@ -7,6 +7,7 @@ from maa.toolkit import Toolkit
 
 from assets.custom.action.basics import (
     CenterCamera,
+    CombatActions,
     GeneralFight,
     Identify,
     IdentifyRoles,
@@ -39,6 +40,7 @@ def main():
     Toolkit.pi_register_custom_action("CenterCamera", CenterCamera())  # 重置镜头
     Toolkit.pi_register_custom_action("IdentifyRoles",IdentifyRoles()) #角色识别
     Toolkit.pi_register_custom_action("MultiplayerAutoBattle", MultiplayerAutoBattle())  # 多人战斗
+    Toolkit.pi_register_custom_action("CombatActions", CombatActions())  # 通用角色战斗
     # 注册自定义识别
     Toolkit.pi_register_custom_recognition(
         "CalculateScore", CalculateScore()

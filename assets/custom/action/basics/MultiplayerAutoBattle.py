@@ -22,8 +22,9 @@ class MultiplayerAutoBattle(CustomAction):
                         context.run_task("角色特有战斗")
                     break  # 找到后立即跳出循环
             else:
-                # 如果没有找到任何匹配的角色，记录错误信息
-                print(f"未识别到任何已知角色: {list(ROLE_ACTIONS.keys())}")
+                context.override_pipeline({"角色特有战斗": {"action": "Custom", "custom_action": action}})
+                for _ in range(2):
+                        context.run_task("角色特有战斗")
                 return CustomAction.RunResult(success=False)
         except Exception as e:
             # 捕获异常并记录错误信息
