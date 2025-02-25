@@ -22,6 +22,13 @@
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/bilibili"
             ]
+        },
+        {
+            "name": "应用宝服",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/tencent"
+            ]
         }
     ],
     "task": [

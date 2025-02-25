@@ -1,0 +1,18 @@
+{
+    "打开应用": {
+        "is_sub": true,
+        "action": "StartApp",
+        "package": "com.kurogame.haru.bilibili"
+    },
+    "停止": {
+        "action": "StopApp",
+        "package": "com.kurogame.haru.bilibili"
+    },
+    "重启游戏": {
+        "action": "StopApp",
+        "package": "com.kurogame.haru.bilibili",
+        "next": [
+            "启动"
+        ]
+    }
+}
