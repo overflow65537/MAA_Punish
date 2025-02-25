@@ -6,15 +6,14 @@ from typing import Dict, Optional
 from maa.context import Context
 from maa.custom_action import CustomAction
 
-from assets.custom.tool import load_role_actions
-
 
 
 class IdentifyRoles(CustomAction):
     def run(self, context: Context, _: CustomAction.RunArg) -> CustomAction.RunResult:
 
         # 角色名称到动作的映射表
-        ROLE_ACTIONS = load_role_actions()
+        with open(os.path.join(os.path.dirname(__file__), '..', 'setting.json'), 'r', encoding='utf-8') as file:
+            ROLE_ACTIONS = json.load(file).get("ROLE_ACTIONS", {})
 
         # ROI区域配置（x, y, w, h）
         ROLE_NAME_ROIS = [("pos1", (209, 303, 259, 46)), ("pos2", (514, 308, 252, 43)), ("pos3", (821, 302, 243, 51))]
@@ -67,8 +66,6 @@ class IdentifyRoles(CustomAction):
                         "自动战斗开始": {"next": ["单人自动战斗循环"]},
                     }
                 )
-                context.run_task("点击作战开始")
-
             # 待优化，多人无需位置匹配，只做是否是已定义的角色检验
             case n if n > 1:  # 多个角色匹配
                 # 按pos1-pos3顺序填充三个战斗流程
@@ -89,9 +86,18 @@ class IdentifyRoles(CustomAction):
                         "自动战斗开始": {"next": ["多人轮切自动战斗循环"]},
                     }
                 )
-
-                context.run_task("点击作战开始")
             case _:  # 无匹配角色
-                print("未找到匹配的角色配置")
+                if len(role_names) == 1:
+                    # 设置队长位置(单个角色特用)
+                    if leader_flags.get(pos):
+                        color_map = {"pos1": "蓝色", "pos2": "红色", "pos3": "黄色"}
+                        context.run_task("点击首选位置", {"点击首选位置": {"expected": color_map[pos]}})
 
+                context.override_pipeline(
+                    {
+                        "自动战斗开始": {"next": ["通用自动战斗循环"]},
+                    }
+                )
+
+        context.run_task("点击作战开始")
         return CustomAction.RunResult(success=True)

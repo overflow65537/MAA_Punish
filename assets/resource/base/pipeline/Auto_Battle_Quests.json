@@ -54,5 +54,18 @@
     "多人轮切自动战斗-4": {
         "action": "Custom",
         "custom_action": "MultiplayerAutoBattle"
+    },
+
+    "通用角色战斗":{
+        "action": "Custom",
+        "custom_action": "CombatActions"
+    },
+    "通用自动战斗循环": {
+        "next": [
+            "自动战斗结束"
+        ],
+        "interrupt": [
+            "通用角色战斗"
+        ]
     }
 }
