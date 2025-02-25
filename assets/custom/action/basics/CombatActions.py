@@ -1,4 +1,6 @@
-class CombatActions:
+from maa.context import Context
+from maa.custom_action import CustomAction
+class CombatActions(CustomAction):
     def __init__(self):
         """初始化"""
         self.name = "CombatActions"

@@ -1,17 +1,16 @@
-import time
-from typing import Dict, Optional
+import json
+import os
 
 from maa.context import Context
 from maa.custom_action import CustomAction
-
-from assets.custom.tool import load_role_actions
 
 
 class MultiplayerAutoBattle(CustomAction):
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
         try:
-            # 角色名称到动作的映射表
-            ROLE_ACTIONS = load_role_actions()
+             # 角色名称到动作的映射表
+            with open(os.path.join(os.path.dirname(__file__), '..', 'setting.json'), 'r', encoding='utf-8') as file:
+                ROLE_ACTIONS = json.load(file).get("ROLE_ACTIONS", {})
             image = context.tasker.controller.post_screencap().wait().get()
             # 检查当前角色
             for role_name, action in ROLE_ACTIONS.items():

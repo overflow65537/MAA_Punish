@@ -2,7 +2,7 @@ import time
 
 from maa.context import Context
 from maa.custom_action import CustomAction
-from maa.job import Job, JobWithResult
+from maa.job import Job
 
 
 class Oblivion(CustomAction):

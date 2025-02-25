@@ -6,15 +6,14 @@ from typing import Dict, Optional
 from maa.context import Context
 from maa.custom_action import CustomAction
 
-from assets.custom.tool import load_role_actions
-
 
 
 class IdentifyRoles(CustomAction):
     def run(self, context: Context, _: CustomAction.RunArg) -> CustomAction.RunResult:
 
         # 角色名称到动作的映射表
-        ROLE_ACTIONS = load_role_actions()
+        with open(os.path.join(os.path.dirname(__file__), '..', 'setting.json'), 'r', encoding='utf-8') as file:
+            ROLE_ACTIONS = json.load(file).get("ROLE_ACTIONS", {})
 
         # ROI区域配置（x, y, w, h）
         ROLE_NAME_ROIS = [("pos1", (209, 303, 259, 46)), ("pos2", (514, 308, 252, 43)), ("pos3", (821, 302, 243, 51))]
@@ -89,7 +88,6 @@ class IdentifyRoles(CustomAction):
                         "自动战斗开始": {"next": ["多人轮切自动战斗循环"]},
                     }
                 )
-
                 context.run_task("点击作战开始")
             case _:  # 无匹配角色
                 print("未找到匹配的角色配置")
