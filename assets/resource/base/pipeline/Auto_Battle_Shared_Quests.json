@@ -9,12 +9,7 @@
         ],
         "expected": "更换",
         "action": "Click",
-        "target": [
-            331,
-            643,
-            1,
-            1
-        ]
+        "target": true
     },
     "点击作战开始": {
         "recognition": "OCR",
@@ -89,7 +84,7 @@
     },
     "角色特有战斗": {
         "action": "Custom",
-        "custom_action": "1"
+        "custom_action": "CombatActions"
     },
     "自动战斗结束": {
         "recognition": "OCR",
@@ -99,6 +94,6 @@
             0,
             0
         ],
-        "expected": "保存分数|结束战斗"
+        "expected": "结束战斗"
     }
 }

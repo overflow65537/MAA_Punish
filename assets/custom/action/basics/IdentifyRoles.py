@@ -1,19 +1,26 @@
 import json
 import os
+import sys
 import time
+from pathlib import Path
 from typing import Dict, Optional
 
 from maa.context import Context
 from maa.custom_action import CustomAction
 
+# 添加项目根目录到sys.path
+project_root = Path(__file__).resolve().parent.parent.parent.parent.parent
+sys.path.append(str(project_root))
+
+# 导入包
+from assets.custom.action.tool import LoadSetting
 
 
 class IdentifyRoles(CustomAction):
     def run(self, context: Context, _: CustomAction.RunArg) -> CustomAction.RunResult:
 
         # 角色名称到动作的映射表
-        with open(os.path.join(os.path.dirname(__file__), '..', 'setting.json'), 'r', encoding='utf-8') as file:
-            ROLE_ACTIONS = json.load(file).get("ROLE_ACTIONS", {})
+        ROLE_ACTIONS = LoadSetting.load_role_setting()
 
         # ROI区域配置（x, y, w, h）
         ROLE_NAME_ROIS = [("pos1", (209, 303, 259, 46)), ("pos2", (514, 308, 252, 43)), ("pos3", (821, 302, 243, 51))]
@@ -41,8 +48,10 @@ class IdentifyRoles(CustomAction):
 
         print("识别结果:", role_names)
         print("队长标记:", leader_flags)
-        if not leader_flags.get("pos1") and not leader_flags.get("pos2") and not leader_flags.get("pos3"):  # 未找到队长,通常是只有一个角色在1号位,但队长标记在2号位
-            context.run_task("选择队长")# 随便选择一个队长
+        if (
+            not leader_flags.get("pos1") and not leader_flags.get("pos2") and not leader_flags.get("pos3")
+        ):  # 未找到队长,通常是只有一个角色在1号位,但队长标记在2号位
+            context.run_task("选择队长")  # 随便选择一个队长
         # 退出角色选择界面
         context.run_task("出队长界面")
 
