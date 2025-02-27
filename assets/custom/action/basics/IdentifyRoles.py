@@ -1,26 +1,15 @@
-import json
-import os
-import sys
+
 import time
-from pathlib import Path
 from typing import Dict, Optional
 
 from maa.context import Context
 from maa.custom_action import CustomAction
 
-# 添加项目根目录到sys.path
-project_root = Path(__file__).resolve().parent.parent.parent.parent.parent
-sys.path.append(str(project_root))
-
-# 导入包
-from assets.custom.action.tool import LoadSetting
+from assets.custom.action.tool.LoadSetting import ROLE_ACTIONS
 
 
 class IdentifyRoles(CustomAction):
     def run(self, context: Context, _: CustomAction.RunArg) -> CustomAction.RunResult:
-
-        # 角色名称到动作的映射表
-        ROLE_ACTIONS = LoadSetting.load_role_setting()
 
         # ROI区域配置（x, y, w, h）
         ROLE_NAME_ROIS = [("pos1", (209, 303, 259, 46)), ("pos2", (514, 308, 252, 43)), ("pos3", (821, 302, 243, 51))]
@@ -75,21 +64,8 @@ class IdentifyRoles(CustomAction):
                         "自动战斗开始": {"next": ["单人自动战斗循环"]},
                     }
                 )
-            # 待优化，多人无需位置匹配，只做是否是已定义的角色检验
+            # 待优化，多人无需位置匹配，只做是否是已定义的角色检验,把角色传给多人作战，减少角色识别列表
             case n if n > 1:  # 多个角色匹配
-                # 按pos1-pos3顺序填充三个战斗流程
-                # actions = [matched_roles.get(f"pos{i}") for i in (1,2,3)]
-
-                # 覆写三个战斗流程
-                # for i in range(3):
-                #     action = actions[i] if i < len(actions) else "None"
-                #     context.override_pipeline({
-                #         f"角色特有战斗_{i+1}": {
-                #             "action": "Custom",
-                #             "custom_action": action if action else ""
-                #         },
-                #          "自动战斗开始":{"next":["多人轮切自动战斗循环"]}
-                #     })
                 context.override_pipeline(
                     {
                         "自动战斗开始": {"next": ["多人轮切自动战斗循环"]},

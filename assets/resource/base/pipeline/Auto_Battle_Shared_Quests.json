@@ -8,8 +8,7 @@
             23
         ],
         "expected": "更换",
-        "action": "Click",
-        "target": true
+        "action": "Click"
     },
     "点击作战开始": {
         "recognition": "OCR",
@@ -55,8 +54,7 @@
             91,
             153
         ],
-        "action": "Click",
-        "target": true
+        "action": "Click"
     },
     "出队长界面": {
         "action": "Click",
@@ -83,6 +81,10 @@
         "expected": "Loading|oadin|adi"
     },
     "角色特有战斗": {
+        "action": "Custom",
+        "custom_action": "1"
+    },
+    "通用战斗模式":{
         "action": "Custom",
         "custom_action": "CombatActions"
     },
