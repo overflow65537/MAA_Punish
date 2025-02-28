@@ -5,6 +5,13 @@ from typing import Dict, Optional
 from maa.context import Context
 from maa.custom_action import CustomAction
 
+import sys
+from pathlib import Path
+# 添加项目根目录到sys.path
+project_root = Path(__file__).resolve().parent.parent.parent.parent.parent
+sys.path.append(str(project_root))
+
+# 导入包
 from assets.custom.action.tool.LoadSetting import ROLE_ACTIONS
 
 
