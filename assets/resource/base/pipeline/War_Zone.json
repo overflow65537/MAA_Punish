@@ -1,4 +1,11 @@
 {
+    "测试": {
+        "action": "Custom",
+        "custom_action": "SelectCharacter",
+        "custom_action_param": {
+            "target": "空"
+        }
+    },
     "纷争战区": {
         "next": [
             "结算期",
@@ -102,8 +109,113 @@
         ],
         "action": "Click",
         "next": [
-            "纷争战区"
+            "作战开始"
+        ],
+        "interrupt": [
+            "战斗准备",
+            "查看地图_空区",
+            "查看地图_火区",
+            "查看地图_暗区",
+            "查看地图_雷区",
+            "查看地图_物理区",
+            "查看地图_冰区"
         ]
+    },
+    "查看地图_空区": {
+        "recognition": "OCR",
+        "roi": [
+            22,
+            77,
+            125,
+            45
+        ],
+        "expected": "空浮平台",
+        "next": [
+            "选择空区主C"
+        ]
+    },
+    "选择空区主C": {
+        "recognition": "OCR",
+        "roi": [
+            107,
+            297,
+            1032,
+            206
+        ],
+        "expected": "首发",
+        "action": "Click",
+        "next": [
+            "确认空C"
+        ]
+    },
+    "确认空C": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            107,
+            297,
+            1032,
+            206
+        ],
+        "template": [
+            "肉鸽通用\\终焉.png"
+        ],
+        "action": "Click",
+        "next": []
+    },
+    "查看地图_火区": {
+        "recognition": "OCR",
+        "roi": [
+            22,
+            77,
+            125,
+            45
+        ],
+        "expected": "火焰轮回",
+        "next": []
+    },
+    "查看地图_暗区": {
+        "recognition": "OCR",
+        "roi": [
+            22,
+            77,
+            125,
+            45
+        ],
+        "expected": "森林",
+        "next": []
+    },
+    "查看地图_雷区": {
+        "recognition": "OCR",
+        "roi": [
+            22,
+            77,
+            125,
+            45
+        ],
+        "expected": "雷区",
+        "next": []
+    },
+    "查看地图_物理区": {
+        "recognition": "OCR",
+        "roi": [
+            22,
+            77,
+            125,
+            45
+        ],
+        "expected": "机械平台",
+        "next": []
+    },
+    "查看地图_冰区": {
+        "recognition": "OCR",
+        "roi": [
+            22,
+            77,
+            125,
+            45
+        ],
+        "expected": "荒原",
+        "next": []
     },
     "首通已完成": {
         "inverse": true,
@@ -187,10 +299,7 @@
             53
         ],
         "expected": "战斗准备",
-        "action": "Click",
-        "next": [
-            "清除队伍_战区"
-        ]
+        "action": "Click"
     },
     "清除队伍_战区": {
         "recognition": "OCR",

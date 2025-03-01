@@ -84,7 +84,7 @@
         "action": "Custom",
         "custom_action": "1"
     },
-    "通用战斗模式":{
+    "通用战斗模式": {
         "action": "Custom",
         "custom_action": "CombatActions"
     },
