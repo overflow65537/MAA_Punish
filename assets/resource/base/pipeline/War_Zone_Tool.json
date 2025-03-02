@@ -1,0 +1,36 @@
+{
+    "点击首发": {
+        "recognition": "OCR",
+        "roi": [
+            141,
+            306,
+            1084,
+            159
+        ],
+        "expected": "首发",
+        "action": "Click"
+    },
+    "选择角色": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            60,
+            51,
+            165,
+            600
+        ],
+        "template": [
+            "肉鸽通用\\终焉.png"
+        ]
+    },
+    "检查战力": {
+        "recognition": "OCR",
+        "roi": "选择角色",
+        "roi_offset": [
+            183,
+            20,
+            -54,
+            -60
+        ],
+        "expected": "[5-9]\\d{3,}|[1-9]\\d{4,}"
+    }
+}

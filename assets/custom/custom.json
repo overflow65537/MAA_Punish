@@ -4,11 +4,6 @@
         "class": "CenterCamera",
         "file_path": "{custom_path}\\action\\basics\\CenterCamera.py"
     },
-    "GeneralFight": {
-        "type": "action",
-        "class": "GeneralFight",
-        "file_path": "{custom_path}\\action\\basics\\GeneralFight.py"
-    },
     "Identify": {
         "type": "action",
         "class": "Identify",
@@ -78,5 +73,10 @@
         "type": "action",
         "class": "CombatActions",
         "file_path": "{custom_path}\\action\\basics\\CombatActions.py"
+    },
+    "SelectCharacter": {
+        "type": "action",
+        "class": "SelectCharacter",
+        "file_path": "{custom_path}\\action\\basics\\SelectCharacter.py"
     }
 }
