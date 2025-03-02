@@ -15,7 +15,7 @@ class JobExecutor:
         job_factory: Callable[[], Union[Job, JobWithResult, Callable]],
         action_name: TaskNameEnum,
         status_attr: ActionStatusEnum,
-        success_attr: ActionStatusEnum,
+        success_attr: ActionStatusEnum = ActionStatusEnum.succeeded,
     ):
         """
         :param job_factory: 生成Job实例的工厂函数
