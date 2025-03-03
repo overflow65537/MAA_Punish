@@ -44,9 +44,19 @@
             "name": "纷争战区",
             "entry": "纷争战区",
             "pipeline_override": {
-                "战斗准备": {
+                "自动战斗结束": {
+                    "post_delay": 1500,
+                    "recognition": "OCR",
+                    "roi": [
+                        1051,
+                        641,
+                        113,
+                        44
+                    ],
+                    "expected": "退出战斗",
+                    "action": "Click",
                     "next": [
-                        "自动战斗任务"
+                        "纷争战区"
                     ]
                 }
             }
