@@ -2,18 +2,21 @@ from enum import Enum
 
 
 class ActionStatusEnum(Enum):
-    invalid = 0
-    pending = 1000
-    running = 2000
-    succeeded = 3000
-    failed = 4000
-    done = 5000
+    INVALID = "无效"
+    PENDING = "待处理"
+    RUNNING = "运行中"
+    SUCCEEDED = "成功"
+    FAILED = "失败"
+    DONE = "完成"
 
 
-class TaskNameEnum(Enum):
-    attack = 1
-    dodge = 2
-    use_skill = 3
-    ball_elimination = 4
-    trigger_qte_first = 5
-    trigger_qte_second = 6
+class GameActionEnum(Enum):
+    ATTACK = "攻击"
+    DODGE = "闪避"
+    USE_SKILL = "技能"
+    BALL_ELIMINATION = "消球"
+    TRIGGER_QTE_FIRST = "1-触发QTE/换人"
+    TRIGGER_QTE_SECOND = "2-触发QTE/换人"
+    LONG_PRESS_ATTACK = "长按攻击"
+    LONG_PRESS_DODGE = "长按闪避"
+    LONG_PRESS_SKILL = "长按技能"
