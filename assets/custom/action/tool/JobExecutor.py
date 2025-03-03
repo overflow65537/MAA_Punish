@@ -45,7 +45,6 @@ class JobExecutor:
                 self._current_job = self.job_factory()
 
                 status_check = self._create_checker(self._current_job, self._status_check_attr)
-                pr
                 success_check = self._create_checker(self._current_job, self._success_check_attr)
 
                 timeout_at = time.time() + timeout

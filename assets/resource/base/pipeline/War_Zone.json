@@ -3,7 +3,7 @@
         "action": "Custom",
         "custom_action": "SelectCharacter",
         "custom_action_param": {
-            "target": "空"
+            "target": "Nihil"
         }
     },
     "纷争战区": {
@@ -12,16 +12,10 @@
             "纷争战区内部"
         ],
         "interrupt": [
-            "识别人物",
             "打开纷争战区",
-            "战斗准备",
-            "作战开始",
-            "战斗中",
-            "退出战斗",
             "打开战斗",
             "打开挑战_纷争战区",
-            "意外点击_限定活动",
-            "载入中"
+            "意外点击_限定活动"
         ]
     },
     "结算期": {
@@ -109,16 +103,74 @@
         ],
         "action": "Click",
         "next": [
-            "作战开始"
+            "战斗准备"
+        ]
+    },
+    "未选人_战区": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1010,
+            627,
+            266,
+            78
         ],
-        "interrupt": [
-            "战斗准备",
+        "template": "纷争战区\\作战开始_未选人.png",
+        "next": [
             "查看地图_空区",
             "查看地图_火区",
             "查看地图_暗区",
             "查看地图_雷区",
             "查看地图_物理区",
             "查看地图_冰区"
+        ]
+    },
+    "点击首发": {
+        "recognition": "OCR",
+        "roi": [
+            141,
+            306,
+            1084,
+            159
+        ],
+        "expected": "首发",
+        "action": "Click"
+    },
+    "选择角色": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            60,
+            51,
+            165,
+            600
+        ],
+        "template": [
+            "肉鸽通用\\终焉.png"
+        ]
+    },
+    "检查战力": {
+        "recognition": "OCR",
+        "roi": "选择角色",
+        "roi_offset": [
+            175,
+            10,
+            -40,
+            -45
+        ],
+        "expected": "[5-9]\\d{3,}|[1-9]\\d{4,}"
+    },
+    "已选人_战区": {
+        "post_delay": 1000,
+        "threshold": 0.85,
+        "recognition": "TemplateMatch",
+        "roi": [
+            1002,
+            621,
+            270,
+            90
+        ],
+        "template": "肉鸽通用\\作战开始.png",
+        "next": [
+            "自动战斗任务"
         ]
     },
     "查看地图_空区": {
@@ -130,37 +182,11 @@
             45
         ],
         "expected": "空浮平台",
-        "next": [
-            "选择空区主C"
-        ]
-    },
-    "选择空区主C": {
-        "recognition": "OCR",
-        "roi": [
-            107,
-            297,
-            1032,
-            206
-        ],
-        "expected": "首发",
-        "action": "Click",
-        "next": [
-            "确认空C"
-        ]
-    },
-    "确认空C": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            107,
-            297,
-            1032,
-            206
-        ],
-        "template": [
-            "肉鸽通用\\终焉.png"
-        ],
-        "action": "Click",
-        "next": []
+        "action": "Custom",
+        "custom_action": "SelectCharacter",
+        "custom_action_param": {
+            "target": "nihil"
+        }
     },
     "查看地图_火区": {
         "recognition": "OCR",
@@ -171,7 +197,11 @@
             45
         ],
         "expected": "火焰轮回",
-        "next": []
+        "action": "Custom",
+        "custom_action": "SelectCharacter",
+        "custom_action_param": {
+            "target": "fire"
+        }
     },
     "查看地图_暗区": {
         "recognition": "OCR",
@@ -181,8 +211,12 @@
             125,
             45
         ],
-        "expected": "森林",
-        "next": []
+        "expected": "暗影深林",
+        "action": "Custom",
+        "custom_action": "SelectCharacter",
+        "custom_action_param": {
+            "target": "dark"
+        }
     },
     "查看地图_雷区": {
         "recognition": "OCR",
@@ -192,8 +226,12 @@
             125,
             45
         ],
-        "expected": "雷区",
-        "next": []
+        "expected": "镭射合金",
+        "action": "Custom",
+        "custom_action": "SelectCharacter",
+        "custom_action_param": {
+            "target": "lightning"
+        }
     },
     "查看地图_物理区": {
         "recognition": "OCR",
@@ -204,7 +242,11 @@
             45
         ],
         "expected": "机械平台",
-        "next": []
+        "action": "Custom",
+        "custom_action": "SelectCharacter",
+        "custom_action_param": {
+            "target": "physical"
+        }
     },
     "查看地图_冰区": {
         "recognition": "OCR",
@@ -215,7 +257,11 @@
             45
         ],
         "expected": "荒原",
-        "next": []
+        "action": "Custom",
+        "custom_action": "SelectCharacter",
+        "custom_action_param": {
+            "target": "ice"
+        }
     },
     "首通已完成": {
         "inverse": true,
@@ -299,7 +345,10 @@
             53
         ],
         "expected": "战斗准备",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "清除队伍_战区"
+        ]
     },
     "清除队伍_战区": {
         "recognition": "OCR",
@@ -359,23 +408,7 @@
         ],
         "template": "幻痛囚笼\\队伍净空_蓝黄.png",
         "next": [
-            "选择人物_战区"
-        ]
-    },
-    "选择人物_战区": {
-        "recognition": "OCR",
-        "post_delay": 1000,
-        "roi": [
-            204,
-            323,
-            852,
-            122
-        ],
-        "expected": "首发",
-        "action": "Click",
-        "next": [
-            "选择自动作战人物",
-            "滑动_战区1"
+            "未选人_战区"
         ]
     },
     "选择自动作战人物": {
@@ -394,130 +427,6 @@
             "肉鸽通用\\誓焰.png"
         ],
         "action": "Click",
-        "next": [
-            "编入队伍"
-        ]
-    },
-    "滑动_战区1": {
-        "post_wait_freezes": {
-            "time": 50,
-            "target": [
-                79,
-                60,
-                109,
-                569
-            ]
-        },
-        "action": "Swipe",
-        "begin": [
-            195,
-            613,
-            0,
-            0
-        ],
-        "end": [
-            203,
-            79,
-            0,
-            0
-        ],
-        "next": [
-            "选择自动作战人物",
-            "滑动_战区2"
-        ]
-    },
-    "滑动_战区2": {
-        "post_wait_freezes": {
-            "time": 50,
-            "target": [
-                79,
-                60,
-                109,
-                569
-            ]
-        },
-        "action": "Swipe",
-        "begin": [
-            195,
-            613,
-            0,
-            0
-        ],
-        "end": [
-            203,
-            79,
-            0,
-            0
-        ],
-        "next": [
-            "选择自动作战人物",
-            "滑动_战区3"
-        ]
-    },
-    "滑动_战区3": {
-        "post_wait_freezes": {
-            "time": 50,
-            "target": [
-                79,
-                60,
-                109,
-                569
-            ]
-        },
-        "action": "Swipe",
-        "begin": [
-            195,
-            613,
-            0,
-            0
-        ],
-        "end": [
-            203,
-            79,
-            0,
-            0
-        ],
-        "next": [
-            "选择自动作战人物",
-            "滑动_战区4"
-        ]
-    },
-    "滑动_战区4": {
-        "post_wait_freezes": {
-            "time": 50,
-            "target": [
-                79,
-                60,
-                109,
-                569
-            ]
-        },
-        "action": "Swipe",
-        "begin": [
-            195,
-            613,
-            0,
-            0
-        ],
-        "end": [
-            203,
-            79,
-            0,
-            0
-        ],
-        "next": [
-            "选择自动作战人物",
-            "选择最后一位人物_战区"
-        ]
-    },
-    "选择最后一位人物_战区": {
-        "action": "Click",
-        "target": [
-            185,
-            591,
-            0,
-            0
-        ],
         "next": [
             "编入队伍"
         ]
