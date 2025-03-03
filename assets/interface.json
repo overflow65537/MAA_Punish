@@ -42,7 +42,24 @@
         },
         {
             "name": "纷争战区",
-            "entry": "纷争战区"
+            "entry": "纷争战区",
+            "pipeline_override": {
+                "自动战斗结束": {
+                    "post_delay": 1500,
+                    "recognition": "OCR",
+                    "roi": [
+                        1051,
+                        641,
+                        113,
+                        44
+                    ],
+                    "expected": "退出战斗",
+                    "action": "Click",
+                    "next": [
+                        "纷争战区"
+                    ]
+                }
+            }
         },
         {
             "name": "诺曼复兴战",

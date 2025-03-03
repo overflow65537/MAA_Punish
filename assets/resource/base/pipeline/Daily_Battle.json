@@ -68,7 +68,7 @@
         ],
         "template": "战斗\\闪避.png",
         "action": "Custom",
-        "custom_action": "GeneralFight"
+        "custom_action": "CombatActions"
     },
     "结束战斗任务_不使用体力": {
         "post_delay": 3500,

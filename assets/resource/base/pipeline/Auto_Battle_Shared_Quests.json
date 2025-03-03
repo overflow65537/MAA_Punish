@@ -8,13 +8,7 @@
             23
         ],
         "expected": "更换",
-        "action": "Click",
-        "target": [
-            331,
-            643,
-            1,
-            1
-        ]
+        "action": "Click"
     },
     "点击作战开始": {
         "recognition": "OCR",
@@ -60,14 +54,13 @@
             91,
             153
         ],
-        "action": "Click",
-        "target": true
+        "action": "Click"
     },
     "出队长界面": {
         "action": "Click",
         "target": [
-            1199,
-            70,
+            39,
+            103,
             1,
             1
         ]
@@ -91,6 +84,10 @@
         "action": "Custom",
         "custom_action": "1"
     },
+    "通用战斗模式": {
+        "action": "Custom",
+        "custom_action": "CombatActions"
+    },
     "自动战斗结束": {
         "recognition": "OCR",
         "roi": [
@@ -99,6 +96,6 @@
             0,
             0
         ],
-        "expected": "保存分数|结束战斗"
+        "expected": "结束战斗"
     }
 }
