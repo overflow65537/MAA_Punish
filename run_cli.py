@@ -24,7 +24,8 @@ from assets.custom.action.exclusives import (
 )
 from assets.custom.recognition.exclusives import CalculateScore, IDFMembers, IDFscore
 
-
+print("如无必要,请使用MFW.exe运行")
+print("if not necessary, please use MFW.exe to run")
 def main():
     # 注册自定义动作-角色战斗逻辑
     Toolkit.pi_register_custom_action("CrimsonWeave", CrimsonWeave())  # 深红囚影
