@@ -48,11 +48,6 @@
                         "关闭未拥有人物提示"
                     ]
                 },
-                "战斗中": {
-                    "next": [
-                        "消球"
-                    ]
-                },
                 "作战开始": {
                     "post_delay": 15000,
                     "recognition": "OCR",
@@ -63,19 +58,19 @@
                         53
                     ],
                     "expected": "作战开始",
-                    "action": "Click"
+                    "next": [
+                        "自动战斗任务"
+                    ]
                 },
                 "自动战斗结束": {
-                    "post_delay": 1500,
                     "recognition": "OCR",
                     "roi": [
-                        1051,
-                        641,
-                        113,
-                        44
+                        1024,
+                        647,
+                        139,
+                        35
                     ],
-                    "expected": "保存分数",
-                    "action": "Click"
+                    "expected": "保存"
                 }
             }
         },
