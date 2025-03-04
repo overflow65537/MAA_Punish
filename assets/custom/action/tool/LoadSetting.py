@@ -3,10 +3,27 @@ import os
 from pathlib import Path
 import sys
 
-# 添加项目根目录到sys.path
-project_root = Path(__file__).resolve().parent.parent.parent.parent.parent
-sys.path.append(str(project_root))
+# 获取当前文件的绝对路径
+current_file = Path(__file__).resolve()
 
+# 定义可能的项目根目录相对路径
+MFW_root = current_file.parent.parent.parent.parent.joinpath("MFW_resource")
+MAA_Punish_root = current_file.parent.parent.parent.parent.parent.parent.joinpath("Bundles")
+assets_root = current_file.parent.parent.parent.parent.parent.joinpath("assets")
+if MFW_root.exists():
+    project_root = MFW_root
+    print("MFW root")
+elif MAA_Punish_root.exists():
+    project_root = MAA_Punish_root.joinpath("MAA_Punish")
+    print("MAA_Punish root")
+elif assets_root.exists():
+    project_root = assets_root
+    print("assets root")
+
+print(project_root)
+
+# 添加项目根目录到sys.path
+sys.path.append(str(project_root))
 class LoadSetting:
     def __init__(self):
         self._role_actions = self.load_role_setting()
