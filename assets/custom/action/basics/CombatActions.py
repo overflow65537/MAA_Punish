@@ -6,15 +6,13 @@ from maa.custom_action import CustomAction
 class CombatActions(CustomAction):
     """通用战斗"""
 
-    def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
+    def run(
+        self, context: Context, argv: CustomAction.RunArg
+    ) -> CustomAction.RunResult:
         try:
             self.ball_elimination(context)()
             self.use_skill(context)()
-            self.ball_elimination(context)()
-            self.use_skill(context)()
-            self.trigger_qte_first(context)()
-            self.use_skill(context)()
-            self.trigger_qte_second(context)()
+            self.attack(context)()
 
             return CustomAction.RunResult(success=True)
         except Exception as e:
@@ -38,7 +36,9 @@ class CombatActions(CustomAction):
     @staticmethod
     def ball_elimination(context: Context):
         """消球"""
-        return lambda: context.tasker.controller.post_click(1215, 510).wait()
+        return lambda: context.tasker.controller.post_click(
+            1097, 510
+        ).wait()  # 改成了消第二个球
 
     @staticmethod
     def trigger_qte_first(context: Context):
@@ -51,16 +51,22 @@ class CombatActions(CustomAction):
         return lambda: context.tasker.controller.post_click(1208, 265).wait()
 
     @staticmethod
-    def long_press_attack(context: Context, time: int=1200):
+    def long_press_attack(context: Context, time: int = 1200):
         """长按攻击"""
-        return lambda: context.tasker.controller.post_swipe(1193, 633, 1198, 638, time).wait()
+        return lambda: context.tasker.controller.post_swipe(
+            1193, 633, 1198, 638, time
+        ).wait()
 
     @staticmethod
     def long_press_dodge(context: Context, time: int):
         """长按闪避"""
-        return lambda: context.tasker.controller.post_swipe(1052, 633, 1198, 638, time).wait()
+        return lambda: context.tasker.controller.post_swipe(
+            1052, 633, 1198, 638, time
+        ).wait()
 
     @staticmethod
     def long_press_skill(context: Context, time: int):
         """长按技能"""
-        return lambda: context.tasker.controller.post_swipe(915, 626, 915, 634, time).wait()
+        return lambda: context.tasker.controller.post_swipe(
+            915, 626, 915, 634, time
+        ).wait()
