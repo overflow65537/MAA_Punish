@@ -18,6 +18,571 @@
         ],
         "expected": "新版指挥局",
         "next": [
+            "检查指定按钮"
+        ],
+        "interrupt": [
+            "移动_蔚蓝之夏",
+            "移动_岁雪新宵",
+            "移动_庭梨栖雪",
+            "移动_鲸律星屿",
+            "移动_经典舱室"
+        ]
+    },
+    "拟真围剿内部": {
+        "recognition": "OCR",
+        "roi": [
+            142,
+            636,
+            100,
+            34
+        ],
+        "expected": "作战详情",
+        "next": [
+            "检查常序区次数MAX",
+            "检查常序区次数未满"
+        ],
+        "interrupt": [
+            "点击常序区"
+        ]
+    },
+    "确定选择": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            745,
+            496,
+            60,
+            37
+        ],
+        "expected": "确定",
+        "action": "Click"
+    },
+    "坚持作战": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            535,
+            488,
+            129,
+            46
+        ],
+        "expected": "坚持作战",
+        "action": "Click"
+    },
+    "检查常序区次数MAX": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": [
+            979,
+            621,
+            33,
+            23
+        ],
+        "expected": [
+            "1/3",
+            "2/3",
+            "3/3"
+        ],
+        "next": [
+            "常序区作战完成"
+        ],
+        "interrupt": [
+            "返回"
+        ]
+    },
+    "检查常序区次数未满": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": [
+            979,
+            621,
+            33,
+            23
+        ],
+        "expected": [
+            "0/3"
+        ],
+        "next": [
+            "常序区作战完成"
+        ],
+        "interrupt": [
+            "作战界面",
+            "坚持作战",
+            "确定选择",
+            "开始作战_拟真围剿"
+        ]
+    },
+    "常序区作战完成": {
+        "recognition": "OCR",
+        "roi": [
+            1036,
+            70,
+            88,
+            33
+        ],
+        "expected": "目标血量",
+        "replace": [
+            [
+                "自",
+                "目"
+            ]
+        ],
+        "next": [
+            "检查特遣区次数MAX",
+            "检查特遣区次数未满"
+        ],
+        "interrupt": [
+            "点击特遣区"
+        ]
+    },
+    "检查特遣区次数MAX": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": [
+            979,
+            621,
+            33,
+            23
+        ],
+        "expected": [
+            "1/3",
+            "2/3",
+            "3/3"
+        ],
+        "next": [
+            "特遣区作战完成"
+        ],
+        "interrupt": [
+            "返回"
+        ]
+    },
+    "检查特遣区次数未满": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": [
+            979,
+            621,
+            33,
+            23
+        ],
+        "expected": [
+            "0/3"
+        ],
+        "next": [
+            "特遣区作战完成"
+        ],
+        "interrupt": [
+            "作战界面",
+            "坚持作战",
+            "确定选择",
+            "开始作战_拟真围剿"
+        ]
+    },
+    "特遣区作战完成": {
+        "recognition": "OCR",
+        "roi": [
+            1036,
+            70,
+            88,
+            33
+        ],
+        "expected": "目标血量",
+        "replace": [
+            [
+                "自",
+                "目"
+            ]
+        ],
+        "next": [
+            "检查BOSS区次数MAX",
+            "检查BOSS区次数未满"
+        ],
+        "interrupt": [
+            "点击BOSS区"
+        ]
+    },
+    "检查BOSS区次数MAX": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": [
+            979,
+            621,
+            33,
+            23
+        ],
+        "expected": [
+            "1/3",
+            "2/3",
+            "3/3"
+        ],
+        "next": [
+            "BOSS区作战完成"
+        ],
+        "interrupt": [
+            "返回"
+        ]
+    },
+    "检查BOSS区次数未满": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": [
+            979,
+            621,
+            33,
+            23
+        ],
+        "expected": [
+            "0/3"
+        ],
+        "next": [
+            "BOSS区作战完成"
+        ],
+        "interrupt": [
+            "作战界面",
+            "坚持作战",
+            "确定选择",
+            "开始作战_拟真围剿"
+        ]
+    },
+    "BOSS区作战完成": {
+        "recognition": "OCR",
+        "roi": [
+            1036,
+            70,
+            88,
+            33
+        ],
+        "expected": "目标血量",
+        "replace": [
+            [
+                "自",
+                "目"
+            ]
+        ],
+        "next": [
+            "没有全局奖励"
+        ],
+        "interrupt": [
+            "领取全局奖励",
+            "关闭奖励_拟真围剿"
+        ]
+    },
+    "没有全局奖励": {
+        "inverse": true,
+        "recognition": "ColorMatch",
+        "upper": [
+            0,
+            161,
+            255
+        ],
+        "lower": [
+            0,
+            161,
+            255
+        ],
+        "roi": [
+            135,
+            82,
+            34,
+            423
+        ],
+        "connected": true,
+        "next": [
+            "没有血量奖励"
+        ],
+        "interrupt": [
+            "领取血量奖励",
+            "关闭奖励_拟真围剿"
+        ]
+    },
+    "没有血量奖励": {
+        "inverse": true,
+        "recognition": "ColorMatch",
+        "upper": [
+            0,
+            161,
+            255
+        ],
+        "lower": [
+            0,
+            161,
+            255
+        ],
+        "roi": [
+            1212,
+            51,
+            30,
+            24
+        ],
+        "connected": true,
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "领取血量奖励": {
+        "recognition": "ColorMatch",
+        "upper": [
+            0,
+            161,
+            255
+        ],
+        "lower": [
+            0,
+            161,
+            255
+        ],
+        "roi": [
+            1212,
+            51,
+            30,
+            24
+        ],
+        "connected": true,
+        "action": "Click"
+    },
+    "关闭奖励_拟真围剿": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            409,
+            176,
+            491,
+            150
+        ],
+        "expected": "奖励",
+        "action": "Click",
+        "target": [
+            446,
+            30,
+            0,
+            0
+        ]
+    },
+    "领取全局奖励": {
+        "post_delay": 1000,
+        "recognition": "ColorMatch",
+        "upper": [
+            0,
+            161,
+            255
+        ],
+        "lower": [
+            0,
+            161,
+            255
+        ],
+        "roi": [
+            135,
+            82,
+            34,
+            423
+        ],
+        "connected": true,
+        "action": "Click"
+    },
+    "点击BOSS区": {
+        "post_delay": 1000,
+        "recognition": "ColorMatch",
+        "roi": [
+            605,
+            446,
+            60,
+            31
+        ],
+        "upper": [
+            254,
+            197,
+            93
+        ],
+        "lower": [
+            16,
+            0,
+            0
+        ],
+        "connected": true,
+        "action": "Click"
+    },
+    "点击特遣区": {
+        "post_delay": 1000,
+        "recognition": "ColorMatch",
+        "roi": [
+            781,
+            133,
+            39,
+            42
+        ],
+        "upper": [
+            200,
+            56,
+            64
+        ],
+        "lower": [
+            41,
+            4,
+            4
+        ],
+        "connected": true,
+        "action": "Click"
+    },
+    "作战界面": {
+        "recognition": "OCR",
+        "roi": [
+            1024,
+            639,
+            151,
+            56
+        ],
+        "expected": "作战开始",
+        "next": [
+            "添加人物",
+            "保存分数"
+        ],
+        "interrupt": [
+            "作战开始"
+        ]
+    },
+    "点击攻击": {
+        "action": "Click",
+        "target": [
+            1189,
+            632,
+            1,
+            1
+        ]
+    },
+    "点击大招": {
+        "action": "Click",
+        "target": [
+            917,
+            631,
+            1,
+            1
+        ],
+        "next": [
+            "点击攻击"
+        ]
+    },
+    "消球": {
+        "action": "Click",
+        "target": [
+            1110,
+            508,
+            1,
+            1
+        ],
+        "next": [
+            "点击大招"
+        ]
+    },
+    "添加人物": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            172,
+            281,
+            926,
+            221
+        ],
+        "template": [
+            "幻痛囚笼\\队伍净空_红.png",
+            "幻痛囚笼\\队伍净空_蓝黄.png"
+        ],
+        "action": "Click",
+        "next": [
+            "编入队伍"
+        ],
+        "interrupt": [
+            "选择其他人物"
+        ]
+    },
+    "选择其他人物": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            209,
+            64,
+            57,
+            576
+        ],
+        "expected": "战斗参数",
+        "action": "Click",
+        "order_by": "Random"
+    },
+    "选择人物_拟真围剿": {
+        "recognition": "OCR",
+        "roi": [
+            213,
+            246,
+            58,
+            22
+        ],
+        "expected": "战斗参数"
+    },
+    "开始作战_拟真围剿": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1083,
+            604,
+            148,
+            45
+        ],
+        "expected": "开始作战",
+        "action": "Click"
+    },
+    "点击常序区": {
+        "post_delay": 1000,
+        "recognition": "ColorMatch",
+        "roi": [
+            495,
+            90,
+            22,
+            66
+        ],
+        "upper": [
+            48,
+            102,
+            210
+        ],
+        "lower": [
+            36,
+            58,
+            199
+        ],
+        "connected": true,
+        "action": "Click"
+    },
+    "准备作战_拟真围剿": {
+        "recognition": "OCR",
+        "roi": [
+            180,
+            589,
+            109,
+            48
+        ],
+        "expected": "准备作战",
+        "action": "Click"
+    },
+    "进入拟真围剿": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1124,
+            159,
+            51,
+            55
+        ],
+        "template": "指挥局\\拟真围剿入口.png",
+        "action": "Click"
+    },
+    "返回指挥局主界面": {
+        "recognition": "OCR",
+        "roi": [
+            301,
+            14,
+            123,
+            34
+        ],
+        "expected": "新版指挥局",
+        "next": [
             "领取本周贡献"
         ]
     },
@@ -34,10 +599,11 @@
         "action": "Click",
         "next": [
             "本周贡献_一键领取",
-            "返回指挥局"
+            "返回主菜单"
         ]
     },
     "本周贡献_一键领取": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             1055,
@@ -70,32 +636,6 @@
             33,
             1,
             1
-        ],
-        "next": [
-            "回到指挥局内部"
-        ],
-        "interrupt": [
-            "返回指挥局"
-        ]
-    },
-    "回到指挥局内部": {
-        "recognition": "OCR",
-        "roi": [
-            301,
-            14,
-            123,
-            34
-        ],
-        "expected": "新版指挥局",
-        "next": [
-            "检查指定按钮"
-        ],
-        "interrupt": [
-            "移动_蔚蓝之夏",
-            "移动_岁雪新宵",
-            "移动_庭梨栖雪",
-            "移动_鲸律星屿",
-            "移动_经典舱室"
         ]
     },
     "检查指定按钮": {
@@ -259,8 +799,11 @@
         ],
         "pre_delay": 1000,
         "next": [
-            "返回",
-            "返回_图标"
+            "拟真围剿内部"
+        ],
+        "interrupt": [
+            "进入拟真围剿",
+            "准备作战_拟真围剿"
         ]
     }
 }
