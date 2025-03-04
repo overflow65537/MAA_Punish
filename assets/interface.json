@@ -58,6 +58,7 @@
                         53
                     ],
                     "expected": "作战开始",
+                    "action": "DoNothing",
                     "next": [
                         "自动战斗任务"
                     ]

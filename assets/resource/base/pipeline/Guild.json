@@ -441,39 +441,6 @@
             "作战开始"
         ]
     },
-    "点击攻击": {
-        "action": "Click",
-        "target": [
-            1189,
-            632,
-            1,
-            1
-        ]
-    },
-    "点击大招": {
-        "action": "Click",
-        "target": [
-            917,
-            631,
-            1,
-            1
-        ],
-        "next": [
-            "点击攻击"
-        ]
-    },
-    "消球": {
-        "action": "Click",
-        "target": [
-            1110,
-            508,
-            1,
-            1
-        ],
-        "next": [
-            "点击大招"
-        ]
-    },
     "添加人物": {
         "recognition": "TemplateMatch",
         "roi": [
