@@ -319,6 +319,14 @@
         "选择A级角色": {
             "cases": [
                 {
+                    "name": "破晓",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "expected": "破晓"
+                        }
+                    }
+                },
+                {
                     "name": "徊闪",
                     "pipeline_override": {
                         "A级角色": {
