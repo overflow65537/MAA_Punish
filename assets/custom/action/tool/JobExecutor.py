@@ -3,8 +3,7 @@ from typing import Callable, Optional, Union
 
 from maa.job import Job, JobWithResult
 
-from assets.custom.action.basics.CombatActions import CombatActions
-from assets.custom.action.tool.Enum import ActionStatusEnum, TaskNameEnum
+from assets.custom.action.tool import ActionStatusEnum, GameActionEnum
 
 
 class JobExecutor:
@@ -13,29 +12,33 @@ class JobExecutor:
     def __init__(
         self,
         job_factory: Callable[[], Union[Job, JobWithResult, Callable]],
-        action_name: TaskNameEnum,
-        status_attr: ActionStatusEnum,
-        success_attr: ActionStatusEnum,
+        action_enum: GameActionEnum,
+        status_enum: ActionStatusEnum = ActionStatusEnum.DONE,
+        success_enum: ActionStatusEnum = ActionStatusEnum.SUCCEEDED,
     ):
         """
         :param job_factory: 生成Job实例的工厂函数
-        :param status_attr: 要监控的状态属性(如'done')
-        :param action_name: 动作名称(用于日志输出)
-        :param success_attr: 成功判断属性(默认为'succeeded')
+        :param action_enum: 动作(用于日志输出)
+        :param status_enum: 要监控的状态属性(默认为'DONE')
+        :param success_enum: 成功判断属性(默认为'SUCCEEDED')
         """
         self.job_factory = job_factory
-        self.action_name = action_name.name
-        self._status_check_attr = status_attr.name
-        self._success_check_attr = success_attr.name
+        self.action_name = action_enum.name.lower()
+        self._status_check_attr = status_enum.name.lower()
+        self._success_check_attr = success_enum.name.lower()
         self._current_job: Union[Job, JobWithResult] = None  # 当前监控的Job实例
 
     def _create_checker(self, job: Union[Job, JobWithResult], attr: str) -> Callable[[], bool]:
         """创建属性检查闭包"""
         return lambda: getattr(job, attr)
 
-    def execute(self, timeout: float = 5, interval: float = 0.1, max_retries: int = 3, verbose: bool = True) -> bool:
+    def execute(self, timeout: float = 3, interval: float = 0.1, max_retries: int = 2, verbose: bool = True) -> bool:
         """
         执行任务并监控状态(每次重试创建新Job实例)
+        :param timeout: 超时时间(秒)
+        :param interval: 轮询间隔(秒)
+        :param max_retries: 最大重试次数
+        :param verbose: 是否打印日志
         :return: 是否成功完成
         """
         for attempt in range(1, max_retries + 1):
@@ -113,14 +116,3 @@ class JobExecutor:
         if verbose:
             status = str(self._current_job) if self._current_job else "无有效任务"
             print(f"[异常] {self.action_name} | 状态: {status} | 错误: {str(error)}")
-
-# 测试
-# print("[测试] 测试开始")
-# executor = JobExecutor(
-#     CombatActions.ball_elimination(context),
-#     TaskNameEnum.ball_elimination,
-#     ActionStatusEnum.done,
-#     ActionStatusEnum.succeeded,
-# )
-# success = executor.execute(timeout=3, max_retries=2, verbose=True) # success: True/False
-# print("[测试] 测试结果: " + str(success))
