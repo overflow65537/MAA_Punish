@@ -263,8 +263,7 @@
             "没有全局奖励"
         ],
         "interrupt": [
-            "领取全局奖励",
-            "关闭奖励_拟真围剿"
+            "领取全局奖励"
         ]
     },
     "没有全局奖励": {
@@ -291,8 +290,7 @@
             "没有血量奖励"
         ],
         "interrupt": [
-            "领取血量奖励",
-            "关闭奖励_拟真围剿"
+            "领取血量奖励"
         ]
     },
     "没有血量奖励": {
@@ -320,6 +318,7 @@
         ]
     },
     "领取血量奖励": {
+        "post_delay": 1500,
         "recognition": "ColorMatch",
         "upper": [
             0,
@@ -338,7 +337,11 @@
             24
         ],
         "connected": true,
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "关闭奖励_拟真围剿",
+            "空任务"
+        ]
     },
     "关闭奖励_拟真围剿": {
         "post_delay": 1000,
@@ -359,7 +362,7 @@
         ]
     },
     "领取全局奖励": {
-        "post_delay": 1000,
+        "post_delay": 1500,
         "recognition": "ColorMatch",
         "upper": [
             0,
@@ -378,7 +381,11 @@
             423
         ],
         "connected": true,
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "关闭奖励_拟真围剿",
+            "空任务"
+        ]
     },
     "点击BOSS区": {
         "post_delay": 1000,
