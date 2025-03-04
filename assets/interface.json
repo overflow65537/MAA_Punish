@@ -38,7 +38,41 @@
         },
         {
             "name": "指挥局",
-            "entry": "指挥局"
+            "entry": "指挥局",
+            "pipeline_override": {
+                "编入队伍": {
+                    "next": [
+                        "作战界面"
+                    ],
+                    "interrupt": [
+                        "关闭未拥有人物提示"
+                    ]
+                },
+                "作战开始": {
+                    "post_delay": 15000,
+                    "recognition": "OCR",
+                    "roi": [
+                        1032,
+                        641,
+                        148,
+                        53
+                    ],
+                    "expected": "作战开始",
+                    "action": "Click"
+                },
+                "自动战斗结束": {
+                    "post_delay": 1500,
+                    "recognition": "OCR",
+                    "roi": [
+                        1051,
+                        641,
+                        113,
+                        44
+                    ],
+                    "expected": "保存分数",
+                    "action": "Click"
+                }
+            }
         },
         {
             "name": "纷争战区",
