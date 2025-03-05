@@ -1,0 +1,823 @@
+{
+    "战斗地块_寒境曙光": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            300,
+            1,
+            979,
+            640
+        ],
+        "expected": [
+            "低危区",
+            "中危区",
+            "高危区"
+        ],
+        "next": [
+            "识别岗哨塔_寒境曙光",
+            "直接进入战斗_寒境曙光"
+        ]
+    },
+    "识别岗哨塔_寒境曙光": {
+        "enabled": false,
+        "_doc": "识别是否有岗哨塔,暂时没写逻辑",
+        "recognition": "OCR",
+        "roi": [
+            358,
+            674,
+            38,
+            30
+        ],
+        "expected": "[7-9]|\\d{2,}",
+        "next": [
+            "使用岗哨塔_寒境曙光"
+        ]
+    },
+    "直接进入战斗_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
+        "action": "Click",
+        "target": "战斗地块_寒境曙光",
+        "next": [
+            "剩余资金700以上_寒境曙光",
+            "剩余资金700以下_寒境曙光"
+        ]
+    },
+    "剩余资金700以下_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            1139,
+            7,
+            96,
+            37
+        ],
+        "expected": "([0-6]\\d{0,2}|69[0-9])",
+        "action": "Click",
+        "target": [
+            815,
+            585,
+            1,
+            1
+        ],
+        "next": [
+            "肉鸽战斗_寒境曙光"
+        ]
+    },
+    "剩余资金700以上_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            1139,
+            7,
+            96,
+            37
+        ],
+        "expected": "(7\\d{2,}|[8-9]\\d{2,}|\\d{4,})",
+        "action": "Click",
+        "target": [
+            807,
+            664,
+            1,
+            1
+        ],
+        "next": [
+            "战斗完成_寒境曙光"
+        ]
+    },
+    "汇合_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
+        "recognition": "OCR",
+        "roi": [
+            731,
+            68,
+            117,
+            59
+        ],
+        "expected": "汇合",
+        "focus": true,
+        "focus_tip": "汇合",
+        "focus_tip_color": "ForestGreen",
+        "action": "Click",
+        "next": [
+            "离开对话_寒境曙光"
+        ],
+        "interrupt": [
+            "汇合_对话_寒境曙光",
+            "开始探索_寒境曙光"
+        ]
+    },
+    "汇合_结束对话_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            1047,
+            640,
+            108,
+            45
+        ],
+        "expected": "收下",
+        "action": "Click"
+    },
+    "汇合_对话_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            1047,
+            640,
+            108,
+            45
+        ],
+        "expected": [
+            "继续",
+            "决定"
+        ],
+        "action": "Click"
+    },
+    "拓荒_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            300,
+            1,
+            979,
+            640
+        ],
+        "focus": true,
+        "focus_tip": "拓荒",
+        "focus_tip_color": "ForestGreen",
+        "expected": "拓荒",
+        "action": "Click",
+        "next": [
+            "决定事件_寒境曙光"
+        ],
+        "interrupt": [
+            "继续_寒境曙光",
+            "拓荒_寒境曙光_对话_寒境曙光",
+            "开始探索_寒境曙光"
+        ]
+    },
+    "拓荒_寒境曙光_对话_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            739,
+            277,
+            510,
+            231
+        ],
+        "expected": "回报边境公社",
+        "action": "Click"
+    },
+    "无尚之戒_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            743,
+            60,
+            454,
+            67
+        ],
+        "expected": "无尚之戒",
+        "next": [
+            "决定事件_寒境曙光"
+        ],
+        "interrupt": [
+            "继续对话_寒境曙光",
+            "无尚之戒_寒境曙光_对话_寒境曙光"
+        ]
+    },
+    "无尚之戒_寒境曙光_对话_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            755,
+            314,
+            257,
+            190
+        ],
+        "expected": "不拿走戒指",
+        "action": "Click"
+    },
+    "前方有陷阱_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
+        "recognition": "OCR",
+        "roi": [
+            300,
+            1,
+            979,
+            637
+        ],
+        "expected": "前方有陷阱",
+        "action": "Click",
+        "focus": true,
+        "focus_tip": "前方有陷阱",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "离开对话_寒境曙光"
+        ],
+        "interrupt": [
+            "决定事件_寒境曙光",
+            "前方有陷阱_对话_寒境曙光",
+            "开始探索_寒境曙光"
+        ]
+    },
+    "前方有陷阱_对话_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            747,
+            307,
+            490,
+            377
+        ],
+        "expected": [
+            "谨慎离开",
+            "观察墙壁"
+        ],
+        "action": "Click"
+    },
+    "剩余资金_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
+        "recognition": "OCR",
+        "roi": [
+            300,
+            1,
+            979,
+            637
+        ],
+        "expected": "剩余资金",
+        "action": "Click",
+        "focus": true,
+        "focus_tip": "剩余资金",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "离开对话_寒境曙光",
+            "物资事件结束_寒境曙光"
+        ],
+        "interrupt": [
+            "决定事件_寒境曙光",
+            "剩余资金_寒境曙光_对话_寒境曙光",
+            "开始探索_寒境曙光"
+        ]
+    },
+    "剩余资金_寒境曙光_对话_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            752,
+            305,
+            287,
+            127
+        ],
+        "expected": "同意举办宴会",
+        "action": "Click"
+    },
+    "冬日之影_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
+        "recognition": "OCR",
+        "roi": [
+            300,
+            3,
+            979,
+            634
+        ],
+        "focus": true,
+        "focus_tip": "冬日之影",
+        "focus_tip_color": "ForestGreen",
+        "expected": "冬日之",
+        "action": "Click",
+        "next": [
+            "离开对话_寒境曙光"
+        ],
+        "interrupt": [
+            "冬日之影_对话_寒境曙光",
+            "开始探索_寒境曙光"
+        ]
+    },
+    "冬日之影_对话_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            1045,
+            632,
+            154,
+            67
+        ],
+        "expected": [
+            "进行松土"
+        ],
+        "action": "Click"
+    },
+    "离开对话_寒境曙光": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1054,
+            640,
+            124,
+            46
+        ],
+        "expected": [
+            "离开",
+            "收下",
+            "继续前行",
+            "收集资源"
+        ],
+        "action": "Click",
+        "next": [
+            "事件完成_寒境曙光"
+        ],
+        "interrupt": [
+            "局内招募_寒境曙光",
+            "继续对话_寒境曙光",
+            "点击空白处关闭",
+            "领取战斗奖励",
+            "驻扎点报警_寒境曙光",
+            "支援等级提升_寒境曙光",
+            "选择军事支援_寒境曙光",
+            "选择经济支援_寒境曙光",
+            "选择基建支援_寒境曙光",
+            "关闭奖励_寒境曙光"
+        ]
+    },
+    "战马瑞恩_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
+        "recognition": "OCR",
+        "roi": [
+            300,
+            1,
+            979,
+            637
+        ],
+        "focus": true,
+        "focus_tip": "战马瑞恩",
+        "focus_tip_color": "ForestGreen",
+        "expected": "战马瑞恩",
+        "action": "Click",
+        "next": [
+            "离开对话_寒境曙光"
+        ],
+        "interrupt": [
+            "决定事件_寒境曙光",
+            "战马瑞恩_对话_寒境曙光",
+            "开始探索_寒境曙光"
+        ]
+    },
+    "战马瑞恩_对话_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            761,
+            381,
+            231,
+            52
+        ],
+        "expected": "简单地驱逐感染体",
+        "action": "Click"
+    },
+    "意外点击_求生手记": {
+        "recognition": "OCR",
+        "post_delay": 2000,
+        "roi": [
+            96,
+            80,
+            196,
+            71
+        ],
+        "expected": "求生手记",
+        "next": [
+            "返回"
+        ]
+    },
+    "鲨鱼置物箱_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
+        "recognition": "OCR",
+        "roi": [
+            300,
+            1,
+            979,
+            637
+        ],
+        "focus": true,
+        "focus_tip": "鲨鱼置物箱",
+        "focus_tip_color": "ForestGreen",
+        "expected": [
+            "鲨鱼",
+            "置物箱"
+        ],
+        "action": "Click",
+        "next": [
+            "离开对话_寒境曙光"
+        ],
+        "interrupt": [
+            "决定事件_寒境曙光",
+            "鲨鱼置物箱_对话_寒境曙光",
+            "开始探索_寒境曙光"
+        ]
+    },
+    "鲨鱼置物箱_对话_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            738,
+            291,
+            163,
+            163
+        ],
+        "expected": "同意",
+        "action": "Click"
+    },
+    "学者来访_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
+        "recognition": "OCR",
+        "roi": [
+            300,
+            1,
+            979,
+            637
+        ],
+        "action": "Click",
+        "expected": "学者来访",
+        "focus": true,
+        "focus_tip": "学者来访",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "离开对话_寒境曙光"
+        ],
+        "interrupt": [
+            "决定事件_寒境曙光",
+            "学者来访_对话_寒境曙光",
+            "开始探索_寒境曙光"
+        ]
+    },
+    "学者来访_对话_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            740,
+            304,
+            118,
+            127
+        ],
+        "expected": "拒绝",
+        "action": "Click"
+    },
+    "运力紧张_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            300,
+            1,
+            979,
+            640
+        ],
+        "expected": "运力紧张",
+        "action": "Click",
+        "focus": true,
+        "focus_tip": "运力紧张",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "离开对话_寒境曙光"
+        ],
+        "interrupt": [
+            "决定事件_寒境曙光",
+            "运力紧张_对话_寒境曙光",
+            "开始探索_寒境曙光"
+        ]
+    },
+    "运力紧张_对话_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            749,
+            303,
+            267,
+            60
+        ],
+        "expected": "同意铺设大道的方案",
+        "action": "Click"
+    },
+    "废弃港口_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
+        "recognition": "OCR",
+        "roi": [
+            300,
+            1,
+            979,
+            637
+        ],
+        "expected": "废弃港口",
+        "action": "Click",
+        "focus": true,
+        "focus_tip": "废弃港口",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "离开对话_寒境曙光"
+        ],
+        "interrupt": [
+            "决定事件_寒境曙光",
+            "废弃港口_对话_寒境曙光",
+            "开始探索_寒境曙光"
+        ]
+    },
+    "废弃港口_对话_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            744,
+            307,
+            499,
+            120
+        ],
+        "expected": "优先回收剩余材料",
+        "action": "Click"
+    },
+    "商队来访_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
+        "recognition": "OCR",
+        "roi": [
+            300,
+            1,
+            979,
+            637
+        ],
+        "expected": "商队来访",
+        "action": "Click",
+        "focus": true,
+        "focus_tip": "商队来访",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "离开对话_寒境曙光"
+        ],
+        "interrupt": [
+            "决定事件_寒境曙光",
+            "商队来访_对话_寒境曙光",
+            "开始探索_寒境曙光"
+        ]
+    },
+    "商队来访_对话_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            755,
+            309,
+            176,
+            51
+        ],
+        "expected": "进行小笔交易",
+        "action": "Click"
+    },
+    "拦路的废墟_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
+        "recognition": "OCR",
+        "roi": [
+            300,
+            1,
+            979,
+            637
+        ],
+        "expected": [
+            "拦路",
+            "的废墟",
+            "的废址"
+        ],
+        "action": "Click",
+        "focus": true,
+        "focus_tip": "拦路的废墟",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "离开对话_寒境曙光"
+        ],
+        "interrupt": [
+            "决定事件_寒境曙光",
+            "拦路的废墟_对话_寒境曙光",
+            "开始探索_寒境曙光"
+        ]
+    },
+    "拦路的废墟_对话_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            744,
+            307,
+            499,
+            120
+        ],
+        "expected": "同意前往清扫",
+        "action": "Click"
+    },
+    "难民团到访_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
+        "recognition": "OCR",
+        "roi": [
+            300,
+            1,
+            979,
+            637
+        ],
+        "expected": "难民团到访",
+        "action": "Click",
+        "focus": true,
+        "focus_tip": "难民团到访",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "离开对话_寒境曙光"
+        ],
+        "interrupt": [
+            "决定事件_寒境曙光",
+            "难民团到访_对话_寒境曙光",
+            "开始探索_寒境曙光"
+        ]
+    },
+    "决定事件_寒境曙光": {
+        "post_delay": 1000,
+        "recognition": "TemplateMatch",
+        "threshold": 0.8,
+        "roi": [
+            997,
+            604,
+            278,
+            115
+        ],
+        "template": "寒境曙光\\旧国遗产_决定.png",
+        "action": "Click"
+    },
+    "难民团到访_对话_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            762,
+            308,
+            171,
+            54
+        ],
+        "expected": [
+            "同意收留他们"
+        ],
+        "action": "Click"
+    },
+    "建筑师的建议_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
+        "recognition": "OCR",
+        "roi": [
+            300,
+            1,
+            979,
+            637
+        ],
+        "expected": "建筑师的建议",
+        "action": "Click",
+        "focus": true,
+        "focus_tip": "建筑师的建议",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "离开对话_寒境曙光"
+        ],
+        "interrupt": [
+            "决定事件_寒境曙光",
+            "建筑师的建议_对话_寒境曙光",
+            "开始探索_寒境曙光"
+        ]
+    },
+    "建筑师的建议_对话_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            752,
+            305,
+            287,
+            127
+        ],
+        "expected": [
+            "换另一种方式铺设"
+        ],
+        "action": "Click"
+    },
+    "旧国遗产_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            300,
+            1,
+            979,
+            640
+        ],
+        "expected": [
+            "旧国遗产"
+        ],
+        "action": "Click",
+        "focus": true,
+        "focus_tip": "旧国遗产",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "离开对话_寒境曙光"
+        ],
+        "interrupt": [
+            "决定事件_寒境曙光",
+            "旧国遗产_对话_寒境曙光",
+            "开始探索_寒境曙光"
+        ]
+    },
+    "旧国遗产_对话_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            733,
+            361,
+            533,
+            344
+        ],
+        "expected": [
+            "继续探查",
+            "不管这个箱子"
+        ],
+        "action": "Click"
+    },
+    "纯色地块黄_寒境曙光": {
+        "post_delay": 1000,
+        "recognition": "ColorMatch",
+        "method": 40,
+        "count": 1000,
+        "roi": [
+            298,
+            0,
+            980,
+            641
+        ],
+        "lower": [
+            13,
+            99,
+            140
+        ],
+        "upper": [
+            27,
+            196,
+            205
+        ],
+        "connected": true,
+        "action": "Click"
+    },
+    "纯色地块红_寒境曙光": {
+        "post_delay": 1000,
+        "recognition": "ColorMatch",
+        "count": 1000,
+        "method": 40,
+        "roi": [
+            298,
+            0,
+            980,
+            641
+        ],
+        "lower": [
+            170,
+            90,
+            120
+        ],
+        "upper": [
+            255,
+            130,
+            170
+        ],
+        "connected": true,
+        "action": "Click"
+    },
+    "纯色地块蓝_寒境曙光": {
+        "post_delay": 1000,
+        "recognition": "ColorMatch",
+        "method": 40,
+        "count": 1500,
+        "roi": [
+            298,
+            0,
+            980,
+            641
+        ],
+        "lower": [
+            100,
+            70,
+            120
+        ],
+        "upper": [
+            135,
+            140,
+            150
+        ],
+        "connected": true,
+        "action": "Click"
+    }
+}
