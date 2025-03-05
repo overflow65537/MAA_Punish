@@ -97,8 +97,8 @@
         ],
         "expected": "汇合",
         "focus": true,
-        "focus_tip": "汇合",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "汇合",
+        "focus_succeeded_color": "ForestGreen",
         "action": "Click",
         "next": [
             "离开对话_寒境曙光"
@@ -146,8 +146,8 @@
             640
         ],
         "focus": true,
-        "focus_tip": "拓荒",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "拓荒",
+        "focus_succeeded_color": "ForestGreen",
         "expected": "拓荒",
         "action": "Click",
         "next": [
@@ -212,8 +212,8 @@
         "expected": "前方有陷阱",
         "action": "Click",
         "focus": true,
-        "focus_tip": "前方有陷阱",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "前方有陷阱",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "离开对话_寒境曙光"
         ],
@@ -251,8 +251,8 @@
         "expected": "剩余资金",
         "action": "Click",
         "focus": true,
-        "focus_tip": "剩余资金",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "剩余资金",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "离开对话_寒境曙光",
             "物资事件结束_寒境曙光"
@@ -286,8 +286,8 @@
             634
         ],
         "focus": true,
-        "focus_tip": "冬日之影",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "冬日之影",
+        "focus_succeeded_color": "ForestGreen",
         "expected": "冬日之",
         "action": "Click",
         "next": [
@@ -355,8 +355,8 @@
             637
         ],
         "focus": true,
-        "focus_tip": "战马瑞恩",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "战马瑞恩",
+        "focus_succeeded_color": "ForestGreen",
         "expected": "战马瑞恩",
         "action": "Click",
         "next": [
@@ -405,8 +405,8 @@
             637
         ],
         "focus": true,
-        "focus_tip": "鲨鱼置物箱",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "鲨鱼置物箱",
+        "focus_succeeded_color": "ForestGreen",
         "expected": [
             "鲨鱼",
             "置物箱"
@@ -446,8 +446,8 @@
         "action": "Click",
         "expected": "学者来访",
         "focus": true,
-        "focus_tip": "学者来访",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "学者来访",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "离开对话_寒境曙光"
         ],
@@ -483,8 +483,8 @@
         "expected": "运力紧张",
         "action": "Click",
         "focus": true,
-        "focus_tip": "运力紧张",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "运力紧张",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "离开对话_寒境曙光"
         ],
@@ -519,8 +519,8 @@
         "expected": "废弃港口",
         "action": "Click",
         "focus": true,
-        "focus_tip": "废弃港口",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "废弃港口",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "离开对话_寒境曙光"
         ],
@@ -555,8 +555,8 @@
         "expected": "商队来访",
         "action": "Click",
         "focus": true,
-        "focus_tip": "商队来访",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "商队来访",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "离开对话_寒境曙光"
         ],
@@ -595,8 +595,8 @@
         ],
         "action": "Click",
         "focus": true,
-        "focus_tip": "拦路的废墟",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "拦路的废墟",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "离开对话_寒境曙光"
         ],
@@ -631,8 +631,8 @@
         "expected": "难民团到访",
         "action": "Click",
         "focus": true,
-        "focus_tip": "难民团到访",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "难民团到访",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "离开对话_寒境曙光"
         ],
@@ -682,8 +682,8 @@
         "expected": "建筑师的建议",
         "action": "Click",
         "focus": true,
-        "focus_tip": "建筑师的建议",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "建筑师的建议",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "离开对话_寒境曙光"
         ],
@@ -723,8 +723,8 @@
         ],
         "action": "Click",
         "focus": true,
-        "focus_tip": "旧国遗产",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "旧国遗产",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "离开对话_寒境曙光"
         ],

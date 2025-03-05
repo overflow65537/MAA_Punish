@@ -8,8 +8,8 @@
             61
         ],
         "focus": true,
-        "focus_tip": "商店",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "商店",
+        "focus_succeeded_color": "ForestGreen",
         "expected": "鲨士多",
         "action": "Click",
         "next": [
@@ -70,8 +70,8 @@
         ],
         "expected": "在途存货",
         "focus": true,
-        "focus_tip": "在途存货",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "在途存货",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -121,8 +121,8 @@
         ],
         "expected": "亚人少女",
         "focus": true,
-        "focus_tip": "亚人少女",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "亚人少女",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -177,8 +177,8 @@
             "贴心搭档"
         ],
         "focus": true,
-        "focus_tip": "贴心搭档",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "贴心搭档",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -216,8 +216,8 @@
         ],
         "expected": "逃出生天",
         "focus": true,
-        "focus_tip": "逃出生天",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "逃出生天",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -270,8 +270,8 @@
         ],
         "expected": "隐秘工坊",
         "focus": true,
-        "focus_tip": "隐秘工坊",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "隐秘工坊",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -325,8 +325,8 @@
         ],
         "expected": "洁塔薇的游戏",
         "focus": true,
-        "focus_tip": "洁塔薇的游戏",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "洁塔薇的游戏",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -380,8 +380,8 @@
         ],
         "expected": "禁忌验证",
         "focus": true,
-        "focus_tip": "禁忌验证",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "禁忌验证",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -438,8 +438,8 @@
         ],
         "expected": "头号玩家",
         "focus": true,
-        "focus_tip": "头号玩家",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "头号玩家",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -491,8 +491,8 @@
         ],
         "expected": "致命失误",
         "focus": true,
-        "focus_tip": "致命失误",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "致命失误",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -545,8 +545,8 @@
         ],
         "expected": "工业怪谈",
         "focus": true,
-        "focus_tip": "工业怪谈",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "工业怪谈",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -600,8 +600,8 @@
         ],
         "expected": "动物坟场",
         "focus": true,
-        "focus_tip": "动物坟场",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "动物坟场",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -641,7 +641,8 @@
         ],
         "expected": [
             "挖掘",
-            "搜索水井"
+            "周边",
+            "安葬骸骨"
         ],
         "action": "Click",
         "next": [
@@ -658,8 +659,8 @@
         ],
         "expected": "观星真相",
         "focus": true,
-        "focus_tip": "观星真相",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "观星真相",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -716,8 +717,8 @@
         ],
         "expected": "机械性故障",
         "focus": true,
-        "focus_tip": "机械性故障",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "机械性故障",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -759,7 +760,7 @@
         ],
         "expected": [
             "建立",
-            "寻找虚空商人",
+            "寻找异界通讯点",
             "离开"
         ],
         "action": "Click",
@@ -780,8 +781,8 @@
             "步履購珊"
         ],
         "focus": true,
-        "focus_tip": "步履蹒跚",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "步履蹒跚",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -822,8 +823,8 @@
         ],
         "expected": "举手之劳",
         "focus": true,
-        "focus_tip": "举手之劳",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "举手之劳",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -897,8 +898,8 @@
         ],
         "expected": "无效救援",
         "focus": true,
-        "focus_tip": "无效救援",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "无效救援",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -956,8 +957,8 @@
         ],
         "expected": "盛典纪行",
         "focus": true,
-        "focus_tip": "盛典纪行",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "盛典纪行",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1014,8 +1015,8 @@
         ],
         "expected": "火灾现场",
         "focus": true,
-        "focus_tip": "火灾现场",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "火灾现场",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1071,8 +1072,8 @@
         ],
         "expected": "棋盘难题",
         "focus": true,
-        "focus_tip": "棋盘难题",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "棋盘难题",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1128,8 +1129,8 @@
         ],
         "expected": "皇后游戏",
         "focus": true,
-        "focus_tip": "皇后游戏",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "皇后游戏",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1191,8 +1192,8 @@
         ],
         "expected": "瑕疵造物",
         "focus": true,
-        "focus_tip": "瑕疵造物",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "瑕疵造物",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1247,8 +1248,8 @@
         ],
         "expected": "迷失之馆",
         "focus": true,
-        "focus_tip": "迷失之馆",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "迷失之馆",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1303,8 +1304,8 @@
         ],
         "expected": "圣殿战役",
         "focus": true,
-        "focus_tip": "圣殿战役",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "圣殿战役",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1362,8 +1363,8 @@
         ],
         "expected": "西西弗斯",
         "focus": true,
-        "focus_tip": "西西弗斯",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "西西弗斯",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1417,8 +1418,8 @@
         ],
         "expected": "野性之森",
         "focus": true,
-        "focus_tip": "野性之森",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "野性之森",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1475,8 +1476,8 @@
         ],
         "expected": "蓝色裂痕",
         "focus": true,
-        "focus_tip": "蓝色裂痕",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "蓝色裂痕",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1534,8 +1535,8 @@
         ],
         "expected": "铁石心肠",
         "focus": true,
-        "focus_tip": "铁石心肠",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "铁石心肠",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1589,8 +1590,8 @@
         ],
         "expected": "栩栩如生",
         "focus": true,
-        "focus_tip": "栩栩如生",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "栩栩如生",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1647,8 +1648,8 @@
         ],
         "expected": "荒废古卷",
         "focus": true,
-        "focus_tip": "荒废古卷",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "荒废古卷",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1716,8 +1717,8 @@
         ],
         "expected": "洁塔薇的食材",
         "focus": true,
-        "focus_tip": "洁塔薇的食材",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "洁塔薇的食材",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1773,8 +1774,8 @@
         ],
         "expected": "荒废古堡",
         "focus": true,
-        "focus_tip": "荒废古堡",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "荒废古堡",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1829,8 +1830,8 @@
         ],
         "expected": "天台扭蛋机",
         "focus": true,
-        "focus_tip": "天台扭蛋机",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "天台扭蛋机",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1884,8 +1885,8 @@
         ],
         "expected": "莫比乌斯",
         "focus": true,
-        "focus_tip": "莫比乌斯",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "莫比乌斯",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1939,8 +1940,8 @@
         ],
         "expected": "赝品工匠",
         "focus": true,
-        "focus_tip": "赝品工匠",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "赝品工匠",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1994,8 +1995,8 @@
         ],
         "expected": "继承之物",
         "focus": true,
-        "focus_tip": "继承之物",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "继承之物",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2050,8 +2051,8 @@
         ],
         "expected": "意外的请求",
         "focus": true,
-        "focus_tip": "异界通讯II",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "异界通讯II",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2107,8 +2108,8 @@
         ],
         "expected": "禁忌实验",
         "focus": true,
-        "focus_tip": "禁忌实验",
-        "focus_tip_color": "ForestGreen",
+        "focus_succeeded": "禁忌实验",
+        "focus_succeeded_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2148,6 +2149,130 @@
         ],
         "expected": [
             "射击怪物"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "失败造物_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "失败造物",
+        "focus": true,
+        "focus_succeeded": "失败造物",
+        "focus_succeeded_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "失败造物_对话2",
+            "失败造物_对话"
+        ]
+    },
+    "失败造物_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "上前询问",
+            "继续"
+        ],
+        "action": "Click"
+    },
+    "失败造物_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "调查活泼开朗的粉发莉莉"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生",
+            "调查_矩阵循生"
+        ]
+    },
+    "调查_矩阵循生": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1032,
+            618,
+            72,
+            42
+        ],
+        "expected": "调查",
+        "action": "Click"
+    },
+    "旧日情谊_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "旧日情谊",
+        "focus": true,
+        "focus_succeeded": "旧日情谊",
+        "focus_succeeded_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "旧日情谊_对话2",
+            "旧日情谊_对话"
+        ]
+    },
+    "旧日情谊_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "上前招呼"
+        ],
+        "action": "Click"
+    },
+    "旧日情谊_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "拒绝莉莉的请求"
         ],
         "action": "Click",
         "next": [
