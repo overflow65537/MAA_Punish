@@ -648,14 +648,10 @@
         "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
-            78,
-            304,
-            1133,
-            40
-        ],
-        "expected": [
-            "噩梦",
-            "墨梦"
+            191,
+            311,
+            895,
+            28
         ],
         "action": "Click",
         "next": [

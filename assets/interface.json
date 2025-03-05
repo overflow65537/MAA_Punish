@@ -169,16 +169,59 @@
             "entry": "停止"
         },
         {
+            "name": "矩阵循生",
+            "entry": "矩阵循生",
+            "option": [
+                "选择难度"
+            ],
+            "doc": "使用前提\n[color:Tomato][b]初始招募能量需要在4点以上[/b][/color]\n[color:Tomato][b]需要解锁异度投影事件[/b][/color]"
+        },
+        {
             "name": "寒境曙光",
             "entry": "寒境曙光",
             "option": [
                 "选择温度",
                 "选择效果"
             ],
-            "doc": "在寒境曙光主界面启动\n推荐使用严霜和启动资金"
+            "doc": "推荐使用严霜和启动资金"
         }
     ],
     "option": {
+        "选择难度": {
+            "cases": [
+                {
+                    "name": "普通",
+                    "pipeline_override": {
+                        "选择难度_矩阵循生": {
+                            "expected": [
+                                "普通"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "困难",
+                    "pipeline_override": {
+                        "选择难度_矩阵循生": {
+                            "expected": [
+                                "困难"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "噩梦",
+                    "pipeline_override": {
+                        "选择难度_矩阵循生": {
+                            "expected": [
+                                "噩梦",
+                                "墨梦"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
         "是否使用体力": {
             "cases": [
                 {
