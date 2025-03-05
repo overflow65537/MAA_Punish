@@ -1,4 +1,65 @@
 {
+    "商店_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            246,
+            259,
+            974,
+            61
+        ],
+        "focus": true,
+        "focus_tip": "商店",
+        "focus_tip_color": "ForestGreen",
+        "expected": "鲨士多",
+        "action": "Click",
+        "next": [
+            "进入商店_矩阵循生"
+        ]
+    },
+    "进入商店_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            183,
+            469,
+            972,
+            63
+        ],
+        "expected": "确定",
+        "action": "Click",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "确认结束购物_矩阵循生",
+            "结束购物_矩阵循生"
+        ]
+    },
+    "确认结束购物_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            706,
+            465,
+            59,
+            37
+        ],
+        "expected": "确认",
+        "action": "Click"
+    },
+    "结束购物_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            1038,
+            622,
+            97,
+            36
+        ],
+        "expected": "结束购物",
+        "action": "Click"
+    },
     "在途存货_矩阵循生": {
         "recognition": "OCR",
         "roi": [
@@ -8,27 +69,35 @@
             62
         ],
         "expected": "在途存货",
+        "focus": true,
+        "focus_tip": "在途存货",
+        "focus_tip_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
         "interrupt": [
             "关闭奖励_矩阵循生",
-            "在途存货_对话",
-            "在途存货_对话1"
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "在途存货_对话1",
+            "在途存货_对话"
         ]
     },
     "在途存货_对话1": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
-            1028,
-            619,
-            93,
-            43
+            1017,
+            613,
+            170,
+            54
         ],
         "expected": "离开",
         "action": "Click"
     },
     "在途存货_对话": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             773,
@@ -51,16 +120,23 @@
             62
         ],
         "expected": "亚人少女",
+        "focus": true,
+        "focus_tip": "亚人少女",
+        "focus_tip_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
         "interrupt": [
             "关闭奖励_矩阵循生",
-            "亚人少女_对话",
-            "亚人少女_对话2"
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "亚人少女_对话2",
+            "亚人少女_对话"
         ]
     },
     "亚人少女_对话2": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             773,
@@ -75,14 +151,18 @@
         ]
     },
     "亚人少女_对话": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
-            1038,
-            622,
-            97,
-            36
+            1017,
+            613,
+            170,
+            54
         ],
-        "expected": "原地观察",
+        "expected": [
+            "原地观察",
+            "离开"
+        ],
         "action": "Click"
     },
     "贴心搭档_矩阵循生": {
@@ -96,16 +176,23 @@
         "expected": [
             "贴心搭档"
         ],
+        "focus": true,
+        "focus_tip": "贴心搭档",
+        "focus_tip_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
         "interrupt": [
             "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
             "出发_矩阵循生",
             "贴心搭档_对话"
         ]
     },
     "贴心搭档_对话": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             768,
@@ -128,6 +215,9 @@
             62
         ],
         "expected": "逃出生天",
+        "focus": true,
+        "focus_tip": "逃出生天",
+        "focus_tip_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -135,17 +225,19 @@
             "关闭奖励_矩阵循生",
             "确认装备_矩阵循生",
             "选择装备_矩阵循生",
-            "逃出生天_对话",
-            "逃出生天_对话2"
+            "领取藏品",
+            "逃出生天_对话2",
+            "逃出生天_对话"
         ]
     },
     "逃出生天_对话2": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
-            1021,
-            621,
-            72,
-            44
+            1017,
+            613,
+            170,
+            54
         ],
         "expected": [
             "收下",
@@ -154,12 +246,13 @@
         "action": "Click"
     },
     "逃出生天_对话": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
-            768,
-            307,
-            183,
-            238
+            690,
+            254,
+            554,
+            339
         ],
         "expected": "给巨鼠些吃的",
         "action": "Click",
@@ -176,25 +269,30 @@
             62
         ],
         "expected": "隐秘工坊",
+        "focus": true,
+        "focus_tip": "隐秘工坊",
+        "focus_tip_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
         "interrupt": [
             "关闭奖励_矩阵循生",
-            "选择装备_矩阵循生",
             "确认装备_矩阵循生",
-            "隐秘工坊_对话",
+            "选择装备_矩阵循生",
+            "领取藏品",
             "隐秘工坊_对话2",
+            "隐秘工坊_对话",
             "转场_矩阵循生"
         ]
     },
     "隐秘工坊_对话2": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
-            768,
-            307,
-            183,
-            238
+            690,
+            254,
+            554,
+            339
         ],
         "expected": "直接出发",
         "action": "Click",
@@ -203,12 +301,13 @@
         ]
     },
     "隐秘工坊_对话": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
-            1034,
-            621,
-            83,
-            39
+            1017,
+            613,
+            170,
+            54
         ],
         "expected": [
             "收取",
@@ -225,24 +324,29 @@
             62
         ],
         "expected": "洁塔薇的游戏",
+        "focus": true,
+        "focus_tip": "洁塔薇的游戏",
+        "focus_tip_color": "ForestGreen",
         "next": [
             "事件完成_矩阵循生"
         ],
         "interrupt": [
             "关闭奖励_矩阵循生",
-            "洁塔薇的游戏_对话",
-            "洁塔薇的游戏_对话2",
+            "确认装备_矩阵循生",
             "选择装备_矩阵循生",
-            "确认装备_矩阵循生"
+            "领取藏品",
+            "洁塔薇的游戏_对话2",
+            "洁塔薇的游戏_对话"
         ]
     },
     "洁塔薇的游戏_对话2": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
-            768,
-            307,
-            183,
-            238
+            690,
+            254,
+            554,
+            339
         ],
         "expected": "转头看向自己背后",
         "action": "Click",
@@ -251,12 +355,13 @@
         ]
     },
     "洁塔薇的游戏_对话": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
-            1034,
-            621,
-            83,
-            39
+            1017,
+            613,
+            170,
+            54
         ],
         "expected": [
             "追上她",
@@ -264,5 +369,1789 @@
             "一起离开"
         ],
         "action": "Click"
+    },
+    "禁忌验证_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            708,
+            99,
+            158,
+            53
+        ],
+        "expected": "禁忌验证",
+        "focus": true,
+        "focus_tip": "禁忌验证",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "禁忌验证_对话2",
+            "禁忌验证_对话"
+        ]
+    },
+    "禁忌验证_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "检查四周",
+            "收起卡片",
+            "离开"
+        ],
+        "action": "Click"
+    },
+    "禁忌验证_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "寻找安全区",
+            "转身准备战斗"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "头号玩家_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "头号玩家",
+        "focus": true,
+        "focus_tip": "头号玩家",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "头号玩家_对话2",
+            "头号玩家_对话"
+        ]
+    },
+    "头号玩家_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开"
+        ],
+        "action": "Click"
+    },
+    "头号玩家_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": "取走游戏机的芯片",
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "致命失误_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "致命失误",
+        "focus": true,
+        "focus_tip": "致命失误",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "致命失误_对话2",
+            "致命失误_对话"
+        ]
+    },
+    "致命失误_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "取走东西",
+            "赶紧离开"
+        ],
+        "action": "Click"
+    },
+    "致命失误_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": "打开实验日志阅读",
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "工业怪谈_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "工业怪谈",
+        "focus": true,
+        "focus_tip": "工业怪谈",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "工业怪谈_对话2",
+            "工业怪谈_对话"
+        ]
+    },
+    "工业怪谈_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开"
+        ],
+        "action": "Click"
+    },
+    "工业怪谈_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "就地回收"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "动物坟场_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "动物坟场",
+        "focus": true,
+        "focus_tip": "动物坟场",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "动物坟场_对话2",
+            "动物坟场_对话"
+        ]
+    },
+    "动物坟场_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "查看周围",
+            "搜索周边",
+            "离开"
+        ],
+        "action": "Click"
+    },
+    "动物坟场_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "挖掘",
+            "搜索水井"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "观星真相_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "观星真相",
+        "focus": true,
+        "focus_tip": "观星真相",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "观星真相_对话2",
+            "观星真相_对话"
+        ]
+    },
+    "观星真相_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "避开",
+            "辟开",
+            "离开"
+        ],
+        "action": "Click"
+    },
+    "观星真相_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "调查机器人的芯片",
+            "插入新的芯片"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "异界通讯I_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            705,
+            103,
+            300,
+            56
+        ],
+        "expected": "机械性故障",
+        "focus": true,
+        "focus_tip": "机械性故障",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "异界通讯I_对话2",
+            "异界通讯I_对话"
+        ]
+    },
+    "异界通讯I_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "检查武器",
+            "进行链接",
+            "发送",
+            "离开",
+            "提出需求"
+        ],
+        "action": "Click"
+    },
+    "异界通讯I_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "建立",
+            "寻找虚空商人",
+            "离开"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "步履蹒跚_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": [
+            "步履蹒跚",
+            "步履購珊"
+        ],
+        "focus": true,
+        "focus_tip": "步履蹒跚",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "步履蹒跚_对话2",
+            "步履蹒跚_对话"
+        ]
+    },
+    "步履蹒跚_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "跟上他",
+            "查看信封",
+            "打开暗格",
+            "取走补给"
+        ],
+        "action": "Click"
+    },
+    "举手之劳_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "举手之劳",
+        "focus": true,
+        "focus_tip": "举手之劳",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "领取藏品",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "举手之劳_对话2",
+            "举手之劳_对话"
+        ]
+    },
+    "举手之劳_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "查看",
+            "检查",
+            "打开"
+        ],
+        "action": "Click"
+    },
+    "举手之劳_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "去花园里浇水"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "步履蹒跚_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "去看看保险柜"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "无效救援_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "无效救援",
+        "focus": true,
+        "focus_tip": "无效救援",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "无效救援_对话2",
+            "无效救援_对话",
+            "转场_矩阵循生"
+        ]
+    },
+    "无效救援_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "往下方走",
+            "回收物资",
+            "出发"
+        ],
+        "action": "Click"
+    },
+    "无效救援_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "直接出发"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "盛典纪行_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "盛典纪行",
+        "focus": true,
+        "focus_tip": "盛典纪行",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "盛典纪行_对话2",
+            "盛典纪行_对话"
+        ]
+    },
+    "盛典纪行_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "检查",
+            "离开",
+            "搜寻营地"
+        ],
+        "action": "Click"
+    },
+    "盛典纪行_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "解救",
+            "拿出武器"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "火灾现场_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "火灾现场",
+        "focus": true,
+        "focus_tip": "火灾现场",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "火灾现场_对话2",
+            "火灾现场_对话"
+        ]
+    },
+    "火灾现场_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "推测",
+            "调查附近"
+        ],
+        "action": "Click"
+    },
+    "火灾现场_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "这是一场布局精妙的谋杀"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "棋盘难题_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "棋盘难题",
+        "focus": true,
+        "focus_tip": "棋盘难题",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "棋盘难题_对话2",
+            "棋盘难题_对话"
+        ]
+    },
+    "棋盘难题_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "向前看",
+            "认输"
+        ],
+        "action": "Click"
+    },
+    "棋盘难题_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "接受挑战"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "皇后游戏_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "皇后游戏",
+        "focus": true,
+        "focus_tip": "皇后游戏",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "皇后游戏_对话2",
+            "皇后游戏_对话"
+        ]
+    },
+    "皇后游戏_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "查看",
+            "检查",
+            "打开",
+            "拿牌",
+            "继续"
+        ],
+        "action": "Click"
+    },
+    "皇后游戏_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "接受挑战",
+            "同意",
+            "皇后",
+            "离桌"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "瑕疵造物_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "瑕疵造物",
+        "focus": true,
+        "focus_tip": "瑕疵造物",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "瑕疵造物_对话2",
+            "瑕疵造物_对话"
+        ]
+    },
+    "瑕疵造物_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "决定"
+        ],
+        "action": "Click"
+    },
+    "瑕疵造物_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "断臂维纳斯"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "迷失之馆_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "迷失之馆",
+        "focus": true,
+        "focus_tip": "迷失之馆",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "迷失之馆_对话2",
+            "迷失之馆_对话"
+        ]
+    },
+    "迷失之馆_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "询问他"
+        ],
+        "action": "Click"
+    },
+    "迷失之馆_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "帮助他"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "圣殿战役_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "圣殿战役",
+        "focus": true,
+        "focus_tip": "圣殿战役",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "圣殿战役_对话2",
+            "圣殿战役_对话"
+        ]
+    },
+    "圣殿战役_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "观察",
+            "跟着喊",
+            "收下"
+        ],
+        "action": "Click"
+    },
+    "圣殿战役_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "协助黑衣人",
+            "用拳开路"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "西西弗斯_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "西西弗斯",
+        "focus": true,
+        "focus_tip": "西西弗斯",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "西西弗斯_对话2",
+            "西西弗斯_对话"
+        ]
+    },
+    "西西弗斯_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开"
+        ],
+        "action": "Click"
+    },
+    "西西弗斯_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "询问少女"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "野性之森_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "野性之森",
+        "focus": true,
+        "focus_tip": "野性之森",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "野性之森_对话2",
+            "野性之森_对话"
+        ]
+    },
+    "野性之森_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "继续前行",
+            "带她回去",
+            "出发"
+        ],
+        "action": "Click"
+    },
+    "野性之森_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "问女孩昆虫的品种"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "蓝色裂痕_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "蓝色裂痕",
+        "focus": true,
+        "focus_tip": "蓝色裂痕",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "蓝色裂痕_对话2",
+            "蓝色裂痕_对话"
+        ]
+    },
+    "蓝色裂痕_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "继续",
+            "查看资料",
+            "收起"
+        ],
+        "action": "Click"
+    },
+    "蓝色裂痕_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "进入里面",
+            "不顾一切取走资料集"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "铁石心肠_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "铁石心肠",
+        "focus": true,
+        "focus_tip": "铁石心肠",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "铁石心肠_对话2",
+            "铁石心肠_对话"
+        ]
+    },
+    "铁石心肠_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开"
+        ],
+        "action": "Click"
+    },
+    "铁石心肠_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "优先启动档案库"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "栩栩如生_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "栩栩如生",
+        "focus": true,
+        "focus_tip": "栩栩如生",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "栩栩如生_对话2",
+            "栩栩如生_对话"
+        ]
+    },
+    "栩栩如生_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "看向油画",
+            "继续"
+        ],
+        "action": "Click"
+    },
+    "栩栩如生_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "绝境的希望",
+            "上前取下纸条"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "荒废古卷_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "荒废古卷",
+        "focus": true,
+        "focus_tip": "荒废古卷",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "荒废古卷_对话2",
+            "荒废古卷_对话"
+        ]
+    },
+    "荒废古卷_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "翻阅"
+        ],
+        "action": "Click"
+    },
+    "荒废古卷_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "完全品"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生",
+            "回答_矩阵循生"
+        ]
+    },
+    "回答_矩阵循生": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1032,
+            618,
+            72,
+            42
+        ],
+        "expected": "回答",
+        "action": "Click"
+    },
+    "洁塔薇的食材_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "洁塔薇的食材",
+        "focus": true,
+        "focus_tip": "洁塔薇的食材",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "洁塔薇的食材_对话2",
+            "洁塔薇的食材_对话"
+        ]
+    },
+    "洁塔薇的食材_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "寻找食材",
+            "等待"
+        ],
+        "action": "Click"
+    },
+    "洁塔薇的食材_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "先吃紫里透红的兔肉火锅"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "荒废古堡_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "荒废古堡",
+        "focus": true,
+        "focus_tip": "荒废古堡",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "荒废古堡_对话2",
+            "荒废古堡_对话"
+        ]
+    },
+    "荒废古堡_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "检视"
+        ],
+        "action": "Click"
+    },
+    "荒废古堡_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "转身离开"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "天台扭蛋机_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "天台扭蛋机",
+        "focus": true,
+        "focus_tip": "天台扭蛋机",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "天台扭蛋机_对话2",
+            "天台扭蛋机_对话"
+        ]
+    },
+    "天台扭蛋机_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开"
+        ],
+        "action": "Click"
+    },
+    "天台扭蛋机_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "还是算了"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "莫比乌斯_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "莫比乌斯",
+        "focus": true,
+        "focus_tip": "莫比乌斯",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "莫比乌斯_对话2",
+            "莫比乌斯_对话"
+        ]
+    },
+    "莫比乌斯_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "取下异物"
+        ],
+        "action": "Click"
+    },
+    "莫比乌斯_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "不动声色"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "赝品工匠_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "赝品工匠",
+        "focus": true,
+        "focus_tip": "赝品工匠",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "赝品工匠_对话2",
+            "赝品工匠_对话"
+        ]
+    },
+    "赝品工匠_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "继续"
+        ],
+        "action": "Click"
+    },
+    "赝品工匠_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "夜里撒入的月光"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "继承之物_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "继承之物",
+        "focus": true,
+        "focus_tip": "继承之物",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "继承之物_对话2",
+            "继承之物_对话"
+        ]
+    },
+    "继承之物_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "聆听"
+        ],
+        "action": "Click"
+    },
+    "继承之物_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "询问他关于怪物的事",
+            "替男人继续追踪怪物"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "异界通讯II_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            705,
+            97,
+            324,
+            56
+        ],
+        "expected": "意外的请求",
+        "focus": true,
+        "focus_tip": "异界通讯II",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "异界通讯II_对话2",
+            "异界通讯II_对话"
+        ]
+    },
+    "异界通讯II_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "启动机器",
+            "迎战",
+            "发送"
+        ],
+        "action": "Click"
+    },
+    "异界通讯II_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "接受请求"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "禁忌实验_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "禁忌实验",
+        "focus": true,
+        "focus_tip": "禁忌实验",
+        "focus_tip_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "禁忌实验_对话2",
+            "禁忌实验_对话"
+        ]
+    },
+    "禁忌实验_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "观察",
+            "提高功率",
+            "查看纸条"
+        ],
+        "action": "Click"
+    },
+    "禁忌实验_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "射击怪物"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
     }
 }
