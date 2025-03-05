@@ -10,13 +10,16 @@
         "focus": true,
         "focus_succeeded": "商店",
         "focus_succeeded_color": "ForestGreen",
-        "expected": "鲨士多",
+        "expected": [
+            "士多"
+        ],
         "action": "Click",
         "next": [
             "进入商店_矩阵循生"
         ]
     },
     "进入商店_矩阵循生": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             183,
@@ -50,6 +53,7 @@
         "action": "Click"
     },
     "结束购物_矩阵循生": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             1038,
@@ -2279,6 +2283,173 @@
         ],
         "expected": [
             "拒绝莉莉的请求"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "贫困收藏家_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "贫困收藏家",
+        "focus": true,
+        "focus_succeeded": "贫困收藏家",
+        "focus_succeeded_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "贫困收藏家_对话2",
+            "贫困收藏家_对话"
+        ]
+    },
+    "贫困收藏家_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开"
+        ],
+        "action": "Click"
+    },
+    "贫困收藏家_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "拒绝交换"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "英雄真相_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "英雄真相",
+        "focus": true,
+        "focus_succeeded": "英雄真相",
+        "focus_succeeded_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "英雄真相_对话2",
+            "英雄真相_对话"
+        ]
+    },
+    "英雄真相_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "继续"
+        ],
+        "action": "Click"
+    },
+    "英雄真相_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "优先解救被困少女",
+            "带着少女离开"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "记忆真相_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "记忆真相",
+        "focus": true,
+        "focus_succeeded": "记忆真相",
+        "focus_succeeded_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "领取藏品",
+            "记忆真相_对话2",
+            "记忆真相_对话"
+        ]
+    },
+    "记忆真相_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "推开",
+            "拒绝"
+        ],
+        "action": "Click"
+    },
+    "记忆真相_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "花费时间消灭怪物"
         ],
         "action": "Click",
         "next": [
