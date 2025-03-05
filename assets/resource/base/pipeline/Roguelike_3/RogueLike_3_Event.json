@@ -1127,7 +1127,10 @@
             254,
             62
         ],
-        "expected": "皇后游戏",
+        "expected": [
+            "皇后游戏",
+            "后游戏"
+        ],
         "focus": true,
         "focus_succeeded": "皇后游戏",
         "focus_succeeded_color": "ForestGreen",
@@ -1938,7 +1941,10 @@
             254,
             62
         ],
-        "expected": "赝品工匠",
+        "expected": [
+            "赝品工匠",
+            "丽品工匠"
+        ],
         "focus": true,
         "focus_succeeded": "赝品工匠",
         "focus_succeeded_color": "ForestGreen",
