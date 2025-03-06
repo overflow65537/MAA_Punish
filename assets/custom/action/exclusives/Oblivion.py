@@ -1,34 +1,35 @@
-import time
+import sys
+from pathlib import Path
 
+# 获取当前文件的绝对路径
+current_file = Path(__file__).resolve()
+
+# 定义可能的项目根目录相对路径
+root_paths = [
+    current_file.parent.parent.parent.parent.joinpath("MFW_resource"),
+    current_file.parent.parent.parent.parent.parent.parent.joinpath("Bundles").joinpath("MAA_Punish"),
+    current_file.parent.parent.parent.parent.parent.joinpath("assets")
+]
+
+# 确定项目根目录
+project_root = next((path for path in root_paths if path.exists()), None)
+if project_root:
+    print(f"项目根目录: {project_root}")
+else:
+    print("[错误] 找不到项目根目录")
+
+# 添加项目根目录到sys.path
+sys.path.append(str(project_root))
+
+
+from custom.action.basics import CombatActions
+from custom.action.tool import JobExecutor
+from custom.action.tool.Enum import GameActionEnum
 from maa.context import Context
 from maa.custom_action import CustomAction
-from maa.job import Job
 
-
+# 还需识别能量条数字，大招图标
 class Oblivion(CustomAction):
-    def __execute_action(self, job: Job, action_name: str, timeout=5) -> bool:
-        """执行操作并等待结果"""
-        print(f"[执行] {action_name}")
-        try:
-            # 等待操作完成（带超时机制）
-            start_time = time.time()
-            while not job.done:
-                if time.time() - start_time > timeout:
-                    print(f"[超时] {action_name} 执行超时")
-                    return False
-                time.sleep(0.1)
-
-            # 检查最终状态
-            if job.succeeded:
-                print(f"[成功] {action_name}")
-                return True
-            print(f"[失败] {action_name} 状态码: {job.status}")
-            return False
-
-        except Exception as e:
-            print(f"[异常] {action_name} 错误: {str(e)}")
-            return False
-
     def __check_moon(self, context: Context) -> bool:
         """检查残月值"""
         try:
@@ -42,69 +43,36 @@ class Oblivion(CustomAction):
         except Exception as e:
             print(f"[异常] 残月值检查失败: {str(e)}")
             return False
-
+        
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
         try:
             # 初始残月值检查
             if self.__check_moon(context):
                 print("[状态] 残月值满")
                 # 长按普攻
-                swipe_job = context.tasker.controller.post_swipe(1193, 633, 1198, 638, 1200).wait()
-                if not self.__execute_action(swipe_job, "长按攻击"):
+                long_press_attack = JobExecutor(
+                    CombatActions.long_press_attack(context, 2000), GameActionEnum.LONG_PRESS_ATTACK
+                ,role_name="Oblivion")
+                if not long_press_attack.execute():
                     return CustomAction.RunResult(success=False)
 
-                # 释放大招
-                ult_job = context.tasker.controller.post_click(915, 626).wait()
-                return CustomAction.RunResult(success=self.__execute_action(ult_job, "释放大招"))
+                # # 释放大招
+                use_skill = JobExecutor(CombatActions.use_skill(context),GameActionEnum.USE_SKILL,role_name="Oblivion")
+                if not use_skill.execute():
+                    return CustomAction.RunResult(success=False)
+
+                return CustomAction.RunResult(success=True)
 
             # 消球操作
             print("[阶段] 执行消球")
-            for i in range(3):  # 最多尝试3次消球
-                ball_job = context.tasker.controller.post_click(1215, 510).wait()
-                if not self.__execute_action(ball_job, f"消球 #{i+1}"):
+            for i in range(2):  # 最多尝试2次消球
+                ball_elimination = JobExecutor(CombatActions.ball_elimination(context), GameActionEnum.BALL_ELIMINATION,role_name="Oblivion")
+                if ball_elimination.execute():
                     continue
-
-                # 消球后检查残月值
-                if self.__check_moon(context):
-                    print("[状态] 消球后残月值满")
-                    # 长按普攻
-                    swipe_job = context.tasker.controller.post_swipe(1193, 633, 1198, 638, 1200).wait()
-                    if not self.__execute_action(swipe_job, "长按攻击"):
-                        continue
-
-                    # 释放大招
-                    ult_job = context.tasker.controller.post_click(915, 626).wait()
-                    return CustomAction.RunResult(success=self.__execute_action(ult_job, "释放大招"))
-
-            # 普攻阶段
-            print("[阶段] 进入普攻循环")
-            attack_start = time.time()
-            while time.time() - attack_start < 2:  # 攻击持续2秒
-                # 执行普攻
-                attack_job = context.tasker.controller.post_click(1197, 636).wait()
-                if not self.__execute_action(attack_job, "普攻"):
-                    time.sleep(0.2)
-                    continue
-
-                # 动态调整攻击间隔
-                elapsed = time.time() - attack_start
-                interval = 0.4 if elapsed < 1.5 else 0.25
-                time.sleep(interval)
-
-                # 中途检查残月值
-                if elapsed > 1.0 and self.__check_moon(context):
-                    print("[状态] 攻击过程中残月值满")
-                    # 长按普攻
-                    swipe_job = context.tasker.controller.post_swipe(1193, 633, 1198, 638, 1200).wait()
-                    if not self.__execute_action(swipe_job, "紧急长按攻击"):
-                        break
-
-                    # 释放大招
-                    ult_job = context.tasker.controller.post_click(915, 626).wait()
-                    return CustomAction.RunResult(success=self.__execute_action(ult_job, "紧急释放大招"))
-
+                else:
+                    print(f"[状态] 消球失败，尝试第{i+1}次消球")
+                    return CustomAction.RunResult(success=False)
             return CustomAction.RunResult(success=True)
-
         except Exception as e:
             print(f"[严重错误] 执行流程中断: {str(e)}")
             return CustomAction.RunResult(success=False)
