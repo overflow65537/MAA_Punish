@@ -2456,5 +2456,130 @@
         "next": [
             "决定_矩阵循生"
         ]
+    },
+    "天选者的故事_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "天选者的故事",
+        "focus": true,
+        "focus_succeeded": "天选者的故事",
+        "focus_succeeded_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "天选者的故事_对话2",
+            "天选者的故事_对话"
+        ]
+    },
+    "天选者的故事_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "决定",
+            "合上日记",
+            "入眠"
+        ],
+        "action": "Click"
+    },
+    "天选者的故事_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "与天选者的相遇"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生",
+            "翻阅_矩阵循生"
+        ]
+    },
+    "翻阅_矩阵循生": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1032,
+            618,
+            72,
+            42
+        ],
+        "expected": "翻阅",
+        "action": "Click"
+    },
+    "树神之女_矩阵循生": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "树神之女",
+        "focus": true,
+        "focus_succeeded": "树神之女",
+        "focus_succeeded_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "树神之女_对话2",
+            "树神之女_对话"
+        ]
+    },
+    "树神之女_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开"
+        ],
+        "action": "Click"
+    },
+    "树神之女_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "开导少女"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
     }
 }
