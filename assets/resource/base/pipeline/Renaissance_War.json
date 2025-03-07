@@ -214,7 +214,7 @@
         "action": "Click"
     },
     "打开诺曼复兴战": {
-        "post_wait_freezes": 10,
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             5,
@@ -242,6 +242,7 @@
         ]
     },
     "滑动_诺曼复兴战": {
+        "post_delay": 1000,
         "inverse": true,
         "recognition": "OCR",
         "roi": [
