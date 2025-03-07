@@ -664,10 +664,10 @@
         "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
-            1024,
-            647,
-            139,
-            35
+            978,
+            628,
+            241,
+            56
         ],
         "expected": "保存",
         "action": "Click"
