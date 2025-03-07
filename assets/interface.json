@@ -172,9 +172,9 @@
             "name": "矩阵循生",
             "entry": "矩阵循生",
             "option": [
-                "选择难度"
+                "选择模式"
             ],
-            "doc": "使用前提\n[color:Tomato][b]初始招募能量需要在4点以上[/b][/color]\n[color:Tomato][b]需要解锁异度投影事件[/b][/color]"
+            "doc": "使用前提\n[color:Tomato][b]初始招募能量需要在4点以上才可使用普通,困难,噩梦模式[/b][/color]\n[color:Tomato][b]初始招募能量在4点以下请使用兼容模式[/b][/color]\n推荐解锁异度投影事件"
         },
         {
             "name": "寒境曙光",
@@ -187,10 +187,46 @@
         }
     ],
     "option": {
-        "选择难度": {
+        "选择模式": {
             "cases": [
                 {
-                    "name": "普通",
+                    "name": "兼容模式",
+                    "pipeline_override": {
+                        "选择难度_矩阵循生": {
+                            "expected": [
+                                "普通"
+                            ]
+                        },
+                        "选择首发_矩阵循生": {
+                            "enabled": false
+                        },
+                        "异度投影_矩阵循生": {
+                            "enabled": false
+                        },
+                        "进入物归新主_矩阵循生": {
+                            "enabled": true
+                        },
+                        "选择首发2_矩阵循生": {
+                            "enabled": true
+                        },
+                        "战斗事件_矩阵循生": {
+                            "interrupt": [
+                                "重启_寒境曙光",
+                                "战斗中",
+                                "出击_矩阵循生",
+                                "跳过战斗对话_寒境曙光",
+                                "进入战斗_矩阵循生",
+                                "载入中"
+                            ]
+                        },
+                        "战斗中": {
+                            "action": "custom",
+                            "custom_action": "CombatActions"
+                        }
+                    }
+                },
+                {
+                    "name": "普通模式",
                     "pipeline_override": {
                         "选择难度_矩阵循生": {
                             "expected": [
@@ -200,7 +236,7 @@
                     }
                 },
                 {
-                    "name": "困难",
+                    "name": "困难模式",
                     "pipeline_override": {
                         "选择难度_矩阵循生": {
                             "expected": [
@@ -210,7 +246,7 @@
                     }
                 },
                 {
-                    "name": "噩梦",
+                    "name": "噩梦模式",
                     "pipeline_override": {
                         "选择难度_矩阵循生": {
                             "expected": [

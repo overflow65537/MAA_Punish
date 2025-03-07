@@ -2581,5 +2581,60 @@
         "next": [
             "决定_矩阵循生"
         ]
+    },
+    "物归新主_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "物归新主",
+        "focus": true,
+        "focus_succeeded": "物归新主",
+        "focus_succeeded_color": "ForestGreen",
+        "next": [
+            "物归新主完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "物归新主_对话2",
+            "物归新主_对话",
+            "转场_矩阵循生"
+        ]
+    },
+    "物归新主_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "出发"
+        ],
+        "action": "Click"
+    },
+    "物归新主_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "打开箱子"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
     }
 }
