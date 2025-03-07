@@ -1,11 +1,10 @@
+import sys
 import time
+from pathlib import Path
 from typing import Dict, Optional
 
 from maa.context import Context
 from maa.custom_action import CustomAction
-
-import sys
-from pathlib import Path
 
 # 获取当前文件的绝对路径
 current_file = Path(__file__).resolve()
@@ -14,7 +13,7 @@ current_file = Path(__file__).resolve()
 root_paths = [
     current_file.parent.parent.parent.parent.joinpath("MFW_resource"),
     current_file.parent.parent.parent.parent.parent.parent.joinpath("Bundles").joinpath("MAA_Punish"),
-    current_file.parent.parent.parent.parent.parent.joinpath("assets")
+    current_file.parent.parent.parent.parent.parent.joinpath("assets"),
 ]
 
 # 确定项目根目录
@@ -27,8 +26,8 @@ else:
 # 添加项目根目录到sys.path
 sys.path.append(str(project_root))
 
-
 from custom.action.tool.LoadSetting import ROLE_ACTIONS
+
 
 class IdentifyRoles(CustomAction):
     def run(self, context: Context, _: CustomAction.RunArg) -> CustomAction.RunResult:
@@ -56,36 +55,26 @@ class IdentifyRoles(CustomAction):
         # 识别角色名称
         role_names: Dict[str, Optional[str]] = {}
         for pos, roi in ROLE_NAME_ROIS:
-            result = context.run_recognition(
-                "识别角色名", image, {"识别角色名": {"roi": roi}}
-            )
+            result = context.run_recognition("识别角色名", image, {"识别角色名": {"roi": roi}})
             role_names[pos] = result.best_result.text if result else None
 
         # 识别队长标志
         leader_flags: Dict[str, bool] = {}
         for pos, roi in LEADER_FLAG_ROIS:
-            result = context.run_recognition(
-                "识别队长位置", image, {"识别队长位置": {"roi": roi}}
-            )
+            result = context.run_recognition("识别队长位置", image, {"识别队长位置": {"roi": roi}})
             leader_flags[pos] = bool(result.best_result.text) if result else False
 
         print("识别结果:", role_names)
         print("队长标记:", leader_flags)
         if (
-            not leader_flags.get("pos1")
-            and not leader_flags.get("pos2")
-            and not leader_flags.get("pos3")
+            not leader_flags.get("pos1") and not leader_flags.get("pos2") and not leader_flags.get("pos3")
         ):  # 未找到队长,通常是只有一个角色在1号位,但队长标记在2号位
             context.run_task("选择队长")  # 随便选择一个队长
         # 退出角色选择界面
         context.run_task("出队长界面")
 
         # 匹配角色并获取对应动作
-        matched_roles = {
-            pos: ROLE_ACTIONS[name]
-            for pos, name in role_names.items()
-            if name in ROLE_ACTIONS
-        }
+        matched_roles = {pos: ROLE_ACTIONS[name] for pos, name in role_names.items() if name in ROLE_ACTIONS}
 
         # 处理匹配结果
         match len(matched_roles):
@@ -95,9 +84,7 @@ class IdentifyRoles(CustomAction):
                 # 设置队长位置(单个角色特用)
                 if leader_flags.get(pos):
                     color_map = {"pos1": "蓝色", "pos2": "红色", "pos3": "黄色"}
-                    context.run_task(
-                        "点击首选位置", {"点击首选位置": {"expected": color_map[pos]}}
-                    )
+                    context.run_task("点击首选位置", {"点击首选位置": {"expected": color_map[pos]}})
 
                 # 覆写战斗流程
                 context.override_pipeline(

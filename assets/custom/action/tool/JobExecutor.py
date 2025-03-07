@@ -2,9 +2,9 @@ import os
 import sys
 import time
 from pathlib import Path
-from typing import Callable, Optional, Union
+from typing import Callable, Optional
 
-from maa.job import Job, JobWithResult
+from maa.job import Job
 
 # 获取当前文件的绝对路径
 current_file = Path(__file__).resolve()
@@ -22,6 +22,9 @@ if project_root:
     print(f"项目根目录: {project_root}")
 else:
     print("[错误] 找不到项目根目录")
+
+# 添加项目根目录到sys.path
+sys.path.append(str(project_root))
 
 from custom.action.tool import ActionStatusEnum, GameActionEnum
 from custom.action.tool.Logger import Logger
@@ -49,14 +52,14 @@ class JobExecutor:
         self.action_name_zh = action_enum.value
         self._status_check_attr = status_enum.name.lower()
         self._success_check_attr = success_enum.name.lower()
-        self._current_job: Union[Job, JobWithResult] = None  # 当前监控的Job实例
+        self._current_job: Optional[Job] = None  # 当前监控的Job实例
         self.role_name = role_name or "未知角色"
         self._log_file_path = os.path.join(
             os.path.dirname(__file__), "..", "..", "action_log", self.role_name, "job.log"
         )  # 日志文件路径
         self._logger = Logger(name=f"{self.role_name}_Job", log_file=self._log_file_path)  # 日志实例
 
-    def _create_checker(self, job: Union[Job, JobWithResult], attr: str) -> Callable[[], bool]:
+    def _create_checker(self, job: Optional[Job], attr: str) -> Callable[[], bool]:
         """创建属性检查闭包"""
         return lambda: getattr(job, attr)
 
@@ -108,24 +111,12 @@ class JobExecutor:
                 time.sleep(2**attempt)  # 指数退避策略
 
         return False  # 所有重试均失败
-    
-    
-    def get_result(self) -> Optional[object]:
-        """安全获取执行结果"""
-        if isinstance(self._current_job, JobWithResult):
-            try:
-                return self._current_job.get()
-            except Exception as e:
-                self._log_error(f"结果获取失败: {str(e)}")
-        return None
 
     def _log_success(self, verbose: bool):
         """成功日志"""
         if verbose:
             status = str(self._current_job.succeeded)
-            result = self.get_result()
-            result_str = f" | 结果: {result}" if result is not None else ""
-            self._logger.info(f"{self.action_name_zh} | 状态: {status}{result_str}")
+            self._logger.info(f"{self.action_name_zh} | 状态: {status}")
 
     def _log_failure(self, verbose: bool):
         """失败日志"""

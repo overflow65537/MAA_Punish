@@ -1,7 +1,8 @@
 import logging
 import os
 from logging.handlers import TimedRotatingFileHandler
-from typing import Optional, Union, Dict, Any
+from typing import Any, Dict, Optional, Union
+
 
 class Logger:
     """
@@ -48,13 +49,9 @@ class Logger:
             self._add_stream_handler(formatter, console_level or level)
 
         if log_file:
-            self._add_timed_rotating_file_handler(
-                log_file, formatter, file_level or level, backup_days
-            )
+            self._add_timed_rotating_file_handler(log_file, formatter, file_level or level, backup_days)
 
-    def _add_stream_handler(
-        self, formatter: logging.Formatter, level: Union[int, str]
-    ) -> None:
+    def _add_stream_handler(self, formatter: logging.Formatter, level: Union[int, str]) -> None:
         """添加控制台日志处理器"""
         handler = logging.StreamHandler()
         handler.setLevel(level)
