@@ -74,7 +74,6 @@ class JobExecutor:
             try:
                 if verbose:
                     self._logger.info(f"[尝试] {self.action_name_zh} 第{attempt}次执行")
-                    print(self._log_file_path)
                 self._current_job = self.job_factory()
 
                 status_check = self._create_checker(self._current_job, self._status_check_attr)
@@ -109,39 +108,39 @@ class JobExecutor:
                 time.sleep(2**attempt)  # 指数退避策略
 
         return False  # 所有重试均失败
-
+    
+    
     def get_result(self) -> Optional[object]:
         """安全获取执行结果"""
         if isinstance(self._current_job, JobWithResult):
             try:
                 return self._current_job.get()
             except Exception as e:
-                print(f"[警告] 结果获取失败: {str(e)}")
+                self._log_error(f"结果获取失败: {str(e)}")
         return None
 
     def _log_success(self, verbose: bool):
         """成功日志"""
         if verbose:
-            # status = str(self._current_job)
+            status = str(self._current_job.succeeded)
             result = self.get_result()
             result_str = f" | 结果: {result}" if result is not None else ""
-
-            self._logger.info(f"{self.action_name_zh} | 状态: {result_str}")
+            self._logger.info(f"{self.action_name_zh} | 状态: {status}{result_str}")
 
     def _log_failure(self, verbose: bool):
         """失败日志"""
         if verbose:
-            status = str(self._current_job)
+            status = str(self._current_job.succeeded)
             self._logger.warning(f"{self.action_name_zh} | 状态: {status}")
 
     def _log_timeout(self, timeout: float, verbose: bool):
         """超时日志"""
         if verbose:
-            status = str(self._current_job)
+            status = str(self._current_job.succeeded)
             self._logger.warning(f"{self.action_name_zh} | 等待超过 {timeout}秒 | 最后状态: {status}")
 
     def _log_error(self, error: Exception, verbose: bool):
         """异常日志"""
         if verbose:
-            status = str(self._current_job) if self._current_job else "无有效任务"
+            status = str(self._current_job.succeeded) if self._current_job else "无有效任务"
             self._logger.exception(f"{self.action_name_zh} | 状态: {status} | 错误: {str(error)}")
