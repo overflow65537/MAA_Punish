@@ -1,18 +1,23 @@
 {
     "检查残月值_终焉": {
-        "recognition": "TemplateMatch",
+        "recognition": "ColorMatch",
         "roi": [
-            506,
-            573,
-            267,
-            115
+            738,
+            622,
+            13,
+            27
         ],
-        "template": [
-            "自定义战斗\\终焉_满.png",
-            "自定义战斗\\终焉_满2.png"
+        "upper": [
+            207,
+            67,
+            67
         ],
-        "green_mask": true,
-        "threshold": 0.9
+        "lower": [
+            204,
+            64,
+            64
+        ],
+        "connected": true
     },
     "检查红_囚影": {
         "recognition": "TemplateMatch",

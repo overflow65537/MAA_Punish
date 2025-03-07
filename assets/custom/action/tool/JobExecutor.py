@@ -1,32 +1,30 @@
+import os
+import sys
 import time
+from pathlib import Path
 from typing import Callable, Optional, Union
 
 from maa.job import Job, JobWithResult
-from pathlib import Path
-import sys
 
 # 获取当前文件的绝对路径
 current_file = Path(__file__).resolve()
 
 # 定义可能的项目根目录相对路径
-MFW_root = current_file.parent.parent.parent.parent.joinpath("MFW_resource")
-MAA_Punish_root = current_file.parent.parent.parent.parent.parent.parent.joinpath("Bundles")
-assets_root = current_file.parent.parent.parent.parent.parent.joinpath("assets")
-if MFW_root.exists():
-    project_root = MFW_root
-    print("MFW root")
-elif MAA_Punish_root.exists():
-    project_root = MAA_Punish_root.joinpath("MAA_Punish")
-    print("MAA_Punish root")
-elif assets_root.exists():
-    project_root = assets_root
-    print("assets root")
+root_paths = [
+    current_file.parent.parent.parent.parent.joinpath("MFW_resource"),
+    current_file.parent.parent.parent.parent.parent.parent.joinpath("Bundles").joinpath("MAA_Punish"),
+    current_file.parent.parent.parent.parent.parent.joinpath("assets"),
+]
 
-print(project_root)
+# 确定项目根目录
+project_root = next((path for path in root_paths if path.exists()), None)
+if project_root:
+    print(f"项目根目录: {project_root}")
+else:
+    print("[错误] 找不到项目根目录")
 
-# 添加项目根目录到sys.path
-sys.path.append(str(project_root))
 from custom.action.tool import ActionStatusEnum, GameActionEnum
+from custom.action.tool.Logger import Logger
 
 
 class JobExecutor:
@@ -34,10 +32,11 @@ class JobExecutor:
 
     def __init__(
         self,
-        job_factory: Callable[[], Union[Job, JobWithResult, Callable]],
+        job_factory: callable,
         action_enum: GameActionEnum,
         status_enum: ActionStatusEnum = ActionStatusEnum.DONE,
         success_enum: ActionStatusEnum = ActionStatusEnum.SUCCEEDED,
+        role_name: str = None,
     ):
         """
         :param job_factory: 生成Job实例的工厂函数
@@ -47,9 +46,15 @@ class JobExecutor:
         """
         self.job_factory = job_factory
         self.action_name = action_enum.name.lower()
+        self.action_name_zh = action_enum.value
         self._status_check_attr = status_enum.name.lower()
         self._success_check_attr = success_enum.name.lower()
         self._current_job: Union[Job, JobWithResult] = None  # 当前监控的Job实例
+        self.role_name = role_name or "未知角色"
+        self._log_file_path = os.path.join(
+            os.path.dirname(__file__), "..", "..", "action_log", self.role_name, "job.log"
+        )  # 日志文件路径
+        self._logger = Logger(name=f"{self.role_name}_Job", log_file=self._log_file_path)  # 日志实例
 
     def _create_checker(self, job: Union[Job, JobWithResult], attr: str) -> Callable[[], bool]:
         """创建属性检查闭包"""
@@ -64,10 +69,12 @@ class JobExecutor:
         :param verbose: 是否打印日志
         :return: 是否成功完成
         """
+
         for attempt in range(1, max_retries + 1):
             try:
                 if verbose:
-                    print(f"[尝试] {self.action_name} 第{attempt}次执行")
+                    self._logger.info(f"[尝试] {self.action_name_zh} 第{attempt}次执行")
+                    print(self._log_file_path)
                 self._current_job = self.job_factory()
 
                 status_check = self._create_checker(self._current_job, self._status_check_attr)
@@ -114,28 +121,27 @@ class JobExecutor:
 
     def _log_success(self, verbose: bool):
         """成功日志"""
-        if not verbose:
-            return
-        # 直接使用Status的字符串表示
-        status = str(self._current_job)
-        result = self.get_result()
-        result_str = f" | 结果: {result}" if result is not None else ""
-        print(f"[成功] {self.action_name} | 状态: {status}{result_str}")
+        if verbose:
+            # status = str(self._current_job)
+            result = self.get_result()
+            result_str = f" | 结果: {result}" if result is not None else ""
+
+            self._logger.info(f"{self.action_name_zh} | 状态: {result_str}")
 
     def _log_failure(self, verbose: bool):
         """失败日志"""
         if verbose:
             status = str(self._current_job)
-            print(f"[失败] {self.action_name} | 状态: {status}")
+            self._logger.warning(f"{self.action_name_zh} | 状态: {status}")
 
     def _log_timeout(self, timeout: float, verbose: bool):
         """超时日志"""
         if verbose:
             status = str(self._current_job)
-            print(f"[超时] {self.action_name} | 等待超过 {timeout}秒 | 最后状态: {status}")
+            self._logger.warning(f"{self.action_name_zh} | 等待超过 {timeout}秒 | 最后状态: {status}")
 
     def _log_error(self, error: Exception, verbose: bool):
         """异常日志"""
         if verbose:
             status = str(self._current_job) if self._current_job else "无有效任务"
-            print(f"[异常] {self.action_name} | 状态: {status} | 错误: {str(error)}")
+            self._logger.exception(f"{self.action_name_zh} | 状态: {status} | 错误: {str(error)}")

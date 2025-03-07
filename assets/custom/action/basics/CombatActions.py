@@ -59,14 +59,14 @@ class CombatActions(CustomAction):
         ).wait()
 
     @staticmethod
-    def long_press_dodge(context: Context, time: int):
+    def long_press_dodge(context: Context, time: int = 600):
         """长按闪避"""
         return lambda: context.tasker.controller.post_swipe(
             1052, 633, 1198, 638, time
         ).wait()
 
     @staticmethod
-    def long_press_skill(context: Context, time: int):
+    def long_press_skill(context: Context, time: int = 600):
         """长按技能"""
         return lambda: context.tasker.controller.post_swipe(
             915, 626, 915, 634, time
