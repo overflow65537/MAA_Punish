@@ -1,3 +1,4 @@
+import logging
 import sys
 from pathlib import Path
 
@@ -45,70 +46,51 @@ class Oblivion(CustomAction):
             image = context.tasker.controller.post_screencap().wait().get()
             # 识别残月值
             if context.run_recognition("检查残月值_终焉", image):
+                logging.getLogger(f"{self._role_name}_Job").info("残月值已满")
                 return True
             else:
+                logging.getLogger(f"{self._role_name}_Job").info("残月值未满")
                 return False
         except Exception as e:
-            print(f"[异常] 残月值检查失败: {str(e)}")
+            logging.getLogger(f"{self._role_name}_Job").exception(str(e))
             return False
 
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
         try:
+
+            lens_lock = JobExecutor(
+                CombatActions.lens_lock(context), GameActionEnum.LENS_LOCK, role_name=self._role_name
+            )
+
             use_skill = JobExecutor(
                 CombatActions.use_skill(context), GameActionEnum.USE_SKILL, role_name=self._role_name
             )
-            if not use_skill.execute():
-                return CustomAction.RunResult(success=False)
-            if self.__check_moon(context):
-                long_press_attack = JobExecutor(
-                    CombatActions.long_press_attack(context, 1500),
-                    GameActionEnum.LONG_PRESS_ATTACK,
-                    role_name=self._role_name,
-                )
-                if not long_press_attack.execute():
-                    return CustomAction.RunResult(success=False)
+            long_press_attack = JobExecutor(
+                CombatActions.long_press_attack(context, 1800),
+                GameActionEnum.LONG_PRESS_ATTACK,
+                role_name=self._role_name,
+            )
+            ball_elimination = JobExecutor(
+                CombatActions.ball_elimination(context), GameActionEnum.BALL_ELIMINATION, role_name=self._role_name
+            )
 
-                use_skill = JobExecutor(
-                    CombatActions.use_skill(context), GameActionEnum.USE_SKILL, role_name=self._role_name
-                )
-                if not use_skill.execute():
-                    return CustomAction.RunResult(success=False)
+            lens_lock.execute()
+            use_skill.execute()
+
+            if self.__check_moon(context):
+                long_press_attack.execute()
+                use_skill.execute()
             for i in range(2):  # 最多尝试2次消球
-                ball_elimination = JobExecutor(
-                    CombatActions.ball_elimination(context), GameActionEnum.BALL_ELIMINATION, role_name=self._role_name
-                )
                 if ball_elimination.execute():
                     continue
-                else:
-                    return CustomAction.RunResult(success=False)
 
             if not self.__check_moon(context):
-                long_press_attack = JobExecutor(
-                    CombatActions.long_press_attack(context, 1500),
-                    GameActionEnum.LONG_PRESS_ATTACK,
-                    role_name=self._role_name,
-                )
-                if not long_press_attack.execute():
-                    return CustomAction.RunResult(success=False)
-
+                long_press_attack.execute()
                 if self.__check_moon(context):
-                    long_press_attack = JobExecutor(
-                        CombatActions.long_press_attack(context, 1500),
-                        GameActionEnum.LONG_PRESS_ATTACK,
-                        role_name=self._role_name,
-                    )
-                    if not long_press_attack.execute():
-                        return CustomAction.RunResult(success=False)
-
-                    use_skill = JobExecutor(
-                        CombatActions.use_skill(context), GameActionEnum.USE_SKILL, role_name=self._role_name
-                    )
-                    if not use_skill.execute():
-                        return CustomAction.RunResult(success=False)
-
-                    return CustomAction.RunResult(success=True)
+                    long_press_attack.execute()
+                    use_skill.execute()
 
             return CustomAction.RunResult(success=True)
         except Exception as e:
-            print(f"[严重错误] 执行流程中断: {str(e)}")
+            logging.getLogger(f"{self._role_name}_Job").exception(str(e))
             return CustomAction.RunResult(success=False)

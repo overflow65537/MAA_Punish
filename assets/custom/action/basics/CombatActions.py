@@ -47,7 +47,7 @@ class CombatActions(CustomAction):
         return lambda: context.tasker.controller.post_click(1208, 265).wait()
 
     @staticmethod
-    def long_press_attack(context: Context, time: int = 1200):
+    def long_press_attack(context: Context, time: int = 600):
         """长按攻击"""
         return lambda: context.tasker.controller.post_swipe(1193, 633, 1198, 638, time).wait()
 
@@ -60,3 +60,8 @@ class CombatActions(CustomAction):
     def long_press_skill(context: Context, time: int = 600):
         """长按技能"""
         return lambda: context.tasker.controller.post_swipe(915, 626, 915, 634, time).wait()
+
+    @staticmethod
+    def lens_lock(context: Context):
+        """镜头锁定"""
+        return lambda: context.tasker.controller.post_click(1108, 383).wait()
