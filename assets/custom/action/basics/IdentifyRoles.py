@@ -19,6 +19,8 @@ root_paths = [
 # 确定项目根目录
 project_root = next((path for path in root_paths if path.exists()), None)
 if project_root:
+    if project_root == current_file.parent.parent.parent.parent.joinpath("MFW_resource"):
+        project_root = current_file.parent.parent.parent.parent
     print(f"项目根目录: {project_root}")
 else:
     print("[错误] 找不到项目根目录")
