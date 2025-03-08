@@ -29,7 +29,7 @@ else:
 sys.path.append(str(project_root))
 
 from custom.action.tool import ActionStatusEnum, GameActionEnum
-from custom.action.tool.Logger import Logger
+#from custom.action.tool.Logger import Logger
 
 
 class JobExecutor:
@@ -59,7 +59,7 @@ class JobExecutor:
         self._log_file_path = os.path.join(
             os.path.dirname(__file__), "..", "..", "action_log", self.role_name, "job.log"
         )  # 日志文件路径
-        self._logger = Logger(name=f"{self.role_name}_Job", log_file=self._log_file_path)  # 日志实例
+        #self._logger = Logger(name=f"{self.role_name}_Job", log_file=self._log_file_path)  # 日志实例
 
     def _create_checker(self, job: Optional[Job], attr: str) -> Callable[[], bool]:
         """创建属性检查闭包"""
@@ -78,7 +78,8 @@ class JobExecutor:
         for attempt in range(1, max_retries + 1):
             try:
                 if verbose:
-                    self._logger.info(f"[尝试] {self.action_name_zh} 第{attempt}次执行")
+                    #self._logger.info(f"[尝试] {self.action_name_zh} 第{attempt}次执行")
+                    pass
                 self._current_job = self.job_factory()
 
                 status_check = self._create_checker(self._current_job, self._status_check_attr)
@@ -118,22 +119,22 @@ class JobExecutor:
         """成功日志"""
         if verbose:
             status = str(self._current_job.succeeded)
-            self._logger.info(f"{self.action_name_zh} | 状态: {status}")
+            #self._logger.info(f"{self.action_name_zh} | 状态: {status}")
 
     def _log_failure(self, verbose: bool):
         """失败日志"""
         if verbose:
             status = str(self._current_job.succeeded)
-            self._logger.warning(f"{self.action_name_zh} | 状态: {status}")
+            #self._logger.warning(f"{self.action_name_zh} | 状态: {status}")
 
     def _log_timeout(self, timeout: float, verbose: bool):
         """超时日志"""
         if verbose:
             status = str(self._current_job.succeeded)
-            self._logger.warning(f"{self.action_name_zh} | 等待超过 {timeout}秒 | 最后状态: {status}")
+            #self._logger.warning(f"{self.action_name_zh} | 等待超过 {timeout}秒 | 最后状态: {status}")
 
     def _log_error(self, error: Exception, verbose: bool):
         """异常日志"""
         if verbose:
             status = str(self._current_job.succeeded) if self._current_job else "无有效任务"
-            self._logger.exception(f"{self.action_name_zh} | 状态: {status} | 错误: {str(error)}")
+            #self._logger.exception(f"{self.action_name_zh} | 状态: {status} | 错误: {str(error)}")
