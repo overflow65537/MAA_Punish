@@ -1,3 +1,4 @@
+import logging
 import sys
 from pathlib import Path
 
@@ -32,11 +33,31 @@ from maa.custom_action import CustomAction
 
 # 还需识别能量条数字，大招图标
 class Oblivion(CustomAction):
-    def __init__(self):
+    def __init__(self, context: Context):
         super().__init__()
         for name, action in ROLE_ACTIONS.items():
             if action == self.__class__.__name__:
                 self._role_name = name
+
+        # 初始化
+        self._lens_lock = JobExecutor(
+            CombatActions.lens_lock(context), GameActionEnum.LENS_LOCK, role_name=self._role_name
+        )
+        self._use_skill = JobExecutor(
+            CombatActions.use_skill(context), GameActionEnum.USE_SKILL, role_name=self._role_name
+        )
+        self._long_press_attack = JobExecutor(
+            CombatActions.long_press_attack(context, 1500), GameActionEnum.LONG_PRESS_ATTACK, role_name=self._role_name
+        )
+        self._long_press_dodge = JobExecutor(
+            CombatActions.long_press_dodge(context, 600), GameActionEnum.LONG_PRESS_DODGE, role_name=self._role_name
+        )
+        self._long_press_skill = JobExecutor(
+            CombatActions.long_press_skill(context, 600), GameActionEnum.LONG_PRESS_SKILL, role_name=self._role_name
+        )
+        self._ball_elimination = JobExecutor(
+            CombatActions.ball_elimination(context), GameActionEnum.BALL_ELIMINATION, role_name=self._role_name
+        )
 
     def __check_moon(self, context: Context) -> bool:
         """检查残月值"""
@@ -48,67 +69,45 @@ class Oblivion(CustomAction):
                 return True
             else:
                 return False
-        except Exception as e:
-            print(f"[异常] 残月值检查失败: {str(e)}")
+        except:
             return False
 
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
         try:
-            use_skill = JobExecutor(
-                CombatActions.use_skill(context), GameActionEnum.USE_SKILL, role_name=self._role_name
-            )
-            if not use_skill.execute():
-                return CustomAction.RunResult(success=False)
-            if self.__check_moon(context):
-                long_press_attack = JobExecutor(
-                    CombatActions.long_press_attack(context, 1500),
-                    GameActionEnum.LONG_PRESS_ATTACK,
-                    role_name=self._role_name,
-                )
-                if not long_press_attack.execute():
-                    return CustomAction.RunResult(success=False)
+            if not self._lens_lock.execute():
+                raise Exception("镜头锁定失败")
 
-                use_skill = JobExecutor(
-                    CombatActions.use_skill(context), GameActionEnum.USE_SKILL, role_name=self._role_name
-                )
-                if not use_skill.execute():
-                    return CustomAction.RunResult(success=False)
-            for i in range(2):  # 最多尝试2次消球
-                ball_elimination = JobExecutor(
-                    CombatActions.ball_elimination(context), GameActionEnum.BALL_ELIMINATION, role_name=self._role_name
-                )
-                if ball_elimination.execute():
-                    continue
-                else:
-                    return CustomAction.RunResult(success=False)
+            if not self._use_skill.execute():
+                raise Exception("技能释放失败")
+
+            if self.__check_moon(context):
+                if not self._long_press_attack.execute():
+                    raise Exception("长按攻击失败")
+
+                if not self._use_skill.execute():
+                    raise Exception("技能释放失败")
+            else:
+                raise Exception("残月值检查失败")
+
+            if not self._ball_elimination.execute():
+                raise Exception("消球失败")
+            if not self._ball_elimination.execute():
+                raise Exception("消球失败")
 
             if not self.__check_moon(context):
-                long_press_attack = JobExecutor(
-                    CombatActions.long_press_attack(context, 1500),
-                    GameActionEnum.LONG_PRESS_ATTACK,
-                    role_name=self._role_name,
-                )
-                if not long_press_attack.execute():
-                    return CustomAction.RunResult(success=False)
+                if not self._long_press_attack.execute():
+                    raise Exception("长按攻击失败")
 
                 if self.__check_moon(context):
-                    long_press_attack = JobExecutor(
-                        CombatActions.long_press_attack(context, 1500),
-                        GameActionEnum.LONG_PRESS_ATTACK,
-                        role_name=self._role_name,
-                    )
-                    if not long_press_attack.execute():
-                        return CustomAction.RunResult(success=False)
+                    if not self._long_press_attack.execute():
+                        raise Exception("长按攻击失败")
 
-                    use_skill = JobExecutor(
-                        CombatActions.use_skill(context), GameActionEnum.USE_SKILL, role_name=self._role_name
-                    )
-                    if not use_skill.execute():
-                        return CustomAction.RunResult(success=False)
-
-                    return CustomAction.RunResult(success=True)
+                    if not self._use_skill.execute():
+                        raise Exception("技能释放失败")
+            else:
+                raise Exception("残月值检查失败")
 
             return CustomAction.RunResult(success=True)
         except Exception as e:
-            print(f"[严重错误] 执行流程中断: {str(e)}")
+            logging.getLogger(f"{self._role_name}_job").exception(e)
             return CustomAction.RunResult(success=False)
