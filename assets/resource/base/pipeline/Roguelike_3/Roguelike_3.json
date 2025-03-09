@@ -940,7 +940,7 @@
             55
         ],
         "expected": [
-            "外层坍塌"
+            "外层"
         ],
         "action": "Click",
         "target": [
