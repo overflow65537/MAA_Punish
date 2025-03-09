@@ -7,6 +7,7 @@ from action.basics.MultiplayerAutoBattle import MultiplayerAutoBattle
 from action.basics.ResetIdentify import ResetIdentify
 from action.basics.ScreenShot import ScreenShot
 from action.basics.SelectCharacter import SelectCharacter
+from action.basics.SetTower import SetTower
 
 
 from action.exclusives.CrimsonWeave import CrimsonWeave
@@ -19,6 +20,11 @@ from action.exclusives.Stigmata import Stigmata
 from recognition.exclusives.CalculateScore import CalculateScore
 from recognition.exclusives.IDFMembers import IDFMembers
 from recognition.exclusives.IDFscore import IDFscore
+
+
+@AgentServer.custom_action("SetTower")
+class Agent_SetTower(SetTower):
+    pass
 
 
 @AgentServer.custom_action("CenterCamera")

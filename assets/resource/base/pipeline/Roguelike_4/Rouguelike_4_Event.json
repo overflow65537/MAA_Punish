@@ -22,6 +22,7 @@
         "enabled": false,
         "_doc": "识别是否有岗哨塔,暂时没写逻辑",
         "recognition": "OCR",
+        "post_delay": 1000,
         "roi": [
             358,
             674,
@@ -29,9 +30,53 @@
             30
         ],
         "expected": "[7-9]|\\d{2,}",
+        "action": "Click",
         "next": [
             "使用岗哨塔_寒境曙光"
         ]
+    },
+    "使用岗哨塔_寒境曙光": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            391,
+            412,
+            74,
+            26
+        ],
+        "expected": "岗哨塔",
+        "action": "Click",
+        "next": [
+            "放置岗哨塔_寒境曙光"
+        ]
+    },
+    "放置岗哨塔_寒境曙光": {
+        "action": "Custom",
+        "custom_action": "SetTower",
+        "next": [
+            "确认放塔",
+            "放置岗哨塔_寒境曙光"
+        ]
+    },
+    "识别周围空地": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "寒境曙光\\翻开区域_1.png",
+            "寒境曙光\\翻开区域_2.png",
+            "寒境曙光\\翻开区域_3.png",
+            "寒境曙光\\翻开区域_4.png"
+        ]
+    },
+    "确认放塔": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1001,
+            611,
+            251,
+            91
+        ],
+        "template": "寒境曙光\\确认放塔.png",
+        "action": "Click"
     },
     "直接进入战斗_寒境曙光": {
         "on_error": [
