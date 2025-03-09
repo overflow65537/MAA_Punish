@@ -424,6 +424,7 @@
             "肉鸽通用\\深红囚影终解.png",
             "肉鸽通用\\誓焰.png",
             "肉鸽通用\\誓焰终解.png",
+            "肉鸽通用\\誓焰花嫁_矩阵.png",
             "肉鸽通用\\深谣.png",
             "肉鸽通用\\深谣终解.png",
             "肉鸽通用\\终焉.png",
@@ -449,6 +450,7 @@
     "战斗中": {
         "post_delay": 0,
         "pre_delay": 0,
+        "rate_limit": 0,
         "green_mask": true,
         "recognition": "TemplateMatch",
         "roi": [

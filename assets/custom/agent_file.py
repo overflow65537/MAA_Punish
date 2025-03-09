@@ -20,6 +20,12 @@ from action.exclusives.Stigmata import Stigmata
 from recognition.exclusives.CalculateScore import CalculateScore
 from recognition.exclusives.IDFMembers import IDFMembers
 from recognition.exclusives.IDFscore import IDFscore
+from recognition.exclusives.IDFMasteryLevel import IDFMasteryLevel
+
+
+@AgentServer.custom_recognition("IDFMasteryLevel")
+class Agent_IDFMasteryLevel(IDFMasteryLevel):
+    pass
 
 
 @AgentServer.custom_action("SetTower")
