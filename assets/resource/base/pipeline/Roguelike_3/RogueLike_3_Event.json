@@ -1197,7 +1197,10 @@
             254,
             62
         ],
-        "expected": "瑕疵造物",
+        "expected": [
+            "瑕疵造物",
+            "瑕症"
+        ],
         "focus": true,
         "focus_succeeded": "瑕疵造物",
         "focus_succeeded_color": "ForestGreen",
