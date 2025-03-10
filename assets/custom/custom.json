@@ -83,5 +83,10 @@
         "type": "recognition",
         "class": "IDFMasteryLevel",
         "file_path": "{custom_path}\\recognition\\exclusives\\IDFMasteryLevel.py"
+    },
+    "Count": {
+        "type": "action",
+        "class": "Count",
+        "file_path": "{custom_path}\\action\\basics\\Count.py"
     }
 }
