@@ -241,7 +241,7 @@
             125,
             45
         ],
-        "expected": "机械平台",
+        "expected": "机械工厂",
         "action": "Custom",
         "custom_action": "SelectCharacter",
         "custom_action_param": {
@@ -256,7 +256,7 @@
             125,
             45
         ],
-        "expected": "荒原",
+        "expected": "猩红冰原",
         "action": "Custom",
         "custom_action": "SelectCharacter",
         "custom_action_param": {
