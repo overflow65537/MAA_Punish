@@ -132,8 +132,33 @@
         ]
     },
     "打开应用": {
+        "post_delay": 5000,
         "action": "StartApp",
-        "package": "com.kurogame.haru.hero"
+        "package": "com.kurogame.haru.hero",
+        "next": [
+            "黑屏计数",
+            "空任务"
+        ]
+    },
+    "黑屏计数": {
+        "recognition": "ColorMatch",
+        "upper": [
+            0,
+            0,
+            0
+        ],
+        "lower": [
+            0,
+            0,
+            0
+        ],
+        "connected": true,
+        "count": 90000,
+        "action": "Custom",
+        "custom_action": "Count",
+        "custom_action_param": {
+            "Count": 0
+        }
     },
     "切换主界面状态": {
         "recognition": "TemplateMatch",

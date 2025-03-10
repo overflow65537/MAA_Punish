@@ -8,6 +8,7 @@ from action.basics.ResetIdentify import ResetIdentify
 from action.basics.ScreenShot import ScreenShot
 from action.basics.SelectCharacter import SelectCharacter
 from action.basics.SetTower import SetTower
+from action.basics.Count import Count
 
 
 from action.exclusives.CrimsonWeave import CrimsonWeave
@@ -22,6 +23,9 @@ from recognition.exclusives.IDFMembers import IDFMembers
 from recognition.exclusives.IDFscore import IDFscore
 from recognition.exclusives.IDFMasteryLevel import IDFMasteryLevel
 
+@AgentServer.custom_action("Count")
+class Agent_Count(Count):
+    pass
 
 @AgentServer.custom_recognition("IDFMasteryLevel")
 class Agent_IDFMasteryLevel(IDFMasteryLevel):
