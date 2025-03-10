@@ -681,7 +681,7 @@
     },
     "战斗失败": {
         "focus": true,
-        "focus_succeeded": "寄",
+        "focus_succeeded": "寄!",
         "focus_succeeded_color": "Tomato",
         "post_delay": 1000,
         "recognition": "OCR",
@@ -691,7 +691,9 @@
             183,
             69
         ],
-        "expected": "链路崩溃"
+        "expected": "链路崩溃",
+        "action": "Custom",
+        "custom_action": "ResetIdentify"
     },
     "进入战斗_矩阵循生": {
         "recognition": "OCR",
@@ -712,6 +714,8 @@
             187,
             60
         ],
+        "action": "Custom",
+        "custom_action": "ResetIdentify",
         "expected": "领取奖励",
         "next": [
             "事件完成_矩阵循生"
