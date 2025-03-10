@@ -649,6 +649,9 @@
         "action": "Click"
     },
     "战斗事件_矩阵循生": {
+        "focus": true,
+        "focus_succeeded": "开始战斗",
+        "focus_succeeded_color": "ForestGreen",
         "recognition": "TemplateMatch",
         "roi": [
             278,
@@ -677,6 +680,9 @@
         ]
     },
     "战斗失败": {
+        "focus": true,
+        "focus_succeeded": "寄",
+        "focus_succeeded_color": "Tomato",
         "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
