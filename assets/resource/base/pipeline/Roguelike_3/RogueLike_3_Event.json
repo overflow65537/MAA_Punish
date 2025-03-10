@@ -2639,5 +2639,358 @@
         "next": [
             "决定_矩阵循生"
         ]
+    },
+    "无尽长廊_矩阵循生": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "无尽长廊",
+        "focus": true,
+        "focus_succeeded": "无尽长廊",
+        "focus_succeeded_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "无尽长廊_对话2",
+            "无尽长廊_对话"
+        ]
+    },
+    "无尽长廊_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开"
+        ],
+        "action": "Click"
+    },
+    "无尽长廊_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "前进",
+            "观察四周",
+            "撕下巨画"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "万两黄金_矩阵循生": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "万两黄金",
+        "focus": true,
+        "focus_succeeded": "万两黄金",
+        "focus_succeeded_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "万两黄金_对话2",
+            "万两黄金_对话"
+        ]
+    },
+    "万两黄金_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "搜查四周"
+        ],
+        "action": "Click"
+    },
+    "万两黄金_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "去小花园调查"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "工业幽灵_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "工业幽灵",
+        "focus": true,
+        "focus_succeeded": "工业幽灵",
+        "focus_succeeded_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "工业幽灵_对话2",
+            "工业幽灵_对话"
+        ]
+    },
+    "工业幽灵_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开"
+        ],
+        "action": "Click"
+    },
+    "工业幽灵_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "开枪解决感染体",
+            "查看向导机器人"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "自投罗网_矩阵循生": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "自投罗网",
+        "focus": true,
+        "focus_succeeded": "自投罗网",
+        "focus_succeeded_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "自投罗网_对话2",
+            "自投罗网_对话"
+        ]
+    },
+    "自投罗网_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "朝天开枪"
+        ],
+        "action": "Click"
+    },
+    "自投罗网_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "让他交出物资"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "武器技师_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "武器技师",
+        "focus": true,
+        "focus_succeeded": "武器技师",
+        "focus_succeeded_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "武器技师_对话2",
+            "武器技师_对话"
+        ]
+    },
+    "武器技师_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开"
+        ],
+        "action": "Click"
+    },
+    "武器技师_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "接入该游戏机进行游玩"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "致命隐患_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "致命隐患",
+        "focus": true,
+        "focus_succeeded": "致命隐患",
+        "focus_succeeded_color": "ForestGreen",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "关闭奖励_矩阵循生",
+            "确认装备_矩阵循生",
+            "选择装备_矩阵循生",
+            "致命隐患_对话2",
+            "致命隐患_对话"
+        ]
+    },
+    "致命隐患_对话": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            613,
+            170,
+            54
+        ],
+        "expected": [
+            "离开",
+            "寻找药物",
+            "前往终端",
+            "安葬"
+        ],
+        "action": "Click"
+    },
+    "致命隐患_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            690,
+            254,
+            554,
+            339
+        ],
+        "expected": [
+            "开枪鸡腿两头感染体"
+        ],
+        "action": "Click",
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "未知事件_矩阵循生": {
+        "post_delay": 30000,
+        "recognition": "OCR",
+        "roi": [
+            700,
+            96,
+            254,
+            62
+        ],
+        "expected": "",
+        "focus": true,
+        "focus_succeeded": "遇到未知事件，请录屏并手动完成操作。将录屏文件和maa.log发送给开发者。",
+        "focus_succeeded_color": "Tomato",
+        "next": [
+            "事件完成_矩阵循生",
+            "未知事件_矩阵循生"
+        ]
     }
 }
