@@ -219,6 +219,9 @@
                                 "载入中"
                             ]
                         },
+                        "识别人物": {
+                            "enabled": false
+                        },
                         "战斗中": {
                             "action": "custom",
                             "custom_action": "CombatActions"
