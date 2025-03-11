@@ -1951,7 +1951,8 @@
         ],
         "expected": [
             "赝品工匠",
-            "丽品工匠"
+            "丽品工匠",
+            "鹰品工匠"
         ],
         "focus": true,
         "focus_succeeded": "赝品工匠",
