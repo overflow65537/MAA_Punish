@@ -1,7 +1,7 @@
 {
     "矩阵循生": {
         "focus": true,
-        "focus_succeeded": "开始演算，遇到未知事件，请录屏并手动完成操作。将录屏文件和maa.log发送给开发者。",
+        "focus_succeeded": "开始演算",
         "focus_succeeded_color": "ForestGreen",
         "next": [
             "肉鸽内部",
@@ -1044,16 +1044,17 @@
     },
     "滑动_矩阵循生": {
         "post_delay": 1000,
+        "duration": 1000,
         "action": "Swipe",
         "begin": [
-            153,
-            441,
+            177,
+            493,
             1,
             1
         ],
         "end": [
-            157,
-            126,
+            179,
+            405,
             1,
             1
         ],

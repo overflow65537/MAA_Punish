@@ -8,10 +8,12 @@ class ResetIdentify(CustomAction):
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
         argv: dict = json.loads(argv.custom_action_param)
+        print(f"argv: {argv}")
         if not argv:
             context.override_pipeline({"识别人物": {"enabled": True}})
 
         elif argv.get("mode") == "矩阵循生":
+
             context.override_pipeline(
                 {
                     "选择难度_矩阵循生": {"expected": ["普通"]},
@@ -29,9 +31,8 @@ class ResetIdentify(CustomAction):
                             "载入中",
                         ]
                     },
-                    "识别人物": {"enabled": False},
                     "战斗中": {"action": "custom", "custom_action": "CombatActions"},
-                    "战斗失败": {
+                    "矩阵循生": {
                         "action": "custom",
                         "custom_action": "ResetIdentify",
                         "custom_action_param": {"mode": "矩阵循生"},

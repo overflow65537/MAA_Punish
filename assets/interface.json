@@ -219,14 +219,11 @@
                                 "载入中"
                             ]
                         },
-                        "识别人物": {
-                            "enabled": false
+                        "战斗完成_矩阵循生": {
+                            "action": "DoNothing",
+                            "custom_action": ""
                         },
-                        "战斗中": {
-                            "action": "custom",
-                            "custom_action": "CombatActions"
-                        },
-                        "战斗失败": {
+                        "矩阵循生": {
                             "action": "custom",
                             "custom_action": "ResetIdentify",
                             "custom_action_param": {
