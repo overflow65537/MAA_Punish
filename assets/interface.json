@@ -226,9 +226,12 @@
                             "action": "custom",
                             "custom_action": "CombatActions"
                         },
-                        "action": {
-                            "action": "DoNothing",
-                            "custom_action": ""
+                        "战斗失败": {
+                            "action": "custom",
+                            "custom_action": "ResetIdentify",
+                            "custom_action_param": {
+                                "mode": "矩阵循生"
+                            }
                         }
                     }
                 },
