@@ -3,9 +3,9 @@
         "recognition": "OCR",
         "roi": [
             246,
-            259,
+            200,
             974,
-            61
+            120
         ],
         "focus": true,
         "focus_succeeded": "商店",
