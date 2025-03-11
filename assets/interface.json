@@ -225,6 +225,10 @@
                         "战斗中": {
                             "action": "custom",
                             "custom_action": "CombatActions"
+                        },
+                        "action": {
+                            "action": "DoNothing",
+                            "custom_action": ""
                         }
                     }
                 },
