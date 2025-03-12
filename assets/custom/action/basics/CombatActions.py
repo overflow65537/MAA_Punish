@@ -66,3 +66,7 @@ class CombatActions(CustomAction):
     def lens_lock(context: Context):
         """镜头锁定"""
         return lambda: context.tasker.controller.post_click(1108, 383).wait()
+    
+    def auxiliary_machine(context: Context):
+        """辅助机"""
+        return lambda: context.tasker.controller.post_click(1214, 387).wait()
