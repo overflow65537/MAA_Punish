@@ -30,9 +30,6 @@ else:
     from assets.custom.action.tool.Enum import GameActionEnum
     from assets.custom.action.tool.LoadSetting import ROLE_ACTIONS
 
-
-
-
 from maa.context import Context
 from maa.custom_action import CustomAction
 
@@ -80,12 +77,29 @@ class Oblivion(CustomAction):
                 CombatActions.ball_elimination(context), GameActionEnum.BALL_ELIMINATION, role_name=self._role_name
             )
 
+            trigger_qte_first = JobExecutor(
+                CombatActions.trigger_qte_first(context), GameActionEnum.TRIGGER_QTE_FIRST, role_name=self._role_name
+            )
+            trigger_qte_second = JobExecutor(
+                CombatActions.trigger_qte_second(context), GameActionEnum.TRIGGER_QTE_SECOND, role_name=self._role_name
+            )
+            auxiliary_machine = JobExecutor(
+                CombatActions.auxiliary_machine(context), GameActionEnum.AUXILIARY_MACHINE, role_name=self._role_name
+            )
+
             lens_lock.execute()
             use_skill.execute()
+            trigger_qte_first.execute()
+            trigger_qte_second.execute()
+            auxiliary_machine.execute()
 
             if self.__check_moon(context):
                 long_press_attack.execute()
                 use_skill.execute()
+                trigger_qte_first.execute()
+                trigger_qte_second.execute()
+                auxiliary_machine.execute()
+
             for i in range(2):  # 最多尝试2次消球
                 if ball_elimination.execute():
                     continue
@@ -95,6 +109,9 @@ class Oblivion(CustomAction):
                 if self.__check_moon(context):
                     long_press_attack.execute()
                     use_skill.execute()
+                    trigger_qte_first.execute()
+                    trigger_qte_second.execute()
+                    auxiliary_machine.execute()
 
             return CustomAction.RunResult(success=True)
         except Exception as e:

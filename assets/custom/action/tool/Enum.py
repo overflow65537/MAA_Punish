@@ -21,3 +21,4 @@ class GameActionEnum(Enum):
     LONG_PRESS_DODGE = "长按闪避"
     LONG_PRESS_SKILL = "长按技能"
     LENS_LOCK = "镜头锁定"
+    AUXILIARY_MACHINE = "辅助机"

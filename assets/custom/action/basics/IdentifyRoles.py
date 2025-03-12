@@ -96,7 +96,6 @@ class IdentifyRoles(CustomAction):
                         "自动战斗开始": {"next": ["单人自动战斗循环"]},
                     }
                 )
-            # 待优化，多人无需位置匹配，只做是否是已定义的角色检验,把角色传给多人作战，减少角色识别列表
             case n if n > 1:  # 多个角色匹配
                 context.override_pipeline(
                     {
