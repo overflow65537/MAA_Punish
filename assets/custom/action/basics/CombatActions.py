@@ -8,6 +8,7 @@ class CombatActions(CustomAction):
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
         print("通用战斗")
         try:
+            self.lens_lock(context)()
             self.ball_elimination(context)()
             self.use_skill(context)()
             self.attack(context)()
