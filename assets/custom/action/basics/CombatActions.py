@@ -66,7 +66,22 @@ class CombatActions(CustomAction):
     def lens_lock(context: Context):
         """镜头锁定"""
         return lambda: context.tasker.controller.post_click(1108, 383).wait()
-    
+
+    @staticmethod
     def auxiliary_machine(context: Context):
         """辅助机"""
         return lambda: context.tasker.controller.post_click(1214, 387).wait()
+
+    @staticmethod
+    def check_status(context: Context, node: str) -> bool:
+        """检查状态"""
+        try:
+            # 获取截图
+            image = context.tasker.controller.post_screencap().wait().get()
+            # 识别并返回结果
+            if context.run_recognition(node, image):
+                return True
+            else:
+                return False
+        except Exception as e:
+            return False

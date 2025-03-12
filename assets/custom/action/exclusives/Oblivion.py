@@ -44,19 +44,15 @@ class Oblivion(CustomAction):
 
     def __check_moon(self, context: Context) -> bool:
         """检查残月值"""
+        logger = logging.getLogger(f"{self._role_name}_Job")
         try:
-            # 获取截图
-            image = context.tasker.controller.post_screencap().wait().get()
-            # 识别残月值
-            if context.run_recognition("检查残月值_终焉", image):
-                logging.getLogger(f"{self._role_name}_Job").info("残月值已满")
-                return True
-            else:
-                logging.getLogger(f"{self._role_name}_Job").info("残月值未满")
-                return False
+            result = CombatActions.check_status(context, "检查残月值_终焉")
+            logger.info("残月值已满" if result else "残月值未满")
+            return result
         except Exception as e:
-            logging.getLogger(f"{self._role_name}_Job").exception(str(e))
+            logger.exception("检查残月值时发生异常")
             return False
+
 
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
         try:
