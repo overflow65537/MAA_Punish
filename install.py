@@ -41,7 +41,7 @@ def bulid():
         "--clean",
     ]
     PyInstaller.__main__.run(command)
-    
+
     if sys.platform == "win32":
         old_name = install_path / "install.exe"
         new_name = install_path / "maapicli.exe"
@@ -98,6 +98,10 @@ def install_chores():
     )
     shutil.copy2(
         working_dir / "LICENSE",
+        install_path,
+    )
+    shutil.copy2(
+        working_dir / "assets" / "custom" / "action" / "setting.json",
         install_path,
     )
 

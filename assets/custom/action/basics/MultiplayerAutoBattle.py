@@ -21,13 +21,13 @@ if project_root:
     if project_root == current_file.parent.parent.parent.parent.joinpath("MFW_resource"):
         project_root = current_file.parent.parent.parent.parent
     print(f"项目根目录: {project_root}")
+    # 添加项目根目录到sys.path
+    sys.path.append(str(project_root))
+
+    from custom.action.tool.LoadSetting import ROLE_ACTIONS
 else:
-    print("[错误] 找不到项目根目录")
+    from assets.custom.action.tool.LoadSetting import ROLE_ACTIONS
 
-# 添加项目根目录到sys.path
-sys.path.append(str(project_root))
-
-from custom.action.tool.LoadSetting import ROLE_ACTIONS
 
 
 class MultiplayerAutoBattle(CustomAction):
