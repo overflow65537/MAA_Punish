@@ -2,7 +2,7 @@
     "name": "MPA",
     "mirrorchyan_rid": "MAA_Punish",
     "url": "https://github.com/overflow65537/MAA_Punish",
-    "MFW_min_req_version": "1.3.0.0",
+    "MFW_min_req_version": "1.4.4.5",
     "controller": [
         {
             "name": "安卓端",
@@ -172,9 +172,10 @@
             "name": "矩阵循生",
             "entry": "矩阵循生",
             "option": [
-                "选择模式"
+                "选择模式",
+                "使用人物"
             ],
-            "doc": "使用前提\n[color:Tomato][b]初始招募能量需要在4点以上才可使用普通,困难,噩梦模式[/b][/color]\n[color:Tomato][b]初始招募能量在4点以下请使用兼容模式[/b][/color]\n推荐解锁异度投影事件"
+            "doc": "使用前提\n[color:Tomato][b]初始招募能量需要在4点以上才可使用普通,困难,噩梦模式[/b][/color]\n[color:Tomato][b]初始招募能量在4点以下请使用兼容模式[/b][/color]\n推荐解锁异度投影事件\n[color:Tomato]选择人物功能在兼容模式无效[/color]"
         },
         {
             "name": "寒境曙光",
@@ -187,6 +188,66 @@
         }
     ],
     "option": {
+        "选择人物": {
+            "cases": [
+                {
+                    "name": "誓焰",
+                    "pipeline_override": {
+                        "选择自动作战人物_矩阵循生": {
+                            "template": [
+                                "肉鸽通用\\誓焰终解_矩阵.png",
+                                "肉鸽通用\\誓焰_矩阵.png",
+                                "肉鸽通用\\誓焰花嫁_矩阵.png"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "深红囚影",
+                    "pipeline_override": {
+                        "选择自动作战人物_矩阵循生": {
+                            "template": [
+                                "肉鸽通用\\深红囚影终解_矩阵.png",
+                                "肉鸽通用\\深红囚影_矩阵.png"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "深红囚影",
+                    "pipeline_override": {
+                        "选择自动作战人物_矩阵循生": {
+                            "template": [
+                                "肉鸽通用\\深谣终解_矩阵.png",
+                                "肉鸽通用\\深谣_矩阵.png"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "深红囚影",
+                    "pipeline_override": {
+                        "选择自动作战人物_矩阵循生": {
+                            "template": [
+                                "肉鸽通用\\终焉终解_矩阵.png",
+                                "肉鸽通用\\终焉_矩阵.png"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "深红囚影",
+                    "pipeline_override": {
+                        "选择自动作战人物_矩阵循生": {
+                            "template": [
+                                "肉鸽通用\\深痕终解_矩阵.png",
+                                "肉鸽通用\\深痕_矩阵.png"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
         "选择模式": {
             "cases": [
                 {
