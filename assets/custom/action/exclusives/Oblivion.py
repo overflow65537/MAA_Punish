@@ -42,18 +42,6 @@ class Oblivion(CustomAction):
             if action == self.__class__.__name__:
                 self._role_name = name
 
-    def __check_moon(self, context: Context) -> bool:
-        """检查残月值"""
-        logger = logging.getLogger(f"{self._role_name}_Job")
-        try:
-            result = CombatActions.check_status(context, "检查残月值_终焉")
-            logger.info("残月值已满" if result else "残月值未满")
-            return result
-        except Exception as e:
-            logger.exception("检查残月值时发生异常")
-            return False
-
-
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
         try:
 
@@ -85,28 +73,21 @@ class Oblivion(CustomAction):
 
             lens_lock.execute()
             use_skill.execute()
-            trigger_qte_first.execute()
-            trigger_qte_second.execute()
             auxiliary_machine.execute()
 
-            if self.__check_moon(context):
+            if CombatActions.check_status(context, "检查残月值_终焉",self._role_name):
                 long_press_attack.execute()
                 use_skill.execute()
-                trigger_qte_first.execute()
-                trigger_qte_second.execute()
                 auxiliary_machine.execute()
 
-            for i in range(2):  # 最多尝试2次消球
-                if ball_elimination.execute():
-                    continue
+            ball_elimination.execute()
+            ball_elimination.execute()
 
-            if not self.__check_moon(context):
+            if not CombatActions.check_status(context, "检查残月值_终焉",self._role_name):
                 long_press_attack.execute()
-                if self.__check_moon(context):
+                if CombatActions.check_status(context, "检查残月值_终焉",self._role_name):
                     long_press_attack.execute()
                     use_skill.execute()
-                    trigger_qte_first.execute()
-                    trigger_qte_second.execute()
                     auxiliary_machine.execute()
 
             return CustomAction.RunResult(success=True)
