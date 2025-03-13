@@ -95,3 +95,21 @@ class CombatActions(CustomAction):
         except Exception as e:
             logger.exception(node+":"+str(e))
             return False
+    
+    def check_Skill_energy_bar(context: Context,role_name:str) -> bool:
+        """检查技能能量条"""
+        try:
+            logger = logging.getLogger(f"{role_name}_Job")
+            # 获取截图
+            image = context.tasker.controller.post_screencap().wait().get()
+            # 识别并返回结果
+            if context.run_recognition("技能_能量条", image):
+                logger.info("检查技能_能量条:True")
+                return True
+            else:
+                logger.info("检查技能_能量条:False")
+                return False
+        except Exception as e:
+            logger.exception("检查技能_能量条:"+str(e))
+            return False
+

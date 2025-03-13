@@ -97,5 +97,25 @@
             0
         ],
         "expected": "结束战斗"
+    },
+    "技能_能量条": {
+        "recognition": "ColorMatch",
+        "roi": [
+            7,
+            37,
+            256,
+            45
+        ],
+        "upper": [
+            194,
+            255,
+            255
+        ],
+        "lower": [
+            100,
+            230,
+            255
+        ],
+        "connected": true
     }
 }
