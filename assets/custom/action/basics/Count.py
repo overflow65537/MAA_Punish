@@ -28,11 +28,12 @@ class Count(CustomAction):
                             "self": argv.get("self"),
                             "count": 0,
                             "target_count": argv.get("target_count"),
-                            "next": argv.get("next"),
+                            "next_node": argv.get("next_node"),
                         },
                     },
                 }
             )
-            context.run_task(argv.get("next"))
+            for i in argv.get("next_node"):
+                context.run_task(i)
 
         return CustomAction.RunResult(success=True)

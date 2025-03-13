@@ -715,8 +715,7 @@
             "港口异常点end_寒境曙光"
         ],
         "interrupt": [
-            "退出_寒境曙光",
-            "启程_寒境曙光"
+            "重新进入_寒境曙光"
         ]
     },
     "退出_寒境曙光": {
@@ -729,7 +728,10 @@
             48
         ],
         "expected": "暂离",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "启程_寒境曙光"
+        ]
     },
     "港口异常点end_寒境曙光": {
         "recognition": "OCR",
@@ -932,7 +934,10 @@
             59,
             38
         ],
-        "expected": "返回",
+        "expected": [
+            "返回",
+            "暂离"
+        ],
         "action": "Click",
         "next": [
             "完成所有任务"
@@ -1346,7 +1351,23 @@
             166
         ],
         "template": "寒境曙光\\启程.png",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "重启计数"
+        ]
+    },
+    "重启计数": {
+        "action": "Custom",
+        "custom_action": "Count",
+        "custom_action_param": {
+            "self": "重启计数",
+            "count": 0,
+            "target_count": 5,
+            "next_node": [
+                "刷新次数用尽失败_寒镜曙光",
+                "寒境曙光"
+            ]
+        }
     },
     "选择难度_寒境曙光": {
         "recognition": "OCR",
