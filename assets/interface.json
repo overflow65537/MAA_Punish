@@ -214,7 +214,7 @@
                     }
                 },
                 {
-                    "name": "深红囚影",
+                    "name": "深谣",
                     "pipeline_override": {
                         "选择自动作战人物_矩阵循生": {
                             "template": [
@@ -225,7 +225,7 @@
                     }
                 },
                 {
-                    "name": "深红囚影",
+                    "name": "终焉",
                     "pipeline_override": {
                         "选择自动作战人物_矩阵循生": {
                             "template": [
@@ -236,7 +236,7 @@
                     }
                 },
                 {
-                    "name": "深红囚影",
+                    "name": "深痕",
                     "pipeline_override": {
                         "选择自动作战人物_矩阵循生": {
                             "template": [
