@@ -1,3 +1,4 @@
+import logging
 from maa.context import Context
 from maa.custom_action import CustomAction
 
@@ -9,7 +10,7 @@ class CombatActions(CustomAction):
         print("通用战斗")
         try:
             self.lens_lock(context)()
-            self.ball_elimination(context)()
+            self.ball_elimination_second(context)()
             self.use_skill(context)()
             self.attack(context)()
 
@@ -31,11 +32,16 @@ class CombatActions(CustomAction):
     def use_skill(context: Context):
         """技能"""
         return lambda: context.tasker.controller.post_click(915, 626).wait()
-
+    
     @staticmethod
     def ball_elimination(context: Context):
         """消球"""
-        return lambda: context.tasker.controller.post_click(1097, 510).wait()  # 改成了消第二个球
+        return lambda: context.tasker.controller.post_click(1216, 518).wait()# 消第一个球
+    
+    @staticmethod
+    def ball_elimination_second(context: Context):
+        """消球"""
+        return lambda: context.tasker.controller.post_click(1097, 510).wait()  # 消第二个球
 
     @staticmethod
     def trigger_qte_first(context: Context):
@@ -48,17 +54,17 @@ class CombatActions(CustomAction):
         return lambda: context.tasker.controller.post_click(1208, 265).wait()
 
     @staticmethod
-    def long_press_attack(context: Context, time: int = 600):
+    def long_press_attack(context: Context, time: int = 1000):
         """长按攻击"""
         return lambda: context.tasker.controller.post_swipe(1193, 633, 1198, 638, time).wait()
 
     @staticmethod
-    def long_press_dodge(context: Context, time: int = 600):
+    def long_press_dodge(context: Context, time: int = 1000):
         """长按闪避"""
         return lambda: context.tasker.controller.post_swipe(1052, 633, 1198, 638, time).wait()
 
     @staticmethod
-    def long_press_skill(context: Context, time: int = 600):
+    def long_press_skill(context: Context, time: int = 1000):
         """长按技能"""
         return lambda: context.tasker.controller.post_swipe(915, 626, 915, 634, time).wait()
 
@@ -73,15 +79,19 @@ class CombatActions(CustomAction):
         return lambda: context.tasker.controller.post_click(1214, 387).wait()
 
     @staticmethod
-    def check_status(context: Context, node: str) -> bool:
+    def check_status(context: Context, node: str,role_name:str) -> bool:
         """检查状态"""
         try:
+            logger = logging.getLogger(f"{role_name}_Job")
             # 获取截图
             image = context.tasker.controller.post_screencap().wait().get()
             # 识别并返回结果
             if context.run_recognition(node, image):
+                logger.info(node +":True")
                 return True
             else:
+                logger.info(node +":False")
                 return False
         except Exception as e:
+            logger.exception(node+":"+str(e))
             return False
