@@ -18,7 +18,7 @@ class IDFMasteryLevel(CustomRecognition):
                     {
                         "识别精通等级": {
                             "roi": i.box,
-                            "roi_offset": [189, -77, -51, -42],
+                            "roi_offset": [189, 25, -51, -45],
                         }
                     },
                 ):

@@ -347,7 +347,7 @@
     },
     "识别精通等级": {
         "recognition": "OCR",
-        "expected": "^\\s*(0|1[0-2]|[1-9])\\s*$"
+        "expected": "^(?!12$).*$"
     },
     "点击下阵": {
         "recognition": "OCR",
