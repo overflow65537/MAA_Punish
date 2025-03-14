@@ -1,6 +1,7 @@
 import logging
 import sys
 from pathlib import Path
+import time
 
 # 获取当前文件的绝对路径
 current_file = Path(__file__).resolve()
@@ -53,7 +54,7 @@ class Oblivion(CustomAction):
                 CombatActions.use_skill(context), GameActionEnum.USE_SKILL, role_name=self._role_name
             )
             long_press_attack = JobExecutor(
-                CombatActions.long_press_attack(context, 1800),
+                CombatActions.long_press_attack(context, 2100),
                 GameActionEnum.LONG_PRESS_ATTACK,
                 role_name=self._role_name,
             )
@@ -70,25 +71,39 @@ class Oblivion(CustomAction):
             auxiliary_machine = JobExecutor(
                 CombatActions.auxiliary_machine(context), GameActionEnum.AUXILIARY_MACHINE, role_name=self._role_name
             )
-
+            # 等待时间为技能动画时间
             lens_lock.execute()
-            use_skill.execute()
-            auxiliary_machine.execute()
-
             if CombatActions.check_status(context, "检查残月值_终焉",self._role_name):
                 long_press_attack.execute()
-                use_skill.execute()
-                auxiliary_machine.execute()
-
-            ball_elimination.execute()
-            ball_elimination.execute()
-
-            if not CombatActions.check_status(context, "检查残月值_终焉",self._role_name):
-                long_press_attack.execute()
-                if CombatActions.check_status(context, "检查残月值_终焉",self._role_name):
-                    long_press_attack.execute()
+                if CombatActions.check_Skill_energy_bar(context,self._role_name):
                     use_skill.execute()
+                    time.sleep(0.3)
+                    trigger_qte_first.execute()
+                    trigger_qte_second.execute()
                     auxiliary_machine.execute()
+                else:
+                    ball_elimination.execute()
+                    time.sleep(0.1)
+                    ball_elimination.execute()
+                    long_press_attack.execute()
+                    if CombatActions.check_Skill_energy_bar(context,self._role_name):
+                        use_skill.execute()
+                        time.sleep(0.3)
+                        trigger_qte_first.execute()
+                        trigger_qte_second.execute()
+                        auxiliary_machine.execute()
+            else:
+                ball_elimination.execute()
+                time.sleep(0.1)
+                ball_elimination.execute()
+                if not CombatActions.check_status(context, "检查残月值_终焉",self._role_name):
+                    long_press_attack.execute()
+                    if CombatActions.check_Skill_energy_bar(context,self._role_name):
+                        use_skill.execute()
+                        time.sleep(0.3)
+                        trigger_qte_first.execute()
+                        trigger_qte_second.execute()
+                        auxiliary_machine.execute()
 
             return CustomAction.RunResult(success=True)
         except Exception as e:

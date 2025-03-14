@@ -96,6 +96,7 @@ class CombatActions(CustomAction):
             logger.exception(node+":"+str(e))
             return False
     
+    @staticmethod
     def check_Skill_energy_bar(context: Context,role_name:str) -> bool:
         """检查技能能量条"""
         try:
