@@ -77,10 +77,11 @@ class Oblivion(CustomAction):
                 long_press_attack.execute()
                 if CombatActions.check_Skill_energy_bar(context,self._role_name):
                     use_skill.execute()
-                    time.sleep(0.3)
-                    trigger_qte_first.execute()
-                    trigger_qte_second.execute()
-                    auxiliary_machine.execute()
+                    for _ in range(2): # 防止未触发QTE和辅助机
+                        time.sleep(0.2)
+                        trigger_qte_first.execute()
+                        trigger_qte_second.execute()
+                        auxiliary_machine.execute()
                 else:
                     ball_elimination.execute()
                     time.sleep(0.1)
@@ -88,10 +89,11 @@ class Oblivion(CustomAction):
                     long_press_attack.execute()
                     if CombatActions.check_Skill_energy_bar(context,self._role_name):
                         use_skill.execute()
-                        time.sleep(0.3)
-                        trigger_qte_first.execute()
-                        trigger_qte_second.execute()
-                        auxiliary_machine.execute()
+                        for _ in range(2):
+                            time.sleep(0.2)
+                            trigger_qte_first.execute()
+                            trigger_qte_second.execute()
+                            auxiliary_machine.execute()
             else:
                 ball_elimination.execute()
                 time.sleep(0.1)
@@ -100,10 +102,11 @@ class Oblivion(CustomAction):
                     long_press_attack.execute()
                     if CombatActions.check_Skill_energy_bar(context,self._role_name):
                         use_skill.execute()
-                        time.sleep(0.3)
-                        trigger_qte_first.execute()
-                        trigger_qte_second.execute()
-                        auxiliary_machine.execute()
+                        for _ in range(2):
+                            time.sleep(0.2)
+                            trigger_qte_first.execute()
+                            trigger_qte_second.execute()
+                            auxiliary_machine.execute()
 
             return CustomAction.RunResult(success=True)
         except Exception as e:
