@@ -816,9 +816,7 @@
             205
         ],
         "connected": true,
-        "next": [
-            "纯色地块黄_寒境曙光"
-        ]
+        "action": "Click"
     },
     "纯色地块红_寒境曙光": {
         "post_delay": 1000,
@@ -843,9 +841,7 @@
         ],
         "connected": true,
         "order_by": "Score",
-        "next": [
-            "纯色地块红_寒境曙光"
-        ]
+        "action": "Click"
     },
     "纯色地块蓝_寒境曙光": {
         "order_by": "Score",
@@ -869,8 +865,6 @@
             190
         ],
         "connected": true,
-        "next": [
-            "纯色地块蓝_寒境曙光"
-        ]
+        "action": "Click"
     }
 }
