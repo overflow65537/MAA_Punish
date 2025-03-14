@@ -794,6 +794,7 @@
         "action": "Click"
     },
     "纯色地块黄_寒境曙光": {
+        "order_by": "Score",
         "post_delay": 1000,
         "recognition": "ColorMatch",
         "method": 40,
@@ -806,22 +807,24 @@
         ],
         "lower": [
             13,
-            99,
-            140
+            44,
+            65
         ],
         "upper": [
-            27,
+            44,
             196,
             205
         ],
         "connected": true,
-        "action": "Click"
+        "next": [
+            "纯色地块黄_寒境曙光"
+        ]
     },
     "纯色地块红_寒境曙光": {
         "post_delay": 1000,
         "recognition": "ColorMatch",
         "count": 1000,
-        "method": 40,
+        "method": 4,
         "roi": [
             298,
             0,
@@ -829,22 +832,25 @@
             641
         ],
         "lower": [
-            170,
-            90,
-            120
+            120,
+            70,
+            70
         ],
         "upper": [
-            255,
-            130,
-            170
+            200,
+            100,
+            100
         ],
         "connected": true,
-        "action": "Click"
+        "order_by": "Score",
+        "next": [
+            "纯色地块红_寒境曙光"
+        ]
     },
     "纯色地块蓝_寒境曙光": {
+        "order_by": "Score",
         "post_delay": 1000,
         "recognition": "ColorMatch",
-        "method": 40,
         "count": 1500,
         "roi": [
             298,
@@ -853,16 +859,18 @@
             641
         ],
         "lower": [
-            100,
-            70,
-            120
+            60,
+            80,
+            110
         ],
         "upper": [
-            135,
+            90,
             140,
-            150
+            190
         ],
         "connected": true,
-        "action": "Click"
+        "next": [
+            "纯色地块蓝_寒境曙光"
+        ]
     }
 }
