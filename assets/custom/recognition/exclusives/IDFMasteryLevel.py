@@ -9,7 +9,26 @@ class IDFMasteryLevel(CustomRecognition):
         context,
         argv: CustomRecognition.AnalyzeArg,
     ) -> CustomRecognition.AnalyzeResult:
-        result = context.run_recognition("选择自动作战人物_矩阵循生", argv.image)
+        result = context.run_recognition(
+            "选择自动作战人物_矩阵循生",
+            argv.image,
+            {
+                "选择自动作战人物_矩阵循生": {
+                    "template": [
+                        "肉鸽通用\\誓焰终解_矩阵.png",
+                        "肉鸽通用\\誓焰_矩阵.png",
+                        "肉鸽通用\\誓焰花嫁_矩阵.png",
+                        "肉鸽通用\\深红囚影终解_矩阵.png",
+                        "肉鸽通用\\深红囚影_矩阵.png",
+                        "肉鸽通用\\深谣终解_矩阵.png",
+                        "肉鸽通用\\深谣_矩阵.png",
+                        "肉鸽通用\\终焉终解_矩阵.png",
+                        "肉鸽通用\\终焉_矩阵.png",
+                    ],
+                    "threshold": [0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9],
+                }
+            },
+        )
         if result:
             for i in result.filterd_results:
                 if context.run_recognition(
