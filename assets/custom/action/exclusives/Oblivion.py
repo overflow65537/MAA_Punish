@@ -77,7 +77,7 @@ class Oblivion(CustomAction):
                 if CombatActions.check_Skill_energy_bar(context,self._role_name):
                     use_skill.execute()
                     for _ in range(2): # 防止未触发QTE和辅助机
-                        time.sleep(0.2)
+                        time.sleep(0.3)
                         trigger_qte_first.execute()
                         trigger_qte_second.execute()
                         auxiliary_machine.execute()
@@ -89,7 +89,7 @@ class Oblivion(CustomAction):
                     if CombatActions.check_Skill_energy_bar(context,self._role_name):
                         use_skill.execute()
                         for _ in range(2):
-                            time.sleep(0.2)
+                            time.sleep(0.3)
                             trigger_qte_first.execute()
                             trigger_qte_second.execute()
                             auxiliary_machine.execute()
@@ -102,7 +102,7 @@ class Oblivion(CustomAction):
                     if CombatActions.check_Skill_energy_bar(context,self._role_name):
                         use_skill.execute()
                         for _ in range(2):
-                            time.sleep(0.2)
+                            time.sleep(0.3)
                             trigger_qte_first.execute()
                             trigger_qte_second.execute()
                             auxiliary_machine.execute()
