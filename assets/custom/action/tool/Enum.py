@@ -16,6 +16,7 @@ class GameActionEnum(Enum):
     USE_SKILL = "技能"
     BALL_ELIMINATION = "消球"
     BALL_ELIMINATION_SECOND = "消球2"
+    BALL_ELIMINATION_THREE = "消球3"
     TRIGGER_QTE_FIRST = "1-触发QTE/换人"
     TRIGGER_QTE_SECOND = "2-触发QTE/换人"
     LONG_PRESS_ATTACK = "长按攻击"

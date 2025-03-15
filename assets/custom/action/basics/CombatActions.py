@@ -40,8 +40,13 @@ class CombatActions(CustomAction):
     
     @staticmethod
     def ball_elimination_second(context: Context):
-        """消球"""
+        """消球2"""
         return lambda: context.tasker.controller.post_click(1097, 510).wait()  # 消第二个球
+    
+    @staticmethod
+    def ball_elimination_three(context: Context):
+        """消球3"""
+        return lambda: context.tasker.controller.post_click(999, 518).wait()  # 消第三个球
 
     @staticmethod
     def trigger_qte_first(context: Context):

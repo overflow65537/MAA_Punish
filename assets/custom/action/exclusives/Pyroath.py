@@ -82,8 +82,9 @@ class Pyroath(CustomAction):
                 print("誓焰u1")
                 if CombatActions.check_status(context, "检查p1动能条_誓焰", self._role_name):
                     print("p1动能条max")
-                    long_press_skill.execute()  # 汇聚,阳炎之光
 
+                    long_press_skill.execute()  # 汇聚,阳炎之光
+                    time.sleep(2)
                     long_press_attack.execute()  # 长按攻击
                     start_time = time.time()
                     while time.time() - start_time < 1:
@@ -93,7 +94,6 @@ class Pyroath(CustomAction):
                     while time.time() - start_time < 1:
                         time.sleep(0.1)
                         use_skill.execute()  # 进入u3阶段
-
                 else:
                     print("p1动能条非max")
                     ball_elimination_second.execute()  # 消球2
@@ -102,46 +102,7 @@ class Pyroath(CustomAction):
                         time.sleep(0.1)
                         attack.execute()
 
-            elif CombatActions.check_status(context, "检查u2_誓焰", self._role_name):
-                print("誓焰u2")
-                ball_elimination_second.execute()  # 消球2
-                attack.execute()  # 攻击
-                use_skill.execute()  # 进入u3阶段
-                if CombatActions.check_status(context, "检查p1动能条_誓焰", self._role_name):
-                    print("p2动能条max")
-                    if CombatActions.check_status(context, "检查u2_誓焰", self._role_name):
-                        long_press_attack.execute()  # 长按攻击
-                        start_time = time.time()
-                        while time.time() - start_time < 1:
-                            time.sleep(0.1)
-                            attack.execute()  # 再次点击攻击
-                        start_time = time.time()
-                        while time.time() - start_time < 1:
-                            time.sleep(0.1)
-                            ball_elimination_second.execute()  # 消球2
-                            attack.execute()  # 攻击
-                            use_skill.execute()  # 进入u3阶段
-
-                else:
-                    if CombatActions.check_status(context, "检查u2max_誓焰", self._role_name):
-                        print("p2动能条max")
-                        start_time = time.time()
-                        while time.time() - start_time < 1:
-                            time.sleep(0.1)
-                            ball_elimination_second.execute()  # 消球2
-                            attack.execute()  # 攻击
-                            use_skill.execute()  # 进入u3阶段
-
-                            return CustomAction.RunResult(success=True)
-                    print("p2动能条非max")
-                    ball_elimination_second.execute()  # 消球2
-                    start_time = time.time()
-                    while time.time() - start_time < 2:
-                        time.sleep(0.1)
-                        ball_elimination_second.execute()  # 消球2
-                        attack.execute()  # 攻击
-
-            elif CombatActions.check_status(context, "检查u3_誓焰", self._role_name):
+            if CombatActions.check_status(context, "检查u3_誓焰", self._role_name):
                 print("誓焰u3")
                 if CombatActions.check_status(context, "检查p1动能条_誓焰", self._role_name):
                     print("p3动能条max")
@@ -154,6 +115,7 @@ class Pyroath(CustomAction):
                     while time.time() - start_time < 1:
                         time.sleep(0.1)
                         use_skill.execute()  # 越过迷雾,与深渊
+                        time.sleep(0.1)
                         trigger_qte_first.execute()
                         trigger_qte_second.execute()
                         auxiliary_machine.execute()
@@ -163,8 +125,50 @@ class Pyroath(CustomAction):
                     while time.time() - start_time < 2:
                         time.sleep(0.1)
                         attack.execute()  # 攻击
-            else:
-                use_skill.execute()
+
+            if CombatActions.check_status(context, "检查u2_誓焰", self._role_name):
+                print("誓焰u2")
+                ball_elimination_second.execute()  # 消球2
+                attack.execute()  # 攻击
+                use_skill.execute()  # 进入u3阶段
+                time.sleep(0.2)
+                if CombatActions.check_status(context, "检查p1动能条_誓焰", self._role_name):
+                    print("p2动能条max")
+                    if CombatActions.check_status(context, "检查u2_誓焰", self._role_name):
+                        long_press_attack.execute()  # 长按攻击
+                        start_time = time.time()
+                        while time.time() - start_time < 1:
+                            time.sleep(0.1)
+                            attack.execute()  # 再次点击攻击
+                        start_time = time.time()
+                        while time.time() - start_time < 1:
+                            time.sleep(0.1)
+                            ball_elimination_second.execute()  # 消球2
+                            time.sleep(0.1)
+                            attack.execute()  # 攻击
+                            time.sleep(0.1)
+                            use_skill.execute()  # 进入u3阶段
+                else:
+                    if CombatActions.check_status(context, "检查u2max_誓焰", self._role_name):
+                        print("p2动能条max")
+                        start_time = time.time()
+                        while time.time() - start_time < 1:
+                            time.sleep(0.1)
+                            ball_elimination_second.execute()  # 消球2
+                            time.sleep(0.1)
+                            attack.execute()  # 攻击
+                            time.sleep(0.1)
+                            use_skill.execute()  # 进入u3阶段
+
+                            return CustomAction.RunResult(success=True)
+                    print("p2动能条非max")
+                    ball_elimination_second.execute()  # 消球2
+                    start_time = time.time()
+                    while time.time() - start_time < 2:
+                        time.sleep(0.1)
+                        ball_elimination_second.execute()  # 消球2
+                        time.sleep(0.1)
+                        attack.execute()  # 攻击
 
             return CustomAction.RunResult(success=True)
         except Exception as e:
