@@ -1352,10 +1352,7 @@
             166
         ],
         "template": "寒境曙光\\启程.png",
-        "action": "Click",
-        "next": [
-            "重启计数"
-        ]
+        "action": "Click"
     },
     "重启计数": {
         "action": "Custom",
