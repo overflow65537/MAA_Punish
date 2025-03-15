@@ -44,7 +44,6 @@ class Oblivion(CustomAction):
 
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
         try:
-
             lens_lock = JobExecutor(
                 CombatActions.lens_lock(context), GameActionEnum.LENS_LOCK, role_name=self._role_name
             )
