@@ -35,7 +35,6 @@ from maa.context import Context
 from maa.custom_action import CustomAction
 
 
-# 还需识别能量条数字，大招图标
 class Oblivion(CustomAction):
     def __init__(self):
         super().__init__()

@@ -59,8 +59,7 @@
         "green_mask": true,
         "recognition": "TemplateMatch",
         "template": [
-            "自定义战斗\\深红囚影_u1.png",
-            "自定义战斗\\深红囚影_u2.png"
+            "自定义战斗\\深红囚影_u1.png"
         ],
         "roi": [
             809,
