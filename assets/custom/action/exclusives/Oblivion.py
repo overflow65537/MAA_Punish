@@ -35,7 +35,6 @@ from maa.context import Context
 from maa.custom_action import CustomAction
 
 
-# 还需识别能量条数字，大招图标
 class Oblivion(CustomAction):
     def __init__(self):
         super().__init__()
@@ -45,7 +44,6 @@ class Oblivion(CustomAction):
 
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
         try:
-
             lens_lock = JobExecutor(
                 CombatActions.lens_lock(context), GameActionEnum.LENS_LOCK, role_name=self._role_name
             )
@@ -78,7 +76,7 @@ class Oblivion(CustomAction):
                 if CombatActions.check_Skill_energy_bar(context,self._role_name):
                     use_skill.execute()
                     for _ in range(2): # 防止未触发QTE和辅助机
-                        time.sleep(0.2)
+                        time.sleep(0.3)
                         trigger_qte_first.execute()
                         trigger_qte_second.execute()
                         auxiliary_machine.execute()
@@ -90,7 +88,7 @@ class Oblivion(CustomAction):
                     if CombatActions.check_Skill_energy_bar(context,self._role_name):
                         use_skill.execute()
                         for _ in range(2):
-                            time.sleep(0.2)
+                            time.sleep(0.3)
                             trigger_qte_first.execute()
                             trigger_qte_second.execute()
                             auxiliary_machine.execute()
@@ -103,7 +101,7 @@ class Oblivion(CustomAction):
                     if CombatActions.check_Skill_energy_bar(context,self._role_name):
                         use_skill.execute()
                         for _ in range(2):
-                            time.sleep(0.2)
+                            time.sleep(0.3)
                             trigger_qte_first.execute()
                             trigger_qte_second.execute()
                             auxiliary_machine.execute()

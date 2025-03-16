@@ -59,8 +59,7 @@
         "green_mask": true,
         "recognition": "TemplateMatch",
         "template": [
-            "自定义战斗\\深红囚影_u1.png",
-            "自定义战斗\\深红囚影_u2.png"
+            "自定义战斗\\深红囚影_u1.png"
         ],
         "roi": [
             809,
@@ -99,6 +98,19 @@
             37,
             28
         ]
+    },
+    "检查比安卡·深痕一阶段":{
+        "recognition": "TemplateMatch",
+        "roi": [
+            1113,
+            556,
+            138,
+            142
+        ],
+        "template": [
+            "自定义战斗\\深痕.png"
+        ],
+        "green_mask": true
     },
     "检查核心被动_深痕": {
         "recognition": "ColorMatch",

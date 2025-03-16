@@ -45,10 +45,10 @@ class MultiplayerAutoBattle(CustomAction):
 
             if recognized_role:
                 context.override_pipeline({"角色特有战斗": recognized_role})
-                max_battles = 4
+                max_battles = 8
             else:
                 context.override_pipeline({"通用战斗模式": {}})
-                max_battles = 1
+                max_battles = 3
 
             n = 0
             while n < max_battles:
