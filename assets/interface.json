@@ -160,7 +160,9 @@
         },
         {
             "name": "宿舍任务",
-            "entry": "宿舍任务"
+            "entry": "宿舍任务",
+            "periodic": 1,
+            "daily_start": 5
         },
         {
             "name": "拟战场域",
