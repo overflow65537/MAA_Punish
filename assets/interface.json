@@ -2,7 +2,7 @@
     "name": "MPA",
     "mirrorchyan_rid": "MAA_Punish",
     "url": "https://github.com/overflow65537/MAA_Punish",
-    "MFW_min_req_version": "1.4.4.5",
+    "MFW_min_req_version": "1.5.4",
     "controller": [
         {
             "name": "安卓端",
@@ -94,11 +94,17 @@
                         "纷争战区"
                     ]
                 }
-            }
+            },
+            "periodic": 2,
+            "weekly_start": 2,
+            "daily_start": 5
         },
         {
             "name": "诺曼复兴战",
-            "entry": "诺曼复兴战"
+            "entry": "诺曼复兴战",
+            "periodic": 2,
+            "weekly_start": 2,
+            "daily_start": 5
         },
         {
             "name": "幻痛囚笼",
@@ -107,7 +113,10 @@
                 "战斗中": {
                     "post_delay": 1000
                 }
-            }
+            },
+            "periodic": 2,
+            "weekly_start": 6,
+            "daily_start": 5
         },
         {
             "name": "刷A级碎片",
@@ -123,19 +132,27 @@
             "option": [
                 "选择A级角色",
                 "是否使用体力"
-            ]
+            ],
+            "periodic": 1,
+            "daily_start": 5
         },
         {
             "name": "领取体力",
-            "entry": "领取体力"
+            "entry": "领取体力",
+            "periodic": 1,
+            "daily_start": 5
         },
         {
             "name": "领取邮件",
-            "entry": "邮件"
+            "entry": "邮件",
+            "periodic": 1,
+            "daily_start": 5
         },
         {
             "name": "购买碎片",
-            "entry": "购买碎片"
+            "entry": "购买碎片",
+            "periodic": 1,
+            "daily_start": 5
         },
         {
             "name": "宿舍委托",
@@ -154,7 +171,9 @@
         },
         {
             "name": "守护者行动",
-            "entry": "维系者行动"
+            "entry": "维系者行动",
+            "periodic": 1,
+            "daily_start": 5
         },
         {
             "name": "领取任务",
