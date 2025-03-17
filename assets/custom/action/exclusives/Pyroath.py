@@ -93,7 +93,8 @@ class Pyroath(CustomAction):
                     start_time = time.time()
                     while time.time() - start_time < 1:
                         time.sleep(0.1)
-                        use_skill.execute()  # 进入u3阶段
+                        if CombatActions.check_Skill_energy_bar(context, self._role_name):
+                            use_skill.execute()  # 进入u3阶段
                 else:
                     print("p1动能条非max")
                     ball_elimination_second.execute()  # 消球2
@@ -114,11 +115,12 @@ class Pyroath(CustomAction):
                     start_time = time.time()
                     while time.time() - start_time < 1:
                         time.sleep(0.1)
-                        use_skill.execute()  # 越过迷雾,与深渊
-                        time.sleep(0.1)
-                        trigger_qte_first.execute()
-                        trigger_qte_second.execute()
-                        auxiliary_machine.execute()
+                        if CombatActions.check_Skill_energy_bar(context, self._role_name):
+                            use_skill.execute()  # 越过迷雾,与深渊
+                            time.sleep(0.1)
+                            trigger_qte_first.execute()
+                            trigger_qte_second.execute()
+                            auxiliary_machine.execute()
                 else:
                     print("p3动能条非max")
                     start_time = time.time()
@@ -133,7 +135,6 @@ class Pyroath(CustomAction):
                 use_skill.execute()  # 进入u3阶段
                 time.sleep(0.2)
                 if CombatActions.check_status(context, "检查p1动能条_誓焰", self._role_name):
-                    print("p2动能条max")
                     if CombatActions.check_status(context, "检查u2_誓焰", self._role_name):
                         long_press_attack.execute()  # 长按攻击
                         start_time = time.time()
@@ -150,7 +151,6 @@ class Pyroath(CustomAction):
                             use_skill.execute()  # 进入u3阶段
                 else:
                     if CombatActions.check_status(context, "检查u2max_誓焰", self._role_name):
-                        print("p2动能条max")
                         start_time = time.time()
                         while time.time() - start_time < 1:
                             time.sleep(0.1)
@@ -158,10 +158,10 @@ class Pyroath(CustomAction):
                             time.sleep(0.1)
                             attack.execute()  # 攻击
                             time.sleep(0.1)
-                            use_skill.execute()  # 进入u3阶段
+                            if CombatActions.check_Skill_energy_bar(context, self._role_name):
+                                use_skill.execute()  # 进入u3阶段
 
                             return CustomAction.RunResult(success=True)
-                    print("p2动能条非max")
                     ball_elimination_second.execute()  # 消球2
                     start_time = time.time()
                     while time.time() - start_time < 2:
