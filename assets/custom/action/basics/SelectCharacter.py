@@ -49,8 +49,20 @@ class SelectCharacter(CustomAction):
                     ],
                     6,
                 )
-            case _:
-                return CustomAction.RunResult(success=False)
+            case _:  # 特性区
+                return self.select_character(
+                    context,
+                    image,
+                    "选择角色",
+                    [
+                        "肉鸽通用\\深红囚影.png",
+                        "肉鸽通用\\誓焰.png",
+                        "肉鸽通用\\深痕.png",
+                        "肉鸽通用\\终焉.png",
+                        "肉鸽通用\\深谣.png",
+                    ],
+                    6,
+                )
 
     def select_character(
         self,
