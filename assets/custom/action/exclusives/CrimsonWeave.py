@@ -59,7 +59,7 @@ class CrimsonWeave(CustomAction):
                 role_name=self._role_name,
             )
             long_press_attack = JobExecutor(
-                CombatActions.long_press_attack(context, 2000),
+                CombatActions.long_press_attack(context, 2500),
                 GameActionEnum.LONG_PRESS_ATTACK,
                 role_name=self._role_name,
             )
@@ -89,25 +89,14 @@ class CrimsonWeave(CustomAction):
                         ball_elimination.execute()  # 消球
                         time.sleep(0.4)
                         ball_elimination.execute()  # 消球
-                        time.sleep(1)
+
+                    else:
                         use_skill.execute()  # 宿命的囚笼由我斩断
                         for _ in range(2):
                             time.sleep(0.2)
                             trigger_qte_first.execute()
                             trigger_qte_second.execute()
                             auxiliary_machine.execute()
-
-                    else:
-                        ball_elimination.execute()  # 消球
-                        time.sleep(1)
-                        ball_elimination.execute()  # 消球
-                        dodge.execute()  # 闪避
-                        start_time = time.time()
-                        while time.time() - start_time < 1.5:
-                            time.sleep(0.1)
-                            attack.execute()  # 攻击
-                        ball_elimination.execute()  # 消球
-                        long_press_dodge.execute()  # 长按闪避
             else:
                 ball_elimination.execute()  # 消球
                 time.sleep(1)
@@ -119,6 +108,8 @@ class CrimsonWeave(CustomAction):
                     attack.execute()  # 攻击
                 ball_elimination.execute()  # 消球
                 long_press_dodge.execute()  # 长按闪避
+                if CombatActions.check_status(context, "检查u2_囚影", self._role_name):
+                    long_press_attack.execute()  # 登龙
 
             return CustomAction.RunResult(success=True)
         except Exception as e:
