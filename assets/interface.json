@@ -194,9 +194,10 @@
             "entry": "矩阵循生",
             "option": [
                 "选择模式",
-                "使用人物"
+                "使用人物",
+                "异度投影"
             ],
-            "doc": "使用前提\n[color:Tomato][b]初始招募能量需要在4点以上才可使用普通,困难,噩梦模式[/b][/color]\n[color:Tomato][b]初始招募能量在4点以下请使用兼容模式[/b][/color]\n推荐解锁异度投影事件\n[color:Tomato]选择人物功能在兼容模式无效[/color]"
+            "doc": "使用前提\n[color:Tomato][b]初始招募能量需要在4点以上才可使用普通,困难,噩梦模式[/b][/color]\n[color:Tomato][b]初始招募能量在4点以下请使用兼容模式[/b][/color]\n推荐解锁并使用异度投影事件\n[color:Tomato]选择人物功能在兼容模式无效[/color]"
         },
         {
             "name": "寒境曙光",
@@ -209,6 +210,32 @@
         }
     ],
     "option": {
+        "异度投影": {
+            "cases": [
+                {
+                    "name": "使用",
+                    "pipeline_override": {
+                        "异度投影_对话2": {
+                            "expected": [
+                                "继续靠近",
+                                "强制启动"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "不使用",
+                    "pipeline_override": {
+                        "异度投影_对话2": {
+                            "expected": [
+                                "继续靠近",
+                                "进行观测"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
         "使用人物": {
             "cases": [
                 {
