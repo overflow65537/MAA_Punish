@@ -39,13 +39,20 @@
         {
             "name": "指挥局",
             "entry": "指挥局",
+            "periodic": 1,
+            "daily_start": 5
+        },
+        {
+            "name": "拟真围剿",
+            "entry": "拟真围剿",
             "pipeline_override": {
                 "编入队伍": {
                     "next": [
                         "作战界面"
                     ],
                     "interrupt": [
-                        "关闭未拥有人物提示"
+                        "关闭未拥有人物提示",
+                        "关闭战斗力提示"
                     ]
                 },
                 "作战开始": {
@@ -73,7 +80,10 @@
                     ],
                     "expected": "保存"
                 }
-            }
+            },
+            "periodic": 2,
+            "weekly_start": 2,
+            "daily_start": 5
         },
         {
             "name": "纷争战区",

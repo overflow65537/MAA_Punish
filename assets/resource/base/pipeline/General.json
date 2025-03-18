@@ -74,7 +74,7 @@
         ]
     },
     "返回": {
-        "post_delay": 1000,
+        "post_delay": 1500,
         "recognition": "OCR",
         "roi": [
             76,
