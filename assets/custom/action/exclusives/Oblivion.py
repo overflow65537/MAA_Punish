@@ -39,7 +39,7 @@ class Oblivion(CustomAction):
     def __init__(self):
         super().__init__()
         for name, action in ROLE_ACTIONS.items():
-            if action == self.__class__.__name__:
+            if action in self.__class__.__name__:
                 self._role_name = name
 
     def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
