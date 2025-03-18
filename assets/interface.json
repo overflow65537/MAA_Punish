@@ -29,6 +29,20 @@
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/tencent"
             ]
+        },
+        {
+            "name": "vivo服",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/vivo"
+            ]
+        },
+        {
+            "name": "oppo服",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/oppo"
+            ]
         }
     ],
     "task": [
