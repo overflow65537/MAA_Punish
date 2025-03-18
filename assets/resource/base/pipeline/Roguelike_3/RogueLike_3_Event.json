@@ -448,7 +448,10 @@
             254,
             62
         ],
-        "expected": "头号玩家",
+        "expected": [
+            "头号玩家",
+            "实号玩家"
+        ],
         "focus": true,
         "focus_succeeded": "头号玩家",
         "focus_succeeded_color": "ForestGreen",
