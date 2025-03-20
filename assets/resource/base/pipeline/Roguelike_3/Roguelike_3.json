@@ -338,6 +338,7 @@
         "action": "Click"
     },
     "识别精通等级": {
+        "only_rec": true,
         "recognition": "OCR",
         "expected": "^(?!12$).*$"
     },
