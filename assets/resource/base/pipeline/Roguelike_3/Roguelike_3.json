@@ -101,6 +101,7 @@
         "action": "Click"
     },
     "启程_矩阵循生": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             1132,
@@ -162,7 +163,7 @@
         ],
         "action": "Click",
         "target": [
-            10,
+            600,
             10,
             0,
             0
@@ -1060,7 +1061,34 @@
             130,
             1,
             1
+        ],
+        "next": [
+            "下滑计数"
         ]
+    },
+    "下滑计数": {
+        "action": "Custom",
+        "custom_action": "Count",
+        "custom_action_param": {
+            "self": "下滑计数",
+            "count": 0,
+            "target_count": 50,
+            "next_node": [
+                "退出选人"
+            ]
+        }
+    },
+    "退出选人": {
+        "post_delay": 1500,
+        "recognition": "OCR",
+        "roi": [
+            76,
+            18,
+            62,
+            34
+        ],
+        "expected": "返回",
+        "action": "Click"
     },
     "编入_矩阵循生": {
         "post_delay": 1000,
