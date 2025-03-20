@@ -58,12 +58,15 @@ class LostLullaby(CustomAction):
             )
             
             long_press_attack = JobExecutor(
-                CombatActions.long_press_attack(context, 2100),
+                CombatActions.long_press_attack(context, 1500),
                 GameActionEnum.LONG_PRESS_ATTACK,
                 role_name=self._role_name,
             )
             ball_elimination = JobExecutor(
                 CombatActions.ball_elimination(context), GameActionEnum.BALL_ELIMINATION, role_name=self._role_name
+            )
+            ball_elimination_second = JobExecutor(
+                CombatActions.ball_elimination_second(context),GameActionEnum.BALL_ELIMINATION_SECOND, role_name=self._role_name
             )
 
             trigger_qte_first = JobExecutor(
@@ -79,73 +82,96 @@ class LostLullaby(CustomAction):
             lens_lock.execute()
             if CombatActions.check_status(context, "检查阶段p1_深谣",self._role_name):
                 print("p1阶段")
-                if CombatActions.check_status(context, "检查u1_深谣",self._role_name):
-                    print("释放技能")
+                if CombatActions.check_Skill_energy_bar(context,self._role_name):
                     start_time = time.time()
                     while time.time() - start_time < 1:
                         time.sleep(0.1)
                         use_skill.execute()  # 像泡沫一样,消散吧
+                    time.sleep(1.5)
+                    
                 else:
-                    print("没有技能")
-                    if CombatActions.check_status(context, "检查核心被动1_深谣",self._role_name):
-                        print("p1核心被动1")
-                        start_time = time.time()
-                        while time.time() - start_time < 1:
-                            time.sleep(0.1)
-                            context.tasker.controller.post_click(1224, 513).wait()  # 从我眼前,消失
-                        time.sleep(0.1)
-                        dodge.execute()  # 闪避
-                        time.sleep(0.2)
-                        context.tasker.controller.post_click(1112, 510).wait()  # 消球 
-                    elif CombatActions.check_status(context, "检查核心被动2_深谣",self._role_name):
+                    if CombatActions.check_status(context, "检查核心被动2_深谣",self._role_name):
                         print("p1核心被动2")
                         start_time = time.time()
                         while time.time() - start_time < 1:
                             time.sleep(0.1)
-                            context.tasker.controller.post_click(1218, 506).wait()  # 从我眼前,消失
+                            ball_elimination.execute()  # 从我眼前,消失
+                            time.sleep(1)
+                            if CombatActions.check_Skill_energy_bar(context,self._role_name):
+                                start_time = time.time()
+                                while time.time() - start_time < 1:
+                                    time.sleep(0.1)
+                                    use_skill.execute()  # 像泡沫一样,消散吧
+                                time.sleep(1.5)
+                    if CombatActions.check_status(context, "检查核心被动1_深谣",self._role_name):
+                        print("p1核心被动1")
+                        time.sleep(0.1)
+                        dodge.execute()  # 闪避
+                        time.sleep(0.6)
+                        ball_elimination_second.execute()  # 消球
+                        time.sleep(0.8)
+                        start_time = time.time()
+                        while time.time() - start_time < 1:
+                            time.sleep(0.1)
+                            attack.execute()  # 攻击
                     else:
                         print("没有核心被动")
                         start_time = time.time()
                         while time.time() - start_time < 2:
                             time.sleep(0.1)
                             attack.execute()  # 攻击
-                        context.tasker.controller.post_click(1104, 502).wait()
+                        ball_elimination_second.execute()  # 从我眼前,消失
 
             elif CombatActions.check_status(context, "检查阶段p2_深谣",self._role_name):
                 print("p2阶段")
-                if CombatActions.check_status(context, "检查u2_深谣",self._role_name):
+                if CombatActions.check_Skill_energy_bar(context,self._role_name):
                     print("释放技能")
                     start_time = time.time()
                     while time.time() - start_time < 1:
                         time.sleep(0.1)
-                        context.tasker.controller.post_click(1218, 506).wait()  # 滚出这里
-                    context.tasker.controller.post_swipe(1199, 635, 1199, 635, 1500).wait()  # 毁灭吧
+                        ball_elimination.execute()  # 滚出这里
+                    time.sleep(1)
+                    long_press_attack.execute()  # 毁灭吧
                     start_time = time.time()
                     while time.time() - start_time < 1:
                         time.sleep(0.1)
-                        context.tasker.controller.post_click(924, 631).wait()  # 沉没在,这片海底
+                        use_skill.execute()  # 沉没在,这片海底
+                    time.sleep(1.5)
                 else:
-                    print("没有技能")
                     if CombatActions.check_status(context, "检查核心被动2_深谣",self._role_name):
                         print("p2核心被动2")
                         start_time = time.time()
                         while time.time() - start_time < 1:
                             time.sleep(0.1)
-                            context.tasker.controller.post_click(1218, 506).wait()  # 滚出这里
-                            context.tasker.controller.post_swipe(1199, 635, 1199, 635, 1000).wait()  # 毁灭吧
+                            ball_elimination.execute() # 滚出这里
+                            long_press_attack.execute()  # 毁灭吧
+                            time.sleep(0.5)
+                        if CombatActions.check_Skill_energy_bar(context,self._role_name):
+                            start_time = time.time()
+                            while time.time() - start_time < 1:
+                                time.sleep(0.1)
+                                use_skill.execute()  # 沉没在,这片海底
+                            time.sleep(1.5)
                     elif CombatActions.check_status(context, "检查p2动能条_深谣",self._role_name):
                         start_time = time.time()
                         while time.time() - start_time < 1:
                             time.sleep(0.1)
-                            context.tasker.controller.post_click(1218, 506).wait()  # 滚出这里
-                            context.tasker.controller.post_swipe(1199, 635, 1199, 635, 1000).wait()  # 毁灭吧
+                            ball_elimination.execute() # 滚出这里
+                            long_press_attack.execute()  # 毁灭吧
+                            time.sleep(0.5)
+                        if CombatActions.check_Skill_energy_bar(context,self._role_name):
+                            start_time = time.time()
+                            while time.time() - start_time < 1:
+                                time.sleep(0.1)
+                                use_skill.execute()  # 沉没在,这片海底
+                            time.sleep(1.5)
                     else:
                         print("没有核心被动")
                         start_time = time.time()
-                        while time.time() - start_time < 2:
-                            time.sleep(0.1)
+                        while time.time() - start_time < 1.5:
+                            time.sleep(0.3)
                             attack.execute()  # 攻击
-                        context.tasker.controller.post_click(1104, 502).wait()
+                        ball_elimination_second.execute()
             return CustomAction.RunResult(success=True)
         except Exception as e:
             logging.getLogger(f"{self._role_name}_Job").exception(str(e))
