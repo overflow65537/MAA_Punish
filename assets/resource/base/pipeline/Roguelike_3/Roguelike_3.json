@@ -603,10 +603,10 @@
         "recognition": "OCR",
         "only_rec": true,
         "roi": [
-            773,
-            361,
-            83,
-            26
+            690,
+            254,
+            554,
+            339
         ],
         "expected": [
             "继续靠近",
