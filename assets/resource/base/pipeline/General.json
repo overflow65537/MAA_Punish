@@ -98,6 +98,9 @@
         "action": "Click"
     },
     "返回主菜单_err": {
+        "focus": true,
+        "focus_succeeded": "识别错误，返回主菜单",
+        "focus_succeeded_color": "Tomato",
         "action": "Custom",
         "custom_action": "ScreenShot",
         "next": [
