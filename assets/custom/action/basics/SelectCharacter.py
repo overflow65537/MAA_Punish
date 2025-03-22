@@ -145,7 +145,7 @@ class SelectCharacter(CustomAction):
         return CustomAction.RunResult(success=True)
 
     def perform_swipe(self, context: Context):
-        context.tasker.controller.post_swipe(160, 600, 160, 150, 1000).wait()
+        context.tasker.controller.post_swipe(160, 600, 160, 200, 1000).wait()
         time.sleep(1)
         context.tasker.controller.post_click(160, 200).wait()
         time.sleep(0.5)
