@@ -47,5 +47,13 @@ class Identify(CustomAction):
                 }
             )
             print("誓焰战斗")
+        else: 
+            context.override_pipeline(
+                {
+                    "识别人物": {"enabled": False},
+                    "战斗中": {"action": "Custom", "custom_action": "CombatActions"},
+                }
+            )
+            print("未知战斗")
 
         return CustomAction.RunResult(success=True)

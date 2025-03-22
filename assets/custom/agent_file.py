@@ -9,6 +9,7 @@ from action.basics.ScreenShot import ScreenShot
 from action.basics.SelectCharacter import SelectCharacter
 from action.basics.SetTower import SetTower
 from action.basics.Count import Count
+from action.basics.PPOverride import PPOverride
 
 
 from action.exclusives.CrimsonWeave import CrimsonWeave
@@ -22,6 +23,12 @@ from recognition.exclusives.CalculateScore import CalculateScore
 from recognition.exclusives.IDFMembers import IDFMembers
 from recognition.exclusives.IDFscore import IDFscore
 from recognition.exclusives.IDFMasteryLevel import IDFMasteryLevel
+
+
+@AgentServer.custom_action("PPOverride")
+class Agent_PPOverride(PPOverride):
+    pass
+
 
 @AgentServer.custom_action("Count")
 class Agent_Count(Count):

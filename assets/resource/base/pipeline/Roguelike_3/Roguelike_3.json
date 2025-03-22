@@ -92,20 +92,6 @@
             "选择首发2_矩阵循生": {
                 "enabled": true
             },
-            "战斗事件_矩阵循生": {
-                "interrupt": [
-                    "重启_寒境曙光",
-                    "战斗中",
-                    "出击_矩阵循生",
-                    "跳过战斗对话_寒境曙光",
-                    "进入战斗_矩阵循生",
-                    "载入中"
-                ]
-            },
-            "战斗完成_矩阵循生": {
-                "action": "DoNothing",
-                "custom_action": ""
-            },
             "矩阵循生": {
                 "action": "custom",
                 "custom_action": "ResetIdentify",
