@@ -17,23 +17,43 @@ class SelectCharacter(CustomAction):
         match param["target"]:
             case "nihil":  # 空
                 return self.select_character(
-                    context, image, "选择角色", ["肉鸽通用\\终焉.png"], 6
+                    context,
+                    image,
+                    "选择角色",
+                    ["肉鸽通用\\终焉.png", "肉鸽通用\\终焉终解.png"],
+                    6,
                 )
             case "physical":  # 物理
                 return self.select_character(
-                    context, image, "选择角色", ["肉鸽通用\\深痕.png"], 6
+                    context,
+                    image,
+                    "选择角色",
+                    ["肉鸽通用\\深痕.png", "肉鸽通用\\深痕终解.png"],
+                    6,
                 )
             case "dark":  # 暗
                 return self.select_character(
-                    context, image, "选择角色", ["肉鸽通用\\深谣.png"], 6
+                    context,
+                    image,
+                    "选择角色",
+                    ["肉鸽通用\\深谣.png", "肉鸽通用\\深谣终解.png"],
+                    6,
                 )
             case "lightning":  # 雷
                 return self.select_character(
-                    context, image, "选择角色", ["肉鸽通用\\深红囚影.png"], 6
+                    context,
+                    image,
+                    "选择角色",
+                    ["肉鸽通用\\深红囚影.png", "肉鸽通用\\深红囚影终解.png"],
+                    6,
                 )
             case "fire":  # 火
                 return self.select_character(
-                    context, image, "选择角色", ["肉鸽通用\\誓焰.png"], 6
+                    context,
+                    image,
+                    "选择角色",
+                    ["肉鸽通用\\誓焰.png", "肉鸽通用\\誓焰终解.png"],
+                    6,
                 )
             case "ice":  # 冰
                 return self.select_character(
@@ -46,6 +66,11 @@ class SelectCharacter(CustomAction):
                         "肉鸽通用\\深痕.png",
                         "肉鸽通用\\终焉.png",
                         "肉鸽通用\\深谣.png",
+                        "肉鸽通用\\深红囚影终解.png",
+                        "肉鸽通用\\誓焰终解.png",
+                        "肉鸽通用\\深痕终解.png",
+                        "肉鸽通用\\终焉终解.png",
+                        "肉鸽通用\\深谣终解.png",
                     ],
                     6,
                 )
@@ -60,6 +85,11 @@ class SelectCharacter(CustomAction):
                         "肉鸽通用\\深痕.png",
                         "肉鸽通用\\终焉.png",
                         "肉鸽通用\\深谣.png",
+                        "肉鸽通用\\深红囚影终解.png",
+                        "肉鸽通用\\誓焰终解.png",
+                        "肉鸽通用\\深痕终解.png",
+                        "肉鸽通用\\终焉终解.png",
+                        "肉鸽通用\\深谣终解.png",
                     ],
                     6,
                 )
@@ -87,13 +117,13 @@ class SelectCharacter(CustomAction):
                 recognition_name, image, {recognition_name: {"template": template}}
             )  # 重新识别
 
-        if character:# 识别成功
-            character_power = context.run_recognition("检查战力", image)# 检查战力
-            if character_power:# 检查战力达标
+        if character:  # 识别成功
+            character_power = context.run_recognition("检查战力", image)  # 检查战力
+            if character_power:  # 检查战力达标
                 self.click_character(context, character_power)
                 self.run_task_and_return(context)
                 return CustomAction.RunResult(success=True)
-        #战力不达标,这次找其他有战斗逻辑的人物 
+        # 战力不达标,这次找其他有战斗逻辑的人物
         self.scroll_to_top(context)
         image = context.tasker.controller.post_screencap().wait().get()
         character = context.run_recognition("选择自动作战人物", image)
