@@ -12,6 +12,7 @@
             "编队完成_矩阵循生",
             "选择难度_矩阵循生",
             "迭变藏品_矩阵循生",
+            "选择模式_矩阵循生",
             "选择首发_矩阵循生",
             "选择首发2_矩阵循生",
             "启程_矩阵循生",
@@ -27,6 +28,92 @@
             "选择装备_矩阵循生",
             "意外点击_限定活动"
         ]
+    },
+    "选择模式_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            288,
+            162,
+            88,
+            50
+        ],
+        "expected": "首发",
+        "next": [
+            "招募能量4点",
+            "招募能量3点"
+        ]
+    },
+    "招募能量4点": {
+        "recognition": "OCR",
+        "roi": [
+            53,
+            593,
+            44,
+            60
+        ],
+        "only_rec": true,
+        "expected": [
+            "4",
+            "5"
+        ],
+        "action": "Custom",
+        "custom_action": "PPOverride",
+        "custom_action_param": {
+            "选择模式_矩阵循生": {
+                "enabled": false
+            }
+        }
+    },
+    "招募能量3点": {
+        "recognition": "OCR",
+        "roi": [
+            53,
+            593,
+            44,
+            60
+        ],
+        "only_rec": true,
+        "expected": "3",
+        "action": "Custom",
+        "custom_action": "PPOverride",
+        "custom_action_param": {
+            "选择模式_矩阵循生": {
+                "enabled": false
+            },
+            "选择首发_矩阵循生": {
+                "enabled": false
+            },
+            "异度投影_矩阵循生": {
+                "enabled": false
+            },
+            "进入物归新主_矩阵循生": {
+                "enabled": true
+            },
+            "选择首发2_矩阵循生": {
+                "enabled": true
+            },
+            "战斗事件_矩阵循生": {
+                "interrupt": [
+                    "重启_寒境曙光",
+                    "战斗中",
+                    "出击_矩阵循生",
+                    "跳过战斗对话_寒境曙光",
+                    "进入战斗_矩阵循生",
+                    "载入中"
+                ]
+            },
+            "战斗完成_矩阵循生": {
+                "action": "DoNothing",
+                "custom_action": ""
+            },
+            "矩阵循生": {
+                "action": "custom",
+                "custom_action": "ResetIdentify",
+                "custom_action_param": {
+                    "mode": "矩阵循生"
+                }
+            }
+        }
     },
     "选择首发2_矩阵循生": {
         "enabled": false,
@@ -601,7 +688,6 @@
     "异度投影_对话2": {
         "post_delay": 1000,
         "recognition": "OCR",
-        "only_rec": true,
         "roi": [
             690,
             254,
