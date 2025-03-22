@@ -181,7 +181,7 @@
             125,
             45
         ],
-        "expected": "空浮平台",
+        "expected": "空域浮台",
         "action": "Custom",
         "custom_action": "SelectCharacter",
         "custom_action_param": {
