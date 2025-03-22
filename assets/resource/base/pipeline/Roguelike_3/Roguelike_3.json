@@ -1070,6 +1070,7 @@
         "action": "Click"
     },
     "选择首发_矩阵循生": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             288,
