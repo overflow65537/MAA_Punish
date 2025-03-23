@@ -20,7 +20,7 @@ class IDFscore(CustomRecognition):
             
             if int(current_score.best_result.text) >= int(target_score.best_result.text):
                 return CustomRecognition.AnalyzeResult(
-                    box=(0, 0, 100, 100), detail="success"
+                    box=(0, 0, 100, 100), detail=f"{current_score.best_result.text}>={target_score.best_result.text}"
                 )
         else:
             return

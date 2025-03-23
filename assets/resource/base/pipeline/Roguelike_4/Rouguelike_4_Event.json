@@ -1,5 +1,8 @@
 {
     "战斗地块_寒境曙光": {
+        "focus": true,
+        "focus_succeeded": "战斗地块",
+        "focus_succeeded_color": "ForestGreen",
         "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
@@ -794,6 +797,9 @@
         "action": "Click"
     },
     "纯色地块黄_寒境曙光": {
+        "focus": true,
+        "focus_succeeded": "黄色地块",
+        "focus_succeeded_color": "ForestGreen",
         "order_by": "Score",
         "post_delay": 1000,
         "recognition": "ColorMatch",
@@ -819,6 +825,9 @@
         "action": "Click"
     },
     "纯色地块红_寒境曙光": {
+        "focus": true,
+        "focus_succeeded": "红色地块",
+        "focus_succeeded_color": "ForestGreen",
         "post_delay": 1000,
         "recognition": "ColorMatch",
         "count": 1000,
@@ -844,6 +853,9 @@
         "action": "Click"
     },
     "纯色地块蓝_寒境曙光": {
+        "focus": true,
+        "focus_succeeded": "蓝色地块",
+        "focus_succeeded_color": "ForestGreen",
         "order_by": "Score",
         "post_delay": 1000,
         "recognition": "ColorMatch",

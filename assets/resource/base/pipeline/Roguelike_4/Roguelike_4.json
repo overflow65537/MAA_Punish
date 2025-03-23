@@ -113,6 +113,9 @@
         "on_error": [
             "寒境曙光"
         ],
+        "focus": true,
+        "focus_succeeded": "物资地块",
+        "focus_succeeded_color": "ForestGreen",
         "recognition": "OCR",
         "roi": [
             300,
@@ -151,6 +154,9 @@
         ]
     },
     "重新进入_寒境曙光": {
+        "focus": true,
+        "focus_succeeded": "未搜索到目标,重新进入",
+        "focus_succeeded_color": "Tomato",
         "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
@@ -167,6 +173,9 @@
         ]
     },
     "分数计算": {
+        "focus": true,
+        "focus_succeeded": "分数确认,强制结算",
+        "focus_succeeded_color": "ForestGreen",
         "recognition": "Custom",
         "custom_recognition": "CalculateScore",
         "next": [
@@ -1347,7 +1356,7 @@
         "action": "Click"
     },
     "启程_寒境曙光": {
-        "post_delay": 1000,
+        "post_delay": 2000,
         "recognition": "TemplateMatch",
         "roi": [
             994,
@@ -1356,7 +1365,10 @@
             166
         ],
         "template": "寒境曙光\\启程.png",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "重启计数"
+        ]
     },
     "重启计数": {
         "action": "Custom",
@@ -1364,12 +1376,71 @@
         "custom_action_param": {
             "self": "重启计数",
             "count": 0,
-            "target_count": 5,
+            "target_count": 3,
             "next_node": [
-                "刷新次数用尽失败_寒镜曙光",
-                "寒境曙光"
+                "强制失败"
             ]
         }
+    },
+    "强制失败": {
+        "focus": true,
+        "focus_succeeded": "未检测到目标,结束当前游戏",
+        "focus_succeeded_color": "Tomato",
+        "next": [
+            "强制失败_成功"
+        ],
+        "interrupt": [
+            "下一天_强制失败",
+            "确认下一天_强制失败",
+            "局内招募_寒境曙光",
+            "继续对话_寒境曙光",
+            "点击空白处关闭",
+            "领取战斗奖励",
+            "驻扎点报警_寒境曙光",
+            "支援等级提升_寒境曙光",
+            "选择军事支援_寒境曙光",
+            "选择经济支援_寒境曙光",
+            "选择基建支援_寒境曙光",
+            "关闭奖励_寒境曙光"
+        ]
+    },
+    "强制失败_成功": {
+        "recognition": "OCR",
+        "roi": [
+            540,
+            424,
+            146,
+            74
+        ],
+        "expected": "退出挑战"
+    },
+    "下一天_强制失败": {
+        "recognition": "OCR",
+        "roi": [
+            1131,
+            651,
+            111,
+            44
+        ],
+        "expected": "下一天",
+        "action": "Click"
+    },
+    "确认下一天_强制失败": {
+        "recognition": "OCR",
+        "roi": [
+            460,
+            311,
+            363,
+            61
+        ],
+        "expected": "尚有行动点未消耗，是否结束日程",
+        "action": "Click",
+        "target": [
+            725,
+            454,
+            1,
+            1
+        ]
     },
     "选择难度_寒境曙光": {
         "recognition": "OCR",
@@ -1514,6 +1585,7 @@
         "action": "Click"
     },
     "检查当前分数": {
+        "only_rec": true,
         "recognition": "OCR",
         "roi": [
             49,
@@ -1524,6 +1596,7 @@
         "expected": "^\\d*$"
     },
     "检查目标分数": {
+        "only_rec": true,
         "recognition": "OCR",
         "roi": [
             99,
