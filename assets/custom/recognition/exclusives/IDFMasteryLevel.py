@@ -28,7 +28,7 @@ class IDFMasteryLevel(CustomRecognition):
                         "肉鸽通用\\深痕_矩阵.png",
 
                     ],
-                    "threshold": [0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9],
+                    "threshold": [0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9],
                 }
             },
         )
