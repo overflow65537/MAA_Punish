@@ -1180,7 +1180,54 @@
             34
         ],
         "expected": "返回",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "退出选人计数"
+        ]
+    },
+    "退出选人计数": {
+        "action": "Custom",
+        "custom_action": "Count",
+        "custom_action_param": {
+            "self": "退出选人计数",
+            "count": 0,
+            "target_count": 2,
+            "next_node": [
+                "强制选人"
+            ]
+        }
+    },
+    "强制选人": {
+        "focus": true,
+        "focus_succeeded": [
+            "未检查到精通等级低于12的人物,即将随机选择",
+            "当你看到这行提示的时候",
+            "证明你需要升级技能来解锁4点初始招募能量"
+        ],
+        "focus_succeeded_color": [
+            "Tomato",
+            "Tomato",
+            "Tomato"
+        ],
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            778,
+            635,
+            54,
+            47
+        ],
+        "expected": "编队",
+        "action": "Click",
+        "next": [
+            "事件完成_矩阵循生"
+        ],
+        "interrupt": [
+            "更换首发_矩阵循生",
+            "点击下阵",
+            "选择自动作战人物_矩阵循生",
+            "滑动_矩阵循生"
+        ]
     },
     "编入_矩阵循生": {
         "post_delay": 1000,
