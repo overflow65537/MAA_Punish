@@ -58,46 +58,13 @@
         "action": "Custom",
         "custom_action": "Oblivion"
     },
-    "识别信号球_黄": {
-        "recognition": "ColorMatch",
+    "识别信号球": {
+        "recognition": "TemplateMatch",
         "roi": [
             416,
             457,
             848,
             98
-        ],
-        "method": 40,
-        "upper": [
-            30,
-            200,
-            200
-        ],
-        "lower": [
-            5,
-            125,
-            125
-        ],
-        "connected": true,
-        "count": 50
-    },
-    "识别信号球_红": {
-        "recognition": "ColorMatch",
-        "roi": [
-            416,
-            457,
-            848,
-            98
-        ],
-        "upper": [
-            190,
-            75,
-            75
-        ],
-        "lower": [
-            80,
-            40,
-            40
-        ],
-        "connected": true
+        ]
     }
 }
