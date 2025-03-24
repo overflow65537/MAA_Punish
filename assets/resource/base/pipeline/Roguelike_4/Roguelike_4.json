@@ -166,7 +166,18 @@
             48
         ],
         "expected": "暂离",
+        "action": "Custom",
+        "custom_action": "ScreenShot",
+        "custom_action_param": {
+            "type": "RG4"
+        },
+        "next": [
+            "暂离_寒境曙光"
+        ]
+    },
+    "暂离_寒境曙光": {
         "action": "Click",
+        "target": "重新进入_寒境曙光",
         "next": [
             "启程_寒境曙光",
             "重新进入_寒境曙光"
