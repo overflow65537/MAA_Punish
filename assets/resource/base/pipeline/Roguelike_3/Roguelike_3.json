@@ -1164,7 +1164,7 @@
         "custom_action_param": {
             "self": "下滑计数",
             "count": 0,
-            "target_count": 5,
+            "target_count": 20,
             "next_node": [
                 "退出选人"
             ]
