@@ -150,7 +150,10 @@
             149,
             33
         ],
-        "expected": "跳过",
+        "expected": [
+            "跳",
+            "过"
+        ],
         "action": "Click",
         "next": [
             "确认跳过"
