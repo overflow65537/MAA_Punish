@@ -1,11 +1,7 @@
 {
     "test": {
-        "next": [
-            "局内招募_寒境曙光"
-        ],
-        "interrupt": [
-            "战斗测试"
-        ]
+        "action": "Custom",
+        "custom_action": "ArrangeSignalBalls"
     },
     "识别人物": {
         "green_mask": true,
@@ -59,6 +55,7 @@
         "custom_action": "Oblivion"
     },
     "识别信号球": {
+        "green_mask": true,
         "recognition": "TemplateMatch",
         "roi": [
             416,
