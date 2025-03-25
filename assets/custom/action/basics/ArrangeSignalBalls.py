@@ -8,45 +8,47 @@ class ArrangeSignalBalls(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        def determine_elimination(ball_list, target):
-            """优化后的消球逻辑（考虑None分布特性）"""
-            # 寻找有效球区域（跳过首尾None）
-            start = 0
-            end = len(ball_list) - 1
+        def find_optimal_ball(ball_list, target):
+            """根据信号球规则寻找最优操作目标"""
+            # 第一优先级：寻找目标色且左右相同的元素
+            for i in range(1, 7):  # 跳过首尾的特殊情况
+                if ball_list[i] and ball_list[i] == target or (target == 'any' and ball_list[i]):
+                    left = ball_list[i-1] if i > 0 else None
+                    right = ball_list[i+1] if i < 7 else None
+                    if (left == ball_list[i] and right == ball_list[i]) and left is not None and right is not None:
+                        print("第一优先级：寻找目标色且左右相同的元素")
+                        return i + 1  # 返回从1开始的序号
 
-            # 跳过开头的单个None（如果存在）
-            if ball_list[0] is None:
-                start = 1
+            # 第二优先级：寻找能形成目标三连的消除位置
+            for i in range(8):
+                if ball_list[i] is None:
+                    continue
+                temp = ball_list[:i] + ball_list[i+1:]
+                for j in range(len(temp)-2):
+                    if target != 'any' and temp[j:j+3] == [target]*3:
+                        print("第二优先级：寻找能形成目标三连的消除位置")
+                        return -(i + 1)  # 返回负数序号
+                    elif target == 'any' and temp[j] and temp[j] == temp[j+1] == temp[j+2]:
+                        print("第二优先级：寻找能形成任意三连的消除位置")
+                        return -(i + 1)
 
-            # 跳过末尾的连续None
-            while end > start and ball_list[end] is None:
-                end -= 1
+            # 第三优先级：寻找能形成任意三连的消除位置
+            for i in range(8):
+                if ball_list[i] is None:
+                    continue
+                temp = ball_list[:i] + ball_list[i+1:]
+                for j in range(len(temp)-2):
+                    if temp[j] and temp[j] == temp[j+1] == temp[j+2]:
+                        print("第三优先级：寻找能形成任意三连的消除位置")
+                        return -(i + 1)
 
-            # 提取有效区间
-            valid_zone = ball_list[start : end + 1]
-
-            # 第一优先级：目标三连
-            for i in range(len(valid_zone) - 2):
-                if valid_zone[i : i + 3] == [target] * 3:
-                    return start + i + 1  # 映射回原始索引
-
-            # 第二优先级：形成目标连击
-            for i in range(len(valid_zone)):
-                temp = valid_zone[:i] + valid_zone[i + 1 :]
-                if any(temp[j] == temp[j + 1] == target for j in range(len(temp) - 1)):
-                    return start + i
-
-            # 第三优先级：任意三连（利用有效区间减少遍历）
-            for i in range(len(valid_zone) - 2):
-                if (
-                    valid_zone[i]
-                    and valid_zone[i] == valid_zone[i + 1] == valid_zone[i + 2]
-                ):
-                    return start + i + 1
-
-            # 第四优先级：随机选择有效球（优先有效区间）
-            valid = [start + i for i, x in enumerate(valid_zone) if x]
-            return random.choice(valid) if valid else False
+            # 第四优先级：随机选择非None元素
+            valid = [i+1 for i, x in enumerate(ball_list) if x is not None]
+            if valid:
+                print("第四优先级：随机选择非None元素")
+                return -random.choice(valid)
+            print("未找到最优操作目标")
+            return 0
 
         def Analyze_signal_balls(box):
             balls = [
@@ -115,10 +117,10 @@ class ArrangeSignalBalls(CustomAction):
             [569, 500],
             [460, 500],
         ]
-        target = determine_elimination(ball_list, "r")
+        target = find_optimal_ball(ball_list, "r")
         print(f"目标球为{target}")
         if target is False:
             return CustomAction.RunResult(success=True)
-        x, y = balls[target][0], balls[target][1]
-        context.tasker.controller.post_click(x, y).wait()
+        """x, y = balls[target][0], balls[target][1]
+        context.tasker.controller.post_click(x, y).wait()"""
         return CustomAction.RunResult(success=True)
