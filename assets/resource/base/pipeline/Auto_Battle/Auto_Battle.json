@@ -1,7 +1,7 @@
 {
     "test": {
         "action": "Custom",
-        "custom_action": "ArrangeSignalBalls"
+        "custom_action": "CombatActions"
     },
     "识别人物": {
         "green_mask": true,
