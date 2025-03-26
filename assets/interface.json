@@ -216,6 +216,14 @@
         {
             "name": "矩阵循生",
             "entry": "矩阵循生",
+            "pipeline_override": {
+                "检查主界面2": {
+                    "post_delay": 1000,
+                    "next": [
+                        "矩阵循生"
+                    ]
+                }
+            },
             "option": [
                 "选择模式",
                 "使用人物"
@@ -225,6 +233,14 @@
         {
             "name": "寒境曙光",
             "entry": "寒境曙光",
+            "pipeline_override": {
+                "检查主界面2": {
+                    "post_delay": 1000,
+                    "next": [
+                        "寒境曙光"
+                    ]
+                }
+            },
             "option": [
                 "选择温度",
                 "选择效果"
