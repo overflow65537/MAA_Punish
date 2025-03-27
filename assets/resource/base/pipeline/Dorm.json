@@ -315,8 +315,8 @@
         "expected": "购买成功",
         "action": "Click",
         "target": [
-            1,
-            1,
+            600,
+            20,
             0,
             0
         ],
