@@ -43,6 +43,13 @@
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/oppo"
             ]
+        },
+        {
+            "name": "小米服",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/mi"
+            ]
         }
     ],
     "task": [
