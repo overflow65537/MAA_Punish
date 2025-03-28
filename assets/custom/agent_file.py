@@ -10,7 +10,6 @@ from action.basics.SelectCharacter import SelectCharacter
 from action.basics.SetTower import SetTower
 from action.basics.Count import Count
 from action.basics.PPOverride import PPOverride
-from action.basics.ArrangeSignalBalls import ArrangeSignalBalls
 
 
 from action.exclusives.CrimsonWeave import CrimsonWeave
@@ -18,6 +17,7 @@ from action.exclusives.LostLullaby import LostLullaby
 from action.exclusives.Oblivion import Oblivion
 from action.exclusives.Pyroath import Pyroath
 from action.exclusives.Stigmata import Stigmata
+from action.exclusives.Shukra import Shukra
 
 
 from recognition.exclusives.CalculateScore import CalculateScore
@@ -26,8 +26,8 @@ from recognition.exclusives.IDFscore import IDFscore
 from recognition.exclusives.IDFMasteryLevel import IDFMasteryLevel
 
 
-@AgentServer.custom_action("ArrangeSignalBalls")
-class Agent_ArrangeSignalBalls(ArrangeSignalBalls):
+@AgentServer.custom_action("Shukra")
+class Agent_Shukra(Shukra):
     pass
 
 

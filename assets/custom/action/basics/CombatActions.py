@@ -1,6 +1,7 @@
 import logging
 from maa.context import Context
 from maa.custom_action import CustomAction
+from maa.define import RecognitionDetail
 
 
 class CombatActions(CustomAction):
@@ -12,19 +13,10 @@ class CombatActions(CustomAction):
         print("通用战斗")
         try:
             self.lens_lock(context)()
-            # 测试内容
-            target = self.Arrange_Signal_Balls(
-                context,
-                "any",
-                {
-                    "red": {"识别信号球": {"template": ["信号球\\启明_红.png"]}},
-                    "blue": {"识别信号球": {"template": ["信号球\\启明_蓝.png"]}},
-                    "yellow": {"识别信号球": {"template": ["信号球\\启明_黄.png"]}},
-                    
-                },
-            )# 测试内容
-            print(f"最终目标球: {target}")
-            self.ball_elimination_target(context, int(target))()
+            self.use_skill(context)()
+            self.ball_elimination_second(context)()
+            self.attack(context)()
+            
             return CustomAction.RunResult(success=True)
         except Exception as e:
             print(f"通用战斗异常: {str(e)}")
@@ -127,19 +119,22 @@ class CombatActions(CustomAction):
         return lambda: context.tasker.controller.post_click(1214, 387).wait()
 
     @staticmethod
-    def check_status(context: Context, node: str, role_name: str) -> bool:
+    def check_status(
+        context: Context, node: str, role_name: str, pipeline_override: dict = {}
+    ):
         """检查状态"""
         try:
             logger = logging.getLogger(f"{role_name}_Job")
             # 获取截图
             image = context.tasker.controller.post_screencap().wait().get()
             # 识别并返回结果
-            if context.run_recognition(node, image):
+            result = context.run_recognition(node, image, pipeline_override)
+            if result:
                 logger.info(node + ":True")
-                return True
+
             else:
                 logger.info(node + ":False")
-                return False
+            return result
         except Exception as e:
             logger.exception(node + ":" + str(e))
             return False
@@ -163,7 +158,7 @@ class CombatActions(CustomAction):
             return False
 
     @staticmethod
-    def Arrange_Signal_Balls(context: Context, target_ball: str, template: dict)->int:
+    def Arrange_Signal_Balls(context: Context, target_ball: str, template: dict) -> int:
         """
         自动消球逻辑
         Args:
@@ -190,10 +185,9 @@ class CombatActions(CustomAction):
             (569, 500),
             (460, 500),
         ]
-        COLOR_MAPPING = {"red": "r", "blue": "b", "yellow": "y"}
 
         def analyze_position(box) -> int:
-            """分析球体坐标位置"""
+            """分析信号球位置"""
             x, y, w, h = box
             for idx, (pos_x, pos_y) in enumerate(BALL_POSITIONS):
                 if x <= pos_x <= x + w and y <= pos_y <= y + h:
@@ -201,9 +195,9 @@ class CombatActions(CustomAction):
             return -1
 
         def detect_balls(image) -> list:
-            """统一处理球体识别"""
+            """统一处理信号球识别"""
             ball_status = [None] * 8
-            for color, key in COLOR_MAPPING.items():
+            for color in ["red", "blue", "yellow"]:
                 result = context.run_recognition(
                     "识别信号球", image, template.get(color)
                 )
@@ -211,14 +205,17 @@ class CombatActions(CustomAction):
                 if result:
                     for item in result.filterd_results:
                         if (pos := analyze_position(item.box)) != -1:
-                            ball_status[pos] = key
+                            ball_status[pos] = color
+            print(f"信号球状态: {ball_status}")
             return ball_status
+
 
         def _find_optimal_ball(ball_list: list, target: str) -> int:
             """消球决策逻辑"""
-            valid_length = len(ball_list) - next(
-                (i for i, x in enumerate(reversed(ball_list)) if x is not None), 0
-            )
+            last_non_none_index = next((i for i, x in enumerate(reversed(ball_list)) if x is not None), None)
+            valid_length = len(ball_list) - last_non_none_index if last_non_none_index is not None else 0
+
+            print(f"有效长度: {valid_length}")
 
             if valid_length == 0:
                 print("未找到有效操作")
