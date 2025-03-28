@@ -17,12 +17,18 @@ from action.exclusives.LostLullaby import LostLullaby
 from action.exclusives.Oblivion import Oblivion
 from action.exclusives.Pyroath import Pyroath
 from action.exclusives.Stigmata import Stigmata
+from action.exclusives.Shukra import Shukra
 
 
 from recognition.exclusives.CalculateScore import CalculateScore
 from recognition.exclusives.IDFMembers import IDFMembers
 from recognition.exclusives.IDFscore import IDFscore
 from recognition.exclusives.IDFMasteryLevel import IDFMasteryLevel
+
+
+@AgentServer.custom_action("Shukra")
+class Agent_Shukra(Shukra):
+    pass
 
 
 @AgentServer.custom_action("PPOverride")
@@ -33,6 +39,7 @@ class Agent_PPOverride(PPOverride):
 @AgentServer.custom_action("Count")
 class Agent_Count(Count):
     pass
+
 
 @AgentServer.custom_recognition("IDFMasteryLevel")
 class Agent_IDFMasteryLevel(IDFMasteryLevel):
