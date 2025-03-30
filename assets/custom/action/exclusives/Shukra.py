@@ -44,7 +44,7 @@ class Shukra(CustomAction):
     启明战斗逻辑
     检查是否存在大招
         释放大招
-    检查信号球数量信号球数量大于11
+    检查信号球数量信号球数量大于9
         7秒内循环
             识别信号球
             消球
@@ -53,7 +53,7 @@ class Shukra(CustomAction):
             如果没有球了
                 结束
         结束后长按攻击尝试触发冰山
-    检查信号球数量信号球数量小于11
+    检查信号球数量信号球数量小于9
         攻击攒球
     """
     tempelate = {
@@ -118,7 +118,7 @@ class Shukra(CustomAction):
 
             elif CombatActions.check_status(
                 context, "检查信号球数量_启明", self._role_name
-            ):  # 信号球数量大于11
+            ):  # 信号球数量大于9
                 start_time = time.time()
                 while time.time() - start_time < 7:
                     time.sleep(0.3)

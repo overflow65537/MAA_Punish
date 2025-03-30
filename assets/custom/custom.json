@@ -44,6 +44,11 @@
         "class": "Pyroath",
         "file_path": "{custom_path}\\action\\exclusives\\Pyroath.py"
     },
+    "Shukra": {
+        "type": "action",
+        "class": "Shukra",
+        "file_path": "{custom_path}\\action\\exclusives\\Shukra.py"
+    },
     "CalculateScore": {
         "type": "recognition",
         "class": "CalculateScore",

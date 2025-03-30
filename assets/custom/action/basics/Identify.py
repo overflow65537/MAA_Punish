@@ -47,6 +47,14 @@ class Identify(CustomAction):
                 }
             )
             print("誓焰战斗")
+        elif context.run_recognition("检查曲·启明", image):
+            context.override_pipeline(
+                {
+                    "识别人物": {"enabled": False},
+                    "战斗中": {"action": "Custom", "custom_action": "Shukra"},
+                }
+            )
+            print("启明战斗")
         else: 
             context.override_pipeline(
                 {
