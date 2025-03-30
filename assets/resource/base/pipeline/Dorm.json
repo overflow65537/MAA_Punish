@@ -315,8 +315,8 @@
         "expected": "购买成功",
         "action": "Click",
         "target": [
-            1,
-            1,
+            600,
+            20,
             0,
             0
         ],
@@ -973,6 +973,7 @@
         "action": "Click"
     },
     "检查当前数量": {
+        "only_rec": true,
         "recognition": "OCR",
         "roi": [
             439,
@@ -983,12 +984,13 @@
         "expected": "^\\d*$"
     },
     "检查目标数量": {
+        "only_rec": true,
         "recognition": "OCR",
         "roi": [
-            476,
-            110,
-            22,
-            35
+            477,
+            117,
+            15,
+            22
         ],
         "expected": "^\\d*$"
     }

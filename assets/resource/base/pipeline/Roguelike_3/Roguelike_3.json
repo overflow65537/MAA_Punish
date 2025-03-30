@@ -29,6 +29,23 @@
             "意外点击_限定活动"
         ]
     },
+    "返回_矩阵循生": {
+        "recognition": "OCR",
+        "roi": [
+            1103,
+            627,
+            63,
+            55
+        ],
+        "action": "Click",
+        "expected": "藏品",
+        "target": [
+            58,
+            31,
+            1,
+            1
+        ]
+    },
     "选择模式_矩阵循生": {
         "recognition": "OCR",
         "roi": [
@@ -254,11 +271,6 @@
         "expected": "链路崩溃",
         "next": [
             "矩阵循生"
-        ],
-        "interrupt": [
-            "下一页",
-            "点击继续",
-            "确认结束购物_矩阵循生"
         ]
     },
     "肉鸽内部": {
@@ -1164,7 +1176,7 @@
         "custom_action_param": {
             "self": "下滑计数",
             "count": 0,
-            "target_count": 15,
+            "target_count": 20,
             "next_node": [
                 "退出选人"
             ]
@@ -1196,6 +1208,16 @@
                 "强制选人"
             ]
         }
+    },
+    "链路崩溃_reco": {
+        "recognition": "OCR",
+        "roi": [
+            547,
+            367,
+            183,
+            69
+        ],
+        "expected": "链路崩溃"
     },
     "强制选人": {
         "focus": true,

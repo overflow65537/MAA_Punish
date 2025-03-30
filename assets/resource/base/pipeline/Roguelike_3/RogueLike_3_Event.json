@@ -3102,11 +3102,20 @@
         ],
         "expected": "",
         "focus": true,
-        "focus_succeeded": "遇到未知事件，请录屏并手动完成操作。将录屏文件和maa.log发送给开发者。",
+        "focus_succeeded": "遇到未知事件，请发送maa.log至开发者。",
         "focus_succeeded_color": "Tomato",
+        "action": "Custom",
+        "custom_action": "ScreenShot",
+        "custom_action_param": {
+            "type": "RG3"
+        },
         "next": [
-            "事件完成_矩阵循生",
-            "未知事件_矩阵循生"
+            "链路崩溃_reco"
+        ],
+        "interrupt": [
+            "返回_矩阵循生",
+            "确认结束购物_矩阵循生",
+            "终止_矩阵循生"
         ]
     }
 }
