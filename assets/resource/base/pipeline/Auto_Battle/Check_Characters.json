@@ -65,5 +65,18 @@
             "自定义战斗\\深谣_p2.png"
         ],
         "green_mask": true
+    },
+    "检查曲·启明": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1113,
+            556,
+            138,
+            142
+        ],
+        "template": [
+            "自定义战斗\\启明.png"
+        ],
+        "green_mask": true
     }
 }

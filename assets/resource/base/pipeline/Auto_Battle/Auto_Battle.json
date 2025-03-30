@@ -1,11 +1,7 @@
 {
     "test": {
-        "next": [
-            "局内招募_寒境曙光"
-        ],
-        "interrupt": [
-            "战斗测试"
-        ]
+        "action": "Custom",
+        "custom_action": "CombatActions"
     },
     "识别人物": {
         "green_mask": true,
@@ -39,65 +35,49 @@
         ]
     },
     "深痕战斗": {
+        "post_delay": 0,
+        "pre_delay": 0,
         "action": "Custom",
         "custom_action": "Stigmata"
     },
     "深谣战斗": {
+        "post_delay": 0,
+        "pre_delay": 0,
         "action": "Custom",
         "custom_action": "LostLullaby"
     },
     "深红囚影战斗": {
+        "post_delay": 0,
+        "pre_delay": 0,
         "action": "Custom",
         "custom_action": "CrimsonWeave"
     },
     "誓焰战斗": {
+        "post_delay": 0,
+        "pre_delay": 0,
         "action": "Custom",
         "custom_action": "Pyroath"
     },
     "终焉战斗": {
+        "post_delay": 0,
+        "pre_delay": 0,
         "action": "Custom",
         "custom_action": "Oblivion"
     },
-    "识别信号球_黄": {
-        "recognition": "ColorMatch",
-        "roi": [
-            416,
-            457,
-            848,
-            98
-        ],
-        "method": 40,
-        "upper": [
-            30,
-            200,
-            200
-        ],
-        "lower": [
-            5,
-            125,
-            125
-        ],
-        "connected": true,
-        "count": 50
+    "启明战斗": {
+        "post_delay": 0,
+        "pre_delay": 0,
+        "action": "Custom",
+        "custom_action": "Shukra"
     },
-    "识别信号球_红": {
-        "recognition": "ColorMatch",
+    "识别信号球": {
+        "green_mask": true,
+        "recognition": "TemplateMatch",
         "roi": [
             416,
             457,
             848,
             98
-        ],
-        "upper": [
-            190,
-            75,
-            75
-        ],
-        "lower": [
-            80,
-            40,
-            40
-        ],
-        "connected": true
+        ]
     }
 }
