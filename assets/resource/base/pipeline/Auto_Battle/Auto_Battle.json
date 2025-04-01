@@ -69,15 +69,5 @@
         "pre_delay": 0,
         "action": "Custom",
         "custom_action": "Shukra"
-    },
-    "识别信号球": {
-        "green_mask": true,
-        "recognition": "TemplateMatch",
-        "roi": [
-            416,
-            457,
-            848,
-            98
-        ]
     }
 }
