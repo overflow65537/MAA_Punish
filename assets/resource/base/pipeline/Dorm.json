@@ -120,7 +120,10 @@
             148,
             56
         ],
-        "expected": "遣测商店",
+        "expected": [
+            "遣测",
+            "造测"
+        ],
         "action": "Swipe",
         "begin": [
             300,
