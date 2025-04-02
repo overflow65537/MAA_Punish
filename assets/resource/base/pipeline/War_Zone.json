@@ -121,7 +121,8 @@
             "查看地图_暗区",
             "查看地图_雷区",
             "查看地图_物理区",
-            "查看地图_冰区"
+            "查看地图_冰区",
+            "查看地图_特性区"
         ]
     },
     "点击首发": {
@@ -261,6 +262,21 @@
         "custom_action": "SelectCharacter",
         "custom_action_param": {
             "target": "ice"
+        }
+    },
+    "查看地图_特性区": {
+        "recognition": "OCR",
+        "roi": [
+            22,
+            77,
+            125,
+            45
+        ],
+        "expected": "特性",
+        "action": "Custom",
+        "custom_action": "SelectCharacter",
+        "custom_action_param": {
+            "target": "feature"
         }
     },
     "首通已完成": {
