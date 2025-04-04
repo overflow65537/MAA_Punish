@@ -296,18 +296,48 @@
         ]
     },
     "使用体力界面": {
-        "post_delay": 1500,
-        "recognition": "TemplateMatch",
+        "on_error": "使用体力界面_错误",
+        "recognition": "OCR",
         "roi": [
-            193,
-            167,
-            570,
-            71
+            847,
+            270,
+            185,
+            57
         ],
-        "template": [
-            "战斗\\取消选择体力药.png",
-            "战斗\\取消选择体力药_1.png"
+        "expected": "注射血清",
+        "next": [
+            "取消选择体力"
+        ]
+    },
+    "使用体力界面_错误": {
+        "action": "Custom",
+        "custom_action": "ScreenShot",
+        "custom_action_param": {
+            "type": "CE"
+        }
+    },
+    "取消选择体力": {
+        "post_delay": 1500,
+        "recognition": "ColorMatch",
+        "roi": [
+            244,
+            180,
+            451,
+            128
         ],
+        "upper": [
+            88,
+            88,
+            88
+        ],
+        "lower": [
+            84,
+            84,
+            84
+        ],
+        "connected": true,
+        "count": 1000,
+        "order_by": "Score",
         "action": "Click",
         "next": [
             "使用体力界面",
