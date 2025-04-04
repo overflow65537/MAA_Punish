@@ -88,7 +88,25 @@
         "expected": "",
         "action": "Click",
         "next": [
-            "使用体力刷碎片"
+            "使用体力刷碎片",
+            "未解锁自动作战"
+        ]
+    },
+    "未解锁自动作战": {
+        "focus": true,
+        "focus_succeeded": "未解锁自动作战",
+        "focus_succeeded_color": "Tomato",
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            939,
+            621,
+            123,
+            69
+        ],
+        "expected": "^作战$",
+        "next": [
+            "返回主菜单"
         ]
     },
     "使用体力刷碎片": {
