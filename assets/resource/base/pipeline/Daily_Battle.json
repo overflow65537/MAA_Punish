@@ -200,6 +200,21 @@
         "post_delay": 4000,
         "recognition": "OCR",
         "roi": [
+            748,
+            640,
+            56,
+            33
+        ],
+        "expected": "最大",
+        "action": "Click",
+        "next": [
+            "点击自动作战"
+        ]
+    },
+    "点击自动作战": {
+        "post_delay": 4000,
+        "recognition": "OCR",
+        "roi": [
             747,
             456,
             444,
@@ -306,7 +321,23 @@
         ],
         "expected": "注射血清",
         "next": [
-            "取消选择体力"
+            "选择临期体力",
+            "没有临期体力"
+        ]
+    },
+    "没有临期体力": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            601,
+            533,
+            266,
+            148
+        ],
+        "expected": "取消",
+        "action": "Click",
+        "next": [
+            "返回主菜单"
         ]
     },
     "使用体力界面_错误": {
@@ -316,50 +347,20 @@
             "type": "CE"
         }
     },
-    "取消选择体力": {
-        "post_delay": 1500,
-        "recognition": "ColorMatch",
-        "roi": [
-            244,
-            180,
-            451,
-            128
-        ],
-        "upper": [
-            88,
-            88,
-            88
-        ],
-        "lower": [
-            84,
-            84,
-            84
-        ],
-        "connected": true,
-        "count": 1000,
-        "order_by": "Score",
-        "action": "Click",
-        "next": [
-            "使用体力界面",
-            "选择临期体力",
-            "退出血清界面_无临期体力"
-        ]
-    },
     "选择临期体力": {
         "recognition": "OCR",
         "roi": [
-            235,
-            175,
-            485,
-            379
+            252,
+            179,
+            360,
+            37
         ],
         "expected": [
             "小时",
-            "1天",
-            "2天",
-            "3天"
+            "^1天$",
+            "^2天$",
+            "^3天$"
         ],
-        "action": "Click",
         "next": [
             "确认使用"
         ]
