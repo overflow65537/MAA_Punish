@@ -112,7 +112,21 @@
             31
         ],
         "template": "战斗/吃体力药_993_21_30_30__943_0_130_130.png",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "使用体力界面_reco",
+            "吃体力药"
+        ]
+    },
+    "使用体力界面_reco": {
+        "recognition": "OCR",
+        "roi": [
+            847,
+            270,
+            185,
+            57
+        ],
+        "expected": "注射血清"
     },
     "打开战斗": {
         "post_delay": 1500,
@@ -197,6 +211,7 @@
         ]
     },
     "开始自动战斗": {
+        "on_error": "拟战场域",
         "post_delay": 4000,
         "recognition": "OCR",
         "roi": [
