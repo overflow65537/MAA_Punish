@@ -1,0 +1,315 @@
+{
+    "宿舍任务_商店": {
+        "next": [
+            "购买_宿舍",
+            "翻到底了_宿舍",
+            "购买_遣测",
+            "翻到底了_遣测"
+        ],
+        "interrupt": [
+            "关闭奖励",
+            "遣测商店内部",
+            "在宿舍币商店中",
+            "选择宿舍币商店",
+            "打开遣测商店",
+            "打开宿舍商店",
+            "打开宿舍"
+        ]
+    },
+    "打开遣测商店": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            8,
+            442,
+            238,
+            70
+        ],
+        "template": "宿舍委托\\打开遣测商店.png",
+        "action": "Click"
+    },
+    "购买碎片失败_宿舍": {
+        "post_wait_freezes": 500,
+        "recognition": "OCR",
+        "roi": [
+            521,
+            338,
+            240,
+            37
+        ],
+        "expected": [
+            "超过商店可购买的数量",
+            "购买所需材料不足"
+        ],
+        "replace": [
+            [
+                "招",
+                "超"
+            ],
+            [
+                "绍",
+                "超"
+            ],
+            [
+                "可可",
+                "可"
+            ]
+        ],
+        "action": "Click",
+        "target": [
+            646,
+            115,
+            0,
+            0
+        ],
+        "next": [
+            "关闭界面_宿舍"
+        ]
+    },
+    "关闭界面_宿舍": {
+        "post_wait_freezes": 500,
+        "recognition": "TemplateMatch",
+        "roi": [
+            1195,
+            30,
+            61,
+            61
+        ],
+        "template": "购买碎片/关闭_1195_30_61_61__1119_0_161_161.png",
+        "action": "Click",
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "遣测商店内部": {
+        "post_delay": 1000,
+        "recognition": "TemplateMatch",
+        "roi": [
+            10,
+            447,
+            238,
+            64
+        ],
+        "template": "宿舍委托\\遣测商店内部.png",
+        "next": [
+            "推荐物品_遣测",
+            "滑动_宿舍"
+        ]
+    },
+    "在宿舍币商店中": {
+        "post_delay": 1000,
+        "recognition": "TemplateMatch",
+        "roi": [
+            11,
+            193,
+            235,
+            65
+        ],
+        "template": "宿舍委托\\宿舍商店内部.png",
+        "next": [
+            "推荐物品",
+            "滑动_宿舍"
+        ]
+    },
+    "翻到底了_遣测": {
+        "recognition": "OCR",
+        "roi": [
+            1023,
+            217,
+            246,
+            175
+        ],
+        "expected": [
+            "武器涂装设计图",
+            "SOLDOUT",
+            "售罄",
+            "售馨"
+        ],
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "翻到底了_宿舍": {
+        "recognition": "OCR",
+        "roi": [
+            1048,
+            347,
+            231,
+            30
+        ],
+        "expected": [
+            "普通礼物盒"
+        ],
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "滑动_宿舍": {
+        "action": "Swipe",
+        "begin": [
+            1053,
+            469,
+            1,
+            1
+        ],
+        "end": [
+            895,
+            473,
+            1,
+            1
+        ]
+    },
+    "购买_宿舍": {
+        "recognition": "OCR",
+        "roi": [
+            601,
+            646,
+            70,
+            41
+        ],
+        "expected": [
+            "最大"
+        ],
+        "action": "Click",
+        "next": [
+            "点击购买_宿舍"
+        ]
+    },
+    "点击购买_宿舍": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            731,
+            646,
+            71,
+            45
+        ],
+        "expected": "购买",
+        "action": "Click",
+        "next": [
+            "购买碎片失败_宿舍",
+            "购买成功"
+        ]
+    },
+    "购买成功": {
+        "recognition": "OCR",
+        "roi": [
+            521,
+            338,
+            240,
+            37
+        ],
+        "expected": "购买成功",
+        "action": "Click",
+        "target": [
+            600,
+            20,
+            0,
+            0
+        ],
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "购买_遣测": {
+        "recognition": "OCR",
+        "roi": [
+            601,
+            646,
+            70,
+            41
+        ],
+        "expected": [
+            "最大"
+        ],
+        "action": "Click",
+        "next": [
+            "点击购买_遣测"
+        ]
+    },
+    "点击购买_遣测": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            730,
+            645,
+            72,
+            44
+        ],
+        "expected": [
+            "购买"
+        ],
+        "action": "Click",
+        "next": [
+            "购买碎片失败",
+            "购买成功_遣测"
+        ]
+    },
+    "购买成功_遣测": {
+        "recognition": "OCR",
+        "roi": [
+            521,
+            338,
+            240,
+            37
+        ],
+        "expected": "购买成功",
+        "action": "Click",
+        "target": [
+            1,
+            1,
+            0,
+            0
+        ],
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "打开宿舍商店": {
+        "recognition": "OCR",
+        "roi": [
+            252,
+            648,
+            81,
+            38
+        ],
+        "expected": [
+            "商店"
+        ],
+        "action": "Click"
+    },
+    "选择宿舍币商店": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            9,
+            189,
+            243,
+            74
+        ],
+        "template": "宿舍委托\\进入宿舍币商店.png",
+        "action": "Click"
+    },
+    "推荐物品": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            268,
+            405,
+            999,
+            44
+        ],
+        "expected": "可购",
+        "action": "Click"
+    },
+    "推荐物品_遣测": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            268,
+            405,
+            999,
+            44
+        ],
+        "expected": "本月可购",
+        "action": "Click"
+    }
+}

@@ -16,5 +16,6 @@
     },
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
-    }
+    },
+    "python.analysis.autoImportCompletions": true
 }
