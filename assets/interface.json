@@ -199,10 +199,6 @@
             "daily_start": 5
         },
         {
-            "name": "宿舍委托",
-            "entry": "宿舍委托"
-        },
-        {
             "name": "宿舍任务",
             "entry": "宿舍任务",
             "periodic": 1,
