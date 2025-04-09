@@ -79,11 +79,6 @@
         "class": "CombatActions",
         "file_path": "{custom_path}\\action\\basics\\CombatActions.py"
     },
-    "SelectCharacter": {
-        "type": "action",
-        "class": "SelectCharacter",
-        "file_path": "{custom_path}\\action\\basics\\SelectCharacter.py"
-    },
     "IDFMasteryLevel": {
         "type": "recognition",
         "class": "IDFMasteryLevel",
