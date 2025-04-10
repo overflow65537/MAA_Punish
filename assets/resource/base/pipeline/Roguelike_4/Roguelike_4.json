@@ -133,9 +133,9 @@
         "on_error": [
             "寒境曙光"
         ],
-        "focus": true,
-        "focus_succeeded": "物资地块",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]物资地块[/color]"
+        },
         "recognition": "OCR",
         "roi": [
             300,
@@ -174,9 +174,9 @@
         ]
     },
     "重新进入_寒境曙光": {
-        "focus": true,
-        "focus_succeeded": "未搜索到目标,重新进入",
-        "focus_succeeded_color": "Tomato",
+        "focus": {
+            "succeeded": "[color:tomato]未搜索到目标,重新进入[/color]"
+        },
         "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
@@ -204,9 +204,9 @@
         ]
     },
     "分数计算": {
-        "focus": true,
-        "focus_succeeded": "分数确认,强制结算",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]分数确认,强制结算[/color]"
+        },
         "recognition": "Custom",
         "custom_recognition": "CalculateScore",
         "next": [
@@ -913,8 +913,9 @@
         ],
         "expected": "已达标",
         "action": "Custom",
-        "focus": true,
-        "focus_succeeded": "未搜索到目标,重置镜头",
+        "focus": {
+            "succeeded": "未搜索到目标,重置镜头"
+        },
         "custom_action": "CenterCamera"
     },
     "领取奖励界面_结束": {
@@ -1440,9 +1441,9 @@
         }
     },
     "强制失败": {
-        "focus": true,
-        "focus_succeeded": "未检测到目标,结束当前游戏",
-        "focus_succeeded_color": "Tomato",
+        "focus": {
+            "succeeded": "[color:tomato]未检测到目标,结束当前游戏[/color]"
+        },
         "next": [
             "强制失败_成功"
         ],
@@ -1538,6 +1539,7 @@
             649
         ],
         "action": "Click",
+        "expected": "",
         "next": [
             "选择难度完成_寒境曙光"
         ]
@@ -1599,6 +1601,7 @@
             73
         ],
         "action": "Click",
+        "expected": "",
         "next": [
             "选择开局完成_寒境曙光",
             "选择人物_寒境曙光"

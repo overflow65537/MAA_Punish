@@ -7,9 +7,9 @@
             974,
             120
         ],
-        "focus": true,
-        "focus_succeeded": "商店",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]商店[/color]"
+        },
         "expected": [
             "士多"
         ],
@@ -74,9 +74,9 @@
             62
         ],
         "expected": "在途存货",
-        "focus": true,
-        "focus_succeeded": "在途存货",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]在途存货[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -126,9 +126,9 @@
             62
         ],
         "expected": "亚人少女",
-        "focus": true,
-        "focus_succeeded": "亚人少女",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]亚人少女[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -183,9 +183,9 @@
         "expected": [
             "贴心搭档"
         ],
-        "focus": true,
-        "focus_succeeded": "贴心搭档",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]贴心搭档[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -223,9 +223,9 @@
             62
         ],
         "expected": "逃出生天",
-        "focus": true,
-        "focus_succeeded": "逃出生天",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]逃出生天[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -278,9 +278,9 @@
             62
         ],
         "expected": "隐秘工坊",
-        "focus": true,
-        "focus_succeeded": "隐秘工坊",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]隐秘工坊[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -334,9 +334,9 @@
             62
         ],
         "expected": "洁塔薇的游戏",
-        "focus": true,
-        "focus_succeeded": "洁塔薇的游戏",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]洁塔薇的游戏[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -390,9 +390,9 @@
             53
         ],
         "expected": "禁忌验证",
-        "focus": true,
-        "focus_succeeded": "禁忌验证",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]禁忌验证[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -452,9 +452,9 @@
             "头号玩家",
             "实号玩家"
         ],
-        "focus": true,
-        "focus_succeeded": "头号玩家",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]头号玩家[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -506,9 +506,9 @@
             62
         ],
         "expected": "致命失误",
-        "focus": true,
-        "focus_succeeded": "致命失误",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]致命失误[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -561,9 +561,9 @@
             62
         ],
         "expected": "工业怪谈",
-        "focus": true,
-        "focus_succeeded": "工业怪谈",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]工业怪谈[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -617,9 +617,9 @@
             62
         ],
         "expected": "动物坟场",
-        "focus": true,
-        "focus_succeeded": "动物坟场",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]动物坟场[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -677,9 +677,9 @@
             62
         ],
         "expected": "观星真相",
-        "focus": true,
-        "focus_succeeded": "观星真相",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]观星真相[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -736,9 +736,9 @@
             56
         ],
         "expected": "机械性故障",
-        "focus": true,
-        "focus_succeeded": "机械性故障",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]机械性故障[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -802,9 +802,9 @@
             "蹒跚",
             "購"
         ],
-        "focus": true,
-        "focus_succeeded": "步履蹒跚",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]步履蹒跚[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -845,9 +845,9 @@
             62
         ],
         "expected": "举手之劳",
-        "focus": true,
-        "focus_succeeded": "举手之劳",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]举手之劳[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -921,9 +921,9 @@
             62
         ],
         "expected": "无效救援",
-        "focus": true,
-        "focus_succeeded": "无效救援",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]无效救援[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -981,9 +981,9 @@
             62
         ],
         "expected": "盛典纪行",
-        "focus": true,
-        "focus_succeeded": "盛典纪行",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]盛典纪行[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1040,9 +1040,9 @@
             62
         ],
         "expected": "火灾现场",
-        "focus": true,
-        "focus_succeeded": "火灾现场",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]火灾现场[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1098,9 +1098,9 @@
             62
         ],
         "expected": "棋盘难题",
-        "focus": true,
-        "focus_succeeded": "棋盘难题",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]棋盘难题[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1158,9 +1158,9 @@
         "expected": [
             "后游戏"
         ],
-        "focus": true,
-        "focus_succeeded": "皇后游戏",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]皇后游戏[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1225,9 +1225,9 @@
             "瑕疵造物",
             "瑕症"
         ],
-        "focus": true,
-        "focus_succeeded": "瑕疵造物",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]瑕疵造物[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1282,9 +1282,9 @@
             62
         ],
         "expected": "迷失之馆",
-        "focus": true,
-        "focus_succeeded": "迷失之馆",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]迷失之馆[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1339,9 +1339,9 @@
             62
         ],
         "expected": "圣殿战役",
-        "focus": true,
-        "focus_succeeded": "圣殿战役",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]圣殿战役[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1399,9 +1399,9 @@
             62
         ],
         "expected": "西西弗斯",
-        "focus": true,
-        "focus_succeeded": "西西弗斯",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]西西弗斯[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1455,9 +1455,9 @@
             62
         ],
         "expected": "野性之森",
-        "focus": true,
-        "focus_succeeded": "野性之森",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]野性之森[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1514,9 +1514,9 @@
             62
         ],
         "expected": "蓝色裂痕",
-        "focus": true,
-        "focus_succeeded": "蓝色裂痕",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]蓝色裂痕[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1574,9 +1574,9 @@
             62
         ],
         "expected": "铁石心肠",
-        "focus": true,
-        "focus_succeeded": "铁石心肠",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]铁石心肠[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1633,9 +1633,9 @@
             "栩栩",
             "如生"
         ],
-        "focus": true,
-        "focus_succeeded": "栩栩如生",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]栩栩如生[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1692,9 +1692,9 @@
             62
         ],
         "expected": "荒废古卷",
-        "focus": true,
-        "focus_succeeded": "荒废古卷",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]荒废古卷[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1762,9 +1762,9 @@
             62
         ],
         "expected": "洁塔薇的食材",
-        "focus": true,
-        "focus_succeeded": "洁塔薇的食材",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]洁塔薇的食材[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1820,9 +1820,9 @@
             62
         ],
         "expected": "荒废古堡",
-        "focus": true,
-        "focus_succeeded": "荒废古堡",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]荒废古堡[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1877,9 +1877,9 @@
             62
         ],
         "expected": "天台扭蛋机",
-        "focus": true,
-        "focus_succeeded": "天台扭蛋机",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]天台扭蛋机[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1933,9 +1933,9 @@
             62
         ],
         "expected": "莫比乌斯",
-        "focus": true,
-        "focus_succeeded": "莫比乌斯",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]莫比乌斯[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -1994,9 +1994,9 @@
             "丽品工匠",
             "鹰品工匠"
         ],
-        "focus": true,
-        "focus_succeeded": "赝品工匠",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]赝品工匠[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2050,9 +2050,9 @@
             62
         ],
         "expected": "继承之物",
-        "focus": true,
-        "focus_succeeded": "继承之物",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]继承之物[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2107,9 +2107,9 @@
             56
         ],
         "expected": "意外的请求",
-        "focus": true,
-        "focus_succeeded": "异界通讯II",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]异界通讯II[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2165,9 +2165,9 @@
             62
         ],
         "expected": "禁忌实验",
-        "focus": true,
-        "focus_succeeded": "禁忌实验",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]禁忌实验[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2223,9 +2223,9 @@
             62
         ],
         "expected": "失败造物",
-        "focus": true,
-        "focus_succeeded": "失败造物",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]失败造物[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2293,9 +2293,9 @@
             62
         ],
         "expected": "旧日情谊",
-        "focus": true,
-        "focus_succeeded": "旧日情谊",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]旧日情谊[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2349,9 +2349,9 @@
             62
         ],
         "expected": "贫困收藏家",
-        "focus": true,
-        "focus_succeeded": "贫困收藏家",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]贫困收藏家[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2404,9 +2404,9 @@
             62
         ],
         "expected": "英雄真相",
-        "focus": true,
-        "focus_succeeded": "英雄真相",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]英雄真相[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2461,9 +2461,9 @@
             62
         ],
         "expected": "记忆真相",
-        "focus": true,
-        "focus_succeeded": "记忆真相",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]记忆真相[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2519,9 +2519,9 @@
             62
         ],
         "expected": "天选者的故事",
-        "focus": true,
-        "focus_succeeded": "天选者的故事",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]天选者的故事[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2591,9 +2591,9 @@
             62
         ],
         "expected": "树神之女",
-        "focus": true,
-        "focus_succeeded": "树神之女",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]树神之女[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2646,9 +2646,9 @@
             62
         ],
         "expected": "物归新主",
-        "focus": true,
-        "focus_succeeded": "物归新主",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]物归新主[/color]"
+        },
         "next": [
             "物归新主完成_矩阵循生"
         ],
@@ -2703,9 +2703,9 @@
             62
         ],
         "expected": "无尽长廊",
-        "focus": true,
-        "focus_succeeded": "无尽长廊",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]无尽长廊[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2762,9 +2762,9 @@
             62
         ],
         "expected": "万两黄金",
-        "focus": true,
-        "focus_succeeded": "万两黄金",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]万两黄金[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2818,9 +2818,9 @@
             62
         ],
         "expected": "工业幽灵",
-        "focus": true,
-        "focus_succeeded": "工业幽灵",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]工业幽灵[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2875,9 +2875,9 @@
             62
         ],
         "expected": "自投罗网",
-        "focus": true,
-        "focus_succeeded": "自投罗网",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]自投罗网[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2931,9 +2931,9 @@
             62
         ],
         "expected": "武器技师",
-        "focus": true,
-        "focus_succeeded": "武器技师",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]武器技师[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -2986,9 +2986,9 @@
             62
         ],
         "expected": "致命隐患",
-        "focus": true,
-        "focus_succeeded": "致命隐患",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]致命隐患[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -3044,9 +3044,9 @@
             62
         ],
         "expected": "物归新主",
-        "focus": true,
-        "focus_succeeded": "物归新主",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]物归新主[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -3101,9 +3101,9 @@
             62
         ],
         "expected": "",
-        "focus": true,
-        "focus_succeeded": "遇到未知事件，请发送maa.log至开发者。",
-        "focus_succeeded_color": "Tomato",
+        "focus": {
+            "succeeded": "[color:Tomato]遇到未知事件，请发送maa.log至开发者。[/color]"
+        },
         "action": "Custom",
         "custom_action": "ScreenShot",
         "custom_action_param": {

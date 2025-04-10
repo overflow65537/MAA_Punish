@@ -1,8 +1,8 @@
 {
     "矩阵循生": {
-        "focus": true,
-        "focus_succeeded": "开始演算",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]开始演算[/color]"
+        },
         "next": [
             "肉鸽内部",
             "迭变投影_矩阵循生"
@@ -731,9 +731,9 @@
         "action": "Click"
     },
     "战斗事件_矩阵循生": {
-        "focus": true,
-        "focus_succeeded": "开始战斗",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]开始战斗[/color]"
+        },
         "recognition": "TemplateMatch",
         "roi": [
             278,
@@ -778,9 +778,9 @@
         "action": "Click"
     },
     "战斗失败": {
-        "focus": true,
-        "focus_succeeded": "寄!",
-        "focus_succeeded_color": "Tomato",
+        "focus": {
+            "succeeded": "[color:Tomato]寄![/color]"
+        },
         "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
@@ -1220,17 +1220,9 @@
         "expected": "链路崩溃"
     },
     "强制选人": {
-        "focus": true,
-        "focus_succeeded": [
-            "未检查到目标人物,即将随机选择",
-            "当你看到这行提示的时候",
-            "证明你需要解锁4点初始招募能量"
-        ],
-        "focus_succeeded_color": [
-            "Tomato",
-            "Tomato",
-            "Tomato"
-        ],
+        "focus": {
+            "succeeded": "[color:Tomato]未检查到目标人物,即将随机选择.当你看到这行提示的时候,证明是时候解锁四点初始招募能量了[/color]"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],

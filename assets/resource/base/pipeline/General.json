@@ -98,9 +98,9 @@
         "action": "Click"
     },
     "返回主菜单_err": {
-        "focus": true,
-        "focus_succeeded": "识别错误，返回主菜单",
-        "focus_succeeded_color": "Tomato",
+        "focus": {
+            "succeeded": "[color:Tomato]识别错误，返回主菜单[/color]"
+        },
         "action": "Custom",
         "custom_action": "ScreenShot",
         "custom_action_param": {
@@ -121,9 +121,9 @@
         ]
     },
     "重启游戏": {
-        "focus": true,
-        "focus_succeeded": "未知错误,重启游戏",
-        "focus_succeeded_color": "Tomato",
+        "focus": {
+            "succeeded": "[color:Tomato]未知错误,重启游戏[/color]"
+        },
         "action": "StopApp",
         "package": "com.kurogame.haru.hero",
         "next": [
