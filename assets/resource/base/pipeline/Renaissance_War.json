@@ -66,7 +66,26 @@
             600,
             0,
             0
+        ],
+        "next": [
+            "滑动计数_诺曼复兴战"
         ]
+    },
+    "滑动计数_诺曼复兴战": {
+        "action": "Custom",
+        "custom_action": "Count",
+        "custom_action_param": {
+            "self": "滑动计数_诺曼复兴战",
+            "count": 0,
+            "target_count": 12,
+            "next_node": [
+                "返回主菜单",
+                "停止任务"
+            ]
+        }
+    },
+    "停止任务": {
+        "action": "StopTask"
     },
     "未解锁自动扫荡": {
         "recognition": "OCR",
