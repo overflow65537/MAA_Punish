@@ -2,7 +2,7 @@
     "name": "MPA",
     "mirrorchyan_rid": "MAA_Punish",
     "url": "https://github.com/overflow65537/MAA_Punish",
-    "MFW_min_req_version": "1.5.29",
+    "MFW_min_req_version": "1.6.0",
     "controller": [
         {
             "name": "安卓端",
