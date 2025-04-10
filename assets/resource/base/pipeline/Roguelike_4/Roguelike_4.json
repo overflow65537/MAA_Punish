@@ -27,13 +27,48 @@
         ],
         "expected": "终止",
         "next": [
-            "完成所有任务"
+            "完成所有任务_重开"
         ],
         "interrupt": [
             "下一步_寒境曙光",
             "点击空白处关闭",
             "确定终止_寒境曙光",
             "终止_寒境曙光"
+        ]
+    },
+    "完成所有任务_重开": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1009,
+            619,
+            194,
+            78
+        ],
+        "expected": "退出",
+        "action": "Click",
+        "next": [
+            "寒境曙光主界面_重开"
+        ],
+        "interrupt": [
+            "关闭升级提示",
+            "完成所有任务"
+        ]
+    },
+    "寒境曙光主界面_重开": {
+        "post_delay": 1000,
+        "recognition": "TemplateMatch",
+        "roi": [
+            994,
+            551,
+            261,
+            166
+        ],
+        "template": "寒境曙光\\启程.png",
+        "action": "Custom",
+        "custom_action": "ResetIdentify",
+        "next": [
+            "寒境曙光"
         ]
     },
     "打开寒境曙光": {
@@ -864,10 +899,10 @@
         "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
-            769,
-            641,
-            141,
-            44
+            742,
+            435,
+            499,
+            268
         ],
         "expected": "区域未连通",
         "action": "Click",
@@ -1155,10 +1190,10 @@
         "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
-            766,
-            640,
-            125,
-            47
+            734,
+            487,
+            279,
+            157
         ],
         "expected": "代理作战",
         "action": "Click"
@@ -1539,7 +1574,7 @@
             649
         ],
         "action": "Click",
-        "expected": "",
+        "expected": "常温",
         "next": [
             "选择难度完成_寒境曙光"
         ]
@@ -1601,7 +1636,7 @@
             73
         ],
         "action": "Click",
-        "expected": "",
+        "expected": "军事",
         "next": [
             "选择开局完成_寒境曙光",
             "选择人物_寒境曙光"
