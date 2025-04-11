@@ -212,7 +212,7 @@
         "focus": {
             "succeeded": "[color:tomato]未搜索到目标,重新进入[/color]"
         },
-        "post_delay": 1000,
+        "post_delay": 2000,
         "recognition": "OCR",
         "roi": [
             1169,
@@ -231,6 +231,7 @@
         ]
     },
     "暂离_寒境曙光": {
+        "post_delay": 1000,
         "action": "Click",
         "target": "重新进入_寒境曙光",
         "next": [
@@ -1449,7 +1450,7 @@
         "action": "Click"
     },
     "启程_寒境曙光": {
-        "post_delay": 2000,
+        "post_delay": 2500,
         "recognition": "TemplateMatch",
         "roi": [
             994,
