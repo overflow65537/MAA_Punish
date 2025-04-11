@@ -517,6 +517,7 @@
         ]
     },
     "对话事件_矩阵循生": {
+        "green_mask": true,
         "recognition": "TemplateMatch",
         "roi": [
             198,

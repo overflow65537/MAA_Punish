@@ -1,5 +1,8 @@
 {
     "厄愿潮声": {
+        "focus": {
+            "succeeded": "[color:ForestGreen]开始冒险[/color]"
+        },
         "next": [
             "肉鸽内部_厄愿潮声"
         ],
@@ -33,10 +36,89 @@
             "肉鸽失败_厄愿潮声"
         ],
         "interrupt": [
-            "战斗地块_厄愿潮声"
+            "对话事件_厄愿潮声",
+            "商店事件_厄愿潮声",
+            "战斗事件_厄愿潮声"
         ]
     },
-    "战斗地块_厄愿潮声": {
+    "商店事件_厄愿潮声": {
+        "recognition": "OCR",
+        "roi": [
+            1022,
+            600,
+            225,
+            83
+        ],
+        "expected": [
+            "鲨鲨",
+            "特卖"
+        ],
+        "next": [
+            "商店确认_厄愿潮声"
+        ]
+    },
+    "商店确认_厄愿潮声": {
+        "recognition": "OCR",
+        "roi": [
+            230,
+            496,
+            912,
+            59
+        ],
+        "expected": [
+            "确认",
+            "选择"
+        ],
+        "action": "Click",
+        "next": [
+            "商店_厄愿潮声"
+        ]
+    },
+    "对话事件_厄愿潮声": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            228,
+            120,
+            963,
+            131
+        ],
+        "template": [
+            "矩阵循生\\对话事件.png",
+            "矩阵循生\\对话事件1.png"
+        ],
+        "green_mask": true,
+        "action": "Click",
+        "next": [
+            "事件确定_厄愿潮声"
+        ]
+    },
+    "事件确定_厄愿潮声": {
+        "recognition": "OCR",
+        "roi": [
+            230,
+            496,
+            912,
+            59
+        ],
+        "expected": [
+            "确认",
+            "选择"
+        ],
+        "action": "Click",
+        "next": [
+            "布道者_厄愿潮声",
+            "悠久之歌_厄愿潮声",
+            "鲨鲨置物箱_厄愿潮声",
+            "名为知识的诅咒_厄愿潮声",
+            "集市_厄愿潮声",
+            "废弃庭院_厄愿潮声",
+            "恶魔配方_厄愿潮声"
+        ]
+    },
+    "战斗事件_厄愿潮声": {
+        "focus": {
+            "succeeded": "[color:ForestGreen]战斗事件[/color]"
+        },
         "recognition": "TemplateMatch",
         "roi": [
             228,
@@ -46,7 +128,8 @@
         ],
         "order_by": "Score",
         "template": [
-            "矩阵循生\\战斗地块.png"
+            "矩阵循生\\战斗地块.png",
+            "厄愿潮声\\困难战斗.png"
         ],
         "green_mask": true,
         "action": "Click",
@@ -58,15 +141,311 @@
             "识别人物",
             "重启_寒境曙光",
             "战斗中",
-            "出击_矩阵循生",
             "跳过战斗对话",
-            "进入战斗_矩阵循生",
+            "未选人_寒境曙光",
+            "已选人_寒境曙光",
+            "进入战斗_厄愿潮声",
             "载入中"
         ]
     },
-    "战斗完成_厄愿潮声": {},
-    "战斗失败_厄愿潮声": {},
-    "肉鸽失败_厄愿潮声": {},
+    "进入战斗_厄愿潮声": {
+        "recognition": "OCR",
+        "roi": [
+            230,
+            496,
+            912,
+            59
+        ],
+        "expected": [
+            "确认",
+            "选择"
+        ],
+        "action": "Click"
+    },
+    "战斗完成_厄愿潮声": {
+        "recognition": "OCR",
+        "roi": [
+            544,
+            57,
+            197,
+            43
+        ],
+        "expected": "领取战斗奖励",
+        "next": [
+            "已领取所有奖励_厄愿潮声"
+        ],
+        "interrupt": [
+            "领取_厄愿潮声",
+            "领取人物_厄愿潮声",
+            "领取藏品_厄愿潮声",
+            "关闭奖励_厄愿潮声",
+            "点击藏品_厄愿潮声",
+            "取消_厄愿潮声"
+        ]
+    },
+    "取消_厄愿潮声": {
+        "recognition": "OCR",
+        "roi": [
+            659,
+            515,
+            77,
+            36
+        ],
+        "expected": "取消",
+        "action": "Click"
+    },
+    "领取藏品_厄愿潮声": {
+        "recognition": "OCR",
+        "roi": [
+            231,
+            507,
+            850,
+            56
+        ],
+        "expected": "选择",
+        "action": "Click"
+    },
+    "点击藏品_厄愿潮声": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            254,
+            356,
+            772,
+            35
+        ],
+        "expected": "",
+        "action": "Click"
+    },
+    "已领取所有奖励_厄愿潮声": {
+        "recognition": "OCR",
+        "roi": [
+            518,
+            334,
+            251,
+            52
+        ],
+        "expected": "已领取所有奖励",
+        "next": [
+            "下一步_厄愿潮声"
+        ]
+    },
+    "关闭奖励_厄愿潮声": {
+        "recognition": "OCR",
+        "roi": [
+            580,
+            248,
+            117,
+            35
+        ],
+        "expected": "奖励",
+        "action": "Click",
+        "target": [
+            600,
+            80,
+            0,
+            0
+        ]
+    },
+    "领取人物_厄愿潮声": {
+        "only_rec": true,
+        "recognition": "OCR",
+        "roi": [
+            611,
+            52,
+            57,
+            34
+        ],
+        "expected": "邀约",
+        "next": [
+            "确认招募"
+        ],
+        "interrupt": [
+            "选择羁绊_紫色",
+            "选择羁绊_蓝色",
+            "没有羁绊"
+        ]
+    },
+    "确认招募": {
+        "recognition": "OCR",
+        "roi": [
+            605,
+            590,
+            75,
+            41
+        ],
+        "expected": [
+            "招募",
+            "升星"
+        ],
+        "action": "Click",
+        "next": [
+            "确认招募完毕"
+        ]
+    },
+    "确认招募完毕": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1107,
+            624,
+            87,
+            48
+        ],
+        "expected": "下一步",
+        "action": "Click",
+        "next": [
+            "确认招募完毕",
+            "空任务"
+        ]
+    },
+    "选择羁绊_紫色": {
+        "recognition": "ColorMatch",
+        "roi": [
+            410,
+            195,
+            715,
+            150
+        ],
+        "upper": [
+            154,
+            82,
+            148
+        ],
+        "lower": [
+            75,
+            49,
+            79
+        ],
+        "connected": true,
+        "count": 100,
+        "order_by": "Score",
+        "next": [
+            "点击羁绊角色_紫色"
+        ]
+    },
+    "点击羁绊角色_紫色": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": "选择羁绊_紫色",
+        "roi_offset": [
+            -145,
+            105,
+            30,
+            120
+        ],
+        "expected": [
+            "招募",
+            "升星"
+        ],
+        "action": "Click"
+    },
+    "选择羁绊_蓝色": {
+        "recognition": "ColorMatch",
+        "roi": [
+            410,
+            195,
+            715,
+            150
+        ],
+        "upper": [
+            60,
+            97,
+            152
+        ],
+        "lower": [
+            43,
+            71,
+            113
+        ],
+        "connected": true,
+        "order_by": "Score",
+        "count": 100,
+        "next": [
+            "点击羁绊角色_蓝色"
+        ]
+    },
+    "点击羁绊角色_蓝色": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": "选择羁绊_蓝色",
+        "roi_offset": [
+            -145,
+            105,
+            30,
+            120
+        ],
+        "expected": [
+            "招募",
+            "升星"
+        ],
+        "action": "Click"
+    },
+    "没有羁绊": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            282,
+            363,
+            725,
+            41
+        ],
+        "expected": [
+            "招募",
+            "升星"
+        ],
+        "action": "Click"
+    },
+    "领取_厄愿潮声": {
+        "recognition": "OCR",
+        "roi": [
+            61,
+            499,
+            1156,
+            71
+        ],
+        "expected": "领取",
+        "action": "Click"
+    },
+    "战斗失败_厄愿潮声": {
+        "recognition": "OCR",
+        "roi": [
+            555,
+            342,
+            163,
+            33
+        ],
+        "expected": "道具数量不足",
+        "next": [
+            "放弃战斗_厄愿潮声"
+        ]
+    },
+    "放弃战斗_厄愿潮声": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            321,
+            493,
+            254,
+            102
+        ],
+        "expected": "放弃",
+        "action": "Click"
+    },
+    "肉鸽失败_厄愿潮声": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            228,
+            120,
+            963,
+            131
+        ],
+        "template": "厄愿潮声\\结束.png",
+        "action": "Click",
+        "next": [
+            "厄愿潮声"
+        ]
+    },
     "邀约选择_厄愿潮声": {
         "recognition": "OCR",
         "roi": [
@@ -185,7 +564,10 @@
             73,
             41
         ],
-        "expected": "招募",
+        "expected": [
+            "招募",
+            "升星"
+        ],
         "action": "Click"
     },
     "调查团组建_厄愿潮声": {

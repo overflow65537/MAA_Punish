@@ -1,0 +1,481 @@
+{
+    "下定决心_厄愿潮声": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1084,
+            635,
+            112,
+            36
+        ],
+        "expected": "下定决心",
+        "action": "Click"
+    },
+    "事件完成_厄愿潮声": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1022,
+            600,
+            225,
+            83
+        ],
+        "expected": "第[一二三四五六七八九十百千]+章",
+        "next": [
+            "关闭事件奖励_厄愿潮声",
+            "事件完成_二次确认_厄愿潮声"
+        ]
+    },
+    "关闭事件奖励_厄愿潮声": {
+        "recognition": "OCR",
+        "roi": [
+            580,
+            248,
+            117,
+            35
+        ],
+        "expected": "奖励",
+        "action": "Click",
+        "target": [
+            600,
+            80,
+            0,
+            0
+        ],
+        "next": [
+            "事件完成_厄愿潮声"
+        ]
+    },
+    "事件完成_二次确认_厄愿潮声": {
+        "recognition": "OCR",
+        "roi": [
+            1022,
+            600,
+            225,
+            83
+        ],
+        "expected": "第[一二三四五六七八九十百千]+章",
+        "next": [
+            "关闭事件奖励_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "商店_厄愿潮声": {
+        "focus": {
+            "succeeded": "[color:ForestGreen]鲨鲨特卖[/color]"
+        },
+        "recognition": "OCR",
+        "roi": [
+            666,
+            101,
+            323,
+            54
+        ],
+        "expected": [
+            "鲨鲨特卖"
+        ],
+        "next": [
+            "事件完成_厄愿潮声"
+        ],
+        "interrupt": [
+            "结束交易_厄愿潮声",
+            "确定_厄愿潮声",
+            "商店_对话2",
+            "点击继续"
+        ]
+    },
+    "商店_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            621,
+            213,
+            66
+        ],
+        "expected": [
+            "继续旅途"
+        ],
+        "action": "Click"
+    },
+    "结束交易_厄愿潮声": {
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            621,
+            213,
+            66
+        ],
+        "expected": "结束交易",
+        "action": "Click"
+    },
+    "布道者_厄愿潮声": {
+        "focus": {
+            "succeeded": "[color:ForestGreen]布道者[/color]"
+        },
+        "recognition": "OCR",
+        "roi": [
+            666,
+            101,
+            323,
+            54
+        ],
+        "expected": [
+            "布道者"
+        ],
+        "next": [
+            "事件完成_厄愿潮声"
+        ],
+        "interrupt": [
+            "领取人物_厄愿潮声",
+            "布道者_对话1",
+            "布道者_对话2"
+        ]
+    },
+    "布道者_对话1": {
+        "recognition": "OCR",
+        "roi": [
+            739,
+            335,
+            353,
+            280
+        ],
+        "expected": [
+            "选择秘血"
+        ],
+        "action": "Click",
+        "next": [
+            "下定决心_厄愿潮声"
+        ]
+    },
+    "布道者_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            621,
+            213,
+            66
+        ],
+        "expected": [
+            "收下物资"
+        ],
+        "action": "Click"
+    },
+    "悠久之歌_厄愿潮声": {
+        "focus": {
+            "succeeded": "[color:ForestGreen]悠久之歌[/color]"
+        },
+        "recognition": "OCR",
+        "roi": [
+            666,
+            101,
+            323,
+            54
+        ],
+        "expected": [
+            "悠久之歌"
+        ],
+        "next": [
+            "事件完成_厄愿潮声"
+        ],
+        "interrupt": [
+            "领取人物_厄愿潮声",
+            "悠久之歌_对话1",
+            "悠久之歌_对话2"
+        ]
+    },
+    "悠久之歌_对话1": {
+        "recognition": "OCR",
+        "roi": [
+            739,
+            335,
+            353,
+            280
+        ],
+        "expected": [
+            "不妨听听"
+        ],
+        "action": "Click",
+        "next": [
+            "下定决心_厄愿潮声"
+        ]
+    },
+    "悠久之歌_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            621,
+            213,
+            66
+        ],
+        "expected": [
+            "招募同伴"
+        ],
+        "action": "Click"
+    },
+    "鲨鲨置物箱_厄愿潮声": {
+        "focus": {
+            "succeeded": "[color:ForestGreen]鲨鲨置物箱[/color]"
+        },
+        "recognition": "OCR",
+        "roi": [
+            666,
+            101,
+            323,
+            54
+        ],
+        "expected": [
+            "鲨鲨置物箱"
+        ],
+        "next": [
+            "事件完成_厄愿潮声"
+        ],
+        "interrupt": [
+            "鲨鲨置物箱_对话1",
+            "鲨鲨置物箱_对话2"
+        ]
+    },
+    "鲨鲨置物箱_对话1": {
+        "recognition": "OCR",
+        "roi": [
+            739,
+            335,
+            353,
+            280
+        ],
+        "expected": [
+            "感觉不值"
+        ],
+        "action": "Click",
+        "next": [
+            "下定决心_厄愿潮声"
+        ]
+    },
+    "鲨鲨置物箱_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            621,
+            213,
+            66
+        ],
+        "expected": [
+            "继续旅途"
+        ],
+        "action": "Click"
+    },
+    "名为知识的诅咒_厄愿潮声": {
+        "focus": {
+            "succeeded": "[color:ForestGreen]名为知识的诅咒[/color]"
+        },
+        "recognition": "OCR",
+        "roi": [
+            666,
+            101,
+            323,
+            54
+        ],
+        "expected": [
+            "名为",
+            "知识",
+            "的诅咒"
+        ],
+        "next": [
+            "事件完成_厄愿潮声"
+        ],
+        "interrupt": [
+            "名为知识的诅咒_对话1",
+            "名为知识的诅咒_对话2"
+        ]
+    },
+    "名为知识的诅咒_对话1": {
+        "recognition": "OCR",
+        "roi": [
+            739,
+            335,
+            353,
+            280
+        ],
+        "expected": [
+            "无视并离开"
+        ],
+        "action": "Click",
+        "next": [
+            "下定决心_厄愿潮声"
+        ]
+    },
+    "名为知识的诅咒_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            621,
+            213,
+            66
+        ],
+        "expected": [
+            "继续旅途"
+        ],
+        "action": "Click"
+    },
+    "集市_厄愿潮声": {
+        "focus": {
+            "succeeded": "[color:ForestGreen]集市[/color]"
+        },
+        "recognition": "OCR",
+        "roi": [
+            666,
+            101,
+            323,
+            54
+        ],
+        "expected": [
+            "集市"
+        ],
+        "next": [
+            "事件完成_厄愿潮声"
+        ],
+        "interrupt": [
+            "集市_对话1",
+            "集市_对话2"
+        ]
+    },
+    "集市_对话1": {
+        "recognition": "OCR",
+        "roi": [
+            739,
+            335,
+            353,
+            280
+        ],
+        "expected": [
+            "离开这里",
+            "继续探索"
+        ],
+        "action": "Click",
+        "next": [
+            "下定决心_厄愿潮声"
+        ]
+    },
+    "集市_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            621,
+            213,
+            66
+        ],
+        "expected": [
+            "继续旅途"
+        ],
+        "action": "Click"
+    },
+    "废弃庭院_厄愿潮声": {
+        "focus": {
+            "succeeded": "[color:ForestGreen]废弃庭院[/color]"
+        },
+        "recognition": "OCR",
+        "roi": [
+            666,
+            101,
+            323,
+            54
+        ],
+        "expected": [
+            "废弃庭院"
+        ],
+        "next": [
+            "事件完成_厄愿潮声"
+        ],
+        "interrupt": [
+            "废弃庭院_对话1",
+            "废弃庭院_对话2"
+        ]
+    },
+    "废弃庭院_对话1": {
+        "recognition": "OCR",
+        "roi": [
+            739,
+            335,
+            353,
+            280
+        ],
+        "expected": [
+            "探索储藏室"
+        ],
+        "action": "Click",
+        "next": [
+            "下定决心_厄愿潮声"
+        ]
+    },
+    "废弃庭院_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            621,
+            213,
+            66
+        ],
+        "expected": [
+            "收入"
+        ],
+        "action": "Click"
+    },
+    "恶魔配方_厄愿潮声": {
+        "focus": {
+            "succeeded": "[color:ForestGreen]恶魔配方[/color]"
+        },
+        "recognition": "OCR",
+        "roi": [
+            666,
+            101,
+            323,
+            54
+        ],
+        "expected": [
+            "恶魔配方"
+        ],
+        "next": [
+            "事件完成_厄愿潮声"
+        ],
+        "interrupt": [
+            "恶魔配方_对话1",
+            "恶魔配方_对话2"
+        ]
+    },
+    "恶魔配方_对话1": {
+        "recognition": "OCR",
+        "roi": [
+            739,
+            335,
+            353,
+            280
+        ],
+        "expected": [
+            "带走古"
+        ],
+        "action": "Click",
+        "next": [
+            "下定决心_厄愿潮声"
+        ]
+    },
+    "恶魔配方_对话2": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1017,
+            621,
+            213,
+            66
+        ],
+        "expected": [
+            "收获满满"
+        ],
+        "action": "Click"
+    }
+}
