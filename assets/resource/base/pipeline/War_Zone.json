@@ -623,7 +623,7 @@
             91,
             54
         ],
-        "expected": "Loadin"
+        "expected": "adin"
     },
     "退出战斗": {
         "recognition": "OCR",
