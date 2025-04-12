@@ -1683,13 +1683,24 @@
     "检查当前分数": {
         "only_rec": true,
         "recognition": "OCR",
-        "roi": [
-            49,
-            177,
-            225,
-            44
+        "roi": "检查当前分数区域",
+        "roi_offset": [
+            0,
+            0,
+            60,
+            0
         ],
         "expected": "^\\d*$"
+    },
+    "检查当前分数区域": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            38,
+            173,
+            244,
+            53
+        ],
+        "template": "寒境曙光\\分数区域.png"
     },
     "检查目标分数": {
         "only_rec": true,
