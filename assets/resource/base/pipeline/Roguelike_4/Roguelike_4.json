@@ -1705,13 +1705,24 @@
     "检查目标分数": {
         "only_rec": true,
         "recognition": "OCR",
-        "roi": [
-            99,
-            76,
-            169,
-            46
+        "roi": "检查目标分数区域",
+        "roi_offset": [
+            0,
+            0,
+            70,
+            0
         ],
         "expected": "^\\d*$"
+    },
+    "检查目标分数区域": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            80,
+            67,
+            182,
+            55
+        ],
+        "template": "寒境曙光\\目标分数区域.png"
     },
     "检查分数": {
         "recognition": "OCR",

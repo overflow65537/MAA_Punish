@@ -11,9 +11,10 @@ class IDFscore(CustomRecognition):
     ) -> CustomRecognition.AnalyzeResult:
         image = context.tasker.controller.post_screencap().wait().get()
         # 检查目标分数
+        context.run_recognition("检查目标分数区域", image)
         target_score = context.run_recognition("检查目标分数", image)
         # 检查当前分数
-        roi = context.run_recognition("检查当前分数区域", image)
+        context.run_recognition("检查当前分数区域", image)
         current_score = context.run_recognition("检查当前分数", image)
         if current_score is None or target_score is None:
             return
