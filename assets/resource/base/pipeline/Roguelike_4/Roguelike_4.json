@@ -810,11 +810,23 @@
         "recognition": "Custom",
         "custom_recognition": "IDFscore",
         "next": [
-            "港口异常点end_寒境曙光"
+            "港口异常点end_寒境曙光",
+            "错误识别指数_寒境曙光"
         ],
         "interrupt": [
             "重新进入_寒境曙光"
         ]
+    },
+    "错误识别指数_寒境曙光": {
+        "recognition": "OCR",
+        "post_delay": 1000,
+        "roi": [
+            300,
+            1,
+            978,
+            635
+        ],
+        "expected": "未达标"
     },
     "退出_寒境曙光": {
         "post_delay": 1000,
