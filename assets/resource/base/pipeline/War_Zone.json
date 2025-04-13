@@ -1,11 +1,4 @@
 {
-    "测试": {
-        "action": "Custom",
-        "custom_action": "SelectCharacter",
-        "custom_action_param": {
-            "target": "Nihil"
-        }
-    },
     "纷争战区": {
         "next": [
             "结算期",
@@ -15,6 +8,7 @@
             "打开纷争战区",
             "打开战斗",
             "打开挑战_纷争战区",
+            "退出战斗",
             "意外点击_限定活动"
         ]
     },
@@ -126,6 +120,7 @@
         ]
     },
     "点击首发": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             141,
@@ -174,6 +169,75 @@
             "自动战斗任务"
         ]
     },
+    "选择首发_战区": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            140,
+            287,
+            988,
+            224
+        ],
+        "expected": "首发",
+        "action": "Click",
+        "next": [
+            "选择自动作战人物"
+        ],
+        "interrupt": [
+            "滑动_战区选人"
+        ]
+    },
+    "滑动_战区选人": {
+        "action": "Swipe",
+        "begin": [
+            177,
+            493,
+            1,
+            1
+        ],
+        "end": [
+            179,
+            405,
+            1,
+            1
+        ],
+        "next": [
+            "停止滑动"
+        ]
+    },
+    "战区强制选人": {
+        "action": "Custom",
+        "custom_action": "PPOverride",
+        "custom_action_param": {
+            "选择自动作战人物": {
+                "threshold": [
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9
+                ],
+                "template": [
+                    "肉鸽通用\\深红囚影.png",
+                    "肉鸽通用\\深红囚影终解.png",
+                    "肉鸽通用\\誓焰.png",
+                    "肉鸽通用\\誓焰终解.png",
+                    "肉鸽通用\\誓焰花嫁_矩阵.png",
+                    "肉鸽通用\\深谣.png",
+                    "肉鸽通用\\深谣终解.png",
+                    "肉鸽通用\\终焉.png",
+                    "肉鸽通用\\终焉终解.png"
+                ]
+            }
+        },
+        "next": [
+            "选择首发_寒境曙光"
+        ]
+    },
     "查看地图_空区": {
         "recognition": "OCR",
         "roi": [
@@ -184,10 +248,22 @@
         ],
         "expected": "空域浮台",
         "action": "Custom",
-        "custom_action": "SelectCharacter",
+        "custom_action": "PPOverride",
         "custom_action_param": {
-            "target": "nihil"
-        }
+            "选择自动作战人物": {
+                "threshold": [
+                    0.9,
+                    0.9
+                ],
+                "template": [
+                    "肉鸽通用\\终焉.png",
+                    "肉鸽通用\\终焉终解.png"
+                ]
+            }
+        },
+        "next": [
+            "选择首发_战区"
+        ]
     },
     "查看地图_火区": {
         "recognition": "OCR",
@@ -199,10 +275,22 @@
         ],
         "expected": "火焰轮回",
         "action": "Custom",
-        "custom_action": "SelectCharacter",
+        "custom_action": "PPOverride",
         "custom_action_param": {
-            "target": "fire"
-        }
+            "选择自动作战人物": {
+                "threshold": [
+                    0.9,
+                    0.9
+                ],
+                "template": [
+                    "肉鸽通用\\誓焰.png",
+                    "肉鸽通用\\誓焰终解.png"
+                ]
+            }
+        },
+        "next": [
+            "选择首发_战区"
+        ]
     },
     "查看地图_暗区": {
         "recognition": "OCR",
@@ -214,10 +302,22 @@
         ],
         "expected": "暗影深林",
         "action": "Custom",
-        "custom_action": "SelectCharacter",
+        "custom_action": "PPOverride",
         "custom_action_param": {
-            "target": "dark"
-        }
+            "选择自动作战人物": {
+                "threshold": [
+                    0.9,
+                    0.9
+                ],
+                "template": [
+                    "肉鸽通用\\深谣.png",
+                    "肉鸽通用\\深谣终解.png"
+                ]
+            }
+        },
+        "next": [
+            "选择首发_战区"
+        ]
     },
     "查看地图_雷区": {
         "recognition": "OCR",
@@ -229,10 +329,22 @@
         ],
         "expected": "镭射合金",
         "action": "Custom",
-        "custom_action": "SelectCharacter",
+        "custom_action": "PPOverride",
         "custom_action_param": {
-            "target": "lightning"
-        }
+            "选择自动作战人物": {
+                "threshold": [
+                    0.9,
+                    0.9
+                ],
+                "template": [
+                    "肉鸽通用\\深红囚影.png",
+                    "肉鸽通用\\深红囚影终解.png"
+                ]
+            }
+        },
+        "next": [
+            "选择首发_战区"
+        ]
     },
     "查看地图_物理区": {
         "recognition": "OCR",
@@ -244,10 +356,22 @@
         ],
         "expected": "机械工厂",
         "action": "Custom",
-        "custom_action": "SelectCharacter",
+        "custom_action": "PPOverride",
         "custom_action_param": {
-            "target": "physical"
-        }
+            "选择自动作战人物": {
+                "threshold": [
+                    0.9,
+                    0.9
+                ],
+                "template": [
+                    "肉鸽通用\\深痕.png",
+                    "肉鸽通用\\深痕终解.png"
+                ]
+            }
+        },
+        "next": [
+            "选择首发_战区"
+        ]
     },
     "查看地图_冰区": {
         "recognition": "OCR",
@@ -259,10 +383,22 @@
         ],
         "expected": "猩红冰原",
         "action": "Custom",
-        "custom_action": "SelectCharacter",
+        "custom_action": "PPOverride",
         "custom_action_param": {
-            "target": "ice"
-        }
+            "选择自动作战人物": {
+                "threshold": [
+                    0.9,
+                    0.9
+                ],
+                "template": [
+                    "肉鸽通用\\启明.png",
+                    "肉鸽通用\\启明终解.png"
+                ]
+            }
+        },
+        "next": [
+            "选择首发_战区"
+        ]
     },
     "查看地图_特性区": {
         "recognition": "OCR",
@@ -272,12 +408,14 @@
             125,
             45
         ],
-        "expected": "特性",
-        "action": "Custom",
-        "custom_action": "SelectCharacter",
-        "custom_action_param": {
-            "target": "feature"
-        }
+        "expected": [
+            "熵钟异数",
+            "鸣音碎瓦",
+            "骤雪冰暴"
+        ],
+        "next": [
+            "选择首发_战区"
+        ]
     },
     "首通已完成": {
         "inverse": true,
@@ -485,7 +623,7 @@
             91,
             54
         ],
-        "expected": "Loadin"
+        "expected": "adin"
     },
     "退出战斗": {
         "recognition": "OCR",

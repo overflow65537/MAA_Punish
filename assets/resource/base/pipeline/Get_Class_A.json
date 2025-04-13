@@ -93,9 +93,9 @@
         ]
     },
     "未解锁自动作战": {
-        "focus": true,
-        "focus_succeeded": "未解锁自动作战",
-        "focus_succeeded_color": "Tomato",
+        "focus": {
+            "succeeded": "[color:Tomato]未解锁自动作战[/color]"
+        },
         "post_delay": 1000,
         "recognition": "OCR",
         "roi": [

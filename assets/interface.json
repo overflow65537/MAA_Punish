@@ -2,7 +2,7 @@
     "name": "MPA",
     "mirrorchyan_rid": "MAA_Punish",
     "url": "https://github.com/overflow65537/MAA_Punish",
-    "MFW_min_req_version": "1.5.4",
+    "MFW_min_req_version": "1.6.0",
     "controller": [
         {
             "name": "安卓端",
@@ -124,6 +124,16 @@
                     "next": [
                         "纷争战区"
                     ]
+                },
+                "编入队伍": {
+                    "next": [
+                        "自动战斗任务"
+                    ]
+                },
+                "退出选人": {
+                    "next": [
+                        "战区强制选人"
+                    ]
                 }
             },
             "periodic": 2,
@@ -180,14 +190,13 @@
             "daily_start": 5
         },
         {
-            "name": "购买碎片",
-            "entry": "购买碎片",
+            "name": "购买物品",
+            "entry": "购买物品",
+            "option": [
+                "选择物品"
+            ],
             "periodic": 1,
             "daily_start": 5
-        },
-        {
-            "name": "宿舍委托",
-            "entry": "宿舍委托"
         },
         {
             "name": "宿舍任务",
@@ -256,6 +265,50 @@
         }
     ],
     "option": {
+        "选择物品": {
+            "cases": [
+                {
+                    "name": "逆元碎片-普通商店",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "涂装设计草稿-宿舍商店",
+                    "pipeline_override": {
+                        "购买物品": {
+                            "next": [
+                                "购买_宿舍",
+                                "翻到底了_宿舍"
+                            ],
+                            "interrupt": [
+                                "关闭奖励",
+                                "在宿舍币商店中",
+                                "选择宿舍币商店",
+                                "打开宿舍商店",
+                                "打开宿舍"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "武器设计草稿-宿舍商店",
+                    "pipeline_override": {
+                        "购买物品": {
+                            "next": [
+                                "购买_遣测",
+                                "翻到底了_遣测"
+                            ],
+                            "interrupt": [
+                                "关闭奖励",
+                                "遣测商店内部",
+                                "打开遣测商店",
+                                "打开宿舍商店",
+                                "打开宿舍"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
         "使用人物": {
             "cases": [
                 {
@@ -527,7 +580,7 @@
                         "检查结果_体力不足": {
                             "next": []
                         },
-                        "开始自动战斗": {
+                        "点击自动作战": {
                             "post_delay": 0
                         }
                     }

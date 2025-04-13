@@ -6,7 +6,6 @@ from action.basics.IdentifyRoles import IdentifyRoles
 from action.basics.MultiplayerAutoBattle import MultiplayerAutoBattle
 from action.basics.ResetIdentify import ResetIdentify
 from action.basics.ScreenShot import ScreenShot
-from action.basics.SelectCharacter import SelectCharacter
 from action.basics.SetTower import SetTower
 from action.basics.Count import Count
 from action.basics.PPOverride import PPOverride
@@ -85,10 +84,6 @@ class Agent_ResetIdentify(ResetIdentify):
 class Agent_ScreenShot(ScreenShot):
     pass
 
-
-@AgentServer.custom_action("SelectCharacter")
-class Agent_SelectCharacter(SelectCharacter):
-    pass
 
 
 @AgentServer.custom_recognition("CalculateScore")

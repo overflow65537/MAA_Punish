@@ -1,6 +1,7 @@
 {
     "寒境曙光": {
         "next": [
+            "重开游戏_寒境曙光",
             "标准进入方式_寒境曙光"
         ],
         "interrupt": [
@@ -14,6 +15,60 @@
             "打开挑战",
             "打开战斗",
             "意外点击_限定活动"
+        ]
+    },
+    "重开游戏_寒境曙光": {
+        "recognition": "OCR",
+        "roi": [
+            896,
+            617,
+            77,
+            52
+        ],
+        "expected": "终止",
+        "next": [
+            "完成所有任务_重开"
+        ],
+        "interrupt": [
+            "下一步_寒境曙光",
+            "点击空白处关闭",
+            "确定终止_寒境曙光",
+            "终止_寒境曙光"
+        ]
+    },
+    "完成所有任务_重开": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1009,
+            619,
+            194,
+            78
+        ],
+        "expected": "退出",
+        "action": "Click",
+        "next": [
+            "寒境曙光主界面_重开"
+        ],
+        "interrupt": [
+            "关闭升级提示",
+            "完成所有任务"
+        ]
+    },
+    "寒境曙光主界面_重开": {
+        "post_delay": 1000,
+        "recognition": "TemplateMatch",
+        "roi": [
+            994,
+            551,
+            261,
+            166
+        ],
+        "template": "寒境曙光\\启程.png",
+        "action": "Custom",
+        "custom_action": "ResetIdentify",
+        "next": [
+            "寒境曙光"
         ]
     },
     "打开寒境曙光": {
@@ -113,9 +168,9 @@
         "on_error": [
             "寒境曙光"
         ],
-        "focus": true,
-        "focus_succeeded": "物资地块",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]物资地块[/color]"
+        },
         "recognition": "OCR",
         "roi": [
             300,
@@ -154,10 +209,10 @@
         ]
     },
     "重新进入_寒境曙光": {
-        "focus": true,
-        "focus_succeeded": "未搜索到目标,重新进入",
-        "focus_succeeded_color": "Tomato",
-        "post_delay": 1000,
+        "focus": {
+            "succeeded": "[color:tomato]未搜索到目标,重新进入[/color]"
+        },
+        "post_delay": 2000,
         "recognition": "OCR",
         "roi": [
             1169,
@@ -176,6 +231,7 @@
         ]
     },
     "暂离_寒境曙光": {
+        "post_delay": 1000,
         "action": "Click",
         "target": "重新进入_寒境曙光",
         "next": [
@@ -184,9 +240,9 @@
         ]
     },
     "分数计算": {
-        "focus": true,
-        "focus_succeeded": "分数确认,强制结算",
-        "focus_succeeded_color": "ForestGreen",
+        "focus": {
+            "succeeded": "[color:ForestGreen]分数确认,强制结算[/color]"
+        },
         "recognition": "Custom",
         "custom_recognition": "CalculateScore",
         "next": [
@@ -710,6 +766,7 @@
         ]
     },
     "选择首发_寒境曙光": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             599,
@@ -759,11 +816,23 @@
         "recognition": "Custom",
         "custom_recognition": "IDFscore",
         "next": [
-            "港口异常点end_寒境曙光"
+            "港口异常点end_寒境曙光",
+            "错误识别指数_寒境曙光"
         ],
         "interrupt": [
             "重新进入_寒境曙光"
         ]
+    },
+    "错误识别指数_寒境曙光": {
+        "recognition": "OCR",
+        "post_delay": 1000,
+        "roi": [
+            300,
+            1,
+            978,
+            635
+        ],
+        "expected": "未达标"
     },
     "退出_寒境曙光": {
         "post_delay": 1000,
@@ -849,10 +918,10 @@
         "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
-            769,
-            641,
-            141,
-            44
+            742,
+            435,
+            499,
+            268
         ],
         "expected": "区域未连通",
         "action": "Click",
@@ -898,8 +967,9 @@
         ],
         "expected": "已达标",
         "action": "Custom",
-        "focus": true,
-        "focus_succeeded": "未搜索到目标,重置镜头",
+        "focus": {
+            "succeeded": "未搜索到目标,重置镜头"
+        },
         "custom_action": "CenterCamera"
     },
     "领取奖励界面_结束": {
@@ -915,9 +985,9 @@
             "奖励领取完毕_结束"
         ],
         "interrupt": [
+            "领取战斗奖励",
             "选择图纸_寒境曙光",
             "局内招募_寒境曙光",
-            "领取战斗奖励",
             "关闭奖励_寒境曙光"
         ]
     },
@@ -1110,7 +1180,7 @@
     },
     "继续_寒境曙光": {
         "recognition": "TemplateMatch",
-        "threshold": 0.9,
+        "threshold": 0.85,
         "roi": [
             1025,
             617,
@@ -1139,10 +1209,10 @@
         "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
-            766,
-            640,
-            125,
-            47
+            734,
+            487,
+            279,
+            157
         ],
         "expected": "代理作战",
         "action": "Click"
@@ -1194,12 +1264,13 @@
         ]
     },
     "领取战斗奖励": {
+        "post_delay": 1500,
         "recognition": "OCR",
         "roi": [
-            97,
-            533,
-            1077,
-            46
+            83,
+            482,
+            1164,
+            134
         ],
         "expected": [
             "确",
@@ -1397,7 +1468,7 @@
         "action": "Click"
     },
     "启程_寒境曙光": {
-        "post_delay": 2000,
+        "post_delay": 2500,
         "recognition": "TemplateMatch",
         "roi": [
             994,
@@ -1424,9 +1495,9 @@
         }
     },
     "强制失败": {
-        "focus": true,
-        "focus_succeeded": "未检测到目标,结束当前游戏",
-        "focus_succeeded_color": "Tomato",
+        "focus": {
+            "succeeded": "[color:tomato]未检测到目标,结束当前游戏[/color]"
+        },
         "next": [
             "强制失败_成功"
         ],
@@ -1522,6 +1593,7 @@
             649
         ],
         "action": "Click",
+        "expected": "常温",
         "next": [
             "选择难度完成_寒境曙光"
         ]
@@ -1583,6 +1655,7 @@
             73
         ],
         "action": "Click",
+        "expected": "军事",
         "next": [
             "选择开局完成_寒境曙光",
             "选择人物_寒境曙光"
@@ -1628,24 +1701,48 @@
     "检查当前分数": {
         "only_rec": true,
         "recognition": "OCR",
-        "roi": [
-            49,
-            177,
-            225,
-            44
+        "roi": "检查当前分数区域",
+        "roi_offset": [
+            0,
+            0,
+            60,
+            0
         ],
         "expected": "^\\d*$"
+    },
+    "检查当前分数区域": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            38,
+            173,
+            244,
+            53
+        ],
+        "green_mask": true,
+        "template": "寒境曙光\\分数区域.png"
     },
     "检查目标分数": {
         "only_rec": true,
         "recognition": "OCR",
-        "roi": [
-            99,
-            76,
-            169,
-            46
+        "roi": "检查目标分数区域",
+        "roi_offset": [
+            0,
+            0,
+            70,
+            0
         ],
         "expected": "^\\d*$"
+    },
+    "检查目标分数区域": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            80,
+            67,
+            182,
+            55
+        ],
+        "green_mask": true,
+        "template": "寒境曙光\\目标分数区域.png"
     },
     "检查分数": {
         "recognition": "OCR",

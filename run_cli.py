@@ -13,7 +13,6 @@ from assets.custom.action.basics.IdentifyRoles import IdentifyRoles
 from assets.custom.action.basics.MultiplayerAutoBattle import MultiplayerAutoBattle
 from assets.custom.action.basics.ResetIdentify import ResetIdentify
 from assets.custom.action.basics.ScreenShot import ScreenShot
-from assets.custom.action.basics.SelectCharacter import SelectCharacter
 from assets.custom.action.basics.SetTower import SetTower
 from assets.custom.action.basics.Count import Count
 from assets.custom.action.basics.PPOverride import PPOverride
@@ -54,7 +53,6 @@ def main():
     Toolkit.pi_register_custom_action("SetTower", SetTower())  # 设置塔
     Toolkit.pi_register_custom_action("Count", Count())  # 计数
     Toolkit.pi_register_custom_action("PPOverride", PPOverride())  # 覆写
-    Toolkit.pi_register_custom_action("SelectCharacter", SelectCharacter())  # 选择角色
     # 注册自定义识别
     Toolkit.pi_register_custom_recognition(
         "CalculateScore", CalculateScore()
