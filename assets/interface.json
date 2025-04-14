@@ -240,7 +240,8 @@
             "name": "厄愿潮声",
             "entry": "厄愿潮声",
             "option": [
-                "选择难度"
+                "选择难度",
+                "调查团组建"
             ],
             "doc": "推荐选择浅听潮涌,因为其他难度打不过\n目前支持自动作战人物:深痕,深瑶,深红囚影"
         },
@@ -280,6 +281,58 @@
         }
     ],
     "option": {
+        "调查团组建": {
+            "cases": [
+                {
+                    "name": "探潮者",
+                    "pipeline_override": {
+                        "选择策略_厄愿潮声": {
+                            "expected": "探潮者"
+                        }
+                    }
+                },
+                {
+                    "name": "拾荒者",
+                    "pipeline_override": {
+                        "选择策略_厄愿潮声": {
+                            "expected": "拾荒者"
+                        }
+                    }
+                },
+                {
+                    "name": "旅行剧团",
+                    "pipeline_override": {
+                        "选择策略_厄愿潮声": {
+                            "expected": "旅行剧团"
+                        }
+                    }
+                },
+                {
+                    "name": "生存专家",
+                    "pipeline_override": {
+                        "选择策略_厄愿潮声": {
+                            "expected": "生存专家"
+                        }
+                    }
+                },
+                {
+                    "name": "远征队",
+                    "pipeline_override": {
+                        "选择策略_厄愿潮声": {
+                            "expected": "远征队"
+                        }
+                    }
+                },
+                {
+                    "name": "渡厄者",
+                    "pipeline_override": {
+                        "选择策略_厄愿潮声": {
+                            "expected": "渡厄者"
+                        }
+                    }
+                }
+            ]
+        },
         "选择难度": {
             "cases": [
                 {
