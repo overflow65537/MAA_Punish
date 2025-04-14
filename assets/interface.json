@@ -50,6 +50,13 @@
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/mi"
             ]
+        },
+        {
+            "name": "4399服",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/4399"
+            ]
         }
     ],
     "task": [
