@@ -100,6 +100,7 @@
         "action": "Click"
     },
     "结束交易_厄愿潮声": {
+        "post_delay": 1500,
         "recognition": "OCR",
         "roi": [
             1017,
