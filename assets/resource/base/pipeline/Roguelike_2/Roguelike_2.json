@@ -460,10 +460,36 @@
         "count": 100,
         "order_by": "Score",
         "next": [
-            "点击羁绊角色_金色1"
+            "点击招募_金色1",
+            "点击升星_金色1"
         ]
     },
-    "点击羁绊角色_金色1": {
+    "点击升星_金色1": {
+        "post_delay": 1000,
+        "recognition": "ColorMatch",
+        "roi": "选择羁绊_金色1",
+        "roi_offset": [
+            -145,
+            0,
+            60,
+            250
+        ],
+        "upper": [
+            215,
+            172,
+            106
+        ],
+        "lower": [
+            186,
+            137,
+            59
+        ],
+        "order_by": "Score",
+        "connected": true,
+        "count": 100,
+        "action": "Click"
+    },
+    "点击招募_金色1": {
         "post_delay": 1000,
         "recognition": "ColorMatch",
         "roi": "选择羁绊_金色1",
@@ -510,10 +536,36 @@
         "count": 100,
         "order_by": "Score",
         "next": [
-            "点击羁绊角色_金色2"
+            "点击招募_金色2",
+            "点击升星_金色2"
         ]
     },
-    "点击羁绊角色_金色2": {
+    "点击升星_金色2": {
+        "post_delay": 1000,
+        "recognition": "ColorMatch",
+        "roi": "选择羁绊_金色2",
+        "roi_offset": [
+            -145,
+            0,
+            60,
+            250
+        ],
+        "upper": [
+            215,
+            172,
+            106
+        ],
+        "lower": [
+            186,
+            137,
+            59
+        ],
+        "order_by": "Score",
+        "connected": true,
+        "count": 100,
+        "action": "Click"
+    },
+    "点击招募_金色2": {
         "post_delay": 1000,
         "recognition": "ColorMatch",
         "roi": "选择羁绊_金色2",
@@ -560,10 +612,36 @@
         "count": 100,
         "order_by": "Score",
         "next": [
-            "点击羁绊角色_金色3"
+            "点击招募_金色3",
+            "点击升星_金色3"
         ]
     },
-    "点击羁绊角色_金色3": {
+    "点击升星_金色3": {
+        "post_delay": 1000,
+        "recognition": "ColorMatch",
+        "roi": "选择羁绊_金色3",
+        "roi_offset": [
+            -145,
+            0,
+            60,
+            250
+        ],
+        "upper": [
+            215,
+            172,
+            106
+        ],
+        "lower": [
+            186,
+            137,
+            59
+        ],
+        "order_by": "Score",
+        "connected": true,
+        "count": 100,
+        "action": "Click"
+    },
+    "点击招募_金色3": {
         "post_delay": 1000,
         "recognition": "ColorMatch",
         "roi": "选择羁绊_金色3",
@@ -610,10 +688,36 @@
         "count": 100,
         "order_by": "Score",
         "next": [
-            "点击羁绊角色_紫色1"
+            "点击招募_紫色1",
+            "点击升星_紫色1"
         ]
     },
-    "点击羁绊角色_紫色1": {
+    "点击升星_紫色1": {
+        "post_delay": 1000,
+        "recognition": "ColorMatch",
+        "roi": "选择羁绊_紫色1",
+        "roi_offset": [
+            -145,
+            0,
+            60,
+            250
+        ],
+        "upper": [
+            215,
+            172,
+            106
+        ],
+        "lower": [
+            186,
+            137,
+            59
+        ],
+        "order_by": "Score",
+        "connected": true,
+        "count": 100,
+        "action": "Click"
+    },
+    "点击招募_紫色1": {
         "post_delay": 1000,
         "recognition": "ColorMatch",
         "roi": "选择羁绊_紫色1",
@@ -660,10 +764,36 @@
         "count": 100,
         "order_by": "Score",
         "next": [
-            "点击羁绊角色_紫色2"
+            "点击招募_紫色2",
+            "点击升星_紫色2"
         ]
     },
-    "点击羁绊角色_紫色2": {
+    "点击升星_紫色2": {
+        "post_delay": 1000,
+        "recognition": "ColorMatch",
+        "roi": "选择羁绊_紫色2",
+        "roi_offset": [
+            -145,
+            0,
+            60,
+            250
+        ],
+        "upper": [
+            215,
+            172,
+            106
+        ],
+        "lower": [
+            186,
+            137,
+            59
+        ],
+        "order_by": "Score",
+        "connected": true,
+        "count": 100,
+        "action": "Click"
+    },
+    "点击招募_紫色2": {
         "post_delay": 1000,
         "recognition": "ColorMatch",
         "roi": "选择羁绊_紫色2",
@@ -710,10 +840,36 @@
         "count": 100,
         "order_by": "Score",
         "next": [
-            "点击羁绊角色_紫色3"
+            "点击招募_紫色3",
+            "点击升星_紫色3"
         ]
     },
-    "点击羁绊角色_紫色3": {
+    "点击升星_紫色3": {
+        "post_delay": 1000,
+        "recognition": "ColorMatch",
+        "roi": "选择羁绊_紫色3",
+        "roi_offset": [
+            -145,
+            0,
+            60,
+            250
+        ],
+        "upper": [
+            215,
+            172,
+            106
+        ],
+        "lower": [
+            186,
+            137,
+            59
+        ],
+        "order_by": "Score",
+        "connected": true,
+        "count": 100,
+        "action": "Click"
+    },
+    "点击招募_紫色3": {
         "post_delay": 1000,
         "recognition": "ColorMatch",
         "roi": "选择羁绊_紫色3",
@@ -760,10 +916,36 @@
         "order_by": "Score",
         "count": 100,
         "next": [
-            "点击羁绊角色_蓝色1"
+            "点击招募_蓝色1",
+            "点击升星_蓝色1"
         ]
     },
-    "点击羁绊角色_蓝色1": {
+    "点击升星_蓝色1": {
+        "post_delay": 1000,
+        "recognition": "ColorMatch",
+        "roi": "选择羁绊_蓝色1",
+        "roi_offset": [
+            -145,
+            0,
+            60,
+            250
+        ],
+        "upper": [
+            215,
+            172,
+            106
+        ],
+        "lower": [
+            186,
+            137,
+            59
+        ],
+        "order_by": "Score",
+        "connected": true,
+        "count": 100,
+        "action": "Click"
+    },
+    "点击招募_蓝色1": {
         "post_delay": 1000,
         "recognition": "ColorMatch",
         "roi": "选择羁绊_蓝色1",
@@ -810,10 +992,36 @@
         "order_by": "Score",
         "count": 100,
         "next": [
-            "点击羁绊角色_蓝色2"
+            "点击招募_蓝色2",
+            "点击升星_蓝色2"
         ]
     },
-    "点击羁绊角色_蓝色2": {
+    "点击升星_蓝色2": {
+        "post_delay": 1000,
+        "recognition": "ColorMatch",
+        "roi": "选择羁绊_蓝色2",
+        "roi_offset": [
+            -145,
+            0,
+            60,
+            250
+        ],
+        "upper": [
+            215,
+            172,
+            106
+        ],
+        "lower": [
+            186,
+            137,
+            59
+        ],
+        "order_by": "Score",
+        "connected": true,
+        "count": 100,
+        "action": "Click"
+    },
+    "点击招募_蓝色2": {
         "post_delay": 1000,
         "recognition": "ColorMatch",
         "roi": "选择羁绊_蓝色2",
@@ -860,10 +1068,36 @@
         "order_by": "Score",
         "count": 100,
         "next": [
-            "点击羁绊角色_蓝色3"
+            "点击招募_蓝色3",
+            "点击升星_蓝色3"
         ]
     },
-    "点击羁绊角色_蓝色3": {
+    "点击升星_蓝色3": {
+        "post_delay": 1000,
+        "recognition": "ColorMatch",
+        "roi": "选择羁绊_蓝色3",
+        "roi_offset": [
+            -145,
+            0,
+            60,
+            250
+        ],
+        "upper": [
+            215,
+            172,
+            106
+        ],
+        "lower": [
+            186,
+            137,
+            59
+        ],
+        "order_by": "Score",
+        "connected": true,
+        "count": 100,
+        "action": "Click"
+    },
+    "点击招募_蓝色3": {
         "post_delay": 1000,
         "recognition": "ColorMatch",
         "roi": "选择羁绊_蓝色3",
