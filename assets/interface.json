@@ -57,6 +57,13 @@
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/4399"
             ]
+        },
+        {
+            "name": "华为服",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/huawei"
+            ]
         }
     ],
     "task": [

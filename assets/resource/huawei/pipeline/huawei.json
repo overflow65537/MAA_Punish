@@ -1,0 +1,17 @@
+{
+    "打开应用": {
+        "action": "StartApp",
+        "package": "com.kurogame.haru.huawei"
+    },
+    "停止": {
+        "action": "StopApp",
+        "package": "com.kurogame.haru.huawei"
+    },
+    "重启游戏": {
+        "action": "StopApp",
+        "package": "com.kurogame.haru.huawei",
+        "next": [
+            "启动"
+        ]
+    }
+}
