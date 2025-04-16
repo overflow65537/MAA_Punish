@@ -25,12 +25,13 @@
     "打开邮件": {
         "post_delay": 1000,
         "recognition": "OCR",
+        "only_rec": true,
         "expected": "邮件",
         "roi": [
-            125,
-            445,
-            50,
-            27
+            131,
+            447,
+            39,
+            19
         ],
         "action": "Click"
     }
