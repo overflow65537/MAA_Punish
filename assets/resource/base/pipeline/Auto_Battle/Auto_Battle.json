@@ -1,7 +1,65 @@
 {
-    "test": {
+    "主线自动战斗": {
+        "timeout": 3000000,
+        "next": [
+            "循环执行器"
+        ],
+        "interrupt": [
+            "进入战斗",
+            "跳过战斗对话",
+            "跳过剧情",
+            "载入中",
+            "主线跳过",
+            "重置识别"
+        ]
+    },
+    "进入战斗": {
+        "post_delay": 0,
+        "pre_delay": 0,
+        "recognition": "ColorMatch",
+        "roi": [
+            403,
+            51,
+            472,
+            7
+        ],
+        "upper": [
+            255,
+            255,
+            255
+        ],
+        "lower": [
+            255,
+            255,
+            255
+        ],
+        "connected": true,
+        "next": [
+            "识别人物",
+            "战斗中",
+            "空任务"
+        ]
+    },
+    "重置识别": {
+        "post_delay": 1000,
         "action": "Custom",
-        "custom_action": "CombatActions"
+        "custom_action": "ResetIdentify"
+    },
+    "主线跳过": {
+        "recognition": "OCR",
+        "roi": [
+            1197,
+            124,
+            47,
+            25
+        ],
+        "expected": [
+            "SKIP"
+        ],
+        "action": "Click"
+    },
+    "循环执行器": {
+        "inverse": true
     },
     "识别人物": {
         "green_mask": true,

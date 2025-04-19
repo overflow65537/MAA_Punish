@@ -2,6 +2,7 @@ import logging
 from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.define import RecognitionDetail
+import time 
 
 
 class CombatActions(CustomAction):
@@ -15,8 +16,10 @@ class CombatActions(CustomAction):
             self.lens_lock(context)()
             self.use_skill(context)()
             self.ball_elimination_second(context)()
-            self.attack(context)()
-            
+            now_time = time.time()
+            while time.time() - now_time < 2:
+                self.attack(context)()
+                time.sleep(0.1)
             return CustomAction.RunResult(success=True)
         except Exception as e:
             print(f"通用战斗异常: {str(e)}")
