@@ -79,6 +79,16 @@ class CombatActions(CustomAction):
         return lambda: context.tasker.controller.post_click(
             BALL_POSITIONS[target][0], BALL_POSITIONS[target][1]
         ).wait()
+    
+    @staticmethod
+    def trigger_qte(context: Context,target: int = 1):
+        """触发QTE/换人"""
+        if target not in (1, 2):
+            raise ValueError("target 参数必须为 1 或 2")
+        elif target == 1:
+            return lambda: context.tasker.controller.post_click(1208, 154).wait()
+        elif target == 2:
+            return lambda: context.tasker.controller.post_click(1208, 265).wait()
 
     @staticmethod
     def trigger_qte_first(context: Context):
@@ -166,7 +176,7 @@ class CombatActions(CustomAction):
         自动消球逻辑
         Args:
             context (Context): 上下文
-            target_ball (str): 目标球颜色 "r", "b", "y", "any"
+            target_ball (str): 目标球颜色 "red", "blue", "yellow", "any"
             template (dict): 模板字典，格式为：
                 {
                     "red": {"识别信号球": {"template": ["信号球\\启明_红.png"]}},

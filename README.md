@@ -40,164 +40,27 @@
 - 自动肉鸽-厄愿潮声
 - 自动肉鸽-矩阵循生
 - 自动肉鸽-寒境曙光
-  
+
 ## 注意事项
 
 - 打开无法运行首先尝试安装运行库 <https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170>
 - 如有其他问题可以提交issue或者加群反馈965061066
-
-## 图形化界面
-
-### [MFW-PyQt6](https://github.com/overflow65537/MFW-PyQt6)
-
- 一个基于PyQt6的MAAFramework图形化操作界面
-
-- 下载对应系统架构,后缀带有MFW-PyQt的压缩包,比如`MPA-win-x86_64-MFW-PyQt-vXXX.zip`
-- 解压后运行MFW.exe
-  
-## 使用说明
-
-下载地址：<https://github.com/overflow65537/MAA_Punish/releases>
-
-### Windows
-
-- 对于绝大部分用户，请下载 `MPA-win-x86_64-vXXX.zip`
-- 若确定自己的电脑是 arm 架构，请下载 `MPA-win-aarch64-vXXX.zip`
-- 解压后以***管理员权限***运行 `MaaPiCli.exe` 即可
-
-### macOS
-
-- 若使用 Intel 处理器，请下载 `MPA-macos-x86_64-vXXX.zip`
-- 若使用 M1, M2 等 arm 处理器，请下载 `MPA-macos-aarch64-vXXX.zip`
-- 使用方式：
-
-  ```bash
-  chmod a+x MaaPiCli
-  ./MaaPiCli
-  ```
-
-### Linux
-
-~~用 Linux 的大佬应该不需要我教~~
-
-## MaaPiCli使用说明
-
-### A
-
-- 启动后会出现:
-
-```bash
-Welcome to use Maa Project Interface CLI!
-
-Version: v0.0.1
-
-### Select ADB ###
-
-        1. Auto detect
-        2. Manual input
-
-Please input [1-2]:
-```
-
-- 如无必要，请选择1.Auto detect
-
-```bash
-### Select ADB ###
-
-        1. Auto detect
-        2. Manual input
-
-Please input [1-2]: 1
-
-Finding device...
-
-## Select Device ##
-
-        1. MuMuPlayer12
-                H:/Program Files/Netease/MuMuPlayer-12.0/shell/adb.exe
-                127.0.0.1:16672
-
-Please input [1-1]: 1
-```
-
-- 选择 1 后会像上面这样，列出若干个模拟器实例，之后选择你需要进行操控的即可。
-- 如果没有出现选项，请检查模拟器是否正常启动。以及管理员权限启动MaaPiCli。
-
-### B
-
-- 选择完模拟器后就会进入到选择资源界面
-
-```bash
-### Select resource ###
-
-        1. 官服
-        2. B 服
-
-Please input [1-2]:
-```
-
-- 请按照自己的服务器类型选择
-
-### C
-
-- 在初次启动后，会让你输入启动的任务：
-
-```bash
-### Add task ###
-
-        1. 进入游戏
-        2. 指挥局
-        3. 领取体力
-        4. 领取邮件
-        5. 购买碎片
-        6. 宿舍委托
-        7. 拟战场域
-        8. 守护者行动
-        9. 领取任务
-        10. 战令
-        11. 结束游戏
-
-Please input [1-11]:
-```
-
-- 选择你要执行的任务即可。
-
-### D
-
-- 之后会反复出现：
-
-```bash
-Tasks:
-
-<这里会列出你已经增加，等待执行的任务>
-
-### Select action ###
-
-        1. Switch controller
-        2. Switch resource
-        3. Add task
-        4. Move task
-        5. Delete task
-        6. Run tasks
-        7. Exit
-```
-
-- 其中分别代表：
-
-1. 调整控制器（也就是adb地址等）
-2. 调整资源（切换官服或者b服）
-3. 新增任务，像**C**中那样
-4. 移动任务
-5. 删除任务
-6. 开始执行任务，在这之后就会自动开始操控。
-7. 退出程序
 
 ## 其他说明
 
 - 添加 `-d` 参数可跳过交互直接运行任务，如 `./MaaPiCli.exe -d`，配合Windows计划任务可以实现自动开启任务
 - 反馈问题请附上日志文件 `debug/maa.log`，谢谢！
 
-## How to build
+## 开发相关
+
+  MPA目前支持[深红囚影](assets\custom\action\exclusives\CrimsonWeave.py),[深谣](assets\custom\action\exclusives\LostLullaby.py),[终焉](assets\custom\action\exclusives\Oblivion.py),[誓焰](assets\custom\action\exclusives\Pyroath.py),[启明](assets\custom\action\exclusives\Shukra.py)以及[深痕](assets\custom\action\exclusives\Stigmata.py)的自动战斗逻辑,其余部分人物由于开发者精力有限,无法同时添加,如果希望自行添加，具体参考[如何编写战斗逻辑](docs/开发者指南.md)
+
+### 开发文档
+
+- [MaaFramework 快速开始](https://github.com/MaaAssistantArknights/MaaFramework/blob/main/docs/zh_cn/1.1-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.md)
+- [如何编写战斗逻辑](docs/开发者指南.md)
+
+### How to build
 
 **如果你要编译源码才看这节，否则直接 [下载](https://github.com/overflow65537/MAA_Punish/releases) 即可**
 
@@ -215,10 +78,6 @@ Tasks:
     ```
 
 生成的二进制及相关资源文件在 `install` 目录下
-
-## 开发相关
-
-- [MaaFramework 快速开始](https://github.com/MaaAssistantArknights/MaaFramework/blob/main/docs/zh_cn/1.1-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.md)
 
 ## 鸣谢
 
