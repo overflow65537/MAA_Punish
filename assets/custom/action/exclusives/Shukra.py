@@ -102,11 +102,6 @@ class Shukra(CustomAction):
                 GameActionEnum.LONG_PRESS_ATTACK,
                 role_name=self._role_name,
             )
-            attack = JobExecutor(
-                CombatActions.attack(context),
-                GameActionEnum.ATTACK,
-                role_name=self._role_name,
-            )
             lens_lock.execute()
 
             if CombatActions.check_Skill_energy_bar(context, self._role_name):
