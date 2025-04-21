@@ -83,6 +83,7 @@
             "pipeline_override": {
                 "编入队伍": {
                     "next": [
+                        "编入队伍",
                         "作战界面"
                     ],
                     "interrupt": [
