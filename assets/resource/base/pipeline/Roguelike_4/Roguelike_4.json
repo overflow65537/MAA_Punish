@@ -1300,17 +1300,25 @@
     },
     "领取战斗奖励": {
         "post_delay": 1500,
-        "recognition": "OCR",
+        "recognition": "ColorMatch",
         "roi": [
             83,
             482,
             1164,
             134
         ],
-        "expected": [
-            "确",
-            "定"
+        "upper": [
+            62,
+            80,
+            100
         ],
+        "lower": [
+            27,
+            55,
+            79
+        ],
+        "connected": true,
+        "count": 100,
         "action": "Click"
     },
     "进入战斗_寒境曙光": {
