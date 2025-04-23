@@ -22,6 +22,7 @@ from assets.custom.action.exclusives.LostLullaby import LostLullaby
 from assets.custom.action.exclusives.Oblivion import Oblivion
 from assets.custom.action.exclusives.Pyroath import Pyroath
 from assets.custom.action.exclusives.Stigmata import Stigmata
+from assets.custom.action.exclusives.Shukra import Shukra
 
 from assets.custom.recognition.exclusives.CalculateScore import CalculateScore
 from assets.custom.recognition.exclusives.IDFMembers import IDFMembers
@@ -40,6 +41,7 @@ def main():
     Toolkit.pi_register_custom_action("Oblivion", Oblivion())  # 终焉
     Toolkit.pi_register_custom_action("Pyroath", Pyroath())  # 誓焰
     Toolkit.pi_register_custom_action("Stigmata", Stigmata())  # 深痕
+    Toolkit.pi_register_custom_action("Shukra", Shukra())  # 启明
     # 注册自定义动作-通用逻辑
     Toolkit.pi_register_custom_action("ScreenShot", ScreenShot())  # 错误截图
     Toolkit.pi_register_custom_action("Identify", Identify())  # 识别人物
