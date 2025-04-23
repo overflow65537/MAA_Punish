@@ -247,6 +247,9 @@
         {
             "name": "主线自动战斗",
             "entry": "主线自动战斗",
+            "option": [
+                "跳过剧情"
+            ],
             "pipeline_override": {
                 "战斗中": {
                     "action": "custom",
@@ -308,6 +311,28 @@
         }
     ],
     "option": {
+        "跳过剧情": {
+            "cases": [
+                {
+                    "name": "是",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "否",
+                    "pipeline_override": {
+                        "跳过战斗对话": {
+                            "enabled": false
+                        },
+                        "跳过剧情": {
+                            "enabled": false
+                        },
+                        "主线跳过": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
         "调查团组建": {
             "cases": [
                 {
