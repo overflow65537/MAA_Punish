@@ -230,13 +230,50 @@
                     "肉鸽通用\\深谣.png",
                     "肉鸽通用\\深谣终解.png",
                     "肉鸽通用\\终焉.png",
-                    "肉鸽通用\\终焉终解.png"
+                    "肉鸽通用\\终焉终解.png",
+                    "肉鸽通用\\启明.png",
+                    "肉鸽通用\\启明终解.png"
                 ]
             }
         },
         "next": [
+            "强制选人计数"
+        ]
+    },
+    "强制选人计数": {
+        "action": "Custom",
+        "custom_action": "Count",
+        "custom_action_param": {
+            "self": "强制选人计数",
+            "count": 0,
+            "target_count": 1,
+            "next_node": [
+                "强制选人二阶段"
+            ]
+        },
+        "next": [
             "选择首发_寒境曙光"
         ]
+    },
+    "强制选人二阶段": {
+        "action": "Custom",
+        "custom_action": "PPOverride",
+        "custom_action_param": {
+            "选择自动作战人物": {
+                "recognition": "OCR",
+                "roi": [
+                    979,
+                    469,
+                    118,
+                    41
+                ],
+                "expected": "编入",
+                "action": "DoNothing",
+                "next": [
+                    "编入队伍"
+                ]
+            }
+        }
     },
     "查看地图_空区": {
         "recognition": "OCR",
@@ -582,7 +619,9 @@
             "肉鸽通用\\深谣.png",
             "肉鸽通用\\深谣终解.png",
             "肉鸽通用\\终焉.png",
-            "肉鸽通用\\终焉终解.png"
+            "肉鸽通用\\终焉终解.png",
+            "肉鸽通用\\启明.png",
+            "肉鸽通用\\启明终解.png"
         ],
         "action": "Click",
         "next": [
