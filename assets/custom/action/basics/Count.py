@@ -11,7 +11,7 @@ class Count(CustomAction):
         print(argv)
         if not argv:
             return CustomAction.RunResult(success=True)
-        if argv.get("count") <= argv.get("target_count"):
+        if argv.get("count") < argv.get("target_count"):
             argv["count"] += 1
             context.override_pipeline(
                 {
