@@ -28,6 +28,7 @@
 - 宿舍任务
 - 指挥局签到
 - 拟真围剿
+- 刷A级碎片
 - 纷争战区自动首通
 - 诺曼矿区自动首通
 - 幻痛囚笼自动首通
@@ -44,21 +45,20 @@
 ## 注意事项
 
 - 打开无法运行首先尝试安装运行库 <https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170>
-- 如有其他问题可以提交issue或者加群反馈965061066
+- 如有其他问题可以提交issue或者加群反馈 **965061066**，反馈问题请附上日志文件 `debug/maa.log`，谢谢！
 
 ## 其他说明
 
 - 添加 `-d` 参数可跳过交互直接运行任务，如 `./MaaPiCli.exe -d`，配合Windows计划任务可以实现自动开启任务
-- 反馈问题请附上日志文件 `debug/maa.log`，谢谢！
 
 ## 开发相关
 
-  MPA目前支持[深红囚影](assets/custom/action/exclusives/CrimsonWeave.py),[深谣](assets/custom/action/exclusives/LostLullaby.py),[终焉](assets/custom/action/exclusives/Oblivion.py),[誓焰](assets/custom/action/exclusives/Pyroath.py),[启明](assets/custom/action/exclusives/Shukra.py)以及[深痕](assets/custom/action/exclusives/Stigmata.py)的自动战斗逻辑,其余部分人物由于开发者精力有限,无法同时添加,如果希望自行添加，具体参考[如何编写战斗逻辑](docs/开发者指南.md)
+  MPA目前支持[深红囚影](assets/custom/action/exclusives/CrimsonWeave.py),[深谣](assets/custom/action/exclusives/LostLullaby.py),[终焉](assets/custom/action/exclusives/Oblivion.py),[誓焰](assets/custom/action/exclusives/Pyroath.py),[启明](assets/custom/action/exclusives/Shukra.py)以及[深痕](assets/custom/action/exclusives/Stigmata.py)的自动战斗逻辑,其余部分人物由于开发者精力有限,无法同时添加,如果希望自行添加，具体参考[如何编写战斗逻辑](docs/开发者指南.md)，开发途中有问题可以进群反馈 **965061066**
 
 ### 开发文档
 
 - [MaaFramework 快速开始](https://github.com/MaaAssistantArknights/MaaFramework/blob/main/docs/zh_cn/1.1-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.md)
-- [如何编写战斗逻辑](docs/开发者指南.md)
+- [如何编写战斗逻辑](docs/自动战斗框架开发指南.md)
 
 ### How to build
 
@@ -86,9 +86,9 @@
 - [MaaFramework](https://github.com/MaaXYZ/MaaFramework)
   
   基于图像识别的自动化黑盒测试框架 | An automation black-box testing framework based on image recognition
-- ~~[MFAWPF](https://github.com/SweetSmellFox/MFAWPF)~~
-  
-  ~~本项目是一个基于WPF框架开发的用户界面，旨在提供类似于MaaPiCli的功能~~
+
+- [MFW-PyQt6](https://github.com/overflow65537/MFW-PyQt6)
+  基于 PyQt6 的 MaaFramework 前端 | A frontend based on PyQt6 for MaaFramework
 
 ### 开发者
 
