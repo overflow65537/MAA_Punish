@@ -47,13 +47,9 @@
 - 打开无法运行首先尝试安装运行库 <https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170>
 - 如有其他问题可以提交issue或者加群反馈 **965061066**，反馈问题请附上日志文件 `debug/maa.log`，谢谢！
 
-## 其他说明
-
-- 添加 `-d` 参数可跳过交互直接运行任务，如 `./MaaPiCli.exe -d`，配合Windows计划任务可以实现自动开启任务
-
 ## 开发相关
 
-  MPA目前支持[深红囚影](assets/custom/action/exclusives/CrimsonWeave.py),[深谣](assets/custom/action/exclusives/LostLullaby.py),[终焉](assets/custom/action/exclusives/Oblivion.py),[誓焰](assets/custom/action/exclusives/Pyroath.py),[启明](assets/custom/action/exclusives/Shukra.py)以及[深痕](assets/custom/action/exclusives/Stigmata.py)的自动战斗逻辑,其余部分人物由于开发者精力有限,无法同时添加,如果希望自行添加，具体参考[如何编写战斗逻辑](docs/开发者指南.md)，开发途中有问题可以进群反馈 **965061066**
+  MPA目前支持[深红囚影](assets/custom/action/exclusives/CrimsonWeave.py),[深谣](assets/custom/action/exclusives/LostLullaby.py),[终焉](assets/custom/action/exclusives/Oblivion.py),[誓焰](assets/custom/action/exclusives/Pyroath.py),[启明](assets/custom/action/exclusives/Shukra.py)以及[深痕](assets/custom/action/exclusives/Stigmata.py)的自动战斗逻辑,其余部分人物由于开发者精力有限,无法同时添加,如果希望自行添加，具体参考[如何编写战斗逻辑](docs/自动战斗框架开发指南.md)，开发途中有问题可以进群反馈 **965061066**
 
 ### 开发文档
 
