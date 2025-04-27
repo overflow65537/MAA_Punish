@@ -753,6 +753,7 @@
             "战斗失败"
         ],
         "interrupt": [
+            "算力单元不足",
             "识别人物",
             "重启_寒境曙光",
             "战斗中",
@@ -761,6 +762,39 @@
             "进入战斗_矩阵循生",
             "载入中"
         ]
+    },
+    "算力单元不足": {
+        "only_rec": true,
+        "recognition": "OCR",
+        "roi": [
+            566,
+            344,
+            154,
+            30
+        ],
+        "expected": [
+            "算力单元",
+            "不足"
+        ],
+        "action": "Click",
+        "next": [
+            "链路崩溃_reco"
+        ],
+        "interrupt": [
+            "放弃战斗_矩阵循生"
+        ]
+    },
+    "放弃战斗_矩阵循生": {
+        "only_rec": true,
+        "recognition": "OCR",
+        "roi": [
+            407,
+            518,
+            63,
+            41
+        ],
+        "expected": "放弃",
+        "action": "Click"
     },
     "重复点击战斗_矩阵循生": {
         "recognition": "TemplateMatch",
