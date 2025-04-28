@@ -181,12 +181,12 @@
     "选择区域": {
         "recognition": "OCR",
         "roi": [
-            796,
-            216,
-            111,
-            51
+            354,
+            218,
+            594,
+            45
         ],
-        "expected": "终级区",
+        "expected": "高级",
         "action": "Click",
         "target_offset": [
             0,

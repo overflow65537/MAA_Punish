@@ -165,6 +165,9 @@
         {
             "name": "幻痛囚笼",
             "entry": "幻痛囚笼",
+            "option": [
+                "选择区域"
+            ],
             "pipeline_override": {
                 "战斗中": {
                     "post_delay": 1000
@@ -316,6 +319,22 @@
         }
     ],
     "option": {
+        "选择区域": {
+            "cases": [
+                {
+                    "name": "高级区",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "终极区",
+                    "pipeline_override": {
+                        "选择区域": {
+                            "expected": "终极"
+                        }
+                    }
+                }
+            ]
+        },
         "跳过剧情": {
             "cases": [
                 {
