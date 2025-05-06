@@ -17,6 +17,9 @@
         "expected": "资源",
         "next": [
             "A级角色"
+        ],
+        "interrupt": [
+            "进入资源副本"
         ]
     },
     "进入资源副本": {
@@ -38,43 +41,56 @@
         ]
     },
     "滑动角色碎片界面": {
-        "post_delay": 1000,
+        "post_delay": 0,
         "recognition": "OCR",
         "roi": [
-            0,
-            0,
-            0,
-            0
+            247,
+            107,
+            107,
+            41
         ],
         "expected": "角色碎片",
         "action": "Swipe",
         "begin": [
-            1215,
-            412,
+            556,
+            506,
             1,
             1
         ],
         "end": [
-            275,
-            412,
+            358,
+            506,
             1,
             1
         ],
-        "duration": 12500,
         "next": [
             "A_滑动后点击"
         ]
     },
     "A_滑动后点击": {
-        "pre_delay": 0,
-        "post_delay": 0,
         "action": "Click",
         "target": [
-            628,
-            111,
-            1,
-            1
+            637,
+            172,
+            0,
+            0
+        ],
+        "next": [
+            "A_滑动计数"
         ]
+    },
+    "A_滑动计数": {
+        "action": "Custom",
+        "custom_action": "Count",
+        "custom_action_param": {
+            "self": "A_滑动计数",
+            "count": 0,
+            "target_count": 25,
+            "next_node": [
+                "返回主菜单_err",
+                "停止任务"
+            ]
+        }
     },
     "A级角色": {
         "post_delay": 1000,
@@ -104,7 +120,7 @@
             123,
             69
         ],
-        "expected": "^作战$",
+        "expected": "^战斗$",
         "next": [
             "返回主菜单"
         ]
