@@ -165,9 +165,6 @@
         ]
     },
     "物资_寒境曙光": {
-        "on_error": [
-            "寒境曙光"
-        ],
         "focus": {
             "succeeded": "[color:ForestGreen]物资地块[/color]"
         },
