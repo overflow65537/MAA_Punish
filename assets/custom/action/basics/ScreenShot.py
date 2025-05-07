@@ -22,12 +22,12 @@ class ScreenShot(CustomAction):
                 if (
                     entry.is_file()
                     and entry.name.lower().endswith(".png")
-                    and entry.stat(follow_symlinks=False).st_mtime 
+                    and entry.stat(follow_symlinks=False).st_mtime < three_days_ago 
                 ):
                     try:
                         os.remove(entry.path)
-                    except:
-                        pass
+                    except: 
+                        pass  
 
         height, width, _ = image.shape
         current_time = (
