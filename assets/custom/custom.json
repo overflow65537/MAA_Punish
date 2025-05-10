@@ -93,5 +93,10 @@
         "type": "action",
         "class": "PPOverride",
         "file_path": "{custom_path}\\action\\basics\\PPOverride.py"
+    },
+    "ChainLoopCircuit": {
+        "type": "action",
+        "class": "ChainLoopCircuit",
+        "file_path": "{custom_path}\\action\\basics\\ChainLoopCircuit.py"
     }
 }

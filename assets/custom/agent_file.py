@@ -9,6 +9,7 @@ from action.basics.ScreenShot import ScreenShot
 from action.basics.SetTower import SetTower
 from action.basics.Count import Count
 from action.basics.PPOverride import PPOverride
+from action.basics.ChainLoopCircuit import ChainLoopCircuit
 
 
 from action.exclusives.CrimsonWeave import CrimsonWeave
@@ -24,6 +25,11 @@ from recognition.exclusives.IDFMembers import IDFMembers
 from recognition.exclusives.IDFscore import IDFscore
 from recognition.exclusives.IDFMasteryLevel import IDFMasteryLevel
 
+
+
+@AgentServer.custom_action("ChainLoopCircuit")
+class Agent_ChainLoopCircuit(ChainLoopCircuit):
+    pass
 
 @AgentServer.custom_action("Shukra")
 class Agent_Shukra(Shukra):

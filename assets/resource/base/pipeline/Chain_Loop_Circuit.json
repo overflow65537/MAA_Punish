@@ -1,0 +1,135 @@
+{
+    "链合回路": {
+        "next": [
+            "继续_链合回路"
+        ],
+        "interrupt": [
+            "任务过程"
+        ]
+    },
+    "继续_链合回路": {
+        "recognition": "OCR",
+        "roi": [
+            416,
+            487,
+            129,
+            38
+        ],
+        "expected": [
+            "重新挑战"
+        ],
+        "action": "Click",
+        "next": [
+            "链合回路"
+        ]
+    },
+    "任务过程": {
+        "post_wait_freezes": 200,
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": [
+            1114,
+            635,
+            78,
+            26
+        ],
+        "expected": [
+            "道具说明"
+        ],
+        "replace": [
+            "真",
+            "具"
+        ],
+        "action": "Custom",
+        "custom_action": "ChainLoopCircuit",
+        "next": []
+    },
+    "识别蓝球_链合回路": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            430,
+            61,
+            627,
+            632
+        ],
+        "template": "链合回路\\蓝球.png",
+        "green_mask": true
+    },
+    "识别黄球_链合回路": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            430,
+            61,
+            627,
+            632
+        ],
+        "template": "链合回路\\黄球.png",
+        "green_mask": true
+    },
+    "识别红球_链合回路": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            430,
+            61,
+            627,
+            632
+        ],
+        "template": "链合回路\\红球.png",
+        "green_mask": true
+    },
+    "识别灰球_链合回路": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            430,
+            61,
+            627,
+            632
+        ],
+        "template": "链合回路\\灰球.png",
+        "green_mask": true
+    },
+    "识别爆破_链合回路": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            430,
+            61,
+            627,
+            632
+        ],
+        "template": "链合回路\\技能_爆破.png",
+        "green_mask": true
+    },
+    "识别闪星_链合回路": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            430,
+            61,
+            627,
+            632
+        ],
+        "template": "链合回路\\技能_闪星.png",
+        "green_mask": true
+    },
+    "识别纵斩_链合回路": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            430,
+            61,
+            627,
+            632
+        ],
+        "template": "链合回路\\技能_纵斩.png",
+        "green_mask": true
+    },
+    "识别快枪_链合回路": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            430,
+            61,
+            627,
+            632
+        ],
+        "template": "链合回路\\技能_快枪.png",
+        "green_mask": true
+    }
+}
