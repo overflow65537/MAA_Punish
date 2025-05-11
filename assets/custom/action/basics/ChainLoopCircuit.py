@@ -137,25 +137,27 @@ S3_ball,S4_ball,]
         best_move = None
         directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]  # 上下左右四个方向
 
-        # 先找出所有技能球移动的收益
+        # 技能球移动分数
         skill_moves = []
         for i in range(8):
             for j in range(8):
                 if board[i][j] in [5, 6, 7, 8]:  # 是技能球
                     for dx, dy in directions:
                         ni, nj = i + dx, j + dy
-                        if 0 <= ni < 8 and 0 <= nj < 8:
+                        if 0 <= ni < 8 and 0 <= nj < 8 and board[ni][nj] != 0:  # 0值检查
                             eliminated = self.count_skill_eliminations(board[i][j])
                             skill_moves.append(((i, j), (ni, nj), eliminated))
 
-        # 找出普通消球的最佳移动
+        # 普通消球分数
         normal_move = None
         normal_eliminated = 0
         for i in range(8):
             for j in range(8):
+                if board[i][j] == 0:  # 0值位置
+                    continue
                 for dx, dy in directions:
                     ni, nj = i + dx, j + dy
-                    if 0 <= ni < 8 and 0 <= nj < 8:
+                    if 0 <= ni < 8 and 0 <= nj < 8 and board[ni][nj] != 0:  # 0值检查
                         temp_board = [row[:] for row in board]
                         temp_board[i][j], temp_board[ni][nj] = temp_board[ni][nj], temp_board[i][j]
                         eliminated = self.count_eliminations(temp_board)

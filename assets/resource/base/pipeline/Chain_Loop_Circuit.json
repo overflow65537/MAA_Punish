@@ -7,6 +7,19 @@
             "任务过程"
         ]
     },
+    "使用技能_链合回路": {
+        "recognition": "OCR",
+        "roi": [
+            1114,
+            537,
+            41,
+            32
+        ],
+        "expected": [
+            "\\b(2[1-9]|[3-9]\\d|\\d{3,})\\b"
+        ],
+        "next": []
+    },
     "继续_链合回路": {
         "recognition": "OCR",
         "roi": [
@@ -45,48 +58,88 @@
         "next": []
     },
     "识别蓝球_链合回路": {
-        "recognition": "TemplateMatch",
+        "recognition": "ColorMatch",
         "roi": [
             430,
             61,
             627,
             632
         ],
-        "template": "链合回路\\蓝球.png",
-        "green_mask": true
+        "upper": [
+            50,
+            170,
+            230
+        ],
+        "lower": [
+            0,
+            120,
+            180
+        ],
+        "connected": true,
+        "count": 100
     },
     "识别黄球_链合回路": {
-        "recognition": "TemplateMatch",
+        "recognition": "ColorMatch",
         "roi": [
             430,
             61,
             627,
             632
         ],
-        "template": "链合回路\\黄球.png",
-        "green_mask": true
+        "upper": [
+            230,
+            170,
+            40
+        ],
+        "lower": [
+            130,
+            95,
+            20
+        ],
+        "connected": true,
+        "count": 100
     },
     "识别红球_链合回路": {
-        "recognition": "TemplateMatch",
+        "recognition": "ColorMatch",
         "roi": [
             430,
             61,
             627,
             632
         ],
-        "template": "链合回路\\红球.png",
-        "green_mask": true
+        "upper": [
+            180,
+            40,
+            40
+        ],
+        "lower": [
+            90,
+            15,
+            15
+        ],
+        "connected": true,
+        "count": 100
     },
     "识别灰球_链合回路": {
-        "recognition": "TemplateMatch",
+        "recognition": "ColorMatch",
         "roi": [
             430,
             61,
             627,
             632
         ],
-        "template": "链合回路\\灰球.png",
-        "green_mask": true
+        "upper": [
+            230,
+            230,
+            230
+        ],
+        "lower": [
+            200,
+            200,
+            200
+        ],
+        "connected": true,
+        "count": 100
     },
     "识别爆破_链合回路": {
         "recognition": "TemplateMatch",
