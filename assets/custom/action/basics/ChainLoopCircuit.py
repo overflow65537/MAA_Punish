@@ -12,12 +12,11 @@ class ChainLoopCircuit(CustomAction):
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
         image = context.tasker.controller.post_screencap().wait().get()
-
-        """S1_ball = context.run_recognition("识别快枪_链合回路", image)
-        if S1_ball:
+        S4_ball = context.run_recognition("识别闪星_链合回路", image)
+        if S4_ball:
             x, y = (
-                S1_ball.best_result.box[0] + S1_ball.best_result.box[2] // 2,
-                S1_ball.best_result.box[1] + S1_ball.best_result.box[3] // 2,
+                S4_ball.best_result.box[0] + S4_ball.best_result.box[2] // 2,
+                S4_ball.best_result.box[1] + S4_ball.best_result.box[3] // 2,
             )
             context.tasker.controller.post_click(x, y)
             time.sleep(0.1)
@@ -44,7 +43,18 @@ class ChainLoopCircuit(CustomAction):
             context.tasker.controller.post_click(x, y)
             time.sleep(0.1)
             context.tasker.controller.post_click(x, y)
-            return CustomAction.RunResult(success=True)"""
+            return CustomAction.RunResult(success=True)
+        S1_ball = context.run_recognition("识别快枪_链合回路", image)
+        if S1_ball:
+            x, y = (
+                S1_ball.best_result.box[0] + S1_ball.best_result.box[2] // 2,
+                S1_ball.best_result.box[1] + S1_ball.best_result.box[3] // 2,
+            )
+            context.tasker.controller.post_click(x, y)
+            time.sleep(0.1)
+            context.tasker.controller.post_click(x, y)
+            return CustomAction.RunResult(success=True)
+
 
         bul_ball = context.run_recognition("识别蓝球_链合回路", image)
         red_ball = context.run_recognition("识别红球_链合回路", image)
@@ -54,12 +64,12 @@ class ChainLoopCircuit(CustomAction):
         S1_ball = context.run_recognition("识别快枪_链合回路", image)
         S2_ball = context.run_recognition("识别爆破_链合回路", image)
         S3_ball = context.run_recognition("识别纵斩_链合回路", image)
-        S4_ball = context.run_recognition("识别闪星_链合回路", image)
+        
 
         matrix = [[0] * 8 for _ in range(8)]
         reco_list = [bul_ball, red_ball, yel_ball, gra_ball, S1_ball,
 S2_ball,
-S3_ball,S4_ball,]
+S3_ball,S4_ball]
         for idx, recognition_data in enumerate(reco_list):
             matrix = self.parse_puzzle_layout(
                 recognition_data, matrix, fill_value=idx + 1

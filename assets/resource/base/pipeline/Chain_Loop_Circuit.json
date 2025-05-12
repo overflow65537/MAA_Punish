@@ -139,7 +139,7 @@
             200
         ],
         "connected": true,
-        "count": 100
+        "count": 200
     },
     "识别爆破_链合回路": {
         "recognition": "TemplateMatch",
