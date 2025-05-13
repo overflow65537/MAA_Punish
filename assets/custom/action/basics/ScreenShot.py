@@ -31,7 +31,7 @@ class ScreenShot(CustomAction):
 
         height, width, _ = image.shape
         current_time = (
-            argv.get("type", "") + "_" + time.strftime("%Y-%m-%d_%H-%M-%S") + ".png"
+            argv.get("type", "") + "_" + time.strftime("%Y-%m-%d %H:%M:%S") + ".png"
         )
         debug_path = os.path.join("debug", current_time)
 
