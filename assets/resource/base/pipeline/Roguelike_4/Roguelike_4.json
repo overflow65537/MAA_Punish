@@ -207,7 +207,7 @@
     },
     "重新进入_寒境曙光": {
         "focus": {
-            "succeeded": "[color:tomato]未搜索到目标,重新进入[/color]"
+            "succeeded": "[color:LightSalmon]未搜索到目标,重新进入[/color]"
         },
         "post_delay": 2000,
         "recognition": "OCR",
