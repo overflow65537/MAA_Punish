@@ -189,7 +189,7 @@ jobs:
         with:
           repository: overflow65537/MFW-PyQt6
           fileName: "MFW-PyQt6-macos-${{ matrix.arch }}*"
-          latest: true
+          tag: "v1.7.1"
           out-file-path: "install"
           extract: true
 
