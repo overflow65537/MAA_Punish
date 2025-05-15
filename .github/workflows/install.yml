@@ -108,7 +108,6 @@ jobs:
         shell: bash
         run: |
           rm install/MFW-PyQt6-win-${{ matrix.arch }}* 
-          python ./deploy.py ${{ needs.meta.outputs.tag }}
       
       - uses: actions/upload-artifact@v4
         with:
