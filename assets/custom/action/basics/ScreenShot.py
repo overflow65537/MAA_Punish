@@ -12,7 +12,7 @@ class ScreenShot(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        argv:dict = json.loads(argv.custom_action_param)
+        custom_action_param:dict = json.loads(argv.custom_action_param)
         image: numpy.ndarray = context.tasker.controller.post_screencap().wait().get()
 
         debug_dir = os.path.abspath("debug")
@@ -31,7 +31,7 @@ class ScreenShot(CustomAction):
 
         height, width, _ = image.shape
         current_time = (
-            argv.get("type", "") + "_" + time.strftime("%Y-%m-%d %H:%M:%S") + ".png"
+            custom_action_param.get("type", "") + "_" + time.strftime("%Y-%m-%d_%H-%M-%S") + ".png"
         )
         debug_path = os.path.join("debug", current_time)
 
