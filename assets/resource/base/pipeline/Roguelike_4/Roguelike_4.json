@@ -472,7 +472,7 @@
         "expected": "开始探索"
     },
     "肉鸽战斗_寒境曙光": {
-        "timeout": 120000,
+        "timeout": 300000,
         "recognition": "OCR",
         "roi": [
             599,
