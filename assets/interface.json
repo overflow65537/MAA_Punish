@@ -2,7 +2,7 @@
     "name": "MAA_Punish",
     "mirrorchyan_rid": "MAA_Punish",
     "url": "https://github.com/overflow65537/MAA_Punish",
-    "MFW_min_req_version": "1.6.0",
+    "MFW_min_req_version": "1.9.0",
     "controller": [
         {
             "name": "安卓端",
@@ -74,8 +74,12 @@
         {
             "name": "指挥局",
             "entry": "指挥局",
-            "periodic": 1,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "daily",
+                "refresh_time": {
+                    "H": 5
+                }
+            }
         },
         {
             "name": "拟真围剿",
@@ -117,9 +121,19 @@
                     "expected": "保存"
                 }
             },
-            "periodic": 2,
-            "weekly_start": 2,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "weekly",
+                "refresh_time": {
+                    "H": 5,
+                    "w": 1
+                },
+                "interval": {
+                    "unit": 0,
+                    "item": 0,
+                    "loop_item": 0,
+                    "current_loop": 0
+                }
+            }
         },
         {
             "name": "纷争战区",
@@ -151,16 +165,36 @@
                     ]
                 }
             },
-            "periodic": 2,
-            "weekly_start": 2,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "weekly",
+                "refresh_time": {
+                    "H": 5,
+                    "w": 1
+                },
+                "interval": {
+                    "unit": 0,
+                    "item": 0,
+                    "loop_item": 0,
+                    "current_loop": 0
+                }
+            }
         },
         {
             "name": "诺曼复兴战",
             "entry": "诺曼复兴战",
-            "periodic": 2,
-            "weekly_start": 2,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "weekly",
+                "refresh_time": {
+                    "H": 5,
+                    "w": 1
+                },
+                "interval": {
+                    "unit": 0,
+                    "item": 0,
+                    "loop_item": 0,
+                    "current_loop": 0
+                }
+            }
         },
         {
             "name": "幻痛囚笼",
@@ -173,9 +207,19 @@
                     "post_delay": 1000
                 }
             },
-            "periodic": 2,
-            "weekly_start": 6,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "weekly",
+                "refresh_time": {
+                    "H": 5,
+                    "w": 1
+                },
+                "interval": {
+                    "unit": 0,
+                    "item": 0,
+                    "loop_item": 0,
+                    "current_loop": 0
+                }
+            }
         },
         {
             "name": "刷A级碎片",
@@ -192,20 +236,32 @@
                 "选择A级角色",
                 "是否使用体力"
             ],
-            "periodic": 1,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "daily",
+                "refresh_time": {
+                    "H": 5
+                }
+            }
         },
         {
             "name": "领取体力",
             "entry": "领取体力",
-            "periodic": 1,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "daily",
+                "refresh_time": {
+                    "H": 5
+                }
+            }
         },
         {
             "name": "领取邮件",
             "entry": "邮件",
-            "periodic": 1,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "daily",
+                "refresh_time": {
+                    "H": 5
+                }
+            }
         },
         {
             "name": "购买物品",
@@ -213,14 +269,22 @@
             "option": [
                 "选择物品"
             ],
-            "periodic": 1,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "daily",
+                "refresh_time": {
+                    "H": 5
+                }
+            }
         },
         {
             "name": "宿舍任务",
             "entry": "宿舍任务",
-            "periodic": 1,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "daily",
+                "refresh_time": {
+                    "H": 5
+                }
+            }
         },
         {
             "name": "拟战场域",
@@ -232,8 +296,12 @@
         {
             "name": "守护者行动",
             "entry": "维系者行动",
-            "periodic": 1,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "daily",
+                "refresh_time": {
+                    "H": 5
+                }
+            }
         },
         {
             "name": "领取任务",
@@ -250,12 +318,14 @@
         {
             "name": "链合回路",
             "entry": "链合回路",
-            "doc": "进入链合回路游戏界面后启动,会自动点击重新开始"
+            "doc": "进入链合回路游戏界面后启动,会自动点击重新开始",
+            "spt": true
         },
         {
             "name": "自动战斗(角色已选好)",
             "entry": "自动战斗(角色已选好)",
-            "doc": "选角色界面选好已有战斗逻辑的角色,推荐选1位角色即可,\n独立战斗逻辑人物:[color:tomato]誓焰,启明,终焉,深痕,深瑶,深红囚影[/color]"
+            "doc": "选角色界面选好已有战斗逻辑的角色,推荐选1位角色即可,\n独立战斗逻辑人物:[color:tomato]誓焰,启明,终焉,深痕,深瑶,深红囚影[/color]",
+            "spt": true
         },
         {
             "name": "主线自动战斗",
@@ -269,7 +339,8 @@
                     "custom_action": "CombatActions"
                 }
             },
-            "doc": "只会进行自动战斗,不会进行其他任务,也不会影响其他任务,在需要进行战斗的时候会自动启动\n独立战斗逻辑人物:[color:tomato]誓焰,启明,终焉,深痕,深瑶,深红囚影[/color]\n其余人物为通用战斗逻辑:攻击+消球+大招"
+            "doc": "只会进行自动战斗,不会进行其他任务,也不会影响其他任务,在需要进行战斗的时候会自动启动\n独立战斗逻辑人物:[color:tomato]誓焰,启明,终焉,深痕,深瑶,深红囚影[/color]\n其余人物为通用战斗逻辑:攻击+消球+大招",
+            "spt": true
         },
         {
             "name": "厄愿潮声",
@@ -286,7 +357,8 @@
                     ]
                 }
             },
-            "doc": "推荐选择浅听潮涌,因为其他难度打不过\n目前支持自动作战人物:深痕,深瑶,深红囚影"
+            "doc": "推荐选择浅听潮涌,因为其他难度打不过\n目前支持自动作战人物:深痕,深瑶,深红囚影",
+            "spt": true
         },
         {
             "name": "矩阵循生",
@@ -303,7 +375,8 @@
                 "选择模式",
                 "使用人物"
             ],
-            "doc": "只有在解锁4点初始招募能量后,使用人物选项才会生效\n未解锁4点初始招募能量时,初次会选择精通等级小于3的人物,在经过物归新主事件后,会在选项内的5个人物中选择精通等级小于12的人物进行战斗"
+            "doc": "只有在解锁4点初始招募能量后,使用人物选项才会生效\n未解锁4点初始招募能量时,初次会选择精通等级小于3的人物,在经过物归新主事件后,会在选项内的5个人物中选择精通等级小于12的人物进行战斗",
+            "spt": true
         },
         {
             "name": "寒境曙光",
@@ -320,7 +393,8 @@
                 "选择温度",
                 "选择效果"
             ],
-            "doc": "推荐使用严霜和启动资金"
+            "doc": "推荐使用严霜和启动资金",
+            "spt": true
         }
     ],
     "option": {
