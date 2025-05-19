@@ -36,7 +36,7 @@
             131,
             131
         ],
-        "template": "战斗\\闪避.png"
+        "template": "战斗/闪避.png"
     },
     "识别角色名": {
         "recognition": "OCR",
@@ -54,6 +54,7 @@
             91,
             153
         ],
+        "expected": "",
         "action": "Click"
     },
     "出队长界面": {

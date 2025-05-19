@@ -8,8 +8,8 @@
             142
         ],
         "template": [
-            "自定义战斗\\深痕.png",
-            "自定义战斗\\深痕a2.png"
+            "自定义战斗/深痕.png",
+            "自定义战斗/深痕a2.png"
         ],
         "green_mask": true
     },
@@ -22,7 +22,7 @@
             142
         ],
         "template": [
-            "自定义战斗\\誓焰.png"
+            "自定义战斗/誓焰.png"
         ],
         "green_mask": true
     },
@@ -35,7 +35,7 @@
             142
         ],
         "template": [
-            "自定义战斗\\终焉.png"
+            "自定义战斗/终焉.png"
         ],
         "green_mask": true
     },
@@ -48,7 +48,7 @@
             142
         ],
         "template": [
-            "自定义战斗\\深红囚影.png"
+            "自定义战斗/深红囚影.png"
         ],
         "green_mask": true
     },
@@ -61,8 +61,8 @@
             142
         ],
         "template": [
-            "自定义战斗\\深谣_p1.png",
-            "自定义战斗\\深谣_p2.png"
+            "自定义战斗/深谣_p1.png",
+            "自定义战斗/深谣_p2.png"
         ],
         "green_mask": true
     },
@@ -75,7 +75,7 @@
             142
         ],
         "template": [
-            "自定义战斗\\启明.png"
+            "自定义战斗/启明.png"
         ],
         "green_mask": true
     }

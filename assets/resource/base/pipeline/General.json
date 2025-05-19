@@ -97,7 +97,7 @@
             51,
             53
         ],
-        "template": "指挥局\\返回.png",
+        "template": "指挥局/返回.png",
         "action": "Click"
     },
     "返回主菜单_err": {
@@ -143,7 +143,7 @@
             124,
             96
         ],
-        "template": "幻痛囚笼\\关闭奖励.png",
+        "template": "幻痛囚笼/关闭奖励.png",
         "action": "Click"
     },
     "跳过剧情": {

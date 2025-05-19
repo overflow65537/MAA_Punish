@@ -64,7 +64,7 @@
             261,
             166
         ],
-        "template": "寒境曙光\\启程.png",
+        "template": "寒境曙光/启程.png",
         "action": "Custom",
         "custom_action": "ResetIdentify",
         "next": [
@@ -91,7 +91,7 @@
             261,
             166
         ],
-        "template": "寒境曙光\\启程.png",
+        "template": "寒境曙光/启程.png",
         "action": "Click",
         "next": [
             "寒境曙光"
@@ -635,7 +635,7 @@
             270,
             90
         ],
-        "template": "肉鸽通用\\作战开始.png",
+        "template": "肉鸽通用/作战开始.png",
         "action": "Click"
     },
     "未选人_寒境曙光": {
@@ -712,18 +712,18 @@
             601
         ],
         "template": [
-            "肉鸽通用\\深红囚影.png",
-            "肉鸽通用\\深红囚影终解.png",
-            "肉鸽通用\\誓焰.png",
-            "肉鸽通用\\誓焰终解.png",
-            "肉鸽通用\\终焉.png",
-            "肉鸽通用\\终焉终解.png",
-            "肉鸽通用\\深谣.png",
-            "肉鸽通用\\深谣终解.png",
-            "肉鸽通用\\深痕.png",
-            "肉鸽通用\\深痕终解.png",
-            "肉鸽通用\\启明.png",
-            "肉鸽通用\\启明终解.png"
+            "肉鸽通用/深红囚影.png",
+            "肉鸽通用/深红囚影终解.png",
+            "肉鸽通用/誓焰.png",
+            "肉鸽通用/誓焰终解.png",
+            "肉鸽通用/终焉.png",
+            "肉鸽通用/终焉终解.png",
+            "肉鸽通用/深谣.png",
+            "肉鸽通用/深谣终解.png",
+            "肉鸽通用/深痕.png",
+            "肉鸽通用/深痕终解.png",
+            "肉鸽通用/启明.png",
+            "肉鸽通用/启明终解.png"
         ],
         "action": "Click"
     },
@@ -735,7 +735,7 @@
             270,
             90
         ],
-        "template": "肉鸽通用\\作战开始.png"
+        "template": "肉鸽通用/作战开始.png"
     },
     "选择对应人物_寒境曙光": {
         "post_delay": 1000,
@@ -1117,7 +1117,7 @@
             261,
             166
         ],
-        "template": "寒境曙光\\启程.png",
+        "template": "寒境曙光/启程.png",
         "action": "Custom",
         "custom_action": "ResetIdentify"
     },
@@ -1224,7 +1224,7 @@
             240,
             96
         ],
-        "template": "寒境曙光\\继续.png",
+        "template": "寒境曙光/继续.png",
         "action": "Click"
     },
     "检查是否为港口异常点战斗": {
@@ -1521,7 +1521,7 @@
             261,
             166
         ],
-        "template": "寒境曙光\\启程.png",
+        "template": "寒境曙光/启程.png",
         "action": "Click",
         "next": [
             "重启计数"
@@ -1764,7 +1764,7 @@
             53
         ],
         "green_mask": true,
-        "template": "寒境曙光\\分数区域.png"
+        "template": "寒境曙光/分数区域.png"
     },
     "检查目标分数": {
         "only_rec": true,
@@ -1787,7 +1787,7 @@
             55
         ],
         "green_mask": true,
-        "template": "寒境曙光\\目标分数区域.png"
+        "template": "寒境曙光/目标分数区域.png"
     },
     "检查分数": {
         "recognition": "OCR",

@@ -95,7 +95,7 @@
             131
         ],
         "template": [
-            "厄愿潮声\\特殊事件.png"
+            "厄愿潮声/特殊事件.png"
         ],
         "green_mask": true,
         "action": "Click",
@@ -113,7 +113,7 @@
         ],
         "order_by": "Score",
         "template": [
-            "厄愿潮声\\boss战.png"
+            "厄愿潮声/boss战.png"
         ],
         "green_mask": true,
         "next": [
@@ -181,7 +181,7 @@
             131
         ],
         "template": [
-            "厄愿潮声\\文字事件.png"
+            "厄愿潮声/文字事件.png"
         ],
         "green_mask": true,
         "action": "Click",
@@ -265,8 +265,8 @@
         ],
         "order_by": "Score",
         "template": [
-            "厄愿潮声\\战斗.png",
-            "厄愿潮声\\困难战斗.png"
+            "厄愿潮声/战斗.png",
+            "厄愿潮声/困难战斗.png"
         ],
         "green_mask": true,
         "action": "Click",
@@ -1232,7 +1232,7 @@
             415,
             294
         ],
-        "template": "厄愿潮声\\结束.png",
+        "template": "厄愿潮声/结束.png",
         "action": "Click",
         "next": [
             "厄愿潮声"

@@ -149,7 +149,7 @@
             627,
             632
         ],
-        "template": "链合回路\\技能_爆破.png",
+        "template": "链合回路/技能_爆破.png",
         "green_mask": true
     },
     "识别闪星_链合回路": {
@@ -160,7 +160,7 @@
             627,
             632
         ],
-        "template": "链合回路\\技能_闪星.png",
+        "template": "链合回路/技能_闪星.png",
         "green_mask": true
     },
     "识别纵斩_链合回路": {
@@ -171,7 +171,7 @@
             627,
             632
         ],
-        "template": "链合回路\\技能_纵斩.png",
+        "template": "链合回路/技能_纵斩.png",
         "green_mask": true
     },
     "识别快枪_链合回路": {
@@ -182,7 +182,7 @@
             627,
             632
         ],
-        "template": "链合回路\\技能_快枪.png",
+        "template": "链合回路/技能_快枪.png",
         "green_mask": true
     }
 }

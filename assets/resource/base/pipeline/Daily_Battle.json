@@ -68,7 +68,7 @@
             200,
             200
         ],
-        "template": "战斗\\闪避.png",
+        "template": "战斗/闪避.png",
         "action": "Custom",
         "custom_action": "CombatActions"
     },

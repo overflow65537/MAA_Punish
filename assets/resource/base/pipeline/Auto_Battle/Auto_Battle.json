@@ -104,7 +104,7 @@
             131,
             131
         ],
-        "template": "战斗\\闪避.png",
+        "template": "战斗/闪避.png",
         "action": "Custom",
         "custom_action": "Identify"
     },
@@ -117,7 +117,7 @@
             131,
             131
         ],
-        "template": "战斗\\闪避.png",
+        "template": "战斗/闪避.png",
         "next": [
             "检查比安卡·深痕",
             "检查露西亚·誓焰",

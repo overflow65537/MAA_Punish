@@ -27,7 +27,7 @@
         "green_mask": true,
         "recognition": "TemplateMatch",
         "template": [
-            "自定义战斗\\深红囚影_u1.png"
+            "自定义战斗/深红囚影_u1.png"
         ],
         "roi": [
             809,
@@ -53,7 +53,7 @@
         "pre_delay": 0,
         "recognition": "TemplateMatch",
         "green_mask": true,
-        "template": "自定义战斗\\深红囚影_u2.png",
+        "template": "自定义战斗/深红囚影_u2.png",
         "roi": [
             809,
             556,
@@ -84,7 +84,7 @@
             142
         ],
         "template": [
-            "自定义战斗\\深痕.png"
+            "自定义战斗/深痕.png"
         ],
         "green_mask": true
     },
@@ -132,7 +132,7 @@
             113,
             112
         ],
-        "template": "自定义战斗\\深痕_u1.png"
+        "template": "自定义战斗/深痕_u1.png"
     },
     "检查u2_深痕": {
         "post_delay": 0,
@@ -145,7 +145,7 @@
             113,
             112
         ],
-        "template": "自定义战斗\\深痕_u2.png"
+        "template": "自定义战斗/深痕_u2.png"
     },
     "检查阶段_深痕": {
         "post_delay": 0,
@@ -170,7 +170,7 @@
             163,
             161
         ],
-        "template": "自定义战斗\\誓焰_u1.png"
+        "template": "自定义战斗/誓焰_u1.png"
     },
     "检查u2_誓焰": {
         "post_delay": 0,
@@ -183,7 +183,7 @@
             163,
             161
         ],
-        "template": "自定义战斗\\誓焰_u2.png"
+        "template": "自定义战斗/誓焰_u2.png"
     },
     "检查u2max_誓焰": {
         "post_delay": 0,
@@ -196,7 +196,7 @@
             163,
             161
         ],
-        "template": "自定义战斗\\誓焰_u2max.png"
+        "template": "自定义战斗/誓焰_u2max.png"
     },
     "检查u3_誓焰": {
         "post_delay": 0,
@@ -209,7 +209,7 @@
             161
         ],
         "threshold": 0.55,
-        "template": "自定义战斗\\誓焰_u3.png"
+        "template": "自定义战斗/誓焰_u3.png"
     },
     "检查p1动能条_誓焰": {
         "post_delay": 0,
@@ -243,7 +243,7 @@
             142,
             135
         ],
-        "template": "自定义战斗\\深谣_p1.png"
+        "template": "自定义战斗/深谣_p1.png"
     },
     "检查阶段p2_深谣": {
         "post_delay": 0,
@@ -256,7 +256,7 @@
             142,
             135
         ],
-        "template": "自定义战斗\\深谣_p2.png"
+        "template": "自定义战斗/深谣_p2.png"
     },
     "检查u1_深谣": {
         "post_delay": 0,
@@ -269,7 +269,7 @@
             163,
             161
         ],
-        "template": "自定义战斗\\深谣_u1.png"
+        "template": "自定义战斗/深谣_u1.png"
     },
     "检查u2_深谣": {
         "post_delay": 0,
@@ -282,7 +282,7 @@
             163,
             161
         ],
-        "template": "自定义战斗\\深谣_u2.png"
+        "template": "自定义战斗/深谣_u2.png"
     },
     "检查核心被动1_深谣": {
         "post_delay": 0,
@@ -295,7 +295,7 @@
             116,
             101
         ],
-        "template": "自定义战斗\\深谣_核心被动1.png"
+        "template": "自定义战斗/深谣_核心被动1.png"
     },
     "检查核心被动2_深谣": {
         "post_delay": 0,
@@ -308,7 +308,7 @@
             116,
             101
         ],
-        "template": "自定义战斗\\深谣_核心被动2.png"
+        "template": "自定义战斗/深谣_核心被动2.png"
     },
     "检查p2动能条_深谣": {
         "post_delay": 0,
