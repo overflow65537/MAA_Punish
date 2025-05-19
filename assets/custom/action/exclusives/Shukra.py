@@ -57,9 +57,9 @@ class Shukra(CustomAction):
         攻击攒球
     """
     tempelate = {
-            "red": {"识别信号球": {"template": ["信号球\\启明_红.png"]}},
-            "blue": {"识别信号球": {"template": ["信号球\\启明_蓝.png"]}},
-            "yellow": {"识别信号球": {"template": ["信号球\\启明_黄.png"]}},
+            "red": {"识别信号球": {"template": ["信号球/启明_红.png"]}},
+            "blue": {"识别信号球": {"template": ["信号球/启明_蓝.png"]}},
+            "yellow": {"识别信号球": {"template": ["信号球/启明_黄.png"]}},
         }
     def __init__(self):
         super().__init__()

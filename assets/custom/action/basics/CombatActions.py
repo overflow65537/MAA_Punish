@@ -179,9 +179,9 @@ class CombatActions(CustomAction):
             target_ball (str): 目标球颜色 "red", "blue", "yellow", "any"
             template (dict): 模板字典，格式为：
                 {
-                    "red": {"识别信号球": {"template": ["信号球\\启明_红.png"]}},
-                    "blue": {"识别信号球": {"template": ["信号球\\启明_蓝.png"]}},
-                    "yellow": {"识别信号球": {"template": ["信号球\\启明_黄.png"]}}
+                    "red": {"识别信号球": {"template": ["信号球/启明_红.png"]}},
+                    "blue": {"识别信号球": {"template": ["信号球/启明_蓝.png"]}},
+                    "yellow": {"识别信号球": {"template": ["信号球/启明_黄.png"]}}
                 }
 
         Returns:
