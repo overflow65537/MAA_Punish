@@ -71,6 +71,13 @@
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/bytedance"
             ]
+        },
+        {
+            "name": "waydroid官服",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/waydroid_base"
+            ]
         }
     ],
     "task": [
