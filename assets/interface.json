@@ -64,6 +64,13 @@
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/huawei"
             ]
+        },
+        {
+            "name": "抖音(字节跳动)服",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/bytedance"
+            ]
         }
     ],
     "task": [
