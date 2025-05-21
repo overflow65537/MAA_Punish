@@ -64,6 +64,13 @@
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/huawei"
             ]
+        },
+        {
+            "name": "waydroid",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/waydroid"
+            ]
         }
     ],
     "task": [
