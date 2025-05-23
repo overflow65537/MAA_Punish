@@ -301,7 +301,7 @@
             "succeeded": "[color:ForestGreen]隐秘工坊[/color]"
         },
         "next": [
-            "事件完成_矩阵循生"
+            "事件完成_结束_矩阵循生"
         ],
         "interrupt": [
             "关闭奖励_矩阵循生",
@@ -960,7 +960,7 @@
             "succeeded": "[color:ForestGreen]无效救援[/color]"
         },
         "next": [
-            "事件完成_矩阵循生"
+            "事件完成_结束_矩阵循生"
         ],
         "interrupt": [
             "关闭奖励_矩阵循生",
