@@ -1,0 +1,276 @@
+{
+    "新幻痛囚笼": {
+        "next": [
+            "挑战次数不足",
+            "挑战次数不足_弹窗",
+            "检查A区"
+        ],
+        "interrupt": [
+            "选择区域",
+            "打开幻痛囚笼",
+            "打开挑战_幻痛囚笼",
+            "打开战斗",
+            "意外点击_限定活动"
+        ]
+    },
+    "检查A区": {
+        "next": [
+            "A区退出",
+            "没打满"
+        ]
+    },
+    "A区退出": {
+        "recognition": "Custom",
+        "custom_recognition": "LOp",
+        "custom_recognition_param": {
+            "mode": "and",
+            "nodes": [
+                "检查是否是最终难度",
+                "检查是否存在分数"
+            ]
+        }
+    },
+    "没打满": {
+        "recognition": "Custom",
+        "custom_recognition": "LOp",
+        "custom_recognition_param": {
+            "mode": "and",
+            "nodes": [
+                "囚笼作战程序",
+                "打满了_反转条件"
+            ]
+        },
+        "roi": [
+            1029,
+            656,
+            128,
+            44
+        ],
+        "expected": "未打满",
+        "action": "Click",
+        "next": [
+            "囚笼作战程序"
+        ]
+    },
+    "打满了_反转条件": {
+        "recognition": "Custom",
+        "custom_recognition": "LOp",
+        "custom_recognition_param": {
+            "mode": "or",
+            "nodes": [
+                [
+                    "检查是否是最终难度"
+                ],
+                [
+                    "检查是否存在分数"
+                ]
+            ]
+        }
+    },
+    "检查是否是最终难度": {
+        "recognition": "ColorMatch",
+        "upper": [
+            8,
+            8,
+            8
+        ],
+        "lower": [
+            0,
+            0,
+            0
+        ],
+        "roi": [
+            17,
+            424,
+            112,
+            110
+        ],
+        "connected": true,
+        "count": 2000
+    },
+    "检查是否存在分数": {
+        "recognition": "OCR",
+        "roi": [
+            1050,
+            235,
+            115,
+            40
+        ],
+        "expected": "^(?!0+$)\\d+$"
+    },
+    "囚笼作战程序": {
+        "recognition": "OCR",
+        "roi": [
+            1029,
+            656,
+            128,
+            44
+        ],
+        "expected": "作战准备",
+        "action": "Click",
+        "next": [
+            "查看Boss_火队",
+            "查看Boss_暗队",
+            "查看Boss_雷队",
+            "查看Boss_物队",
+            "查看Boss_冰队"
+        ]
+    },
+    "查看Boss_冰队": {
+        "recognition": "OCR",
+        "roi": [
+            239,
+            110,
+            305,
+            51
+        ],
+        "expected": [
+            "马基雅维利",
+            "^华[\\u4e00-\\u9fa5]"
+        ],
+        "action": "Custom",
+        "custom_action": "PPOverride",
+        "custom_action_param": {
+            "选择自动作战人物": {
+                "threshold": [
+                    0.9,
+                    0.9
+                ],
+                "template": [
+                    "肉鸽通用/启明.png",
+                    "肉鸽通用/启明终解.png"
+                ]
+            }
+        },
+        "next": [
+            "选择首发_战区"
+        ]
+    },
+    "查看Boss_暗队": {
+        "recognition": "OCR",
+        "roi": [
+            239,
+            110,
+            305,
+            51
+        ],
+        "expected": [
+            "苦刑之女",
+            "^卡[\\u4e00-\\u9fa5]",
+            "枢蛉后",
+            "巫毒"
+        ],
+        "action": "Custom",
+        "custom_action": "PPOverride",
+        "custom_action_param": {
+            "选择自动作战人物": {
+                "threshold": [
+                    0.9,
+                    0.9
+                ],
+                "template": [
+                    "肉鸽通用/深谣.png",
+                    "肉鸽通用/深谣终解.png"
+                ]
+            }
+        },
+        "next": [
+            "选择首发_战区"
+        ]
+    },
+    "查看Boss_火队": {
+        "recognition": "OCR",
+        "roi": [
+            239,
+            110,
+            305,
+            51
+        ],
+        "expected": [
+            "喷涂机械",
+            "加百列",
+            "露娜"
+        ],
+        "action": "Custom",
+        "custom_action": "PPOverride",
+        "custom_action_param": {
+            "选择自动作战人物": {
+                "threshold": [
+                    0.9,
+                    0.9
+                ],
+                "template": [
+                    "肉鸽通用/誓焰.png",
+                    "肉鸽通用/誓焰终解.png"
+                ]
+            }
+        },
+        "next": [
+            "选择首发_战区"
+        ]
+    },
+    "查看Boss_物队": {
+        "recognition": "OCR",
+        "roi": [
+            239,
+            110,
+            305,
+            51
+        ],
+        "expected": [
+            "武藏玖型",
+            "不明构造体",
+            "^罗[\\u4e00-\\u9fa5]塔$",
+            "罗兰",
+            "蔷薇之剑"
+        ],
+        "action": "Custom",
+        "custom_action": "PPOverride",
+        "custom_action_param": {
+            "选择自动作战人物": {
+                "threshold": [
+                    0.9,
+                    0.9
+                ],
+                "template": [
+                    "肉鸽通用/深痕.png",
+                    "肉鸽通用/深痕终解.png"
+                ]
+            }
+        },
+        "next": [
+            "选择首发_战区"
+        ]
+    },
+    "查看Boss_雷队": {
+        "recognition": "OCR",
+        "roi": [
+            239,
+            110,
+            305,
+            51
+        ],
+        "expected": [
+            "安博莉亚",
+            "塞壬",
+            "瓦沙克"
+        ],
+        "action": "Custom",
+        "custom_action": "PPOverride",
+        "custom_action_param": {
+            "选择自动作战人物": {
+                "threshold": [
+                    0.9,
+                    0.9
+                ],
+                "template": [
+                    "肉鸽通用/深红囚影.png",
+                    "肉鸽通用/深红囚影终解.png"
+                ]
+            }
+        },
+        "next": [
+            "选择首发_战区"
+        ]
+    }
+}

@@ -64,6 +64,11 @@
         "class": "IDFscore",
         "file_path": "{custom_path}/recognition/exclusives/IDFscore.py"
     },
+    "lOp": {
+        "type": "recognition",
+        "class": "LOp",
+        "file_path": "{custom_path}/action/recognition/Logical_Operators.py.py"
+    },
     "IdentifyRoles": {
         "type": "action",
         "class": "IdentifyRoles",

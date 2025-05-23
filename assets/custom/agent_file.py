@@ -24,12 +24,18 @@ from recognition.exclusives.CalculateScore import CalculateScore
 from recognition.exclusives.IDFMembers import IDFMembers
 from recognition.exclusives.IDFscore import IDFscore
 from recognition.exclusives.IDFMasteryLevel import IDFMasteryLevel
+from recognition.exclusives.Logical_Operators import LOp
 
+
+@AgentServer.custom_recognition("LOp")
+class Agent_LOp(LOp):
+    pass
 
 
 @AgentServer.custom_action("ChainLoopCircuit")
 class Agent_ChainLoopCircuit(ChainLoopCircuit):
     pass
+
 
 @AgentServer.custom_action("Shukra")
 class Agent_Shukra(Shukra):
@@ -89,7 +95,6 @@ class Agent_ResetIdentify(ResetIdentify):
 @AgentServer.custom_action("ScreenShot")
 class Agent_ScreenShot(ScreenShot):
     pass
-
 
 
 @AgentServer.custom_recognition("CalculateScore")
