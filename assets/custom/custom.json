@@ -19,6 +19,56 @@
         "class": "ScreenShot",
         "file_path": "{custom_path}/action/basics/ScreenShot.py"
     },
+    "CalculateScore": {
+        "type": "recognition",
+        "class": "CalculateScore",
+        "file_path": "{custom_path}/recognition/exclusives/CalculateScore.py"
+    },
+    "IDFMembers": {
+        "type": "recognition",
+        "class": "IDFMembers",
+        "file_path": "{custom_path}/recognition/exclusives/IDFMembers.py"
+    },
+    "IDFscore": {
+        "type": "recognition",
+        "class": "IDFscore",
+        "file_path": "{custom_path}/recognition/exclusives/IDFscore.py"
+    },
+    "IdentifyRoles": {
+        "type": "action",
+        "class": "IdentifyRoles",
+        "file_path": "{custom_path}/action/basics/IdentifyRoles.py"
+    },
+    "CombatActions": {
+        "type": "action",
+        "class": "CombatActions",
+        "file_path": "{custom_path}/action/basics/CombatActions.py"
+    },
+    "IDFMasteryLevel": {
+        "type": "recognition",
+        "class": "IDFMasteryLevel",
+        "file_path": "{custom_path}/recognition/exclusives/IDFMasteryLevel.py"
+    },
+    "MultiplayerAutoBattle": {
+        "type": "action",
+        "class": "MultiplayerAutoBattle",
+        "file_path": "{custom_path}/action/basics/MultiplayerAutoBattle.py"
+    },
+    "Count": {
+        "type": "action",
+        "class": "Count",
+        "file_path": "{custom_path}/action/basics/Count.py"
+    },
+    "PPOverride": {
+        "type": "action",
+        "class": "PPOverride",
+        "file_path": "{custom_path}/action/basics/PPOverride.py"
+    },
+    "ChainLoopCircuit": {
+        "type": "action",
+        "class": "ChainLoopCircuit",
+        "file_path": "{custom_path}/action/basics/ChainLoopCircuit.py"
+    },
     "Stigmata": {
         "type": "action",
         "class": "Stigmata",
@@ -48,55 +98,5 @@
         "type": "action",
         "class": "Shukra",
         "file_path": "{custom_path}/action/exclusives/Shukra.py"
-    },
-    "CalculateScore": {
-        "type": "recognition",
-        "class": "CalculateScore",
-        "file_path": "{custom_path}/recognition/exclusives/CalculateScore.py"
-    },
-    "IDFMembers": {
-        "type": "recognition",
-        "class": "IDFMembers",
-        "file_path": "{custom_path}/recognition/exclusives/IDFMembers.py"
-    },
-    "IDFscore": {
-        "type": "recognition",
-        "class": "IDFscore",
-        "file_path": "{custom_path}/recognition/exclusives/IDFscore.py"
-    },
-    "IdentifyRoles": {
-        "type": "action",
-        "class": "IdentifyRoles",
-        "file_path": "{custom_path}/action/basics/IdentifyRoles.py"
-    },
-    "MultiplayerAutoBattle": {
-        "type": "action",
-        "class": "MultiplayerAutoBattle",
-        "file_path": "{custom_path}/action/basics/MultiplayerAutoBattle.py"
-    },
-    "CombatActions": {
-        "type": "action",
-        "class": "CombatActions",
-        "file_path": "{custom_path}/action/basics/CombatActions.py"
-    },
-    "IDFMasteryLevel": {
-        "type": "recognition",
-        "class": "IDFMasteryLevel",
-        "file_path": "{custom_path}/recognition/exclusives/IDFMasteryLevel.py"
-    },
-    "Count": {
-        "type": "action",
-        "class": "Count",
-        "file_path": "{custom_path}/action/basics/Count.py"
-    },
-    "PPOverride": {
-        "type": "action",
-        "class": "PPOverride",
-        "file_path": "{custom_path}/action/basics/PPOverride.py"
-    },
-    "ChainLoopCircuit": {
-        "type": "action",
-        "class": "ChainLoopCircuit",
-        "file_path": "{custom_path}/action/basics/ChainLoopCircuit.py"
     }
 }

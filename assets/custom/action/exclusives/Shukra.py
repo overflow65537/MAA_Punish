@@ -1,39 +1,10 @@
 import logging
-import sys
 import time
-from pathlib import Path
 
-# 获取当前文件的绝对路径
-current_file = Path(__file__).resolve()
-
-# 定义可能的项目根目录相对路径
-root_paths = [
-    current_file.parent.parent.parent.parent.joinpath("MFW_resource"),
-    current_file.parent.parent.parent.parent.parent.parent.joinpath("Bundles").joinpath(
-        "MAA_Punish"
-    ),
-    current_file.parent.parent.parent.parent.parent.joinpath("assets"),
-]
-
-# 确定项目根目录
-project_root = next((path for path in root_paths if path.exists()), None)
-if project_root:
-    if project_root == current_file.parent.parent.parent.parent.joinpath(
-        "MFW_resource"
-    ):
-        project_root = current_file.parent.parent.parent.parent
-    print(f"项目根目录: {project_root}")
-    # 添加项目根目录到sys.path
-    sys.path.append(str(project_root))
-    from custom.action.basics import CombatActions
-    from custom.action.tool import JobExecutor
-    from custom.action.tool.Enum import GameActionEnum
-    from custom.action.tool.LoadSetting import ROLE_ACTIONS
-else:
-    from assets.custom.action.basics import CombatActions
-    from assets.custom.action.tool import JobExecutor
-    from assets.custom.action.tool.Enum import GameActionEnum
-    from assets.custom.action.tool.LoadSetting import ROLE_ACTIONS
+from custom.action.basics import CombatActions
+from custom.action.tool import JobExecutor
+from custom.action.tool.Enum import GameActionEnum
+from custom.action.tool.LoadSetting import ROLE_ACTIONS
 
 from maa.context import Context
 from maa.custom_action import CustomAction
@@ -56,22 +27,22 @@ class Shukra(CustomAction):
     检查信号球数量信号球数量小于9
         攻击攒球
     """
+
     tempelate = {
-            "red": {"识别信号球": {"template": ["信号球/启明_红.png"]}},
-            "blue": {"识别信号球": {"template": ["信号球/启明_蓝.png"]}},
-            "yellow": {"识别信号球": {"template": ["信号球/启明_黄.png"]}},
-        }
+        "red": {"识别信号球": {"template": ["信号球/启明_红.png"]}},
+        "blue": {"识别信号球": {"template": ["信号球/启明_蓝.png"]}},
+        "yellow": {"识别信号球": {"template": ["信号球/启明_黄.png"]}},
+    }
+
     def __init__(self):
         super().__init__()
         for name, action in ROLE_ACTIONS.items():
             if action in self.__class__.__name__:
                 self._role_name = name
 
-
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-
 
         def get_ball_target():
             return CombatActions.Arrange_Signal_Balls(
