@@ -919,6 +919,7 @@
         "action": "Click"
     },
     "离开_寒境曙光": {
+        "post_delay": 1500,
         "recognition": "OCR",
         "roi": [
             1036,
