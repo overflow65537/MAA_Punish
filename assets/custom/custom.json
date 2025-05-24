@@ -67,7 +67,7 @@
     "lOp": {
         "type": "recognition",
         "class": "LOp",
-        "file_path": "{custom_path}/action/recognition/Logical_Operators.py.py"
+        "file_path": "{custom_path}/recognition/exclusives/LogicalOperators.py"
     },
     "IdentifyRoles": {
         "type": "action",

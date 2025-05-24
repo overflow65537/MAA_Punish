@@ -24,7 +24,7 @@ from recognition.exclusives.CalculateScore import CalculateScore
 from recognition.exclusives.IDFMembers import IDFMembers
 from recognition.exclusives.IDFscore import IDFscore
 from recognition.exclusives.IDFMasteryLevel import IDFMasteryLevel
-from recognition.exclusives.Logical_Operators import LOp
+from recognition.exclusives.LogicalOperators import LOp
 
 
 @AgentServer.custom_recognition("LOp")
