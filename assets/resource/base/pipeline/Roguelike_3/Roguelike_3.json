@@ -1258,7 +1258,9 @@
             "target_count": 20,
             "next_node": [
                 "退出选人"
-            ]
+            ],
+            "next_node_msg": "未搜索到目标人物,重设识别条件",
+            "count_msg": "滑动计数: {count}, 目标次数: {target_count}"
         }
     },
     "退出选人": {
@@ -1285,7 +1287,9 @@
             "target_count": 2,
             "next_node": [
                 "强制选人"
-            ]
+            ],
+            "next_node_msg": "未搜索到目标人物,随机选择人物",
+            "count_msg": "强制选人计数: {count}, 目标次数: {target_count}"
         }
     },
     "链路崩溃_reco": {

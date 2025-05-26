@@ -16,6 +16,7 @@ from assets.custom.action.basics.ScreenShot import ScreenShot
 from assets.custom.action.basics.SetTower import SetTower
 from assets.custom.action.basics.Count import Count
 from assets.custom.action.basics.PPOverride import PPOverride
+from assets.custom.action.basics.ChainLoopCircuit import ChainLoopCircuit
 
 from assets.custom.action.exclusives.CrimsonWeave import CrimsonWeave
 from assets.custom.action.exclusives.LostLullaby import LostLullaby
@@ -28,6 +29,7 @@ from assets.custom.recognition.exclusives.CalculateScore import CalculateScore
 from assets.custom.recognition.exclusives.IDFMembers import IDFMembers
 from assets.custom.recognition.exclusives.IDFscore import IDFscore
 from assets.custom.recognition.exclusives.IDFMasteryLevel import IDFMasteryLevel
+from assets.custom.recognition.exclusives.LogicalOperators import LOp
 
 print("如无必要,请使用MFW.exe运行")
 print("if not necessary, please use MFW.exe to run")
@@ -55,13 +57,19 @@ def main():
     Toolkit.pi_register_custom_action("SetTower", SetTower())  # 设置塔
     Toolkit.pi_register_custom_action("Count", Count())  # 计数
     Toolkit.pi_register_custom_action("PPOverride", PPOverride())  # 覆写
+    Toolkit.pi_register_custom_action(
+        "ChainLoopCircuit", ChainLoopCircuit()
+    )  # 链合回路
     # 注册自定义识别
     Toolkit.pi_register_custom_recognition(
         "CalculateScore", CalculateScore()
     )  # 计算分数
     Toolkit.pi_register_custom_recognition("IDFMembers", IDFMembers())  # 识别宿舍成员
     Toolkit.pi_register_custom_recognition("IDFscore", IDFscore())  # 识别分数
-    Toolkit.pi_register_custom_recognition("IDFMasteryLevel", IDFMasteryLevel())  # 识别大师度
+    Toolkit.pi_register_custom_recognition(
+        "IDFMasteryLevel", IDFMasteryLevel()
+    )  # 识别精通等级
+    Toolkit.pi_register_custom_recognition("LOp", LOp())  # 逻辑识别器
 
     directly = "-d" in sys.argv
     Toolkit.pi_run_cli("./", "./", directly)
