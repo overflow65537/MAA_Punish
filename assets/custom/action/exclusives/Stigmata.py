@@ -3,33 +3,10 @@ import sys
 import time
 from pathlib import Path
 
-# 获取当前文件的绝对路径
-current_file = Path(__file__).resolve()
-
-# 定义可能的项目根目录相对路径
-root_paths = [
-    current_file.parent.parent.parent.parent.joinpath("MFW_resource"),
-    current_file.parent.parent.parent.parent.parent.parent.joinpath("Bundles").joinpath("MAA_Punish"),
-    current_file.parent.parent.parent.parent.parent.joinpath("assets"),
-]
-
-# 确定项目根目录
-project_root = next((path for path in root_paths if path.exists()), None)
-if project_root:
-    if project_root == current_file.parent.parent.parent.parent.joinpath("MFW_resource"):
-        project_root = current_file.parent.parent.parent.parent
-    print(f"项目根目录: {project_root}")
-    # 添加项目根目录到sys.path
-    sys.path.append(str(project_root))
-    from custom.action.basics import CombatActions
-    from custom.action.tool import JobExecutor
-    from custom.action.tool.Enum import GameActionEnum
-    from custom.action.tool.LoadSetting import ROLE_ACTIONS
-else:
-    from assets.custom.action.basics import CombatActions
-    from assets.custom.action.tool import JobExecutor
-    from assets.custom.action.tool.Enum import GameActionEnum
-    from assets.custom.action.tool.LoadSetting import ROLE_ACTIONS
+from custom.action.basics import CombatActions
+from custom.action.tool import JobExecutor
+from custom.action.tool.Enum import GameActionEnum
+from custom.action.tool.LoadSetting import ROLE_ACTIONS
 
 from maa.context import Context
 from maa.custom_action import CustomAction
@@ -42,15 +19,25 @@ class Stigmata(CustomAction):
             if action in self.__class__.__name__:
                 self._role_name = name
 
-    def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
+    def run(
+        self, context: Context, argv: CustomAction.RunArg
+    ) -> CustomAction.RunResult:
         try:
             lens_lock = JobExecutor(
-                CombatActions.lens_lock(context), GameActionEnum.LENS_LOCK, role_name=self._role_name
+                CombatActions.lens_lock(context),
+                GameActionEnum.LENS_LOCK,
+                role_name=self._role_name,
             )
-            attack = JobExecutor(CombatActions.attack(context), GameActionEnum.ATTACK, role_name=self._role_name)
+            attack = JobExecutor(
+                CombatActions.attack(context),
+                GameActionEnum.ATTACK,
+                role_name=self._role_name,
+            )
 
             use_skill = JobExecutor(
-                CombatActions.use_skill(context), GameActionEnum.USE_SKILL, role_name=self._role_name
+                CombatActions.use_skill(context),
+                GameActionEnum.USE_SKILL,
+                role_name=self._role_name,
             )
             long_press_attack = JobExecutor(
                 CombatActions.long_press_attack(context, 3000),
@@ -63,23 +50,37 @@ class Stigmata(CustomAction):
                 role_name=self._role_name,
             )
             ball_elimination = JobExecutor(
-                CombatActions.ball_elimination(context), GameActionEnum.BALL_ELIMINATION, role_name=self._role_name
+                CombatActions.ball_elimination(context),
+                GameActionEnum.BALL_ELIMINATION,
+                role_name=self._role_name,
             )
 
             trigger_qte_first = JobExecutor(
-                CombatActions.trigger_qte_first(context), GameActionEnum.TRIGGER_QTE_FIRST, role_name=self._role_name
+                CombatActions.trigger_qte_first(context),
+                GameActionEnum.TRIGGER_QTE_FIRST,
+                role_name=self._role_name,
             )
             trigger_qte_second = JobExecutor(
-                CombatActions.trigger_qte_second(context), GameActionEnum.TRIGGER_QTE_SECOND, role_name=self._role_name
+                CombatActions.trigger_qte_second(context),
+                GameActionEnum.TRIGGER_QTE_SECOND,
+                role_name=self._role_name,
             )
             auxiliary_machine = JobExecutor(
-                CombatActions.auxiliary_machine(context), GameActionEnum.AUXILIARY_MACHINE, role_name=self._role_name
+                CombatActions.auxiliary_machine(context),
+                GameActionEnum.AUXILIARY_MACHINE,
+                role_name=self._role_name,
             )
 
             lens_lock.execute()
-            if CombatActions.check_status(context, "检查比安卡·深痕一阶段", self._role_name):
-                if not CombatActions.check_status(context, "检查u1_深痕", self._role_name):
-                    if CombatActions.check_status(context, "检查核心被动_深痕", self._role_name):
+            if CombatActions.check_status(
+                context, "检查比安卡·深痕一阶段", self._role_name
+            ):
+                if not CombatActions.check_status(
+                    context, "检查u1_深痕", self._role_name
+                ):
+                    if CombatActions.check_status(
+                        context, "检查核心被动_深痕", self._role_name
+                    ):
                         long_press_dodge.execute()  # 开启照域
                         start_time = time.time()
                         while time.time() - start_time < 4:
@@ -100,7 +101,9 @@ class Stigmata(CustomAction):
                         auxiliary_machine.execute()
                     time.sleep(1.8)
                 else:
-                    if not CombatActions.check_status(context, "检查u2数值_深痕", self._role_name):  # 残光值大于90
+                    if not CombatActions.check_status(
+                        context, "检查u2数值_深痕", self._role_name
+                    ):  # 残光值大于90
                         start_time = time.time()
                         while time.time() - start_time < 2:
                             attack.execute()  # 攻击
