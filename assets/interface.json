@@ -457,10 +457,10 @@
                     "pipeline_override": {}
                 },
                 {
-                    "name": "终极区",
+                    "name": "终级区",
                     "pipeline_override": {
                         "选择区域": {
-                            "expected": "终极"
+                            "expected": "终级"
                         }
                     }
                 }
