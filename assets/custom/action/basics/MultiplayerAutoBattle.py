@@ -1,3 +1,29 @@
+# Copyright (c) 2024-2025 MAA_Punish
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+"""
+MAA_Punish
+MAA_Punish 多人自动战斗
+作者:HCX0426
+"""
+
 import sys
 import time
 from pathlib import Path
@@ -11,14 +37,18 @@ current_file = Path(__file__).resolve()
 # 定义可能的项目根目录相对路径
 root_paths = [
     current_file.parent.parent.parent.parent.joinpath("MFW_resource"),
-    current_file.parent.parent.parent.parent.parent.parent.joinpath("Bundles").joinpath("MAA_Punish"),
+    current_file.parent.parent.parent.parent.parent.parent.joinpath("Bundles").joinpath(
+        "MAA_Punish"
+    ),
     current_file.parent.parent.parent.parent.parent.joinpath("assets"),
 ]
 
 # 确定项目根目录
 project_root = next((path for path in root_paths if path.exists()), None)
 if project_root:
-    if project_root == current_file.parent.parent.parent.parent.joinpath("MFW_resource"):
+    if project_root == current_file.parent.parent.parent.parent.joinpath(
+        "MFW_resource"
+    ):
         project_root = current_file.parent.parent.parent.parent
     print(f"项目根目录: {project_root}")
     # 添加项目根目录到sys.path
@@ -29,9 +59,10 @@ else:
     from assets.custom.action.tool.LoadSetting import ROLE_ACTIONS
 
 
-
 class MultiplayerAutoBattle(CustomAction):
-    def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
+    def run(
+        self, context: Context, argv: CustomAction.RunArg
+    ) -> CustomAction.RunResult:
         try:
             image = context.tasker.controller.post_screencap().wait().get()
 
