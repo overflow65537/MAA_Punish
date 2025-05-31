@@ -1,35 +1,36 @@
+# Copyright (c) 2024-2025 MAA_Punish
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+"""
+MAA_Punish
+MAA_Punish 誓焰战斗程序
+作者:overflow65537,HCX0426
+"""
+
 import logging
-import sys
 import time
-from pathlib import Path
 
-# 获取当前文件的绝对路径
-current_file = Path(__file__).resolve()
-
-# 定义可能的项目根目录相对路径
-root_paths = [
-    current_file.parent.parent.parent.parent.joinpath("MFW_resource"),
-    current_file.parent.parent.parent.parent.parent.parent.joinpath("Bundles").joinpath("MAA_Punish"),
-    current_file.parent.parent.parent.parent.parent.joinpath("assets"),
-]
-
-# 确定项目根目录
-project_root = next((path for path in root_paths if path.exists()), None)
-if project_root:
-    if project_root == current_file.parent.parent.parent.parent.joinpath("MFW_resource"):
-        project_root = current_file.parent.parent.parent.parent
-    print(f"项目根目录: {project_root}")
-    # 添加项目根目录到sys.path
-    sys.path.append(str(project_root))
-    from custom.action.basics import CombatActions
-    from custom.action.tool import JobExecutor
-    from custom.action.tool.Enum import GameActionEnum
-    from custom.action.tool.LoadSetting import ROLE_ACTIONS
-else:
-    from assets.custom.action.basics import CombatActions
-    from assets.custom.action.tool import JobExecutor
-    from assets.custom.action.tool.Enum import GameActionEnum
-    from assets.custom.action.tool.LoadSetting import ROLE_ACTIONS
+from custom.action.basics import CombatActions
+from custom.action.tool import JobExecutor
+from custom.action.tool.Enum import GameActionEnum
+from custom.action.tool.LoadSetting import ROLE_ACTIONS
 
 from maa.context import Context
 from maa.custom_action import CustomAction
@@ -42,14 +43,24 @@ class Pyroath(CustomAction):
             if action in self.__class__.__name__:
                 self._role_name = name
 
-    def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
+    def run(
+        self, context: Context, argv: CustomAction.RunArg
+    ) -> CustomAction.RunResult:
         try:
             lens_lock = JobExecutor(
-                CombatActions.lens_lock(context), GameActionEnum.LENS_LOCK, role_name=self._role_name
+                CombatActions.lens_lock(context),
+                GameActionEnum.LENS_LOCK,
+                role_name=self._role_name,
             )
-            attack = JobExecutor(CombatActions.attack(context), GameActionEnum.ATTACK, role_name=self._role_name)
+            attack = JobExecutor(
+                CombatActions.attack(context),
+                GameActionEnum.ATTACK,
+                role_name=self._role_name,
+            )
             use_skill = JobExecutor(
-                CombatActions.use_skill(context), GameActionEnum.USE_SKILL, role_name=self._role_name
+                CombatActions.use_skill(context),
+                GameActionEnum.USE_SKILL,
+                role_name=self._role_name,
             )
             long_press_attack = JobExecutor(
                 CombatActions.long_press_attack(context),
@@ -68,19 +79,27 @@ class Pyroath(CustomAction):
             )
 
             trigger_qte_first = JobExecutor(
-                CombatActions.trigger_qte_first(context), GameActionEnum.TRIGGER_QTE_FIRST, role_name=self._role_name
+                CombatActions.trigger_qte_first(context),
+                GameActionEnum.TRIGGER_QTE_FIRST,
+                role_name=self._role_name,
             )
             trigger_qte_second = JobExecutor(
-                CombatActions.trigger_qte_second(context), GameActionEnum.TRIGGER_QTE_SECOND, role_name=self._role_name
+                CombatActions.trigger_qte_second(context),
+                GameActionEnum.TRIGGER_QTE_SECOND,
+                role_name=self._role_name,
             )
             auxiliary_machine = JobExecutor(
-                CombatActions.auxiliary_machine(context), GameActionEnum.AUXILIARY_MACHINE, role_name=self._role_name
+                CombatActions.auxiliary_machine(context),
+                GameActionEnum.AUXILIARY_MACHINE,
+                role_name=self._role_name,
             )
             lens_lock.execute()
 
             if CombatActions.check_status(context, "检查u1_誓焰", self._role_name):
                 print("誓焰u1")
-                if CombatActions.check_status(context, "检查p1动能条_誓焰", self._role_name):
+                if CombatActions.check_status(
+                    context, "检查p1动能条_誓焰", self._role_name
+                ):
                     print("p1动能条max")
 
                     long_press_skill.execute()  # 汇聚,阳炎之光
@@ -93,7 +112,9 @@ class Pyroath(CustomAction):
                     start_time = time.time()
                     while time.time() - start_time < 1:
                         time.sleep(0.1)
-                        if CombatActions.check_Skill_energy_bar(context, self._role_name):
+                        if CombatActions.check_Skill_energy_bar(
+                            context, self._role_name
+                        ):
                             use_skill.execute()  # 进入u3阶段
                 else:
                     print("p1动能条非max")
@@ -105,7 +126,9 @@ class Pyroath(CustomAction):
 
             if CombatActions.check_status(context, "检查u3_誓焰", self._role_name):
                 print("誓焰u3")
-                if CombatActions.check_status(context, "检查p1动能条_誓焰", self._role_name):
+                if CombatActions.check_status(
+                    context, "检查p1动能条_誓焰", self._role_name
+                ):
                     print("p3动能条max")
                     long_press_attack = JobExecutor(
                         CombatActions.long_press_attack(context, 4000),
@@ -115,7 +138,9 @@ class Pyroath(CustomAction):
                     start_time = time.time()
                     while time.time() - start_time < 1:
                         time.sleep(0.1)
-                        if CombatActions.check_Skill_energy_bar(context, self._role_name):
+                        if CombatActions.check_Skill_energy_bar(
+                            context, self._role_name
+                        ):
                             use_skill.execute()  # 越过迷雾,与深渊
                             time.sleep(0.1)
                             trigger_qte_first.execute()
@@ -134,8 +159,12 @@ class Pyroath(CustomAction):
                 attack.execute()  # 攻击
                 use_skill.execute()  # 进入u3阶段
                 time.sleep(0.2)
-                if CombatActions.check_status(context, "检查p1动能条_誓焰", self._role_name):
-                    if CombatActions.check_status(context, "检查u2_誓焰", self._role_name):
+                if CombatActions.check_status(
+                    context, "检查p1动能条_誓焰", self._role_name
+                ):
+                    if CombatActions.check_status(
+                        context, "检查u2_誓焰", self._role_name
+                    ):
                         long_press_attack.execute()  # 长按攻击
                         start_time = time.time()
                         while time.time() - start_time < 1:
@@ -150,7 +179,9 @@ class Pyroath(CustomAction):
                             time.sleep(0.1)
                             use_skill.execute()  # 进入u3阶段
                 else:
-                    if CombatActions.check_status(context, "检查u2max_誓焰", self._role_name):
+                    if CombatActions.check_status(
+                        context, "检查u2max_誓焰", self._role_name
+                    ):
                         start_time = time.time()
                         while time.time() - start_time < 1:
                             time.sleep(0.1)
@@ -158,7 +189,9 @@ class Pyroath(CustomAction):
                             time.sleep(0.1)
                             attack.execute()  # 攻击
                             time.sleep(0.1)
-                            if CombatActions.check_Skill_energy_bar(context, self._role_name):
+                            if CombatActions.check_Skill_energy_bar(
+                                context, self._role_name
+                            ):
                                 use_skill.execute()  # 进入u3阶段
 
                             return CustomAction.RunResult(success=True)

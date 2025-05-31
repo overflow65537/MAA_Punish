@@ -1,3 +1,29 @@
+# Copyright (c) 2024-2025 MAA_Punish
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+"""
+MAA_Punish
+MAA_Punish 动作执行器
+作者:HCX0426
+"""
+
 import os
 import sys
 import time
@@ -12,14 +38,18 @@ current_file = Path(__file__).resolve()
 # 定义可能的项目根目录相对路径
 root_paths = [
     current_file.parent.parent.parent.parent.joinpath("MFW_resource"),
-    current_file.parent.parent.parent.parent.parent.parent.joinpath("Bundles").joinpath("MAA_Punish"),
+    current_file.parent.parent.parent.parent.parent.parent.joinpath("Bundles").joinpath(
+        "MAA_Punish"
+    ),
     current_file.parent.parent.parent.parent.parent.joinpath("assets"),
 ]
 
 # 确定项目根目录
 project_root = next((path for path in root_paths if path.exists()), None)
 if project_root:
-    if project_root == current_file.parent.parent.parent.parent.joinpath("MFW_resource"):
+    if project_root == current_file.parent.parent.parent.parent.joinpath(
+        "MFW_resource"
+    ):
         project_root = current_file.parent.parent.parent.parent
     print(f"项目根目录: {project_root}")
     # 添加项目根目录到sys.path
@@ -29,8 +59,6 @@ if project_root:
 else:
     from assets.custom.action.tool import ActionStatusEnum, GameActionEnum
     from assets.custom.action.tool.Logger import Logger
-
-
 
 
 class JobExecutor:
@@ -58,15 +86,28 @@ class JobExecutor:
         self._current_job: Optional[Job] = None  # 当前监控的Job实例
         self.role_name = role_name or "未知角色"
         self._log_file_path = os.path.join(
-            os.path.dirname(__file__), "..", "..", "action_log", self.role_name, "job.log"
+            os.path.dirname(__file__),
+            "..",
+            "..",
+            "action_log",
+            self.role_name,
+            "job.log",
         )  # 日志文件路径
-        self._logger = Logger(name=f"{self.role_name}_Job", log_file=self._log_file_path)  # 日志实例
+        self._logger = Logger(
+            name=f"{self.role_name}_Job", log_file=self._log_file_path
+        )  # 日志实例
 
     def _create_checker(self, job: Optional[Job], attr: str) -> Callable[[], bool]:
         """创建属性检查闭包"""
         return lambda: getattr(job, attr)
 
-    def execute(self, timeout: float = 3, interval: float = 0.1, max_retries: int = 2, verbose: bool = True) -> bool:
+    def execute(
+        self,
+        timeout: float = 3,
+        interval: float = 0.1,
+        max_retries: int = 2,
+        verbose: bool = True,
+    ) -> bool:
         """
         执行任务并监控状态(每次重试创建新Job实例)
         :param timeout: 超时时间(秒)
@@ -82,8 +123,12 @@ class JobExecutor:
                     self._logger.info(f"[尝试] {self.action_name_zh} 第{attempt}次执行")
                 self._current_job = self.job_factory()
 
-                status_check = self._create_checker(self._current_job, self._status_check_attr)
-                success_check = self._create_checker(self._current_job, self._success_check_attr)
+                status_check = self._create_checker(
+                    self._current_job, self._status_check_attr
+                )
+                success_check = self._create_checker(
+                    self._current_job, self._success_check_attr
+                )
 
                 timeout_at = time.time() + timeout
                 last_log_time = 0  # 用于控制日志频率
@@ -131,10 +176,16 @@ class JobExecutor:
         """超时日志"""
         if verbose:
             status = str(self._current_job.succeeded)
-            self._logger.warning(f"{self.action_name_zh} | 等待超过 {timeout}秒 | 最后状态: {status}")
+            self._logger.warning(
+                f"{self.action_name_zh} | 等待超过 {timeout}秒 | 最后状态: {status}"
+            )
 
     def _log_error(self, error: Exception, verbose: bool):
         """异常日志"""
         if verbose:
-            status = str(self._current_job.succeeded) if self._current_job else "无有效任务"
-            self._logger.exception(f"{self.action_name_zh} | 状态: {status} | 错误: {str(error)}")
+            status = (
+                str(self._current_job.succeeded) if self._current_job else "无有效任务"
+            )
+            self._logger.exception(
+                f"{self.action_name_zh} | 状态: {status} | 错误: {str(error)}"
+            )

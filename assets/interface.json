@@ -2,7 +2,7 @@
     "name": "MAA_Punish",
     "mirrorchyan_rid": "MAA_Punish",
     "url": "https://github.com/overflow65537/MAA_Punish",
-    "MFW_min_req_version": "1.9.0",
+    "MFW_min_req_version": "2.0.5",
     "controller": [
         {
             "name": "安卓端",
@@ -63,6 +63,20 @@
             "path": [
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/huawei"
+            ]
+        },
+        {
+            "name": "抖音(字节跳动)服",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/bytedance"
+            ]
+        },
+        {
+            "name": "waydroid官服",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/waydroid_base"
             ]
         }
     ],
@@ -204,8 +218,46 @@
                 "选择区域"
             ],
             "pipeline_override": {
-                "战斗中": {
-                    "post_delay": 1000
+                "自动战斗结束": {
+                    "post_delay": 1500,
+                    "recognition": "OCR",
+                    "roi": [
+                        978,
+                        628,
+                        241,
+                        56
+                    ],
+                    "expected": "保存",
+                    "action": "Click"
+                },
+                "单人自动战斗循环": {
+                    "next": [
+                        "意外点击_保存分数",
+                        "自动战斗结束"
+                    ]
+                },
+                "通用自动战斗循环": {
+                    "next": [
+                        "意外点击_保存分数",
+                        "自动战斗结束"
+                    ]
+                },
+                "队伍净空_蓝_战区": {
+                    "next": [
+                        "选择首发_战区"
+                    ]
+                },
+                "编入队伍": {
+                    "post_dalay": 1000,
+                    "next": [
+                        "耐力不足_编入队伍",
+                        "自动战斗任务"
+                    ]
+                },
+                "退出选人": {
+                    "next": [
+                        "战区强制选人"
+                    ]
                 }
             },
             "speedrun": {
@@ -329,7 +381,7 @@
             "spt": true
         },
         {
-            "name": "主线自动战斗",
+            "name": "主线战斗辅助",
             "entry": "主线自动战斗",
             "option": [
                 "跳过剧情"
@@ -406,10 +458,10 @@
                     "pipeline_override": {}
                 },
                 {
-                    "name": "终极区",
+                    "name": "终级区",
                     "pipeline_override": {
                         "选择区域": {
-                            "expected": "终极"
+                            "expected": "终级"
                         }
                     }
                 }
@@ -538,6 +590,11 @@
                                 "打开宿舍商店",
                                 "打开宿舍"
                             ]
+                        },
+                        "购买_宿舍": {
+                            "expected": [
+                                "涂装设计草稿"
+                            ]
                         }
                     }
                 },
@@ -557,6 +614,11 @@
                                 "打开宿舍"
                             ]
                         }
+                    },
+                    "购买_宿舍": {
+                        "expected": [
+                            "武器设计草稿"
+                        ]
                     }
                 }
             ]

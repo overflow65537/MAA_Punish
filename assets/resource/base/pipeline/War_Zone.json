@@ -170,7 +170,7 @@
         ]
     },
     "选择首发_战区": {
-        "post_delay": 1000,
+        "post_delay": 2000,
         "recognition": "OCR",
         "roi": [
             140,
@@ -211,6 +211,8 @@
         "custom_action_param": {
             "选择自动作战人物": {
                 "threshold": [
+                    0.9,
+                    0.9,
                     0.9,
                     0.9,
                     0.9,

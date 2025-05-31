@@ -1,8 +1,34 @@
+# Copyright (c) 2024-2025 MAA_Punish
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+"""
+MAA_Punish
+MAA_Punish 肉鸽4重置镜头
+作者:HCX0426
+"""
+
 import logging
 from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.define import RecognitionDetail
-import time 
+import time
 
 
 class CombatActions(CustomAction):
@@ -79,9 +105,9 @@ class CombatActions(CustomAction):
         return lambda: context.tasker.controller.post_click(
             BALL_POSITIONS[target][0], BALL_POSITIONS[target][1]
         ).wait()
-    
+
     @staticmethod
-    def trigger_qte(context: Context,target: int = 1):
+    def trigger_qte(context: Context, target: int = 1):
         """触发QTE/换人"""
         if target not in (1, 2):
             raise ValueError("target 参数必须为 1 或 2")
@@ -222,11 +248,16 @@ class CombatActions(CustomAction):
             print(f"信号球状态: {ball_status}")
             return ball_status
 
-
         def _find_optimal_ball(ball_list: list, target: str) -> int:
             """消球决策逻辑"""
-            last_non_none_index = next((i for i, x in enumerate(reversed(ball_list)) if x is not None), None)
-            valid_length = len(ball_list) - last_non_none_index if last_non_none_index is not None else 0
+            last_non_none_index = next(
+                (i for i, x in enumerate(reversed(ball_list)) if x is not None), None
+            )
+            valid_length = (
+                len(ball_list) - last_non_none_index
+                if last_non_none_index is not None
+                else 0
+            )
 
             print(f"有效长度: {valid_length}")
 
