@@ -34,14 +34,15 @@ class LOp(CustomRecognition):
         self,
         context: Context,
         argv: CustomRecognition.AnalyzeArg,
-    ) -> CustomRecognition.AnalyzeResult:
+    ) -> CustomRecognition.AnalyzeResult|None:
         """
         逻辑识别器：
         custom_recognition_param:
-            {
+            {"prestep": ["node1", "node2"],
                 "mode": and,
-                "nodes": ["node1", ["node2"]],
+                "nodes": ["node3", ["node4"]],
             }
+        prestep: 前置识别节点,如果识别中需要前置识别进行坐标或者识别区偏移等操作,可以使用该参数
         mode: 模式 and 或者 or,默认为and
         nodes: 需要识别的节点,使用列表括起来为反转识别结果
         """
@@ -50,7 +51,10 @@ class LOp(CustomRecognition):
         mode: str = param.get("mode", "and")
         nodes: list = param.get("nodes", [])
 
-        if mode == "and":
+        for prestep in param.get("prestep", []):
+            result = context.run_recognition(prestep, image)
+        
+        if mode.lower() == "and":
             for item in nodes:
                 result = self._eval_node(item, context, image)
                 if not result:
@@ -59,7 +63,7 @@ class LOp(CustomRecognition):
                 box=(0, 0, 100, 100), detail=f"{nodes} used in {mode} success"
             )
 
-        elif mode == "or":
+        elif mode.lower() == "or":
             for item in nodes:
                 result = self._eval_node(item, context, image)
                 if result:
@@ -71,7 +75,7 @@ class LOp(CustomRecognition):
         else:
             return
 
-    def _eval_node(self, node, context: Context, image) -> bool:
+    def _eval_node(self, node, context: Context, image) -> bool|None:
 
         if isinstance(node, str):
             return bool(context.run_recognition(node, image))

@@ -39,7 +39,7 @@ class ChainLoopCircuit(CustomAction):
     ) -> CustomAction.RunResult:
         image = context.tasker.controller.post_screencap().wait().get()
         S4_ball = context.run_recognition("识别闪星_链合回路", image)
-        if S4_ball:
+        if S4_ball and S4_ball.best_result:
             x, y = (
                 S4_ball.best_result.box[0] + S4_ball.best_result.box[2] // 2,
                 S4_ball.best_result.box[1] + S4_ball.best_result.box[3] // 2,
@@ -50,7 +50,7 @@ class ChainLoopCircuit(CustomAction):
             return CustomAction.RunResult(success=True)
 
         S2_ball = context.run_recognition("识别爆破_链合回路", image)
-        if S2_ball:
+        if S2_ball and S2_ball.best_result:
             x, y = (
                 S2_ball.best_result.box[0] + S2_ball.best_result.box[2] // 2,
                 S2_ball.best_result.box[1] + S2_ball.best_result.box[3] // 2,
@@ -61,7 +61,7 @@ class ChainLoopCircuit(CustomAction):
             return CustomAction.RunResult(success=True)
 
         S3_ball = context.run_recognition("识别纵斩_链合回路", image)
-        if S3_ball:
+        if S3_ball and S3_ball.best_result:
             x, y = (
                 S3_ball.best_result.box[0] + S3_ball.best_result.box[2] // 2,
                 S3_ball.best_result.box[1] + S3_ball.best_result.box[3] // 2,
@@ -71,7 +71,7 @@ class ChainLoopCircuit(CustomAction):
             context.tasker.controller.post_click(x, y)
             return CustomAction.RunResult(success=True)
         S1_ball = context.run_recognition("识别快枪_链合回路", image)
-        if S1_ball:
+        if S1_ball and S1_ball.best_result:
             x, y = (
                 S1_ball.best_result.box[0] + S1_ball.best_result.box[2] // 2,
                 S1_ball.best_result.box[1] + S1_ball.best_result.box[3] // 2,

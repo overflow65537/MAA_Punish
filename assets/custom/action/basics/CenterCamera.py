@@ -37,6 +37,8 @@ class CenterCamera(CustomAction):
         image = context.tasker.controller.post_screencap().wait().get()
         if argv.custom_action_param == '{"tower":true}':
             origin_pos = context.run_recognition("战斗地块_寒境曙光", image)
+            if not origin_pos or not origin_pos.best_result:
+                return CustomAction.RunResult(success=True)
             x, y = (
                 origin_pos.best_result.box[0],
                 origin_pos.best_result.box[1],
@@ -48,6 +50,8 @@ class CenterCamera(CustomAction):
             return CustomAction.RunResult(success=True)
         else:
             origin_pos = context.run_recognition("重置镜头", image)
+            if not origin_pos or not origin_pos.best_result:
+                return CustomAction.RunResult(success=True)
             x, y = (
                 origin_pos.best_result.box[0],
                 origin_pos.best_result.box[1],

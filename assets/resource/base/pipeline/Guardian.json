@@ -1,7 +1,8 @@
 {
     "维系者行动": {
         "next": [
-            "行动上限"
+            "行动上限",
+            "无需任务"
         ],
         "interrupt": [
             "开始行动",
@@ -9,6 +10,101 @@
             "打开任务",
             "意外点击_主界面"
         ]
+    },
+    "无需任务": {
+        "recognition": "Custom",
+        "custom_recognition": "LOp",
+        "custom_recognition_param": {
+            "prestep": [
+                "战斗任务",
+                "废弃仓库",
+                "支援箱"
+            ],
+            "mode": "and",
+            "nodes": [
+                "识别战斗任务完成情况",
+                "识别废弃仓库完成情况",
+                "识别支援箱完成情况"
+            ]
+        },
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "战斗任务": {
+        "recognition": "OCR",
+        "roi": [
+            88,
+            592,
+            352,
+            102
+        ],
+        "expected": "战斗任务",
+        "next": [
+            "识别战斗任务完成情况"
+        ]
+    },
+    "废弃仓库": {
+        "recognition": "OCR",
+        "roi": [
+            88,
+            592,
+            352,
+            102
+        ],
+        "expected": "废弃仓库",
+        "next": [
+            "识别废弃仓库完成情况"
+        ]
+    },
+    "支援箱": {
+        "recognition": "OCR",
+        "roi": [
+            88,
+            592,
+            352,
+            102
+        ],
+        "expected": "支援箱",
+        "next": [
+            "识别支援箱完成情况"
+        ]
+    },
+    "识别战斗任务完成情况": {
+        "only_rec": true,
+        "recognition": "OCR",
+        "roi": "战斗任务",
+        "roi_offset": [
+            85,
+            0,
+            0,
+            0
+        ],
+        "expected": "已完成"
+    },
+    "识别废弃仓库完成情况": {
+        "only_rec": true,
+        "recognition": "OCR",
+        "roi": "废弃仓库",
+        "roi_offset": [
+            85,
+            0,
+            0,
+            0
+        ],
+        "expected": "已完成"
+    },
+    "识别支援箱完成情况": {
+        "only_rec": true,
+        "recognition": "OCR",
+        "roi": "支援箱",
+        "roi_offset": [
+            85,
+            0,
+            0,
+            0
+        ],
+        "expected": "已完成"
     },
     "行动上限": {
         "recognition": "OCR",
