@@ -829,6 +829,7 @@
         "custom_action": "ResetIdentify"
     },
     "进入战斗_矩阵循生": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             183,
