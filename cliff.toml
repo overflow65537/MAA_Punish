@@ -5,7 +5,7 @@ repo = "MAA_Punish"
 # 尾部
 footer = """
 
-如果不清楚要下哪个,请点击[此处进行下载](https://github.com/overflow65537/MAA_Punish/releases/download/{{version}}/MPA-win-x86_64-{{version}}.zip)
+如果不知道该下载哪一个,[点击这里下载 Windows x86_64 版本](https://github.com/overflow65537/MAA_Punish/releases/download/{tag}/MPA-win-x86_64-{tag}.zip)
 [已有 Mirror酱 CDK？点击前往高速下载](https://mirrorchyan.com/zh/projects?rid=MAA_Punish)
 <!--本软件完全免费，若您有付费购买请立即退款并举报！-->
 """
@@ -52,3 +52,7 @@ ignore_tags = "rc"
 topo_order = false
 # sort the commits inside sections by oldest/newest order
 sort_commits = "newest"
+
+
+[template]
+file = "changelog-template.hbs" 
