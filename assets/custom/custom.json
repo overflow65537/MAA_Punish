@@ -103,5 +103,10 @@
         "type": "action",
         "class": "Shukra",
         "file_path": "{custom_path}/action/exclusives/Shukra.py"
+    },
+    "CheckResolution": {
+        "type": "recognition",
+        "class": "CheckResolution",
+        "file_path": "{custom_path}/recognition/CheckResolution.py"
     }
 }
