@@ -381,7 +381,19 @@
             "^3天$"
         ],
         "action": "Swipe",
-        "post_delay": 5000,
+        "next": [
+            "关闭弹窗"
+        ]
+    },
+    "关闭弹窗": {
+        "post_delay": 1000,
+        "action": "Click",
+        "target": [
+            100,
+            100,
+            0,
+            0
+        ],
         "next": [
             "确认使用"
         ]
