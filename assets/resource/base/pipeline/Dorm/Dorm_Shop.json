@@ -296,7 +296,7 @@
         "action": "Click"
     },
     "推荐物品": {
-        "post_delay": 1000,
+        "post_delay": 1500,
         "recognition": "OCR",
         "roi": [
             268,
@@ -308,7 +308,7 @@
         "action": "Click"
     },
     "推荐物品_遣测": {
-        "post_delay": 1000,
+        "post_delay": 1500,
         "recognition": "OCR",
         "roi": [
             268,
