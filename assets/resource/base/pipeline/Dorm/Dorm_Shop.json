@@ -184,6 +184,7 @@
     },
     "购买_宿舍": {
         "recognition": "OCR",
+        "post_delay": 1000,
         "roi": [
             551,
             208,
@@ -243,6 +244,7 @@
         ]
     },
     "购买_遣测": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             601,
