@@ -108,5 +108,10 @@
         "type": "recognition",
         "class": "CheckResolution",
         "file_path": "{custom_path}/recognition/CheckResolution.py"
+    },
+    "AutoCounter": {
+        "type": "recognition",
+        "class": "AutoCounter",
+        "file_path": "{custom_path}/recognition/AutoCounter.py"
     }
 }

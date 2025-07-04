@@ -26,6 +26,11 @@ from recognition.exclusives.IDFscore import IDFscore
 from recognition.exclusives.IDFMasteryLevel import IDFMasteryLevel
 from recognition.exclusives.LogicalOperators import LOp
 from recognition.exclusives.CheckResolution import CheckResolution
+from recognition.exclusives.AutoCounter import AutoCounter
+
+@AgentServer.custom_recognition("AutoCounter")
+class Agent_AutoCounter(AutoCounter):
+    pass
 
 @AgentServer.custom_recognition("CheckResolution")
 class Agent_CheckResolution(CheckResolution):

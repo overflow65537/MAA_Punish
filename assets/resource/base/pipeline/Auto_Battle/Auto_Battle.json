@@ -5,6 +5,7 @@
             "循环执行器"
         ],
         "interrupt": [
+            "自动反击",
             "进入战斗",
             "进入战斗_条件2",
             "跳过战斗对话",
@@ -13,6 +14,28 @@
             "载入中",
             "主线跳过",
             "重置识别"
+        ]
+    },
+    "自动反击": {
+        "post_delay": 0,
+        "pre_delay": 0,
+        "recognition": "Custom",
+        "custom_recognition": "AutoCounter",
+        "custom_recognition_param": {
+            "current_hp": ""
+        },
+        "action": "Click"
+    },
+    "检查血量": {
+        "recognition": "OCR",
+        "roi": [
+            19,
+            15,
+            141,
+            29
+        ],
+        "expected": [
+            "\\d+\/\\d+"
         ]
     },
     "战斗重启1": {
