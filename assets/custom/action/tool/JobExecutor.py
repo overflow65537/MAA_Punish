@@ -106,7 +106,7 @@ class JobExecutor:
         timeout: float = 3,
         interval: float = 0.1,
         max_retries: int = 2,
-        verbose: bool = True,
+        verbose: bool = False, # 默认日志记录关闭
     ) -> bool:
         """
         执行任务并监控状态(每次重试创建新Job实例)
