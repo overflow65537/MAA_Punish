@@ -73,6 +73,13 @@
             ]
         },
         {
+            "name": "九游服",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/aligames"
+            ]
+        },
+        {
             "name": "waydroid官服",
             "path": [
                 "{PROJECT_DIR}/resource/base",
