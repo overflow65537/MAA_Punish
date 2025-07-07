@@ -466,8 +466,11 @@
     ],
     "advanced": {
         "选择A级角色": {
+            "doc": [
+                "输入角色的代号"
+            ],
             "field": [
-                "x"
+                "选择A级角色名"
             ],
             "type": [
                 "string"
@@ -502,7 +505,7 @@
             ],
             "pipeline_override": {
                 "A级角色": {
-                    "expected": "{x}"
+                    "expected": "{选择A级角色名}"
                 }
             }
         }
