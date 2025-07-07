@@ -115,8 +115,19 @@
         "action": "Click",
         "next": [
             "使用体力界面_reco",
-            "吃体力药"
+            "吃体力药",
+            "补给包不足_reco"
         ]
+    },
+    "补给包不足_reco": {
+        "recognition": "OCR",
+        "roi": [
+            341,
+            368,
+            144,
+            81
+        ],
+        "expected": "黑卡"
     },
     "使用体力界面_reco": {
         "recognition": "OCR",
