@@ -12,147 +12,197 @@
         ]
     },
     "无需任务": {
-        "recognition": "Custom",
-        "custom_recognition": "LOp",
-        "custom_recognition_param": {
-            "prestep": [
-                "战斗任务",
-                "废弃仓库",
-                "支援箱"
-            ],
-            "mode": "and",
-            "nodes": [
-                "识别战斗任务完成情况",
-                "识别废弃仓库完成情况",
-                "识别支援箱完成情况"
-            ]
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "LOp",
+                "custom_recognition_param": {
+                    "prestep": [
+                        "战斗任务",
+                        "废弃仓库",
+                        "支援箱"
+                    ],
+                    "mode": "and",
+                    "nodes": [
+                        "识别战斗任务完成情况",
+                        "识别废弃仓库完成情况",
+                        "识别支援箱完成情况"
+                    ]
+                }
+            }
         },
         "next": [
             "返回主菜单"
         ]
     },
     "战斗任务": {
-        "recognition": "OCR",
-        "roi": [
-            88,
-            592,
-            352,
-            102
-        ],
-        "expected": "战斗任务",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    88,
+                    592,
+                    352,
+                    102
+                ],
+                "expected": "战斗任务"
+            }
+        },
         "next": [
             "识别战斗任务完成情况"
         ]
     },
     "废弃仓库": {
-        "recognition": "OCR",
-        "roi": [
-            88,
-            592,
-            352,
-            102
-        ],
-        "expected": "废弃仓库",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    88,
+                    592,
+                    352,
+                    102
+                ],
+                "expected": "废弃仓库"
+            }
+        },
         "next": [
             "识别废弃仓库完成情况"
         ]
     },
     "支援箱": {
-        "recognition": "OCR",
-        "roi": [
-            88,
-            592,
-            352,
-            102
-        ],
-        "expected": "支援箱",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    88,
+                    592,
+                    352,
+                    102
+                ],
+                "expected": "支援箱"
+            }
+        },
         "next": [
             "识别支援箱完成情况"
         ]
     },
     "识别战斗任务完成情况": {
-        "only_rec": true,
-        "recognition": "OCR",
-        "roi": "战斗任务",
-        "roi_offset": [
-            85,
-            0,
-            0,
-            0
-        ],
-        "expected": "已完成"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "战斗任务",
+                "roi_offset": [
+                    85,
+                    0,
+                    0,
+                    0
+                ],
+                "expected": "已完成"
+            }
+        }
     },
     "识别废弃仓库完成情况": {
-        "only_rec": true,
-        "recognition": "OCR",
-        "roi": "废弃仓库",
-        "roi_offset": [
-            85,
-            0,
-            0,
-            0
-        ],
-        "expected": "已完成"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "废弃仓库",
+                "roi_offset": [
+                    85,
+                    0,
+                    0,
+                    0
+                ],
+                "expected": "已完成"
+            }
+        }
     },
     "识别支援箱完成情况": {
-        "only_rec": true,
-        "recognition": "OCR",
-        "roi": "支援箱",
-        "roi_offset": [
-            85,
-            0,
-            0,
-            0
-        ],
-        "expected": "已完成"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "支援箱",
+                "roi_offset": [
+                    85,
+                    0,
+                    0,
+                    0
+                ],
+                "expected": "已完成"
+            }
+        }
     },
     "行动上限": {
-        "recognition": "OCR",
-        "roi": [
-            510,
-            340,
-            250,
-            40
-        ],
-        "expected": "每日行动次数已达上限",
-        "action": "Click",
-        "target": [
-            420,
-            20,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    510,
+                    340,
+                    250,
+                    40
+                ],
+                "expected": "每日行动次数已达上限"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    420,
+                    20,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "返回主菜单"
         ]
     },
     "开始行动": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            85,
-            600,
-            90,
-            40
-        ],
-        "expected": "战斗任务",
-        "action": "Click",
-        "target": [
-            960,
-            640,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    85,
+                    600,
+                    90,
+                    40
+                ],
+                "expected": "战斗任务"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    960,
+                    640,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "打开维系者行动": {
-        "recognition": "OCR",
-        "roi": [
-            40,
-            660,
-            120,
-            30
-        ],
-        "expected": "维系者行动",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    40,
+                    660,
+                    120,
+                    30
+                ],
+                "expected": "维系者行动"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }

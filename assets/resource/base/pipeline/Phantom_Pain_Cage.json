@@ -15,17 +15,23 @@
     },
     "检查A区": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            533,
-            489,
-            68,
-            114
-        ],
-        "expected": [
-            "讨伐"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    533,
+                    489,
+                    68,
+                    114
+                ],
+                "expected": [
+                    "讨伐"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "A区退出",
             "检查主界面2"
@@ -36,17 +42,23 @@
     },
     "检查B区": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            821,
-            492,
-            66,
-            132
-        ],
-        "expected": [
-            "讨伐"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    821,
+                    492,
+                    66,
+                    132
+                ],
+                "expected": [
+                    "讨伐"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "B区退出",
             "检查主界面2"
@@ -57,17 +69,23 @@
     },
     "检查C区": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1137,
-            501,
-            77,
-            127
-        ],
-        "expected": [
-            "讨伐"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1137,
+                    501,
+                    77,
+                    127
+                ],
+                "expected": [
+                    "讨伐"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "C区退出",
             "检查主界面2"
@@ -77,14 +95,18 @@
         ]
     },
     "A区退出": {
-        "recognition": "Custom",
-        "custom_recognition": "LOp",
-        "custom_recognition_param": {
-            "mode": "and",
-            "nodes": [
-                "检查是否是最终难度",
-                "检查是否存在分数"
-            ]
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "LOp",
+                "custom_recognition_param": {
+                    "mode": "and",
+                    "nodes": [
+                        "检查是否是最终难度",
+                        "检查是否存在分数"
+                    ]
+                }
+            }
         },
         "next": [
             "检查B区"
@@ -94,14 +116,18 @@
         ]
     },
     "B区退出": {
-        "recognition": "Custom",
-        "custom_recognition": "LOp",
-        "custom_recognition_param": {
-            "mode": "and",
-            "nodes": [
-                "检查是否是最终难度",
-                "检查是否存在分数"
-            ]
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "LOp",
+                "custom_recognition_param": {
+                    "mode": "and",
+                    "nodes": [
+                        "检查是否是最终难度",
+                        "检查是否存在分数"
+                    ]
+                }
+            }
         },
         "next": [
             "检查C区"
@@ -111,14 +137,18 @@
         ]
     },
     "C区退出": {
-        "recognition": "Custom",
-        "custom_recognition": "LOp",
-        "custom_recognition_param": {
-            "mode": "and",
-            "nodes": [
-                "检查是否是最终难度",
-                "检查是否存在分数"
-            ]
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "LOp",
+                "custom_recognition_param": {
+                    "mode": "and",
+                    "nodes": [
+                        "检查是否是最终难度",
+                        "检查是否存在分数"
+                    ]
+                }
+            }
         },
         "next": [
             "检查是否在囚笼主界面"
@@ -128,65 +158,83 @@
         ]
     },
     "没打满": {
-        "recognition": "Custom",
-        "custom_recognition": "LOp",
-        "custom_recognition_param": {
-            "mode": "or",
-            "nodes": [
-                [
-                    "检查是否是最终难度"
-                ],
-                [
-                    "检查是否存在分数"
-                ]
-            ]
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "LOp",
+                "custom_recognition_param": {
+                    "mode": "or",
+                    "nodes": [
+                        [
+                            "检查是否是最终难度"
+                        ],
+                        [
+                            "检查是否存在分数"
+                        ]
+                    ]
+                }
+            }
         },
         "next": [
             "囚笼作战程序"
         ]
     },
     "检查是否是最终难度": {
-        "recognition": "ColorMatch",
-        "upper": [
-            8,
-            8,
-            8
-        ],
-        "lower": [
-            0,
-            0,
-            0
-        ],
-        "roi": [
-            17,
-            424,
-            112,
-            110
-        ],
-        "connected": true,
-        "count": 2000
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    17,
+                    424,
+                    112,
+                    110
+                ],
+                "count": 2000,
+                "connected": true,
+                "upper": [
+                    8,
+                    8,
+                    8
+                ],
+                "lower": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "检查是否存在分数": {
-        "recognition": "OCR",
-        "roi": [
-            1050,
-            235,
-            115,
-            40
-        ],
-        "expected": "^(?!^0$).+$"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1050,
+                    235,
+                    115,
+                    40
+                ],
+                "expected": "^(?!^0$).+$"
+            }
+        }
     },
     "囚笼作战程序": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1029,
-            656,
-            128,
-            44
-        ],
-        "expected": "作战准备",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1029,
+                    656,
+                    128,
+                    44
+                ],
+                "expected": "作战准备"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "挑战次数不足_弹窗",
             "查看Boss_火队",
@@ -197,43 +245,57 @@
         ]
     },
     "挑战次数不足_弹窗": {
-        "recognition": "OCR",
-        "roi": [
-            541,
-            325,
-            202,
-            74
-        ],
-        "expected": "挑战次数不足",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    541,
+                    325,
+                    202,
+                    74
+                ],
+                "expected": "挑战次数不足"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "返回主菜单"
         ]
     },
     "查看Boss_冰队": {
-        "recognition": "OCR",
-        "roi": [
-            13,
-            82,
-            181,
-            41
-        ],
-        "expected": [
-            "马基雅维利",
-            "^华[\\u4e00-\\u9fa5]"
-        ],
-        "action": "Custom",
-        "custom_action": "PPOverride",
-        "custom_action_param": {
-            "选择自动作战人物": {
-                "threshold": [
-                    0.9,
-                    0.9
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    13,
+                    82,
+                    181,
+                    41
                 ],
-                "template": [
-                    "肉鸽通用/启明.png",
-                    "肉鸽通用/启明终解.png"
+                "expected": [
+                    "马基雅维利",
+                    "^华[\\u4e00-\\u9fa5]"
                 ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "选择自动作战人物": {
+                        "threshold": [
+                            0.9,
+                            0.9
+                        ],
+                        "template": [
+                            "肉鸽通用/启明.png",
+                            "肉鸽通用/启明终解.png"
+                        ]
+                    }
+                }
             }
         },
         "next": [
@@ -241,32 +303,40 @@
         ]
     },
     "查看Boss_暗队": {
-        "recognition": "OCR",
-        "roi": [
-            13,
-            82,
-            181,
-            41
-        ],
-        "expected": [
-            "苦刑之女",
-            "^卡[\\u4e00-\\u9fa5]",
-            "卡",
-            "枢蛉后",
-            "巫毒"
-        ],
-        "action": "Custom",
-        "custom_action": "PPOverride",
-        "custom_action_param": {
-            "选择自动作战人物": {
-                "threshold": [
-                    0.9,
-                    0.9
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    13,
+                    82,
+                    181,
+                    41
                 ],
-                "template": [
-                    "肉鸽通用/深谣.png",
-                    "肉鸽通用/深谣终解.png"
+                "expected": [
+                    "苦刑之女",
+                    "^卡[\\u4e00-\\u9fa5]",
+                    "卡",
+                    "枢蛉后",
+                    "巫毒"
                 ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "选择自动作战人物": {
+                        "threshold": [
+                            0.9,
+                            0.9
+                        ],
+                        "template": [
+                            "肉鸽通用/深谣.png",
+                            "肉鸽通用/深谣终解.png"
+                        ]
+                    }
+                }
             }
         },
         "next": [
@@ -274,30 +344,38 @@
         ]
     },
     "查看Boss_火队": {
-        "recognition": "OCR",
-        "roi": [
-            13,
-            82,
-            181,
-            41
-        ],
-        "expected": [
-            "喷涂机械",
-            "加百列",
-            "露娜"
-        ],
-        "action": "Custom",
-        "custom_action": "PPOverride",
-        "custom_action_param": {
-            "选择自动作战人物": {
-                "threshold": [
-                    0.9,
-                    0.9
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    13,
+                    82,
+                    181,
+                    41
                 ],
-                "template": [
-                    "肉鸽通用/誓焰.png",
-                    "肉鸽通用/誓焰终解.png"
+                "expected": [
+                    "喷涂机械",
+                    "加百列",
+                    "露娜"
                 ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "选择自动作战人物": {
+                        "threshold": [
+                            0.9,
+                            0.9
+                        ],
+                        "template": [
+                            "肉鸽通用/誓焰.png",
+                            "肉鸽通用/誓焰终解.png"
+                        ]
+                    }
+                }
             }
         },
         "next": [
@@ -305,32 +383,40 @@
         ]
     },
     "查看Boss_物队": {
-        "recognition": "OCR",
-        "roi": [
-            13,
-            82,
-            181,
-            41
-        ],
-        "expected": [
-            "武藏玖型",
-            "不明构造体",
-            "^罗[\\u4e00-\\u9fa5]塔",
-            "罗兰",
-            "蔷薇之剑"
-        ],
-        "action": "Custom",
-        "custom_action": "PPOverride",
-        "custom_action_param": {
-            "选择自动作战人物": {
-                "threshold": [
-                    0.9,
-                    0.9
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    13,
+                    82,
+                    181,
+                    41
                 ],
-                "template": [
-                    "肉鸽通用/深痕.png",
-                    "肉鸽通用/深痕终解.png"
+                "expected": [
+                    "武藏玖型",
+                    "不明构造体",
+                    "^罗[\\u4e00-\\u9fa5]塔",
+                    "罗兰",
+                    "蔷薇之剑"
                 ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "选择自动作战人物": {
+                        "threshold": [
+                            0.9,
+                            0.9
+                        ],
+                        "template": [
+                            "肉鸽通用/深痕.png",
+                            "肉鸽通用/深痕终解.png"
+                        ]
+                    }
+                }
             }
         },
         "next": [
@@ -338,30 +424,38 @@
         ]
     },
     "查看Boss_雷队": {
-        "recognition": "OCR",
-        "roi": [
-            13,
-            82,
-            181,
-            41
-        ],
-        "expected": [
-            "安博莉亚",
-            "塞壬",
-            "瓦沙克"
-        ],
-        "action": "Custom",
-        "custom_action": "PPOverride",
-        "custom_action_param": {
-            "选择自动作战人物": {
-                "threshold": [
-                    0.9,
-                    0.9
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    13,
+                    82,
+                    181,
+                    41
                 ],
-                "template": [
-                    "肉鸽通用/深红囚影.png",
-                    "肉鸽通用/深红囚影终解.png"
+                "expected": [
+                    "安博莉亚",
+                    "塞壬",
+                    "瓦沙克"
                 ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "选择自动作战人物": {
+                        "threshold": [
+                            0.9,
+                            0.9
+                        ],
+                        "template": [
+                            "肉鸽通用/深红囚影.png",
+                            "肉鸽通用/深红囚影终解.png"
+                        ]
+                    }
+                }
             }
         },
         "next": [
@@ -370,68 +464,88 @@
     },
     "意外点击_保存分数": {
         "post_delay": 3000,
-        "recognition": "OCR",
-        "roi": [
-            1039,
-            656,
-            99,
-            45
-        ],
-        "expected": [
-            "作战"
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1039,
+                    656,
+                    99,
+                    45
+                ],
+                "expected": [
+                    "作战"
+                ]
+            }
+        }
     },
     "耐力不足_编入队伍": {
-        "recognition": "OCR",
-        "roi": [
-            537,
-            337,
-            207,
-            41
-        ],
-        "expected": [
-            "耐力不足"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    537,
+                    337,
+                    207,
+                    41
+                ],
+                "expected": [
+                    "耐力不足"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "直接选择人物"
         ]
     },
     "直接选择人物": {
-        "recognition": "ColorMatch",
-        "lower": [
-            50,
-            170,
-            245
-        ],
-        "upper": [
-            55,
-            180,
-            250
-        ],
-        "roi": [
-            78,
-            72,
-            255,
-            565
-        ],
-        "connected": true,
-        "count": 10,
-        "action": "Click",
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    78,
+                    72,
+                    255,
+                    565
+                ],
+                "count": 10,
+                "connected": true,
+                "upper": [
+                    55,
+                    180,
+                    250
+                ],
+                "lower": [
+                    50,
+                    170,
+                    245
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "编入队伍"
         ]
     },
     "检查是否在囚笼主界面": {
         "post_delay": 200,
-        "recognition": "OCR",
-        "roi": [
-            35,
-            80,
-            283,
-            65
-        ],
-        "expected": "幻痛囚笼",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    35,
+                    80,
+                    283,
+                    65
+                ],
+                "expected": "幻痛囚笼"
+            }
+        },
         "next": [
             "一键领取_囚笼",
             "关闭囚笼奖励界面"
@@ -442,27 +556,31 @@
     },
     "挑战次数不足": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            734,
-            102,
-            89,
-            50
-        ],
-        "expected": [
-            "0/3",
-            "0/6"
-        ],
-        "replace": [
-            [
-                "M",
-                "0"
-            ],
-            [
-                "1",
-                "/"
-            ]
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    734,
+                    102,
+                    89,
+                    50
+                ],
+                "replace": [
+                    [
+                        "M",
+                        "0"
+                    ],
+                    [
+                        "1",
+                        "/"
+                    ]
+                ],
+                "expected": [
+                    "0/3",
+                    "0/6"
+                ]
+            }
+        },
         "next": [
             "一键领取_囚笼",
             "关闭囚笼奖励界面"
@@ -474,17 +592,23 @@
     },
     "一键领取_囚笼": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            910,
-            191,
-            132,
-            56
-        ],
-        "expected": [
-            "键领取"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    910,
+                    191,
+                    132,
+                    56
+                ],
+                "expected": [
+                    "键领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "关闭囚笼奖励界面"
         ],
@@ -493,140 +617,196 @@
         ]
     },
     "关闭囚笼奖励界面": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            1165,
-            41,
-            68,
-            63
-        ],
-        "template": "幻痛囚笼/关闭奖励.png",
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1165,
+                    41,
+                    68,
+                    63
+                ],
+                "template": "幻痛囚笼/关闭奖励.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "返回主菜单"
         ]
     },
     "领取囚笼奖励": {
         "post_wait_freezes": 5,
-        "recognition": "OCR",
-        "roi": [
-            98,
-            452,
-            172,
-            40
-        ],
-        "expected": [
-            "需求",
-            "讨伐值"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    98,
+                    452,
+                    172,
+                    40
+                ],
+                "expected": [
+                    "需求",
+                    "讨伐值"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "确认目标": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            19,
-            425,
-            100,
-            100
-        ],
-        "template": "幻痛囚笼/等级地狱.png",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    19,
+                    425,
+                    100,
+                    100
+                ],
+                "template": "幻痛囚笼/等级地狱.png"
+            }
+        },
         "next": [
             "返回"
         ]
     },
     "查找目标": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            539,
-            439,
-            722,
-            65
-        ],
-        "expected": [
-            "骑士",
-            "混沌"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    539,
+                    439,
+                    722,
+                    65
+                ],
+                "expected": [
+                    "骑士",
+                    "混沌"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "选择区域": {
-        "recognition": "OCR",
-        "roi": [
-            354,
-            218,
-            594,
-            45
-        ],
-        "expected": "高级",
-        "action": "Click",
-        "target_offset": [
-            0,
-            150,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    354,
+                    218,
+                    594,
+                    45
+                ],
+                "expected": "高级"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    0,
+                    150,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "确认区域选择"
         ]
     },
     "确认区域选择": {
-        "recognition": "OCR",
-        "roi": [
-            921,
-            580,
-            113,
-            46
-        ],
-        "expected": "确定",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    921,
+                    580,
+                    113,
+                    46
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "打开幻痛囚笼": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            5,
-            315,
-            1274,
-            188
-        ],
-        "expected": "幻痛囚笼",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    5,
+                    315,
+                    1274,
+                    188
+                ],
+                "expected": "幻痛囚笼"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "滑动_幻痛囚笼": {
         "inverse": true,
-        "recognition": "OCR",
-        "roi": [
-            5,
-            315,
-            1274,
-            188
-        ],
-        "expected": "幻痛囚笼",
-        "action": "Swipe",
-        "begin": [
-            800,
-            400,
-            0,
-            0
-        ],
-        "end": [
-            400,
-            400,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    5,
+                    315,
+                    1274,
+                    188
+                ],
+                "expected": "幻痛囚笼"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    800,
+                    400,
+                    0,
+                    0
+                ],
+                "end": [
+                    400,
+                    400,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "打开挑战_幻痛囚笼": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1130,
-            656,
-            74,
-            53
-        ],
-        "expected": "挑战",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1130,
+                    656,
+                    74,
+                    53
+                ],
+                "expected": "挑战"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "滑动_幻痛囚笼",
             "打开幻痛囚笼"
@@ -634,15 +814,21 @@
     },
     "手动作战": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1029,
-            656,
-            128,
-            44
-        ],
-        "expected": "作战准备",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1029,
+                    656,
+                    128,
+                    44
+                ],
+                "expected": "作战准备"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "挑战次数不足_sub",
             "清除队伍"
@@ -650,21 +836,29 @@
     },
     "挑战次数不足_sub": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            543,
-            331,
-            203,
-            53
-        ],
-        "action": "Click",
-        "expected": "挑战次数不足",
-        "target": [
-            10,
-            0,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    543,
+                    331,
+                    203,
+                    53
+                ],
+                "expected": "挑战次数不足"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    10,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "返回"
         ]
@@ -680,85 +874,119 @@
     "卸下队伍": {
         "post_delay": 1000,
         "pre_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            970,
-            459,
-            137,
-            56
-        ],
-        "expected": "卸下队伍",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    970,
+                    459,
+                    137,
+                    56
+                ],
+                "expected": "卸下队伍"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "清空红色位": {
-        "recognition": "OCR",
-        "roi": [
-            1032,
-            641,
-            148,
-            53
-        ],
-        "expected": "作战开始",
-        "action": "Click",
-        "target": [
-            635,
-            434,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    641,
+                    148,
+                    53
+                ],
+                "expected": "作战开始"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    635,
+                    434,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "卸下队伍"
         ]
     },
     "清空黄色位": {
-        "recognition": "OCR",
-        "roi": [
-            1032,
-            641,
-            148,
-            53
-        ],
-        "expected": "作战开始",
-        "action": "Click",
-        "target": [
-            961,
-            397,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    641,
+                    148,
+                    53
+                ],
+                "expected": "作战开始"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    961,
+                    397,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "卸下队伍"
         ]
     },
     "清空蓝色位": {
-        "recognition": "OCR",
-        "roi": [
-            1032,
-            641,
-            148,
-            53
-        ],
-        "expected": "作战开始",
-        "action": "Click",
-        "target": [
-            287,
-            403,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    641,
+                    148,
+                    53
+                ],
+                "expected": "作战开始"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    287,
+                    403,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "卸下队伍"
         ]
     },
     "队伍净空_红": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            571,
-            388,
-            145,
-            109
-        ],
-        "template": "幻痛囚笼/队伍净空_红.png",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    571,
+                    388,
+                    145,
+                    109
+                ],
+                "template": "幻痛囚笼/队伍净空_红.png"
+            }
+        },
         "next": [
             "队伍净空_黄"
         ],
@@ -767,14 +995,18 @@
         ]
     },
     "队伍净空_黄": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            223,
-            346,
-            132,
-            118
-        ],
-        "template": "幻痛囚笼/队伍净空_蓝黄.png",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    223,
+                    346,
+                    132,
+                    118
+                ],
+                "template": "幻痛囚笼/队伍净空_蓝黄.png"
+            }
+        },
         "next": [
             "队伍净空_蓝"
         ],
@@ -783,39 +1015,55 @@
         ]
     },
     "队伍净空_蓝": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            905,
-            351,
-            113,
-            108
-        ],
-        "template": "幻痛囚笼/队伍净空_蓝黄.png",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    905,
+                    351,
+                    113,
+                    108
+                ],
+                "template": "幻痛囚笼/队伍净空_蓝黄.png"
+            }
+        },
         "next": [
             "选择人物"
         ]
     },
     "选择人物": {
-        "recognition": "OCR",
-        "roi": [
-            204,
-            323,
-            852,
-            122
-        ],
-        "expected": "首发",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    204,
+                    323,
+                    852,
+                    122
+                ],
+                "expected": "首发"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "编入队伍": {
-        "recognition": "OCR",
-        "roi": [
-            982,
-            471,
-            137,
-            50
-        ],
-        "expected": "编入队伍",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    982,
+                    471,
+                    137,
+                    50
+                ],
+                "expected": "编入队伍"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "编入队伍_next"
         ]
@@ -827,16 +1075,20 @@
         ]
     },
     "是否为队长": {
-        "recognition": "OCR",
-        "roi": [
-            36,
-            627,
-            133,
-            40
-        ],
-        "expected": [
-            "未选择队长"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    36,
+                    627,
+                    133,
+                    40
+                ],
+                "expected": [
+                    "未选择队长"
+                ]
+            }
+        },
         "next": [
             "队长选择完毕"
         ],
@@ -846,60 +1098,86 @@
         ]
     },
     "队长选择完毕": {
-        "recognition": "OCR",
-        "roi": [
-            264,
-            487,
-            788,
-            98
-        ],
-        "expected": [
-            "当前选择"
-        ],
-        "action": "Click",
-        "target": [
-            10,
-            10,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    264,
+                    487,
+                    788,
+                    98
+                ],
+                "expected": [
+                    "当前选择"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    10,
+                    10,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "编入队伍_next"
         ]
     },
     "选择更换按钮": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            288,
-            623,
-            78,
-            46
-        ],
-        "expected": "更换",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    288,
+                    623,
+                    78,
+                    46
+                ],
+                "expected": "更换"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "选择队长": {
-        "recognition": "OCR",
-        "roi": [
-            264,
-            487,
-            788,
-            98
-        ],
-        "expected": "选择",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    264,
+                    487,
+                    788,
+                    98
+                ],
+                "expected": "选择"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "保存分数": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            978,
-            628,
-            241,
-            56
-        ],
-        "expected": "保存",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    978,
+                    628,
+                    241,
+                    56
+                ],
+                "expected": "保存"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }

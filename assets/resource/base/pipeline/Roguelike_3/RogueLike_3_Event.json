@@ -1,48 +1,64 @@
 {
     "商店_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            246,
-            200,
-            974,
-            120
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    246,
+                    200,
+                    974,
+                    120
+                ],
+                "expected": [
+                    "士多"
+                ]
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]商店[/color]"
         },
-        "expected": [
-            "士多"
-        ],
-        "action": "Click",
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "进入商店_矩阵循生"
         ]
     },
     "意外点击藏品_矩阵循生": {
         "post_delay": 2000,
-        "recognition": "OCR",
-        "roi": [
-            696,
-            52,
-            208,
-            124
-        ],
-        "expected": "^.品$",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    696,
+                    52,
+                    208,
+                    124
+                ],
+                "expected": "^.品$"
+            }
+        },
         "next": [
             "返回"
         ]
     },
     "进入商店_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            183,
-            469,
-            972,
-            63
-        ],
-        "expected": "确定",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    183,
+                    469,
+                    972,
+                    63
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -58,37 +74,53 @@
         ]
     },
     "确认结束购物_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            706,
-            465,
-            59,
-            37
-        ],
-        "expected": "确认",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    706,
+                    465,
+                    59,
+                    37
+                ],
+                "expected": "确认"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "结束购物_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1038,
-            622,
-            97,
-            36
-        ],
-        "expected": "结束购物",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1038,
+                    622,
+                    97,
+                    36
+                ],
+                "expected": "结束购物"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "在途存货_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "在途存货",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "在途存货"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]在途存货[/color]"
         },
@@ -108,40 +140,56 @@
     },
     "在途存货_对话1": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": "离开",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": "离开"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "在途存货_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            773,
-            302,
-            360,
-            240
-        ],
-        "expected": "射击大的捕虫袋",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    773,
+                    302,
+                    360,
+                    240
+                ],
+                "expected": "射击大的捕虫袋"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "亚人少女_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "亚人少女",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "亚人少女"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]亚人少女[/color]"
         },
@@ -161,45 +209,61 @@
     },
     "亚人少女_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            773,
-            400,
-            97,
-            39
-        ],
-        "expected": "转身逃离",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    773,
+                    400,
+                    97,
+                    39
+                ],
+                "expected": "转身逃离"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "亚人少女_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "原地观察",
-            "离开"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "原地观察",
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "贴心搭档_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": [
-            "贴心搭档"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "贴心搭档"
+                ]
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]贴心搭档[/color]"
         },
@@ -219,28 +283,38 @@
     },
     "贴心搭档_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            768,
-            305,
-            193,
-            47
-        ],
-        "expected": "取走沉甸甸的大包裹",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    768,
+                    305,
+                    193,
+                    47
+                ],
+                "expected": "取走沉甸甸的大包裹"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "逃出生天_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "逃出生天",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "逃出生天"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]逃出生天[/color]"
         },
@@ -260,43 +334,59 @@
     },
     "逃出生天_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "收下",
-            "离开"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "收下",
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "逃出生天_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": "给巨鼠些吃的",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "给巨鼠些吃的"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "隐秘工坊_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "隐秘工坊",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "隐秘工坊"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]隐秘工坊[/color]"
         },
@@ -317,43 +407,59 @@
     },
     "隐秘工坊_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": "直接出发",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "直接出发"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "隐秘工坊_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "收取",
-            "出发"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "收取",
+                    "出发"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "洁塔薇的游戏_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "洁塔薇的游戏",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "洁塔薇的游戏"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]洁塔薇的游戏[/color]"
         },
@@ -373,44 +479,60 @@
     },
     "洁塔薇的游戏_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": "转头看向自己背后",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "转头看向自己背后"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "洁塔薇的游戏_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "追上她",
-            "答应",
-            "一起离开"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "追上她",
+                    "答应",
+                    "一起离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "禁忌验证_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            708,
-            99,
-            158,
-            53
-        ],
-        "expected": "禁忌验证",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    708,
+                    99,
+                    158,
+                    53
+                ],
+                "expected": "禁忌验证"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]禁忌验证[/color]"
         },
@@ -430,50 +552,66 @@
     },
     "禁忌验证_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "检查四周",
-            "收起卡片",
-            "离开"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "检查四周",
+                    "收起卡片",
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "禁忌验证_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "寻找安全区",
-            "转身准备战斗"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "寻找安全区",
+                    "转身准备战斗"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "头号玩家_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": [
-            "头号玩家",
-            "实号玩家"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "头号玩家",
+                    "实号玩家"
+                ]
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]头号玩家[/color]"
         },
@@ -493,42 +631,58 @@
     },
     "头号玩家_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "头号玩家_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": "取走游戏机的芯片",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "取走游戏机的芯片"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "致命失误_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "致命失误",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "致命失误"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]致命失误[/color]"
         },
@@ -548,43 +702,59 @@
     },
     "致命失误_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "取走东西",
-            "赶紧离开"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "取走东西",
+                    "赶紧离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "致命失误_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": "打开实验日志阅读",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "打开实验日志阅读"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "工业怪谈_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "工业怪谈",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "工业怪谈"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]工业怪谈[/color]"
         },
@@ -604,44 +774,60 @@
     },
     "工业怪谈_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "工业怪谈_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "就地回收"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "就地回收"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "动物坟场_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "动物坟场",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "动物坟场"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]动物坟场[/color]"
         },
@@ -661,53 +847,69 @@
     },
     "动物坟场_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "查看周围",
-            "搜索周边",
-            "离开"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "查看周围",
+                    "搜索周边",
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "动物坟场_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "挖掘",
-            "周边",
-            "安葬",
-            "骸骨"
-        ],
-        "replace": [
-            "該",
-            "骸"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "replace": [
+                    "該",
+                    "骸"
+                ],
+                "expected": [
+                    "挖掘",
+                    "周边",
+                    "安葬",
+                    "骸骨"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "观星真相_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "观星真相",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "观星真相"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]观星真相[/color]"
         },
@@ -727,47 +929,63 @@
     },
     "观星真相_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "避开",
-            "辟开",
-            "离开"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "避开",
+                    "辟开",
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "观星真相_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "调查机器人的芯片",
-            "插入新的芯片"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "调查机器人的芯片",
+                    "插入新的芯片"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "异界通讯I_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            705,
-            103,
-            300,
-            56
-        ],
-        "expected": "机械性故障",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    705,
+                    103,
+                    300,
+                    56
+                ],
+                "expected": "机械性故障"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]机械性故障[/color]"
         },
@@ -787,54 +1005,70 @@
     },
     "异界通讯I_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "检查武器",
-            "进行链接",
-            "发送",
-            "离开",
-            "提出需求"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "检查武器",
+                    "进行链接",
+                    "发送",
+                    "离开",
+                    "提出需求"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "异界通讯I_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "建立",
-            "寻找异界通讯点",
-            "离开"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "建立",
+                    "寻找异界通讯点",
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "步履蹒跚_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": [
-            "步履",
-            "蹒跚",
-            "購"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "步履",
+                    "蹒跚",
+                    "購"
+                ]
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]步履蹒跚[/color]"
         },
@@ -854,31 +1088,41 @@
     },
     "步履蹒跚_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "跟上他",
-            "查看信封",
-            "打开暗格",
-            "取走补给"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "跟上他",
+                    "查看信封",
+                    "打开暗格",
+                    "取走补给"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "举手之劳_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "举手之劳",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "举手之劳"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]举手之劳[/color]"
         },
@@ -898,64 +1142,86 @@
     },
     "举手之劳_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "查看",
-            "检查",
-            "打开"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "查看",
+                    "检查",
+                    "打开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "举手之劳_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "去花园里浇水"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "去花园里浇水"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "步履蹒跚_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "去看看保险柜"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "去看看保险柜"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "无效救援_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "无效救援",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "无效救援"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]无效救援[/color]"
         },
@@ -976,47 +1242,63 @@
     },
     "无效救援_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "往下方走",
-            "回收物资",
-            "出发"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "往下方走",
+                    "回收物资",
+                    "出发"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "无效救援_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "直接出发"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "直接出发"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "盛典纪行_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "盛典纪行",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "盛典纪行"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]盛典纪行[/color]"
         },
@@ -1036,51 +1318,67 @@
     },
     "盛典纪行_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "检查",
-            "离开",
-            "搜寻营地"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "检查",
+                    "离开",
+                    "搜寻营地"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "盛典纪行_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "解救",
-            "拿出武器"
-        ],
-        "replace": [
-            "教",
-            "解"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "replace": [
+                    "教",
+                    "解"
+                ],
+                "expected": [
+                    "解救",
+                    "拿出武器"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "火灾现场_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "火灾现场",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "火灾现场"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]火灾现场[/color]"
         },
@@ -1100,46 +1398,62 @@
     },
     "火灾现场_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "推测",
-            "调查附近"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "推测",
+                    "调查附近"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "火灾现场_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "这是一场布局精妙的谋杀"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "这是一场布局精妙的谋杀"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "棋盘难题_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "棋盘难题",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "棋盘难题"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]棋盘难题[/color]"
         },
@@ -1159,48 +1473,64 @@
     },
     "棋盘难题_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "向前看",
-            "认输"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "向前看",
+                    "认输"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "棋盘难题_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "接受挑战"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "接受挑战"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "皇后游戏_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": [
-            "后游戏"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "后游戏"
+                ]
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]皇后游戏[/color]"
         },
@@ -1220,55 +1550,71 @@
     },
     "皇后游戏_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "查看",
-            "检查",
-            "打开",
-            "拿牌",
-            "继续"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "查看",
+                    "检查",
+                    "打开",
+                    "拿牌",
+                    "继续"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "皇后游戏_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "接受挑战",
-            "同意",
-            "^「皇后」$",
-            "离桌"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "接受挑战",
+                    "同意",
+                    "^「皇后」$",
+                    "离桌"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "瑕疵造物_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": [
-            "瑕疵造物",
-            "瑕症"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "瑕疵造物",
+                    "瑕症"
+                ]
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]瑕疵造物[/color]"
         },
@@ -1288,45 +1634,61 @@
     },
     "瑕疵造物_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "决定"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "决定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "瑕疵造物_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "断臂维纳斯"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "断臂维纳斯"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "迷失之馆_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "迷失之馆",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "迷失之馆"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]迷失之馆[/color]"
         },
@@ -1346,45 +1708,61 @@
     },
     "迷失之馆_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "询问他"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "询问他"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "迷失之馆_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "帮助他"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "帮助他"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "圣殿战役_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "圣殿战役",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "圣殿战役"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]圣殿战役[/color]"
         },
@@ -1404,48 +1782,64 @@
     },
     "圣殿战役_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "观察",
-            "跟着喊",
-            "收下"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "观察",
+                    "跟着喊",
+                    "收下"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "圣殿战役_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "协助黑衣人",
-            "用拳开路"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "协助黑衣人",
+                    "用拳开路"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "西西弗斯_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "西西弗斯",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "西西弗斯"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]西西弗斯[/color]"
         },
@@ -1465,44 +1859,60 @@
     },
     "西西弗斯_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "西西弗斯_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "询问少女"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "询问少女"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "野性之森_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "野性之森",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "野性之森"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]野性之森[/color]"
         },
@@ -1522,47 +1932,63 @@
     },
     "野性之森_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "继续前行",
-            "带她回去",
-            "出发"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "继续前行",
+                    "带她回去",
+                    "出发"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "野性之森_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "问女孩昆虫的品种"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "问女孩昆虫的品种"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "蓝色裂痕_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "蓝色裂痕",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "蓝色裂痕"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]蓝色裂痕[/color]"
         },
@@ -1582,48 +2008,64 @@
     },
     "蓝色裂痕_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "继续",
-            "查看资料",
-            "收起"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "继续",
+                    "查看资料",
+                    "收起"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "蓝色裂痕_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "进入里面",
-            "不顾一切取走资料集"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "进入里面",
+                    "不顾一切取走资料集"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "铁石心肠_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "铁石心肠",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "铁石心肠"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]铁石心肠[/color]"
         },
@@ -1643,47 +2085,63 @@
     },
     "铁石心肠_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "铁石心肠_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "优先启动档案库"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "优先启动档案库"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "栩栩如生_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": [
-            "栩栩",
-            "如生"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "栩栩",
+                    "如生"
+                ]
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]栩栩如生[/color]"
         },
@@ -1703,47 +2161,63 @@
     },
     "栩栩如生_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "看向油画",
-            "继续"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "看向油画",
+                    "继续"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "栩栩如生_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "绝境的希望",
-            "上前取下纸条"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "绝境的希望",
+                    "上前取下纸条"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "荒废古卷_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "荒废古卷",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "荒废古卷"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]荒废古卷[/color]"
         },
@@ -1763,32 +2237,44 @@
     },
     "荒废古卷_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "翻阅"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "翻阅"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "荒废古卷_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "完全品"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "完全品"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生",
             "回答_矩阵循生"
@@ -1796,25 +2282,35 @@
     },
     "回答_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1032,
-            618,
-            72,
-            42
-        ],
-        "expected": "回答",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    618,
+                    72,
+                    42
+                ],
+                "expected": "回答"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "洁塔薇的食材_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "洁塔薇的食材",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "洁塔薇的食材"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]洁塔薇的食材[/color]"
         },
@@ -1834,47 +2330,63 @@
     },
     "洁塔薇的食材_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "寻找食材",
-            "等待"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "寻找食材",
+                    "等待"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "洁塔薇的食材_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "紫里透红",
-            "兔肉火锅"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "紫里透红",
+                    "兔肉火锅"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "荒废古堡_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "荒废古堡",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "荒废古堡"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]荒废古堡[/color]"
         },
@@ -1894,45 +2406,61 @@
     },
     "荒废古堡_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "检视"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "检视"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "荒废古堡_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "转身离开"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "转身离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "天台扭蛋机_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "天台扭蛋机",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "天台扭蛋机"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]天台扭蛋机[/color]"
         },
@@ -1952,44 +2480,60 @@
     },
     "天台扭蛋机_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "天台扭蛋机_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "还是算了"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "还是算了"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "莫比乌斯_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "莫比乌斯",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "莫比乌斯"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]莫比乌斯[/color]"
         },
@@ -2008,62 +2552,78 @@
     },
     "莫比乌斯_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "取下异物",
-            "原地分析"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "取下异物",
+                    "原地分析"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "莫比乌斯_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "不动声色"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "不动声色"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "赝品工匠_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": [
-            "赝品工匠"
-        ],
-        "replace": [
-            [
-                "质",
-                "赝"
-            ],
-            [
-                "鹰",
-                "赝"
-            ],
-            [
-                "丽",
-                "赝"
-            ]
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "replace": [
+                    [
+                        "质",
+                        "赝"
+                    ],
+                    [
+                        "鹰",
+                        "赝"
+                    ],
+                    [
+                        "丽",
+                        "赝"
+                    ]
+                ],
+                "expected": [
+                    "赝品工匠"
+                ]
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]赝品工匠[/color]"
         },
@@ -2082,45 +2642,61 @@
     },
     "赝品工匠_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "继续"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "继续"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "赝品工匠_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "夜里撒入的月光"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "夜里撒入的月光"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "继承之物_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "继承之物",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "继承之物"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]继承之物[/color]"
         },
@@ -2139,47 +2715,63 @@
     },
     "继承之物_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "聆听",
-            "玲听"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "聆听",
+                    "玲听"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "继承之物_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "询问他关于怪物的事",
-            "替男人继续追踪怪物"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "询问他关于怪物的事",
+                    "替男人继续追踪怪物"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "异界通讯II_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            705,
-            97,
-            324,
-            56
-        ],
-        "expected": "意外的请求",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    705,
+                    97,
+                    324,
+                    56
+                ],
+                "expected": "意外的请求"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]异界通讯II[/color]"
         },
@@ -2198,47 +2790,63 @@
     },
     "异界通讯II_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "启动机器",
-            "迎战",
-            "发送"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "启动机器",
+                    "迎战",
+                    "发送"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "异界通讯II_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "接受请求"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "接受请求"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "禁忌实验_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "禁忌实验",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "禁忌实验"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]禁忌实验[/color]"
         },
@@ -2257,47 +2865,63 @@
     },
     "禁忌实验_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "观察",
-            "提高功率",
-            "查看纸条"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "观察",
+                    "提高功率",
+                    "查看纸条"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "禁忌实验_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "射击怪物"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "射击怪物"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "失败造物_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "失败造物",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "失败造物"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]失败造物[/color]"
         },
@@ -2316,33 +2940,45 @@
     },
     "失败造物_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "上前询问",
-            "继续"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "上前询问",
+                    "继续"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "失败造物_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "调查活泼开朗的粉发莉莉"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "调查活泼开朗的粉发莉莉"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生",
             "调查_矩阵循生",
@@ -2351,37 +2987,53 @@
     },
     "继续_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1032,
-            618,
-            72,
-            42
-        ],
-        "expected": "继续",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    618,
+                    72,
+                    42
+                ],
+                "expected": "继续"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "调查_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1032,
-            618,
-            72,
-            42
-        ],
-        "expected": "调查",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    618,
+                    72,
+                    42
+                ],
+                "expected": "调查"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "旧日情谊_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "旧日情谊",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "旧日情谊"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]旧日情谊[/color]"
         },
@@ -2400,45 +3052,61 @@
     },
     "旧日情谊_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "上前招呼"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "上前招呼"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "旧日情谊_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "拒绝莉莉的请求"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "拒绝莉莉的请求"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "贫困收藏家_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "贫困收藏家",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "贫困收藏家"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]贫困收藏家[/color]"
         },
@@ -2457,44 +3125,60 @@
     },
     "贫困收藏家_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "贫困收藏家_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "拒绝交换"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "拒绝交换"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "英雄真相_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "英雄真相",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "英雄真相"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]英雄真相[/color]"
         },
@@ -2513,46 +3197,62 @@
     },
     "英雄真相_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "继续"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "继续"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "英雄真相_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "优先解救被困少女",
-            "带着少女离开"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "优先解救被困少女",
+                    "带着少女离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "记忆真相_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "记忆真相",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "记忆真相"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]记忆真相[/color]"
         },
@@ -2572,46 +3272,62 @@
     },
     "记忆真相_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "推开",
-            "拒绝"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "推开",
+                    "拒绝"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "记忆真相_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "花费时间消灭怪物"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "花费时间消灭怪物"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "天选者的故事_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "天选者的故事",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "天选者的故事"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]天选者的故事[/color]"
         },
@@ -2630,34 +3346,46 @@
     },
     "天选者的故事_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "决定",
-            "合上日记",
-            "入眠"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "决定",
+                    "合上日记",
+                    "入眠"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "天选者的故事_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "与天选者的相遇"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "与天选者的相遇"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生",
             "翻阅_矩阵循生"
@@ -2665,26 +3393,36 @@
     },
     "翻阅_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1032,
-            618,
-            72,
-            42
-        ],
-        "expected": "翻阅",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    618,
+                    72,
+                    42
+                ],
+                "expected": "翻阅"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "树神之女_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "树神之女",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "树神之女"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]树神之女[/color]"
         },
@@ -2703,44 +3441,60 @@
     },
     "树神之女_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "树神之女_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "开导少女"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "开导少女"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "物归新主_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "物归新主",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "物归新主"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]物归新主[/color]"
         },
@@ -2760,45 +3514,61 @@
     },
     "物归新主_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "出发"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "出发"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "物归新主_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "打开箱子"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "打开箱子"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "无尽长廊_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "无尽长廊",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "无尽长廊"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]无尽长廊[/color]"
         },
@@ -2817,48 +3587,64 @@
     },
     "无尽长廊_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "前进"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "前进"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "无尽长廊_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "前进",
-            "观察四周",
-            "撕开巨幅油画"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "前进",
+                    "观察四周",
+                    "撕开巨幅油画"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "万两黄金_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "万两黄金",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "万两黄金"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]万两黄金[/color]"
         },
@@ -2877,45 +3663,61 @@
     },
     "万两黄金_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "搜查四周"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "搜查四周"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "万两黄金_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "去小花园调查"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "去小花园调查"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "工业幽灵_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "工业幽灵",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "工业幽灵"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]工业幽灵[/color]"
         },
@@ -2934,46 +3736,62 @@
     },
     "工业幽灵_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "工业幽灵_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "开枪解决感染体",
-            "查看向导机器人"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "开枪解决感染体",
+                    "查看向导机器人"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "自投罗网_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "自投罗网",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "自投罗网"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]自投罗网[/color]"
         },
@@ -2992,45 +3810,61 @@
     },
     "自投罗网_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "朝天开枪"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "朝天开枪"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "自投罗网_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "让他交出物资"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "让他交出物资"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "武器技师_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "武器技师",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "武器技师"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]武器技师[/color]"
         },
@@ -3049,44 +3883,60 @@
     },
     "武器技师_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "武器技师_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "接入该游戏机进行游玩"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "接入该游戏机进行游玩"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "致命隐患_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "致命隐患",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "致命隐患"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]致命隐患[/color]"
         },
@@ -3105,47 +3955,63 @@
     },
     "致命隐患_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "离开",
-            "寻找药物",
-            "前往终端",
-            "安葬"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "寻找药物",
+                    "前往终端",
+                    "安葬"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "致命隐患_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "开枪鸡腿两头感染体"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "开枪鸡腿两头感染体"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "物归新主非兼容_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "物归新主",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "物归新主"
+            }
+        },
         "focus": {
             "succeeded": "[color:ForestGreen]物归新主[/color]"
         },
@@ -3165,52 +4031,72 @@
     },
     "物归新主非兼容_对话": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1017,
-            613,
-            170,
-            54
-        ],
-        "expected": [
-            "出发"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "出发"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "物归新主非兼容_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "打开箱子"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "打开箱子"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "未知事件_矩阵循生": {
         "post_delay": 30000,
-        "recognition": "OCR",
-        "roi": [
-            700,
-            96,
-            254,
-            62
-        ],
-        "expected": "",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": ""
+            }
+        },
         "focus": {
             "succeeded": "[color:Tomato]遇到未知事件，请发送maa.log至开发者。[/color]"
         },
-        "action": "Custom",
-        "custom_action": "ScreenShot",
-        "custom_action_param": {
-            "type": "RG3"
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "ScreenShot",
+                "custom_action_param": {
+                    "type": "RG3"
+                }
+            }
         },
         "next": [
             "链路崩溃_reco"

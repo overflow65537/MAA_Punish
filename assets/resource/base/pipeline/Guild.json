@@ -9,14 +9,18 @@
         ]
     },
     "检查是否在指挥局内部": {
-        "recognition": "OCR",
-        "roi": [
-            301,
-            14,
-            123,
-            34
-        ],
-        "expected": "新版指挥局",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    301,
+                    14,
+                    123,
+                    34
+                ],
+                "expected": "新版指挥局"
+            }
+        },
         "next": [
             "检查指定按钮"
         ],
@@ -31,18 +35,24 @@
         ]
     },
     "检查指定按钮": {
-        "recognition": "OCR",
-        "roi": [
-            927,
-            326,
-            113,
-            49
-        ],
-        "expected": [
-            "算一签",
-            "查看签文"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    927,
+                    326,
+                    113,
+                    49
+                ],
+                "expected": [
+                    "算一签",
+                    "查看签文"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "检查主界面2"
         ],
@@ -53,182 +63,246 @@
         ]
     },
     "移动_鲸律星屿": {
-        "recognition": "OCR",
-        "expected": "鲸律星屿",
-        "roi": [
-            1023,
-            8,
-            184,
-            51
-        ],
-        "action": "Swipe",
-        "begin": [
-            281,
-            451,
-            1,
-            1
-        ],
-        "end": [
-            281,
-            451,
-            1,
-            1
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1023,
+                    8,
+                    184,
+                    51
+                ],
+                "expected": "鲸律星屿"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    281,
+                    451,
+                    1,
+                    1
+                ],
+                "end": [
+                    281,
+                    451,
+                    1,
+                    1
+                ]
+            }
+        }
     },
     "移动_经典舱室": {
-        "recognition": "OCR",
-        "expected": "经典舱室",
-        "roi": [
-            1023,
-            8,
-            184,
-            51
-        ],
-        "action": "Swipe",
-        "begin": [
-            300,
-            540,
-            0,
-            0
-        ],
-        "end": [
-            300,
-            540,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1023,
+                    8,
+                    184,
+                    51
+                ],
+                "expected": "经典舱室"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    300,
+                    540,
+                    0,
+                    0
+                ],
+                "end": [
+                    300,
+                    540,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "移动_庭梨栖雪": {
-        "recognition": "OCR",
-        "expected": "庭梨栖雪",
-        "roi": [
-            1023,
-            8,
-            184,
-            51
-        ],
-        "action": "Swipe",
-        "begin": [
-            265,
-            470,
-            0,
-            0
-        ],
-        "end": [
-            265,
-            470,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1023,
+                    8,
+                    184,
+                    51
+                ],
+                "expected": "庭梨栖雪"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    265,
+                    470,
+                    0,
+                    0
+                ],
+                "end": [
+                    265,
+                    470,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "移动_岁雪新宵": {
-        "recognition": "OCR",
-        "expected": "岁雪新宵",
-        "roi": [
-            1023,
-            8,
-            184,
-            51
-        ],
-        "action": "Swipe",
-        "begin": [
-            300,
-            540,
-            0,
-            0
-        ],
-        "end": [
-            300,
-            540,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1023,
+                    8,
+                    184,
+                    51
+                ],
+                "expected": "岁雪新宵"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    300,
+                    540,
+                    0,
+                    0
+                ],
+                "end": [
+                    300,
+                    540,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "移动_蔚蓝之夏": {
-        "recognition": "OCR",
-        "expected": "蔚蓝之夏",
-        "roi": [
-            1023,
-            8,
-            184,
-            51
-        ],
-        "action": "Swipe",
-        "begin": [
-            98,
-            476,
-            1,
-            1
-        ],
-        "end": [
-            98,
-            476,
-            1,
-            1
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1023,
+                    8,
+                    184,
+                    51
+                ],
+                "expected": "蔚蓝之夏"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    98,
+                    476,
+                    1,
+                    1
+                ],
+                "end": [
+                    98,
+                    476,
+                    1,
+                    1
+                ]
+            }
+        }
     },
     "移动_云海空岛": {
-        "recognition": "OCR",
-        "expected": "云海空岛",
-        "roi": [
-            1023,
-            8,
-            184,
-            51
-        ],
-        "action": "Swipe",
-        "begin": [
-            300,
-            540,
-            0,
-            0
-        ],
-        "end": [
-            300,
-            540,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1023,
+                    8,
+                    184,
+                    51
+                ],
+                "expected": "云海空岛"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    300,
+                    540,
+                    0,
+                    0
+                ],
+                "end": [
+                    300,
+                    540,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "移动_漫花清夏": {
-        "recognition": "OCR",
-        "expected": "漫花清夏",
-        "roi": [
-            1023,
-            8,
-            184,
-            51
-        ],
-        "action": "Swipe",
-        "begin": [
-            300,
-            540,
-            0,
-            0
-        ],
-        "end": [
-            300,
-            540,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1023,
+                    8,
+                    184,
+                    51
+                ],
+                "expected": "漫花清夏"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    300,
+                    540,
+                    0,
+                    0
+                ],
+                "end": [
+                    300,
+                    540,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "关闭奖励_指挥局": {
-        "recognition": "OCR",
-        "roi": [
-            600,
-            570,
-            76,
-            70
-        ],
-        "expected": "已领取",
-        "action": "Click",
-        "target": [
-            833,
-            100,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    600,
+                    570,
+                    76,
+                    70
+                ],
+                "expected": "已领取"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    833,
+                    100,
+                    0,
+                    0
+                ]
+            }
+        },
         "pre_delay": 1000
     }
 }

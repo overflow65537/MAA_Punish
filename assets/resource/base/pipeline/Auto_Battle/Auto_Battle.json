@@ -19,73 +19,99 @@
     "自动反击": {
         "post_delay": 0,
         "pre_delay": 0,
-        "recognition": "Custom",
-        "custom_recognition": "AutoCounter",
-        "custom_recognition_param": {
-            "current_hp": ""
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "AutoCounter",
+                "custom_recognition_param": {
+                    "current_hp": ""
+                }
+            }
         },
-        "action": "Click"
+        "action": {
+            "type": "Click"
+        }
     },
     "检查血量": {
-        "recognition": "OCR",
-        "roi": [
-            19,
-            15,
-            141,
-            29
-        ],
-        "expected": [
-            "\\d+\/\\d+"
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    19,
+                    15,
+                    141,
+                    29
+                ],
+                "expected": [
+                    "\\d+/\\d+"
+                ]
+            }
+        }
     },
     "战斗重启1": {
-        "recognition": "OCR",
-        "roi": [
-            820,
-            266,
-            73,
-            53
-        ],
-        "expected": [
-            "重启"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    820,
+                    266,
+                    73,
+                    53
+                ],
+                "expected": [
+                    "重启"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "对话跳过": {
-        "only_rec": true,
-        "recognition": "OCR",
-        "roi": [
-            787,
-            595,
-            50,
-            32
-        ],
-        "expected": [
-            "跳过"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    787,
+                    595,
+                    50,
+                    32
+                ],
+                "expected": [
+                    "跳过"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "进入战斗_条件2": {
         "post_delay": 0,
         "pre_delay": 0,
-        "recognition": "OCR",
-        "roi": [
-            14,
-            82,
-            214,
-            67
-        ],
-        "expected": [
-            "^击败.*",
-            "^消灭.*",
-            "^清理.*",
-            "生物",
-            "异合",
-            "消灭",
-            "感染体",
-            "抵御",
-            "清除"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    14,
+                    82,
+                    214,
+                    67
+                ],
+                "expected": [
+                    "^击败.*",
+                    "^消灭.*",
+                    "^清理.*",
+                    "生物",
+                    "异合",
+                    "消灭",
+                    "感染体",
+                    "抵御",
+                    "清除"
+                ]
+            }
+        },
         "next": [
             "识别人物",
             "战斗中",
@@ -95,24 +121,28 @@
     "进入战斗": {
         "post_delay": 0,
         "pre_delay": 0,
-        "recognition": "ColorMatch",
-        "roi": [
-            403,
-            51,
-            472,
-            7
-        ],
-        "upper": [
-            255,
-            255,
-            255
-        ],
-        "lower": [
-            255,
-            255,
-            255
-        ],
-        "connected": true,
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    403,
+                    51,
+                    472,
+                    7
+                ],
+                "connected": true,
+                "upper": [
+                    255,
+                    255,
+                    255
+                ],
+                "lower": [
+                    255,
+                    255,
+                    255
+                ]
+            }
+        },
         "next": [
             "识别人物",
             "战斗中",
@@ -121,48 +151,70 @@
     },
     "重置识别": {
         "post_delay": 1000,
-        "action": "Custom",
-        "custom_action": "ResetIdentify"
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "ResetIdentify"
+            }
+        }
     },
     "主线跳过": {
-        "recognition": "OCR",
-        "roi": [
-            1197,
-            124,
-            47,
-            25
-        ],
-        "expected": [
-            "SKIP"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1197,
+                    124,
+                    47,
+                    25
+                ],
+                "expected": [
+                    "SKIP"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "循环执行器": {
         "inverse": true
     },
     "识别人物": {
-        "green_mask": true,
-        "recognition": "TemplateMatch",
-        "roi": [
-            990,
-            567,
-            131,
-            131
-        ],
-        "template": "战斗/闪避.png",
-        "action": "Custom",
-        "custom_action": "Identify"
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    990,
+                    567,
+                    131,
+                    131
+                ],
+                "template": "战斗/闪避.png",
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Identify"
+            }
+        }
     },
     "战斗测试": {
-        "green_mask": true,
-        "recognition": "TemplateMatch",
-        "roi": [
-            990,
-            567,
-            131,
-            131
-        ],
-        "template": "战斗/闪避.png",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    990,
+                    567,
+                    131,
+                    131
+                ],
+                "template": "战斗/闪避.png",
+                "green_mask": true
+            }
+        },
         "next": [
             "检查比安卡·深痕",
             "检查露西亚·誓焰",
@@ -174,37 +226,61 @@
     "深痕战斗": {
         "post_delay": 0,
         "pre_delay": 0,
-        "action": "Custom",
-        "custom_action": "Stigmata"
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Stigmata"
+            }
+        }
     },
     "深谣战斗": {
         "post_delay": 0,
         "pre_delay": 0,
-        "action": "Custom",
-        "custom_action": "LostLullaby"
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "LostLullaby"
+            }
+        }
     },
     "深红囚影战斗": {
         "post_delay": 0,
         "pre_delay": 0,
-        "action": "Custom",
-        "custom_action": "CrimsonWeave"
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "CrimsonWeave"
+            }
+        }
     },
     "誓焰战斗": {
         "post_delay": 0,
         "pre_delay": 0,
-        "action": "Custom",
-        "custom_action": "Pyroath"
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Pyroath"
+            }
+        }
     },
     "终焉战斗": {
         "post_delay": 0,
         "pre_delay": 0,
-        "action": "Custom",
-        "custom_action": "Oblivion"
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Oblivion"
+            }
+        }
     },
     "启明战斗": {
         "post_delay": 0,
         "pre_delay": 0,
-        "action": "Custom",
-        "custom_action": "Shukra"
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Shukra"
+            }
+        }
     }
 }

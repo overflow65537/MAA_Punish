@@ -30,90 +30,118 @@
         ]
     },
     "返回_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            1103,
-            627,
-            63,
-            55
-        ],
-        "action": "Click",
-        "expected": "藏品",
-        "target": [
-            58,
-            31,
-            1,
-            1
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1103,
+                    627,
+                    63,
+                    55
+                ],
+                "expected": "藏品"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    58,
+                    31,
+                    1,
+                    1
+                ]
+            }
+        }
     },
     "选择模式_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            288,
-            162,
-            88,
-            50
-        ],
-        "expected": "首发",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    288,
+                    162,
+                    88,
+                    50
+                ],
+                "expected": "首发"
+            }
+        },
         "next": [
             "招募能量4点",
             "招募能量3点"
         ]
     },
     "招募能量4点": {
-        "recognition": "OCR",
-        "roi": [
-            53,
-            593,
-            44,
-            60
-        ],
-        "only_rec": true,
-        "expected": [
-            "4",
-            "5"
-        ],
-        "action": "Custom",
-        "custom_action": "PPOverride",
-        "custom_action_param": {
-            "选择模式_矩阵循生": {
-                "enabled": false
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    53,
+                    593,
+                    44,
+                    60
+                ],
+                "expected": [
+                    "4",
+                    "5"
+                ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "选择模式_矩阵循生": {
+                        "enabled": false
+                    }
+                }
             }
         }
     },
     "招募能量3点": {
-        "recognition": "OCR",
-        "roi": [
-            53,
-            593,
-            44,
-            60
-        ],
-        "only_rec": true,
-        "expected": "3",
-        "action": "Custom",
-        "custom_action": "PPOverride",
-        "custom_action_param": {
-            "选择模式_矩阵循生": {
-                "enabled": false
-            },
-            "选择首发_矩阵循生": {
-                "enabled": false
-            },
-            "异度投影_矩阵循生": {
-                "enabled": false
-            },
-            "进入物归新主_矩阵循生": {
-                "enabled": true
-            },
-            "选择首发2_矩阵循生": {
-                "enabled": true
-            },
-            "矩阵循生": {
-                "action": "custom",
-                "custom_action": "ResetIdentify",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    53,
+                    593,
+                    44,
+                    60
+                ],
+                "expected": "3"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
                 "custom_action_param": {
-                    "mode": "矩阵循生"
+                    "选择模式_矩阵循生": {
+                        "enabled": false
+                    },
+                    "选择首发_矩阵循生": {
+                        "enabled": false
+                    },
+                    "异度投影_矩阵循生": {
+                        "enabled": false
+                    },
+                    "进入物归新主_矩阵循生": {
+                        "enabled": true
+                    },
+                    "选择首发2_矩阵循生": {
+                        "enabled": true
+                    },
+                    "矩阵循生": {
+                        "action": "custom",
+                        "custom_action": "ResetIdentify",
+                        "custom_action_param": {
+                            "mode": "矩阵循生"
+                        }
+                    }
                 }
             }
         }
@@ -121,15 +149,21 @@
     "选择首发2_矩阵循生": {
         "enabled": false,
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            288,
-            162,
-            88,
-            50
-        ],
-        "expected": "首发",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    288,
+                    162,
+                    88,
+                    50
+                ],
+                "expected": "首发"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "点击精通等级低于3的人物",
             "选择首发2_矩阵循生"
@@ -139,94 +173,132 @@
         ]
     },
     "点击精通等级低于3的人物": {
-        "recognition": "OCR",
-        "roi": [
-            289,
-            86,
-            26,
-            539
-        ],
-        "expected": [
-            "^0$",
-            "^1$",
-            "^2$"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    289,
+                    86,
+                    26,
+                    539
+                ],
+                "expected": [
+                    "^0$",
+                    "^1$",
+                    "^2$"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "编入_矩阵循生"
         ]
     },
     "打开矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            355,
-            454,
-            923,
-            54
-        ],
-        "expected": "矩阵循生",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    355,
+                    454,
+                    923,
+                    54
+                ],
+                "expected": "矩阵循生"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "打开多维演绎": {
-        "recognition": "OCR",
-        "roi": [
-            55,
-            540,
-            116,
-            33
-        ],
-        "expected": "多维演绎",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    55,
+                    540,
+                    116,
+                    33
+                ],
+                "expected": "多维演绎"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "打开挑战": {
-        "recognition": "OCR",
-        "roi": [
-            1128,
-            657,
-            77,
-            45
-        ],
-        "expected": "挑战",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1128,
+                    657,
+                    77,
+                    45
+                ],
+                "expected": "挑战"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "启程_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1132,
-            614,
-            130,
-            78
-        ],
-        "expected": "启程",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1132,
+                    614,
+                    130,
+                    78
+                ],
+                "expected": "启程"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "重开启程_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            1132,
-            614,
-            130,
-            78
-        ],
-        "expected": "启程",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1132,
+                    614,
+                    130,
+                    78
+                ],
+                "expected": "启程"
+            }
+        },
         "next": [
             "矩阵循生"
         ]
     },
     "迭变投影_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            554,
-            42,
-            183,
-            62
-        ],
-        "expected": [
-            "迭变投影",
-            "选变投影"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    554,
+                    42,
+                    183,
+                    62
+                ],
+                "expected": [
+                    "迭变投影",
+                    "选变投影"
+                ]
+            }
+        },
         "next": [
             "重开启程_矩阵循生"
         ],
@@ -240,50 +312,66 @@
     },
     "转场_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "only_rec": true,
-        "roi": [
-            1083,
-            664,
-            66,
-            21
-        ],
-        "expected": [
-            "Chapter"
-        ],
-        "action": "Click",
-        "target": [
-            600,
-            10,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    1083,
+                    664,
+                    66,
+                    21
+                ],
+                "expected": [
+                    "Chapter"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    600,
+                    10,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "链路崩溃": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            547,
-            367,
-            183,
-            69
-        ],
-        "expected": "链路崩溃",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    547,
+                    367,
+                    183,
+                    69
+                ],
+                "expected": "链路崩溃"
+            }
+        },
         "next": [
             "矩阵循生"
         ]
     },
     "肉鸽内部": {
-        "recognition": "OCR",
-        "roi": [
-            1103,
-            627,
-            63,
-            55
-        ],
-        "expected": [
-            "藏品"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1103,
+                    627,
+                    63,
+                    55
+                ],
+                "expected": [
+                    "藏品"
+                ]
+            }
+        },
         "next": [
             "链路崩溃"
         ],
@@ -299,15 +387,21 @@
     },
     "进入物归新主_矩阵循生": {
         "enabled": false,
-        "recognition": "OCR",
-        "roi": [
-            292,
-            272,
-            754,
-            45
-        ],
-        "expected": "物归新主",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    292,
+                    272,
+                    754,
+                    45
+                ],
+                "expected": "物归新主"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "物归新主_矩阵循生"
         ],
@@ -316,28 +410,38 @@
         ]
     },
     "确定进入物归新主_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            284,
-            472,
-            840,
-            82
-        ],
-        "expected": "确定",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    284,
+                    472,
+                    840,
+                    82
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "物归新主完成_矩阵循生": {
         "post_delay": 2000,
-        "recognition": "OCR",
-        "roi": [
-            1103,
-            627,
-            63,
-            55
-        ],
-        "expected": [
-            "藏品"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1103,
+                    627,
+                    63,
+                    55
+                ],
+                "expected": [
+                    "藏品"
+                ]
+            }
+        },
         "next": [
             "物归新主完成_二次确认_矩阵循生"
         ],
@@ -351,31 +455,41 @@
     },
     "物归新主完成_二次确认_矩阵循生": {
         "post_delay": 2000,
-        "recognition": "OCR",
-        "roi": [
-            1103,
-            627,
-            63,
-            55
-        ],
-        "expected": [
-            "藏品"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1103,
+                    627,
+                    63,
+                    55
+                ],
+                "expected": [
+                    "藏品"
+                ]
+            }
+        },
         "next": [
             "更换人物"
         ]
     },
     "更换人物": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            778,
-            635,
-            54,
-            47
-        ],
-        "expected": "编队",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    778,
+                    635,
+                    54,
+                    47
+                ],
+                "expected": "编队"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -387,80 +501,120 @@
         ]
     },
     "点击精通等级低于12的人物": {
-        "recognition": "Custom",
-        "custom_recognition": "IDFMasteryLevel",
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "IDFMasteryLevel"
+            }
+        },
         "post_delay": 1000,
-        "action": "Click",
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "二次编入_矩阵循生"
         ]
     },
     "二次编入_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1058,
-            628,
-            75,
-            45
-        ],
-        "expected": "编入",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1058,
+                    628,
+                    75,
+                    45
+                ],
+                "expected": "编入"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "确定编队_矩阵循生"
         ]
     },
     "确定编队_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            968,
-            616,
-            235,
-            56
-        ],
-        "expected": "确定",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    968,
+                    616,
+                    235,
+                    56
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "识别精通等级": {
-        "only_rec": true,
-        "recognition": "OCR",
-        "expected": "^(?!12$).*$"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "expected": "^(?!12$).*$"
+            }
+        }
     },
     "点击下阵": {
-        "recognition": "OCR",
-        "roi": [
-            1061,
-            629,
-            71,
-            45
-        ],
-        "expected": "下阵",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1061,
+                    629,
+                    71,
+                    45
+                ],
+                "expected": "下阵"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "更换首发_矩阵循生": {
         "post_delay": 200,
-        "recognition": "OCR",
-        "roi": [
-            288,
-            162,
-            88,
-            50
-        ],
-        "expected": "首发",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    288,
+                    162,
+                    88,
+                    50
+                ],
+                "expected": "首发"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "事件确定_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            183,
-            469,
-            972,
-            63
-        ],
-        "expected": "确定",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    183,
+                    469,
+                    972,
+                    63
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "亚人少女_矩阵循生",
             "贴心搭档_矩阵循生",
@@ -517,33 +671,43 @@
         ]
     },
     "对话事件_矩阵循生": {
-        "green_mask": true,
-        "recognition": "TemplateMatch",
-        "roi": [
-            198,
-            133,
-            1022,
-            146
-        ],
-        "template": [
-            "矩阵循生/对话事件.png",
-            "矩阵循生/对话事件1.png"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    198,
+                    133,
+                    1022,
+                    146
+                ],
+                "template": [
+                    "矩阵循生/对话事件.png",
+                    "矩阵循生/对话事件1.png"
+                ],
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "事件确定_矩阵循生"
         ]
     },
     "BOSS战_矩阵循生": {
-        "recognition": "TemplateMatch",
-        "green_mask": true,
-        "roi": [
-            285,
-            130,
-            912,
-            111
-        ],
-        "template": "矩阵循生/BOSS.png",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    285,
+                    130,
+                    912,
+                    111
+                ],
+                "template": "矩阵循生/BOSS.png",
+                "green_mask": true
+            }
+        },
         "next": [
             "确认结束购物_矩阵循生"
         ],
@@ -554,91 +718,133 @@
     },
     "终止_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            982,
-            642,
-            68,
-            44
-        ],
-        "expected": "终止",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    982,
+                    642,
+                    68,
+                    44
+                ],
+                "expected": "终止"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "下一页": {
-        "recognition": "OCR",
-        "roi": [
-            1034,
-            626,
-            88,
-            48
-        ],
-        "expected": [
-            "下一页",
-            "完成"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1034,
+                    626,
+                    88,
+                    48
+                ],
+                "expected": [
+                    "下一页",
+                    "完成"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "点击继续": {
-        "recognition": "OCR",
-        "roi": [
-            588,
-            665,
-            110,
-            36
-        ],
-        "expected": "继续",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    588,
+                    665,
+                    110,
+                    36
+                ],
+                "expected": "继续"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "离开_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            1029,
-            617,
-            71,
-            47
-        ],
-        "expected": "离开",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1029,
+                    617,
+                    71,
+                    47
+                ],
+                "expected": "离开"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "转换层级_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "TemplateMatch",
-        "roi": [
-            300,
-            556,
-            55,
-            132
-        ],
-        "template": [
-            "矩阵循生/转换层级.png"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    300,
+                    556,
+                    55,
+                    132
+                ],
+                "template": [
+                    "矩阵循生/转换层级.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "异度投影_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            276,
-            236,
-            961,
-            96
-        ],
-        "action": "Click",
-        "expected": "异度投影",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    276,
+                    236,
+                    961,
+                    96
+                ],
+                "expected": "异度投影"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "进入异度投影"
         ]
     },
     "进入异度投影": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            183,
-            469,
-            972,
-            63
-        ],
-        "expected": "确定",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    183,
+                    469,
+                    972,
+                    63
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -655,100 +861,138 @@
     },
     "异度投影_对话3": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "进行观测"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "进行观测"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "beta_过场动画": {
-        "recognition": "OCR",
-        "roi": [
-            614,
-            70,
-            57,
-            32
-        ],
-        "expected": "阶段",
-        "action": "Click",
-        "target": [
-            10,
-            10,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    614,
+                    70,
+                    57,
+                    32
+                ],
+                "expected": "阶段"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    10,
+                    10,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "异度投影_对话": {
-        "recognition": "OCR",
-        "only_rec": true,
-        "roi": [
-            1034,
-            619,
-            62,
-            41
-        ],
-        "expected": [
-            "靠近",
-            "前进"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    1034,
+                    619,
+                    62,
+                    41
+                ],
+                "expected": [
+                    "靠近",
+                    "前进"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "异度投影_对话2": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            690,
-            254,
-            554,
-            339
-        ],
-        "expected": [
-            "继续靠近",
-            "强制启动"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "继续靠近",
+                    "强制启动"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "决定_矩阵循生"
         ]
     },
     "前进_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            1034,
-            622,
-            59,
-            34
-        ],
-        "expected": "前进",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1034,
+                    622,
+                    59,
+                    34
+                ],
+                "expected": "前进"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "战斗事件_矩阵循生": {
         "timeout": 300000,
         "focus": {
             "succeeded": "[color:ForestGreen]开始战斗[/color]"
         },
-        "recognition": "TemplateMatch",
-        "roi": [
-            278,
-            150,
-            834,
-            86
-        ],
-        "order_by": "Score",
-        "template": [
-            "矩阵循生/战斗地块.png"
-        ],
-        "green_mask": true,
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    278,
+                    150,
+                    834,
+                    86
+                ],
+                "template": [
+                    "矩阵循生/战斗地块.png"
+                ],
+                "green_mask": true,
+                "order_by": "Score"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "战斗完成_矩阵循生",
             "战斗失败"
@@ -765,19 +1009,25 @@
         ]
     },
     "算力单元不足": {
-        "only_rec": true,
-        "recognition": "OCR",
-        "roi": [
-            566,
-            344,
-            154,
-            30
-        ],
-        "expected": [
-            "算力单元",
-            "不足"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    566,
+                    344,
+                    154,
+                    30
+                ],
+                "expected": [
+                    "算力单元",
+                    "不足"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "链路崩溃_reco"
         ],
@@ -786,71 +1036,105 @@
         ]
     },
     "放弃战斗_矩阵循生": {
-        "only_rec": true,
-        "recognition": "OCR",
-        "roi": [
-            407,
-            518,
-            63,
-            41
-        ],
-        "expected": "放弃",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    407,
+                    518,
+                    63,
+                    41
+                ],
+                "expected": "放弃"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "重复点击战斗_矩阵循生": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            278,
-            150,
-            834,
-            86
-        ],
-        "order_by": "Score",
-        "template": [
-            "矩阵循生/战斗地块.png"
-        ],
-        "green_mask": true,
-        "action": "Click"
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    278,
+                    150,
+                    834,
+                    86
+                ],
+                "template": [
+                    "矩阵循生/战斗地块.png"
+                ],
+                "green_mask": true,
+                "order_by": "Score"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "战斗失败": {
         "focus": {
             "succeeded": "[color:Tomato]寄![/color]"
         },
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            547,
-            367,
-            183,
-            69
-        ],
-        "expected": "链路崩溃",
-        "action": "Custom",
-        "custom_action": "ResetIdentify"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    547,
+                    367,
+                    183,
+                    69
+                ],
+                "expected": "链路崩溃"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "ResetIdentify"
+            }
+        }
     },
     "进入战斗_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            183,
-            469,
-            972,
-            63
-        ],
-        "expected": "确定",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    183,
+                    469,
+                    972,
+                    63
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "战斗完成_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            544,
-            24,
-            187,
-            60
-        ],
-        "action": "Custom",
-        "custom_action": "ResetIdentify",
-        "expected": "领取奖励",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    544,
+                    24,
+                    187,
+                    60
+                ],
+                "expected": "领取奖励"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "ResetIdentify"
+            }
+        },
         "next": [
             "事件完成_矩阵循生"
         ],
@@ -865,41 +1149,57 @@
         ]
     },
     "熵值通知_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            441,
-            181,
-            433,
-            80
-        ],
-        "expected": [
-            "正在注入",
-            "反馈",
-            "熵变",
-            "结果中"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    441,
+                    181,
+                    433,
+                    80
+                ],
+                "expected": [
+                    "正在注入",
+                    "反馈",
+                    "熵变",
+                    "结果中"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "领取熵值奖励_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            144,
-            229,
-            1055,
-            71
-        ],
-        "expected": "",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    144,
+                    229,
+                    1055,
+                    71
+                ],
+                "expected": ""
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "领取藏品": {
-        "recognition": "OCR",
-        "roi": [
-            547,
-            22,
-            200,
-            69
-        ],
-        "expected": "领取奖励",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    547,
+                    22,
+                    200,
+                    69
+                ],
+                "expected": "领取奖励"
+            }
+        },
         "next": [
             "领取_矩阵循生",
             "事件完成_矩阵循生"
@@ -909,83 +1209,119 @@
         ]
     },
     "点击藏品": {
-        "recognition": "OCR",
-        "roi": [
-            202,
-            273,
-            944,
-            79
-        ],
-        "expected": "",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    202,
+                    273,
+                    944,
+                    79
+                ],
+                "expected": ""
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "离开_寒境曙光": {
         "post_delay": 1500,
-        "recognition": "OCR",
-        "roi": [
-            1036,
-            641,
-            56,
-            34
-        ],
-        "expected": "离开",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1036,
+                    641,
+                    56,
+                    34
+                ],
+                "expected": "离开"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "确认装备_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1133,
-            649,
-            65,
-            33
-        ],
-        "expected": "确定",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1133,
+                    649,
+                    65,
+                    33
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "选择装备_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            16,
-            71,
-            186,
-            39
-        ],
-        "expected": [
-            "请选择装备"
-        ],
-        "action": "Click",
-        "target": [
-            157,
-            412,
-            1,
-            1
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    16,
+                    71,
+                    186,
+                    39
+                ],
+                "expected": [
+                    "请选择装备"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    157,
+                    412,
+                    1,
+                    1
+                ]
+            }
+        }
     },
     "领取_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            49,
-            454,
-            1175,
-            93
-        ],
-        "expected": "领取",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    49,
+                    454,
+                    1175,
+                    93
+                ],
+                "expected": "领取"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "事件完成_矩阵循生": {
         "post_delay": 2000,
-        "recognition": "OCR",
-        "roi": [
-            1103,
-            627,
-            63,
-            55
-        ],
-        "expected": [
-            "藏品"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1103,
+                    627,
+                    63,
+                    55
+                ],
+                "expected": [
+                    "藏品"
+                ]
+            }
+        },
         "next": [
             "事件完成_二次确认_矩阵循生"
         ],
@@ -999,16 +1335,20 @@
     },
     "事件完成_结束_矩阵循生": {
         "post_delay": 2000,
-        "recognition": "OCR",
-        "roi": [
-            1103,
-            627,
-            63,
-            55
-        ],
-        "expected": [
-            "藏品"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1103,
+                    627,
+                    63,
+                    55
+                ],
+                "expected": [
+                    "藏品"
+                ]
+            }
+        },
         "next": [
             "事件完成_结束_二次确认_矩阵循生"
         ],
@@ -1021,28 +1361,36 @@
         ]
     },
     "事件完成_二次确认_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            1103,
-            627,
-            63,
-            55
-        ],
-        "expected": [
-            "藏品"
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1103,
+                    627,
+                    63,
+                    55
+                ],
+                "expected": [
+                    "藏品"
+                ]
+            }
+        }
     },
     "事件完成_结束_二次确认_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            1103,
-            627,
-            63,
-            55
-        ],
-        "expected": [
-            "藏品"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1103,
+                    627,
+                    63,
+                    55
+                ],
+                "expected": [
+                    "藏品"
+                ]
+            }
+        },
         "next": [
             "确认结束购物_矩阵循生"
         ],
@@ -1052,78 +1400,112 @@
         ]
     },
     "出击_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            1016,
-            625,
-            64,
-            40
-        ],
-        "expected": [
-            "出击"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1016,
+                    625,
+                    64,
+                    40
+                ],
+                "expected": [
+                    "出击"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "关闭奖励_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            580,
-            213,
-            133,
-            40
-        ],
-        "expected": "获得奖励",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    580,
+                    213,
+                    133,
+                    40
+                ],
+                "expected": "获得奖励"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "决定_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1032,
-            618,
-            72,
-            42
-        ],
-        "expected": "决定",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    618,
+                    72,
+                    42
+                ],
+                "expected": "决定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "出发_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1032,
-            618,
-            72,
-            42
-        ],
-        "expected": "出发",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    618,
+                    72,
+                    42
+                ],
+                "expected": "出发"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "肉鸽战斗_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            1103,
-            627,
-            63,
-            55
-        ],
-        "expected": [
-            "战斗"
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1103,
+                    627,
+                    63,
+                    55
+                ],
+                "expected": [
+                    "战斗"
+                ]
+            }
+        }
     },
     "选择难度_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            191,
-            311,
-            895,
-            28
-        ],
-        "expected": [
-            "普通"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    191,
+                    311,
+                    895,
+                    28
+                ],
+                "expected": [
+                    "普通"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "下一步_矩阵循生",
             "空任务"
@@ -1131,50 +1513,70 @@
     },
     "迭变藏品_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            44,
-            267,
-            1209,
-            55
-        ],
-        "expected": [
-            "外层"
-        ],
-        "action": "Click",
-        "target": [
-            154,
-            333,
-            1,
-            1
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    44,
+                    267,
+                    1209,
+                    55
+                ],
+                "expected": [
+                    "外层"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    154,
+                    333,
+                    1,
+                    1
+                ]
+            }
+        },
         "next": [
             "下一步_矩阵循生"
         ]
     },
     "下一步_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            982,
-            638,
-            138,
-            56
-        ],
-        "expected": "下一步",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    982,
+                    638,
+                    138,
+                    56
+                ],
+                "expected": "下一步"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "选择首发_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            288,
-            162,
-            88,
-            50
-        ],
-        "expected": "首发",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    288,
+                    162,
+                    88,
+                    50
+                ],
+                "expected": "首发"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "选择自动作战人物_矩阵循生",
             "选择首发_矩阵循生"
@@ -1184,124 +1586,156 @@
         ]
     },
     "选择自动作战人物_矩阵循生": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            70,
-            63,
-            143,
-            576
-        ],
-        "template": [
-            "肉鸽通用/誓焰终解_矩阵.png",
-            "肉鸽通用/誓焰_矩阵.png",
-            "肉鸽通用/誓焰花嫁_矩阵.png",
-            "肉鸽通用/深红囚影终解_矩阵.png",
-            "肉鸽通用/深红囚影_矩阵.png",
-            "肉鸽通用/深谣终解_矩阵.png",
-            "肉鸽通用/深谣_矩阵.png",
-            "肉鸽通用/终焉终解_矩阵.png",
-            "肉鸽通用/终焉_矩阵.png"
-        ],
-        "threshold": [
-            0.9,
-            0.9,
-            0.9,
-            0.9,
-            0.9,
-            0.9,
-            0.9,
-            0.9,
-            0.9
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    70,
+                    63,
+                    143,
+                    576
+                ],
+                "template": [
+                    "肉鸽通用/誓焰终解_矩阵.png",
+                    "肉鸽通用/誓焰_矩阵.png",
+                    "肉鸽通用/誓焰花嫁_矩阵.png",
+                    "肉鸽通用/深红囚影终解_矩阵.png",
+                    "肉鸽通用/深红囚影_矩阵.png",
+                    "肉鸽通用/深谣终解_矩阵.png",
+                    "肉鸽通用/深谣_矩阵.png",
+                    "肉鸽通用/终焉终解_矩阵.png",
+                    "肉鸽通用/终焉_矩阵.png"
+                ],
+                "threshold": [
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "编入_矩阵循生"
         ]
     },
     "滑动_矩阵循生": {
         "post_delay": 1000,
-        "duration": 1000,
-        "action": "Swipe",
-        "begin": [
-            177,
-            493,
-            1,
-            1
-        ],
-        "end": [
-            179,
-            405,
-            1,
-            1
-        ],
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    177,
+                    493,
+                    1,
+                    1
+                ],
+                "end": [
+                    179,
+                    405,
+                    1,
+                    1
+                ],
+                "duration": 1000
+            }
+        },
         "next": [
             "停止滑动"
         ]
     },
     "停止滑动": {
-        "action": "Click",
-        "target": [
-            141,
-            130,
-            1,
-            1
-        ],
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    141,
+                    130,
+                    1,
+                    1
+                ]
+            }
+        },
         "next": [
             "下滑计数"
         ]
     },
     "下滑计数": {
-        "action": "Custom",
-        "custom_action": "Count",
-        "custom_action_param": {
-            "self": "下滑计数",
-            "count": 0,
-            "target_count": 20,
-            "next_node": [
-                "退出选人"
-            ],
-            "next_node_msg": "未搜索到目标人物,重设识别条件",
-            "count_msg": "滑动计数: {count}, 目标次数: {target_count}"
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Count",
+                "custom_action_param": {
+                    "self": "下滑计数",
+                    "count": 0,
+                    "target_count": 20,
+                    "next_node": [
+                        "退出选人"
+                    ],
+                    "next_node_msg": "未搜索到目标人物,重设识别条件",
+                    "count_msg": "滑动计数: {count}, 目标次数: {target_count}"
+                }
+            }
         }
     },
     "退出选人": {
         "post_delay": 1500,
-        "recognition": "OCR",
-        "roi": [
-            76,
-            18,
-            62,
-            34
-        ],
-        "expected": "返回",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    76,
+                    18,
+                    62,
+                    34
+                ],
+                "expected": "返回"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "退出选人计数"
         ]
     },
     "退出选人计数": {
-        "action": "Custom",
-        "custom_action": "Count",
-        "custom_action_param": {
-            "self": "退出选人计数",
-            "count": 0,
-            "target_count": 2,
-            "next_node": [
-                "强制选人"
-            ],
-            "next_node_msg": "未搜索到目标人物,随机选择人物",
-            "count_msg": "强制选人计数: {count}, 目标次数: {target_count}"
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Count",
+                "custom_action_param": {
+                    "self": "退出选人计数",
+                    "count": 0,
+                    "target_count": 2,
+                    "next_node": [
+                        "强制选人"
+                    ],
+                    "next_node_msg": "未搜索到目标人物,随机选择人物",
+                    "count_msg": "强制选人计数: {count}, 目标次数: {target_count}"
+                }
+            }
         }
     },
     "链路崩溃_reco": {
-        "recognition": "OCR",
-        "roi": [
-            547,
-            367,
-            183,
-            69
-        ],
-        "expected": "链路崩溃"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    547,
+                    367,
+                    183,
+                    69
+                ],
+                "expected": "链路崩溃"
+            }
+        }
     },
     "强制选人": {
         "focus": {
@@ -1318,61 +1752,77 @@
         ]
     },
     "强制选择自动作战人物_矩阵循生": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            70,
-            63,
-            143,
-            576
-        ],
-        "template": [
-            "肉鸽通用/誓焰终解_矩阵.png",
-            "肉鸽通用/誓焰_矩阵.png",
-            "肉鸽通用/誓焰花嫁_矩阵.png",
-            "肉鸽通用/深红囚影终解_矩阵.png",
-            "肉鸽通用/深红囚影_矩阵.png",
-            "肉鸽通用/深谣终解_矩阵.png",
-            "肉鸽通用/深谣_矩阵.png",
-            "肉鸽通用/终焉终解_矩阵.png",
-            "肉鸽通用/终焉_矩阵.png"
-        ],
-        "threshold": [
-            0.9,
-            0.9,
-            0.9,
-            0.9,
-            0.9,
-            0.9,
-            0.9,
-            0.9,
-            0.9
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    70,
+                    63,
+                    143,
+                    576
+                ],
+                "template": [
+                    "肉鸽通用/誓焰终解_矩阵.png",
+                    "肉鸽通用/誓焰_矩阵.png",
+                    "肉鸽通用/誓焰花嫁_矩阵.png",
+                    "肉鸽通用/深红囚影终解_矩阵.png",
+                    "肉鸽通用/深红囚影_矩阵.png",
+                    "肉鸽通用/深谣终解_矩阵.png",
+                    "肉鸽通用/深谣_矩阵.png",
+                    "肉鸽通用/终焉终解_矩阵.png",
+                    "肉鸽通用/终焉_矩阵.png"
+                ],
+                "threshold": [
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "二次编入_矩阵循生"
         ]
     },
     "编入_矩阵循生": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1058,
-            628,
-            75,
-            45
-        ],
-        "expected": "编入",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1058,
+                    628,
+                    75,
+                    45
+                ],
+                "expected": "编入"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "编队完成_矩阵循生": {
-        "recognition": "OCR",
-        "roi": [
-            749,
-            618,
-            153,
-            48
-        ],
-        "expected": "队伍调整",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    749,
+                    618,
+                    153,
+                    48
+                ],
+                "expected": "队伍调整"
+            }
+        },
         "next": [
             "开始演算",
             "转场_矩阵循生"
@@ -1380,14 +1830,20 @@
     },
     "开始演算": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1012,
-            621,
-            119,
-            44
-        ],
-        "expected": "开始演算",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1012,
+                    621,
+                    119,
+                    44
+                ],
+                "expected": "开始演算"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }

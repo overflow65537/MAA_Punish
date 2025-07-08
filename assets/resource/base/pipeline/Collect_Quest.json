@@ -10,15 +10,21 @@
     },
     "每日任务": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            9,
-            184,
-            237,
-            355
-        ],
-        "expected": "每日",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    9,
+                    184,
+                    237,
+                    355
+                ],
+                "expected": "每日"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "一键领取_任务",
             "领取活跃0-19",
@@ -34,14 +40,18 @@
     },
     "领取活跃0-19": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            284,
-            655,
-            101,
-            49
-        ],
-        "expected": "^(0?[0-9]|1[0-9])$",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    284,
+                    655,
+                    101,
+                    49
+                ],
+                "expected": "^(0?[0-9]|1[0-9])$"
+            }
+        },
         "next": [
             "返回主菜单"
         ],
@@ -51,21 +61,29 @@
     },
     "领取活跃20-39": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            284,
-            655,
-            101,
-            49
-        ],
-        "expected": "^(2[0-9]|3[0-9])$",
-        "action": "Click",
-        "target": [
-            598,
-            629,
-            1,
-            1
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    284,
+                    655,
+                    101,
+                    49
+                ],
+                "expected": "^(2[0-9]|3[0-9])$"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    598,
+                    629,
+                    1,
+                    1
+                ]
+            }
+        },
         "next": [
             "返回主菜单"
         ],
@@ -75,21 +93,29 @@
     },
     "领取活跃40-59": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            284,
-            655,
-            101,
-            49
-        ],
-        "expected": "^(4[0-9]|5[0-9])$",
-        "action": "Click",
-        "target": [
-            746,
-            639,
-            1,
-            1
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    284,
+                    655,
+                    101,
+                    49
+                ],
+                "expected": "^(4[0-9]|5[0-9])$"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    746,
+                    639,
+                    1,
+                    1
+                ]
+            }
+        },
         "next": [
             "返回主菜单"
         ],
@@ -99,21 +125,29 @@
     },
     "领取活跃60-79": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            284,
-            655,
-            101,
-            49
-        ],
-        "expected": "^(6[0-9]|7[0-9])$",
-        "action": "Click",
-        "target": [
-            893,
-            640,
-            1,
-            1
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    284,
+                    655,
+                    101,
+                    49
+                ],
+                "expected": "^(6[0-9]|7[0-9])$"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    893,
+                    640,
+                    1,
+                    1
+                ]
+            }
+        },
         "next": [
             "返回主菜单"
         ],
@@ -123,21 +157,29 @@
     },
     "领取活跃80-99": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            284,
-            655,
-            101,
-            49
-        ],
-        "expected": "^(8[0-9]|9[0-9])$",
-        "action": "Click",
-        "target": [
-            1053,
-            642,
-            1,
-            1
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    284,
+                    655,
+                    101,
+                    49
+                ],
+                "expected": "^(8[0-9]|9[0-9])$"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1053,
+                    642,
+                    1,
+                    1
+                ]
+            }
+        },
         "next": [
             "返回主菜单"
         ],
@@ -147,21 +189,29 @@
     },
     "领取活跃100": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            284,
-            655,
-            101,
-            49
-        ],
-        "expected": "^(1([0-9]{2})|200)$",
-        "action": "Click",
-        "target": [
-            1200,
-            638,
-            1,
-            1
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    284,
+                    655,
+                    101,
+                    49
+                ],
+                "expected": "^(1([0-9]{2})|200)$"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1200,
+                    638,
+                    1,
+                    1
+                ]
+            }
+        },
         "next": [
             "返回主菜单"
         ],
@@ -171,15 +221,21 @@
     },
     "每周任务": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            9,
-            184,
-            237,
-            355
-        ],
-        "expected": "每周",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    9,
+                    184,
+                    237,
+                    355
+                ],
+                "expected": "每周"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "一键领取_定期",
             "每日任务"
@@ -188,93 +244,127 @@
     },
     "打开任务": {
         "post_delay": 2000,
-        "recognition": "OCR",
-        "roi": [
-            900,
-            250,
-            50,
-            30
-        ],
-        "expected": [
-            "任务",
-            "任笋"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    900,
+                    250,
+                    50,
+                    30
+                ],
+                "expected": [
+                    "任务",
+                    "任笋"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "一键领取_定期": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1072,
-            128,
-            112,
-            40
-        ],
-        "expected": [
-            "一键领取",
-            "键领取"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1072,
+                    128,
+                    112,
+                    40
+                ],
+                "expected": [
+                    "一键领取",
+                    "键领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "关闭奖励_每周"
         ]
     },
     "一键领取_任务": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1072,
-            128,
-            112,
-            40
-        ],
-        "expected": [
-            "一键领取",
-            "键领取"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1072,
+                    128,
+                    112,
+                    40
+                ],
+                "expected": [
+                    "一键领取",
+                    "键领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "关闭奖励_任务"
         ]
     },
     "关闭奖励_每周": {
         "post_delay": 1000,
-        "recognition": "TemplateMatch",
-        "roi": [
-            409,
-            176,
-            491,
-            150
-        ],
-        "template": "通用任务/105157_624_220_86_57__574_170_186_157.png",
-        "action": "Click",
-        "target": [
-            446,
-            30,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    409,
+                    176,
+                    491,
+                    150
+                ],
+                "template": "通用任务/105157_624_220_86_57__574_170_186_157.png"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    446,
+                    30,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "每日任务"
         ]
     },
     "关闭奖励_任务": {
         "post_delay": 1000,
-        "recognition": "TemplateMatch",
-        "roi": [
-            409,
-            176,
-            491,
-            150
-        ],
-        "template": "通用任务/105157_624_220_86_57__574_170_186_157.png",
-        "action": "Click",
-        "target": [
-            446,
-            30,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    409,
+                    176,
+                    491,
+                    150
+                ],
+                "template": "通用任务/105157_624_220_86_57__574_170_186_157.png"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    446,
+                    30,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "每日任务"
         ]

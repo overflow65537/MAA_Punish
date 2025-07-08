@@ -1,13 +1,17 @@
 {
     "自动战斗任务": {
-        "recognition": "OCR",
-        "roi": [
-            1039,
-            642,
-            111,
-            50
-        ],
-        "expected": "作战开始",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1039,
+                    642,
+                    111,
+                    50
+                ],
+                "expected": "作战开始"
+            }
+        },
         "next": [
             "调用识别方法"
         ]
@@ -29,39 +33,55 @@
         ]
     },
     "多人轮切自动战斗-1": {
-        "action": "Click",
-        "target": [
-            1208,
-            154,
-            1,
-            1
-        ],
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1208,
+                    154,
+                    1,
+                    1
+                ]
+            }
+        },
         "next": [
             "多人轮切自动战斗-2"
         ]
     },
     "多人轮切自动战斗-2": {
-        "action": "Custom",
-        "custom_action": "MultiplayerAutoBattle",
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "MultiplayerAutoBattle"
+            }
+        },
         "next": [
             "多人轮切自动战斗-3"
         ]
     },
     "多人轮切自动战斗-3": {
-        "action": "Click",
-        "target": [
-            1208,
-            265,
-            1,
-            1
-        ],
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1208,
+                    265,
+                    1,
+                    1
+                ]
+            }
+        },
         "next": [
             "多人轮切自动战斗-4"
         ]
     },
     "多人轮切自动战斗-4": {
-        "action": "Custom",
-        "custom_action": "MultiplayerAutoBattle"
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "MultiplayerAutoBattle"
+            }
+        }
     },
     "通用自动战斗循环": {
         "next": [

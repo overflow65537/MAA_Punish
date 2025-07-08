@@ -8,181 +8,231 @@
         ]
     },
     "使用技能_链合回路": {
-        "recognition": "OCR",
-        "roi": [
-            1114,
-            537,
-            41,
-            32
-        ],
-        "expected": [
-            "\\b(2[1-9]|[3-9]\\d|\\d{3,})\\b"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1114,
+                    537,
+                    41,
+                    32
+                ],
+                "expected": [
+                    "\\b(2[1-9]|[3-9]\\d|\\d{3,})\\b"
+                ]
+            }
+        },
         "next": []
     },
     "继续_链合回路": {
-        "recognition": "OCR",
-        "roi": [
-            416,
-            487,
-            129,
-            38
-        ],
-        "expected": [
-            "重新挑战"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    416,
+                    487,
+                    129,
+                    38
+                ],
+                "expected": [
+                    "重新挑战"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "链合回路"
         ]
     },
     "任务过程": {
         "post_wait_freezes": 200,
-        "recognition": "OCR",
-        "only_rec": true,
-        "roi": [
-            1114,
-            635,
-            78,
-            26
-        ],
-        "expected": [
-            "道具说明"
-        ],
-        "replace": [
-            "真",
-            "具"
-        ],
-        "action": "Custom",
-        "custom_action": "ChainLoopCircuit",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    1114,
+                    635,
+                    78,
+                    26
+                ],
+                "replace": [
+                    "真",
+                    "具"
+                ],
+                "expected": [
+                    "道具说明"
+                ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "ChainLoopCircuit"
+            }
+        },
         "next": []
     },
     "识别蓝球_链合回路": {
-        "recognition": "ColorMatch",
-        "roi": [
-            430,
-            61,
-            627,
-            632
-        ],
-        "upper": [
-            50,
-            170,
-            230
-        ],
-        "lower": [
-            0,
-            120,
-            180
-        ],
-        "connected": true,
-        "count": 100
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    430,
+                    61,
+                    627,
+                    632
+                ],
+                "count": 100,
+                "connected": true,
+                "upper": [
+                    50,
+                    170,
+                    230
+                ],
+                "lower": [
+                    0,
+                    120,
+                    180
+                ]
+            }
+        }
     },
     "识别黄球_链合回路": {
-        "recognition": "ColorMatch",
-        "roi": [
-            430,
-            61,
-            627,
-            632
-        ],
-        "upper": [
-            230,
-            170,
-            40
-        ],
-        "lower": [
-            130,
-            95,
-            20
-        ],
-        "connected": true,
-        "count": 100
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    430,
+                    61,
+                    627,
+                    632
+                ],
+                "count": 100,
+                "connected": true,
+                "upper": [
+                    230,
+                    170,
+                    40
+                ],
+                "lower": [
+                    130,
+                    95,
+                    20
+                ]
+            }
+        }
     },
     "识别红球_链合回路": {
-        "recognition": "ColorMatch",
-        "roi": [
-            430,
-            61,
-            627,
-            632
-        ],
-        "upper": [
-            180,
-            40,
-            40
-        ],
-        "lower": [
-            90,
-            15,
-            15
-        ],
-        "connected": true,
-        "count": 100
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    430,
+                    61,
+                    627,
+                    632
+                ],
+                "count": 100,
+                "connected": true,
+                "upper": [
+                    180,
+                    40,
+                    40
+                ],
+                "lower": [
+                    90,
+                    15,
+                    15
+                ]
+            }
+        }
     },
     "识别灰球_链合回路": {
-        "recognition": "ColorMatch",
-        "roi": [
-            430,
-            61,
-            627,
-            632
-        ],
-        "upper": [
-            230,
-            230,
-            230
-        ],
-        "lower": [
-            200,
-            200,
-            200
-        ],
-        "connected": true,
-        "count": 200
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    430,
+                    61,
+                    627,
+                    632
+                ],
+                "count": 200,
+                "connected": true,
+                "upper": [
+                    230,
+                    230,
+                    230
+                ],
+                "lower": [
+                    200,
+                    200,
+                    200
+                ]
+            }
+        }
     },
     "识别爆破_链合回路": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            430,
-            61,
-            627,
-            632
-        ],
-        "template": "链合回路/技能_爆破.png",
-        "green_mask": true
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    430,
+                    61,
+                    627,
+                    632
+                ],
+                "template": "链合回路/技能_爆破.png",
+                "green_mask": true
+            }
+        }
     },
     "识别闪星_链合回路": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            430,
-            61,
-            627,
-            632
-        ],
-        "template": "链合回路/技能_闪星.png",
-        "green_mask": true
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    430,
+                    61,
+                    627,
+                    632
+                ],
+                "template": "链合回路/技能_闪星.png",
+                "green_mask": true
+            }
+        }
     },
     "识别纵斩_链合回路": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            430,
-            61,
-            627,
-            632
-        ],
-        "template": "链合回路/技能_纵斩.png",
-        "green_mask": true
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    430,
+                    61,
+                    627,
+                    632
+                ],
+                "template": "链合回路/技能_纵斩.png",
+                "green_mask": true
+            }
+        }
     },
     "识别快枪_链合回路": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            430,
-            61,
-            627,
-            632
-        ],
-        "template": "链合回路/技能_快枪.png",
-        "green_mask": true
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    430,
+                    61,
+                    627,
+                    632
+                ],
+                "template": "链合回路/技能_快枪.png",
+                "green_mask": true
+            }
+        }
     }
 }

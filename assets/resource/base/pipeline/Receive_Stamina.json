@@ -17,128 +17,178 @@
     },
     "意外点击_涂装界面": {
         "post_delay": 2000,
-        "recognition": "OCR",
-        "roi": [
-            847,
-            84,
-            110,
-            65
-        ],
-        "expected": "涂装",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    847,
+                    84,
+                    110,
+                    65
+                ],
+                "expected": "涂装"
+            }
+        },
         "next": [
             "返回"
         ]
     },
     "意外点击_皮肤卡池": {
         "post_delay": 2000,
-        "recognition": "OCR",
-        "roi": [
-            93,
-            630,
-            158,
-            77
-        ],
-        "expected": "音量设置",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    93,
+                    630,
+                    158,
+                    77
+                ],
+                "expected": "音量设置"
+            }
+        },
         "next": [
             "返回"
         ]
     },
     "补给包售罄": {
-        "recognition": "OCR",
-        "roi": [
-            549,
-            247,
-            126,
-            83
-        ],
-        "expected": [
-            "已售罄",
-            "已售馨"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    549,
+                    247,
+                    126,
+                    83
+                ],
+                "expected": [
+                    "已售罄",
+                    "已售馨"
+                ]
+            }
+        },
         "next": [
             "返回主菜单"
         ]
     },
     "进入采购": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            975,
-            306,
-            75,
-            60
-        ],
-        "expected": "采购",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    975,
+                    306,
+                    75,
+                    60
+                ],
+                "expected": "采购"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "点击补给包": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            441,
-            35,
-            217,
-            142
-        ],
-        "template": "领取体力/点击补给包_488_87_117_35__438_37_217_135.png",
-        "action": "Click"
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    441,
+                    35,
+                    217,
+                    142
+                ],
+                "template": "领取体力/点击补给包_488_87_117_35__438_37_217_135.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "点击日常补给包": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            0,
-            198,
-            240,
-            149
-        ],
-        "template": "领取体力/点击日常补给包_21_248_127_45__0_198_227_145.png",
-        "action": "Click"
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    198,
+                    240,
+                    149
+                ],
+                "template": "领取体力/点击日常补给包_21_248_127_45__0_198_227_145.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "检查限购": {
         "post_wait_freezes": 500,
-        "recognition": "OCR",
-        "roi": [
-            349,
-            353,
-            129,
-            288
-        ],
-        "expected": [
-            "每周限购补给包",
-            "每日血清补给包"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    349,
+                    353,
+                    129,
+                    288
+                ],
+                "expected": [
+                    "每周限购补给包",
+                    "每日血清补给包"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "领取": {
         "post_wait_freezes": 500,
-        "recognition": "OCR",
-        "roi": [
-            1073,
-            632,
-            162,
-            60
-        ],
-        "expected": [
-            "免费",
-            "购买",
-            "免费购买"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1073,
+                    632,
+                    162,
+                    60
+                ],
+                "expected": [
+                    "免费",
+                    "购买",
+                    "免费购买"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "领取补给包成功": {
-        "recognition": "OCR",
-        "roi": [
-            624,
-            220,
-            86,
-            57
-        ],
-        "expected": "奖励",
-        "action": "Click",
-        "target": [
-            1,
-            0,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    624,
+                    220,
+                    86,
+                    57
+                ],
+                "expected": "奖励"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        }
     }
 }

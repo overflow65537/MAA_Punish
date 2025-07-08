@@ -1,33 +1,47 @@
 {
     "关闭奖励": {
         "post_delay": 1000,
-        "recognition": "TemplateMatch",
-        "roi": [
-            409,
-            176,
-            491,
-            150
-        ],
-        "template": "通用任务/105157_624_220_86_57__574_170_186_157.png",
-        "action": "Click",
-        "target": [
-            446,
-            30,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    409,
+                    176,
+                    491,
+                    150
+                ],
+                "template": "通用任务/105157_624_220_86_57__574_170_186_157.png"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    446,
+                    30,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "返回主菜单": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            238,
-            27,
-            78,
-            38
-        ],
-        "expected": "主界面",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    238,
+                    27,
+                    78,
+                    38
+                ],
+                "expected": "主界面"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "检查主界面2",
             "关闭奖励",
@@ -39,19 +53,25 @@
     },
     "返回主菜单_图标": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            186,
-            14,
-            45,
-            42
-        ],
-        "expected": [
-            "O",
-            "o",
-            "0"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    186,
+                    14,
+                    45,
+                    42
+                ],
+                "expected": [
+                    "O",
+                    "o",
+                    "0"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "检查主界面2",
             "返回主菜单",
@@ -60,54 +80,78 @@
     },
     "意外点击_主界面": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            758,
-            199,
-            361,
-            368
-        ],
-        "expected": "库街区",
-        "action": "Click",
-        "target": [
-            10,
-            10,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    758,
+                    199,
+                    361,
+                    368
+                ],
+                "expected": "库街区"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    10,
+                    10,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "返回": {
         "post_delay": 1500,
-        "recognition": "OCR",
-        "roi": [
-            76,
-            18,
-            62,
-            34
-        ],
-        "expected": "返回",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    76,
+                    18,
+                    62,
+                    34
+                ],
+                "expected": "返回"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "返回_图标": {
         "post_delay": 1000,
-        "recognition": "TemplateMatch",
-        "roi": [
-            27,
-            10,
-            51,
-            53
-        ],
-        "template": "指挥局/返回.png",
-        "action": "Click"
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    27,
+                    10,
+                    51,
+                    53
+                ],
+                "template": "指挥局/返回.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "返回主菜单_err": {
         "focus": {
             "succeeded": "[color:Tomato]识别错误，返回主菜单[/color]"
         },
-        "action": "Custom",
-        "custom_action": "ScreenShot",
-        "custom_action_param": {
-            "type": "ERR"
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "ScreenShot",
+                "custom_action_param": {
+                    "type": "ERR"
+                }
+            }
         },
         "next": [
             "检查分辨率",
@@ -130,51 +174,73 @@
         "focus": {
             "succeeded": "[color:Tomato]未知错误,重启游戏[/color]"
         },
-        "action": "StopApp",
-        "package": "com.kurogame.haru.hero",
+        "action": {
+            "type": "StopApp",
+            "param": {
+                "package": "com.kurogame.haru.hero"
+            }
+        },
         "next": [
             "启动"
         ]
     },
     "意外点击_物品": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            1130,
-            24,
-            124,
-            96
-        ],
-        "template": "幻痛囚笼/关闭奖励.png",
-        "action": "Click"
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1130,
+                    24,
+                    124,
+                    96
+                ],
+                "template": "幻痛囚笼/关闭奖励.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "跳过剧情": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1118,
-            22,
-            149,
-            33
-        ],
-        "expected": [
-            "跳",
-            "过"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1118,
+                    22,
+                    149,
+                    33
+                ],
+                "expected": [
+                    "跳",
+                    "过"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "确认跳过",
             "跳过剧情"
         ]
     },
     "确认跳过": {
-        "recognition": "OCR",
-        "roi": [
-            973,
-            581,
-            106,
-            45
-        ],
-        "expected": "跳过",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    973,
+                    581,
+                    106,
+                    45
+                ],
+                "expected": "跳过"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }

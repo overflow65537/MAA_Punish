@@ -9,30 +9,42 @@
         ]
     },
     "领取全部": {
-        "recognition": "OCR",
-        "roi": [
-            212,
-            612,
-            207,
-            55
-        ],
-        "expected": "领取全部",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    212,
+                    612,
+                    207,
+                    55
+                ],
+                "expected": "领取全部"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "返回主菜单"
         ]
     },
     "打开邮件": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "only_rec": true,
-        "expected": "邮件",
-        "roi": [
-            131,
-            447,
-            39,
-            19
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    131,
+                    447,
+                    39,
+                    19
+                ],
+                "expected": "邮件"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }
