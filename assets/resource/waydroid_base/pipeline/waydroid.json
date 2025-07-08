@@ -1,6 +1,10 @@
 {
     "打开应用": {
-        "action": "StartApp",
-        "package": "com.kurogame.haru.hero --pct-syskeys 0"
+        "action": {
+            "type": "StartApp",
+            "param": {
+                "package": "com.kurogame.haru.hero --pct-syskeys 0"
+            }
+        }
     }
 }

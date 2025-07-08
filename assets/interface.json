@@ -2,7 +2,7 @@
     "name": "MAA_Punish",
     "mirrorchyan_rid": "MAA_Punish",
     "url": "https://github.com/overflow65537/MAA_Punish",
-    "MFW_min_req_version": "2.0.5",
+    "MFW_min_req_version": "2.3.0",
     "controller": [
         {
             "name": "安卓端",
@@ -119,28 +119,38 @@
                 },
                 "作战开始": {
                     "post_delay": 0,
-                    "recognition": "OCR",
-                    "roi": [
-                        1032,
-                        641,
-                        148,
-                        53
-                    ],
-                    "expected": "作战开始",
-                    "action": "DoNothing",
+                    "recognition": {
+                        "type": "OCR",
+                        "param": {
+                            "roi": [
+                                1032,
+                                641,
+                                148,
+                                53
+                            ],
+                            "expected": "作战开始"
+                        }
+                    },
+                    "action": {
+                        "type": "DoNothing"
+                    },
                     "next": [
                         "自动战斗任务"
                     ]
                 },
                 "自动战斗结束": {
-                    "recognition": "OCR",
-                    "roi": [
-                        1024,
-                        647,
-                        139,
-                        35
-                    ],
-                    "expected": "保存"
+                    "recognition": {
+                        "type": "OCR",
+                        "param": {
+                            "roi": [
+                                1024,
+                                647,
+                                139,
+                                35
+                            ],
+                            "expected": "保存"
+                        }
+                    }
                 }
             },
             "speedrun": {
@@ -163,15 +173,21 @@
             "pipeline_override": {
                 "自动战斗结束": {
                     "post_delay": 1500,
-                    "recognition": "OCR",
-                    "roi": [
-                        1051,
-                        641,
-                        113,
-                        44
-                    ],
-                    "expected": "退出战斗",
-                    "action": "Click",
+                    "recognition": {
+                        "type": "OCR",
+                        "param": {
+                            "roi": [
+                                1051,
+                                641,
+                                113,
+                                44
+                            ],
+                            "expected": "退出战斗"
+                        }
+                    },
+                    "action": {
+                        "type": "Click"
+                    },
                     "next": [
                         "纷争战区"
                     ]
@@ -227,15 +243,21 @@
             "pipeline_override": {
                 "自动战斗结束": {
                     "post_delay": 1500,
-                    "recognition": "OCR",
-                    "roi": [
-                        978,
-                        628,
-                        241,
-                        56
-                    ],
-                    "expected": "保存",
-                    "action": "Click"
+                    "recognition": {
+                        "type": "OCR",
+                        "param": {
+                            "roi": [
+                                978,
+                                628,
+                                241,
+                                56
+                            ],
+                            "expected": "保存"
+                        }
+                    },
+                    "action": {
+                        "type": "Click"
+                    }
                 },
                 "单人自动战斗循环": {
                     "next": [
@@ -286,7 +308,9 @@
             "entry": "刷A级碎片",
             "pipeline_override": {
                 "检查主界面": {
-                    "action": "Click",
+                    "action": {
+                        "type": "Click"
+                    },
                     "next": [
                         "进入资源副本"
                     ]
@@ -399,8 +423,12 @@
             ],
             "pipeline_override": {
                 "战斗中": {
-                    "action": "custom",
-                    "custom_action": "CombatActions"
+                    "action": {
+                        "type": "custom",
+                        "param": {
+                            "custom_action": "CombatActions"
+                        }
+                    }
                 }
             },
             "doc": "只会进行自动战斗,不会进行其他任务,也不会影响其他任务,在需要进行战斗的时候会自动启动\n独立战斗逻辑人物:[color:tomato]誓焰,启明,终焉,深痕,深瑶,深红囚影[/color]\n其余人物为通用战斗逻辑:攻击+消球+大招",
@@ -505,7 +533,11 @@
             ],
             "pipeline_override": {
                 "A级角色": {
-                    "expected": "{选择A级角色名}"
+                    "recognition": {
+                        "param": {
+                            "expected": "{选择A级角色名}"
+                        }
+                    }
                 }
             }
         }
@@ -521,7 +553,11 @@
                     "name": "终级区",
                     "pipeline_override": {
                         "选择区域": {
-                            "expected": "终级"
+                            "recognition": {
+                                "param": {
+                                    "expected": "终级"
+                                }
+                            }
                         }
                     }
                 }
@@ -555,7 +591,11 @@
                     "name": "探潮者",
                     "pipeline_override": {
                         "选择策略_厄愿潮声": {
-                            "expected": "探潮者"
+                            "recognition": {
+                                "param": {
+                                    "expected": "探潮者"
+                                }
+                            }
                         }
                     }
                 },
@@ -563,7 +603,11 @@
                     "name": "拾荒者",
                     "pipeline_override": {
                         "选择策略_厄愿潮声": {
-                            "expected": "拾荒者"
+                            "recognition": {
+                                "param": {
+                                    "expected": "拾荒者"
+                                }
+                            }
                         }
                     }
                 },
@@ -571,7 +615,11 @@
                     "name": "旅行剧团",
                     "pipeline_override": {
                         "选择策略_厄愿潮声": {
-                            "expected": "旅行剧团"
+                            "recognition": {
+                                "param": {
+                                    "expected": "旅行剧团"
+                                }
+                            }
                         }
                     }
                 },
@@ -579,7 +627,11 @@
                     "name": "生存专家",
                     "pipeline_override": {
                         "选择策略_厄愿潮声": {
-                            "expected": "生存专家"
+                            "recognition": {
+                                "param": {
+                                    "expected": "生存专家"
+                                }
+                            }
                         }
                     }
                 },
@@ -587,7 +639,11 @@
                     "name": "远征队",
                     "pipeline_override": {
                         "选择策略_厄愿潮声": {
-                            "expected": "远征队"
+                            "recognition": {
+                                "param": {
+                                    "expected": "远征队"
+                                }
+                            }
                         }
                     }
                 },
@@ -595,7 +651,11 @@
                     "name": "渡厄者",
                     "pipeline_override": {
                         "选择策略_厄愿潮声": {
-                            "expected": "渡厄者"
+                            "recognition": {
+                                "param": {
+                                    "expected": "渡厄者"
+                                }
+                            }
                         }
                     }
                 }
@@ -607,7 +667,11 @@
                     "name": "浅听潮涌-简单",
                     "pipeline_override": {
                         "选择难度_厄愿潮声": {
-                            "expected": "浅听潮涌"
+                            "recognition": {
+                                "param": {
+                                    "expected": "浅听潮涌"
+                                }
+                            }
                         }
                     }
                 },
@@ -615,7 +679,11 @@
                     "name": "征逐浪影-普通",
                     "pipeline_override": {
                         "选择难度_厄愿潮声": {
-                            "expected": "征逐浪影"
+                            "recognition": {
+                                "param": {
+                                    "expected": "征逐浪影"
+                                }
+                            }
                         }
                     }
                 },
@@ -623,7 +691,11 @@
                     "name": "邂逅渊流-困难",
                     "pipeline_override": {
                         "选择难度_厄愿潮声": {
-                            "expected": "邂逅渊流"
+                            "recognition": {
+                                "param": {
+                                    "expected": "邂逅渊流"
+                                }
+                            }
                         }
                     }
                 }
@@ -666,19 +738,31 @@
                             ]
                         },
                         "推荐物品": {
-                            "expected": "本月"
+                            "recognition": {
+                                "param": {
+                                    "expected": "本月"
+                                }
+                            }
                         },
                         "购买_宿舍": {
-                            "expected": [
-                                "武器涂装设计图"
-                            ],
-                            "action": "Click",
-                            "target": [
-                                643,
-                                671,
-                                1,
-                                1
-                            ]
+                            "action": {
+                                "type": "Click",
+                                "param": {
+                                    "target": [
+                                        643,
+                                        671,
+                                        1,
+                                        1
+                                    ]
+                                }
+                            },
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "武器涂装设计图"
+                                    ]
+                                }
+                            }
                         }
                     }
                 }
@@ -690,16 +774,20 @@
                     "name": "誓焰",
                     "pipeline_override": {
                         "选择自动作战人物_矩阵循生": {
-                            "threshold": [
-                                0.9,
-                                0.9,
-                                0.9
-                            ],
-                            "template": [
-                                "肉鸽通用/誓焰终解_矩阵.png",
-                                "肉鸽通用/誓焰_矩阵.png",
-                                "肉鸽通用/誓焰花嫁_矩阵.png"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "肉鸽通用/誓焰终解_矩阵.png",
+                                        "肉鸽通用/誓焰_矩阵.png",
+                                        "肉鸽通用/誓焰花嫁_矩阵.png"
+                                    ],
+                                    "threshold": [
+                                        0.9,
+                                        0.9,
+                                        0.9
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -707,14 +795,18 @@
                     "name": "深红囚影",
                     "pipeline_override": {
                         "选择自动作战人物_矩阵循生": {
-                            "threshold": [
-                                0.9,
-                                0.9
-                            ],
-                            "template": [
-                                "肉鸽通用/深红囚影终解_矩阵.png",
-                                "肉鸽通用/深红囚影_矩阵.png"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "肉鸽通用/深红囚影终解_矩阵.png",
+                                        "肉鸽通用/深红囚影_矩阵.png"
+                                    ],
+                                    "threshold": [
+                                        0.9,
+                                        0.9
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -722,14 +814,18 @@
                     "name": "深谣",
                     "pipeline_override": {
                         "选择自动作战人物_矩阵循生": {
-                            "threshold": [
-                                0.9,
-                                0.9
-                            ],
-                            "template": [
-                                "肉鸽通用/深谣终解_矩阵.png",
-                                "肉鸽通用/深谣_矩阵.png"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "肉鸽通用/深谣终解_矩阵.png",
+                                        "肉鸽通用/深谣_矩阵.png"
+                                    ],
+                                    "threshold": [
+                                        0.9,
+                                        0.9
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -737,14 +833,18 @@
                     "name": "终焉",
                     "pipeline_override": {
                         "选择自动作战人物_矩阵循生": {
-                            "threshold": [
-                                0.9,
-                                0.9
-                            ],
-                            "template": [
-                                "肉鸽通用/终焉终解_矩阵.png",
-                                "肉鸽通用/终焉_矩阵.png"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "肉鸽通用/终焉终解_矩阵.png",
+                                        "肉鸽通用/终焉_矩阵.png"
+                                    ],
+                                    "threshold": [
+                                        0.9,
+                                        0.9
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -752,14 +852,18 @@
                     "name": "深痕",
                     "pipeline_override": {
                         "选择自动作战人物_矩阵循生": {
-                            "threshold": [
-                                0.9,
-                                0.9
-                            ],
-                            "template": [
-                                "肉鸽通用/深痕终解_矩阵.png",
-                                "肉鸽通用/深痕_矩阵.png"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "肉鸽通用/深痕终解_矩阵.png",
+                                        "肉鸽通用/深痕_矩阵.png"
+                                    ],
+                                    "threshold": [
+                                        0.9,
+                                        0.9
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -767,14 +871,18 @@
                     "name": "启明",
                     "pipeline_override": {
                         "选择自动作战人物_矩阵循生": {
-                            "threshold": [
-                                0.9,
-                                0.9
-                            ],
-                            "template": [
-                                "肉鸽通用/启明终解_矩阵.png",
-                                "肉鸽通用/启明_矩阵.png"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "肉鸽通用/启明终解_矩阵.png",
+                                        "肉鸽通用/启明_矩阵.png"
+                                    ],
+                                    "threshold": [
+                                        0.9,
+                                        0.9
+                                    ]
+                                }
+                            }
                         }
                     }
                 }
@@ -786,9 +894,13 @@
                     "name": "普通模式",
                     "pipeline_override": {
                         "选择难度_矩阵循生": {
-                            "expected": [
-                                "普通"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "普通"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -796,9 +908,13 @@
                     "name": "困难模式",
                     "pipeline_override": {
                         "选择难度_矩阵循生": {
-                            "expected": [
-                                "困难"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "困难"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -806,14 +922,18 @@
                     "name": "噩梦模式",
                     "pipeline_override": {
                         "选择难度_矩阵循生": {
-                            "expected": [
-                                "噩梦",
-                                "墨梦",
-                                "恶梦",
-                                "王梦",
-                                "聚梦",
-                                "梦"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "噩梦",
+                                        "墨梦",
+                                        "恶梦",
+                                        "王梦",
+                                        "聚梦",
+                                        "梦"
+                                    ]
+                                }
+                            }
                         }
                     }
                 }
@@ -845,7 +965,11 @@
                     "name": "常温",
                     "pipeline_override": {
                         "选择具体难度_寒境曙光": {
-                            "expected": "^常温$"
+                            "recognition": {
+                                "param": {
+                                    "expected": "^常温$"
+                                }
+                            }
                         }
                     }
                 },
@@ -853,7 +977,11 @@
                     "name": "初冷",
                     "pipeline_override": {
                         "选择具体难度_寒境曙光": {
-                            "expected": "^初冷$"
+                            "recognition": {
+                                "param": {
+                                    "expected": "^初冷$"
+                                }
+                            }
                         }
                     }
                 },
@@ -861,7 +989,11 @@
                     "name": "微寒",
                     "pipeline_override": {
                         "选择具体难度_寒境曙光": {
-                            "expected": "^微寒$"
+                            "recognition": {
+                                "param": {
+                                    "expected": "^微寒$"
+                                }
+                            }
                         }
                     }
                 },
@@ -869,7 +1001,11 @@
                     "name": "冰冽",
                     "pipeline_override": {
                         "选择具体难度_寒境曙光": {
-                            "expected": "^冰冽$"
+                            "recognition": {
+                                "param": {
+                                    "expected": "^冰冽$"
+                                }
+                            }
                         }
                     }
                 },
@@ -877,7 +1013,11 @@
                     "name": "严霜",
                     "pipeline_override": {
                         "选择具体难度_寒境曙光": {
-                            "expected": "^严霜$"
+                            "recognition": {
+                                "param": {
+                                    "expected": "^严霜$"
+                                }
+                            }
                         }
                     }
                 },
@@ -885,7 +1025,11 @@
                     "name": "极寒",
                     "pipeline_override": {
                         "选择具体难度_寒境曙光": {
-                            "expected": "^极寒$"
+                            "recognition": {
+                                "param": {
+                                    "expected": "^极寒$"
+                                }
+                            }
                         }
                     }
                 }
@@ -897,7 +1041,11 @@
                     "name": "军事",
                     "pipeline_override": {
                         "选择具体开局_寒境曙光": {
-                            "expected": "^军事$"
+                            "recognition": {
+                                "param": {
+                                    "expected": "^军事$"
+                                }
+                            }
                         }
                     }
                 },
@@ -905,7 +1053,11 @@
                     "name": "基建",
                     "pipeline_override": {
                         "选择具体开局_寒境曙光": {
-                            "expected": "^基建$"
+                            "recognition": {
+                                "param": {
+                                    "expected": "^基建$"
+                                }
+                            }
                         }
                     }
                 },
@@ -913,7 +1065,11 @@
                     "name": "经济",
                     "pipeline_override": {
                         "选择具体开局_寒境曙光": {
-                            "expected": "^经济$"
+                            "recognition": {
+                                "param": {
+                                    "expected": "^经济$"
+                                }
+                            }
                         }
                     }
                 },
@@ -921,7 +1077,11 @@
                     "name": "启动资金",
                     "pipeline_override": {
                         "选择具体开局_寒境曙光": {
-                            "expected": "^启动资金$"
+                            "recognition": {
+                                "param": {
+                                    "expected": "^启动资金$"
+                                }
+                            }
                         }
                     }
                 }
@@ -968,7 +1128,11 @@
                     "name": "破晓",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "破晓"
+                            "recognition": {
+                                "param": {
+                                    "expected": "破晓"
+                                }
+                            }
                         }
                     }
                 },
@@ -976,7 +1140,11 @@
                     "name": "徊闪",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "徊闪"
+                            "recognition": {
+                                "param": {
+                                    "expected": "徊闪"
+                                }
+                            }
                         }
                     }
                 },
@@ -984,7 +1152,11 @@
                     "name": "耀炎",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "耀炎"
+                            "recognition": {
+                                "param": {
+                                    "expected": "耀炎"
+                                }
+                            }
                         }
                     }
                 },
@@ -992,7 +1164,11 @@
                     "name": "觅语",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "觅语"
+                            "recognition": {
+                                "param": {
+                                    "expected": "觅语"
+                                }
+                            }
                         }
                     }
                 },
@@ -1000,7 +1176,11 @@
                     "name": "擎驱",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "擎驱"
+                            "recognition": {
+                                "param": {
+                                    "expected": "擎驱"
+                                }
+                            }
                         }
                     }
                 },
@@ -1008,7 +1188,11 @@
                     "name": "清商",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "清商"
+                            "recognition": {
+                                "param": {
+                                    "expected": "清商"
+                                }
+                            }
                         }
                     }
                 },
@@ -1016,7 +1200,11 @@
                     "name": "琉璃",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "琉璃"
+                            "recognition": {
+                                "param": {
+                                    "expected": "琉璃"
+                                }
+                            }
                         }
                     }
                 },
@@ -1024,7 +1212,11 @@
                     "name": "XXI",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "XXI"
+                            "recognition": {
+                                "param": {
+                                    "expected": "XXI"
+                                }
+                            }
                         }
                     }
                 },
@@ -1032,7 +1224,11 @@
                     "name": "明觉",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "明觉"
+                            "recognition": {
+                                "param": {
+                                    "expected": "明觉"
+                                }
+                            }
                         }
                     }
                 },
@@ -1040,7 +1236,11 @@
                     "name": "游麟",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "游麟"
+                            "recognition": {
+                                "param": {
+                                    "expected": "游麟"
+                                }
+                            }
                         }
                     }
                 },
@@ -1048,7 +1248,11 @@
                     "name": "瑰丽",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "瑰丽"
+                            "recognition": {
+                                "param": {
+                                    "expected": "瑰丽"
+                                }
+                            }
                         }
                     }
                 },
@@ -1056,7 +1260,11 @@
                     "name": "弧光",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "弧光"
+                            "recognition": {
+                                "param": {
+                                    "expected": "弧光"
+                                }
+                            }
                         }
                     }
                 },
@@ -1064,7 +1272,11 @@
                     "name": "银牙",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "银牙"
+                            "recognition": {
+                                "param": {
+                                    "expected": "银牙"
+                                }
+                            }
                         }
                     }
                 },
@@ -1072,7 +1284,11 @@
                     "name": "溢彩",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "溢彩"
+                            "recognition": {
+                                "param": {
+                                    "expected": "溢彩"
+                                }
+                            }
                         }
                     }
                 },
@@ -1080,7 +1296,11 @@
                     "name": "重能",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "重能"
+                            "recognition": {
+                                "param": {
+                                    "expected": "重能"
+                                }
+                            }
                         }
                     }
                 },
@@ -1088,7 +1308,11 @@
                     "name": "零度",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "零度"
+                            "recognition": {
+                                "param": {
+                                    "expected": "零度"
+                                }
+                            }
                         }
                     }
                 },
@@ -1096,7 +1320,11 @@
                     "name": "流光",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "流光"
+                            "recognition": {
+                                "param": {
+                                    "expected": "流光"
+                                }
+                            }
                         }
                     }
                 },
@@ -1104,7 +1332,11 @@
                     "name": "夙星",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "夙星"
+                            "recognition": {
+                                "param": {
+                                    "expected": "夙星"
+                                }
+                            }
                         }
                     }
                 },
@@ -1112,7 +1344,11 @@
                     "name": "夜刃",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "夜刃"
+                            "recognition": {
+                                "param": {
+                                    "expected": "夜刃"
+                                }
+                            }
                         }
                     }
                 },
@@ -1120,7 +1356,11 @@
                     "name": "爆裂",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "爆裂"
+                            "recognition": {
+                                "param": {
+                                    "expected": "爆裂"
+                                }
+                            }
                         }
                     }
                 },
@@ -1128,7 +1368,11 @@
                     "name": "异火",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "异火"
+                            "recognition": {
+                                "param": {
+                                    "expected": "异火"
+                                }
+                            }
                         }
                     }
                 },
@@ -1136,7 +1380,11 @@
                     "name": "风暴",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "风暴"
+                            "recognition": {
+                                "param": {
+                                    "expected": "风暴"
+                                }
+                            }
                         }
                     }
                 },
@@ -1144,7 +1392,11 @@
                     "name": "流光",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "流光"
+                            "recognition": {
+                                "param": {
+                                    "expected": "流光"
+                                }
+                            }
                         }
                     }
                 },
@@ -1152,7 +1404,11 @@
                     "name": "蚀暗",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "蚀暗"
+                            "recognition": {
+                                "param": {
+                                    "expected": "蚀暗"
+                                }
+                            }
                         }
                     }
                 },
@@ -1160,7 +1416,11 @@
                     "name": "黎明",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "黎明"
+                            "recognition": {
+                                "param": {
+                                    "expected": "黎明"
+                                }
+                            }
                         }
                     }
                 },
@@ -1168,7 +1428,11 @@
                     "name": "红莲",
                     "pipeline_override": {
                         "A级角色": {
-                            "expected": "红莲"
+                            "recognition": {
+                                "param": {
+                                    "expected": "红莲"
+                                }
+                            }
                         }
                     }
                 }

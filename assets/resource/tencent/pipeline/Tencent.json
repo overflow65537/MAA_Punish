@@ -1,15 +1,27 @@
 {
     "打开应用": {
-        "action": "StartApp",
-        "package": "com.tencent.tmgp.kurogame.haru"
+        "action": {
+            "type": "StartApp",
+            "param": {
+                "package": "com.tencent.tmgp.kurogame.haru"
+            }
+        }
     },
     "停止": {
-        "action": "StopApp",
-        "package": "com.tencent.tmgp.kurogame.haru"
+        "action": {
+            "type": "StopApp",
+            "param": {
+                "package": "com.tencent.tmgp.kurogame.haru"
+            }
+        }
     },
     "重启游戏": {
-        "action": "StopApp",
-        "package": "com.tencent.tmgp.kurogame.haru",
+        "action": {
+            "type": "StopApp",
+            "param": {
+                "package": "com.tencent.tmgp.kurogame.haru"
+            }
+        },
         "next": [
             "启动"
         ]

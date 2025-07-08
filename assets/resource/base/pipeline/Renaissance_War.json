@@ -16,14 +16,18 @@
         ]
     },
     "未解锁自动扫荡_无提示": {
-        "recognition": "OCR",
-        "roi": [
-            1054,
-            648,
-            126,
-            45
-        ],
-        "expected": "战斗准备",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1054,
+                    648,
+                    126,
+                    45
+                ],
+                "expected": "战斗准备"
+            }
+        },
         "next": [
             "当前矿区清理完成",
             "无自动扫荡",
@@ -33,111 +37,149 @@
     },
     "无自动扫荡": {
         "inverse": true,
-        "recognition": "OCR",
-        "roi": [
-            754,
-            616,
-            263,
-            89
-        ],
-        "expected": ".*",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    754,
+                    616,
+                    263,
+                    89
+                ],
+                "expected": ".*"
+            }
+        },
         "next": [
             "返回主菜单"
         ]
     },
     "滑动_诺曼复兴战内部": {
-        "recognition": "OCR",
-        "roi": [
-            45,
-            81,
-            274,
-            60
-        ],
-        "expected": "诺曼复兴战",
-        "action": "Swipe",
-        "begin": [
-            1000,
-            600,
-            0,
-            0
-        ],
-        "end": [
-            600,
-            600,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    45,
+                    81,
+                    274,
+                    60
+                ],
+                "expected": "诺曼复兴战"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    1000,
+                    600,
+                    0,
+                    0
+                ],
+                "end": [
+                    600,
+                    600,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "滑动计数_诺曼复兴战"
         ]
     },
     "滑动计数_诺曼复兴战": {
-        "action": "Custom",
-        "custom_action": "Count",
-        "custom_action_param": {
-            "self": "滑动计数_诺曼复兴战",
-            "count": 0,
-            "target_count": 12,
-            "next_node": [
-                "返回主菜单",
-                "停止任务"
-            ]
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Count",
+                "custom_action_param": {
+                    "self": "滑动计数_诺曼复兴战",
+                    "count": 0,
+                    "target_count": 12,
+                    "next_node": [
+                        "返回主菜单",
+                        "停止任务"
+                    ]
+                }
+            }
         }
     },
     "停止任务": {
-        "action": "StopTask"
+        "action": {
+            "type": "StopTask"
+        }
     },
     "未解锁自动扫荡": {
-        "recognition": "OCR",
-        "roi": [
-            753,
-            636,
-            314,
-            77
-        ],
-        "action": "Click",
-        "target": [
-            10,
-            10,
-            0,
-            0
-        ],
-        "expected": [
-            "当前难度下使用不多于"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    753,
+                    636,
+                    314,
+                    77
+                ],
+                "expected": [
+                    "当前难度下使用不多于"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    10,
+                    10,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "返回主菜单"
         ]
     },
     "当前矿区清理完成": {
-        "recognition": "OCR",
-        "roi": [
-            319,
-            337,
-            691,
-            96
-        ],
-        "expected": "章节已通关",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    319,
+                    337,
+                    691,
+                    96
+                ],
+                "expected": "章节已通关"
+            }
+        },
         "next": [
             "关闭深巢作战"
         ]
     },
     "关闭深巢作战": {
-        "recognition": "OCR",
-        "roi": [
-            1054,
-            648,
-            126,
-            45
-        ],
-        "expected": "战斗准备",
-        "action": "Click",
-        "target": [
-            10,
-            10,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1054,
+                    648,
+                    126,
+                    45
+                ],
+                "expected": "战斗准备"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    10,
+                    10,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "关闭深巢作战",
             "返回至诺曼复兴战"
@@ -145,116 +187,166 @@
     },
     "返回至诺曼复兴战": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            76,
-            18,
-            62,
-            34
-        ],
-        "expected": "返回",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    76,
+                    18,
+                    62,
+                    34
+                ],
+                "expected": "返回"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "诺曼复兴战"
         ]
     },
     "返回_诺曼复兴战": {
-        "recognition": "OCR",
-        "roi": [
-            1131,
-            650,
-            66,
-            38
-        ],
-        "expected": "返回",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1131,
+                    650,
+                    66,
+                    38
+                ],
+                "expected": "返回"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "扫荡作战": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            956,
-            645,
-            95,
-            45
-        ],
-        "expected": "扫荡作战",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    956,
+                    645,
+                    95,
+                    45
+                ],
+                "expected": "扫荡作战"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "检查结果_扫荡完成",
             "检查结果_章节已完成"
         ]
     },
     "检查结果_扫荡完成": {
-        "recognition": "OCR",
-        "roi": [
-            1131,
-            650,
-            66,
-            38
-        ],
-        "expected": "返回",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1131,
+                    650,
+                    66,
+                    38
+                ],
+                "expected": "返回"
+            }
+        },
         "next": [
             "诺曼复兴战"
         ]
     },
     "检查结果_章节已完成": {
-        "recognition": "OCR",
-        "roi": [
-            319,
-            337,
-            691,
-            96
-        ],
-        "expected": "章节已通关",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    319,
+                    337,
+                    691,
+                    96
+                ],
+                "expected": "章节已通关"
+            }
+        },
         "next": [
             "关闭深巢作战"
         ]
     },
     "直达深巢": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1006,
-            631,
-            115,
-            54
-        ],
-        "expected": "直达深巢",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1006,
+                    631,
+                    115,
+                    54
+                ],
+                "expected": "直达深巢"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "选择挑战目标": {
-        "recognition": "OCR",
-        "expected": [
-            "^进度：0/3$",
-            "^进度：1/3$",
-            "^进度：2/3$"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "^进度：0/3$",
+                    "^进度：1/3$",
+                    "^进度：2/3$"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "打开诺曼复兴战": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            5,
-            315,
-            1274,
-            188
-        ],
-        "expected": "诺曼复兴战",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    5,
+                    315,
+                    1274,
+                    188
+                ],
+                "expected": "诺曼复兴战"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "打开挑战_诺曼复兴战": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1130,
-            656,
-            74,
-            53
-        ],
-        "expected": "挑战",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1130,
+                    656,
+                    74,
+                    53
+                ],
+                "expected": "挑战"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "滑动_诺曼复兴战",
             "打开诺曼复兴战"
@@ -263,26 +355,34 @@
     "滑动_诺曼复兴战": {
         "post_delay": 1000,
         "inverse": true,
-        "recognition": "OCR",
-        "roi": [
-            5,
-            315,
-            1274,
-            188
-        ],
-        "expected": "诺曼复兴战",
-        "action": "Swipe",
-        "begin": [
-            800,
-            400,
-            0,
-            0
-        ],
-        "end": [
-            400,
-            400,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    5,
+                    315,
+                    1274,
+                    188
+                ],
+                "expected": "诺曼复兴战"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    800,
+                    400,
+                    0,
+                    0
+                ],
+                "end": [
+                    400,
+                    400,
+                    0,
+                    0
+                ]
+            }
+        }
     }
 }
