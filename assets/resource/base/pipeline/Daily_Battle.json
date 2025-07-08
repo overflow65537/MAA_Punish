@@ -392,6 +392,7 @@
             "^3天$"
         ],
         "action": "Swipe",
+        "duration": 4000,
         "next": [
             "关闭弹窗"
         ]
