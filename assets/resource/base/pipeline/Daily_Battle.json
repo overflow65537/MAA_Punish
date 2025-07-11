@@ -151,7 +151,10 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "LongPress",
+            "param": {
+                "duration": 4000
+            }
         },
         "next": [
             "使用体力界面_reco",
