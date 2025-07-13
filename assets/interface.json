@@ -490,6 +490,34 @@
             ],
             "doc": "推荐使用严霜和启动资金",
             "spt": true
+        },
+        {
+            "name": "寒境曙光",
+            "entry": "寒境曙光",
+            "pipeline_override": {
+                "检查主界面2": {
+                    "post_delay": 1000,
+                    "next": [
+                        "寒境曙光"
+                    ]
+                }
+            },
+            "option": [
+                "选择温度",
+                "选择效果"
+            ],
+            "doc": "推荐使用严霜和启动资金",
+            "spt": true
+        },
+        {
+            "name": "神寂启示录",
+            "entry": "神寂启示录",
+            "option": [
+                "选择角色",
+                "选择策略"
+            ],
+            "doc": "暂时不知道些啥",
+            "spt": true
         }
     ],
     "advanced": {
@@ -543,6 +571,64 @@
         }
     },
     "option": {
+        "选择策略": {
+            "cases": [
+                {
+                    "name": "刷胜利次数",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "刷战斗次数",
+                    "pipeline_override": {
+                        "战斗失败_神寂启示录": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
+        "选择角色": {
+            "cases": [
+                {
+                    "name": "渡边",
+                    "pipeline_override": {
+                        "选择成员": {
+                            "action": {
+                                "param": {
+                                    "target": [
+                                        303,
+                                        317,
+                                        1,
+                                        1
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "薇拉",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "明觉",
+                    "pipeline_override": {
+                        "选择成员": {
+                            "action": {
+                                "param": {
+                                    "target": [
+                                        980,
+                                        341,
+                                        0,
+                                        0
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         "选择区域": {
             "cases": [
                 {

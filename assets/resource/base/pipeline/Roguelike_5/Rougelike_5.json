@@ -1,0 +1,301 @@
+{
+    "神寂启示录": {
+        "next": [
+            "神寂启示录内部"
+        ],
+        "interrupt": [
+            "退出_神寂启示录",
+            "下一页_神寂启示录",
+            "确定_神寂启示录",
+            "终止_神寂启示录",
+            "进入战斗_启示之路",
+            "选择成员",
+            "打开启示之路",
+            "打开神寂启示录"
+        ]
+    },
+    "退出_神寂启示录": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    900,
+                    597,
+                    74,
+                    36
+                ],
+                "expected": "退出"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "下一页_神寂启示录": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    939,
+                    589,
+                    112,
+                    52
+                ],
+                "expected": "下一页"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "确定_神寂启示录": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    723,
+                    494,
+                    93,
+                    57
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "终止_神寂启示录": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    538,
+                    480,
+                    53,
+                    28
+                ],
+                "expected": "终止"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "神寂启示录内部": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    24,
+                    59,
+                    1255,
+                    189
+                ],
+                "template": [
+                    "神寂启示录/肉鸽内部_已完成.png",
+                    "神寂启示录/肉鸽内部_待选择.png",
+                    "神寂启示录/肉鸽内部_未到达.png"
+                ]
+            }
+        },
+        "next": [
+            "失败_神寂启示录"
+        ],
+        "interrupt": [
+            "选择事件_神寂启示录"
+        ]
+    },
+    "失败_神寂启示录": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    48,
+                    25,
+                    180,
+                    68
+                ],
+                "expected": "失败"
+            }
+        },
+        "next": [
+            "主界面_神寂启示录"
+        ],
+        "interrupt": [
+            "结束战斗_神寂启示录",
+            "退出战斗_神寂启示录",
+            "退出战斗2_神寂启示录"
+        ]
+    },
+    "主界面_神寂启示录": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    31,
+                    663,
+                    126,
+                    54
+                ],
+                "expected": [
+                    "烬土",
+                    "悬赏"
+                ]
+            }
+        },
+        "next": [
+            "神寂启示录"
+        ]
+    },
+    "退出战斗_神寂启示录": {
+        "post_delay": 1000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1164,
+                    622,
+                    87,
+                    47
+                ],
+                "expected": "开战"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    87,
+                    40,
+                    0,
+                    0
+                ]
+            }
+        }
+    },
+    "退出战斗2_神寂启示录": {
+        "post_delay": 1000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    289,
+                    181,
+                    114,
+                    44
+                ],
+                "expected": [
+                    "选择技能"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    87,
+                    40,
+                    0,
+                    0
+                ]
+            }
+        }
+    },
+    "选择事件_神寂启示录": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    203,
+                    626,
+                    1076,
+                    26
+                ],
+                "expected": "选择"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "通用事件处理_神寂启示录"
+        ]
+    },
+    "打开启示之路": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    510,
+                    370,
+                    107,
+                    49
+                ],
+                "expected": "启示之路"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "进入战斗_启示之路": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1106,
+                    640,
+                    133,
+                    46
+                ],
+                "expected": "进入战斗"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "选择成员": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    555,
+                    650,
+                    166,
+                    42
+                ],
+                "expected": "选择您的成员"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    532,
+                    440,
+                    0,
+                    0
+                ]
+            }
+        }
+    },
+    "打开神寂启示录": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    962,
+                    105,
+                    91,
+                    70
+                ],
+                "template": "神寂启示录/进入神寂启示录.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}
