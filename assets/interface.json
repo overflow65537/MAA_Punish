@@ -498,6 +498,14 @@
                 "选择角色",
                 "选择策略"
             ],
+            "pipeline_override": {
+                "检查主界面2": {
+                    "post_delay": 1000,
+                    "next": [
+                        "神寂启示录"
+                    ]
+                }
+            },
             "doc": " ",
             "spt": true
         }
