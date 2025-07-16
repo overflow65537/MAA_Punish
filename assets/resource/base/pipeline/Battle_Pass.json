@@ -15,14 +15,16 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    734,
-                    479,
-                    80,
-                    44
-                ],
-                "expected": [
-                    "确认"
+        "roi": [
+            712,
+            443,
+            265,
+            103
+        ],
+        "recognition": "OCR",
+        "expected": [
+            "确定",
+            "確定"
                 ]
             }
         },
