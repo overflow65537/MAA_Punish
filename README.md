@@ -47,6 +47,31 @@
 
 - 打开无法运行首先尝试安装运行库 <https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170>
 - 如有其他问题可以提交issue或者加群反馈 **965061066**，反馈问题请附上日志文件 `debug/maa.log`，谢谢！
+- 
+## 使用说明
+
+下载地址：[https://github.com/overflow65537/MAA_Punish/releases](https://github.com/overflow65537/MAA_Punish/releases)
+
+### Windows
+
+- 对于绝大部分用户，请下载 `MPA-win-x86_64-vXXX.zip`
+- 若确定自己的电脑是 arm 架构，请下载 `MPA-win-aarch64-vXXX.zip`
+- 解压后运行 `MaaPiCli.exe`（命令行）或者`MFW.exe`(图形化界面） 即可
+
+### macOS
+
+- 若使用 Intel 处理器，请下载 `MPA-macos-x86_64-vXXX.zip`
+- 若使用 M1, M2 等 arm 处理器，请下载 `MPA-macos-aarch64-vXXX.zip`
+- 使用方式：
+  
+  ```bash
+  chmod a+x MaaPiCli
+  ./MaaPiCli
+  ```
+
+### Linux
+
+~~用 Linux 的大佬应该不需要我教~~
 
 ## 开发相关
 
