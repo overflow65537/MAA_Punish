@@ -265,7 +265,18 @@
             "返回主菜单"
         ]
     },
+    "未命中BOSS名": {
+        "focus": {
+            "success": "未知BOSS"
+        },
+        "next": [
+            "返回主菜单"
+        ]
+    },
     "查看Boss_冰队": {
+        "on_error": [
+            "未命中BOSS名"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -304,6 +315,9 @@
         ]
     },
     "查看Boss_暗队": {
+        "on_error": [
+            "未命中BOSS名"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -345,6 +359,9 @@
         ]
     },
     "查看Boss_火队": {
+        "on_error": [
+            "未命中BOSS名"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -384,6 +401,9 @@
         ]
     },
     "查看Boss_物队": {
+        "on_error": [
+            "未命中BOSS名"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -425,6 +445,9 @@
         ]
     },
     "查看Boss_雷队": {
+        "on_error": [
+            "未命中BOSS名"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
