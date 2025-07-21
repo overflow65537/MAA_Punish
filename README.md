@@ -47,7 +47,7 @@
 
 - 打开无法运行首先尝试安装运行库 <https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170>
 - 如有其他问题可以提交issue或者加群反馈 **965061066**，反馈问题请附上日志文件 `debug/maa.log`，谢谢！
-- 
+
 ## 使用说明
 
 下载地址：[https://github.com/overflow65537/MAA_Punish/releases](https://github.com/overflow65537/MAA_Punish/releases)
@@ -56,18 +56,59 @@
 
 - 对于绝大部分用户，请下载 `MPA-win-x86_64-vXXX.zip`
 - 若确定自己的电脑是 arm 架构，请下载 `MPA-win-aarch64-vXXX.zip`
-- 解压后运行 `MaaPiCli.exe`（命令行）或者`MFW.exe`(图形化界面） 即可
+- 解压后运行 `MaaPiCli.exe`（命令行）或者`MFW.exe`（图形化界面） 即可
 
 ### macOS
 
-- 若使用 Intel 处理器，请下载 `MPA-macos-x86_64-vXXX.zip`
-- 若使用 M1, M2 等 arm 处理器，请下载 `MPA-macos-aarch64-vXXX.zip`
-- 使用方式：
-  
-  ```bash
-  chmod a+x MaaPiCli
-  ./MaaPiCli
-  ```
+- 若您的 Mac 采用 Intel 处理器，请下载 `MPA-macos-x86_64-vXXX.tar.gz`
+- 若您的 Mac 采用 M1、M2 等 ARM 处理器，请下载 `MPA-macos-aarch64-vXXX.tar.gz`
+- 使用方法如下：
+  1. 打开终端，解压下载的压缩包，您有以下三种解压方式可供选择：
+
+      **选项 1：解压到系统目录（需管理员权限）**
+      此方式将把程序解压到系统目录，需要输入管理员密码获取权限。
+
+      ```zsh
+      sudo mkdir -p /usr/local/bin/MPA
+      sudo tar -xzf <下载的MPA压缩包路径> -C /usr/local/bin/MPA
+      ```
+
+      **选项 2：解压到用户目录（推荐）**
+      该方式无需管理员权限，操作简便且便于管理个人文件。
+
+      ```zsh
+      mkdir -p ~/MPA
+      tar -xzf <下载的MPA压缩包路径> -C ~/MPA
+      ```
+
+      **选项 3：直接解压到下载目录（不推荐）**
+      这种方式操作快捷，但可能会导致 `Downloads` 文件夹文件杂乱。您只需双击下载的 MPA 压缩包，即可在同级目录自动解压。
+
+  2. 进入解压目录并运行程序：
+      - 根据上一步选择的解压方式操作：
+          - 若选择选项 1 ，在终端中执行以下命令打开程序目录：
+
+          ```zsh
+          open /usr/local/bin/MPA
+          ```
+
+          - 若选择选项 2，在终端中执行以下命令打开程序目录：
+
+          ```zsh
+          open ~/MPA
+          ```
+
+          - 若选择选项 3，直接双击解压后的文件夹进入。
+      - 找到 `MFW` 程序并双击运行。
+
+  ⚠️Gatekeeper 安全提示处理：
+  在 macOS 10.15 (Catalina) 及更高版本中，Gatekeeper 可能会阻止运行未签名的应用程序。若遇到“无法打开，因为无法验证开发者”,或者“已损坏”等错误，请使用以下命令移除隔离属性：
+
+  ```zsh
+  sudo xattr -rd com.apple.quarantine /usr/local/bin/MPA/*
+  # 若选择选项 2，解压到用户目录，使用以下命令：xattr -rd com.apple.quarantine ~/MPA/*
+  # 若选择选项 3，直接解压到下载目录，使用以下命令：xattr -rd com.apple.quarantine <下载目录>/MPA/*
+
 
 ### Linux
 
