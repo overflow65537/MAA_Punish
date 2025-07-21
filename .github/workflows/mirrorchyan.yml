@@ -16,7 +16,7 @@ jobs:
         uses: MirrorChyan/uploading-action@v1
         with:
           filetype: latest-release
-          filename: "MPA-${{ matrix.os }}-${{ matrix.arch }}-*.zip"
+          filename: "MPA-${{ matrix.os }}-${{ matrix.arch }}-*"
           mirrorchyan_rid: MAA_Punish
 
           owner: overflow65537
@@ -33,7 +33,7 @@ jobs:
         uses: MirrorChyan/uploading-action@v1
         with:
           filetype: latest-release
-          filename: "MPA-win-x86_64-v*.zip"
+          filename: "MPA-win-x86_64-v*"
           pick_files: '["resource", "interface.json", "custom"]'
           exclude_files: '["*model/ocr/**"]'
           mirrorchyan_rid: MAA_Punish
