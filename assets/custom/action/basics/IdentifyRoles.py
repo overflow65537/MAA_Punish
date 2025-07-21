@@ -31,7 +31,6 @@ from typing import Dict, Optional
 
 from maa.context import Context
 from maa.custom_action import CustomAction
-from xtyping import F
 
 # 获取当前文件的绝对路径
 current_file = Path(__file__).resolve()
