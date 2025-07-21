@@ -283,19 +283,27 @@
     },
     "打开神寂启示录": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    962,
-                    105,
-                    91,
-                    70
+                    1074,
+                    309,
+                    95,
+                    52
                 ],
-                "template": "神寂启示录/进入神寂启示录.png"
+                "expected": "^战斗$"
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target": [
+                    917,
+                    150,
+                    1,
+                    1
+                ]
+            }
         }
     }
 }
