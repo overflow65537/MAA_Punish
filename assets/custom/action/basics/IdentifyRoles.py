@@ -31,34 +31,12 @@ from typing import Dict, Optional
 
 from maa.context import Context
 from maa.custom_action import CustomAction
+from xtyping import F
 
 # 获取当前文件的绝对路径
 current_file = Path(__file__).resolve()
-
-# 定义可能的项目根目录相对路径
-root_paths = [
-    current_file.parent.parent.parent.parent.joinpath("MFW_resource"),
-    current_file.parent.parent.parent.parent.parent.parent.joinpath("Bundles").joinpath(
-        "MAA_Punish"
-    ),
-    current_file.parent.parent.parent.parent.parent.joinpath("assets"),
-]
-
-# 确定项目根目录
-project_root = next((path for path in root_paths if path.exists()), None)
-if project_root:
-    if project_root == current_file.parent.parent.parent.parent.joinpath(
-        "MFW_resource"
-    ):
-        project_root = current_file.parent.parent.parent.parent
-    print(f"项目根目录: {project_root}")
-    # 添加项目根目录到sys.path
-    sys.path.append(str(project_root))
-
-    from custom.action.tool.LoadSetting import ROLE_ACTIONS
-else:
-    from assets.custom.action.tool.LoadSetting import ROLE_ACTIONS
-
+sys.path.append(str(current_file.parent.parent.parent.parent))
+from custom.action.tool.LoadSetting import ROLE_ACTIONS
 
 class IdentifyRoles(CustomAction):
     def run(self, context: Context, _: CustomAction.RunArg) -> CustomAction.RunResult:
