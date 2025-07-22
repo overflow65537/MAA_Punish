@@ -104,6 +104,11 @@
         "class": "Shukra",
         "file_path": "{custom_path}/action/exclusives/Shukra.py"
     },
+    "Hyperreal": {
+        "type": "action",
+        "class": "Hyperreal",
+        "file_path": "{custom_path}/action/exclusives/Hyperreal.py"
+    },
     "CheckResolution": {
         "type": "recognition",
         "class": "CheckResolution",

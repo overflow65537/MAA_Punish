@@ -102,5 +102,22 @@
                 "green_mask": true
             }
         }
+    },
+    "检查里·超刻": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1113,
+                    556,
+                    138,
+                    142
+                ],
+                "template": [
+                    "自定义战斗/超刻.png"
+                ],
+                "green_mask": true
+            }
+        }
     }
 }

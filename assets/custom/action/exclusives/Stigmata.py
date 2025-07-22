@@ -26,9 +26,7 @@ MAA_Punish 深痕战斗程序
 
 
 import logging
-import sys
 import time
-from pathlib import Path
 
 from custom.action.basics import CombatActions
 from custom.action.tool import JobExecutor
@@ -67,7 +65,7 @@ class Stigmata(CustomAction):
                 role_name=self._role_name,
             )
             long_press_attack = JobExecutor(
-                CombatActions.long_press_attack(context, 3000),
+                CombatActions.long_press_attack(context, 1500),
                 GameActionEnum.LONG_PRESS_ATTACK,
                 role_name=self._role_name,
             )

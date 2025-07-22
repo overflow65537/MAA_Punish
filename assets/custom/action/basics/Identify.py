@@ -81,6 +81,14 @@ class Identify(CustomAction):
                 }
             )
             print("启明战斗")
+        elif context.run_recognition("检查里·超刻", image):
+            context.override_pipeline(
+                {
+                    "识别人物": {"enabled": False},
+                    "战斗中": {"action": "Custom", "custom_action": "Hyperreal"},
+                }
+            )
+            print("超刻战斗")
         else:
             context.override_pipeline(
                 {

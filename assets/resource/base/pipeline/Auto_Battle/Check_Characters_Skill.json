@@ -440,6 +440,60 @@
             }
         }
     },
+    "检查核心技能_超刻": {
+        "post_delay": 0,
+        "pre_delay": 0,
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    751,
+                    615,
+                    11,
+                    8
+                ],
+                "upper": [
+                    125,
+                    175,
+                    255
+                ],
+                "lower": [
+                    110,
+                    160,
+                    245
+                ],
+                "connected": true,
+                "count": 10
+            }
+        }
+    },
+    "检查核心技能结束_超刻": {
+        "post_delay": 0,
+        "pre_delay": 0,
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    514,
+                    617,
+                    27,
+                    29
+                ],
+                "upper": [
+                    235,
+                    245,
+                    255
+                ],
+                "lower": [
+                    220,
+                    230,
+                    245
+                ],
+                "connected": true,
+                "count": 40
+            }
+        }
+    },
     "识别信号球": {
         "post_delay": 0,
         "pre_delay": 0,

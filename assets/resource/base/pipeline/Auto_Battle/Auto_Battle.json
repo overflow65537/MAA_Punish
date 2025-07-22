@@ -322,5 +322,15 @@
                 "custom_action": "Shukra"
             }
         }
+    },
+    "超刻战斗": {
+        "post_delay": 0,
+        "pre_delay": 0,
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Hyperreal"
+            }
+        }
     }
 }
