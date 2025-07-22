@@ -34,7 +34,7 @@ class IDFMasteryLevel(CustomRecognition):
         self,
         context,
         argv: CustomRecognition.AnalyzeArg,
-    ) -> CustomRecognition.AnalyzeResult:
+    ) -> CustomRecognition.AnalyzeResult|None:
         result = context.run_recognition(
             "选择自动作战人物_矩阵循生",
             argv.image,

@@ -116,7 +116,18 @@
 
 ## 开发相关
 
-  MPA目前支持[深红囚影](assets/custom/action/exclusives/CrimsonWeave.py),[深谣](assets/custom/action/exclusives/LostLullaby.py),[终焉](assets/custom/action/exclusives/Oblivion.py),[誓焰](assets/custom/action/exclusives/Pyroath.py),[启明](assets/custom/action/exclusives/Shukra.py)以及[深痕](assets/custom/action/exclusives/Stigmata.py)的自动战斗逻辑,其余部分人物由于开发者精力有限,无法同时添加,如果希望自行添加，具体参考[如何编写战斗逻辑](docs/自动战斗框架开发指南.md)，开发途中有问题可以进群反馈 **965061066**
+目前支持的战斗逻辑
+
+- [深红囚影](assets/custom/action/exclusives/CrimsonWeave.py)
+- [深谣](assets/custom/action/exclusives/LostLullaby.py)
+- [终焉](assets/custom/action/exclusives/Oblivion.py)
+- [誓焰](assets/custom/action/exclusives/Pyroath.py)
+- [启明](assets/custom/action/exclusives/Shukra.py)
+- [深痕](assets/custom/action/exclusives/Stigmata.py)
+- [超刻](assets/custom/action/exclusives/Hyperreal.py)
+- [晖暮](assets/custom/action/exclusives/Hyperreal.py)
+
+其余部分人物由于开发者精力有限,无法同时添加,如果希望自行添加，具体参考[如何编写战斗逻辑](docs/自动战斗框架开发指南.md)，开发途中有问题可以进群反馈 **965061066**
 
 ### 开发文档
 
