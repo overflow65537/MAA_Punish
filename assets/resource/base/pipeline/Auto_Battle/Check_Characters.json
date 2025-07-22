@@ -119,5 +119,22 @@
                 "green_mask": true
             }
         }
+    },
+    "检查比安卡·晖暮": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1113,
+                    556,
+                    138,
+                    142
+                ],
+                "template": [
+                    "自定义战斗/晖暮.png"
+                ],
+                "green_mask": true
+            }
+        }
     }
 }

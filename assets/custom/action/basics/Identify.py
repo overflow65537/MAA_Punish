@@ -89,6 +89,14 @@ class Identify(CustomAction):
                 }
             )
             print("超刻战斗")
+        elif context.run_recognition("检查比安卡·晖暮", image):
+            context.override_pipeline(
+                {
+                    "识别人物": {"enabled": False},
+                    "战斗中": {"action": "Custom", "custom_action": "Crepuscule"},
+                }
+            )
+            print("晖暮战斗")
         else:
             context.override_pipeline(
                 {

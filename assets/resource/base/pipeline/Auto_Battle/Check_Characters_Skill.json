@@ -494,6 +494,31 @@
             }
         }
     },
+    "检查核心被动_晖暮": {
+        "post_delay": 0,
+        "pre_delay": 0,
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    994,
+                    569,
+                    122,
+                    125
+                ],
+                "upper": [
+                    170,
+                    160,
+                    230
+                ],
+                "lower": [
+                    130,
+                    130,
+                    200
+                ]
+            }
+        }
+    },
     "识别信号球": {
         "post_delay": 0,
         "pre_delay": 0,

@@ -109,6 +109,11 @@
         "class": "Hyperreal",
         "file_path": "{custom_path}/action/exclusives/Hyperreal.py"
     },
+    "Crepuscule": {
+        "type": "action",
+        "class": "Crepuscule",
+        "file_path": "{custom_path}/action/exclusives/Crepuscule.py"
+    },
     "CheckResolution": {
         "type": "recognition",
         "class": "CheckResolution",
