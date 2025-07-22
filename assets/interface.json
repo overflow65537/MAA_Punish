@@ -652,10 +652,13 @@
                         "跳过战斗对话": {
                             "enabled": false
                         },
-                        "跳过剧情": {
+                        "跳过剧情_主线": {
                             "enabled": false
                         },
                         "主线跳过": {
+                            "enabled": false
+                        },
+                        "播放剧情": {
                             "enabled": false
                         }
                     }

@@ -20,7 +20,7 @@
 
 """
 MAA_Punish
-MAA_Punish 肉鸽4重置镜头
+MAA_Punish 通用战斗
 作者:HCX0426
 """
 

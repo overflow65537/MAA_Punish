@@ -24,6 +24,7 @@ MAA_Punish 自动战斗反击程序
 作者:overflow65537
 """
 
+import time
 from maa.custom_recognition import CustomRecognition
 import json
 
@@ -61,6 +62,10 @@ class AutoCounter(CustomRecognition):
                     }
                 },
             )
+            context.tasker.controller.post_click(1059,625)
+            time.sleep(0.1)
+            context.tasker.controller.post_click(1193,637)
+
 
             return CustomRecognition.AnalyzeResult(
                     box=(1193,637, 100, 100), detail="success"
