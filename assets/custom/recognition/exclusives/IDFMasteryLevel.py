@@ -52,6 +52,7 @@ class IDFMasteryLevel(CustomRecognition):
                         "肉鸽通用/终焉_矩阵.png",
                         "肉鸽通用/深痕终解_矩阵.png",
                         "肉鸽通用/深痕_矩阵.png",
+                        "肉鸽通用/超刻_矩阵.png",
                     ],
                     "threshold": [
                         0.9,
@@ -65,6 +66,7 @@ class IDFMasteryLevel(CustomRecognition):
                         0.9,
                         0.9,
                         0.9,
+                        0.9
                     ],
                 }
             },
