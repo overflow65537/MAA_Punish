@@ -150,12 +150,6 @@
                 "template": "战斗/吃体力药_993_21_30_30__943_0_130_130.png"
             }
         },
-        "action": {
-            "type": "LongPress",
-            "param": {
-                "duration": 4000
-            }
-        },
         "next": [
             "使用体力界面_reco",
             "吃体力药",
