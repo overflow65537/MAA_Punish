@@ -722,14 +722,6 @@
             "type": "Click"
         }
     },
-    "再次点击重启": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": "重启_寒境曙光"
-            }
-        }
-    },
     "跳过战斗对话": {
         "recognition": {
             "type": "OCR",
