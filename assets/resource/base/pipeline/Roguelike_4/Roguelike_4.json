@@ -705,6 +705,7 @@
         ]
     },
     "重启_寒境曙光": {
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -719,10 +720,7 @@
         },
         "action": {
             "type": "Click"
-        },
-        "next": [
-            "再次点击重启"
-        ]
+        }
     },
     "再次点击重启": {
         "action": {
