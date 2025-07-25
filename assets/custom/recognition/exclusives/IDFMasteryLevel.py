@@ -87,6 +87,7 @@ class IDFMasteryLevel(CustomRecognition):
                         {
                             "战斗事件_矩阵循生": {
                                 "interrupt": [
+                                    "算力单元不足",
                                     "识别人物",
                                     "重启_寒境曙光",
                                     "战斗中",
