@@ -34,7 +34,7 @@ class IDFMasteryLevel(CustomRecognition):
         self,
         context,
         argv: CustomRecognition.AnalyzeArg,
-    ) -> CustomRecognition.AnalyzeResult|None:
+    ) -> CustomRecognition.AnalyzeResult | None:
         result = context.run_recognition(
             "选择自动作战人物_矩阵循生",
             argv.image,
@@ -66,7 +66,7 @@ class IDFMasteryLevel(CustomRecognition):
                         0.9,
                         0.9,
                         0.9,
-                        0.9
+                        0.9,
                     ],
                 }
             },
@@ -85,18 +85,6 @@ class IDFMasteryLevel(CustomRecognition):
                 ):
                     context.override_pipeline(
                         {
-                            "战斗事件_矩阵循生": {
-                                "interrupt": [
-                                    "算力单元不足",
-                                    "识别人物",
-                                    "重启_寒境曙光",
-                                    "战斗中",
-                                    "出击_矩阵循生",
-                                    "跳过战斗对话",
-                                    "进入战斗_矩阵循生",
-                                    "载入中",
-                                ]
-                            },
                             "识别人物": {"enabled": True},
                         }
                     )

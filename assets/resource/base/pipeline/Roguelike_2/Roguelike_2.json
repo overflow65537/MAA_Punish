@@ -1737,12 +1737,13 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    1201,
-                    90,
-                    28,
+                    1190,
+                    573,
+                    33,
                     38
                 ],
-                "expected": "^0$"
+                "expected": "^0$",
+                "only_rec": true
             }
         },
         "next": [
@@ -1755,12 +1756,13 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    520,
-                    340,
-                    242,
-                    37
+                    1201,
+                    90,
+                    28,
+                    38
                 ],
-                "expected": "刷新次数达到上限"
+                "expected": "^0$",
+                "only_rec": true
             }
         },
         "next": [

@@ -18,6 +18,8 @@ from action.exclusives.Oblivion import Oblivion
 from action.exclusives.Pyroath import Pyroath
 from action.exclusives.Stigmata import Stigmata
 from action.exclusives.Shukra import Shukra
+from action.exclusives.Hyperreal import Hyperreal
+from action.exclusives.Crepuscule import Crepuscule
 
 
 from recognition.exclusives.CalculateScore import CalculateScore
@@ -27,6 +29,14 @@ from recognition.exclusives.IDFMasteryLevel import IDFMasteryLevel
 from recognition.exclusives.LogicalOperators import LOp
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
+
+@AgentServer.custom_action("Hyperreal")
+class Agent_Hyperreal(Hyperreal):
+    pass
+
+@AgentServer.custom_action("Crepuscule")
+class Agent_Crepuscule(Crepuscule):
+    pass
 
 @AgentServer.custom_recognition("AutoCounter")
 class Agent_AutoCounter(AutoCounter):
