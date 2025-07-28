@@ -548,6 +548,7 @@
         }
     },
     "领取藏品_厄愿潮声": {
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1983,6 +1984,18 @@
         ]
     },
     "滑动_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    563,
+                    45,
+                    166,
+                    65
+                ],
+                "expected": "调查团组建"
+            }
+        },
         "action": {
             "type": "Swipe",
             "param": {
