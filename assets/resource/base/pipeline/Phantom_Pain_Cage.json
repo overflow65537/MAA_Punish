@@ -240,6 +240,36 @@
             "type": "Click"
         },
         "next": [
+            "重置滑动次数_囚笼"
+        ]
+    },
+    "重置滑动次数_囚笼": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "下滑计数": {
+                        "action": {
+                            "param": {
+                                "custom_action": "Count",
+                                "custom_action_param": {
+                                    "self": "下滑计数",
+                                    "count": 0,
+                                    "target_count": 20,
+                                    "next_node": [
+                                        "退出选人"
+                                    ],
+                                    "next_node_msg": "未搜索到目标人物,重设识别条件",
+                                    "count_msg": "滑动计数: {count}, 目标次数: {target_count}"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "next": [
             "挑战次数不足_弹窗",
             "查看Boss_火队",
             "查看Boss_暗队",
@@ -249,6 +279,9 @@
         ]
     },
     "挑战次数不足_弹窗": {
+        "focus": {
+            "successded": "挑战次数不足"
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -270,7 +303,7 @@
     },
     "未命中BOSS名": {
         "focus": {
-            "success": "未知BOSS"
+            "successded": "未知BOSS"
         },
         "next": [
             "返回主菜单"
@@ -291,8 +324,10 @@
                 ],
                 "expected": [
                     "马基雅维利",
-                    "^华[\\u4e00-\\u9fa5]"
-                ]
+                    "^华[\\u4e00-\\u9fa5]",
+                    "蔷薇之剑"
+                ],
+                "order_by": "Vertical"
             }
         },
         "action": {
@@ -336,7 +371,8 @@
                     "卡",
                     "枢蛉后",
                     "巫毒"
-                ]
+                ],
+                "order_by": "Vertical"
             }
         },
         "action": {
@@ -382,7 +418,8 @@
                     "喷涂机械",
                     "加百列",
                     "露娜"
-                ]
+                ],
+                "order_by": "Vertical"
             }
         },
         "action": {
@@ -428,9 +465,9 @@
                     "武藏玖型",
                     "不明构造体",
                     "^罗[\\u4e00-\\u9fa5]塔",
-                    "罗兰",
-                    "蔷薇之剑"
-                ]
+                    "罗兰"
+                ],
+                "order_by": "Vertical"
             }
         },
         "action": {
@@ -472,7 +509,8 @@
                     "安博莉亚",
                     "塞壬",
                     "瓦沙克"
-                ]
+                ],
+                "order_by": "Vertical"
             }
         },
         "action": {
@@ -515,6 +553,9 @@
         }
     },
     "耐力不足_编入队伍": {
+        "focus": {
+            "successded": "当前角色耐力不足"
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -533,38 +574,51 @@
             "type": "Click"
         },
         "next": [
-            "直接选择人物"
+            "选择其他人物_囚笼"
         ]
     },
-    "直接选择人物": {
-        "recognition": {
-            "type": "ColorMatch",
+    "选择其他人物_囚笼": {
+        "post_delay": 0,
+        "action": {
+            "type": "Swipe",
             "param": {
-                "roi": [
-                    78,
-                    72,
-                    255,
-                    565
-                ],
-                "count": 10,
-                "connected": true,
-                "upper": [
-                    55,
-                    180,
-                    250
-                ],
-                "lower": [
+                "begin": "选择自动作战人物",
+                "end": [
+                    130,
                     50,
-                    170,
-                    245
+                    0,
+                    0
                 ]
             }
         },
+        "next": [
+            "停止滑动_囚笼耐力不足"
+        ]
+    },
+    "停止滑动_囚笼耐力不足": {
+        "pre_delay": 0,
         "action": {
-            "type": "Click"
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    130,
+                    100,
+                    0,
+                    0
+                ],
+                "end": [
+                    400,
+                    100,
+                    0,
+                    0
+                ]
+            }
         },
         "next": [
-            "编入队伍"
+            "选择自动作战人物"
+        ],
+        "interrupt": [
+            "滑动_战区选人"
         ]
     },
     "检查是否在囚笼主界面": {

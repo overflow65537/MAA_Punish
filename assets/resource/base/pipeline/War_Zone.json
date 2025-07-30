@@ -717,6 +717,36 @@
             "type": "Click"
         },
         "next": [
+            "重置滑动次数_战区"
+        ]
+    },
+    "重置滑动次数_战区": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "下滑计数": {
+                        "action": {
+                            "param": {
+                                "custom_action": "Count",
+                                "custom_action_param": {
+                                    "self": "下滑计数",
+                                    "count": 0,
+                                    "target_count": 20,
+                                    "next_node": [
+                                        "退出选人"
+                                    ],
+                                    "next_node_msg": "未搜索到目标人物,重设识别条件",
+                                    "count_msg": "滑动计数: {count}, 目标次数: {target_count}"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "next": [
             "清除队伍_战区"
         ]
     },
