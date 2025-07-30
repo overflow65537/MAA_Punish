@@ -1,0 +1,236 @@
+{
+    "宣叙妄响": {
+        "next": [
+            "宣叙妄响内部"
+        ],
+        "interrupt": [
+            "选择人物_宣叙妄响",
+            "确认跳过",
+            "跳过剧情_宣叙妄响",
+            "确定_宣叙妄响",
+            "选择难度_宣叙妄响",
+            "揭开帷幕_宣叙妄响",
+            "未完待续_宣叙妄响",
+            "打开宣叙妄响",
+            "打开多维演绎",
+            "打开挑战",
+            "打开战斗",
+            "意外点击_限定活动",
+            "意外点击_主界面"
+        ]
+    },
+    "选择人物_宣叙妄响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    13,
+                    78,
+                    212,
+                    72
+                ],
+                "expected": "演员招募"
+            }
+        },
+        "next": [
+            "跳过剧情_宣叙妄响"
+        ]
+    },
+    "跳过剧情_宣叙妄响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    62,
+                    106,
+                    261,
+                    50
+                ],
+                "expected": "吟游诗人"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1149,
+                    40,
+                    0,
+                    0
+                ]
+            }
+        }
+    },
+    "选择难度_宣叙妄响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    36,
+                    180,
+                    114,
+                    311
+                ],
+                "expected": "入门",
+                "replace": [
+                    "人",
+                    "入"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "选定难度_宣叙妄响"
+        ]
+    },
+    "选定难度_宣叙妄响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    956,
+                    610,
+                    162,
+                    66
+                ],
+                "expected": "选定难度"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "宣叙妄响内部": {
+        "inverse": true
+    },
+    "未完待续_宣叙妄响": {
+        "post_delay": 1000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    966,
+                    622,
+                    127,
+                    47
+                ],
+                "expected": "未完待续"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "未完待续_宣叙妄响",
+            "揭开帷幕_宣叙妄响_reco"
+        ],
+        "interrupt": [
+            "就此收场",
+            "确定_宣叙妄响",
+            "退出结算_宣叙妄响"
+        ]
+    },
+    "揭开帷幕_宣叙妄响_reco": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    963,
+                    612,
+                    150,
+                    47
+                ],
+                "expected": "解开帷幕"
+            }
+        }
+    },
+    "揭开帷幕_宣叙妄响": {
+        "post_delay": 1000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    963,
+                    612,
+                    150,
+                    47
+                ],
+                "expected": "解开帷幕"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "退出结算_宣叙妄响": {
+        "post_delay": 1000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1030,
+                    626,
+                    105,
+                    74
+                ],
+                "expected": "退出"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "确定_宣叙妄响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    744,
+                    497,
+                    70,
+                    36
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "就此收场": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    966,
+                    622,
+                    127,
+                    47
+                ],
+                "expected": "就此收场"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "打开宣叙妄响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    355,
+                    454,
+                    923,
+                    54
+                ],
+                "expected": "宣叙妄响"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}
