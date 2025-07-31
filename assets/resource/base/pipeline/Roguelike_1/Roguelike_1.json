@@ -19,22 +19,345 @@
             "意外点击_主界面"
         ]
     },
-    "选择人物_宣叙妄响": {
+    "宣叙妄响内部_reco": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    13,
-                    78,
-                    212,
-                    72
+                    969,
+                    646,
+                    72,
+                    49
                 ],
-                "expected": "演员招募"
+                "expected": "队伍"
+            }
+        }
+    },
+    "宣叙妄响内部": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    969,
+                    646,
+                    72,
+                    49
+                ],
+                "expected": "队伍"
             }
         },
         "next": [
-            "跳过剧情_宣叙妄响"
+            "失败_宣叙妄响"
+        ],
+        "interrupt": [
+            "战斗冲突_宣叙妄响"
         ]
+    },
+    "战斗冲突_宣叙妄响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    198,
+                    285,
+                    891,
+                    55
+                ],
+                "expected": "战斗冲突"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "战斗冲突处理_宣叙妄响"
+        ]
+    },
+    "战斗冲突处理_宣叙妄响": {
+        "post_delay": 1000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    437,
+                    491,
+                    512,
+                    79
+                ],
+                "expected": "确认选择"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "宣叙妄响内部_reco",
+            "战斗中_货币不足"
+        ],
+        "interrupt": [
+            "识别人物",
+            "重启_寒境曙光",
+            "战斗中",
+            "关闭奖励",
+            "全队等级提升",
+            "未选人_寒境曙光",
+            "已选人_寒境曙光",
+            "载入中"
+        ]
+    },
+    "全队等级提升": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    545,
+                    171,
+                    197,
+                    64
+                ],
+                "expected": "全队等级提升"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    100,
+                    100,
+                    0,
+                    0
+                ]
+            }
+        }
+    },
+    "失败_宣叙妄响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1106,
+                    79,
+                    80,
+                    71
+                ],
+                "expected": "失败"
+            }
+        }
+    },
+    "刷新_宣叙妄响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1106,
+                    79,
+                    80,
+                    71
+                ],
+                "expected": "刷新"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "刷新次数为0_宣叙妄响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1037,
+                    93,
+                    25,
+                    34
+                ],
+                "expected": "^0.*$"
+            }
+        }
+    },
+    "一号位_宣叙妄响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    219,
+                    419,
+                    127,
+                    27
+                ],
+                "expected": [
+                    "红网",
+                    "深红内",
+                    "深红囚影",
+                    "囚影",
+                    "誓焰",
+                    "超刻",
+                    "深谣",
+                    "终焉",
+                    "深痕",
+                    "启明",
+                    "超刻"
+                ]
+            }
+        },
+        "next": [
+            "开始招募_宣叙妄响"
+        ]
+    },
+    "二号位_宣叙妄响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    586,
+                    419,
+                    128,
+                    26
+                ],
+                "expected": [
+                    "红网",
+                    "深红内",
+                    "深红囚影",
+                    "囚影",
+                    "誓焰",
+                    "超刻",
+                    "深谣",
+                    "终焉",
+                    "深痕",
+                    "启明",
+                    "超刻"
+                ]
+            }
+        },
+        "next": [
+            "开始招募_宣叙妄响"
+        ]
+    },
+    "三号位_宣叙妄响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    959,
+                    420,
+                    143,
+                    24
+                ],
+                "expected": [
+                    "红网",
+                    "深红内",
+                    "深红囚影",
+                    "囚影",
+                    "誓焰",
+                    "超刻",
+                    "深谣",
+                    "终焉",
+                    "深痕",
+                    "启明",
+                    "超刻"
+                ]
+            }
+        },
+        "next": [
+            "开始招募_宣叙妄响",
+            "招募完成_宣叙妄响"
+        ]
+    },
+    "开始招募_宣叙妄响": {
+        "inverse": true,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    1193,
+                    565,
+                    23,
+                    33
+                ],
+                "expected": "0"
+            }
+        },
+        "next": [
+            "招募完成_宣叙妄响"
+        ],
+        "interrupt": [
+            "确认招募_宣叙妄响",
+            "点击招募_宣叙妄响"
+        ]
+    },
+    "点击招募_宣叙妄响": {
+        "post_delay": 1500,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    220,
+                    320,
+                    851,
+                    85
+                ],
+                "expected": "^招募$"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "确认招募_宣叙妄响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    548,
+                    613,
+                    93,
+                    49
+                ],
+                "expected": "招募"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "招募完成_宣叙妄响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    1193,
+                    565,
+                    23,
+                    33
+                ],
+                "expected": "0"
+            }
+        },
+        "next": [
+            "选定演员_宣叙妄响"
+        ]
+    },
+    "选定演员_宣叙妄响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    610,
+                    152,
+                    80
+                ],
+                "expected": "选定演员"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "跳过剧情_宣叙妄响": {
         "recognition": {
@@ -86,6 +409,7 @@
         ]
     },
     "选定难度_宣叙妄响": {
+        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -102,11 +426,31 @@
             "type": "Click"
         }
     },
-    "宣叙妄响内部": {
-        "inverse": true
+    "选择人物_宣叙妄响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    64,
+                    247,
+                    106
+                ],
+                "expected": "演员招募"
+            }
+        },
+        "next": [
+            "一号位_宣叙妄响",
+            "二号位_宣叙妄响",
+            "三号位_宣叙妄响",
+            "刷新次数为0_宣叙妄响"
+        ],
+        "interrupt": [
+            "刷新_宣叙妄响"
+        ]
     },
     "未完待续_宣叙妄响": {
-        "post_delay": 1000,
+        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -142,12 +486,16 @@
                     150,
                     47
                 ],
-                "expected": "解开帷幕"
+                "expected": "开帷幕",
+                "replace": [
+                    "惟",
+                    "帷"
+                ]
             }
         }
     },
     "揭开帷幕_宣叙妄响": {
-        "post_delay": 1000,
+        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -157,7 +505,11 @@
                     150,
                     47
                 ],
-                "expected": "解开帷幕"
+                "expected": "开帷幕",
+                "replace": [
+                    "惟",
+                    "帷"
+                ]
             }
         },
         "action": {
@@ -165,7 +517,7 @@
         }
     },
     "退出结算_宣叙妄响": {
-        "post_delay": 1000,
+        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -183,6 +535,7 @@
         }
     },
     "确定_宣叙妄响": {
+        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -200,16 +553,17 @@
         }
     },
     "就此收场": {
+        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    966,
-                    622,
-                    127,
-                    47
+                    886,
+                    611,
+                    132,
+                    79
                 ],
-                "expected": "就此收场"
+                "expected": "至此收场"
             }
         },
         "action": {
