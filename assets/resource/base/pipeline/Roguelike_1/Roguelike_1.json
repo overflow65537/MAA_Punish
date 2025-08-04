@@ -641,15 +641,22 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "only_rec": true,
                 "roi": [
-                    1037,
+                    1033,
                     93,
-                    25,
-                    34
+                    42,
+                    33
                 ],
                 "expected": "^0.*$"
             }
-        }
+        },
+        "next": [
+            "确定_宣叙妄响"
+        ],
+        "interrupt": [
+            "返回"
+        ]
     },
     "一号位_宣叙妄响": {
         "recognition": {
