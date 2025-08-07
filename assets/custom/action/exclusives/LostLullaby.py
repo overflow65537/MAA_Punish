@@ -132,6 +132,7 @@ class LostLullaby(CustomAction):
                         context, "检查核心被动1_深谣", self._role_name
                     ):
                         print("p1核心被动1")
+                        ball_elimination.execute()
                         time.sleep(0.1)
                         dodge.execute()  # 闪避
                         time.sleep(0.6)
