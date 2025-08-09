@@ -631,8 +631,26 @@
             "type": "Click"
         },
         "next": [
-            "拟战场域"
+            "退出血清界面",
+            "拟战场域_reco"
+        ],
+        "interrupt": [
+            "关闭奖励"
         ]
+    },
+    "拟战场域_reco": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    48,
+                    637,
+                    108,
+                    52
+                ],
+                "expected": "商店"
+            }
+        }
     },
     "退出自动作战": {
         "recognition": {
