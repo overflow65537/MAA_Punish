@@ -123,5 +123,10 @@
         "type": "recognition",
         "class": "AutoCounter",
         "file_path": "{custom_path}/recognition/exclusives/AutoCounter.py"
+    },
+    "PrintInfo": {
+        "type": "action",
+        "class": "PrintInfo",
+        "file_path": "{custom_path}/action/basics/PrintInfo.py"
     }
 }

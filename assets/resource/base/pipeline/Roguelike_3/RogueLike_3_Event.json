@@ -4060,7 +4060,7 @@
         ]
     },
     "未知事件_矩阵循生": {
-        "post_delay": 30000,
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -4074,15 +4074,12 @@
             }
         },
         "focus": {
-            "succeeded": "[color:Tomato]遇到未知事件，请发送maa.log至开发者。[/color]"
+            "succeeded": "[color:Tomato]文本识别错误[/color]"
         },
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "ScreenShot",
-                "custom_action_param": {
-                    "type": "RG3"
-                }
+                "custom_action": "print_info"
             }
         },
         "next": [
