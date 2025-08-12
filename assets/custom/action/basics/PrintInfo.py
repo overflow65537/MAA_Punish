@@ -31,13 +31,11 @@ from maa.define import OCRResult
 from assets.custom import action
 
 
-
-
 class PrintInfo(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        if isinstance(argv.reco_detail.best_result,OCRResult):
+        if isinstance(argv.reco_detail.best_result, OCRResult):
             if argv.reco_detail.best_result.text:
                 context.override_pipeline(
                     {
@@ -59,11 +57,9 @@ class PrintInfo(CustomAction):
                                 "type": "Custom",
                                 "param": {
                                     "custom_action": "ScreenShot",
-                                    "custom_action_param": {
-                                        "type":"OC"
-                                    }
-                                }
-                            }
+                                    "custom_action_param": {"type": "OC"},
+                                },
+                            },
                         }
                     }
                 )
