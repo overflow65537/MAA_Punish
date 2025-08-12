@@ -296,6 +296,7 @@
         ]
     },
     "确定": {
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
