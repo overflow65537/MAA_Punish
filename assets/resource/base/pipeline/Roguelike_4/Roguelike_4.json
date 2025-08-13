@@ -66,7 +66,7 @@
         ]
     },
     "寒境曙光主界面_重开": {
-        "post_delay": 1000,
+        "post_delay": 1500,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
