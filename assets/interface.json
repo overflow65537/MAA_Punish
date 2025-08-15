@@ -1238,32 +1238,13 @@
             "cases": [
                 {
                     "name": "是",
-                    "pipeline_override": {
-                        "结束战斗任务_不使用体力": {
-                            "enabled": false
-                        }
-                    }
+                    "pipeline_override": {}
                 },
                 {
                     "name": "否",
                     "pipeline_override": {
-                        "补给包不足_拟战场域": {
-                            "enabled": false
-                        },
-                        "暂无血清组可使用": {
-                            "enabled": false
-                        },
-                        "使用体力界面": {
-                            "enabled": false
-                        },
                         "吃体力药": {
                             "enabled": false
-                        },
-                        "检查结果_体力不足": {
-                            "next": []
-                        },
-                        "点击自动作战": {
-                            "post_delay": 0
                         }
                     }
                 }
