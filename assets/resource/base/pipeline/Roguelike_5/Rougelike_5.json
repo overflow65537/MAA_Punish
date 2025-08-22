@@ -4,15 +4,572 @@
             "神寂启示录内部"
         ],
         "interrupt": [
+            "跳过剧情",
             "退出_神寂启示录",
             "下一页_神寂启示录",
             "确定",
             "终止_神寂启示录",
+            "情报分析_神寂启示录",
             "进入战斗_启示之路",
+            "跳过",
             "选择成员",
             "打开启示之路",
             "打开神寂启示录"
         ]
+    },
+    "继续_神寂启示录": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    414,
+                    496,
+                    408,
+                    195
+                ],
+                "expected": "继续"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "情报分析_神寂启示录": {
+        "post_delay": 1000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    37,
+                    621,
+                    141,
+                    71
+                ],
+                "expected": "剧情回顾"
+            }
+        },
+        "next": [
+            "情报分析_渡边",
+            "情报分析_死亡骑士",
+            "情报分析_万事"
+        ]
+    },
+    "情报分析_渡边": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    531,
+                    230,
+                    219,
+                    190
+                ],
+                "expected": [
+                    "渡边"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "返回",
+            "继续_神寂启示录"
+        ],
+        "interrupt": [
+            "情报分析_渡边题目1",
+            "情报分析_渡边题目2",
+            "情报分析_渡边题目3"
+        ]
+    },
+    "情报分析_渡边题目1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    430,
+                    243,
+                    397,
+                    178
+                ],
+                "expected": [
+                    "战争骑士的能力是什么"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "情报分析_渡边答案1"
+        ]
+    },
+    "情报分析_渡边题目2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    430,
+                    243,
+                    397,
+                    178
+                ],
+                "expected": [
+                    "渡边和钢铁军团的关系"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "情报分析_渡边答案2"
+        ]
+    },
+    "情报分析_渡边题目3": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    430,
+                    243,
+                    397,
+                    178
+                ],
+                "expected": [
+                    "渡边需要力量的理由"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "情报分析_渡边答案3"
+        ]
+    },
+    "情报分析_渡边答案1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    873,
+                    28,
+                    393,
+                    459
+                ],
+                "expected": [
+                    "恶魔火枪"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "推演"
+        ]
+    },
+    "情报分析_渡边答案2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    873,
+                    28,
+                    393,
+                    459
+                ],
+                "expected": [
+                    "矛隼"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "推演"
+        ]
+    },
+    "情报分析_渡边答案3": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    873,
+                    28,
+                    393,
+                    459
+                ],
+                "expected": [
+                    "渡边的计划"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "推演"
+        ]
+    },
+    "情报分析_死亡骑士": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    531,
+                    230,
+                    219,
+                    190
+                ],
+                "expected": [
+                    "死亡骑士"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "返回",
+            "继续_神寂启示录"
+        ],
+        "interrupt": [
+            "情报分析_死亡骑士题目1",
+            "情报分析_死亡骑士题目2",
+            "情报分析_死亡骑士题目3"
+        ]
+    },
+    "情报分析_死亡骑士题目1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    430,
+                    243,
+                    397,
+                    178
+                ],
+                "expected": [
+                    "自己如何与死亡骑士结识"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "情报分析_死亡骑士答案1"
+        ]
+    },
+    "情报分析_死亡骑士题目2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    430,
+                    243,
+                    397,
+                    178
+                ],
+                "expected": [
+                    "死亡骑士的真实身份是"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "情报分析_死亡骑士答案2"
+        ]
+    },
+    "情报分析_死亡骑士题目3": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    430,
+                    243,
+                    397,
+                    178
+                ],
+                "expected": [
+                    "死亡骑士为何要与圣堂"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "情报分析_死亡骑士答案3"
+        ]
+    },
+    "情报分析_死亡骑士答案1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    873,
+                    28,
+                    393,
+                    459
+                ],
+                "expected": [
+                    "工兵铲"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "推演"
+        ]
+    },
+    "情报分析_死亡骑士答案2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    873,
+                    28,
+                    393,
+                    459
+                ],
+                "expected": [
+                    "恶魔领主"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "推演"
+        ]
+    },
+    "情报分析_死亡骑士答案3": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    873,
+                    28,
+                    393,
+                    459
+                ],
+                "expected": [
+                    "地狱列车"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "推演"
+        ]
+    },
+    "情报分析_万事": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    531,
+                    230,
+                    219,
+                    190
+                ],
+                "expected": [
+                    "万事"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "返回",
+            "继续_神寂启示录"
+        ],
+        "interrupt": [
+            "情报分析_万事题目1",
+            "情报分析_万事题目2",
+            "情报分析_万事题目3"
+        ]
+    },
+    "情报分析_万事题目1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    422,
+                    232,
+                    451,
+                    219
+                ],
+                "expected": [
+                    "万事现在的身份是"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "情报分析_万事答案1"
+        ]
+    },
+    "情报分析_万事题目2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    422,
+                    232,
+                    451,
+                    219
+                ],
+                "expected": [
+                    "万事是怎么与我认识的"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "情报分析_万事答案2"
+        ]
+    },
+    "情报分析_万事题目3": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    422,
+                    232,
+                    451,
+                    219
+                ],
+                "expected": [
+                    "万事与我签订契约的契机"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "情报分析_万事答案3"
+        ]
+    },
+    "情报分析_万事答案1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    873,
+                    28,
+                    393,
+                    459
+                ],
+                "expected": [
+                    "鸟嘴面罩"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "推演"
+        ]
+    },
+    "情报分析_万事答案2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    873,
+                    28,
+                    393,
+                    459
+                ],
+                "expected": [
+                    "诡异的仪式祭坛"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "推演"
+        ]
+    },
+    "情报分析_万事答案3": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    873,
+                    28,
+                    393,
+                    459
+                ],
+                "expected": [
+                    "部落民绘制的符纹"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "推演"
+        ]
+    },
+    "推演": {
+        "post_delay": 2500,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1030,
+                    622,
+                    123,
+                    82
+                ],
+                "expected": [
+                    "推演"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "跳过": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1115,
+                    11,
+                    93,
+                    61
+                ],
+                "expected": "跳过"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "退出_神寂启示录": {
         "recognition": {
@@ -53,10 +610,10 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    522,
-                    469,
-                    95,
-                    59
+                    498,
+                    397,
+                    320,
+                    149
                 ],
                 "expected": "终止"
             }
@@ -116,10 +673,10 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    31,
-                    663,
-                    126,
-                    54
+                    157,
+                    669,
+                    128,
+                    46
                 ],
                 "expected": [
                     "烬土",
@@ -206,16 +763,20 @@
         ]
     },
     "打开启示之路": {
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    500,
-                    348,
-                    124,
-                    97
+                    513,
+                    330,
+                    255,
+                    170
                 ],
-                "expected": "示之路"
+                "expected": [
+                    "示之路",
+                    "开始旅途"
+                ]
             }
         },
         "action": {
@@ -232,7 +793,10 @@
                     133,
                     46
                 ],
-                "expected": "进入战斗"
+                "expected": [
+                    "进入战斗",
+                    "情报分析"
+                ]
             }
         },
         "action": {
