@@ -1138,9 +1138,6 @@
                 ]
             }
         },
-        "action": {
-            "type": "Click"
-        },
         "next": [
             "情报分析_答案1"
         ]
@@ -1159,9 +1156,6 @@
                     "恶魔的起源是"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         },
         "next": [
             "情报分析_答案2"
@@ -1183,9 +1177,6 @@
                     "欧米茄卵会孵化出什么"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         },
         "next": [
             "情报分析_答案3"
@@ -1209,9 +1200,6 @@
                 ]
             }
         },
-        "action": {
-            "type": "Click"
-        },
         "next": [
             "情报分析_答案1"
         ]
@@ -1234,9 +1222,6 @@
                 ]
             }
         },
-        "action": {
-            "type": "Click"
-        },
         "next": [
             "情报分析_答案2"
         ]
@@ -1256,14 +1241,12 @@
                 ]
             }
         },
-        "action": {
-            "type": "Click"
-        },
         "next": [
             "情报分析_答案3"
         ]
     },
     "情报分析_答案1": {
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1288,6 +1271,7 @@
         ]
     },
     "情报分析_答案2": {
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1312,6 +1296,7 @@
         ]
     },
     "情报分析_答案3": {
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1336,6 +1321,7 @@
         ]
     },
     "情报分析_答案4": {
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
