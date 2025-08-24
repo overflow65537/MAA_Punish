@@ -14,7 +14,7 @@
         ]
     },
     "检查A区": {
-        "post_delay": 1000,
+        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -42,7 +42,7 @@
         ]
     },
     "检查B区": {
-        "post_delay": 1000,
+        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -70,7 +70,7 @@
         ]
     },
     "检查C区": {
-        "post_delay": 1000,
+        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
