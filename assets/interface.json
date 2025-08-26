@@ -699,10 +699,10 @@
                 {
                     "name": "否",
                     "pipeline_override": {
-                        "跳过战斗对话": {
+                        "跳过战斗对话_主线": {
                             "enabled": false
                         },
-                        "跳过剧情_主线": {
+                        "跳过剧情": {
                             "enabled": false
                         },
                         "主线跳过": {
