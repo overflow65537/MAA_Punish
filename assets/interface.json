@@ -1238,13 +1238,29 @@
             "cases": [
                 {
                     "name": "是",
-                    "pipeline_override": {}
+                    "pipeline_override": {
+                        "拟战场域": {
+                            "next": [
+                                "吃体力药"
+                            ],
+                            "interrupt": [
+                                "返回主菜单",
+                                "返回"
+                            ]
+                        }
+                    }
                 },
                 {
                     "name": "否",
                     "pipeline_override": {
-                        "吃体力药": {
-                            "enabled": false
+                        "拟战场域": {
+                            "next": [
+                                "拟战场域_作战任务"
+                            ],
+                            "interrupt": [
+                                "返回主菜单",
+                                "返回"
+                            ]
                         }
                     }
                 }

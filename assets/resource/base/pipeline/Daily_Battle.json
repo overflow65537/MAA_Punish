@@ -1,8 +1,7 @@
 {
     "拟战场域": {
         "next": [
-            "吃体力药",
-            "拟战场域_作战任务"
+            "吃体力药"
         ],
         "interrupt": [
             "返回主菜单",
@@ -55,7 +54,8 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {}
         }
     },
     "手动作战_custom": {
@@ -73,7 +73,8 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {}
         }
     },
     "返回_拟战场域": {
@@ -90,7 +91,8 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {}
         }
     },
     "自动作战程序": {
@@ -137,19 +139,21 @@
         "pre_delay": 4000,
         "post_delay": 1000,
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    982,
-                    0,
-                    131,
-                    139
+                    930,
+                    34,
+                    118,
+                    74
                 ],
-                "template": "战斗/吃体力药.png"
+                "expected": "\\d+",
+                "threshold": 0.8
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {}
         },
         "next": [
             "使用补给包"
@@ -327,7 +331,8 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {}
         },
         "next": [
             "退出血清界面"
@@ -351,7 +356,8 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {}
         },
         "next": [
             "退出血清界面",
@@ -376,7 +382,8 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {}
         }
     },
     "意外点击_限定活动": {
@@ -419,7 +426,8 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {}
         }
     },
     "打开拟战场域": {
@@ -437,7 +445,8 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {}
         }
     },
     "选择战斗_拟战场域": {
@@ -480,7 +489,8 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {}
         },
         "next": [
             "点击自动作战"
@@ -501,7 +511,8 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {}
         },
         "next": [
             "检查结果_体力不足",
@@ -540,7 +551,8 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {}
         },
         "next": [
             "返回主菜单"
