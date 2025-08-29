@@ -28,9 +28,6 @@ from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.define import OCRResult
 
-from assets.custom import action
-
-
 class PrintInfo(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg

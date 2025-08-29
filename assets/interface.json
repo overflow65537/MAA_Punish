@@ -699,10 +699,10 @@
                 {
                     "name": "否",
                     "pipeline_override": {
-                        "跳过战斗对话": {
+                        "跳过战斗对话_主线": {
                             "enabled": false
                         },
-                        "跳过剧情_主线": {
+                        "跳过剧情": {
                             "enabled": false
                         },
                         "主线跳过": {
@@ -1239,31 +1239,28 @@
                 {
                     "name": "是",
                     "pipeline_override": {
-                        "结束战斗任务_不使用体力": {
-                            "enabled": false
+                        "拟战场域": {
+                            "next": [
+                                "吃体力药"
+                            ],
+                            "interrupt": [
+                                "返回主菜单",
+                                "返回"
+                            ]
                         }
                     }
                 },
                 {
                     "name": "否",
                     "pipeline_override": {
-                        "补给包不足_拟战场域": {
-                            "enabled": false
-                        },
-                        "暂无血清组可使用": {
-                            "enabled": false
-                        },
-                        "使用体力界面": {
-                            "enabled": false
-                        },
-                        "吃体力药": {
-                            "enabled": false
-                        },
-                        "检查结果_体力不足": {
-                            "next": []
-                        },
-                        "点击自动作战": {
-                            "post_delay": 0
+                        "拟战场域": {
+                            "next": [
+                                "拟战场域_作战任务"
+                            ],
+                            "interrupt": [
+                                "返回主菜单",
+                                "返回"
+                            ]
                         }
                     }
                 }

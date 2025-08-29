@@ -14,7 +14,7 @@
         ]
     },
     "检查A区": {
-        "post_delay": 1000,
+        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -42,7 +42,7 @@
         ]
     },
     "检查B区": {
-        "post_delay": 1000,
+        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -70,7 +70,7 @@
         ]
     },
     "检查C区": {
-        "post_delay": 1000,
+        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -389,9 +389,7 @@
                         ],
                         "template": [
                             "肉鸽通用/晖暮.png",
-                            "肉鸽通用/晖暮终解.png",
-                            "肉鸽通用/深谣.png",
-                            "肉鸽通用/深谣终解.png"
+                            "肉鸽通用/晖暮终解.png"
                         ]
                     }
                 }
@@ -553,6 +551,7 @@
         }
     },
     "耐力不足_编入队伍": {
+        "post_delay": 1000,
         "focus": {
             "successded": "当前角色耐力不足"
         },
@@ -571,7 +570,8 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {}
         },
         "next": [
             "选择其他人物_囚笼"
@@ -582,10 +582,15 @@
         "action": {
             "type": "Swipe",
             "param": {
-                "begin": "选择自动作战人物",
-                "end": [
+                "begin": [
                     130,
-                    50,
+                    230,
+                    0,
+                    0
+                ],
+                "end": [
+                    140,
+                    100,
                     0,
                     0
                 ]
@@ -601,7 +606,7 @@
             "type": "Swipe",
             "param": {
                 "begin": [
-                    130,
+                    140,
                     100,
                     0,
                     0
