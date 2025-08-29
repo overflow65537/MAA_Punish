@@ -46,6 +46,8 @@ class Crepuscule(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
+
+        logger = logging.getLogger(f"{self._role_name}_Job")
         try:
             lens_lock = JobExecutor(
                 CombatActions.lens_lock(context),
@@ -75,7 +77,7 @@ class Crepuscule(CustomAction):
             )
             lens_lock.execute()
             if CombatActions.check_Skill_energy_bar(context, self._role_name):
-                print("大招就绪")
+                logger.info("大招就绪")
                 use_skill.execute()
             elif CombatActions.check_status(
                             context, "检查核心被动_晖暮", self._role_name
@@ -85,7 +87,7 @@ class Crepuscule(CustomAction):
                     1212,513, 1212,513, 3000
                 ).wait()   
             else:
-                print("核心技能未就绪")
+                logger.info("核心技能未就绪")
                 for _ in range(5):
                     attack.execute()
                     time.sleep(0.1)

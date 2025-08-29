@@ -46,6 +46,9 @@ class Pyroath(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
+
+        logger = logging.getLogger(f"{self._role_name}_Job")
+
         try:
             lens_lock = JobExecutor(
                 CombatActions.lens_lock(context),
@@ -96,11 +99,11 @@ class Pyroath(CustomAction):
             lens_lock.execute()
 
             if CombatActions.check_status(context, "检查u1_誓焰", self._role_name):
-                print("誓焰u1")
+                logger.info("誓焰u1")
                 if CombatActions.check_status(
                     context, "检查p1动能条_誓焰", self._role_name
                 ):
-                    print("p1动能条max")
+                    logger.info("p1动能条max")
 
                     long_press_skill.execute()  # 汇聚,阳炎之光
                     time.sleep(2)
@@ -117,7 +120,7 @@ class Pyroath(CustomAction):
                         ):
                             use_skill.execute()  # 进入u3阶段
                 else:
-                    print("p1动能条非max")
+                    logger.info("p1动能条非max")
                     ball_elimination_second.execute()  # 消球2
                     start_time = time.time()
                     while time.time() - start_time < 2:
@@ -125,11 +128,11 @@ class Pyroath(CustomAction):
                         attack.execute()
 
             if CombatActions.check_status(context, "检查u3_誓焰", self._role_name):
-                print("誓焰u3")
+                logger.info("誓焰u3")
                 if CombatActions.check_status(
                     context, "检查p1动能条_誓焰", self._role_name
                 ):
-                    print("p3动能条max")
+                    logger.info("p3动能条max")
                     long_press_attack = JobExecutor(
                         CombatActions.long_press_attack(context, 4000),
                         GameActionEnum.LONG_PRESS_ATTACK,
@@ -147,14 +150,14 @@ class Pyroath(CustomAction):
                             trigger_qte_second.execute()
                             auxiliary_machine.execute()
                 else:
-                    print("p3动能条非max")
+                    logger.info("p3动能条非max")
                     start_time = time.time()
                     while time.time() - start_time < 2:
                         time.sleep(0.1)
                         attack.execute()  # 攻击
 
             if CombatActions.check_status(context, "检查u2_誓焰", self._role_name):
-                print("誓焰u2")
+                logger.info("誓焰u2")
                 ball_elimination_second.execute()  # 消球2
                 attack.execute()  # 攻击
                 use_skill.execute()  # 进入u3阶段

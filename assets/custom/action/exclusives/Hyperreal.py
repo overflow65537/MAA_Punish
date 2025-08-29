@@ -52,12 +52,16 @@ class Hyperreal(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
+
+        logger = logging.getLogger(f"{self._role_name}_Job")
+
         try:
             def get_ball_target():
                 return CombatActions.Arrange_Signal_Balls(
                     context,
                     "any",
                     self.tempelate,
+                    role_name=self._role_name,
                 )
 
             lens_lock = JobExecutor(
@@ -84,13 +88,13 @@ class Hyperreal(CustomAction):
             lens_lock.execute()
 
             if CombatActions.check_Skill_energy_bar(context, self._role_name):
-                print("大招就绪")
+                logger.info("大招就绪")
                 use_skill.execute()  # 在时间的尽头,湮灭吧
                 time.sleep(1)
             elif CombatActions.check_status(
                 context, "检查核心技能_超刻", self._role_name
             ):  # 核心技能就绪
-                print("核心技能就绪")
+                logger.info("核心技能就绪")
                 long_press_attack.execute()
                 start_time = time.time()
                 while CombatActions.check_status(
@@ -99,9 +103,9 @@ class Hyperreal(CustomAction):
                     target = get_ball_target()
                     CombatActions.ball_elimination_target(context, target)()
                     attack.execute()
-                print("核心技能结束")
+                logger.info("核心技能结束")
             else:
-                print("核心技能未就绪")
+                logger.info("核心技能未就绪")
                 for _ in range(5):
                     attack.execute()
                     time.sleep(0.1)
