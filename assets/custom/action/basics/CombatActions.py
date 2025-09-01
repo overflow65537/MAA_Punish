@@ -88,7 +88,7 @@ class CombatActions(CustomAction):
         ).wait()  # 消第三个球
 
     @staticmethod
-    def ball_elimination_target(context: Context, target: int = 2):
+    def ball_elimination_target(context: Context, target: int = 2, role_name: str = ""):
         """指定消球目标,从1开始,默认2"""
         target = abs(target) - 1
         BALL_POSITIONS = [
@@ -101,7 +101,8 @@ class CombatActions(CustomAction):
             (569, 500),
             (460, 500),
         ]
-        print(f"消球目标: {BALL_POSITIONS[target][0]},{BALL_POSITIONS[target][1]}")
+        logger = logging.getLogger(f"{role_name}_Job")
+        logger.info(f"消球目标: {BALL_POSITIONS[target][0]},{BALL_POSITIONS[target][1]}")
         return lambda: context.tasker.controller.post_click(
             BALL_POSITIONS[target][0], BALL_POSITIONS[target][1]
         ).wait()
@@ -162,8 +163,8 @@ class CombatActions(CustomAction):
         context: Context, node: str, role_name: str, pipeline_override: dict = {}
     ):
         """检查状态"""
+        logger = logging.getLogger(f"{role_name}_Job")
         try:
-            logger = logging.getLogger(f"{role_name}_Job")
             # 获取截图
             image = context.tasker.controller.post_screencap().wait().get()
             # 识别并返回结果
@@ -181,8 +182,8 @@ class CombatActions(CustomAction):
     @staticmethod
     def check_Skill_energy_bar(context: Context, role_name: str) -> bool:
         """检查技能能量条"""
+        logger = logging.getLogger(f"{role_name}_Job")
         try:
-            logger = logging.getLogger(f"{role_name}_Job")
             # 获取截图
             image = context.tasker.controller.post_screencap().wait().get()
             # 识别并返回结果
@@ -197,7 +198,7 @@ class CombatActions(CustomAction):
             return False
 
     @staticmethod
-    def Arrange_Signal_Balls(context: Context, target_ball: str, template: dict) -> int:
+    def Arrange_Signal_Balls(context: Context, target_ball: str, template: dict, role_name: str) -> int:
         """
         自动消球逻辑
         Args:
@@ -209,11 +210,15 @@ class CombatActions(CustomAction):
                     "blue": {"识别信号球": {"template": ["信号球/启明_蓝.png"]}},
                     "yellow": {"识别信号球": {"template": ["信号球/启明_黄.png"]}}
                 }
+            role_name (str): 角色名称，用于日志记录
 
         Returns:
             int: 消球目标位置，从1开始，0表示无效操作,负数代表消球了,但不是三消
 
         """
+
+        logger = logging.getLogger(f"{role_name}_Job")
+
         BALL_POSITIONS = [
             (1220, 500),
             (1111, 500),
@@ -240,12 +245,12 @@ class CombatActions(CustomAction):
                 result = context.run_recognition(
                     "识别信号球", image, template.get(color)
                 )
-                print(f"识别到{color}球: {result.filterd_results if result else '无'}")
+                logger.info(f"识别到{color}球: {result.filterd_results if result else '无'}")
                 if result:
                     for item in result.filterd_results:
                         if (pos := analyze_position(item.box)) != -1:
                             ball_status[pos] = color
-            print(f"信号球状态: {ball_status}")
+            logger.info(f"信号球状态: {ball_status}")
             return ball_status
 
         def _find_optimal_ball(ball_list: list, target: str) -> int:
@@ -259,10 +264,10 @@ class CombatActions(CustomAction):
                 else 0
             )
 
-            print(f"有效长度: {valid_length}")
+            logger.info(f"有效长度: {valid_length}")
 
             if valid_length == 0:
-                print("未找到有效操作")
+                logger.info("未找到有效操作")
                 return 0
 
             is_any = target == "any"
@@ -294,7 +299,7 @@ class CombatActions(CustomAction):
                     and ball_list[i + 1] == target
                     and ball_list[i + 2] == target
                 ):
-                    print(f"第一优先级：{'任意' if is_any else '目标'}三连消除")
+                    logger.info(f"第一优先级：{'任意' if is_any else '目标'}三连消除")
                     return i + 1
             return 0
 
@@ -312,7 +317,7 @@ class CombatActions(CustomAction):
                         if (is_any and temp[j] == temp[j + 1] == temp[j + 2]) or (
                             not is_any and temp[j : j + 3] == [target] * 3
                         ):
-                            print(
+                            logger.info(
                                 f"第二优先级：可形成{'任意' if is_any else '目标'}三连"
                             )
                             return -(i + 1)
@@ -320,7 +325,7 @@ class CombatActions(CustomAction):
                     if (is_any and temp[j] == temp[j + 1]) or (
                         not is_any and temp[j] == target and temp[j + 1] == target
                     ):
-                        print(f"第二优先级：可形成{'任意' if is_any else '目标'}二连")
+                        logger.info(f"第二优先级：可形成{'任意' if is_any else '目标'}二连")
                         candidate = -(i + 1)
             return candidate
 
@@ -332,7 +337,7 @@ class CombatActions(CustomAction):
                 temp = ball_list[:i] + ball_list[i + 1 :]
                 for j in range(len(temp) - 2):
                     if temp[j] is not None and temp[j] == temp[j + 1] == temp[j + 2]:
-                        print("第三优先级：任意三连消除")
+                        logger.info("第三优先级：任意三连消除")
                         return -(i + 1)
             return 0
 
@@ -345,8 +350,8 @@ class CombatActions(CustomAction):
             image = context.tasker.controller.post_screencap().wait().get()
             ball_list = detect_balls(image)
             target = _find_optimal_ball(ball_list, target_ball)
-            print(f"最终目标球: {target}")
+            logger.info(f"最终目标球: {target}")
             return target
         except Exception as e:
-            print(f"消球决策异常: {str(e)}")
+            logger.info(f"消球决策异常: {str(e)}")
             return 0

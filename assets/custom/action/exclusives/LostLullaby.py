@@ -46,6 +46,8 @@ class LostLullaby(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
+
+        logger = logging.getLogger(f"{self._role_name}_Job")
         try:
             lens_lock = JobExecutor(
                 CombatActions.lens_lock(context),
@@ -102,7 +104,7 @@ class LostLullaby(CustomAction):
 
             lens_lock.execute()
             if CombatActions.check_status(context, "检查阶段p1_深谣", self._role_name):
-                print("p1阶段")
+                logger.info("p1阶段")
                 if CombatActions.check_Skill_energy_bar(context, self._role_name):
                     start_time = time.time()
                     while time.time() - start_time < 1:
@@ -114,7 +116,7 @@ class LostLullaby(CustomAction):
                     if CombatActions.check_status(
                         context, "检查核心被动2_深谣", self._role_name
                     ):
-                        print("p1核心被动2")
+                        logger.info("p1核心被动2")
                         start_time = time.time()
                         while time.time() - start_time < 1:
                             time.sleep(0.1)
@@ -131,7 +133,7 @@ class LostLullaby(CustomAction):
                     if CombatActions.check_status(
                         context, "检查核心被动1_深谣", self._role_name
                     ):
-                        print("p1核心被动1")
+                        logger.info("p1核心被动1")
                         ball_elimination.execute()
                         time.sleep(0.1)
                         dodge.execute()  # 闪避
@@ -143,7 +145,7 @@ class LostLullaby(CustomAction):
                             time.sleep(0.1)
                             attack.execute()  # 攻击
                     else:
-                        print("没有核心被动")
+                        logger.info("没有核心被动")
                         start_time = time.time()
                         while time.time() - start_time < 2:
                             time.sleep(0.1)
@@ -153,9 +155,9 @@ class LostLullaby(CustomAction):
             elif CombatActions.check_status(
                 context, "检查阶段p2_深谣", self._role_name
             ):
-                print("p2阶段")
+                logger.info("p2阶段")
                 if CombatActions.check_Skill_energy_bar(context, self._role_name):
-                    print("释放技能")
+                    logger.info("释放技能")
                     start_time = time.time()
                     while time.time() - start_time < 1:
                         time.sleep(0.1)
@@ -171,7 +173,7 @@ class LostLullaby(CustomAction):
                     if CombatActions.check_status(
                         context, "检查核心被动2_深谣", self._role_name
                     ):
-                        print("p2核心被动2")
+                        logger.info("p2核心被动2")
                         start_time = time.time()
                         while time.time() - start_time < 1:
                             time.sleep(0.1)
@@ -204,7 +206,7 @@ class LostLullaby(CustomAction):
                                 use_skill.execute()  # 沉没在,这片海底
                             time.sleep(1.5)
                     else:
-                        print("没有核心被动")
+                        logger.info("没有核心被动")
                         start_time = time.time()
                         while time.time() - start_time < 1.5:
                             time.sleep(0.3)

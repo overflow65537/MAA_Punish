@@ -75,7 +75,9 @@ class Shukra(CustomAction):
                 context,
                 "any",
                 self.tempelate,
+                role_name=self._role_name,
             )
+        logger = logging.getLogger(f"{self._role_name}_Job")
 
         try:
             lens_lock = JobExecutor(
@@ -116,18 +118,18 @@ class Shukra(CustomAction):
                     time.sleep(0.3)
                     target = get_ball_target()
                     CombatActions.ball_elimination_target(context, target)()
-                    print(f"初次消球")
+                    logger.info(f"初次消球")
                     if target > 0:
                         time.sleep(0.1)
-                        print(f"三连目标,开始二次消球")
+                        logger.info(f"三连目标,开始二次消球")
                         CombatActions.ball_elimination_target(context, 1)()  # 单独消球
                     elif target == 0:
-                        print(f"信号球空,结束")
+                        logger.info(f"信号球空,结束")
                         break
-                print(f"长按攻击")
+                logger.info(f"长按攻击")
                 long_press_attack.execute()
             else:
-                print(f"普攻")
+                logger.info(f"普攻")
                 start_time = time.time()
                 while time.time() - start_time < 2:
                     attack.execute()  # 攻击
