@@ -3,7 +3,7 @@
         "focus": {
             "succeeded": "[color:ForestGreen]战斗地块[/color]"
         },
-        "post_delay": 1000,
+        "post_wait_freezes": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -161,7 +161,8 @@
             "type": "Click"
         },
         "next": [
-            "肉鸽战斗_寒境曙光"
+            "肉鸽战斗_寒境曙光",
+            "战斗地块_寒境曙光"
         ]
     },
     "剩余资金700以上_寒境曙光": {
@@ -193,6 +194,9 @@
         ]
     },
     "汇合_寒境曙光": {
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -257,6 +261,9 @@
         }
     },
     "拓荒_寒境曙光": {
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
         "post_delay": 1000,
         "recognition": {
             "type": "OCR",
@@ -304,6 +311,9 @@
         }
     },
     "无尚之戒_寒境曙光": {
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -342,6 +352,9 @@
         }
     },
     "前方有陷阱_寒境曙光": {
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -390,6 +403,9 @@
         }
     },
     "剩余资金_寒境曙光": {
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -436,6 +452,9 @@
         }
     },
     "冬日之影_寒境曙光": {
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -520,6 +539,9 @@
         ]
     },
     "战马瑞恩_寒境曙光": {
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -583,6 +605,9 @@
         ]
     },
     "鲨鱼置物箱_寒境曙光": {
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -631,6 +656,9 @@
         }
     },
     "学者来访_寒境曙光": {
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -676,6 +704,9 @@
         }
     },
     "运力紧张_寒境曙光": {
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
         "post_delay": 1000,
         "recognition": {
             "type": "OCR",
@@ -722,6 +753,9 @@
         }
     },
     "废弃港口_寒境曙光": {
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -767,6 +801,9 @@
         }
     },
     "商队来访_寒境曙光": {
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -812,6 +849,9 @@
         }
     },
     "拦路的废墟_寒境曙光": {
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -861,6 +901,9 @@
         }
     },
     "难民团到访_寒境曙光": {
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -927,6 +970,9 @@
         }
     },
     "建筑师的建议_寒境曙光": {
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -974,6 +1020,9 @@
         }
     },
     "旧国遗产_寒境曙光": {
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
         "post_delay": 1000,
         "recognition": {
             "type": "OCR",
