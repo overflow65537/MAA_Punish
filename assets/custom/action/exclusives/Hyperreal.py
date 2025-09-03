@@ -97,9 +97,9 @@ class Hyperreal(CustomAction):
                 logger.info("核心技能就绪")
                 long_press_attack.execute()
                 start_time = time.time()
-                while CombatActions.check_status(
+                while  (not CombatActions.check_status(
                     context, "检查核心技能结束_超刻", self._role_name
-                ) and time.time()-start_time<10:
+                )) and time.time()-start_time<10:
                     target = get_ball_target()
                     CombatActions.ball_elimination_target(context, target)()
                     attack.execute()
@@ -111,7 +111,7 @@ class Hyperreal(CustomAction):
                     time.sleep(0.1)
                 target = get_ball_target()
                 if CombatActions.check_status(
-                context, "检查信号球数量_启明", self._role_name
+                context, "检查信号球数量_启明", self._role_name # 复用下启明的检查信号球数量
             ) or target>0:
                     CombatActions.ball_elimination_target(context, target)()
             return CustomAction.RunResult(success=True)

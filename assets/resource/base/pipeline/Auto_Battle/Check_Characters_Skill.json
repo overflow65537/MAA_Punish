@@ -442,15 +442,14 @@
     },
     "检查核心技能_超刻": {
         "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
                 "roi": [
-                    751,
-                    615,
-                    11,
-                    8
+                    739,
+                    606,
+                    45,
+                    41
                 ],
                 "upper": [
                     125,
@@ -471,26 +470,15 @@
         "post_delay": 0,
         "pre_delay": 0,
         "recognition": {
-            "type": "ColorMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    514,
-                    617,
-                    27,
-                    29
+                    451,
+                    622,
+                    383,
+                    94
                 ],
-                "upper": [
-                    235,
-                    245,
-                    255
-                ],
-                "lower": [
-                    220,
-                    230,
-                    245
-                ],
-                "connected": true,
-                "count": 40
+                "expected": "\\d+"
             }
         }
     },
