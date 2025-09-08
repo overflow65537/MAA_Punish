@@ -279,7 +279,10 @@
             "param": {
                 "custom_action": "Stigmata"
             }
-        }
+        },
+        "next": [
+            "深痕战斗"
+        ]
     },
     "深谣战斗": {
         "post_delay": 0,
@@ -289,7 +292,10 @@
             "param": {
                 "custom_action": "LostLullaby"
             }
-        }
+        },
+        "next": [
+            "深谣战斗"
+        ]
     },
     "深红囚影战斗": {
         "post_delay": 0,
@@ -299,7 +305,10 @@
             "param": {
                 "custom_action": "CrimsonWeave"
             }
-        }
+        },
+        "next": [
+            "深红囚影战斗"
+        ]
     },
     "誓焰战斗": {
         "post_delay": 0,
@@ -309,7 +318,10 @@
             "param": {
                 "custom_action": "Pyroath"
             }
-        }
+        },
+        "next": [
+            "誓焰战斗"
+        ]
     },
     "终焉战斗": {
         "post_delay": 0,
@@ -319,7 +331,10 @@
             "param": {
                 "custom_action": "Oblivion"
             }
-        }
+        },
+        "next": [
+            "终焉战斗"
+        ]
     },
     "启明战斗": {
         "post_delay": 0,
@@ -329,7 +344,10 @@
             "param": {
                 "custom_action": "Shukra"
             }
-        }
+        },
+        "next": [
+            "启明战斗"
+        ]
     },
     "超刻战斗": {
         "post_delay": 0,
@@ -339,7 +357,10 @@
             "param": {
                 "custom_action": "Hyperreal"
             }
-        }
+        },
+        "next": [
+            "超刻战斗"
+        ]
     },
     "晖暮战斗": {
         "post_delay": 0,
@@ -349,6 +370,9 @@
             "param": {
                 "custom_action": "Crepuscule"
             }
-        }
+        },
+        "next": [
+            "晖暮战斗"
+        ]
     }
 }

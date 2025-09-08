@@ -101,7 +101,7 @@ class Identify(CustomAction):
             context.override_pipeline(
                 {
                     "识别人物": {"enabled": False},
-                    "战斗中": {"action": "Custom", "custom_action": "CombatActions"},
+                    "战斗中": {"action": "Custom", "custom_action": "GeneralFight"},
                 }
             )
             print("未知战斗")

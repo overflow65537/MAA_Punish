@@ -24,38 +24,20 @@ MAA_Punish 角色配置载入
 作者:HCX0426
 """
 
-import json
-import os
 import sys
 from pathlib import Path
 
 current_file = Path(__file__).resolve()
 sys.path.append(str(current_file.parent.parent.parent.parent))
 
-class LoadSetting:
-    def __init__(self):
-        self._role_actions = self.load_role_setting()
-
-    @property
-    def role_actions(self):
-        return self._role_actions
-
-    @staticmethod
-    def load_role_setting():
-        try:
-            with open(
-                os.path.join(os.path.dirname(__file__), "..", "setting.json"),
-                "r",
-                encoding="utf-8",
-            ) as file:
-                return json.load(file).get("ROLE_ACTIONS", {})
-        except FileNotFoundError:
-            with open("setting.json", "r", encoding="utf-8") as file:
-                return json.load(file).get("ROLE_ACTIONS", {})
-        except json.JSONDecodeError:
-            print("setting.json 文件格式错误。")
-            return {}
-
-
 # 角色名称到动作的映射表
-ROLE_ACTIONS = LoadSetting.load_role_setting()
+ROLE_ACTIONS = {
+    "露娜·终焉": "Oblivion",
+    "比安卡·深痕": "Stigmata",
+    "拉弥亚·深谣": "LostLullaby",
+    "露西亚·深红囚影": "CrimsonWeave",
+    "露西亚·誓焰": "Pyroath",
+    "曲·启明": "Shukra",
+    "里·超刻": "Hyperreal",
+    "比安卡·晖暮": "Crepuscule",
+}

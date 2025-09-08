@@ -38,7 +38,7 @@ sys.path.append(str(current_file.parent.parent.parent.parent))
 from custom.action.tool.LoadSetting import ROLE_ACTIONS
 
 class IdentifyRoles(CustomAction):
-    def run(self, context: Context, _: CustomAction.RunArg) -> CustomAction.RunResult:
+    def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
 
         # ROI区域配置（x, y, w, h）
         ROLE_NAME_ROIS = [

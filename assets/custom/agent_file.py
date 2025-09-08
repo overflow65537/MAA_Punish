@@ -1,6 +1,5 @@
 from maa.agent.agent_server import AgentServer
 from action.basics.CenterCamera import CenterCamera
-from action.basics.CombatActions import CombatActions
 from action.basics.Identify import Identify
 from action.basics.IdentifyRoles import IdentifyRoles
 from action.basics.MultiplayerAutoBattle import MultiplayerAutoBattle
@@ -20,6 +19,7 @@ from action.exclusives.Stigmata import Stigmata
 from action.exclusives.Shukra import Shukra
 from action.exclusives.Hyperreal import Hyperreal
 from action.exclusives.Crepuscule import Crepuscule
+from action.exclusives.GeneralFight import   GeneralFight
 
 
 from recognition.exclusives.CalculateScore import CalculateScore
@@ -29,6 +29,11 @@ from recognition.exclusives.IDFMasteryLevel import IDFMasteryLevel
 from recognition.exclusives.LogicalOperators import LOp
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
+
+
+@AgentServer.custom_action("GeneralFight")
+class Agent_GeneralFight(GeneralFight):
+    pass
 
 @AgentServer.custom_action("Hyperreal")
 class Agent_Hyperreal(Hyperreal):
@@ -85,10 +90,6 @@ class Agent_SetTower(SetTower):
 class Agent_CenterCamera(CenterCamera):
     pass
 
-
-@AgentServer.custom_action("CombatActions")
-class Agent_CombatActions(CombatActions):
-    pass
 
 
 @AgentServer.custom_action("Identify")
