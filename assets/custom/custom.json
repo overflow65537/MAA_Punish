@@ -24,11 +24,6 @@
         "class": "LOp",
         "file_path": "{custom_path}/recognition/exclusives/LogicalOperators.py"
     },
-    "GeneralFight": {
-        "type": "action",
-        "class": "GeneralFight",
-        "file_path": "{custom_path}/action/exclusives/GeneralFight.py"
-    },
     "IdentifyRoles": {
         "type": "action",
         "class": "IdentifyRoles",
@@ -58,6 +53,11 @@
         "type": "action",
         "class": "ChainLoopCircuit",
         "file_path": "{custom_path}/action/basics/ChainLoopCircuit.py"
+    },
+    "GeneralFight": {
+        "type": "action",
+        "class": "GeneralFight",
+        "file_path": "{custom_path}/action/exclusives/GeneralFight.py"
     },
     "Stigmata": {
         "type": "action",
