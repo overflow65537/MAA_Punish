@@ -15,6 +15,21 @@
                 ],
                 "green_mask": true
             }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "识别人物": {
+                        "enabled": false
+                    },
+                    "战斗中": {
+                        "action": "Custom",
+                        "custom_action": "Stigmata"
+                    }
+                }
+            }
         }
     },
     "检查露西亚·誓焰": {
@@ -31,6 +46,21 @@
                     "自定义战斗/誓焰.png"
                 ],
                 "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "识别人物": {
+                        "enabled": false
+                    },
+                    "战斗中": {
+                        "action": "Custom",
+                        "custom_action": "Pyroath"
+                    }
+                }
             }
         }
     },
@@ -49,6 +79,21 @@
                 ],
                 "green_mask": true
             }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "识别人物": {
+                        "enabled": false
+                    },
+                    "战斗中": {
+                        "action": "Custom",
+                        "custom_action": "Oblivion"
+                    }
+                }
+            }
         }
     },
     "检查露西亚·深红囚影": {
@@ -65,6 +110,21 @@
                     "自定义战斗/深红囚影.png"
                 ],
                 "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "识别人物": {
+                        "enabled": false
+                    },
+                    "战斗中": {
+                        "action": "Custom",
+                        "custom_action": "CrimsonWeave"
+                    }
+                }
             }
         }
     },
@@ -84,6 +144,21 @@
                 ],
                 "green_mask": true
             }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "识别人物": {
+                        "enabled": false
+                    },
+                    "战斗中": {
+                        "action": "Custom",
+                        "custom_action": "LostLullaby"
+                    }
+                }
+            }
         }
     },
     "检查曲·启明": {
@@ -100,6 +175,21 @@
                     "自定义战斗/启明.png"
                 ],
                 "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "识别人物": {
+                        "enabled": false
+                    },
+                    "战斗中": {
+                        "action": "Custom",
+                        "custom_action": "Shukra"
+                    }
+                }
             }
         }
     },
@@ -118,6 +208,21 @@
                 ],
                 "green_mask": true
             }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "识别人物": {
+                        "enabled": false
+                    },
+                    "战斗中": {
+                        "action": "Custom",
+                        "custom_action": "Hyperion"
+                    }
+                }
+            }
         }
     },
     "检查比安卡·晖暮": {
@@ -134,6 +239,21 @@
                     "自定义战斗/晖暮.png"
                 ],
                 "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "识别人物": {
+                        "enabled": false
+                    },
+                    "战斗中": {
+                        "action": "Custom",
+                        "custom_action": "Crepuscule"
+                    }
+                }
             }
         }
     }

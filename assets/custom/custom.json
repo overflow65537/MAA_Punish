@@ -1,19 +1,4 @@
 {
-    "CenterCamera": {
-        "type": "action",
-        "class": "CenterCamera",
-        "file_path": "{custom_path}/action/basics/CenterCamera.py"
-    },
-    "Identify": {
-        "type": "action",
-        "class": "Identify",
-        "file_path": "{custom_path}/action/basics/Identify.py"
-    },
-    "ResetIdentify": {
-        "type": "action",
-        "class": "ResetIdentify",
-        "file_path": "{custom_path}/action/basics/ResetIdentify.py"
-    },
     "ScreenShot": {
         "type": "action",
         "class": "ScreenShot",
@@ -44,11 +29,6 @@
         "class": "IdentifyRoles",
         "file_path": "{custom_path}/action/basics/IdentifyRoles.py"
     },
-    "CombatActions": {
-        "type": "action",
-        "class": "CombatActions",
-        "file_path": "{custom_path}/action/basics/CombatActions.py"
-    },
     "IDFMasteryLevel": {
         "type": "recognition",
         "class": "IDFMasteryLevel",
@@ -73,6 +53,11 @@
         "type": "action",
         "class": "ChainLoopCircuit",
         "file_path": "{custom_path}/action/basics/ChainLoopCircuit.py"
+    },
+    "GeneralFight": {
+        "type": "action",
+        "class": "GeneralFight",
+        "file_path": "{custom_path}/action/exclusives/GeneralFight.py"
     },
     "Stigmata": {
         "type": "action",

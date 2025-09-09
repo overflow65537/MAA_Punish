@@ -33,8 +33,8 @@ class PPOverride(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        argv = json.loads(argv.custom_action_param)
-        if not argv:
+        param: dict = json.loads(argv.custom_action_param)
+        if not param:
             return CustomAction.RunResult(success=True)
-        context.override_pipeline(argv)
+        context.override_pipeline(param)
         return CustomAction.RunResult(success=True)

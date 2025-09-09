@@ -1,4 +1,5 @@
 from pathlib import Path
+
 import PyInstaller.__main__
 import site
 import os
@@ -61,6 +62,7 @@ def bulid():
 
     if maa_bin_path is None:
         raise FileNotFoundError("not found maa/bin")
+
     shutil.copytree(
         maa_bin_path,
         install_path,
@@ -73,8 +75,8 @@ def install_resource():
     configure_ocr_model()
 
     shutil.copytree(
-        working_dir / "assets" ,
-        install_path ,
+        working_dir / "assets",
+        install_path,
         dirs_exist_ok=True,
     )
     shutil.rmtree(install_path / "MaaCommonAssets")
@@ -97,13 +99,9 @@ def install_chores():
         working_dir / "LICENSE",
         install_path,
     )
-    shutil.copy2(
-        working_dir / "assets" / "custom" / "action" / "setting.json",
-        install_path,
-    )
 
 
 if __name__ == "__main__":
-    bulid()
+    #bulid()
     install_resource()
     install_chores()

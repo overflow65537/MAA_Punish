@@ -6,7 +6,12 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "ResetIdentify"
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "识别人物": {
+                        "enabled": true
+                    }
+                }
             }
         },
         "next": [

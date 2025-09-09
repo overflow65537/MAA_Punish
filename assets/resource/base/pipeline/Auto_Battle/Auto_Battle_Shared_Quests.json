@@ -139,7 +139,7 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "CombatActions"
+                "custom_action": "GeneralFight"
             }
         }
     },

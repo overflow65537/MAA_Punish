@@ -20,33 +20,26 @@
 
 """
 MAA_Punish
-MAA_Punish 战斗人物枚举对象
-作者:HCX0426
+MAA_Punish 通用战斗程序
+作者:overflow65537
 """
 
-from enum import Enum
+from custom.action.basics import CombatActions
+from maa.context import Context
+from maa.custom_action import CustomAction
 
 
-class ActionStatusEnum(Enum):
-    INVALID = "无效"
-    PENDING = "待处理"
-    RUNNING = "运行中"
-    SUCCEEDED = "成功"
-    FAILED = "失败"
-    DONE = "完成"
+class GeneralFight(CustomAction):
+    def run(
+        self, context: Context, argv: CustomAction.RunArg
+    ) -> CustomAction.RunResult:
+        action = CombatActions(context,role_name="通用")
 
-
-class GameActionEnum(Enum):
-    ATTACK = "攻击"
-    DODGE = "闪避"
-    USE_SKILL = "技能"
-    BALL_ELIMINATION = "消球"
-    BALL_ELIMINATION_SECOND = "消球2"
-    BALL_ELIMINATION_THREE = "消球3"
-    TRIGGER_QTE_FIRST = "1-触发QTE/换人"
-    TRIGGER_QTE_SECOND = "2-触发QTE/换人"
-    LONG_PRESS_ATTACK = "长按攻击"
-    LONG_PRESS_DODGE = "长按闪避"
-    LONG_PRESS_SKILL = "长按技能"
-    LENS_LOCK = "镜头锁定"
-    AUXILIARY_MACHINE = "辅助机"
+        action.lens_lock()
+        if action.check_Skill_energy_bar():
+            action.logger.info("大招就绪")
+            action.use_skill()
+        else:
+            action.ball_elimination_target()
+            action.continuous_attack(4,300)
+        return CustomAction.RunResult(success=True)

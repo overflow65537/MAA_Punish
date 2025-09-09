@@ -199,7 +199,12 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "ResetIdentify"
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "识别人物": {
+                        "enabled": true
+                    }
+                }
             }
         }
     },
@@ -240,12 +245,15 @@
                 "green_mask": true
             }
         },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "Identify"
-            }
-        }
+        "next": [
+            "检查露西亚·誓焰",
+            "检查比安卡·深痕",
+            "检查露娜·终焉",
+            "检查露西亚·深红囚影",
+            "检查拉弥亚·深谣",
+            "检查比安卡·晖暮",
+            "检查里·超刻"
+        ]
     },
     "战斗测试": {
         "recognition": {
@@ -279,7 +287,10 @@
             "param": {
                 "custom_action": "Stigmata"
             }
-        }
+        },
+        "next": [
+            "深痕战斗"
+        ]
     },
     "深谣战斗": {
         "post_delay": 0,
@@ -289,7 +300,10 @@
             "param": {
                 "custom_action": "LostLullaby"
             }
-        }
+        },
+        "next": [
+            "深谣战斗"
+        ]
     },
     "深红囚影战斗": {
         "post_delay": 0,
@@ -299,7 +313,10 @@
             "param": {
                 "custom_action": "CrimsonWeave"
             }
-        }
+        },
+        "next": [
+            "深红囚影战斗"
+        ]
     },
     "誓焰战斗": {
         "post_delay": 0,
@@ -309,7 +326,10 @@
             "param": {
                 "custom_action": "Pyroath"
             }
-        }
+        },
+        "next": [
+            "誓焰战斗"
+        ]
     },
     "终焉战斗": {
         "post_delay": 0,
@@ -319,7 +339,10 @@
             "param": {
                 "custom_action": "Oblivion"
             }
-        }
+        },
+        "next": [
+            "终焉战斗"
+        ]
     },
     "启明战斗": {
         "post_delay": 0,
@@ -329,7 +352,10 @@
             "param": {
                 "custom_action": "Shukra"
             }
-        }
+        },
+        "next": [
+            "启明战斗"
+        ]
     },
     "超刻战斗": {
         "post_delay": 0,
@@ -339,7 +365,10 @@
             "param": {
                 "custom_action": "Hyperreal"
             }
-        }
+        },
+        "next": [
+            "超刻战斗"
+        ]
     },
     "晖暮战斗": {
         "post_delay": 0,
@@ -349,6 +378,9 @@
             "param": {
                 "custom_action": "Crepuscule"
             }
-        }
+        },
+        "next": [
+            "晖暮战斗"
+        ]
     }
 }
