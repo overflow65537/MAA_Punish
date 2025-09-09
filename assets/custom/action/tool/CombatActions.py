@@ -20,8 +20,8 @@
 
 """
 MAA_Punish
-MAA_Punish 通用战斗
-作者:HCX0426
+MAA_Punish 通用战斗对象
+作者:HCX0426,overflow
 """
 
 import logging
@@ -223,6 +223,7 @@ class CombatActions:
         if self.template == {}:
             self.logger.error("模板未加载")
             return 0
+        
         def analyze_position(box) -> int:
             """分析信号球位置"""
             try:

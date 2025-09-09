@@ -82,7 +82,12 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "ResetIdentify"
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "识别人物": {
+                        "enabled": true
+                    }
+                }
             }
         },
         "next": [
@@ -1338,9 +1343,16 @@
             }
         },
         "action": {
-            "type": "Custom",
+            "type": "Swipe",
             "param": {
-                "custom_action": "CenterCamera"
+                "begin": true,
+                "end": [
+                    1052,
+                    342,
+                    0,
+                    0
+                ],
+                "duration": 2000
             }
         },
         "focus": {
@@ -1493,7 +1505,12 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "ResetIdentify"
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "识别人物": {
+                        "enabled": true
+                    }
+                }
             }
         }
     },

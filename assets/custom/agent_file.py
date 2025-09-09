@@ -1,15 +1,11 @@
 from maa.agent.agent_server import AgentServer
-from action.basics.CenterCamera import CenterCamera
-from action.basics.Identify import Identify
 from action.basics.IdentifyRoles import IdentifyRoles
 from action.basics.MultiplayerAutoBattle import MultiplayerAutoBattle
-from action.basics.ResetIdentify import ResetIdentify
 from action.basics.ScreenShot import ScreenShot
 from action.basics.SetTower import SetTower
 from action.basics.Count import Count
 from action.basics.PPOverride import PPOverride
 from action.basics.ChainLoopCircuit import ChainLoopCircuit
-
 
 from action.exclusives.CrimsonWeave import CrimsonWeave
 from action.exclusives.LostLullaby import LostLullaby
@@ -86,17 +82,6 @@ class Agent_SetTower(SetTower):
     pass
 
 
-@AgentServer.custom_action("CenterCamera")
-class Agent_CenterCamera(CenterCamera):
-    pass
-
-
-
-@AgentServer.custom_action("Identify")
-class Agent_Identify(Identify):
-    pass
-
-
 @AgentServer.custom_action("IdentifyRoles")
 class Agent_IdentifyRoles(IdentifyRoles):
     pass
@@ -104,11 +89,6 @@ class Agent_IdentifyRoles(IdentifyRoles):
 
 @AgentServer.custom_action("MultiplayerAutoBattle")
 class Agent_MultiplayerAutoBattle(MultiplayerAutoBattle):
-    pass
-
-
-@AgentServer.custom_action("ResetIdentify")
-class Agent_ResetIdentify(ResetIdentify):
     pass
 
 

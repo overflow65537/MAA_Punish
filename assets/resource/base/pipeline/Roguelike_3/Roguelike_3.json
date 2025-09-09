@@ -134,13 +134,6 @@
                     },
                     "选择首发2_矩阵循生": {
                         "enabled": true
-                    },
-                    "矩阵循生": {
-                        "action": "custom",
-                        "custom_action": "ResetIdentify",
-                        "custom_action_param": {
-                            "mode": "矩阵循生"
-                        }
                     }
                 }
             }
@@ -1095,7 +1088,12 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "ResetIdentify"
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "识别人物": {
+                        "enabled": true
+                    }
+                }
             }
         }
     },
@@ -1133,7 +1131,12 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "ResetIdentify"
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "识别人物": {
+                        "enabled": true
+                    }
+                }
             }
         },
         "next": [

@@ -1,19 +1,4 @@
 {
-    "CenterCamera": {
-        "type": "action",
-        "class": "CenterCamera",
-        "file_path": "{custom_path}/action/basics/CenterCamera.py"
-    },
-    "Identify": {
-        "type": "action",
-        "class": "Identify",
-        "file_path": "{custom_path}/action/basics/Identify.py"
-    },
-    "ResetIdentify": {
-        "type": "action",
-        "class": "ResetIdentify",
-        "file_path": "{custom_path}/action/basics/ResetIdentify.py"
-    },
     "ScreenShot": {
         "type": "action",
         "class": "ScreenShot",
