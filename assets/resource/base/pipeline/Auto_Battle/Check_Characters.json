@@ -219,7 +219,7 @@
                     },
                     "战斗中": {
                         "action": "Custom",
-                        "custom_action": "Hyperion"
+                        "custom_action": "Hyperreal"
                     }
                 }
             }
