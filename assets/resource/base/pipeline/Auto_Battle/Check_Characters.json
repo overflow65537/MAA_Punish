@@ -1,4 +1,21 @@
 {
+    "通用作战逻辑": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "识别人物": {
+                        "enabled": false
+                    },
+                    "战斗中": {
+                        "action": "Custom",
+                        "custom_action": "GeneralFight"
+                    }
+                }
+            }
+        }
+    },
     "检查比安卡·深痕": {
         "recognition": {
             "type": "TemplateMatch",
