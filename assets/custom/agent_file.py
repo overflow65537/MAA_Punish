@@ -6,6 +6,7 @@ from action.basics.SetTower import SetTower
 from action.basics.Count import Count
 from action.basics.PPOverride import PPOverride
 from action.basics.ChainLoopCircuit import ChainLoopCircuit
+from action.basics.RoleSelection import RoleSelection
 
 from action.exclusives.CrimsonWeave import CrimsonWeave
 from action.exclusives.LostLullaby import LostLullaby
@@ -26,6 +27,9 @@ from recognition.exclusives.LogicalOperators import LOp
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
 
+@AgentServer.custom_action("RoleSelection")
+class Agent_RoleSelection(RoleSelection):
+    pass
 
 @AgentServer.custom_action("GeneralFight")
 class Agent_GeneralFight(GeneralFight):

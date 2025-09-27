@@ -24,11 +24,19 @@ MAA_Punish 通用战斗对象
 作者:HCX0426,overflow
 """
 
-import logging
-from logging.handlers import TimedRotatingFileHandler
+
 from maa.context import Context
 from pathlib import Path
 import time
+import sys
+
+
+
+# 获取当前文件的绝对路径
+current_file = Path(__file__).resolve()
+sys.path.append(str(current_file.parent.parent.parent.parent))
+from custom.action.tool.LoadSetting import ROLE_ACTIONS
+from custom.action.tool.logger import Logger
 
 
 class CombatActions:
@@ -56,46 +64,20 @@ class CombatActions:
         "auxiliary_machine": (1214, 387),
     }
 
-    def __init__(self, context: Context, role_name: str = "", template: dict = {}):
+    def __init__(self, context: Context, role_name: str = ""):
         self.context = context
-        self.logger = self._create_logger(role_name)
-        self.template = template
+        self.logger = Logger(role_name if role_name else "CombatActions")
+        self.role_name = role_name
 
-    def _create_logger(self, role_name: str = ""):
-        """
-        创建或日志记录器。
-        """
-        # 获取根日志记录器
-        root_logger = logging.getLogger()
-        # 清除现有的处理器
-        for handler in root_logger.handlers[:]:
-            handler.close()
-            root_logger.removeHandler(handler)
-        log_path = Path("debug") / "custom.log"
-        log_path.parent.mkdir(parents=True, exist_ok=True)
+        self.template = {}
+        if role_name in ROLE_ACTIONS:
+            self.template = ROLE_ACTIONS[role_name].get("skill_template", {})
+        else:
+            for role in ROLE_ACTIONS.values():
+                if role_name == role["name"]:
+                    self.template = role.get("skill_template", {})
+                    break
 
-        # 创建新的处理器
-        file_handler = TimedRotatingFileHandler(
-            log_path,
-            when="midnight",
-            backupCount=3,
-            encoding="utf-8",
-        )
-        stream_handler = logging.StreamHandler()
-
-        # 设置处理器的格式
-        LOG_FORMAT = f"[%(asctime)s][%(levelname)s][%(filename)s][L%(lineno)d][%(funcName)s] |{role_name}| %(message)s"
-
-        formatter = logging.Formatter(LOG_FORMAT)
-        file_handler.setFormatter(formatter)
-        stream_handler.setFormatter(formatter)
-
-        # 配置日志记录器
-        root_logger.setLevel(logging.DEBUG)
-        root_logger.addHandler(file_handler)
-        root_logger.addHandler(stream_handler)
-
-        return root_logger
 
     def attack(self):
         """攻击"""
@@ -223,7 +205,7 @@ class CombatActions:
         if self.template == {}:
             self.logger.error("模板未加载")
             return 0
-        
+
         def analyze_position(box) -> int:
             """分析信号球位置"""
             try:

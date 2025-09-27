@@ -1,0 +1,82 @@
+{
+    "识别角色": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    24,
+                    27,
+                    382,
+                    635
+                ],
+                "template": []
+            }
+        }
+    },
+    "识别战斗参数": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "识别角色",
+                "roi_offset": [
+                    0,
+                    0,
+                    125,
+                    0
+                ],
+                "expected": "战斗参数"
+            }
+        }
+    },
+    "识别战力": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "识别战斗参数",
+                "roi_offset": [
+                    65,
+                    -10,
+                    70,
+                    20
+                ],
+                "expected": "\\d+"
+            }
+        }
+    },
+    "滑动_选人": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    135,
+                    580,
+                    0,
+                    0
+                ],
+                "end": [
+                    [
+                        135,
+                        120,
+                        0,
+                        0
+                    ],
+                    [
+                        235,
+                        120,
+                        0,
+                        0
+                    ]
+                ],"duration":1000,
+                "end_hold":200
+            }
+        }
+    },
+    "选人测试": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "RoleSelection"
+            }
+        }
+    }
+}
