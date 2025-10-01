@@ -274,13 +274,13 @@
             }
         },
         "next": [
-            "队伍净空_蓝"
+            "队伍净空"
         ],
         "interrupt": [
             "清空蓝色位"
         ]
     },
-    "队伍净空_蓝": {
+    "队伍净空": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -294,10 +294,30 @@
             }
         },
         "next": [
-            "选择人物"
+            "选择首发"
         ]
     },
-    "选人测试": {
+    "选择首发": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    140,
+                    301,
+                    979,
+                    182
+                ],
+                "expected": "首发"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "选择角色程序"
+        ]
+    },
+    "选择角色程序": {
         "action": {
             "type": "Custom",
             "param": {
