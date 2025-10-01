@@ -40,24 +40,43 @@ from custom.action.tool.logger import Logger
 
 
 class RoleSelection(CustomAction):
-    def __init__(self):
-        super().__init__()
-        self.logger = Logger("RoleSelection")
-
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        #condition = json.loads(argv.custom_action_param)
-        condition = {"need_element": "fire"}
+        self.logger = Logger("RoleSelection").get_logger()
+        condition = json.loads(argv.custom_action_param)
+        if condition is None:
+            condition = {}
         role = {}
 
         role_dict = ROLE_ACTIONS.copy()
-        for _ in range(5):  # 最多尝试5次识别
+        for _ in range(int(condition.get("max_try", 3))):
+            if context.tasker.stopping:
+                return CustomAction.RunResult(success=True)
             role.update(self.recognize_role(context, role_dict))
             context.run_task("滑动_选人")
 
         role_weight = self.calculate_weight(role, condition)
         self.logger.info(f"角色权重: {role_weight}")
+        # 找出权重最高的key
+        selected_role = max(role_weight, key=lambda x: x[1])[0]
+
+        self.logger.info(f"选择角色: {selected_role}")
+        for _ in range(int(condition.get("max_try", 3))):
+            if context.tasker.stopping:
+                return CustomAction.RunResult(success=True)
+            context.run_task("反向滑动_选人")
+
+        context.run_task(
+            "选择人物",
+            {
+                "选择人物": {
+                    "recognition": {
+                        "param": {"template": role_dict[selected_role]["template"]},
+                    },
+                }
+            },
+        )
 
         return CustomAction.RunResult(success=True)
 
@@ -76,8 +95,6 @@ class RoleSelection(CustomAction):
                 }
             }
             self.logger.info(f"正在识别角色: {role_name}")
-            self.logger.info(f"使用模板: {role_actions['template']}")
-            self.logger.info(f"当前pipeline_override: {pipeline_override}")
 
             result = context.run_recognition(
                 entry="识别角色",
@@ -88,7 +105,7 @@ class RoleSelection(CustomAction):
             # 检查识别结果并提取box信息
             if result and isinstance(result.best_result, TemplateMatchResult):
                 self.logger.info(f"识别到角色: {role_name}")
-                role[role_name] = role_actions.copy()
+                role[role_name] = role_actions.copy().get("metadata", {})
                 context.run_task("识别战斗参数")
                 combat_score = context.run_recognition("识别战力", image)
                 if combat_score and isinstance(combat_score.best_result, OCRResult):
@@ -96,15 +113,17 @@ class RoleSelection(CustomAction):
         return role
 
     # 计算权重
-    def calculate_weight(self, role_info: dict, condition: dict) -> dict:
+    def calculate_weight(
+        self, role_info: dict, condition: dict[str, dict]
+    ) -> list[dict]:
         """
         公式
-        权重 = (战力 + ( 属性分数 * 60) + (代数分数 * 1000)) * 是否有次数
+        权重 = (战力 + ( 属性分数 * 45) + (代数分数 * 1000)) * 是否有次数
         """
         weight = []
 
         for role_name, info in role_info.items():
-            #战力
+            # 战力
             combat_score = info.get("combat_score", 0)
             if isinstance(combat_score, str) and combat_score.isdigit():
                 combat_score = int(combat_score)
@@ -112,11 +131,11 @@ class RoleSelection(CustomAction):
                 pass
             else:
                 combat_score = 0
-            #属性分数
+            # 属性分数
             attribute_score = info.get(condition.get("need_element", ""), 0)
-            #代数分数
+            # 代数分数
             element_score = info.get("generation", 0)
-            #权重
-            w = (combat_score + (attribute_score * 30) + (element_score * 1000))    
+            # 权重
+            w = combat_score + (attribute_score * 45) + (element_score * 1000)
             weight.append((role_name, w))
-        return dict(weight)
+        return weight

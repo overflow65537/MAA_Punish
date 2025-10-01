@@ -37,12 +37,13 @@ ROLE_ACTIONS = {
         "name": "超刻",
         # 自动战斗的动作名
         "cls_name": "Hyperreal",
-        # 角色的属性
-        "elemental": {
-            "fire": 100,
+        "metadata": {  # 角色的属性
+            "elemental": {
+                "fire": 100,
+            },
+            # 代数
+            "generation": 2,
         },
-        #代数
-        "generation": 2,
         # 角色头像模板
         "template": [
             "肉鸽通用/超刻.png",
@@ -62,10 +63,12 @@ ROLE_ACTIONS = {
     "露娜·终焉": {
         "name": "终焉",
         "cls_name": "Oblivion",
-        "elemental": {
-            "nihil": 100,
+        "metadata": {
+            "elemental": {
+                "nihil": 100,
+            },
+            "generation": 3,
         },
-        "generation": 3,
         "template": [
             "肉鸽通用/终焉.png",
             "肉鸽通用/终焉终解.png",
@@ -77,10 +80,12 @@ ROLE_ACTIONS = {
     "比安卡·深痕": {
         "name": "深痕",
         "cls_name": "Stigmata",
-        "elemental": {
-            "physical": 100,
+        "metadata": {
+            "elemental": {
+                "physical": 100,
+            },
+            "generation": 2,
         },
-        "generation": 2,
         "template": [
             "肉鸽通用/深痕.png",
             "肉鸽通用/深痕终解.png",
@@ -92,10 +97,12 @@ ROLE_ACTIONS = {
     "拉弥亚·深谣": {
         "name": "深谣",
         "cls_name": "LostLullaby",
-        "elemental": {
-            "dark": 100,
+        "metadata": {
+            "elemental": {
+                "dark": 100,
+            },
+            "generation": 2,
         },
-        "generation": 2,
         "template": [
             "肉鸽通用/深谣.png",
             "肉鸽通用/深谣终解.png",
@@ -107,10 +114,12 @@ ROLE_ACTIONS = {
     "露西亚·深红囚影": {
         "name": "深红囚影",
         "cls_name": "CrimsonWeave",
-        "elemental": {
-            "lightning": 100,
+        "metadata": {
+            "elemental": {
+                "lightning": 100,
+            },
+            "generation": 2,
         },
-        "generation": 2,
         "template": [
             "肉鸽通用/深红囚影.png",
             "肉鸽通用/深红囚影终解.png",
@@ -122,10 +131,12 @@ ROLE_ACTIONS = {
     "露西亚·誓焰": {
         "name": "誓焰",
         "cls_name": "Pyroath",
-        "elemental": {
-            "fire": 100,
+        "metadata": {
+            "elemental": {
+                "fire": 100,
+            },
+            "generation": 3,
         },
-        "generation": 3,
         "template": [
             "肉鸽通用/誓焰.png",
             "肉鸽通用/誓焰终解.png",
@@ -138,11 +149,12 @@ ROLE_ACTIONS = {
     "曲·启明": {
         "name": "启明",
         "cls_name": "Shukra",
-
-        "elemental": {
-            "ice": 100,
+        "metadata": {
+            "elemental": {
+                "ice": 100,
+            },
+            "generation": 2,
         },
-        "generation": 2,
         "template": [
             "肉鸽通用/启明.png",
             "肉鸽通用/启明终解.png",
@@ -159,10 +171,12 @@ ROLE_ACTIONS = {
     "比安卡·晖暮": {
         "name": "晖暮",
         "cls_name": "Crepuscule",
-        "elemental": {
-            "dark": 100,
+        "metadata": {
+            "elemental": {
+                "dark": 100,
+            },
+            "generation": 2,
         },
-        "generation": 2,
         "template": [
             "肉鸽通用/晖暮.png",
             "肉鸽通用/晖暮终解.png",

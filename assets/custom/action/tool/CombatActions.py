@@ -66,7 +66,7 @@ class CombatActions:
 
     def __init__(self, context: Context, role_name: str = ""):
         self.context = context
-        self.logger = Logger(role_name if role_name else "CombatActions")
+        self.logger = Logger(role_name if role_name else "CombatActions").get_logger()
         self.role_name = role_name
 
         self.template = {}

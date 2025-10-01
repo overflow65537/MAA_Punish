@@ -2,10 +2,6 @@ import logging
 from logging.handlers import TimedRotatingFileHandler
 from pathlib import Path
 
-import logging
-from logging.handlers import TimedRotatingFileHandler
-from pathlib import Path
-
 class Logger:
     def __init__(self,  name: str = ""):
         """
@@ -92,28 +88,3 @@ class Logger:
             logging.Logger: 日志记录器实例
         """
         return self.logger
-    
-    # 以下是便捷的日志记录方法
-    def debug(self, message):
-        """记录调试信息"""
-        self.logger.debug(message)
-    
-    def info(self, message):
-        """记录一般信息"""
-        self.logger.info(message)
-    
-    def warning(self, message):
-        """记录警告信息"""
-        self.logger.warning(message)
-    
-    def error(self, message):
-        """记录错误信息"""
-        self.logger.error(message)
-    
-    def critical(self, message):
-        """记录严重错误信息"""
-        self.logger.critical(message)
-
-    def exception(self, message):
-        """记录异常信息"""
-        self.logger.exception(message)
