@@ -24,6 +24,7 @@ MAA_Punish 选择角色
 作者:overflow65537
 """
 
+from email.mime import image
 from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.define import TemplateMatchResult, OCRResult
@@ -54,9 +55,10 @@ class RoleSelection(CustomAction):
             if context.tasker.stopping:
                 return CustomAction.RunResult(success=True)
             role.update(self.recognize_role(context, role_dict))
-            context.run_task("滑动_选人")
+            context.run_action("滑动_选人")
 
         role_weight = self.calculate_weight(role, condition)
+        self.logger.info(f"条件: {condition}")
         self.logger.info(f"角色权重: {role_weight}")
         # 找出权重最高的key
         selected_role = max(role_weight, key=lambda x: x[1])[0]
@@ -65,18 +67,36 @@ class RoleSelection(CustomAction):
         for _ in range(int(condition.get("max_try", 3))):
             if context.tasker.stopping:
                 return CustomAction.RunResult(success=True)
-            context.run_task("反向滑动_选人")
-
-        context.run_task(
-            "选择人物",
-            {
-                "选择人物": {
-                    "recognition": {
-                        "param": {"template": role_dict[selected_role]["template"]},
-                    },
-                }
-            },
-        )
+            context.run_action("反向滑动_选人")
+        target = None
+        for _ in range(int(condition.get("max_try", 3)) + 1):
+            if context.tasker.stopping:
+                return CustomAction.RunResult(success=True)
+            image = context.tasker.controller.post_screencap().wait().get()
+            target = context.run_recognition(
+                "选择人物",
+                image,
+                {
+                    "选择人物": {
+                        "recognition": {
+                            "param": {"template": role_dict[selected_role]["template"]},
+                        },
+                    }
+                },
+            )
+            if target and isinstance(target.best_result, TemplateMatchResult):
+                context.tasker.controller.post_click(
+                    target.best_result.box[0] + target.best_result.box[2] // 2,
+                    target.best_result.box[1] + target.best_result.box[3] // 2,
+                ).wait()
+                context.run_task("编入队伍")
+                self.logger.info(f"选择角色成功: {selected_role}")
+                return CustomAction.RunResult(success=True)
+            context.run_action("滑动_选人")
+        if target is None:
+            self.logger.info(f"选择角色失败: {selected_role}")
+            context.run_task("返回主菜单")
+            context.tasker.post_stop()
 
         return CustomAction.RunResult(success=True)
 
@@ -106,10 +126,6 @@ class RoleSelection(CustomAction):
             if result and isinstance(result.best_result, TemplateMatchResult):
                 self.logger.info(f"识别到角色: {role_name}")
                 role[role_name] = role_actions.copy().get("metadata", {})
-                context.run_task("识别战斗参数")
-                combat_score = context.run_recognition("识别战力", image)
-                if combat_score and isinstance(combat_score.best_result, OCRResult):
-                    role[role_name]["combat_score"] = combat_score.best_result.text
         return role
 
     # 计算权重
@@ -118,24 +134,16 @@ class RoleSelection(CustomAction):
     ) -> list[dict]:
         """
         公式
-        权重 = (战力 + ( 属性分数 * 45) + (代数分数 * 1000)) * 是否有次数
+        权重 = (( 属性分数 * 45) + (代数分数 * 2300)) * 是否有次数
         """
         weight = []
 
         for role_name, info in role_info.items():
-            # 战力
-            combat_score = info.get("combat_score", 0)
-            if isinstance(combat_score, str) and combat_score.isdigit():
-                combat_score = int(combat_score)
-            elif isinstance(combat_score, int):
-                pass
-            else:
-                combat_score = 0
             # 属性分数
             attribute_score = info.get(condition.get("need_element", ""), 0)
             # 代数分数
             element_score = info.get("generation", 0)
             # 权重
-            w = combat_score + (attribute_score * 45) + (element_score * 1000)
+            w = (attribute_score * 45) + (element_score * 2300)
             weight.append((role_name, w))
         return weight

@@ -67,8 +67,6 @@ class IdentifyRoles(CustomAction):
             result = context.run_recognition(
                 "识别角色名", image, {"识别角色名": {"roi": roi}}
             )
-            if not result or not isinstance(result.best_result, OCRResult):
-                raise ValueError("识别结果类型错误")
             role_names[pos] = result.best_result.text if result else None
 
         # 识别队长标志
@@ -77,8 +75,6 @@ class IdentifyRoles(CustomAction):
             result = context.run_recognition(
                 "识别队长位置", image, {"识别队长位置": {"roi": roi}}
             )
-            if not result or not isinstance(result.best_result, OCRResult):
-                raise ValueError("识别结果类型错误")
             leader_flags[pos] = bool(result.best_result.text) if result else False
 
         print("识别结果:", role_names)

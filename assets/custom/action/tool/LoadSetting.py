@@ -38,9 +38,7 @@ ROLE_ACTIONS = {
         # 自动战斗的动作名
         "cls_name": "Hyperreal",
         "metadata": {  # 角色的属性
-            "elemental": {
-                "fire": 100,
-            },
+            "fire": 100,
             # 代数
             "generation": 2,
         },
@@ -64,9 +62,7 @@ ROLE_ACTIONS = {
         "name": "终焉",
         "cls_name": "Oblivion",
         "metadata": {
-            "elemental": {
-                "nihil": 100,
-            },
+            "nihil": 100,
             "generation": 3,
         },
         "template": [
@@ -81,9 +77,7 @@ ROLE_ACTIONS = {
         "name": "深痕",
         "cls_name": "Stigmata",
         "metadata": {
-            "elemental": {
-                "physical": 100,
-            },
+            "physical": 100,
             "generation": 2,
         },
         "template": [
@@ -98,9 +92,7 @@ ROLE_ACTIONS = {
         "name": "深谣",
         "cls_name": "LostLullaby",
         "metadata": {
-            "elemental": {
-                "dark": 100,
-            },
+            "dark": 100,
             "generation": 2,
         },
         "template": [
@@ -115,9 +107,7 @@ ROLE_ACTIONS = {
         "name": "深红囚影",
         "cls_name": "CrimsonWeave",
         "metadata": {
-            "elemental": {
-                "lightning": 100,
-            },
+            "lightning": 100,
             "generation": 2,
         },
         "template": [
@@ -132,9 +122,7 @@ ROLE_ACTIONS = {
         "name": "誓焰",
         "cls_name": "Pyroath",
         "metadata": {
-            "elemental": {
-                "fire": 100,
-            },
+            "fire": 100,
             "generation": 3,
         },
         "template": [
@@ -150,9 +138,7 @@ ROLE_ACTIONS = {
         "name": "启明",
         "cls_name": "Shukra",
         "metadata": {
-            "elemental": {
-                "ice": 100,
-            },
+            "ice": 100,
             "generation": 2,
         },
         "template": [
@@ -172,9 +158,7 @@ ROLE_ACTIONS = {
         "name": "晖暮",
         "cls_name": "Crepuscule",
         "metadata": {
-            "elemental": {
-                "dark": 100,
-            },
+            "dark": 100,
             "generation": 2,
         },
         "template": [
