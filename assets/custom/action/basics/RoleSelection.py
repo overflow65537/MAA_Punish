@@ -24,6 +24,7 @@ MAA_Punish 选择角色
 作者:overflow65537
 """
 
+import re
 from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.define import TemplateMatchResult, OCRResult, ColorMatchResult
@@ -101,6 +102,9 @@ class RoleSelection(CustomAction):
                         }
                     },
                 )
+            elif nonselected_roles:
+                context.run_task("编入队伍")
+                return CustomAction.RunResult(success=True)
             else:
                 target = context.run_recognition(
                     "选择人物",
