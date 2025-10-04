@@ -24,10 +24,9 @@ MAA_Punish 选择角色
 作者:overflow65537
 """
 
-from email.mime import image
 from maa.context import Context
 from maa.custom_action import CustomAction
-from maa.define import TemplateMatchResult, OCRResult
+from maa.define import TemplateMatchResult, OCRResult, ColorMatchResult
 import sys
 from pathlib import Path
 import json
@@ -54,37 +53,72 @@ class RoleSelection(CustomAction):
         for _ in range(int(condition.get("max_try", 3))):
             if context.tasker.stopping:
                 return CustomAction.RunResult(success=True)
-            role.update(self.recognize_role(context, role_dict))
+            role.update(
+                self.recognize_role(context, role_dict, condition.get("cage", False))
+            )
             context.run_action("滑动_选人")
 
         role_weight = self.calculate_weight(role, condition)
         self.logger.info(f"条件: {condition}")
         self.logger.info(f"角色权重: {role_weight}")
-        # 找出权重最高的key
-        selected_role = max(role_weight, key=lambda x: x[1])[0]
 
-        self.logger.info(f"选择角色: {selected_role}")
         for _ in range(int(condition.get("max_try", 3))):
             if context.tasker.stopping:
                 return CustomAction.RunResult(success=True)
             context.run_action("反向滑动_选人")
+        # 找出权重最高的key
+        selected_role = max(role_weight.items(), key=lambda x: x[1])[0]
+        target = None
+        nonselected_roles = False
+        if role_weight[selected_role] == 0:
+
+            self.logger.info(f"角色次数全为0")
+            nonselected_roles = True
+        else:
+            self.logger.info(f"选择角色: {selected_role}")
+
         target = None
         for _ in range(int(condition.get("max_try", 3)) + 1):
             if context.tasker.stopping:
                 return CustomAction.RunResult(success=True)
             image = context.tasker.controller.post_screencap().wait().get()
-            target = context.run_recognition(
-                "选择人物",
-                image,
-                {
-                    "选择人物": {
-                        "recognition": {
-                            "param": {"template": role_dict[selected_role]["template"]},
-                        },
-                    }
-                },
-            )
-            if target and isinstance(target.best_result, TemplateMatchResult):
+            if nonselected_roles and condition.get("cage"):
+                target = context.run_recognition(
+                    "选择人物",
+                    image,
+                    {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "ColorMatch",
+                                "param": {
+                                    "roi": [72, 69, 140, 521],
+                                    "upper": [53, 175, 248],
+                                    "lower": [53, 175, 248],
+                                    "connected": True,
+                                    "count": 10,
+                                },
+                            }
+                        }
+                    },
+                )
+            else:
+                target = context.run_recognition(
+                    "选择人物",
+                    image,
+                    {
+                        "选择人物": {
+                            "recognition": {
+                                "param": {
+                                    "template": role_dict[selected_role]["template"]
+                                },
+                            },
+                        }
+                    },
+                )
+            if target and (
+                isinstance(target.best_result, TemplateMatchResult)
+                or isinstance(target.best_result, ColorMatchResult)
+            ):
                 context.tasker.controller.post_click(
                     target.best_result.box[0] + target.best_result.box[2] // 2,
                     target.best_result.box[1] + target.best_result.box[3] // 2,
@@ -100,7 +134,9 @@ class RoleSelection(CustomAction):
 
         return CustomAction.RunResult(success=True)
 
-    def recognize_role(self, context: Context, role_actions: dict) -> dict:
+    def recognize_role(
+        self, context: Context, role_actions: dict, cage: bool = False
+    ) -> dict:
 
         # 对每个角色进行识别
         role = {}
@@ -126,24 +162,31 @@ class RoleSelection(CustomAction):
             if result and isinstance(result.best_result, TemplateMatchResult):
                 self.logger.info(f"识别到角色: {role_name}")
                 role[role_name] = role_actions.copy().get("metadata", {})
+                if cage:
+                    role[role_name]["cage"] = bool(
+                        context.run_recognition(entry="识别囚笼次数", image=image)
+                    )
+
         return role
 
     # 计算权重
-    def calculate_weight(
-        self, role_info: dict, condition: dict[str, dict]
-    ) -> list[dict]:
+    def calculate_weight(self, role_info: dict, condition: dict[str, dict]) -> dict:
         """
         公式
         权重 = (( 属性分数 * 45) + (代数分数 * 2300)) * 是否有次数
         """
-        weight = []
+        weight = {}
 
         for role_name, info in role_info.items():
             # 属性分数
             attribute_score = info.get(condition.get("need_element", ""), 0)
             # 代数分数
             element_score = info.get("generation", 0)
+            # 是否有次数
+            has_count = info.get("cage", False)
             # 权重
-            w = (attribute_score * 45) + (element_score * 2300)
-            weight.append((role_name, w))
+            w = (attribute_score * 45) + (element_score * 2300) * (
+                1 if has_count else 0
+            )
+            weight[role_name] = w
         return weight

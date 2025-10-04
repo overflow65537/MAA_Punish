@@ -13,33 +13,28 @@
             }
         }
     },
-    "识别战斗参数": {
+    "识别囚笼次数": {
         "recognition": {
-            "type": "OCR",
+            "type": "ColorMatch",
             "param": {
                 "roi": "识别角色",
                 "roi_offset": [
                     0,
                     0,
-                    125,
-                    20
+                    0,
+                    10
                 ],
-                "expected": "战斗参数"
-            }
-        }
-    },
-    "识别战力": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": "识别角色",
-                "roi_offset": [
+                "upper": [
+                    53,
                     175,
-                    20,
-                    -45,
-                    -50
+                    248
                 ],
-                "expected": "\\d+"
+                "lower": [
+                    53,
+                    175,
+                    248
+                ],"connected": true
+                ,"count": 10
             }
         }
     },
@@ -320,6 +315,7 @@
             "type": "Custom",
             "param": {
                 "custom_action": "RoleSelection"
+    
             }
         }
     }

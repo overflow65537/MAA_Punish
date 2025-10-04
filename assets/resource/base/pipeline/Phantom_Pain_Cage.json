@@ -13,6 +13,22 @@
             "意外点击_限定活动"
         ]
     },
+    "没打过": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1006,
+                    626,
+                    154,
+                    80
+                ],
+                "expected": [
+                    "作战准备"
+                ]
+            }
+        }
+    },
     "检查A区": {
         "post_delay": 2000,
         "recognition": {
@@ -53,7 +69,7 @@
                     173
                 ],
                 "expected": [
-                    "讨伐"
+                    "^讨伐.*"
                 ]
             }
         },
@@ -240,36 +256,6 @@
             "type": "Click"
         },
         "next": [
-            "重置滑动次数_囚笼"
-        ]
-    },
-    "重置滑动次数_囚笼": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "下滑计数": {
-                        "action": {
-                            "param": {
-                                "custom_action": "Count",
-                                "custom_action_param": {
-                                    "self": "下滑计数",
-                                    "count": 0,
-                                    "target_count": 20,
-                                    "next_node": [
-                                        "退出选人"
-                                    ],
-                                    "next_node_msg": "未搜索到目标人物,重设识别条件",
-                                    "count_msg": "滑动计数: {count}, 目标次数: {target_count}"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "next": [
             "挑战次数不足_弹窗",
             "查看Boss_火队",
             "查看Boss_暗队",
@@ -335,15 +321,15 @@
             "param": {
                 "custom_action": "PPOverride",
                 "custom_action_param": {
-                    "选择自动作战人物": {
-                        "threshold": [
-                            0.9,
-                            0.9
-                        ],
-                        "template": [
-                            "肉鸽通用/启明.png",
-                            "肉鸽通用/启明终解.png"
-                        ]
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "cage": true,
+                                    "need_element": "ice"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -380,17 +366,15 @@
             "param": {
                 "custom_action": "PPOverride",
                 "custom_action_param": {
-                    "选择自动作战人物": {
-                        "threshold": [
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9
-                        ],
-                        "template": [
-                            "肉鸽通用/晖暮.png",
-                            "肉鸽通用/晖暮终解.png"
-                        ]
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "cage": true,
+                                    "need_element": "dark"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -425,19 +409,15 @@
             "param": {
                 "custom_action": "PPOverride",
                 "custom_action_param": {
-                    "选择自动作战人物": {
-                        "threshold": [
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9
-                        ],
-                        "template": [
-                            "肉鸽通用/誓焰.png",
-                            "肉鸽通用/誓焰终解.png",
-                            "肉鸽通用/超刻.png",
-                            "肉鸽通用/超刻终解.png"
-                        ]
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "cage": true,
+                                    "need_element": "fire"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -473,15 +453,15 @@
             "param": {
                 "custom_action": "PPOverride",
                 "custom_action_param": {
-                    "选择自动作战人物": {
-                        "threshold": [
-                            0.9,
-                            0.9
-                        ],
-                        "template": [
-                            "肉鸽通用/深痕.png",
-                            "肉鸽通用/深痕终解.png"
-                        ]
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "cage": true,
+                                    "need_element": "physical"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -516,15 +496,15 @@
             "param": {
                 "custom_action": "PPOverride",
                 "custom_action_param": {
-                    "选择自动作战人物": {
-                        "threshold": [
-                            0.9,
-                            0.9
-                        ],
-                        "template": [
-                            "肉鸽通用/深红囚影.png",
-                            "肉鸽通用/深红囚影终解.png"
-                        ]
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "cage": true,
+                                    "need_element": "lightning"
+                                }
+                            }
+                        }
                     }
                 }
             }
