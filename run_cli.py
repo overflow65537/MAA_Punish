@@ -10,6 +10,7 @@ from maa.custom_recognition import CustomRecognition
 import sys
 print("如无必要，请使用MFW.exe运行")
 print("if not necessary, please use MFW.exe to run")
+
 #创建一个logger
 import logging
 import os
