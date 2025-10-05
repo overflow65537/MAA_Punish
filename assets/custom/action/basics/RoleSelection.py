@@ -24,6 +24,7 @@ MAA_Punish 选择角色
 作者:overflow65537
 """
 
+from ast import MatchSingleton
 import re
 from maa.context import Context
 from maa.custom_action import CustomAction
@@ -55,7 +56,7 @@ class RoleSelection(CustomAction):
             if context.tasker.stopping:
                 return CustomAction.RunResult(success=True)
             role.update(
-                self.recognize_role(context, role_dict, condition.get("cage", False))
+                self.recognize_role(context, role_dict, condition.get("cage", False), condition.get("rouelike_3_mode",0))
             )
             context.run_action("滑动_选人")
 
@@ -139,7 +140,7 @@ class RoleSelection(CustomAction):
         return CustomAction.RunResult(success=True)
 
     def recognize_role(
-        self, context: Context, role_actions: dict, cage: bool = False
+        self, context: Context, role_actions: dict, cage: bool = False,roguelike_3_mode:int=0,
     ) -> dict:
 
         # 对每个角色进行识别
@@ -170,6 +171,10 @@ class RoleSelection(CustomAction):
                     role[role_name]["cage"] = bool(
                         context.run_recognition(entry="识别囚笼次数", image=image)
                     )
+                if roguelike_3_mode == 1:
+                    role[role_name]["master_level"] = bool(
+                        context.run_recognition(entry="识别精通等级", image=image)
+                    )
 
         return role
 
@@ -177,7 +182,7 @@ class RoleSelection(CustomAction):
     def calculate_weight(self, role_info: dict, condition: dict[str, dict]) -> dict:
         """
         公式
-        权重 = (( 属性分数 * 45) + (代数分数 * 2300)) * 是否有次数
+        权重 = (( 属性分数 * 45) + (代数分数 * 2300)) * 是否有次数 *是否是肉鸽选中 * 是否精通等级没满
         """
         weight = {}
 
@@ -187,10 +192,20 @@ class RoleSelection(CustomAction):
             # 代数分数
             element_score = info.get("generation", 0)
             # 是否有次数
-            has_count = info.get("cage", False)
+            has_count = info.get("cage", True)
+            # 肉鸽3模式 0代表初始招募能量4，只需要提取是否被肉鸽选中。1代表初始招募能量3，只提取精通等级
+            if condition.get("rouelike_3_mode",0) == 0:
+                is_pick = role_name == condition.get("pick", "")
+                is_master_level_not_full = True
+            elif condition.get("rouelike_3_mode",0) == 1:
+                is_pick =  True
+                is_master_level_not_full = info.get("master_level", True)
+            else:
+                is_pick = True
+                is_master_level_not_full = True
             # 权重
             w = (attribute_score * 45) + (element_score * 2300) * (
                 1 if has_count else 0
-            )
+            ) * (1 if is_pick else 0) * (1 if is_master_level_not_full else 0)
             weight[role_name] = w
         return weight

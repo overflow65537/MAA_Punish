@@ -551,6 +551,13 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": "识别人物",
+                "roi_offset": [
+                    189,
+                    25,
+                    -51,
+                    -45
+                ],
                 "only_rec": true,
                 "expected": "^(?!12$).*$"
             }
