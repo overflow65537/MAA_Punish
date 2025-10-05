@@ -880,19 +880,12 @@
                 {
                     "name": "誓焰",
                     "pipeline_override": {
-                        "选择自动作战人物_矩阵循生": {
-                            "recognition": {
+                        "选择角色程序_矩阵循生": {
+                            "action": {
                                 "param": {
-                                    "template": [
-                                        "肉鸽通用/誓焰终解_矩阵.png",
-                                        "肉鸽通用/誓焰_矩阵.png",
-                                        "肉鸽通用/誓焰花嫁_矩阵.png"
-                                    ],
-                                    "threshold": [
-                                        0.9,
-                                        0.9,
-                                        0.9
-                                    ]
+                                    "custom_action_param": {
+                                        "pick": "露西亚·誓焰"
+                                    }
                                 }
                             }
                         }
@@ -901,17 +894,12 @@
                 {
                     "name": "深红囚影",
                     "pipeline_override": {
-                        "选择自动作战人物_矩阵循生": {
-                            "recognition": {
+                        "选择角色程序_矩阵循生": {
+                            "action": {
                                 "param": {
-                                    "template": [
-                                        "肉鸽通用/深红囚影终解_矩阵.png",
-                                        "肉鸽通用/深红囚影_矩阵.png"
-                                    ],
-                                    "threshold": [
-                                        0.9,
-                                        0.9
-                                    ]
+                                    "custom_action_param": {
+                                        "pick": "露西亚·深红囚影"
+                                    }
                                 }
                             }
                         }
@@ -920,17 +908,12 @@
                 {
                     "name": "深谣",
                     "pipeline_override": {
-                        "选择自动作战人物_矩阵循生": {
-                            "recognition": {
+                        "选择角色程序_矩阵循生": {
+                            "action": {
                                 "param": {
-                                    "template": [
-                                        "肉鸽通用/深谣终解_矩阵.png",
-                                        "肉鸽通用/深谣_矩阵.png"
-                                    ],
-                                    "threshold": [
-                                        0.9,
-                                        0.9
-                                    ]
+                                    "custom_action_param": {
+                                        "pick": "拉弥亚·深谣"
+                                    }
                                 }
                             }
                         }
@@ -939,17 +922,12 @@
                 {
                     "name": "终焉",
                     "pipeline_override": {
-                        "选择自动作战人物_矩阵循生": {
-                            "recognition": {
+                        "选择角色程序_矩阵循生": {
+                            "action": {
                                 "param": {
-                                    "template": [
-                                        "肉鸽通用/终焉终解_矩阵.png",
-                                        "肉鸽通用/终焉_矩阵.png"
-                                    ],
-                                    "threshold": [
-                                        0.9,
-                                        0.9
-                                    ]
+                                    "custom_action_param": {
+                                        "pick": "露娜·终焉"
+                                    }
                                 }
                             }
                         }
@@ -958,17 +936,12 @@
                 {
                     "name": "深痕",
                     "pipeline_override": {
-                        "选择自动作战人物_矩阵循生": {
-                            "recognition": {
+                        "选择角色程序_矩阵循生": {
+                            "action": {
                                 "param": {
-                                    "template": [
-                                        "肉鸽通用/深痕终解_矩阵.png",
-                                        "肉鸽通用/深痕_矩阵.png"
-                                    ],
-                                    "threshold": [
-                                        0.9,
-                                        0.9
-                                    ]
+                                    "custom_action_param": {
+                                        "pick": "比安卡·深痕"
+                                    }
                                 }
                             }
                         }
@@ -977,17 +950,12 @@
                 {
                     "name": "启明",
                     "pipeline_override": {
-                        "选择自动作战人物_矩阵循生": {
-                            "recognition": {
+                        "选择角色程序_矩阵循生": {
+                            "action": {
                                 "param": {
-                                    "template": [
-                                        "肉鸽通用/启明终解_矩阵.png",
-                                        "肉鸽通用/启明_矩阵.png"
-                                    ],
-                                    "threshold": [
-                                        0.9,
-                                        0.9
-                                    ]
+                                    "custom_action_param": {
+                                        "pick": "曲·启明"
+                                    }
                                 }
                             }
                         }
@@ -996,15 +964,12 @@
                 {
                     "name": "超刻",
                     "pipeline_override": {
-                        "选择自动作战人物_矩阵循生": {
-                            "recognition": {
+                        "选择角色程序_矩阵循生": {
+                            "action": {
                                 "param": {
-                                    "template": [
-                                        "肉鸽通用/超刻_矩阵.png"
-                                    ],
-                                    "threshold": [
-                                        0.9
-                                    ]
+                                    "custom_action_param": {
+                                        "pick": "里·超刻"
+                                    }
                                 }
                             }
                         }

@@ -33,8 +33,9 @@
                     53,
                     175,
                     248
-                ],"connected": true
-                ,"count": 10
+                ],
+                "connected": true,
+                "count": 10
             }
         }
     },
@@ -315,21 +316,19 @@
             "type": "Custom",
             "param": {
                 "custom_action": "RoleSelection"
-    
             }
         }
     },
     "选人测试": {
-  "action": {
+        "action": {
             "type": "Custom",
             "param": {
                 "custom_action": "RoleSelection",
                 "custom_action_param": {
                     "rouelike_3_mode": 1,
                     "pick": "露西亚·誓焰"
-                
-    
+                }
             }
         }
     }
-    }}
+}
