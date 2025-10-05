@@ -31,6 +31,7 @@ from typing import Dict, Optional
 
 from maa.context import Context
 from maa.custom_action import CustomAction
+from maa.define import OCRResult
 
 # 获取当前文件的绝对路径
 current_file = Path(__file__).resolve()
@@ -93,11 +94,12 @@ class IdentifyRoles(CustomAction):
             for pos, name in role_names.items()
             if name in ROLE_ACTIONS
         }
-
+        pos , role_info = None,None
         # 处理匹配结果
         match len(matched_roles):
             case 1:  # 单个角色匹配
-                pos, action = next(iter(matched_roles.items()))
+                pos, role_info = next(iter(matched_roles.items()))
+                action = role_info["cls_name"]
 
                 # 设置队长位置(单个角色特用)
                 if leader_flags.get(pos):
@@ -122,6 +124,8 @@ class IdentifyRoles(CustomAction):
             case _:  # 无匹配角色
                 if len(role_names) == 1:
                     # 设置队长位置(单个角色特用)
+                    if not pos:
+                        pos = next(iter(role_names))
                     if leader_flags.get(pos):
                         color_map = {"pos1": "蓝色", "pos2": "红色", "pos3": "黄色"}
                         context.run_task(

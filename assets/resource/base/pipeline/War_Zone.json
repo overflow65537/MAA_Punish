@@ -131,476 +131,6 @@
             "意外点击_玩家详情"
         ]
     },
-    "未选人_战区": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    1010,
-                    627,
-                    266,
-                    78
-                ],
-                "template": "纷争战区/作战开始_未选人.png"
-            }
-        },
-        "next": [
-            "查看地图_空区",
-            "查看地图_火区",
-            "查看地图_暗区",
-            "查看地图_雷区",
-            "查看地图_物理区",
-            "查看地图_冰区",
-            "查看地图_特性区"
-        ]
-    },
-    "点击首发": {
-        "post_delay": 1000,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    141,
-                    306,
-                    1084,
-                    159
-                ],
-                "expected": "首发"
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "选择角色": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    60,
-                    51,
-                    165,
-                    600
-                ],
-                "template": [
-                    "肉鸽通用/终焉.png"
-                ]
-            }
-        }
-    },
-    "检查战力": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": "选择角色",
-                "roi_offset": [
-                    175,
-                    10,
-                    -40,
-                    -45
-                ],
-                "expected": "[5-9]\\d{3,}|[1-9]\\d{4,}"
-            }
-        }
-    },
-    "已选人_战区": {
-        "post_delay": 1000,
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    1002,
-                    621,
-                    270,
-                    90
-                ],
-                "template": "肉鸽通用/作战开始.png",
-                "threshold": 0.85
-            }
-        },
-        "next": [
-            "自动战斗任务"
-        ]
-    },
-    "选择首发_战区": {
-        "post_delay": 2000,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    140,
-                    287,
-                    988,
-                    224
-                ],
-                "expected": "首发"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "选择自动作战人物"
-        ],
-        "interrupt": [
-            "滑动_战区选人"
-        ]
-    },
-    "滑动_战区选人": {
-        "action": {
-            "type": "Swipe",
-            "param": {
-                "begin": [
-                    177,
-                    493,
-                    1,
-                    1
-                ],
-                "end": [
-                    179,
-                    405,
-                    1,
-                    1
-                ]
-            }
-        },
-        "next": [
-            "停止滑动"
-        ]
-    },
-    "战区强制选人": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择自动作战人物": {
-                        "threshold": [
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9
-                        ],
-                        "template": [
-                            "肉鸽通用/深红囚影.png",
-                            "肉鸽通用/深红囚影终解.png",
-                            "肉鸽通用/誓焰.png",
-                            "肉鸽通用/誓焰终解.png",
-                            "肉鸽通用/誓焰花嫁_矩阵.png",
-                            "肉鸽通用/晖暮.png",
-                            "肉鸽通用/晖暮终解.png",
-                            "肉鸽通用/深谣.png",
-                            "肉鸽通用/深谣终解.png",
-                            "肉鸽通用/终焉.png",
-                            "肉鸽通用/终焉终解.png",
-                            "肉鸽通用/启明.png",
-                            "肉鸽通用/启明终解.png",
-                            "肉鸽通用/超刻.png",
-                            "肉鸽通用/超刻终解.png"
-                        ]
-                    }
-                }
-            }
-        },
-        "next": [
-            "强制选人计数"
-        ]
-    },
-    "强制选人计数": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "Count",
-                "custom_action_param": {
-                    "self": "强制选人计数",
-                    "count": 0,
-                    "target_count": 1,
-                    "next_node": [
-                        "强制选人二阶段"
-                    ]
-                }
-            }
-        },
-        "next": [
-            "选择首发_寒境曙光"
-        ]
-    },
-    "强制选人二阶段": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择自动作战人物": {
-                        "recognition": "OCR",
-                        "roi": [
-                            979,
-                            469,
-                            118,
-                            41
-                        ],
-                        "expected": "编入",
-                        "action": "DoNothing",
-                        "next": [
-                            "编入队伍"
-                        ]
-                    }
-                }
-            }
-        }
-    },
-    "查看地图_空区": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    22,
-                    77,
-                    125,
-                    45
-                ],
-                "expected": "空域浮台"
-            }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择自动作战人物": {
-                        "threshold": [
-                            0.9,
-                            0.9
-                        ],
-                        "template": [
-                            "肉鸽通用/终焉.png",
-                            "肉鸽通用/终焉终解.png"
-                        ]
-                    }
-                }
-            }
-        },
-        "next": [
-            "选择首发_战区"
-        ]
-    },
-    "查看地图_火区": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    22,
-                    77,
-                    125,
-                    45
-                ],
-                "expected": "火焰轮回"
-            }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择自动作战人物": {
-                        "threshold": [
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9
-                        ],
-                        "template": [
-                            "肉鸽通用/誓焰.png",
-                            "肉鸽通用/誓焰终解.png",
-                            "肉鸽通用/誓焰花嫁_矩阵.png",
-                            "肉鸽通用/超刻.png",
-                            "肉鸽通用/超刻终解.png"
-                        ]
-                    }
-                }
-            }
-        },
-        "next": [
-            "选择首发_战区"
-        ]
-    },
-    "查看地图_暗区": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    22,
-                    77,
-                    125,
-                    45
-                ],
-                "expected": "暗影深林"
-            }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择自动作战人物": {
-                        "threshold": [
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9
-                        ],
-                        "template": [
-                            "肉鸽通用/晖暮.png",
-                            "肉鸽通用/晖暮终解.png",
-                            "肉鸽通用/深谣.png",
-                            "肉鸽通用/深谣终解.png"
-                        ]
-                    }
-                }
-            }
-        },
-        "next": [
-            "选择首发_战区"
-        ]
-    },
-    "查看地图_雷区": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    22,
-                    77,
-                    125,
-                    45
-                ],
-                "expected": "镭射合金"
-            }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择自动作战人物": {
-                        "threshold": [
-                            0.9,
-                            0.9
-                        ],
-                        "template": [
-                            "肉鸽通用/深红囚影.png",
-                            "肉鸽通用/深红囚影终解.png"
-                        ]
-                    }
-                }
-            }
-        },
-        "next": [
-            "选择首发_战区"
-        ]
-    },
-    "查看地图_物理区": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    22,
-                    77,
-                    125,
-                    45
-                ],
-                "expected": "机械工厂"
-            }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择自动作战人物": {
-                        "threshold": [
-                            0.9,
-                            0.9
-                        ],
-                        "template": [
-                            "肉鸽通用/深痕.png",
-                            "肉鸽通用/深痕终解.png"
-                        ]
-                    }
-                }
-            }
-        },
-        "next": [
-            "选择首发_战区"
-        ]
-    },
-    "查看地图_冰区": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    22,
-                    77,
-                    125,
-                    45
-                ],
-                "expected": "猩红冰原"
-            }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择自动作战人物": {
-                        "threshold": [
-                            0.9,
-                            0.9
-                        ],
-                        "template": [
-                            "肉鸽通用/启明.png",
-                            "肉鸽通用/启明终解.png"
-                        ]
-                    }
-                }
-            }
-        },
-        "next": [
-            "选择首发_战区"
-        ]
-    },
-    "查看地图_特性区": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    22,
-                    77,
-                    125,
-                    45
-                ],
-                "expected": [
-                    "熵钟异数",
-                    "鸣音碎瓦",
-                    "骤雪冰暴"
-                ]
-            }
-        },
-        "next": [
-            "选择首发_战区"
-        ]
-    },
     "首通已完成": {
         "inverse": true,
         "recognition": {
@@ -616,7 +146,7 @@
             }
         },
         "next": [
-            "返回主菜单"
+            "进入战区奖励"
         ]
     },
     "进入战区奖励": {
@@ -717,28 +247,61 @@
             "type": "Click"
         },
         "next": [
-            "重置滑动次数_战区"
+            "进入战区选人界面"
+        ],
+        "interrupt": [
+            "战斗准备"
         ]
     },
-    "重置滑动次数_战区": {
+    "进入战区选人界面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1179,
+                    15,
+                    81,
+                    71
+                ],
+                "expected": [
+                    "队伍",
+                    "预设"
+                ]
+            }
+        },
+        "next": [
+            "查看地图_空区",
+            "查看地图_火区",
+            "查看地图_暗区",
+            "查看地图_雷区",
+            "查看地图_物理区",
+            "查看地图_冰区",
+            "查看地图_特性区"
+        ]
+    },
+    "查看地图_空区": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    22,
+                    77,
+                    125,
+                    45
+                ],
+                "expected": "空域浮台"
+            }
+        },
         "action": {
             "type": "Custom",
             "param": {
                 "custom_action": "PPOverride",
                 "custom_action_param": {
-                    "下滑计数": {
+                    "选择角色程序": {
                         "action": {
                             "param": {
-                                "custom_action": "Count",
                                 "custom_action_param": {
-                                    "self": "下滑计数",
-                                    "count": 0,
-                                    "target_count": 20,
-                                    "next_node": [
-                                        "退出选人"
-                                    ],
-                                    "next_node_msg": "未搜索到目标人物,重设识别条件",
-                                    "count_msg": "滑动计数: {count}, 目标次数: {target_count}"
+                                    "need_element": "nihil"
                                 }
                             }
                         }
@@ -747,84 +310,198 @@
             }
         },
         "next": [
-            "清除队伍_战区"
+            "清除队伍"
         ]
     },
-    "清除队伍_战区": {
+    "查看地图_火区": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    189,
-                    320,
-                    994,
-                    171
+                    22,
+                    77,
+                    125,
+                    45
                 ],
-                "expected": "首发"
+                "expected": "火焰轮回"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "need_element": "fire"
+                                }
+                            }
+                        }
+                    }
+                }
             }
         },
         "next": [
-            "队伍净空_红_战区"
-        ],
-        "interrupt": [
-            "清空红色位"
+            "清除队伍"
         ]
     },
-    "队伍净空_红_战区": {
+    "查看地图_暗区": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    571,
-                    388,
-                    145,
-                    109
+                    22,
+                    77,
+                    125,
+                    45
                 ],
-                "template": "幻痛囚笼/队伍净空_红.png"
+                "expected": "暗影深林"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "need_element": "dark"
+                                }
+                            }
+                        }
+                    }
+                }
             }
         },
         "next": [
-            "队伍净空_黄_战区"
-        ],
-        "interrupt": [
-            "清空黄色位"
+            "清除队伍"
         ]
     },
-    "队伍净空_黄_战区": {
+    "查看地图_雷区": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    223,
-                    346,
-                    132,
-                    118
+                    22,
+                    77,
+                    125,
+                    45
                 ],
-                "template": "幻痛囚笼/队伍净空_蓝黄.png"
+                "expected": "镭射合金"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "need_element": "lightning"
+                                }
+                            }
+                        }
+                    }
+                }
             }
         },
         "next": [
-            "队伍净空_蓝_战区"
-        ],
-        "interrupt": [
-            "清空蓝色位"
+            "清除队伍"
         ]
     },
-    "队伍净空_蓝_战区": {
+    "查看地图_物理区": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    905,
-                    351,
-                    113,
-                    108
+                    22,
+                    77,
+                    125,
+                    45
                 ],
-                "template": "幻痛囚笼/队伍净空_蓝黄.png"
+                "expected": "机械工厂"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "need_element": "physical"
+                                }
+                            }
+                        }
+                    }
+                }
             }
         },
         "next": [
-            "未选人_战区"
+            "清除队伍"
+        ]
+    },
+    "查看地图_冰区": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    22,
+                    77,
+                    125,
+                    45
+                ],
+                "expected": "猩红冰原"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "need_element": "ice"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "next": [
+            "清除队伍"
+        ]
+    },
+    "查看地图_特性区": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    22,
+                    77,
+                    125,
+                    45
+                ],
+                "expected": [
+                    "熵钟异数",
+                    "鸣音碎瓦",
+                    "骤雪冰暴"
+                ]
+            }
+        },
+        "next": [
+            "清除队伍"
         ]
     },
     "选择自动作战人物": {

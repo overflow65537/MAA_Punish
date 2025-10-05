@@ -53,17 +53,11 @@ class Shukra(CustomAction):
         攻击攒球
     """
 
-    tempelate = {
-        "red": {"识别信号球": {"template": ["信号球/启明_红.png"]}},
-        "blue": {"识别信号球": {"template": ["信号球/启明_蓝.png"]}},
-        "yellow": {"识别信号球": {"template": ["信号球/启明_黄.png"]}},
-    }
-
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
 
-        actions = CombatActions(context,role_name="启明",template= self.tempelate)
+        actions = CombatActions(context,role_name="启明")
 
         actions.lens_lock()
 

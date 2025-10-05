@@ -13,6 +13,22 @@
             "意外点击_限定活动"
         ]
     },
+    "没打过": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1006,
+                    626,
+                    154,
+                    80
+                ],
+                "expected": [
+                    "作战准备"
+                ]
+            }
+        }
+    },
     "检查A区": {
         "post_delay": 2000,
         "recognition": {
@@ -53,7 +69,7 @@
                     173
                 ],
                 "expected": [
-                    "讨伐"
+                    "^讨伐.*"
                 ]
             }
         },
@@ -240,36 +256,6 @@
             "type": "Click"
         },
         "next": [
-            "重置滑动次数_囚笼"
-        ]
-    },
-    "重置滑动次数_囚笼": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "下滑计数": {
-                        "action": {
-                            "param": {
-                                "custom_action": "Count",
-                                "custom_action_param": {
-                                    "self": "下滑计数",
-                                    "count": 0,
-                                    "target_count": 20,
-                                    "next_node": [
-                                        "退出选人"
-                                    ],
-                                    "next_node_msg": "未搜索到目标人物,重设识别条件",
-                                    "count_msg": "滑动计数: {count}, 目标次数: {target_count}"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "next": [
             "挑战次数不足_弹窗",
             "查看Boss_火队",
             "查看Boss_暗队",
@@ -335,21 +321,21 @@
             "param": {
                 "custom_action": "PPOverride",
                 "custom_action_param": {
-                    "选择自动作战人物": {
-                        "threshold": [
-                            0.9,
-                            0.9
-                        ],
-                        "template": [
-                            "肉鸽通用/启明.png",
-                            "肉鸽通用/启明终解.png"
-                        ]
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "cage": true,
+                                    "need_element": "ice"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
         "next": [
-            "清除队伍_战区"
+            "清除队伍"
         ]
     },
     "查看Boss_暗队": {
@@ -380,23 +366,21 @@
             "param": {
                 "custom_action": "PPOverride",
                 "custom_action_param": {
-                    "选择自动作战人物": {
-                        "threshold": [
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9
-                        ],
-                        "template": [
-                            "肉鸽通用/晖暮.png",
-                            "肉鸽通用/晖暮终解.png"
-                        ]
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "cage": true,
+                                    "need_element": "dark"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
         "next": [
-            "清除队伍_战区"
+            "清除队伍"
         ]
     },
     "查看Boss_火队": {
@@ -425,25 +409,21 @@
             "param": {
                 "custom_action": "PPOverride",
                 "custom_action_param": {
-                    "选择自动作战人物": {
-                        "threshold": [
-                            0.9,
-                            0.9,
-                            0.9,
-                            0.9
-                        ],
-                        "template": [
-                            "肉鸽通用/誓焰.png",
-                            "肉鸽通用/誓焰终解.png",
-                            "肉鸽通用/超刻.png",
-                            "肉鸽通用/超刻终解.png"
-                        ]
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "cage": true,
+                                    "need_element": "fire"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
         "next": [
-            "清除队伍_战区"
+            "清除队伍"
         ]
     },
     "查看Boss_物队": {
@@ -473,21 +453,21 @@
             "param": {
                 "custom_action": "PPOverride",
                 "custom_action_param": {
-                    "选择自动作战人物": {
-                        "threshold": [
-                            0.9,
-                            0.9
-                        ],
-                        "template": [
-                            "肉鸽通用/深痕.png",
-                            "肉鸽通用/深痕终解.png"
-                        ]
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "cage": true,
+                                    "need_element": "physical"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
         "next": [
-            "清除队伍_战区"
+            "清除队伍"
         ]
     },
     "查看Boss_雷队": {
@@ -516,21 +496,21 @@
             "param": {
                 "custom_action": "PPOverride",
                 "custom_action_param": {
-                    "选择自动作战人物": {
-                        "threshold": [
-                            0.9,
-                            0.9
-                        ],
-                        "template": [
-                            "肉鸽通用/深红囚影.png",
-                            "肉鸽通用/深红囚影终解.png"
-                        ]
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "cage": true,
+                                    "need_element": "lightning"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
         "next": [
-            "清除队伍_战区"
+            "清除队伍"
         ]
     },
     "意外点击_保存分数": {
@@ -549,82 +529,6 @@
                 ]
             }
         }
-    },
-    "耐力不足_编入队伍": {
-        "post_delay": 1000,
-        "focus": {
-            "successded": "当前角色耐力不足"
-        },
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    537,
-                    337,
-                    207,
-                    41
-                ],
-                "expected": [
-                    "耐力不足"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "next": [
-            "选择其他人物_囚笼"
-        ]
-    },
-    "选择其他人物_囚笼": {
-        "post_delay": 0,
-        "action": {
-            "type": "Swipe",
-            "param": {
-                "begin": [
-                    130,
-                    230,
-                    0,
-                    0
-                ],
-                "end": [
-                    140,
-                    100,
-                    0,
-                    0
-                ]
-            }
-        },
-        "next": [
-            "停止滑动_囚笼耐力不足"
-        ]
-    },
-    "停止滑动_囚笼耐力不足": {
-        "pre_delay": 0,
-        "action": {
-            "type": "Swipe",
-            "param": {
-                "begin": [
-                    140,
-                    100,
-                    0,
-                    0
-                ],
-                "end": [
-                    400,
-                    100,
-                    0,
-                    0
-                ]
-            }
-        },
-        "next": [
-            "选择自动作战人物"
-        ],
-        "interrupt": [
-            "滑动_战区选人"
-        ]
     },
     "检查是否在囚笼主界面": {
         "post_delay": 200,
@@ -645,7 +549,12 @@
             "关闭囚笼奖励界面"
         ],
         "interrupt": [
-            "领取囚笼奖励"
+            "领取囚笼奖励",
+            "选择区域",
+            "打开幻痛囚笼",
+            "打开挑战_幻痛囚笼",
+            "打开战斗",
+            "意外点击_限定活动"
         ]
     },
     "挑战次数不足": {
@@ -955,211 +864,6 @@
         },
         "next": [
             "返回"
-        ]
-    },
-    "清除队伍": {
-        "next": [
-            "队伍净空_红"
-        ],
-        "interrupt": [
-            "清空红色位"
-        ]
-    },
-    "卸下队伍": {
-        "post_delay": 1000,
-        "pre_delay": 1000,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    970,
-                    459,
-                    137,
-                    56
-                ],
-                "expected": "卸下队伍"
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "清空红色位": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1032,
-                    641,
-                    148,
-                    53
-                ],
-                "expected": "作战开始"
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    635,
-                    434,
-                    0,
-                    0
-                ]
-            }
-        },
-        "next": [
-            "卸下队伍"
-        ]
-    },
-    "清空黄色位": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1032,
-                    641,
-                    148,
-                    53
-                ],
-                "expected": "作战开始"
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    961,
-                    397,
-                    0,
-                    0
-                ]
-            }
-        },
-        "next": [
-            "卸下队伍"
-        ]
-    },
-    "清空蓝色位": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1032,
-                    641,
-                    148,
-                    53
-                ],
-                "expected": "作战开始"
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    287,
-                    403,
-                    0,
-                    0
-                ]
-            }
-        },
-        "next": [
-            "卸下队伍"
-        ]
-    },
-    "队伍净空_红": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    571,
-                    388,
-                    145,
-                    109
-                ],
-                "template": "幻痛囚笼/队伍净空_红.png"
-            }
-        },
-        "next": [
-            "队伍净空_黄"
-        ],
-        "interrupt": [
-            "清空黄色位"
-        ]
-    },
-    "队伍净空_黄": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    223,
-                    346,
-                    132,
-                    118
-                ],
-                "template": "幻痛囚笼/队伍净空_蓝黄.png"
-            }
-        },
-        "next": [
-            "队伍净空_蓝"
-        ],
-        "interrupt": [
-            "清空蓝色位"
-        ]
-    },
-    "队伍净空_蓝": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    905,
-                    351,
-                    113,
-                    108
-                ],
-                "template": "幻痛囚笼/队伍净空_蓝黄.png"
-            }
-        },
-        "next": [
-            "选择人物"
-        ]
-    },
-    "选择人物": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    204,
-                    323,
-                    852,
-                    122
-                ],
-                "expected": "首发"
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "编入队伍": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    982,
-                    471,
-                    137,
-                    50
-                ],
-                "expected": "编入队伍"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "编入队伍_next"
         ]
     },
     "编入队伍_next": {

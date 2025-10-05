@@ -33,18 +33,13 @@ from custom.action.basics import CombatActions
 
 
 class Hyperreal(CustomAction):
-    tempelate = {
-        "red": {"识别信号球": {"template": ["信号球/超刻_红.png"]}},
-        "blue": {"识别信号球": {"template": ["信号球/超刻_蓝.png"]}},
-        "yellow": {"识别信号球": {"template": ["信号球/超刻_黄.png"]}},
-    }
 
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
 
         action = CombatActions(
-            context=context, role_name="超刻", template=self.tempelate
+            context=context, role_name="超刻"
         )
 
         action.lens_lock()

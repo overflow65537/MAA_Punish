@@ -25,7 +25,6 @@ MAA_Punish 多人自动战斗
 """
 
 import sys
-import time
 from pathlib import Path
 
 from maa.context import Context

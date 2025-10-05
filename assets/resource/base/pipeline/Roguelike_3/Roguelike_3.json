@@ -134,6 +134,15 @@
                     },
                     "选择首发2_矩阵循生": {
                         "enabled": true
+                    },
+                    "选择角色程序_矩阵循生": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "roguelike_3_mode": 1
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -162,7 +171,7 @@
             "选择首发2_矩阵循生"
         ],
         "interrupt": [
-            "滑动_矩阵循生"
+            "滑动_选人"
         ]
     },
     "点击精通等级低于3的人物": {
@@ -490,40 +499,28 @@
             "更换首发_矩阵循生",
             "点击下阵",
             "点击精通等级低于12的人物",
-            "滑动_矩阵循生"
+            "滑动_选人"
         ]
     },
     "点击精通等级低于12的人物": {
         "recognition": {
-            "type": "Custom",
-            "param": {
-                "custom_recognition": "IDFMasteryLevel"
-            }
-        },
-        "post_delay": 1000,
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "二次编入_矩阵循生"
-        ]
-    },
-    "二次编入_矩阵循生": {
-        "post_delay": 1000,
-        "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    1058,
-                    628,
-                    75,
-                    45
+                    1041,
+                    617,
+                    116,
+                    68
                 ],
                 "expected": "编入"
             }
         },
+        "post_delay": 1000,
         "action": {
-            "type": "Click"
+            "type": "Custom",
+            "param": {
+                "custom_action": "RoleSelection"
+            }
         },
         "next": [
             "确定编队_矩阵循生"
@@ -551,6 +548,13 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": "识别人物",
+                "roi_offset": [
+                    189,
+                    25,
+                    -51,
+                    -45
+                ],
                 "only_rec": true,
                 "expected": "^(?!12$).*$"
             }
@@ -1582,156 +1586,14 @@
             "type": "Click"
         },
         "next": [
-            "选择自动作战人物_矩阵循生",
-            "选择首发_矩阵循生"
-        ],
-        "interrupt": [
-            "滑动_矩阵循生"
+            "选择角色程序_矩阵循生"
         ]
     },
-    "选择自动作战人物_矩阵循生": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    70,
-                    63,
-                    143,
-                    576
-                ],
-                "template": [
-                    "肉鸽通用/誓焰终解_矩阵.png",
-                    "肉鸽通用/誓焰_矩阵.png",
-                    "肉鸽通用/誓焰花嫁_矩阵.png",
-                    "肉鸽通用/深红囚影终解_矩阵.png",
-                    "肉鸽通用/深红囚影_矩阵.png",
-                    "肉鸽通用/深谣终解_矩阵.png",
-                    "肉鸽通用/深谣_矩阵.png",
-                    "肉鸽通用/终焉终解_矩阵.png",
-                    "肉鸽通用/终焉_矩阵.png",
-                    "肉鸽通用/启明_矩阵.png",
-                    "肉鸽通用/启明终解_矩阵.png",
-                    "肉鸽通用/超刻_矩阵.png",
-                    "肉鸽通用/超刻终解_矩阵.png"
-                ],
-                "threshold": [
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "编入_矩阵循生"
-        ]
-    },
-    "滑动_矩阵循生": {
-        "post_delay": 1000,
-        "action": {
-            "type": "Swipe",
-            "param": {
-                "begin": [
-                    177,
-                    493,
-                    1,
-                    1
-                ],
-                "end": [
-                    179,
-                    405,
-                    1,
-                    1
-                ],
-                "duration": 1000
-            }
-        },
-        "next": [
-            "停止滑动"
-        ]
-    },
-    "停止滑动": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    141,
-                    130,
-                    1,
-                    1
-                ]
-            }
-        },
-        "next": [
-            "下滑计数"
-        ]
-    },
-    "下滑计数": {
+    "选择角色程序_矩阵循生": {
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "Count",
-                "custom_action_param": {
-                    "self": "下滑计数",
-                    "count": 0,
-                    "target_count": 20,
-                    "next_node": [
-                        "退出选人"
-                    ],
-                    "next_node_msg": "未搜索到目标人物,重设识别条件",
-                    "count_msg": "滑动计数: {count}, 目标次数: {target_count}"
-                }
-            }
-        }
-    },
-    "退出选人": {
-        "post_delay": 1500,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    76,
-                    18,
-                    62,
-                    34
-                ],
-                "expected": "返回"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "退出选人计数"
-        ]
-    },
-    "退出选人计数": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "Count",
-                "custom_action_param": {
-                    "self": "退出选人计数",
-                    "count": 0,
-                    "target_count": 2,
-                    "next_node": [
-                        "强制选人"
-                    ],
-                    "next_node_msg": "未搜索到目标人物,随机选择人物",
-                    "count_msg": "强制选人计数: {count}, 目标次数: {target_count}"
-                }
+                "custom_action": "RoleSelection"
             }
         }
     },
@@ -1748,69 +1610,6 @@
                 "expected": "链路崩溃"
             }
         }
-    },
-    "强制选人": {
-        "focus": {
-            "succeeded": "[color:Tomato]未检查到目标人物,即将随机选择.当你看到这行提示的时候,证明是时候解锁四点初始招募能量了[/color]"
-        },
-        "next": [
-            "事件完成_矩阵循生"
-        ],
-        "interrupt": [
-            "更换首发_矩阵循生",
-            "点击下阵",
-            "强制选择自动作战人物_矩阵循生",
-            "滑动_矩阵循生"
-        ]
-    },
-    "强制选择自动作战人物_矩阵循生": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    70,
-                    63,
-                    143,
-                    576
-                ],
-                "template": [
-                    "肉鸽通用/誓焰终解_矩阵.png",
-                    "肉鸽通用/誓焰_矩阵.png",
-                    "肉鸽通用/誓焰花嫁_矩阵.png",
-                    "肉鸽通用/深红囚影终解_矩阵.png",
-                    "肉鸽通用/深红囚影_矩阵.png",
-                    "肉鸽通用/深谣终解_矩阵.png",
-                    "肉鸽通用/深谣_矩阵.png",
-                    "肉鸽通用/终焉终解_矩阵.png",
-                    "肉鸽通用/终焉_矩阵.png",
-                    "肉鸽通用/启明_矩阵.png",
-                    "肉鸽通用/启明终解_矩阵.png",
-                    "肉鸽通用/超刻_矩阵.png",
-                    "肉鸽通用/超刻终解_矩阵.png"
-                ],
-                "threshold": [
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "二次编入_矩阵循生"
-        ]
     },
     "编入_矩阵循生": {
         "post_delay": 1000,
