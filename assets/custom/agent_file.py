@@ -7,6 +7,8 @@ from action.basics.Count import Count
 from action.basics.PPOverride import PPOverride
 from action.basics.ChainLoopCircuit import ChainLoopCircuit
 from action.basics.RoleSelection import RoleSelection
+from action.basics.RecognitionRole import RecognitionRole
+
 
 from action.exclusives.CrimsonWeave import CrimsonWeave
 from action.exclusives.LostLullaby import LostLullaby
@@ -16,7 +18,7 @@ from action.exclusives.Stigmata import Stigmata
 from action.exclusives.Shukra import Shukra
 from action.exclusives.Hyperreal import Hyperreal
 from action.exclusives.Crepuscule import Crepuscule
-from action.exclusives.GeneralFight import   GeneralFight
+from action.exclusives.GeneralFight import GeneralFight
 
 
 from recognition.exclusives.CalculateScore import CalculateScore
@@ -27,29 +29,41 @@ from recognition.exclusives.LogicalOperators import LOp
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
 
+
+@AgentServer.custom_action("RecognitionRole")
+class Agent_RecognitionRole(RecognitionRole):
+    pass
+
+
 @AgentServer.custom_action("RoleSelection")
 class Agent_RoleSelection(RoleSelection):
     pass
+
 
 @AgentServer.custom_action("GeneralFight")
 class Agent_GeneralFight(GeneralFight):
     pass
 
+
 @AgentServer.custom_action("Hyperreal")
 class Agent_Hyperreal(Hyperreal):
     pass
+
 
 @AgentServer.custom_action("Crepuscule")
 class Agent_Crepuscule(Crepuscule):
     pass
 
+
 @AgentServer.custom_recognition("AutoCounter")
 class Agent_AutoCounter(AutoCounter):
     pass
 
+
 @AgentServer.custom_recognition("CheckResolution")
 class Agent_CheckResolution(CheckResolution):
     pass
+
 
 @AgentServer.custom_recognition("LOp")
 class Agent_LOp(LOp):
