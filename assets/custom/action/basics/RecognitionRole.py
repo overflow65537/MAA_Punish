@@ -13,11 +13,11 @@ class RecognitionRole(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-
+        image = context.tasker.controller.post_screencap().wait().get()
         for role_name, role_info in ROLE_ACTIONS.items():
             result = context.run_recognition(
                 entry="检查角色",
-                image=context.tasker.controller.post_screencap().wait().get(),
+                image=image,
                 pipeline_override={
                     "检查角色": {
                         "recognition": {
@@ -41,9 +41,11 @@ class RecognitionRole(CustomAction):
                 return CustomAction.RunResult(success=True)
         context.override_pipeline(
             {
-                "识别人物": {"enabled": True},
-                "战斗中": {"action": "Custom",
-                            "custom_action": "GeneralFight",},
+                "识别人物": {"enabled": False},
+                "战斗中": {
+                    "action": "Custom",
+                    "custom_action": "GeneralFight",
+                },
             }
         )
 
