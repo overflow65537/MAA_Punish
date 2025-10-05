@@ -162,7 +162,6 @@ class RoleSelection(CustomAction):
                     },
                 }
             }
-            self.logger.info(f"正在识别角色: {role_name}")
 
             result = context.run_recognition(
                 entry="识别角色",

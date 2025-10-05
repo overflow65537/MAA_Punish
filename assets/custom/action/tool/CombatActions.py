@@ -167,11 +167,6 @@ class CombatActions:
             image = self.context.tasker.controller.post_screencap().wait().get()
             # 识别并返回结果
             result = self.context.run_recognition(node, image, pipeline_override)
-            if result:
-                self.logger.info(node + ":True")
-
-            else:
-                self.logger.info(node + ":False")
             return result
         except Exception as e:
             self.logger.exception(node + ":" + str(e))
@@ -183,12 +178,8 @@ class CombatActions:
             # 获取截图
             image = self.context.tasker.controller.post_screencap().wait().get()
             # 识别并返回结果
-            if self.context.run_recognition("技能_能量条", image):
-                self.logger.info("检查技能_能量条:True")
-                return True
-            else:
-                self.logger.info("检查技能_能量条:False")
-                return False
+            return self.context.run_recognition("技能_能量条", image) is not None
+
         except Exception as e:
             self.logger.exception("检查技能_能量条:" + str(e))
             return False
