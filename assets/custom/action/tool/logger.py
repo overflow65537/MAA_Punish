@@ -29,11 +29,6 @@ class Logger:
         # 禁止日志传播到父记录器
         logger.propagate = False
         
-        # 清除可能已存在的处理器
-        for handler in logger.handlers[:]:
-            handler.close()
-            logger.removeHandler(handler)
-        
         # 创建日志目录
         log_path = Path("debug") / "custom.log"
         log_path.parent.mkdir(parents=True, exist_ok=True)
