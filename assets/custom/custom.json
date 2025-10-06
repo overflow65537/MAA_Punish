@@ -109,6 +109,11 @@
         "class": "AutoCounter",
         "file_path": "{custom_path}/recognition/exclusives/AutoCounter.py"
     },
+    "RoleSelection": {
+        "type": "action",
+        "class": "RoleSelection",
+        "file_path": "{custom_path}/action/basics/RoleSelection.py"
+    },
     "RecognitionRole": {
         "type": "action",
         "class": "RecognitionRole",
