@@ -29,14 +29,16 @@ from maa.context import Context
 from pathlib import Path
 import time
 import sys
-
+import logging
+from pathlib import Path
+import os
+from datetime import datetime, timedelta
 
 
 # 获取当前文件的绝对路径
 current_file = Path(__file__).resolve()
 sys.path.append(str(current_file.parent.parent.parent.parent))
 from custom.action.tool.LoadSetting import ROLE_ACTIONS
-from custom.action.tool.logger import Logger
 
 
 class CombatActions:
@@ -66,7 +68,6 @@ class CombatActions:
 
     def __init__(self, context: Context, role_name: str = ""):
         self.context = context
-        self.logger = Logger(role_name if role_name else "CombatActions").get_logger()
         self.role_name = role_name
 
         self.template = {}
@@ -77,7 +78,68 @@ class CombatActions:
                 if role_name == role["name"]:
                     self.template = role.get("skill_template", {})
                     break
+        self.logger = self._setup_logger()
+        self._clear_old_logs()
 
+    def _setup_logger(self):
+        debug_dir = "debug"
+        os.makedirs(debug_dir, exist_ok=True)
+
+        timestamp = datetime.now().strftime("%Y%m%d")
+        log_file_name = f"custom_{timestamp}.log"
+        log_file_path = os.path.join(debug_dir, log_file_name)
+
+        logger = logging.getLogger(__name__)
+        logger.setLevel(logging.DEBUG)
+
+        for handler in logger.handlers[:]:
+            logger.removeHandler(handler)
+
+        logger.propagate = False
+
+        file_handler = logging.FileHandler(log_file_path, mode="a", encoding="utf-8")
+        file_handler.setLevel(logging.DEBUG)
+
+        formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+        file_handler.setFormatter(formatter)
+
+        logger.addHandler(file_handler)
+
+        return logger
+
+    def __del__(self):
+        """清理日志记录器资源"""
+        try:
+            if hasattr(self, "logger") and self.logger:
+                # 安全地关闭所有处理器
+                for handler in self.logger.handlers[:]:
+                    try:
+                        handler.close()
+                    except:
+                        pass
+                    self.logger.removeHandler(handler)
+        except:
+            # 避免在析构函数中抛出异常
+            pass
+
+    def _clear_old_logs(self):
+        debug_dir = "debug"
+        if not os.path.isdir(debug_dir):
+            return
+
+        three_days_ago = datetime.now() - timedelta(days=3)
+        for root, dirs, files in os.walk(debug_dir):
+            for file in files:
+                if file.startswith("custom_") and file.endswith(".log"):
+                    try:
+                        timestamp_str = file.split("_")[1].split(".")[0]
+                        file_time = datetime.strptime(timestamp_str, "%Y%m%d")
+                        if file_time < three_days_ago:
+                            file_path = os.path.join(root, file)
+                            os.remove(file_path)
+                            self.logger.info(f"已删除过期日志文件: {file_path}")
+                    except Exception as e:
+                        self.logger.error(f"处理文件 {file} 时出错: {e}")
 
     def attack(self):
         """攻击"""
