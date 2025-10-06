@@ -101,7 +101,7 @@ ROLE_ACTIONS = {
             "肉鸽通用/深谣_矩阵.png",
             "肉鸽通用/深谣终解_矩阵.png",
         ],
-        "attack_template": "自定义战斗/深谣_p1..png",
+        "attack_template": "自定义战斗/深谣_p1.png",
     },
     "露西亚·深红囚影": {
         "name": "深红囚影",
