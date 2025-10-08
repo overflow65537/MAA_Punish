@@ -629,7 +629,7 @@
                     "pipeline_override": {}
                 },
                 {
-                    "name": "明觉",
+                    "name": "万事",
                     "pipeline_override": {
                         "选择成员": {
                             "action": {
@@ -639,6 +639,23 @@
                                         341,
                                         0,
                                         0
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "莉莉丝",
+                    "pipeline_override": {
+                        "选择成员": {
+                            "action": {
+                                "param": {
+                                    "target": [
+                                        465,
+                                        414,
+                                        1,
+                                        1
                                     ]
                                 }
                             }
