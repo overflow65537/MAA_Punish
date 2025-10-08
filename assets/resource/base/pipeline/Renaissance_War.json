@@ -106,7 +106,15 @@
     },
     "停止任务": {
         "action": {
-            "type": "StopTask"
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "诺曼复兴战": {
+                        "next": []
+                    }
+                }
+            }
         }
     },
     "未解锁自动扫荡": {
