@@ -609,6 +609,24 @@
             "作战开始"
         ]
     },
+    "保存分数": {
+        "post_delay": 1000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    978,
+                    628,
+                    241,
+                    56
+                ],
+                "expected": "保存"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
     "添加人物": {
         "recognition": {
             "type": "TemplateMatch",

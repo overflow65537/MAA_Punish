@@ -29,6 +29,33 @@
             }
         }
     },
+    "关闭难度说明": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    269,
+                    103,
+                    184,
+                    67
+                ],
+                "expected": [
+                    "难度说明"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1201,
+                    71,
+                    1,
+                    1
+                ]
+            }
+        }
+    },
     "检查A区": {
         "post_delay": 2000,
         "recognition": {
@@ -54,6 +81,7 @@
             "检查主界面2"
         ],
         "interrupt": [
+            "关闭难度说明",
             "没打满"
         ]
     },
@@ -82,6 +110,7 @@
             "检查主界面2"
         ],
         "interrupt": [
+            "关闭难度说明",
             "没打满"
         ]
     },
@@ -110,6 +139,7 @@
             "检查主界面2"
         ],
         "interrupt": [
+            "关闭难度说明",
             "没打满"
         ]
     },
@@ -865,117 +895,5 @@
         "next": [
             "返回"
         ]
-    },
-    "编入队伍_next": {
-        "next": [
-            "是否为队长",
-            "作战开始"
-        ]
-    },
-    "是否为队长": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    36,
-                    627,
-                    133,
-                    40
-                ],
-                "expected": [
-                    "未选择队长"
-                ]
-            }
-        },
-        "next": [
-            "队长选择完毕"
-        ],
-        "interrupt": [
-            "选择队长",
-            "选择更换按钮"
-        ]
-    },
-    "队长选择完毕": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    264,
-                    487,
-                    788,
-                    98
-                ],
-                "expected": [
-                    "当前选择"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    10,
-                    10,
-                    0,
-                    0
-                ]
-            }
-        },
-        "next": [
-            "编入队伍_next"
-        ]
-    },
-    "选择更换按钮": {
-        "post_delay": 1000,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    288,
-                    623,
-                    78,
-                    46
-                ],
-                "expected": "更换"
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "选择队长": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    264,
-                    487,
-                    788,
-                    98
-                ],
-                "expected": "选择"
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "保存分数": {
-        "post_delay": 1000,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    978,
-                    628,
-                    241,
-                    56
-                ],
-                "expected": "保存"
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
     }
 }
