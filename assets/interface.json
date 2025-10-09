@@ -626,7 +626,20 @@
                 },
                 {
                     "name": "薇拉",
-                    "pipeline_override": {}
+                    "pipeline_override": {
+                        "选择成员": {
+                            "action": {
+                                "param": {
+                                    "target": [
+                                        692,
+                                        420,
+                                        1,
+                                        1
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 },
                 {
                     "name": "万事",
