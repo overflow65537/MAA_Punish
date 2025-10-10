@@ -291,7 +291,6 @@
         }
     },
     "选择挑战目标": {
-        "enabled": false,
         "recognition": {
             "type": "OCR",
             "param": {
