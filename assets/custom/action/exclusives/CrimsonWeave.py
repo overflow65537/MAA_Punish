@@ -52,9 +52,9 @@ class CrimsonWeave(CustomAction):
                     action.auxiliary_machine()
                     time.sleep(0.2)
                 return CustomAction.RunResult(success=True)
+        time.sleep(0.2)
         action.ball_elimination_target(1)
         time.sleep(0.2)
         action.dodge()  # 闪避
         action.continuous_attack(7, 300)
-
         return CustomAction.RunResult(success=True)
