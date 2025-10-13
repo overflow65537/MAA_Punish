@@ -35,26 +35,26 @@ class CrimsonWeave(CustomAction):
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
 
-        action = CombatActions(context, role_name="囚影")
+        action = CombatActions(context, role_name="露西亚·深红囚影")
         action.lens_lock()
 
-        if action.check_status("检查u1_囚影"):  # 一阶段
-            action.use_skill()  # 崩落的束缚化为利刃
-            time.sleep(0.5)
-            return CustomAction.RunResult(success=True)
+        if (
+            action.check_status("检查u1_囚影") and action.check_Skill_energy_bar()
+        ):  # 一阶段
+            action.use_skill(1500)  # 崩落的束缚化为利刃
 
         elif action.check_status("检查u2_囚影"):  # 二阶段
             if action.check_status("检查无光值_囚影"):  # 检查无光值大于474
                 action.long_press_dodge(1500)  # 闪避
-                action.long_press_attack(2500)  # 登龙
+                action.long_press_attack(2300)  # 登龙
                 for _ in range(10):
                     action.use_skill()  # 二段大
                     action.auxiliary_machine()
                     time.sleep(0.2)
                 return CustomAction.RunResult(success=True)
-
+        action.ball_elimination_target(1)
+        time.sleep(0.2)
         action.dodge()  # 闪避
-        action.continuous_attack(8, 300)
-        action.ball_elimination_target(1)  # 消球
+        action.continuous_attack(7, 300)
 
         return CustomAction.RunResult(success=True)

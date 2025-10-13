@@ -176,11 +176,11 @@ class CombatActions:
             dodge_x, dodge_y, dodge_x, dodge_y, duration
         ).wait()
 
-    def use_skill(self):
+    def use_skill(self, duration: int = 0):
         """技能"""
-        return self.context.tasker.controller.post_click(
-            *self.COORDINATES["skill"]
-        ).wait()
+        self.context.tasker.controller.post_click(*self.COORDINATES["skill"]).wait()
+        time.sleep(duration / 1000)
+        return
 
     def long_press_skill(self, time: int = 1000):
         """长按技能"""
@@ -246,7 +246,7 @@ class CombatActions:
             self.logger.exception("检查技能_能量条:" + str(e))
             return False
 
-    def Arrange_Signal_Balls(self, target_ball: str) -> int:
+    def Arrange_Signal_Balls(self, target_ball: str ="any") -> int:
         """
         自动消球逻辑
         Args:
