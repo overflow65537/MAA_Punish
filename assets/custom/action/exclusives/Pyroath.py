@@ -37,7 +37,7 @@ class Pyroath(CustomAction):
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
 
-        actions = CombatActions(context,role_name="誓焰")
+        actions = CombatActions(context, role_name="誓焰")
 
         actions.lens_lock()
 
@@ -46,9 +46,6 @@ class Pyroath(CustomAction):
             if actions.check_status("检查p1动能条_誓焰"):
                 actions.logger.info("p1动能条max")
                 actions.long_press_skill()  # 汇聚,阳炎之光
-                time.sleep(0.1)
-                actions.long_press_attack()  # 长按攻击
-
             else:
                 actions.logger.info("p1动能条非max")
                 actions.ball_elimination_target()  # 消球2
@@ -59,8 +56,9 @@ class Pyroath(CustomAction):
             if actions.check_Skill_energy_bar():
                 actions.use_skill()  # 进入3阶段
             else:
-                actions.ball_elimination_target()  # 消球2
+                actions.long_press_attack()
                 actions.continuous_attack(20, 100)  # 攻击
+                actions.ball_elimination_target()  # 消球2
 
         elif actions.check_status("检查u3_誓焰"):
             actions.logger.info("誓焰u3")
