@@ -2,7 +2,7 @@
     "name": "MAA_Punish",
     "mirrorchyan_rid": "MAA_Punish",
     "url": "https://github.com/overflow65537/MAA_Punish",
-    "MFW_min_req_version": "2.4.22",
+    "MFW_min_req_version": "3.0.0",
     "controller": [
         {
             "name": "安卓端",
@@ -626,10 +626,23 @@
                 },
                 {
                     "name": "薇拉",
-                    "pipeline_override": {}
+                    "pipeline_override": {
+                        "选择成员": {
+                            "action": {
+                                "param": {
+                                    "target": [
+                                        692,
+                                        420,
+                                        1,
+                                        1
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 },
                 {
-                    "name": "明觉",
+                    "name": "万事",
                     "pipeline_override": {
                         "选择成员": {
                             "action": {
@@ -639,6 +652,23 @@
                                         341,
                                         0,
                                         0
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "莉莉丝",
+                    "pipeline_override": {
+                        "选择成员": {
+                            "action": {
+                                "param": {
+                                    "target": [
+                                        465,
+                                        414,
+                                        1,
+                                        1
                                     ]
                                 }
                             }
