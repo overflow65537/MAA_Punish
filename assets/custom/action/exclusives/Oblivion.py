@@ -41,15 +41,16 @@ class Oblivion(CustomAction):
         actions.lens_lock()
 
         if actions.check_Skill_energy_bar():
-            actions.use_skill()  # 技能
-
+            actions.use_skill(1000)  # 技能
         elif actions.check_status("检查残月值_终焉"):
-            actions.long_press_attack()
-
-        else:
-            actions.ball_elimination_target(1)
-            actions.continuous_attack(5, 300)
             actions.long_press_attack(2000)
-            time.sleep(0.5)
+        elif actions.check_status("检查信号球数量_启明"):  # 复用下启明的检查信号球数量
+            actions.ball_elimination_target(1)
+        else:
+            time.sleep(0.1)
+            actions.ball_elimination_target(1)
+            actions.continuous_attack(8, 200)
+            actions.long_press_attack(2000)
+            time.sleep(1)
 
         return CustomAction.RunResult(success=True)
