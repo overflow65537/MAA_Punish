@@ -67,7 +67,9 @@ class Pyroath(CustomAction):
             else:
                 actions.long_press_attack(4000)  # 长按攻击
                 actions.use_skill()
-                time.sleep(0.1)
-                actions.auxiliary_machine()
+            time.sleep(0.5)
+            actions.auxiliary_machine()
+            actions.trigger_qte(1)
+            actions.trigger_qte(2)
 
         return CustomAction.RunResult(success=True)
