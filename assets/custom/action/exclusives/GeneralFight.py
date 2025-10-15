@@ -33,13 +33,9 @@ class GeneralFight(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        action = CombatActions(context,role_name="通用")
-
+        action = CombatActions(context, role_name="通用")
         action.lens_lock()
-        if action.check_Skill_energy_bar():
-            action.logger.info("大招就绪")
-            action.use_skill()
-        else:
-            action.ball_elimination_target()
-            action.continuous_attack(4,300)
+        action.ball_elimination_target()
+        action.use_skill()
+        action.continuous_attack(4, 300)
         return CustomAction.RunResult(success=True)
