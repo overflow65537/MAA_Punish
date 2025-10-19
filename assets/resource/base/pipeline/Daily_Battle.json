@@ -152,14 +152,14 @@
             }
         },
         "action": {
-            "type": "Click",
-            "param": {}
+            "type": "Click"
         },
         "next": [
             "使用补给包"
         ]
     },
     "使用补给包": {
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -170,6 +170,17 @@
                     57
                 ],
                 "expected": "注射血清"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    349,
+                    213,
+                    1,
+                    1
+                ]
             }
         },
         "next": [
@@ -202,11 +213,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "only_rec": true,
                 "roi": [
-                    253,
-                    179,
-                    44,
-                    31
+                    257,
+                    186,
+                    41,
+                    21
                 ],
                 "expected": [
                     "小时",
@@ -248,11 +260,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "only_rec": true,
                 "roi": [
-                    401,
-                    171,
-                    61,
-                    50
+                    414,
+                    186,
+                    33,
+                    20
                 ],
                 "expected": [
                     "小时",
@@ -293,11 +306,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "only_rec": true,
                 "roi": [
-                    552,
-                    170,
-                    65,
-                    49
+                    567,
+                    186,
+                    33,
+                    18
                 ],
                 "expected": [
                     "小时",
