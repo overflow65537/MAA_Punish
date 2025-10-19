@@ -670,7 +670,9 @@
         ]
     },
     "领取囚笼奖励": {
-        "post_wait_freezes": 5,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
