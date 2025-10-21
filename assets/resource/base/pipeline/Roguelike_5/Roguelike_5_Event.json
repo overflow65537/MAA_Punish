@@ -872,10 +872,10 @@
                 "expected": [
                     "继续"
                 ]
-            },
-            "action": {
-                "type": "Click"
             }
+        },
+        "action": {
+            "type": "Click"
         }
     },
     "审判庭的孑遗_神寂启示录": {
@@ -934,10 +934,10 @@
                 ],
                 "connected": true,
                 "count": 100
-            },
-            "action": {
-                "type": "Click"
             }
+        },
+        "action": {
+            "type": "Click"
         }
     },
     "审判庭的孑遗_对话2": {
