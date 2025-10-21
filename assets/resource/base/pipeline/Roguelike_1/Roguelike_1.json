@@ -34,7 +34,9 @@
         ]
     },
     "宣叙妄响内部_reco": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -152,7 +154,9 @@
         ]
     },
     "撤退_宣叙妄响": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -202,7 +206,9 @@
         ]
     },
     "战斗失败_宣叙妄响": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -220,7 +226,9 @@
         }
     },
     "没打过_宣叙妄响_reco": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -235,7 +243,9 @@
         }
     },
     "幕间准备_宣叙妄响": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -257,7 +267,9 @@
         ]
     },
     "幕间准备处理_宣叙妄响": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -286,7 +298,9 @@
         ]
     },
     "结束交易_宣叙妄响": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -307,7 +321,9 @@
         }
     },
     "选择增益_宣叙妄响": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -332,7 +348,9 @@
         ]
     },
     "选择增益替换_宣叙妄响": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -371,7 +389,9 @@
         }
     },
     "选择增益处理_宣叙妄响": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -391,7 +411,9 @@
         }
     },
     "剧情节点_宣叙妄响": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -424,7 +446,9 @@
         ]
     },
     "剧情节点处理_宣叙妄响": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -456,7 +480,9 @@
         ]
     },
     "对话按钮_宣叙妄响": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -474,7 +500,9 @@
         }
     },
     "事件处理_宣叙妄响": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -511,7 +539,9 @@
         ]
     },
     "下一步_宣叙妄响": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -529,7 +559,9 @@
         }
     },
     "离开_宣叙妄响": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -547,7 +579,9 @@
         }
     },
     "战斗冲突_宣叙妄响": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -574,7 +608,9 @@
     },
     "意外步骤_战斗界面": {
         "_doc": "这是为了防止战斗冲突处理步骤播放动画过慢,导致宣叙妄响内部_reco提前识别导致卡住",
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -611,7 +647,9 @@
         ]
     },
     "战斗冲突处理_宣叙妄响": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -709,7 +747,9 @@
         }
     },
     "失败_宣叙妄响": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -742,7 +782,9 @@
         ]
     },
     "刷新_宣叙妄响": {
-        "post_delay": 1500,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -940,7 +982,9 @@
         ]
     },
     "点击招募_宣叙妄响": {
-        "post_delay": 1500,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -961,7 +1005,9 @@
         }
     },
     "点击招募_倒序_宣叙妄响": {
-        "post_delay": 1500,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1018,7 +1064,9 @@
         ]
     },
     "选定演员_宣叙妄响": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1088,7 +1136,9 @@
         ]
     },
     "选定难度_宣叙妄响": {
-        "post_delay": 1500,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1131,7 +1181,9 @@
         ]
     },
     "未完待续_宣叙妄响": {
-        "post_delay": 1500,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1177,7 +1229,9 @@
         }
     },
     "揭开帷幕_宣叙妄响": {
-        "post_delay": 1500,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1217,7 +1271,9 @@
         }
     },
     "就此收场": {
-        "post_delay": 1500,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
