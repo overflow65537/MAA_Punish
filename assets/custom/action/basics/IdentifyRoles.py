@@ -64,7 +64,7 @@ class IdentifyRoles(CustomAction):
         # 识别角色名称
         role_names: Dict[str, Optional[str]] = {}
         for pos, roi in ROLE_NAME_ROIS:
-            result = context.run_recognition(
+            result= context.run_recognition(
                 "识别角色名", image, {"识别角色名": {"roi": roi}}
             )
             role_names[pos] = result.best_result.text if result else None
@@ -139,5 +139,4 @@ class IdentifyRoles(CustomAction):
                     }
                 )
 
-        context.run_task("点击作战开始")
         return CustomAction.RunResult(success=True)

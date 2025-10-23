@@ -106,7 +106,10 @@
             "param": {
                 "custom_action": "IdentifyRoles"
             }
-        }
+        },
+        "next": [
+            "点击作战开始"
+        ]
     },
     "等待加载": {
         "recognition": {
