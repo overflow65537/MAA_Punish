@@ -207,7 +207,7 @@ class RoleSelection(CustomAction):
         if target is None:
             self.logger.info(f"选择角色失败: {selected_role}")
             context.run_task("返回主菜单")
-            context.tasker.post_stop()
+            context.run_action("停止任务")
 
         return CustomAction.RunResult(success=True)
 

@@ -329,6 +329,11 @@
         }
     },
     "空任务": {},
+    "停止任务": {
+        "action": {
+            "type": "StopTask"
+        }
+    },
     "OCR": {
         "recognition": {
             "type": "OCR",
