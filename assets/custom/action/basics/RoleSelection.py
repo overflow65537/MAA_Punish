@@ -34,6 +34,7 @@ import logging
 from pathlib import Path
 import os
 from datetime import datetime, timedelta
+import numpy
 
 
 # 获取当前文件的绝对路径
@@ -128,7 +129,7 @@ class RoleSelection(CustomAction):
                     condition.get("rouelike_3_mode", 0),
                 )
             )
-            if condition.get("pick","") in role.keys():
+            if condition.get("pick", "") in role.keys():
                 break
             context.run_action("滑动_选人")
 
@@ -152,10 +153,12 @@ class RoleSelection(CustomAction):
             self.logger.info(f"选择角色: {selected_role}")
 
         target = None
-        for _ in range(int(condition.get("max_try", 3)) + 1):
+        images = []
+        for attempt in range(int(condition.get("max_try", 3)) + 1):
             if context.tasker.stopping:
                 return CustomAction.RunResult(success=True)
             image = context.tasker.controller.post_screencap().wait().get()
+            images.append(image)
             if nonselected_roles and condition.get("cage"):
                 target = context.run_recognition(
                     "选择人物",
@@ -205,9 +208,20 @@ class RoleSelection(CustomAction):
                 return CustomAction.RunResult(success=True)
             context.run_action("滑动_选人")
         if target is None:
+            for i, img in enumerate(images, 1):
+                self.save_screenshot(img, f"未找到角色_尝试{i}")
             self.logger.info(f"选择角色失败: {selected_role}")
             context.run_task("返回主菜单")
-            context.run_action("停止任务")
+            context.override_next(argv.node_name, ["停止任务"])
+            context.override_pipeline(
+                {
+                    "停止任务": {
+                        "focus":{
+                            "succeeded":f"未找到角色 {selected_role},退出任务"
+                        }
+                    }
+                }
+            )
 
         return CustomAction.RunResult(success=True)
 
@@ -281,10 +295,10 @@ class RoleSelection(CustomAction):
             # 是否有次数
             has_count = info.get("cage", True)
             # 肉鸽3模式 0代表初始招募能量4，只需要提取是否被肉鸽选中。1代表初始招募能量3，只提取精通等级
-            if condition.get("rouelike_3_mode", 0) == 0:
+            if condition.get("rouelike_3_mode") == 0:
                 is_pick = role_name == condition.get("pick", "")
                 is_master_level_not_full = True
-            elif condition.get("rouelike_3_mode", 0) == 1:
+            elif condition.get("rouelike_3_mode") == 1:
                 is_pick = True
                 is_master_level_not_full = info.get("master_level", True)
             else:
@@ -299,3 +313,37 @@ class RoleSelection(CustomAction):
             )
             weight[role_name] = w
         return weight
+
+    def save_screenshot(self, image: numpy.ndarray, img_type: str) -> bool:
+
+        import struct
+        import zlib
+        import time
+
+        height, width, _ = image.shape
+        current_time = img_type + "_" + time.strftime("%Y-%m-%d_%H-%M-%S") + ".png"
+        debug_path = os.path.join("debug", current_time)
+        if not os.path.exists("debug"):
+            os.makedirs("debug")
+
+        def png_chunk(chunk_type, data):
+            chunk = chunk_type + data
+            return (
+                struct.pack("!I", len(data))
+                + chunk
+                + struct.pack("!I", zlib.crc32(chunk))
+            )
+
+        # Convert BGR to RGB
+        image = image[:, :, [2, 1, 0]]
+
+        raw_data = b"".join(b"\x00" + image[i, :, :].tobytes() for i in range(height))
+        ihdr = struct.pack("!2I5B", width, height, 8, 2, 0, 0, 0)
+        idat = zlib.compress(raw_data, level=9)
+
+        with open(debug_path, "wb") as f:
+            f.write(b"\x89PNG\r\n\x1a\n")
+            f.write(png_chunk(b"IHDR", ihdr))
+            f.write(png_chunk(b"IDAT", idat))
+            f.write(png_chunk(b"IEND", b""))
+        return True
