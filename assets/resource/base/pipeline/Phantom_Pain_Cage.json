@@ -96,8 +96,9 @@
                     188,
                     173
                 ],
+                "order_by": "Vertical",
                 "expected": [
-                    "^讨伐.*"
+                    "讨伐"
                 ]
             }
         },
