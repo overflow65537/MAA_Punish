@@ -216,9 +216,7 @@ class RoleSelection(CustomAction):
             context.override_pipeline(
                 {
                     "停止任务": {
-                        "focus":{
-                            "succeeded":f"未找到角色 {selected_role},退出任务"
-                        }
+                        "focus": {"succeeded": f"未找到角色 {selected_role},退出任务"}
                     }
                 }
             )
