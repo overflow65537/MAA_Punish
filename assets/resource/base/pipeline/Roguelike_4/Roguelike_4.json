@@ -1073,7 +1073,7 @@
         }
     },
     "局内招募_寒境曙光": {
-        "post_delay": 1000,
+        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
