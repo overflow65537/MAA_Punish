@@ -2124,6 +2124,7 @@
         }
     },
     "下一天_强制失败": {
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
