@@ -1,0 +1,66 @@
+{
+    "启动": {
+        "next": [
+            "关闭公告",
+            "检查分辨率",
+            "关闭纷争战区通知",
+            "关闭拟真围剿通知",
+            "检查主界面"
+        ],
+        "interrupt": [
+            "关闭奖励",
+            "进入游戏",
+            "更新",
+            "关闭低内存提示",
+            "更新中",
+            "返回主菜单",
+            "打开应用"
+        ]
+    },
+    "进入游戏": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    884,
+                    600,
+                    112,
+                    60
+                ],
+                "expected": [
+                    "进入游戏"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "打开应用": {
+        "action": {
+            "type": "StartApp",
+            "param": {
+                "package": "com.kurogame.haru.cloud"
+            }
+        }
+    },
+    "停止": {
+        "action": {
+            "type": "StopApp",
+            "param": {
+                "package": "com.kurogame.haru.cloud"
+            }
+        }
+    },
+    "重启游戏": {
+        "action": {
+            "type": "StopApp",
+            "param": {
+                "package": "com.kurogame.haru.cloud"
+            }
+        },
+        "next": [
+            "启动"
+        ]
+    }
+}

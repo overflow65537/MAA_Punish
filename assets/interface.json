@@ -17,6 +17,13 @@
             ]
         },
         {
+            "name": "云战双",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/pgr_cloud"
+            ]
+        },
+        {
             "name": "B 服",
             "path": [
                 "{PROJECT_DIR}/resource/base",
