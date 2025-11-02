@@ -2,7 +2,8 @@
     "诺曼复兴战": {
         "next": [
             "未解锁自动扫荡_无提示",
-            "打通诺曼复兴战"
+            "打通诺曼复兴战",
+            "打通诺曼复兴战条件2"
         ],
         "interrupt": [
             "返回_诺曼复兴战",
@@ -15,6 +16,57 @@
             "滑动_诺曼复兴战内部",
             "意外点击_限定活动"
         ]
+    },
+    "打通诺曼复兴战条件2": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "LOp",
+                "custom_recognition_param": {
+                    "mode": "and",
+                    "nodes": [
+                        "检查宝来矿区",
+                        "检查宝来矿区次数"
+                    ]
+                }
+            }
+        },
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "检查宝来矿区": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    7,
+                    161,
+                    1272,
+                    326
+                ],
+                "expected": [
+                    "宝来"
+                ]
+            }
+        }
+    },
+    "检查宝来矿区次数": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "检查宝来矿区",
+                "roi_offset": [
+                    0,
+                    0,
+                    0,
+                    30
+                ],
+                "expected": [
+                    "^进度：3/3$"
+                ]
+            }
+        }
     },
     "打通诺曼复兴战": {
         "recognition": {
@@ -304,6 +356,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": [
+                    7,
+                    161,
+                    1272,
+                    326
+                ],
                 "expected": [
                     "^进度：0/3$",
                     "^进度：1/3$",
