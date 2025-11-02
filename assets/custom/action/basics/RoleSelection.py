@@ -154,7 +154,7 @@ class RoleSelection(CustomAction):
 
         target = None
         images = []
-        for attempt in range(int(condition.get("max_try", 3)) + 1):
+        for attempt in range(int(condition.get("max_try", 5)) + 1):
             if context.tasker.stopping:
                 return CustomAction.RunResult(success=True)
             image = context.tasker.controller.post_screencap().wait().get()
