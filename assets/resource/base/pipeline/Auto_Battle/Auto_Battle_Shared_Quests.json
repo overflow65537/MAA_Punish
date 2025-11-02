@@ -17,6 +17,7 @@
         }
     },
     "点击作战开始": {
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -33,7 +34,8 @@
             "type": "Click"
         },
         "next": [
-            "自动战斗开始"
+            "自动战斗开始",
+            "点击作战开始"
         ],
         "interrupt": [
             "等待加载"
