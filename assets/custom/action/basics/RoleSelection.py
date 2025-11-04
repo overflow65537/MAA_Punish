@@ -307,8 +307,7 @@ class RoleSelection(CustomAction):
                 (attribute_score * 45)
                 + (element_score * 2300)
                 + (10000 if is_pick else 0)
-                + (10000 if is_master_level_not_full else 0) * (1 if has_count else 0)
-            )
+                + (10000 if is_master_level_not_full else 0)) * (1 if has_count else 0)
             weight[role_name] = w
         return weight
 
