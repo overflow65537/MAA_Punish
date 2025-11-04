@@ -281,7 +281,7 @@ class RoleSelection(CustomAction):
     def calculate_weight(self, role_info: dict, condition: dict[str, dict]) -> dict:
         """
         公式
-        权重 = (( 属性分数 * 45) + (代数分数 * 2300) + (是否被肉鸽选中 * 10000) + (是否精通等级没满 * 10000)) * 是否有次数
+        权重 = (( 属性分数 * 45) + (代数分数 * 2300) + (是否被选中 * 10000) + (是否精通等级没满 * 10000)) * 是否有次数
         """
         weight = {}
 
@@ -302,12 +302,31 @@ class RoleSelection(CustomAction):
             else:
                 is_pick = True
                 is_master_level_not_full = True
-            # 权重
-            w = (
-                (attribute_score * 45)
-                + (element_score * 2300)
-                + (10000 if is_pick else 0)
-                + (10000 if is_master_level_not_full else 0)) * (1 if has_count else 0)
+            # 权重计算
+            # 1. 属性分数
+            attribute_weight = attribute_score * 45
+
+            # 2. 代数分数
+            generation_weight = element_score * 2300
+
+            # 3. 精通等级分数
+            master_level_weight = 10000 if is_master_level_not_full else 0
+
+            # 4. 被选中加成
+            pick_bonus = 10000 if is_pick else 0
+
+            # 5. 基础权重 = (属性 + 代数 + 精通) * 是否有次数
+            base_weight = (
+                attribute_weight + generation_weight + master_level_weight + pick_bonus
+            ) * (1 if has_count else 0)
+
+            # 6. 最终权重 = 基础权重 + 选中加成
+            w = base_weight
+
+            self.logger.debug(
+                f"{role_name}: 属性分={attribute_weight}, 代数分={generation_weight}, "
+                f"精通分={master_level_weight}, 选中加成={pick_bonus}, 基础权重={base_weight}, 最终权重={w}"
+            )
             weight[role_name] = w
         return weight
 
