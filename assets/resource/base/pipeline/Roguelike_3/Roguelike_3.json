@@ -1444,7 +1444,9 @@
         }
     },
     "决定_矩阵循生": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
