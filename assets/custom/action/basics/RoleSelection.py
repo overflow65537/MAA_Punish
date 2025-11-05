@@ -126,10 +126,10 @@ class RoleSelection(CustomAction):
                     context,
                     role_dict,
                     condition.get("cage", False),
-                    condition.get("rouelike_3_mode", 0),
+                    condition.get("roguelike_3_mode", 0),
                 )
             )
-            if condition.get("pick", "") in role.keys():
+            if not condition.get("cage") and condition.get("pick", "") in role.keys():
                 break
             context.run_action("滑动_选人")
 
@@ -146,7 +146,6 @@ class RoleSelection(CustomAction):
         target = None
         nonselected_roles = False
         if role_weight[selected_role] == 0:
-
             self.logger.info(f"角色次数全为0")
             nonselected_roles = True
         else:
@@ -154,7 +153,7 @@ class RoleSelection(CustomAction):
 
         target = None
         images = []
-        for attempt in range(int(condition.get("max_try", 5)) + 1):
+        for _ in range(int(condition.get("max_try", 5)) + 1):
             if context.tasker.stopping:
                 return CustomAction.RunResult(success=True)
             image = context.tasker.controller.post_screencap().wait().get()
@@ -293,15 +292,16 @@ class RoleSelection(CustomAction):
             # 是否有次数
             has_count = info.get("cage", True)
             # 肉鸽3模式 0代表初始招募能量4，只需要提取是否被肉鸽选中。1代表初始招募能量3，只提取精通等级
-            if condition.get("rouelike_3_mode") == 0:
-                is_pick = role_name == condition.get("pick", "")
-                is_master_level_not_full = True
-            elif condition.get("rouelike_3_mode") == 1:
-                is_pick = True
-                is_master_level_not_full = info.get("master_level", True)
+            # 是否被选中
+            if condition.get("roguelike_3_mode", 0) == 1:
+                is_pick = False
+                is_master_level_not_full = info.get("master_level", False)
             else:
-                is_pick = True
-                is_master_level_not_full = True
+                is_pick = role_name == condition.get("pick", "")
+                is_master_level_not_full = False
+
+            # 精通等级是否未满
+
             # 权重计算
             # 1. 属性分数
             attribute_weight = attribute_score * 45

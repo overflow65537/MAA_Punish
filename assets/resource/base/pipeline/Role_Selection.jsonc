@@ -347,8 +347,8 @@
             "param": {
                 "custom_action": "RoleSelection",
                 "custom_action_param": {
-                    "rouelike_3_mode": 1,
-                    "pick": "露西亚·誓焰"
+                    "roguelike_3_mode": 0,
+                    "pick": "露西亚·深红囚影"
                 }
             }
         }
