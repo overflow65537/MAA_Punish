@@ -87,6 +87,13 @@
             ]
         },
         {
+            "name": "MuMu服",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/mumu"
+            ]
+        },
+        {
             "name": "waydroid官服",
             "path": [
                 "{PROJECT_DIR}/resource/base",
