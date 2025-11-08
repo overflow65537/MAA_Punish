@@ -166,7 +166,7 @@ ROLE_ACTIONS = {
         "cls_name": "Crepuscule",
         "metadata": {
             "dark": 100,
-            "generation": 2,
+            "generation": 3,
         },
         "template": [
             "肉鸽通用/晖暮.png",
