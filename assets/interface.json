@@ -298,16 +298,6 @@
         {
             "name": "刷A级碎片",
             "entry": "刷A级碎片",
-            "pipeline_override": {
-                "检查主界面": {
-                    "action": {
-                        "type": "Click"
-                    },
-                    "next": [
-                        "进入资源副本"
-                    ]
-                }
-            },
             "doc": "MFW v2.2.0以上版本可以更改下拉框内容为新角色代号",
             "option": [
                 "选择A级角色",
