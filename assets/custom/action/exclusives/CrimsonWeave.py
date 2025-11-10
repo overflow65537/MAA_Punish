@@ -35,26 +35,54 @@ class CrimsonWeave(CustomAction):
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
 
-        action = CombatActions(context, role_name="露西亚·深红囚影")
-        action.lens_lock()
-
+        self.action = CombatActions(context, role_name="露西亚·深红囚影")
+        self.action.lens_lock()
+        low_HP = not bool(self.action.check_status("检查血量正常"))
+        lightless = self.action.check_status("检查无光值_囚影")
+        if lightless is None:
+            lightless_value = -1
+        else:
+            lightless_value = int(lightless.best_result.text)  # type: ignore
         if (
-            action.check_status("检查u1_囚影") and action.check_Skill_energy_bar()
+            self.action.check_status("检查u1_囚影")
+            and self.action.check_Skill_energy_bar()
         ):  # 一阶段
-            action.use_skill(1500)  # 崩落的束缚化为利刃
+            self.action.use_skill(1500)  # 崩落的束缚化为利刃
 
-        elif action.check_status("检查u2_囚影"):  # 二阶段
-            if action.check_status("检查无光值_囚影"):  # 检查无光值大于474
-                action.long_press_dodge(1500)  # 闪避
-                action.long_press_attack(2300)  # 登龙
+        elif (lightless_value >= 474 or lightless_value == 300) or (
+            lightless_value != -1 and low_HP
+        ):  # 检查无光值大于474 or 血量较低
+            self.action.long_press_dodge(1500)  # 闪避
+            self.action.long_press_attack(2300)  # 登龙
+            if self.action.check_Skill_energy_bar():
                 for _ in range(10):
-                    action.use_skill()  # 二段大
-                    action.auxiliary_machine()
+                    self.action.use_skill()  # 二段大
+                    self.action.auxiliary_machine()
                     time.sleep(0.2)
-                return CustomAction.RunResult(success=True)
+
+            return CustomAction.RunResult(success=True)
+
         time.sleep(0.2)
-        action.ball_elimination_target(1)
+        self.action.ball_elimination_target(1)
         time.sleep(0.2)
-        action.dodge()  # 闪避
-        action.continuous_attack(7, 300)
+        if low_HP:  # 血量较低
+            self._priority()
+        else:  # 血量正常
+            self._priority_aggressive()
+
         return CustomAction.RunResult(success=True)
+
+    # 激进路线
+    def _priority_aggressive(self):
+        """激进路线
+        会尝试使用闪避攻击拉刀光
+        """
+        self.action.dodge()  # 闪避
+        self.action.continuous_attack(7, 300)
+
+    # 保守路线
+    def _priority(self):
+        """保守路线
+        长按闪避
+        """
+        self.action.long_press_dodge(1500)

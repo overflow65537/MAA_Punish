@@ -1,7 +1,30 @@
 {
+    "检查血量正常": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    26,
+                    41,
+                    220,
+                    11
+                ],
+                "connected": true,
+                "count": 500,
+                "upper": [
+                    255,
+                    255,
+                    255
+                ],
+                "lower": [
+                    249,
+                    249,
+                    250
+                ]
+            }
+        }
+    },
     "检查残月值_终焉": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -57,7 +80,7 @@
                     41,
                     27
                 ],
-                "expected": "^(300|474|[4-5][0-9][0-9]|600)$"
+                "expected": "^(0|[1-9][0-9]?|[1-5][0-9][0-9]|600)$"
             }
         }
     },
