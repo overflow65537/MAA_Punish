@@ -525,13 +525,32 @@
             }
         },
         "action": {
-            "type": "Click",
-            "param": {}
+            "type": "Click"
         },
         "next": [
             "检查结果_体力不足",
             "检查结果_战斗完成"
+        ],
+        "interrupt": [
+            "等级提升"
         ]
+    },
+    "等级提升": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    311,
+                    171,
+                    624,
+                    352
+                ],
+                "expected": "指挥官等级提升"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "检查结果_体力不足": {
         "post_delay": 1000,
