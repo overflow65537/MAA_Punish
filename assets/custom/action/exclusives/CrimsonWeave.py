@@ -24,10 +24,14 @@ MAA_Punish 囚影战斗程序
 作者:overflow65537,HCX0426
 """
 
+from math import e
+import re
 import time
+from tracemalloc import start
 from custom.action.basics import CombatActions
 from maa.context import Context
 from maa.custom_action import CustomAction
+from maa.define import OCRResult
 
 
 class CrimsonWeave(CustomAction):
@@ -35,54 +39,112 @@ class CrimsonWeave(CustomAction):
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
 
+        # 检查无光值等于300或者大于474,证明需要登龙
+        self.light_less_474 = {
+            "检查无光值_囚影": {
+                "recognition": {
+                    "type": "OCR",
+                    "param": {
+                        "roi": [473, 598, 41, 27],
+                        "expected": "^(300|[4-5][7-9][4-9]|[4-5][0-9]{2}|600)$",
+                    },
+                }
+            }
+        }
+        # 检查二阶段无光值存在,证明处在二阶段
+        self.light_less_any = {
+            "检查无光值_囚影": {
+                "recognition": {
+                    "type": "OCR",
+                    "param": {
+                        "roi": [473, 598, 41, 27],
+                        "expected": "^(0|[1-9][0-9]?|[1-5][0-9][0-9]|600)$",
+                    },
+                }
+            }
+        }
+
         self.action = CombatActions(context, role_name="露西亚·深红囚影")
         self.action.lens_lock()
-        low_HP = not bool(self.action.check_status("检查血量正常"))
-        lightless = self.action.check_status("检查无光值_囚影")
-        if lightless is None:
-            lightless_value = -1
-        else:
-            lightless_value = int(lightless.best_result.text)  # type: ignore
-        if (
-            self.action.check_status("检查u1_囚影")
-            and self.action.check_Skill_energy_bar()
-        ):  # 一阶段
-            self.action.use_skill(1500)  # 崩落的束缚化为利刃
 
-        elif (lightless_value >= 474 or lightless_value == 300) or (
-            lightless_value != -1 and low_HP
-        ):  # 检查无光值大于474 or 血量较低
-            self.action.long_press_dodge(1500)  # 闪避
-            self.action.long_press_attack(2300)  # 登龙
-            if self.action.check_Skill_energy_bar():
+        if self.action.check_status("检查血量正常"):
+            self.action.dodge()  # 闪避
+            for _ in range(7):
+                start_time = time.time()
+                self.action.attack()  # 宿命的囚笼由我斩断
+                light_less = self.action.check_status(
+                    "检查无光值_囚影",
+                    self.light_less_any,
+                )
+                if light_less and light_less.best_result.text.isdigit():  # type: ignore
+                    light_less_value = int(light_less.best_result.text)  # type: ignore
+                else:
+                    light_less_value = -1
+
+                if light_less_value == -1:  # 处于一阶段
+                    if self.action.check_Skill_energy_bar():
+                        # 崩落的束缚化为利刃
+                        print("激进 一阶段中断 使用大招")
+                        for _ in range(10):
+                            self.action.use_skill()
+                            self.action.ball_elimination_target(1)
+                            time.sleep(0.2)
+                        break
+                elif (
+                    light_less_value == 300 or light_less_value >= 474
+                ):  # 无光值足够登龙
+                    print("激进 二阶段中断 使用登龙")
+                    self.action.long_press_dodge(1500)
+                    self.action.long_press_attack(2300)  # 登龙
+                    if self.action.check_Skill_energy_bar():
+                        print("激进 二阶段中断 使用大招")
+                        for _ in range(10):
+                            self.action.use_skill()  # 宿命的囚笼由我斩断
+                            time.sleep(0.2)
+                    for _ in range(10):
+                        self.action.ball_elimination_target(1)
+                        time.sleep(0.2)
+                    break
+                elapsed = time.time() - start_time
+                if elapsed < 0.3:
+                    time.sleep(0.3 - elapsed)
+
+        else:
+            dodge_x = self.action.COORDINATES.get("dodge", ())[0]
+            dodge_y = self.action.COORDINATES.get("dodge", ())[-1]
+            context.tasker.controller.post_touch_down(dodge_x, dodge_y)
+            start_time = time.time()
+
+            if not self.action.check_status(
+                "检查无光值_囚影",
+                self.light_less_any,
+            ):  # 处于一阶段
+                elapsed = time.time() - start_time
+                if elapsed < 1.5:
+                    time.sleep(1.5 - elapsed)
+                context.tasker.controller.post_touch_up()
+                if self.action.check_Skill_energy_bar():
+                    # 崩落的束缚化为利刃
+                    print("保守 一阶段中断 使用大招")
+                    for _ in range(10):
+                        self.action.use_skill()
+                        self.action.ball_elimination_target(1)
+                        time.sleep(0.2)
+
+            else:
+                print("保守 二阶段中断 使用登龙")
+                elapsed = time.time() - start_time
+                if elapsed < 1.5:
+                    time.sleep(1.5 - elapsed)
+                context.tasker.controller.post_touch_up()
+                self.action.long_press_attack(2300)  # 登龙
+                if self.action.check_Skill_energy_bar():
+                    print("保守 二阶段中断 使用大招")
+                    for _ in range(10):
+                        self.action.use_skill()  # 宿命的囚笼由我斩断
+                        time.sleep(0.2)
                 for _ in range(10):
-                    self.action.use_skill()  # 二段大
-                    self.action.auxiliary_machine()
+                    self.action.ball_elimination_target(1)
                     time.sleep(0.2)
 
-            return CustomAction.RunResult(success=True)
-
-        time.sleep(0.2)
-        self.action.ball_elimination_target(1)
-        time.sleep(0.2)
-        if low_HP:  # 血量较低
-            self._priority()
-        else:  # 血量正常
-            self._priority_aggressive()
-
-        return CustomAction.RunResult(success=True)
-
-    # 激进路线
-    def _priority_aggressive(self):
-        """激进路线
-        会尝试使用闪避攻击拉刀光
-        """
-        self.action.dodge()  # 闪避
-        self.action.continuous_attack(7, 300)
-
-    # 保守路线
-    def _priority(self):
-        """保守路线
-        长按闪避
-        """
-        self.action.long_press_dodge(1500)
+        return CustomAction.RunResult(True)
