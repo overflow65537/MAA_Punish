@@ -1,16 +1,30 @@
 {
-    "检查血量正常": {
+    "统计信号球数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    1190,
+                    555,
+                    15,
+                    20
+                ],
+                "expected": "^(0|[1-9]|1[0-5]|16)$"
+            }
+        }
+    },
+    "检查血量百分比": {
         "recognition": {
             "type": "ColorMatch",
             "param": {
                 "roi": [
-                    26,
-                    41,
-                    220,
-                    11
+                    27,
+                    42,
+                    217,
+                    9
                 ],
                 "connected": true,
-                "count": 300,
                 "upper": [
                     255,
                     255,
@@ -108,42 +122,6 @@
             }
         }
     },
-    "检查u1_囚影": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    809,
-                    556,
-                    159,
-                    140
-                ],
-                "template": [
-                    "自定义战斗/深红囚影_u1.png"
-                ],
-                "green_mask": true
-            }
-        }
-    },
-    "检查u2_囚影": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    809,
-                    556,
-                    159,
-                    140
-                ],
-                "template": "自定义战斗/深红囚影_u2.png",
-                "green_mask": true
-            }
-        }
-    },
     "检查无光值_囚影": {
         "recognition": {
             "type": "OCR",
@@ -158,25 +136,7 @@
             }
         }
     },
-    "检查短刀_囚影": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    540,
-                    598,
-                    37,
-                    28
-                ],
-                "expected": "^(0|[1-5][0-9][0-9]|600)$"
-            }
-        }
-    },
     "检查比安卡·深痕一阶段": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -194,8 +154,6 @@
         }
     },
     "检查核心被动_深痕": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -219,8 +177,6 @@
         }
     },
     "检查u2数值_深痕": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -235,8 +191,6 @@
         }
     },
     "检查u1_深痕": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -252,8 +206,6 @@
         }
     },
     "检查u2_深痕": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -269,8 +221,6 @@
         }
     },
     "检查阶段_深痕": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -285,8 +235,6 @@
         }
     },
     "检查u1_誓焰": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -302,8 +250,6 @@
         }
     },
     "检查u2_誓焰": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -319,8 +265,6 @@
         }
     },
     "检查u2max_誓焰": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -336,8 +280,6 @@
         }
     },
     "检查u3_誓焰": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -353,8 +295,6 @@
         }
     },
     "检查p1动能条_誓焰": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -378,8 +318,6 @@
         }
     },
     "检查阶段p1_深谣": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -395,8 +333,6 @@
         }
     },
     "检查阶段p2_深谣": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -412,8 +348,6 @@
         }
     },
     "检查u1_深谣": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -429,8 +363,6 @@
         }
     },
     "检查u2_深谣": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -446,8 +378,6 @@
         }
     },
     "检查核心被动1_深谣": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -463,8 +393,6 @@
         }
     },
     "检查核心被动2_深谣": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -480,8 +408,6 @@
         }
     },
     "检查p2动能条_深谣": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -501,23 +427,6 @@
                     184,
                     253
                 ]
-            }
-        }
-    },
-    "检查信号球数量_启明": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "only_rec": true,
-                "roi": [
-                    1190,
-                    555,
-                    15,
-                    20
-                ],
-                "expected": "^(9|1[0-6])$"
             }
         }
     },
@@ -548,8 +457,6 @@
         }
     },
     "检查核心技能结束_超刻": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -564,8 +471,6 @@
         }
     },
     "检查核心被动_晖暮": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -589,8 +494,6 @@
         }
     },
     "识别信号球": {
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
