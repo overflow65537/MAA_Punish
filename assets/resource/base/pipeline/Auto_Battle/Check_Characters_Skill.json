@@ -24,6 +24,65 @@
             }
         }
     },
+    "检查u1_铮骨": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1147,
+                    452,
+                    121,
+                    132
+                ],
+                "template": [
+                    "自定义战斗/铮骨_u1.png"
+                ],
+                "green_mask": true
+            }
+        }
+    },
+    "检查u2_铮骨": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1147,
+                    452,
+                    121,
+                    132
+                ],
+                "template": [
+                    "自定义战斗/铮骨_u2.png",
+                    "自定义战斗/铮骨_u2_1.png"
+                ],
+                "green_mask": true
+            }
+        }
+    },
+    "检查核心条_铮骨": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    762,
+                    615,
+                    14,
+                    15
+                ],
+                "connected": true,
+                "upper": [
+                    255,
+                    60,
+                    90
+                ],
+                "lower": [
+                    240,
+                    45,
+                    85
+                ]
+            }
+        }
+    },
     "检查残月值_终焉": {
         "recognition": {
             "type": "ColorMatch",

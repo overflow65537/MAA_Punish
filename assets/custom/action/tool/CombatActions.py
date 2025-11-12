@@ -246,7 +246,7 @@ class CombatActions:
             self.logger.exception("检查技能_能量条:" + str(e))
             return False
 
-    def Arrange_Signal_Balls(self, target_ball: str ="any") -> int:
+    def Arrange_Signal_Balls(self, target_ball: str = "any") -> int:
         """
         自动消球逻辑
         Args:
@@ -403,4 +403,32 @@ class CombatActions:
             return target
         except Exception as e:
             self.logger.info(f"消球决策异常: {str(e)}")
+            return 0
+
+    def count_signal_balls(self) -> int:
+        """统计当前信号球数量"""
+        image = self.context.tasker.controller.post_screencap().wait().get()
+        result = self.context.run_recognition("统计信号球数量", image)
+        from maa.define import OCRResult
+
+        if (
+            result
+            and isinstance(result.best_result, OCRResult)
+            and result.best_result.text.isdigit()
+        ):
+            return int(result.best_result.text)
+        else:
+            return 0
+
+    def get_hp_percent(self) -> int:
+        """获取当前血量百分比"""
+        image = self.context.tasker.controller.post_screencap().wait().get()
+        result = self.context.run_recognition("检查血量百分比", image)
+        from maa.define import ColorMatchResult
+
+        if result and isinstance(result.best_result, ColorMatchResult):
+            hp_pixels = int(result.best_result.count)
+            hp_percent = int((hp_pixels / 429) * 100)
+            return min(max(hp_percent, 0), 100)
+        else:
             return 0

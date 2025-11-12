@@ -44,7 +44,7 @@ class Oblivion(CustomAction):
             actions.use_skill(1000)  # 技能
         elif actions.check_status("检查残月值_终焉"):
             actions.long_press_attack(2000)
-        elif actions.check_status("检查信号球数量_启明"):  # 复用下启明的检查信号球数量
+        elif actions.count_signal_balls() >= 9:
             actions.ball_elimination_target(1)
         else:
             time.sleep(0.1)

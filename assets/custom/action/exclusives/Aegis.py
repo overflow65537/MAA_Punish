@@ -20,50 +20,41 @@
 
 """
 MAA_Punish
-MAA_Punish 超刻战斗程序
+MAA_Punish 铮骨战斗程序
 作者:overflow65537
 """
 
 import time
-
-
+from custom.action.basics import CombatActions
 from maa.context import Context
 from maa.custom_action import CustomAction
-from custom.action.basics import CombatActions
 
 
-class Hyperreal(CustomAction):
-
+class Aegis(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-
-        action = CombatActions(context=context, role_name="超刻")
+        action = CombatActions(context, role_name="维罗妮卡·铮骨")
 
         action.lens_lock()
 
-        if action.check_Skill_energy_bar():
-            action.logger.info("大招就绪")
-            action.use_skill()  # 在时间的尽头,湮灭吧
-            time.sleep(1)
+        for _ in range(10):
+            action.ball_elimination_target(1)
+            time.sleep(0.1)
+            action.attack()
+            if action.check_Skill_energy_bar():
+                for _ in range(10):
+                    action.use_skill()
+                    time.sleep(0.1)
+                continue
 
-        elif action.check_status("检查核心技能_超刻"):  # 核心技能就绪
-            action.logger.info("核心技能就绪")
-            action.long_press_attack()
+            if ball_count := action.count_signal_balls() >= 3:
+                for _ in range(3):
+                    action.ball_elimination_target()
+                    time.sleep(0.1)
+                if action.count_signal_balls() == ball_count:
+                    action.dodge()
+                    time.sleep(0.1)
+                    action.ball_elimination_target()
 
-            start_time = time.time()
-            while (
-                not action.check_status("检查核心技能结束_超刻")
-            ) and time.time() - start_time < 10:
-                target = action.Arrange_Signal_Balls("any")
-                action.ball_elimination_target(target)
-                action.attack()
-            action.logger.info("核心技能结束")
-
-        else:
-            action.logger.info("核心技能未就绪")
-            action.continuous_attack(5, 100)
-            target = action.Arrange_Signal_Balls("any")
-            if action.count_signal_balls() >= 9 or target > 0:
-                action.ball_elimination_target(target)
         return CustomAction.RunResult(success=True)

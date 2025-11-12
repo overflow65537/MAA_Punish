@@ -68,7 +68,7 @@ class Shukra(CustomAction):
                 time.sleep(0.1)
                 actions.ball_elimination_target(1)
 
-        elif actions.check_status("检查信号球数量_启明"):  # 信号球数量大于9
+        elif actions.count_signal_balls() >= 9:  # 信号球数量大于9
             start_time = time.time()
             while time.time() - start_time < 7:
                 time.sleep(0.3)

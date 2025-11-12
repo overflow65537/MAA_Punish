@@ -18,6 +18,7 @@ from action.exclusives.Stigmata import Stigmata
 from action.exclusives.Shukra import Shukra
 from action.exclusives.Hyperreal import Hyperreal
 from action.exclusives.Crepuscule import Crepuscule
+from action.exclusives.Aegis import Aegis
 from action.exclusives.GeneralFight import GeneralFight
 
 
@@ -28,6 +29,11 @@ from recognition.exclusives.IDFMasteryLevel import IDFMasteryLevel
 from recognition.exclusives.LogicalOperators import LOp
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
+
+
+@AgentServer.custom_action("Aegis")
+class Agent_Aegis(Aegis):
+    pass
 
 
 @AgentServer.custom_action("RecognitionRole")

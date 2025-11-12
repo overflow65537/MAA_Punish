@@ -99,6 +99,11 @@
         "class": "Crepuscule",
         "file_path": "{custom_path}/action/exclusives/Crepuscule.py"
     },
+    "Aegis": {
+        "type": "action",
+        "class": "Aegis",
+        "file_path": "{custom_path}/action/exclusives/Aegis.py"
+    },
     "CheckResolution": {
         "type": "recognition",
         "class": "CheckResolution",

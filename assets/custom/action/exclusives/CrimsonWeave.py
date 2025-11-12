@@ -64,15 +64,15 @@ class CrimsonWeave(CustomAction):
             }
         }
 
-        self.action = CombatActions(context, role_name="露西亚·深红囚影")
-        self.action.lens_lock()
+        action = CombatActions(context, role_name="露西亚·深红囚影")
+        action.lens_lock()
 
-        if self.action.check_status("检查血量正常"):
-            self.action.dodge()  # 闪避
+        if action.get_hp_percent() >= 70:
+            action.dodge()  # 闪避
             for _ in range(7):
                 start_time = time.time()
-                self.action.attack()  # 宿命的囚笼由我斩断
-                light_less = self.action.check_status(
+                action.attack()  # 宿命的囚笼由我斩断
+                light_less = action.check_status(
                     "检查无光值_囚影",
                     self.light_less_any,
                 )
@@ -82,27 +82,27 @@ class CrimsonWeave(CustomAction):
                     light_less_value = -1
 
                 if light_less_value == -1:  # 处于一阶段
-                    if self.action.check_Skill_energy_bar():
+                    if action.check_Skill_energy_bar():
                         # 崩落的束缚化为利刃
                         print("激进 一阶段中断 使用大招")
                         for _ in range(10):
-                            self.action.use_skill()
-                            self.action.ball_elimination_target(1)
+                            action.use_skill()
+                            action.ball_elimination_target(1)
                             time.sleep(0.2)
                         break
                 elif (
                     light_less_value == 300 or light_less_value >= 474
                 ):  # 无光值足够登龙
                     print("激进 二阶段中断 使用登龙")
-                    self.action.long_press_dodge(1500)
-                    self.action.long_press_attack(2300)  # 登龙
-                    if self.action.check_Skill_energy_bar():
+                    action.long_press_dodge(1500)
+                    action.long_press_attack(2300)  # 登龙
+                    if action.check_Skill_energy_bar():
                         print("激进 二阶段中断 使用大招")
                         for _ in range(10):
-                            self.action.use_skill()  # 宿命的囚笼由我斩断
+                            action.use_skill()  # 宿命的囚笼由我斩断
                             time.sleep(0.2)
                     for _ in range(10):
-                        self.action.ball_elimination_target(1)
+                        action.ball_elimination_target(1)
                         time.sleep(0.2)
                     break
                 elapsed = time.time() - start_time
@@ -110,12 +110,12 @@ class CrimsonWeave(CustomAction):
                     time.sleep(0.3 - elapsed)
 
         else:
-            dodge_x = self.action.COORDINATES.get("dodge", ())[0]
-            dodge_y = self.action.COORDINATES.get("dodge", ())[-1]
+            dodge_x = action.COORDINATES.get("dodge", ())[0]
+            dodge_y = action.COORDINATES.get("dodge", ())[-1]
             context.tasker.controller.post_touch_down(dodge_x, dodge_y)
             start_time = time.time()
 
-            if not self.action.check_status(
+            if not action.check_status(
                 "检查无光值_囚影",
                 self.light_less_any,
             ):  # 处于一阶段
@@ -123,12 +123,12 @@ class CrimsonWeave(CustomAction):
                 if elapsed < 1.5:
                     time.sleep(1.5 - elapsed)
                 context.tasker.controller.post_touch_up()
-                if self.action.check_Skill_energy_bar():
+                if action.check_Skill_energy_bar():
                     # 崩落的束缚化为利刃
                     print("保守 一阶段中断 使用大招")
                     for _ in range(10):
-                        self.action.use_skill()
-                        self.action.ball_elimination_target(1)
+                        action.use_skill()
+                        action.ball_elimination_target(1)
                         time.sleep(0.2)
 
             else:
@@ -137,14 +137,14 @@ class CrimsonWeave(CustomAction):
                 if elapsed < 1.5:
                     time.sleep(1.5 - elapsed)
                 context.tasker.controller.post_touch_up()
-                self.action.long_press_attack(2300)  # 登龙
-                if self.action.check_Skill_energy_bar():
+                action.long_press_attack(2300)  # 登龙
+                if action.check_Skill_energy_bar():
                     print("保守 二阶段中断 使用大招")
                     for _ in range(10):
-                        self.action.use_skill()  # 宿命的囚笼由我斩断
+                        action.use_skill()  # 宿命的囚笼由我斩断
                         time.sleep(0.2)
                 for _ in range(10):
-                    self.action.ball_elimination_target(1)
+                    action.ball_elimination_target(1)
                     time.sleep(0.2)
 
         return CustomAction.RunResult(True)
