@@ -193,12 +193,7 @@ ROLE_ACTIONS = {
             "physical": 100,
             "generation": 2,
         },
-        "template": [
-            "肉鸽通用/铮骨.png",
-            "肉鸽通用/铮骨终解.png",
-            "肉鸽通用/铮骨_矩阵.png",
-            "肉鸽通用/铮骨终解_矩阵.png",
-        ],
+        "template": [],  # 我没抽到,拿不了模板(
         "attack_template": "自定义战斗/铮骨.png",
     },
 }
