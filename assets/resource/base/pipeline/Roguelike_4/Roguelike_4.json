@@ -2292,8 +2292,29 @@
             "选择人物_寒境曙光"
         ],
         "interrupt": [
+            "未解锁开局",
             "开局切换_寒境曙光"
         ]
+    },
+    "未解锁开局": {
+        "focus": {
+            "succeeded": "[color:Tomato]未解锁对应开局[/color]"
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    29,
+                    360,
+                    1250,
+                    73
+                ],
+                "expected": "通关(常温|初冷|微寒|冰冽|严霜|极寒)或以上难度解"
+            }
+        },
+        "action": {
+            "type": "StopTask"
+        }
     },
     "选择具体开局_寒境曙光": {
         "post_delay": 1000,
