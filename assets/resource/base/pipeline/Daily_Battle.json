@@ -549,7 +549,15 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target": [
+                    10,
+                    10,
+                    0,
+                    0
+                ]
+            }
         }
     },
     "检查结果_体力不足": {
