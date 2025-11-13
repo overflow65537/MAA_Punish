@@ -26,6 +26,7 @@ MAA_Punish 自动战斗反击程序
 
 import time
 from maa.custom_recognition import CustomRecognition
+from maa.define import OCRResult
 import json
 
 class AutoCounter(CustomRecognition):
@@ -35,7 +36,7 @@ class AutoCounter(CustomRecognition):
         self,
         context,
         argv: CustomRecognition.AnalyzeArg,
-    ) -> CustomRecognition.AnalyzeResult:
+    ) -> CustomRecognition.AnalyzeResult|None:
         image = context.tasker.controller.post_screencap().wait().get()
         #是否在战斗状态
         in_battle = context.run_recognition(
@@ -50,7 +51,7 @@ class AutoCounter(CustomRecognition):
         expected_hp = context.run_recognition(
             "检查血量", image,
         )
-        if not expected_hp:
+        if not expected_hp or not isinstance(expected_hp.best_result, OCRResult):
             return 
         if current_hp is None or expected_hp.best_result.text !=current_hp:
             context.override_pipeline(
