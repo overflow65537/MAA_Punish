@@ -386,6 +386,15 @@
             "entry": "停止"
         },
         {
+            "name": "洗词缀",
+            "entry": "洗词缀",
+            "option": [
+                "选择目标词缀"
+            ],
+            "doc": "见证,拟战绩分的消失!",
+            "spt": true
+        },
+        {
             "name": "链合回路",
             "entry": "链合回路",
             "doc": "进入链合回路游戏界面后启动,会自动点击重新开始",
@@ -555,6 +564,181 @@
         }
     },
     "option": {
+        "选择目标词缀": {
+            "cases": [
+                {
+                    "name": "带攻击的词缀",
+                    "pipeline_override": {
+                        "确认目标词缀": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "(?=.*攻击)(?=.*防御)",
+                                        "(?=.*生命)(?=.*攻击)",
+                                        "(?=.*攻击)(?=.*会心)"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "QTE",
+                    "pipeline_override": {
+                        "确认目标词缀": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "ate",
+                                        "qte"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "核心被动",
+                    "pipeline_override": {
+                        "确认目标词缀": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "核心被动+1"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "必杀技",
+                    "pipeline_override": {
+                        "确认目标词缀": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "必杀技"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "普通攻击",
+                    "pipeline_override": {
+                        "确认目标词缀": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "普通攻击"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "红球",
+                    "pipeline_override": {
+                        "确认目标词缀": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "红球"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "蓝球",
+                    "pipeline_override": {
+                        "确认目标词缀": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "蓝球"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "黄球",
+                    "pipeline_override": {
+                        "确认目标词缀": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "黄球"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "攻击+15、会心+15",
+                    "pipeline_override": {
+                        "确认目标词缀": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "(?=.*攻击)(?=.*会心)"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "攻击+15、防御+23",
+                    "pipeline_override": {
+                        "确认目标词缀": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "(?=.*攻击)(?=.*防御)"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "生命+75、攻击+15",
+                    "pipeline_override": {
+                        "确认目标词缀": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "(?=.*生命)(?=.*攻击)"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "生命+75、会心+15",
+                    "pipeline_override": {
+                        "确认目标词缀": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "(?=.*生命)(?=.*会心)"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         "选择宣叙妄响难度": {
             "cases": [
                 {

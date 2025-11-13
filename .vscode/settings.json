@@ -16,6 +16,12 @@
         "editor.tabSize": 4,
         "editor.indentSize": "tabSize"
     },
+    "[jsonc]": {
+        "editor.formatOnSave": true,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+        "editor.indentSize": "tabSize"
+    },
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
     },

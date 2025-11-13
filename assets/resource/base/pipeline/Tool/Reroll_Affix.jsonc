@@ -1,0 +1,116 @@
+{
+    "洗词缀": {
+        "next": [
+            "确认目标词缀"
+        ],
+        "interrupt": [
+            "结果检查_不可信",
+            "结果检查_可信"
+        ]
+    },
+    "确认目标词缀": {
+        "focus": {
+            "succeeded": "[color:ForestGreen]完成[/color]"
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    410,
+                    424,
+                    699,
+                    30
+                ],
+                "expected": [
+                    "目标词缀"
+                ]
+            }
+        }
+    },
+    "结果检查左侧_不可信": {
+        "inverse": true,
+        "focus": {
+            "succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    270,
+                    422,
+                    319,
+                    33
+                ],
+                "expected": [
+                    "(?=.*攻击)(?=.*防御)",
+                    "(?=.*生命)(?=.*攻击)",
+                    "(?=.*攻击)(?=.*会心)",
+                    "(?=.*生命)(?=.*会心)",
+                    "黄球",
+                    "蓝球",
+                    "红球",
+                    "普通攻击",
+                    "必杀技",
+                    "核心被动",
+                    "qte"
+                ]
+            }
+        },
+        "action": {
+            "type": "StopTask"
+        }
+    },
+    "结果检查_不可信": {
+        "inverse": true,
+        "focus": {
+            "succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    804,
+                    423,
+                    206,
+                    29
+                ],
+                "expected": [
+                    "(?=.*攻击)(?=.*防御)",
+                    "(?=.*生命)(?=.*攻击)",
+                    "(?=.*攻击)(?=.*会心)",
+                    "(?=.*生命)(?=.*会心)",
+                    "黄球",
+                    "蓝球",
+                    "红球",
+                    "普通攻击",
+                    "必杀技",
+                    "核心被动",
+                    "qte"
+                ]
+            }
+        },
+        "action": {
+            "type": "StopTask"
+        }
+    },
+    "结果检查_可信": {
+        "post_wait_freezes": {
+            "time": 200
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    282,
+                    584,
+                    134,
+                    58
+                ],
+                "expected": "继续共鸣"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}
