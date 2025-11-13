@@ -34,7 +34,7 @@ class CalculateScore(CustomRecognition):
         self,
         context,
         argv: CustomRecognition.AnalyzeArg,
-    ) -> CustomRecognition.AnalyzeResult:
+    ) -> CustomRecognition.AnalyzeResult|None:
         image = context.tasker.controller.post_screencap().wait().get()
         # 检查目标分数
         target_score = context.run_recognition("检查目标分数", image)

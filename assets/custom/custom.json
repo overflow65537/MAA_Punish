@@ -128,5 +128,10 @@
         "type": "action",
         "class": "PrintInfo",
         "file_path": "{custom_path}/action/basics/PrintInfo.py"
+    },
+    "NextStageRecognition": {
+        "type": "recognition",
+        "class": "NextStageRecognition",
+        "file_path": "{custom_path}/recognition/exclusives/NextStageRecognition.py"
     }
 }

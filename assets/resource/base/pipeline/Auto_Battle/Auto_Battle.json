@@ -1,47 +1,190 @@
 {
     "战斗辅助": {
-        "timeout": 3000000,
+        "post_delay": 0,
+        "pre_delay": 0,
+        "rate_limit": 0,
         "next": [
             "循环执行器"
         ],
         "interrupt": [
             "进入战斗",
             "进入战斗_条件2",
-            "跳过战斗对话_主线",
             "自动反击",
             "战斗重启1",
-            "播放剧情",
+            "重置识别"
+        ]
+    },
+    "主线速通模式": {
+        "post_delay": 0,
+        "pre_delay": 0,
+        "rate_limit": 0,
+        "next": [
+            "循环执行器"
+        ],
+        "interrupt": [
+            "识别人物",
+            "战斗中",
             "跳过剧情",
+            "未选人",
+            "使用体力",
+            "不使用体力",
+            "点击作战开始_速通",
+            "战斗准备_速通",
+            "播放剧情",
+            "打开速通开关",
+            "点击下一关",
+            "跳过战斗对话_主线",
             "载入中",
+            "退出战斗",
             "主线跳过",
             "重置识别"
         ]
     },
     "AAA_战斗测试": {
         "next": [
-            "战斗辅助"
-        ]
+            "循环执行器"
+        ],
+        "interrupt": []
     },
-    "跳过cg": {
+    "使用体力": {
+        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    1179,
-                    22,
-                    78,
+                    859,
+                    586,
+                    67,
+                    38
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "体力取消"
+        ],
+        "interrupt": [
+            "关闭奖励"
+        ]
+    },
+    "体力取消": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    664,
+                    588,
+                    57,
+                    44
+                ],
+                "expected": "取消"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "不使用体力": {
+        "focus": {
+            "succeeded": "[color:ForestGreen]体力不足,任务结束[/color]"
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    664,
+                    588,
+                    57,
+                    44
+                ],
+                "expected": "取消"
+            }
+        },
+        "action": {
+            "type": "StopTask"
+        }
+    },
+    "点击下一关": {
+        "post_delay": 1000,
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "NextStageRecognition"
+            }
+        },
+        "action": "Click"
+    },
+    "未选人": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    41,
+                    627,
+                    125,
                     33
                 ],
+                "expected": "未选择队长"
+            }
+        },
+        "next": [
+            "清除队伍"
+        ]
+    },
+    "点击作战开始_速通": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    640,
+                    138,
+                    56
+                ],
+                "expected": "作战开始"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "战斗准备_速通": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1020,
+                    644,
+                    109,
+                    53
+                ],
+                "expected": "战斗准备"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "打开速通开关": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    761,
+                    621,
+                    97,
+                    41
+                ],
                 "expected": [
-                    "S",
-                    "K",
-                    "P"
+                    "OFF"
                 ]
             }
         },
         "action": {
-            "type": "Click",
-            "param": {}
+            "type": "Click"
         }
     },
     "播放剧情": {
@@ -51,8 +194,8 @@
                 "roi": [
                     855,
                     416,
-                    101,
-                    48
+                    224,
+                    274
                 ],
                 "expected": [
                     "播放剧情"
@@ -253,19 +396,20 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    1197,
-                    124,
-                    47,
-                    25
+                    1179,
+                    22,
+                    78,
+                    33
                 ],
                 "expected": [
-                    "SKIP"
+                    "S",
+                    "K",
+                    "P"
                 ]
             }
         },
         "action": {
-            "type": "Click",
-            "param": {}
+            "type": "Click"
         }
     },
     "循环执行器": {
@@ -304,6 +448,46 @@
                 ],
                 "template": [],
                 "green_mask": true
+            }
+        }
+    },
+    "检查当前章节": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    25,
+                    90,
+                    488,
+                    115
+                ],
+                "expected": "^(?:\\d+|EX\\d+|ER\\d+)",
+                "replace": [
+                    [
+                        "O",
+                        "0"
+                    ],
+                    [
+                        "o",
+                        "0"
+                    ]
+                ]
+            }
+        }
+    },
+    "检查最后关卡": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    10,
+                    168,
+                    1269,
+                    439
+                ],
+                "order_by": "Horizontal",
+                "index": -1,
+                "expected": ""
             }
         }
     }

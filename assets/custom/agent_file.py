@@ -29,6 +29,12 @@ from recognition.exclusives.IDFMasteryLevel import IDFMasteryLevel
 from recognition.exclusives.LogicalOperators import LOp
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
+from recognition.exclusives.NextStageRecognition import NextStageRecognition
+
+
+@AgentServer.custom_recognition("NextStageRecognition")
+class Agent_NextStageRecognition(NextStageRecognition):
+    pass
 
 
 @AgentServer.custom_action("Aegis")

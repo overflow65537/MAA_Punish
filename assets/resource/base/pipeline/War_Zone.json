@@ -592,20 +592,47 @@
         }
     },
     "退出战斗": {
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    1051,
-                    641,
-                    113,
-                    44
+                    1059,
+                    622,
+                    195,
+                    84
                 ],
-                "expected": "退出战斗"
+                "expected": [
+                    "退出",
+                    "战斗"
+                ]
             }
         },
         "action": {
             "type": "Click"
+        },
+        "next": [
+            "速通滑动"
+        ]
+    },
+    "速通滑动": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    863,
+                    259,
+                    1,
+                    1
+                ],
+                "end": [
+                    307,
+                    260,
+                    1,
+                    1
+                ],
+                "duration": 500
+            }
         }
     }
 }

@@ -136,11 +136,11 @@ class RoleSelection(CustomAction):
         role_weight = self.calculate_weight(role, condition)
         self.logger.info(f"条件: {condition}")
         self.logger.info(f"角色权重: {role_weight}")
-
-        for _ in range(int(condition.get("max_try", 5))):
-            if context.tasker.stopping:
-                return CustomAction.RunResult(success=True)
-            context.run_action("反向滑动_选人")
+        if not (not condition.get("cage") and condition.get("pick", "") in role.keys()):
+            for _ in range(int(condition.get("max_try", 5))):
+                if context.tasker.stopping:
+                    return CustomAction.RunResult(success=True)
+                context.run_action("反向滑动_选人")
         # 找出权重最高的key
         selected_role = max(role_weight.items(), key=lambda x: x[1])[0]
         target = None
@@ -188,7 +188,8 @@ class RoleSelection(CustomAction):
                         "选择人物": {
                             "recognition": {
                                 "param": {
-                                    "template": role_dict[selected_role]["template"]
+                                    "template": role_dict[selected_role]["template"],
+                                    "threshold":[0.7]*len(role_dict[selected_role]["template"])
                                 },
                             },
                         }
