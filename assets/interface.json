@@ -601,6 +601,22 @@
                     }
                 },
                 {
+                    "name": "比安卡·晖暮",
+                    "pipeline_override": {
+                        "选择角色程序": {
+                            "action": {
+                                "type": "Custom",
+                                "param": {
+                                    "custom_action": "RoleSelection",
+                                    "custom_action_param": {
+                                        "pick": "比安卡·晖暮"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                {
                     "name": "比安卡·深痕",
                     "pipeline_override": {
                         "选择角色程序": {
@@ -610,6 +626,38 @@
                                     "custom_action": "RoleSelection",
                                     "custom_action_param": {
                                         "pick": "比安卡·深痕"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "露娜·终焉",
+                    "pipeline_override": {
+                        "选择角色程序": {
+                            "action": {
+                                "type": "Custom",
+                                "param": {
+                                    "custom_action": "RoleSelection",
+                                    "custom_action_param": {
+                                        "pick": "露娜·终焉"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "维罗妮卡·铮骨",
+                    "pipeline_override": {
+                        "选择角色程序": {
+                            "action": {
+                                "type": "Custom",
+                                "param": {
+                                    "custom_action": "RoleSelection",
+                                    "custom_action_param": {
+                                        "pick": "维罗妮卡·铮骨"
                                     }
                                 }
                             }
@@ -658,22 +706,6 @@
                                     "custom_action": "RoleSelection",
                                     "custom_action_param": {
                                         "pick": "里·超刻"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                {
-                    "name": "露娜·终焉",
-                    "pipeline_override": {
-                        "选择角色程序": {
-                            "action": {
-                                "type": "Custom",
-                                "param": {
-                                    "custom_action": "RoleSelection",
-                                    "custom_action_param": {
-                                        "pick": "露娜·终焉"
                                     }
                                 }
                             }
