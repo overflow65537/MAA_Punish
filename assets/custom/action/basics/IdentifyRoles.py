@@ -38,8 +38,11 @@ current_file = Path(__file__).resolve()
 sys.path.append(str(current_file.parent.parent.parent.parent))
 from custom.action.tool.LoadSetting import ROLE_ACTIONS
 
+
 class IdentifyRoles(CustomAction):
-    def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
+    def run(
+        self, context: Context, argv: CustomAction.RunArg
+    ) -> CustomAction.RunResult:
 
         # ROI区域配置（x, y, w, h）
         ROLE_NAME_ROIS = [
@@ -64,9 +67,11 @@ class IdentifyRoles(CustomAction):
         # 识别角色名称
         role_names: Dict[str, Optional[str]] = {}
         for pos, roi in ROLE_NAME_ROIS:
-            result= context.run_recognition(
+            result = context.run_recognition(
                 "识别角色名", image, {"识别角色名": {"roi": roi}}
             )
+            if result is None or not isinstance(result.best_result, OCRResult):
+                return CustomAction.RunResult(success=False)
             role_names[pos] = result.best_result.text if result else None
 
         # 识别队长标志
@@ -75,6 +80,8 @@ class IdentifyRoles(CustomAction):
             result = context.run_recognition(
                 "识别队长位置", image, {"识别队长位置": {"roi": roi}}
             )
+            if result is None or not isinstance(result.best_result, OCRResult):
+                return CustomAction.RunResult(success=False)
             leader_flags[pos] = bool(result.best_result.text) if result else False
 
         print("识别结果:", role_names)
@@ -94,7 +101,7 @@ class IdentifyRoles(CustomAction):
             for pos, name in role_names.items()
             if name in ROLE_ACTIONS
         }
-        pos , role_info = None,None
+        pos, role_info = None, None
         # 处理匹配结果
         match len(matched_roles):
             case 1:  # 单个角色匹配
