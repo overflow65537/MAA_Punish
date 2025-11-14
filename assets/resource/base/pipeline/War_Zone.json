@@ -592,15 +592,15 @@
         }
     },
     "退出战斗": {
-        "post_delay": 1000,
+        "post_wait_freezes": 500,
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    1059,
-                    622,
-                    195,
-                    84
+                    574,
+                    439,
+                    706,
+                    281
                 ],
                 "expected": [
                     "退出",
@@ -616,6 +616,7 @@
         ]
     },
     "速通滑动": {
+        "enabled": false,
         "action": {
             "type": "Swipe",
             "param": {

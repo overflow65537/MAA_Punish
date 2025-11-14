@@ -26,6 +26,7 @@ MAA_Punish 下一关识别程序
 
 from maa.custom_recognition import CustomRecognition
 from maa.define import OCRResult
+import numpy as np
 
 
 class NextStageRecognition(CustomRecognition):
@@ -50,6 +51,8 @@ class NextStageRecognition(CustomRecognition):
 
         else:
             current_stage = current_stage_text[:2]
+        if current_stage[0] == "0":
+            current_stage = current_stage[1]
         # 最后关卡
 
         last_stage_reco = context.run_recognition(

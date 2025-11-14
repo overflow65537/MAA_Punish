@@ -404,7 +404,9 @@
             "name": "战斗辅助",
             "entry": "战斗辅助",
             "option": [
-                "主线速通模式",
+                "战斗模式",
+                "速通模式",
+                "跳过剧情",
                 "选择人物",
                 "是否使用体力"
             ],
@@ -416,6 +418,17 @@
                             "custom_action": "CombatActions"
                         }
                     }
+                },
+                "速通滑动": {
+                    "enabled": true
+                },
+                "跳过剧情": {
+                    "post_wait_freezes": 500,
+                    "next": [
+                        "确认跳过",
+                        "跳过剧情",
+                        "速通滑动"
+                    ]
                 }
             },
             "doc": "战斗辅助只会进行自动战斗,不会进行其他任务,也不会影响其他任务,在需要进行战斗的时候会自动启动\n主线速通模式包括跳过剧情,自动选择下一关和战斗功能\n战斗辅助和主线速通模式的区别在于:\n战斗辅助可以在不需要战斗的时候静默,主线速通则是一直处于战斗模式\n\n独立战斗逻辑人物:[color:tomato]誓焰,启明,终焉,深痕,深瑶,深红囚影,晖暮,超刻,维罗尼卡[/color]\n其余人物为通用战斗逻辑:攻击+消球+大招",
@@ -566,6 +579,95 @@
         }
     },
     "option": {
+        "战斗模式": {
+            "cases": [
+                {
+                    "name": "自动检测",
+                    "pipeline_override": {
+                        "识别人物": {
+                            "enabled": false
+                        },
+                        "战斗中": {
+                            "enabled": false
+                        },
+                        "载入中": {
+                            "enabled": false
+                        }
+                    }
+                },
+                {
+                    "name": "持续战斗",
+                    "pipeline_override": {
+                        "进入战斗": {
+                            "enabled": false
+                        },
+                        "进入战斗_条件2": {
+                            "enabled": false
+                        },
+                        "自动反击": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
+        "速通模式": {
+            "cases": [
+                {
+                    "name": "开",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "关",
+                    "pipeline_override": {
+                        "未选人": {
+                            "enabled": false
+                        },
+                        "点击作战开始_速通": {
+                            "enabled": false
+                        },
+                        "战斗准备_速通": {
+                            "enabled": false
+                        },
+                        "打开速通开关": {
+                            "enabled": false
+                        },
+                        "点击下一关": {},
+                        "点击下一关_剧情": {
+                            "enabled": false
+                        },
+                        "退出战斗": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
+        "跳过剧情": {
+            "cases": [
+                {
+                    "name": "是",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "否",
+                    "pipeline_override": {
+                        "跳过剧情": {
+                            "enabled": false
+                        },
+                        "播放剧情": {
+                            "enabled": false
+                        },
+                        "跳过战斗对话_主线": {
+                            "enabled": false
+                        },
+                        "主线跳过": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
         "选择人物": {
             "cases": [
                 {
@@ -1026,24 +1128,6 @@
                             }
                         }
                     }
-                }
-            ]
-        },
-        "主线速通模式": {
-            "cases": [
-                {
-                    "name": "开启",
-                    "pipeline_override": {
-                        "战斗辅助": {
-                            "next": [
-                                "主线速通模式"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "关闭",
-                    "pipeline_override": {}
                 }
             ]
         },
