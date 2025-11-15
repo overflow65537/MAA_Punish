@@ -142,20 +142,33 @@ class CombatActions:
                         self.logger.error(f"处理文件 {file} 时出错: {e}")
 
     def attack(self):
-        """攻击"""
+        """
+        攻击
+        执行一次攻击操作。
+        """
         return self.context.tasker.controller.post_click(
             *self.COORDINATES["attack"]
         ).wait()
 
     def continuous_attack(self, count: int = 10, interval: int = 100) -> bool:
-        """连续攻击"""
+        """
+        连续攻击
+        连续执行多次攻击操作。
+        :param count: 攻击次数，默认10
+        :param interval: 每次攻击间隔（毫秒），默认100
+        :return: True
+        """
         for _ in range(count):
             self.attack()
             time.sleep(interval / 1000)
         return True
 
     def long_press_attack(self, duration: int = 1000):
-        """长按攻击"""
+        """
+        长按攻击
+        按住攻击键一段时间。
+        :param duration: 长按时间（毫秒），默认1000
+        """
         atk_x = self.COORDINATES["attack"][0]
         atk_y = self.COORDINATES["attack"][1]
         return self.context.tasker.controller.post_swipe(
@@ -163,13 +176,20 @@ class CombatActions:
         ).wait()
 
     def dodge(self):
-        """闪避"""
+        """
+        闪避
+        执行一次闪避操作。
+        """
         return self.context.tasker.controller.post_click(
             *self.COORDINATES["dodge"]
         ).wait()
 
     def long_press_dodge(self, duration: int = 1000):
-        """长按闪避"""
+        """
+        长按闪避
+        按住闪避键一段时间。
+        :param duration: 长按时间（毫秒），默认1000
+        """
         dodge_x = self.COORDINATES["dodge"][0]
         dodge_y = self.COORDINATES["dodge"][1]
         return self.context.tasker.controller.post_swipe(
@@ -177,13 +197,21 @@ class CombatActions:
         ).wait()
 
     def use_skill(self, duration: int = 0):
-        """技能"""
+        """
+        使用技能
+        执行一次技能释放操作。
+        :param duration: 技能释放后等待时间（毫秒），默认0
+        """
         self.context.tasker.controller.post_click(*self.COORDINATES["skill"]).wait()
         time.sleep(duration / 1000)
         return
 
     def long_press_skill(self, time: int = 1000):
-        """长按技能"""
+        """
+        长按技能
+        按住技能键一段时间。
+        :param time: 长按时间（毫秒），默认1000
+        """
         skill_x = self.COORDINATES["skill"][0]
         skill_y = self.COORDINATES["skill"][1]
         return self.context.tasker.controller.post_swipe(
@@ -191,14 +219,22 @@ class CombatActions:
         ).wait()
 
     def ball_elimination_target(self, target: int = 2):
-        """指定消球目标,从1开始,默认2"""
+        """
+        指定消球位置
+        消除指定位置的信号球。
+        :param target: 消球位置（1~8），默认2
+        """
         target = abs(target) - 1
         ball_x = self.COORDINATES["ball_positions"][target][0]
         ball_y = self.COORDINATES["ball_positions"][target][1]
         return self.context.tasker.controller.post_click(ball_x, ball_y).wait()
 
     def trigger_qte(self, target: int = 1):
-        """触发QTE/换人"""
+        """
+        触发QTE/换人
+        执行QTE或换人操作。
+        :param target: QTE位置（1或2），默认1
+        """
         if target not in (1, 2):
             raise ValueError("target 参数必须为 1 或 2")
         elif target == 1:
@@ -211,19 +247,31 @@ class CombatActions:
             ).wait()
 
     def lens_lock(self):
-        """镜头锁定"""
+        """
+        镜头锁定
+        执行镜头锁定操作。
+        """
         return self.context.tasker.controller.post_click(
             *self.COORDINATES["lens_lock"]
         ).wait()
 
     def auxiliary_machine(self):
-        """辅助机"""
+        """
+        辅助机
+        执行辅助机操作。
+        """
         return self.context.tasker.controller.post_click(
             *self.COORDINATES["auxiliary_machine"]
         ).wait()
 
     def check_status(self, node: str, pipeline_override: dict = {}):
-        """检查状态"""
+        """
+        检查状态
+        检查指定Pipeline节点状态，返回识别结果。
+        :param node: Pipeline节点名
+        :param pipeline_override: 节点覆盖参数
+        :return: 识别结果或False
+        """
         try:
             # 获取截图
             image = self.context.tasker.controller.post_screencap().wait().get()
@@ -235,7 +283,11 @@ class CombatActions:
             return False
 
     def check_Skill_energy_bar(self) -> bool:
-        """检查技能能量条"""
+        """
+        检查技能能量条
+        检查技能能量是否足够，足够时返回True。
+        :return: bool
+        """
         try:
             # 获取截图
             image = self.context.tasker.controller.post_screencap().wait().get()
@@ -248,12 +300,10 @@ class CombatActions:
 
     def Arrange_Signal_Balls(self, target_ball: str = "any") -> int:
         """
-        自动消球逻辑
-        Args:
-            target_ball (str): 目标球颜色 "red", "blue", "yellow", "any"
-        Returns:
-            int: 消球目标位置，从1开始，0表示无效操作,负数代表可以消球,但不是三消但可能促成三消
-
+        识别三消位置
+        自动消球逻辑，返回消球目标位置。
+        :param target_ball: 目标球颜色（red|blue|yellow|any）
+        :return: int，正数为三消目标，负数为可促成三消，0为无效
         """
         if self.template == {}:
             self.logger.error("模板未加载")
@@ -406,7 +456,11 @@ class CombatActions:
             return 0
 
     def count_signal_balls(self) -> int:
-        """统计当前信号球数量"""
+        """
+        统计当前信号球数量
+        识别当前场景信号球数量。
+        :return: int，信号球数量
+        """
         image = self.context.tasker.controller.post_screencap().wait().get()
         result = self.context.run_recognition("统计信号球数量", image)
         from maa.define import OCRResult
@@ -421,7 +475,11 @@ class CombatActions:
             return 0
 
     def get_hp_percent(self) -> int:
-        """获取当前血量百分比"""
+        """
+        获取当前血量百分比
+        识别当前角色血量百分比。
+        :return: int，血量百分比（0~100）
+        """
         image = self.context.tasker.controller.post_screencap().wait().get()
         result = self.context.run_recognition("检查血量百分比", image)
         from maa.define import ColorMatchResult
