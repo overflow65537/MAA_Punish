@@ -328,7 +328,10 @@
             "type": "Click"
         }
     },
-    "空任务": {},
+    "空任务": {
+        "post_delay": 0,
+        "pre_delay": 0
+    },
     "停止任务": {
         "action": {
             "type": "StopTask"
