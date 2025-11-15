@@ -625,10 +625,15 @@
                         "战斗准备_速通": {
                             "enabled": false
                         },
+                        "从中间开始": {
+                            "enabled": false
+                        },
                         "打开速通开关": {
                             "enabled": false
                         },
-                        "点击下一关": {},
+                        "点击下一关": {
+                            "enabled": false
+                        },
                         "点击下一关_剧情": {
                             "enabled": false
                         },
