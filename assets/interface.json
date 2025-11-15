@@ -101,12 +101,6 @@
             ]
         }
     ],
-    "agent": {
-        "child_exec": "D:\\Anaconda\\envs\\MFW\\python.exe",
-        "child_args": [
-            "{PROJECT_DIR}/custom/main.py"
-        ]
-    },
     "task": [
         {
             "name": "进入游戏",
