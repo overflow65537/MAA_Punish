@@ -73,6 +73,7 @@
                 "green_mask": true,
                 "template": [
                     "战斗/剧情.png",
+                    "战斗/剧情_1.png",
                     "战斗/战斗.png"
                 ],
                 "order_by": "Horizontal",
