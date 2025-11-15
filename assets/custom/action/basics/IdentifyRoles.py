@@ -70,9 +70,7 @@ class IdentifyRoles(CustomAction):
             result = context.run_recognition(
                 "识别角色名", image, {"识别角色名": {"roi": roi}}
             )
-            if result is None or not isinstance(result.best_result, OCRResult):
-                return CustomAction.RunResult(success=False)
-            role_names[pos] = result.best_result.text if result else None
+            role_names[pos] = result.best_result.text if result else None # type: ignore
 
         # 识别队长标志
         leader_flags: Dict[str, bool] = {}
@@ -80,9 +78,7 @@ class IdentifyRoles(CustomAction):
             result = context.run_recognition(
                 "识别队长位置", image, {"识别队长位置": {"roi": roi}}
             )
-            if result is None or not isinstance(result.best_result, OCRResult):
-                return CustomAction.RunResult(success=False)
-            leader_flags[pos] = bool(result.best_result.text) if result else False
+            leader_flags[pos] = bool(result.best_result.text) if result else False # type: ignore
 
         print("识别结果:", role_names)
         print("队长标记:", leader_flags)
