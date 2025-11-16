@@ -104,6 +104,11 @@
         "class": "Aegis",
         "file_path": "{custom_path}/action/exclusives/Aegis.py"
     },
+    "Limpidity": {
+        "type": "action",
+        "class": "Limpidity",
+        "file_path": "{custom_path}/action/exclusives/Limpidity.py"
+    },
     "CheckResolution": {
         "type": "recognition",
         "class": "CheckResolution",
