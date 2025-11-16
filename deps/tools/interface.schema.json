@@ -1,0 +1,225 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "controller": {
+            "type": "array",
+            "title": "控制器配置",
+            "items": {
+                "type": "object",
+                "default": {
+                    "name": "ADB 默认方式",
+                    "type": "Adb"
+                },
+                "properties": {
+                    "name": {
+                        "title": "控制器名",
+                        "type": "string",
+                        "default": "ADB 默认方式"
+                    },
+                    "type": {
+                        "title": "控制器类型",
+                        "type": "string",
+                        "default": "Adb"
+                    },
+                    "adb": {
+                        "title": "ADB配置",
+                        "type": "object",
+                        "properties": {
+                            "input": {
+                                "title": "输入参数",
+                                "type": "integer"
+                            },
+                            "screencap": {
+                                "title": "截图参数",
+                                "type": "integer"
+                            },
+                            "config": {
+                                "title": "额外配置参数",
+                                "type": "object",
+                                "default": {}
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    "win32": {
+                        "title": "Win32配置",
+                        "type": "object",
+                        "properties": {
+                            "class_regex": {
+                                "title": "搜索类名参数",
+                                "type": "string",
+                                "default": ""
+                            },
+                            "window_regex": {
+                                "title": "搜索窗口名参数",
+                                "type": "string",
+                                "default": ""
+                            },
+                            "input": {
+                                "title": "点击参数",
+                                "type": "integer"
+                            },
+                            "screencap": {
+                                "title": "截图参数",
+                                "type": "integer"
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "name",
+                    "type"
+                ]
+            }
+        },
+        "resource": {
+            "title": "资源配置",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "default": {
+                    "name": "Official",
+                    "path": [
+                        "{PROJECT_DIR}/resource"
+                    ]
+                },
+                "properties": {
+                    "name": {
+                        "title": "资源名",
+                        "type": "string"
+                    },
+                    "path": {
+                        "title": "资源路径",
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "default": "{PROJECT_DIR}/resource"
+                        }
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "name",
+                    "path"
+                ]
+            }
+        },
+        "task": {
+            "title": "任务列表",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "default": {
+                    "name": "启动游戏",
+                    "entry": "StartUp"
+                },
+                "properties": {
+                    "name": {
+                        "title": "任务名",
+                        "type": "string"
+                    },
+                    "entry": {
+                        "title": "任务入口",
+                        "type": "string"
+                    },
+                    "pipeline_override": {
+                        "title": "任务参数",
+                        "$ref": "./pipeline.schema.json"
+                    },
+                    "option": {
+                        "title": "任务选项",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "name",
+                    "entry"
+                ]
+            }
+        },
+        "option": {
+            "title": "选项定义",
+            "type": "object",
+            "patternProperties": {
+                ".*": {
+                    "type": "object",
+                    "properties": {
+                        "cases": {
+                            "title": "可选项",
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "title": "选项名",
+                                        "type": "string"
+                                    },
+                                    "pipeline_override": {
+                                        "title": "选项参数",
+                                        "$ref": "./pipeline.schema.json"
+                                    }
+                                },
+                                "additionalProperties": false,
+                                "required": [
+                                    "name",
+                                    "pipeline_override"
+                                ]
+                            }
+                        },
+                        "default_case": {
+                            "title": "默认选项",
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "cases"
+                    ]
+                }
+            }
+        },
+        "message": {
+            "title": "信息",
+            "type": "string"
+        },
+        "version": {
+            "title": "版本",
+            "type": "string"
+        },
+        "agent": {
+            "title": "代理",
+            "type": "object",
+            "properties": {
+                "child_exec": {
+                    "title": "子进程路径",
+                    "type": "string"
+                },
+                "child_args": {
+                    "title": "子进程参数",
+                    "type": "array"
+                },
+                "identifier": {
+                    "title": "连接标识符",
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "child_exec"
+            ]
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "controller",
+        "resource",
+        "task"
+    ]
+}
