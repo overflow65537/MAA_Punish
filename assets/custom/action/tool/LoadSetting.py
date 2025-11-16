@@ -203,4 +203,23 @@ ROLE_ACTIONS = {
         ],
         "attack_template": "自定义战斗/铮骨.png",
     },
+    "丽芙·霁梦": {
+        "name": "霁梦",
+        "type": "Attacker",
+        "cls_name": "LivJimeng",
+        "metadata": {
+            "lightning": 100,
+            "generation": 3,
+        },
+        "template": [
+            "肉鸽通用/霁梦.png",
+            "肉鸽通用/霁梦终解.png"
+        ],
+        "attack_template": "自定义战斗/霁梦普攻1.png",
+        "skill_template": {
+            "red": {"识别信号球": {"template": ["信号球/霁梦红球.png"]}},
+            "blue": {"识别信号球": {"template": ["信号球/霁梦蓝球.png"]}},
+            "yellow": {"识别信号球": {"template": ["信号球/霁梦黄球.png"]}},
+    },
+}
 }
