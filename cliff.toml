@@ -4,7 +4,7 @@ repo = "MAA_Punish"
 [changelog]
 # 尾部
 footer = """
-
+如果不知道下载哪一个,点击[这里](https://github.com/{{owner}}/{{repo}}/releases/download/{{tag}}/MPA-win-x86_64-{{tag}}.zip)来下载Window x86_64版本
 [已有 Mirror酱 CDK？点击前往高速下载](https://mirrorchyan.com/zh/projects?rid=MAA_Punish&source=MPA_gh_release)
 <!--本软件完全免费，若您有付费购买请立即退款并举报！-->
 """
