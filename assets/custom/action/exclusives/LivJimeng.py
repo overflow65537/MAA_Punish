@@ -22,9 +22,10 @@
 from custom.action.basics import CombatActions
 from maa.context import Context
 from maa.custom_action import CustomAction
+import time
 
 
-class LivJimeng(CustomAction): 
+class LivJimeng(CustomAction):
     """
     丽芙霁梦 战斗逻辑
     优先级:
@@ -33,82 +34,62 @@ class LivJimeng(CustomAction):
     3. 普攻形态2
     4. 默认普攻
     """
+
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        
-        # 检查普攻形态1的节点
-        self.check_attack_1 = {
-            "检查普攻1_霁梦": { # 节点名字
-                "recognition": {
-                    "type": "ImageRecognition", # 类型：图像识别
-                    "param": {
-                        "template": "自定义战斗/霁梦普攻1.png",
-                        "roi": [0, 0, 1920, 1080]
-                    }
-                }
-            }
-        }
-        
-        # 检查普攻形态2的节点
-        self.check_attack_2 = {
-            "检查普攻2_霁梦": { # 节点名字
-                "recognition": {
-                    "type": "ImageRecognition", # 类型：图像识别
-                    "param": {
-                        "template": "自定义战斗/霁梦普攻2.png",
-                        "roi": [0, 0, 1920, 1080]
-                    }
-                }
-            }
-        }
-        
-        # 检查核心条的节点
-        self.check_core = {
-            "检查核心条_霁梦": {
-                "recognition": {
-                    "type": "ColorMatch",
-                    "param": {
-                        "roi": [679, 633, 50, 32],
-                        "connected": True,
-                        "count": 50,
-                        "upper": [140, 230, 255],
-                        "lower": [120, 220, 240]
-                    }
-                }
-            }
-        }
-        
-        # --- 战斗逻辑 ---
-        
-        action = CombatActions(context, role_name="丽芙霁梦") 
+        action = CombatActions(context, role_name="丽芙·霁梦")
         action.lens_lock()
 
-        # 优先级 1: 大招检测到有能量就释放
-        if action.check_Skill_energy_bar():
-            action.logger.info("大招就绪，释放")
-            action.use_skill()
-
-        # 优先级 2: 检测到普攻1
-        elif action.check_status("检查普攻1_霁梦", self.check_attack_1): 
+        # 检查普攻1
+        if action.check_status("检查普攻1_霁梦"):
             action.logger.info("检测到普攻形态1")
-            
-            # ...则检测核心
-            if action.check_status("检查核心条_霁梦", self.check_core): 
+            if action.check_status("检查核心条_霁梦"):
                 action.logger.info("核心已就绪，长按闪避")
                 action.long_press_dodge(1000)
-            else:
-                action.logger.info("普攻形态1，核心未就绪，执行普攻")
-                action.continuous_attack(50, 100)
+                for _ in range(15):
+                    action.use_skill()
+                    action.attack()
+                    time.sleep(0.1)
+                return CustomAction.RunResult(success=True)
 
-        # 优先级 3: 检测到普攻2
-        elif action.check_status("检查普攻2_霁梦", self.check_attack_2):
-            action.logger.info("检测到普攻形态2，直接长按闪避")
-            action.long_press_dodge(1000)
+            # 信号球消除逻辑
+            target = action.Arrange_Signal_Balls()
+            if target > 0 or action.count_signal_balls() >= 5:
+                action.ball_elimination_target(target)
+                time.sleep(0.2)
+                return CustomAction.RunResult(success=True)
 
-        # 优先级 4: 默认普攻
-        else:
-            action.logger.info("默认状态，执行连续普攻")
-            action.continuous_attack(50, 100)
-            
+        # 检查普攻2
+        if action.check_status("检查普攻2_霁梦"):
+            action.logger.info("检测到普攻形态2")
+            if action.check_status("检查核心球_霁梦"):
+                action.logger.info("核心球已就绪，进行核心球消除")
+                start_time = time.time()
+                while not action.check_status("检查核心条2_霁梦"):
+                    if context.tasker.stopping:
+                        return CustomAction.RunResult(success=False)
+                    if time.time() - start_time > 5:
+                        action.logger.info("等待核心条就绪超时，跳出循环")
+                        return CustomAction.RunResult(success=True)
+                    action.ball_elimination_target(1)
+                    time.sleep(0.1)
+
+                action.long_press_attack(3000)
+                for _ in range(15):
+                    action.use_skill()
+                    time.sleep(0.1)
+
+                return CustomAction.RunResult(success=False)
+
+            elif action.count_signal_balls() != 0:
+                action.ball_elimination_target()
+                return CustomAction.RunResult(success=True)
+
+        # 默认普攻
+        action.logger.info("默认状态，执行连续普攻")
+        for _ in range(30):
+            action.attack()
+            time.sleep(0.1)
+
         return CustomAction.RunResult(success=True)
