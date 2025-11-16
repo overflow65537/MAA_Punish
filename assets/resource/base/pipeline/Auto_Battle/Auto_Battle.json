@@ -41,6 +41,24 @@
             "战斗辅助"
         ]
     },
+    "点击空白处关闭_速通": {
+        "post_delay": 1500,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    371,
+                    581,
+                    530,
+                    138
+                ],
+                "expected": "点击空白处"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
     "点击对话": {
         "recognition": {
             "type": "TemplateMatch",

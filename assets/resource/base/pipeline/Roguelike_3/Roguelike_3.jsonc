@@ -477,7 +477,9 @@
         ]
     },
     "更换人物": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 500
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -562,6 +564,9 @@
         }
     },
     "点击下阵": {
+        "post_wait_freezes": {
+            "time": 500
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -579,7 +584,9 @@
         }
     },
     "更换首发_矩阵循生": {
-        "post_delay": 200,
+        "post_wait_freezes": {
+            "time": 500
+        },
         "recognition": {
             "type": "OCR",
             "param": {
