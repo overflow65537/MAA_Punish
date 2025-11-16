@@ -10,7 +10,7 @@
                     15,
                     20
                 ],
-                "expected": "^(0|[1-9]|1[0-5]|16)$"
+                "expected": ""
             }
         }
     },
@@ -34,6 +34,101 @@
                     249,
                     249,
                     250
+                ]
+            }
+        }
+    },
+    "检查核心条2_霁梦": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    705,
+                    629,
+                    15,
+                    3
+                ],
+                "connected": true,
+                "count": 10,
+                "upper": [
+                    103,
+                    199,
+                    227
+                ],
+                "lower": [
+                    97,
+                    193,
+                    221
+                ]
+            }
+        }
+    },
+    "检查核心球_霁梦": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "green_mask": true,
+                "template": "自定义战斗/霁梦核心球.png",
+                "roi": [
+                    852,
+                    411,
+                    86,
+                    71
+                ]
+            }
+        }
+    },
+    "检查核心条_霁梦": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    679,
+                    633,
+                    50,
+                    32
+                ],
+                "connected": true,
+                "count": 50,
+                "upper": [
+                    140,
+                    230,
+                    255
+                ],
+                "lower": [
+                    120,
+                    220,
+                    240
+                ]
+            }
+        }
+    },
+    "检查普攻2_霁梦": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "green_mask": true,
+                "template": "自定义战斗/霁梦普攻2.png",
+                "roi": [
+                    1133,
+                    574,
+                    120,
+                    116
+                ]
+            }
+        }
+    },
+    "检查普攻1_霁梦": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "green_mask": true,
+                "template": "自定义战斗/霁梦普攻1.png",
+                "roi": [
+                    1133,
+                    574,
+                    120,
+                    116
                 ]
             }
         }
