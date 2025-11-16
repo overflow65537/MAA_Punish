@@ -876,6 +876,20 @@
                     }
                 },
                 {
+                    "name": "职业技",
+                    "pipeline_override": {
+                        "确认目标词缀": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "职业技"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
                     "name": "普通攻击",
                     "pipeline_override": {
                         "确认目标词缀": {
