@@ -74,11 +74,14 @@
                 "template": [
                     "战斗/剧情.png",
                     "战斗/剧情_1.png",
+                    "战斗/剧情_2.png",
                     "战斗/战斗.png"
                 ],
                 "order_by": "Horizontal",
                 "index": -1,
                 "threshold": [
+                    0.9,
+                    0.9,
                     0.9,
                     0.8
                 ]
