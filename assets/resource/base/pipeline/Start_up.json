@@ -209,6 +209,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": [
+                    356,
+                    594,
+                    611,
+                    125
+                ],
                 "expected": "点击空白处关闭"
             }
         },
