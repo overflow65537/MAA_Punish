@@ -206,7 +206,7 @@ ROLE_ACTIONS = {
     "丽芙·霁梦": {
         "name": "霁梦",
         "type": "Attacker",
-        "cls_name": "LivJimeng",
+        "cls_name": "Limpidity",
         "metadata": {
             "lightning": 100,
             "generation": 3,

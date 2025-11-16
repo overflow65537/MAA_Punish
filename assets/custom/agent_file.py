@@ -19,7 +19,7 @@ from action.exclusives.Shukra import Shukra
 from action.exclusives.Hyperreal import Hyperreal
 from action.exclusives.Crepuscule import Crepuscule
 from action.exclusives.Aegis import Aegis
-from action.exclusives.LivJimeng import LivJimeng
+from action.exclusives.Limpidity import Limpidity
 from action.exclusives.GeneralFight import GeneralFight
 
 
@@ -33,8 +33,8 @@ from recognition.exclusives.AutoCounter import AutoCounter
 from recognition.exclusives.NextStageRecognition import NextStageRecognition
 
 
-@AgentServer.custom_action("LivJimeng")
-class Agent_LivJimeng(LivJimeng):
+@AgentServer.custom_action("Limpidity")
+class Agent_Limpidity(Limpidity):
     pass
 
 

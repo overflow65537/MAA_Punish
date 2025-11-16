@@ -25,7 +25,7 @@ from maa.custom_action import CustomAction
 import time
 
 
-class LivJimeng(CustomAction):
+class Limpidity(CustomAction):
     """
     丽芙霁梦 战斗逻辑
     优先级:
