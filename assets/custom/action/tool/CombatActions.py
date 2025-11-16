@@ -33,7 +33,7 @@ import logging
 from pathlib import Path
 import os
 from datetime import datetime, timedelta
-
+import re
 
 # 获取当前文件的绝对路径
 current_file = Path(__file__).resolve()
@@ -465,14 +465,11 @@ class CombatActions:
         result = self.context.run_recognition("统计信号球数量", image)
         from maa.define import OCRResult
 
-        if (
-            result
-            and isinstance(result.best_result, OCRResult)
-            and result.best_result.text.isdigit()
-        ):
-            return int(result.best_result.text)
-        else:
-            return 0
+        if result and isinstance(result.best_result, OCRResult):
+            num = re.search(r"\d+", result.best_result.text)
+            if num:
+                return int(num.group())
+        return 0
 
     def get_hp_percent(self) -> int:
         """
