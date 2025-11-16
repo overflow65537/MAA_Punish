@@ -656,6 +656,9 @@
                         "跳过战斗对话_主线": {
                             "enabled": false
                         },
+                        "点击对话": {
+                            "enabled": false
+                        },
                         "主线跳过": {
                             "enabled": false
                         }
