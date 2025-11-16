@@ -23,6 +23,7 @@ class RecognitionRole(CustomAction):
                         "recognition": {
                             "param": {
                                 "template": role_info["attack_template"],
+                                "threshold": 0.8,
                             },
                         }
                     }

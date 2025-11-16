@@ -24,10 +24,9 @@ MAA_Punish 囚影战斗程序
 作者:overflow65537,HCX0426
 """
 
-from math import e
-import re
+
 import time
-from tracemalloc import start
+
 from custom.action.basics import CombatActions
 from maa.context import Context
 from maa.custom_action import CustomAction

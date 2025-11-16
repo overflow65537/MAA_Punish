@@ -33,7 +33,7 @@ import logging
 from pathlib import Path
 import os
 from datetime import datetime, timedelta
-
+import re
 
 # 获取当前文件的绝对路径
 current_file = Path(__file__).resolve()
@@ -417,7 +417,7 @@ class CombatActions:
                             self.logger.info(
                                 f"第二优先级：可形成{'任意' if is_any else '目标'}三连"
                             )
-                            return -(i + 1)
+                            return -i
 
                     if (is_any and temp[j] == temp[j + 1]) or (
                         not is_any and temp[j] == target and temp[j + 1] == target
@@ -425,7 +425,7 @@ class CombatActions:
                         self.logger.info(
                             f"第二优先级：可形成{'任意' if is_any else '目标'}二连"
                         )
-                        candidate = -(i + 1)
+                        candidate = -i
             return candidate
 
         def _check_any_triple(ball_list: list) -> int:
@@ -437,7 +437,7 @@ class CombatActions:
                 for j in range(len(temp) - 2):
                     if temp[j] is not None and temp[j] == temp[j + 1] == temp[j + 2]:
                         self.logger.info("第三优先级：任意三连消除")
-                        return -(i + 1)
+                        return -i
             return 0
 
         def _select_non_empty(ball_list: list) -> int:
@@ -465,14 +465,11 @@ class CombatActions:
         result = self.context.run_recognition("统计信号球数量", image)
         from maa.define import OCRResult
 
-        if (
-            result
-            and isinstance(result.best_result, OCRResult)
-            and result.best_result.text.isdigit()
-        ):
-            return int(result.best_result.text)
-        else:
-            return 0
+        if result and isinstance(result.best_result, OCRResult):
+            num = re.search(r"\d+", result.best_result.text)
+            if num:
+                return int(num.group())
+        return 0
 
     def get_hp_percent(self) -> int:
         """
