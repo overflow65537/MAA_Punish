@@ -17,7 +17,10 @@
         }
     },
     "点击作战开始": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -125,8 +128,7 @@
                 ],
                 "expected": "Loading|oadin|adi"
             }
-        },
-        "post_delay": 3000
+        }
     },
     "角色特有战斗": {
         "post_delay": 0,

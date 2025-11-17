@@ -32,7 +32,10 @@
         ]
     },
     "打开挑战_纷争战区": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -128,7 +131,8 @@
             "战斗准备"
         ],
         "interrupt": [
-            "意外点击_玩家详情"
+            "意外点击_玩家详情",
+            "首通未完成"
         ]
     },
     "首通已完成": {
@@ -230,7 +234,10 @@
         }
     },
     "战斗准备": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {

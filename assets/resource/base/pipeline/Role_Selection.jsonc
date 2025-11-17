@@ -78,7 +78,10 @@
         }
     },
     "反向滑动_选人": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "action": {
             "type": "Swipe",
             "param": {
@@ -140,7 +143,10 @@
         ]
     },
     "卸下队伍": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "pre_delay": 1000,
         "recognition": {
             "type": "OCR",
@@ -300,7 +306,10 @@
         ]
     },
     "选择首发": {
-        "post_delay": 2000,
+        "post_wait_freezes": {
+            "time": 400,
+            "timeout": 4000
+        },
         "recognition": {
             "type": "OCR",
             "param": {

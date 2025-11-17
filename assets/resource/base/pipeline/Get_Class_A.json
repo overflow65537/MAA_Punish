@@ -9,7 +9,10 @@
         ]
     },
     "检查是否是资源副本界面": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -30,7 +33,10 @@
         ]
     },
     "进入资源副本": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -116,7 +122,10 @@
         }
     },
     "A级角色": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -141,7 +150,10 @@
         "focus": {
             "succeeded": "[color:Tomato]未解锁自动作战[/color]"
         },
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -159,7 +171,10 @@
         ]
     },
     "使用体力刷碎片": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -198,7 +213,10 @@
         ]
     },
     "A_MAX": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -321,7 +339,10 @@
         ]
     },
     "A_血清组": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -340,7 +361,10 @@
         ]
     },
     "A_使用体力": {
-        "post_delay": 2000,
+        "post_wait_freezes": {
+            "time": 400,
+            "timeout": 4000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -404,7 +428,10 @@
         ]
     },
     "A_出战结束_确认": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {

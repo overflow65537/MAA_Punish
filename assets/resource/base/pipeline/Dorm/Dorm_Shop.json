@@ -22,7 +22,10 @@
         ]
     },
     "错误购买": {
-        "post_delay": 2000,
+        "post_wait_freezes": {
+            "time": 400,
+            "timeout": 4000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -139,7 +142,10 @@
         ]
     },
     "遣测商店内部": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -158,7 +164,10 @@
         ]
     },
     "在宿舍币商店中": {
-        "post_delay": 1500,
+        "post_wait_freezes": {
+            "time": 300,
+            "timeout": 3000
+        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -233,14 +242,20 @@
                 ]
             }
         },
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "next": [
             "错误购买",
             "点击购买_宿舍"
         ]
     },
     "点击购买_宿舍": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -326,7 +341,10 @@
         }
     },
     "推荐物品": {
-        "post_delay": 1500,
+        "post_wait_freezes": {
+            "time": 300,
+            "timeout": 3000
+        },
         "recognition": {
             "type": "OCR",
             "param": {

@@ -241,7 +241,10 @@
         ]
     },
     "返回至诺曼复兴战": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -279,7 +282,10 @@
         }
     },
     "扫荡作战": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -335,7 +341,10 @@
         ]
     },
     "直达深巢": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -374,7 +383,10 @@
         }
     },
     "打开诺曼复兴战": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -392,7 +404,10 @@
         }
     },
     "打开挑战_诺曼复兴战": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -414,7 +429,10 @@
         ]
     },
     "滑动_诺曼复兴战": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "inverse": true,
         "recognition": {
             "type": "OCR",

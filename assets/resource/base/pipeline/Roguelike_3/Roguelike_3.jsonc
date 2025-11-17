@@ -151,7 +151,10 @@
     },
     "选择首发2_矩阵循生": {
         "enabled": false,
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -200,7 +203,10 @@
         ]
     },
     "打开矩阵循生": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -252,7 +258,10 @@
         }
     },
     "启程_矩阵循生": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -314,7 +323,10 @@
         ]
     },
     "转场_矩阵循生": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -343,7 +355,10 @@
         }
     },
     "链路崩溃": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -430,7 +445,10 @@
         }
     },
     "物归新主完成_矩阵循生": {
-        "post_delay": 2000,
+        "post_wait_freezes": {
+            "time": 400,
+            "timeout": 4000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -457,7 +475,10 @@
         ]
     },
     "物归新主完成_二次确认_矩阵循生": {
-        "post_delay": 2000,
+        "post_wait_freezes": {
+            "time": 400,
+            "timeout": 4000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -518,7 +539,10 @@
                 "expected": "编入"
             }
         },
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "action": {
             "type": "Custom",
             "param": {
@@ -530,7 +554,10 @@
         ]
     },
     "确定编队_矩阵循生": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -604,7 +631,10 @@
         }
     },
     "事件确定_矩阵循生": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -723,7 +753,10 @@
         ]
     },
     "终止_矩阵循生": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -795,7 +828,10 @@
         }
     },
     "转换层级_矩阵循生": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -835,7 +871,10 @@
         ]
     },
     "进入异度投影": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -866,7 +905,10 @@
         ]
     },
     "异度投影_对话3": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -938,7 +980,10 @@
         }
     },
     "异度投影_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1087,7 +1132,10 @@
         "focus": {
             "succeeded": "[color:Tomato]寄![/color]"
         },
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1113,7 +1161,10 @@
         }
     },
     "进入战斗_矩阵循生": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1245,7 +1296,10 @@
         }
     },
     "离开_寒境曙光": {
-        "post_delay": 1500,
+        "post_wait_freezes": {
+            "time": 300,
+            "timeout": 3000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1263,7 +1317,10 @@
         }
     },
     "确认装备_矩阵循生": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1308,7 +1365,10 @@
         }
     },
     "领取_矩阵循生": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1326,7 +1386,10 @@
         }
     },
     "事件完成_矩阵循生": {
-        "post_delay": 2000,
+        "post_wait_freezes": {
+            "time": 400,
+            "timeout": 4000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1353,7 +1416,10 @@
         ]
     },
     "事件完成_结束_矩阵循生": {
-        "post_delay": 2000,
+        "post_wait_freezes": {
+            "time": 400,
+            "timeout": 4000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1475,7 +1541,10 @@
         }
     },
     "出发_矩阵循生": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1509,7 +1578,10 @@
         }
     },
     "选择难度_矩阵循生": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1533,7 +1605,10 @@
         ]
     },
     "迭变藏品_矩阵循生": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1564,7 +1639,10 @@
         ]
     },
     "下一步_矩阵循生": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1582,7 +1660,10 @@
         }
     },
     "选择首发_矩阵循生": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1638,7 +1719,10 @@
         }
     },
     "编入_矩阵循生": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1674,7 +1758,10 @@
         ]
     },
     "开始演算": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {

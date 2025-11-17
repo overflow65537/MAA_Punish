@@ -1,6 +1,9 @@
 {
     "获得奖励_神寂启示录": {
-        "post_delay": 2500,
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -68,7 +71,10 @@
         }
     },
     "选择技能_神寂启示录": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -173,7 +179,10 @@
         }
     },
     "事件完成_神寂启示录": {
-        "post_delay": 2500,
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -213,7 +222,10 @@
         }
     },
     "战斗中_神寂启示录": {
-        "post_delay": 2000,
+        "post_wait_freezes": {
+            "time": 400,
+            "timeout": 4000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -265,7 +277,10 @@
         ]
     },
     "符纹宝箱_神寂启示录": {
-        "post_delay": 2500,
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -335,7 +350,10 @@
         }
     },
     "通用事件处理_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -572,7 +590,10 @@
         ]
     },
     "情报分析_答案1": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -597,7 +618,10 @@
         ]
     },
     "情报分析_答案2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -622,7 +646,10 @@
         ]
     },
     "情报分析_答案3": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -647,7 +674,10 @@
         ]
     },
     "情报分析_答案4": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {

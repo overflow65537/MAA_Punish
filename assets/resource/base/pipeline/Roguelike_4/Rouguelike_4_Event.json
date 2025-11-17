@@ -40,7 +40,10 @@
                 "expected": "[7-9]|\\d{2,}"
             }
         },
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "action": {
             "type": "Click"
         },
@@ -49,7 +52,10 @@
         ]
     },
     "使用岗哨塔_寒境曙光": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -128,7 +134,10 @@
         ]
     },
     "准备战斗_寒境曙光": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -251,7 +260,10 @@
         "on_error": [
             "港口异常点_寒境曙光"
         ],
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -488,7 +500,10 @@
         }
     },
     "离开对话_寒境曙光": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -587,7 +602,10 @@
                 "expected": "求生手记"
             }
         },
-        "post_delay": 2000,
+        "post_wait_freezes": {
+            "time": 400,
+            "timeout": 4000
+        },
         "next": [
             "返回"
         ]
@@ -695,7 +713,10 @@
         "on_error": [
             "港口异常点_寒境曙光"
         ],
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -920,7 +941,10 @@
         ]
     },
     "决定事件_寒境曙光": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -1011,7 +1035,10 @@
         "on_error": [
             "港口异常点_寒境曙光"
         ],
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1065,7 +1092,10 @@
         "focus": {
             "succeeded": "[color:ForestGreen]黄色地块[/color]"
         },
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1099,7 +1129,10 @@
         "focus": {
             "succeeded": "[color:ForestGreen]红色地块[/color]"
         },
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1133,7 +1166,10 @@
         "focus": {
             "succeeded": "[color:ForestGreen]蓝色地块[/color]"
         },
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "ColorMatch",
             "param": {

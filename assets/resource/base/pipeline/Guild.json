@@ -280,7 +280,10 @@
         }
     },
     "关闭奖励_指挥局": {
-        "post_delay": 1500,
+        "post_wait_freezes": {
+            "time": 300,
+            "timeout": 3000
+        },
         "recognition": {
             "type": "OCR",
             "param": {

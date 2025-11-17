@@ -1,6 +1,9 @@
 {
     "下定决心_厄愿潮声": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -18,7 +21,10 @@
         }
     },
     "事件完成_厄愿潮声": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -112,7 +118,10 @@
         ]
     },
     "商店_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -132,7 +141,10 @@
         }
     },
     "结束交易_厄愿潮声": {
-        "post_delay": 1500,
+        "post_wait_freezes": {
+            "time": 300,
+            "timeout": 3000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -202,7 +214,10 @@
         ]
     },
     "布道者_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -346,7 +361,10 @@
         ]
     },
     "鲨鲨置物箱_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -417,7 +435,10 @@
         ]
     },
     "名为知识的诅咒_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -488,7 +509,10 @@
         ]
     },
     "集市_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -558,7 +582,10 @@
         ]
     },
     "废弃庭院_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -628,7 +655,10 @@
         ]
     },
     "恶魔配方_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -702,7 +732,10 @@
         ]
     },
     "军备库_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -774,7 +807,10 @@
         ]
     },
     "迷雾之梦_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -844,7 +880,10 @@
         ]
     },
     "旅行剧团_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -914,7 +953,10 @@
         ]
     },
     "返乡者_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -989,7 +1031,10 @@
         ]
     },
     "命运前路_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1064,7 +1109,10 @@
         ]
     },
     "拾荒者派对_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1139,7 +1187,10 @@
         ]
     },
     "名为禁忌的睿智_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1212,7 +1263,10 @@
         ]
     },
     "遗骨之滨_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1285,7 +1339,10 @@
         ]
     },
     "柯雷多尔的馈赠_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1358,7 +1415,10 @@
         ]
     },
     "街头艺人_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1430,7 +1490,10 @@
         ]
     },
     "继承意志_厄愿潮声": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1448,7 +1511,10 @@
         }
     },
     "失败者_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1523,7 +1589,10 @@
         ]
     },
     "欢乐时光_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1598,7 +1667,10 @@
         ]
     },
     "谨听忠告_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1674,7 +1746,10 @@
         ]
     },
     "禁忌教堂_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1749,7 +1824,10 @@
         ]
     },
     "被完成的谜题_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1824,7 +1902,10 @@
         ]
     },
     "藏书库_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1899,7 +1980,10 @@
         ]
     },
     "另一面圆桌_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1974,7 +2058,10 @@
         ]
     },
     "恶魔传说_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2049,7 +2136,10 @@
         ]
     },
     "许愿之井_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2124,7 +2214,10 @@
         ]
     },
     "迷途之子_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2200,7 +2293,10 @@
         ]
     },
     "阵营冲突_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2276,7 +2372,10 @@
         ]
     },
     "珠宝猎人_对话2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {

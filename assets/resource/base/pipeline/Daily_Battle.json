@@ -21,7 +21,10 @@
                 "expected": "^战斗$"
             }
         },
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "next": [
             "开始自动战斗"
         ],
@@ -40,7 +43,10 @@
         ]
     },
     "作战失败": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -59,7 +65,10 @@
         }
     },
     "手动作战_custom": {
-        "post_delay": 500,
+        "post_wait_freezes": {
+            "time": 100,
+            "timeout": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -137,7 +146,10 @@
     },
     "吃体力药": {
         "pre_delay": 4000,
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -159,7 +171,10 @@
         ]
     },
     "使用补给包": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -191,7 +206,10 @@
         ]
     },
     "关闭弹窗_1": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "action": {
             "type": "Click",
             "param": {
@@ -239,7 +257,10 @@
         ]
     },
     "关闭弹窗_2": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "action": {
             "type": "Click",
             "param": {
@@ -286,7 +307,10 @@
         ]
     },
     "关闭弹窗_3": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "action": {
             "type": "Click",
             "param": {
@@ -356,7 +380,10 @@
         ]
     },
     "退出血清界面": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -447,7 +474,10 @@
         }
     },
     "打开拟战场域": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -563,7 +593,10 @@
         }
     },
     "检查结果_体力不足": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
