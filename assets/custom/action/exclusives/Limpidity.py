@@ -68,7 +68,7 @@ class Limpidity(CustomAction):
                 start_time = time.time()
                 while not action.check_status("检查核心条2_霁梦"):
                     if context.tasker.stopping:
-                        return CustomAction.RunResult(success=False)
+                        return CustomAction.RunResult(success=True)
                     if time.time() - start_time > 5:
                         action.logger.info("等待核心条就绪超时，跳出循环")
                         return CustomAction.RunResult(success=True)
@@ -80,7 +80,7 @@ class Limpidity(CustomAction):
                     action.use_skill()
                     time.sleep(0.1)
 
-                return CustomAction.RunResult(success=False)
+                return CustomAction.RunResult(success=True)
 
             elif action.count_signal_balls() != 0:
                 action.ball_elimination_target()
