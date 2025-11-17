@@ -382,7 +382,9 @@
         ]
     },
     "打开战斗": {
-        "post_delay": 1500,
+        "post_wait_freezes": {
+            "time": 500
+        },
         "recognition": {
             "type": "OCR",
             "param": {
