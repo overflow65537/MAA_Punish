@@ -43,14 +43,31 @@
             "type": "Click"
         },
         "next": [
-            "确定_sp",
-            "检查主界面2",
-            "关闭奖励",
-            "返回主菜单"
+            "检查主界面2"
         ],
         "interrupt": [
-            "确定"
+            "关闭奖励",
+            "确定",
+            "返回主菜单_reco"
         ]
+    },
+    "返回主菜单_reco": {
+        "post_delay": 1000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    238,
+                    27,
+                    78,
+                    38
+                ],
+                "expected": "主界面"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "返回主菜单_图标": {
         "post_delay": 1000,
