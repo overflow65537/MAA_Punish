@@ -16,6 +16,25 @@
             "调用识别方法"
         ]
     },
+    "选择队长": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    199,
+                    489,
+                    965,
+                    89
+                ],
+                "expected": [
+                    "选择"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
     "单人自动战斗循环": {
         "post_delay": 0,
         "pre_delay": 0,
