@@ -49,6 +49,7 @@ class Limpidity(CustomAction):
                 action.long_press_dodge(1000)  # 直面天闪!
                 for _ in range(15):
                     action.use_skill()  # 以苦厄,澈我心镜
+                    action.auxiliary_machine()
                     action.attack()
                     time.sleep(0.1)
                 return CustomAction.RunResult(success=True)
@@ -78,6 +79,7 @@ class Limpidity(CustomAction):
                 action.long_press_attack(3000)  # 终于,梦醒时分
                 for _ in range(15):
                     action.use_skill()  # 映天地,渡你新生
+                    action.auxiliary_machine()
                     time.sleep(0.1)
 
                 return CustomAction.RunResult(success=True)
