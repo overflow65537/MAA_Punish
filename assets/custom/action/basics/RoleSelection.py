@@ -143,6 +143,15 @@ class RoleSelection(CustomAction):
                 context.run_action("反向滑动_选人")
         # 找出权重最高的key
         selected_role = max(role_weight.items(), key=lambda x: x[1])[0]
+        # print出所有的角色和权重
+        for role_name, weight in role_weight.items():
+            self.send_msg(context, f"角色: {role_name}, 权重: {weight}")
+        if condition.get("pick") and condition.get("pick") not in role_weight.keys():
+            self.send_msg(
+                context,
+                f"未检测到 {condition.get('pick')},选中权重最高的角色 {selected_role}",
+            )
+
         target = None
         nonselected_roles = False
         if role_weight[selected_role] == 0:
@@ -189,7 +198,8 @@ class RoleSelection(CustomAction):
                             "recognition": {
                                 "param": {
                                     "template": role_dict[selected_role]["template"],
-                                    "threshold":[0.7]*len(role_dict[selected_role]["template"])
+                                    "threshold": [0.7]
+                                    * len(role_dict[selected_role]["template"]),
                                 },
                             },
                         }
@@ -364,3 +374,14 @@ class RoleSelection(CustomAction):
             f.write(png_chunk(b"IDAT", idat))
             f.write(png_chunk(b"IEND", b""))
         return True
+
+    def send_msg(self, context: Context, msg: str):
+        msg_node = {
+            "发送消息_这是程序自动生成的node所以故意写的很长来防止某一天想不开用了这个名字导致报错": {
+                "focus": {"succeeded": msg}
+            }
+        }
+        context.run_task(
+            "发送消息_这是程序自动生成的node所以故意写的很长来防止某一天想不开用了这个名字导致报错",
+            pipeline_override=msg_node,
+        )
