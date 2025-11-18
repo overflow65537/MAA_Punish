@@ -1605,10 +1605,6 @@
         ]
     },
     "迭变藏品_矩阵循生": {
-        "post_wait_freezes": {
-            "time": 200,
-            "timeout": 2000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1623,20 +1619,31 @@
                 ]
             }
         },
-        "action": {
-            "type": "Click",
+        "next": [
+            "下一步_矩阵循生"
+        ],
+        "interrupt": [
+            "点击迭变投影选项"
+        ]
+    },
+    "点击迭变投影选项": {
+        "recognition": {
+            "type": "TemplateMatch",
             "param": {
-                "target": [
-                    154,
-                    333,
-                    1,
-                    1
+                "roi": [
+                    19,
+                    98,
+                    311,
+                    522
+                ],
+                "template": [
+                    "矩阵循生/迭变投影.png"
                 ]
             }
         },
-        "next": [
-            "下一步_矩阵循生"
-        ]
+        "action": {
+            "type": "Click"
+        }
     },
     "下一步_矩阵循生": {
         "post_wait_freezes": {
