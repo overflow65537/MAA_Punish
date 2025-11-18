@@ -30,10 +30,7 @@
         }
     },
     "检查碎片": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -59,10 +56,7 @@
         }
     },
     "滑动": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -168,10 +162,7 @@
         ]
     },
     "购买碎片失败": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {

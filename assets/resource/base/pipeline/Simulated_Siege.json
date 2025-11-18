@@ -93,10 +93,7 @@
         ]
     },
     "确定选择": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -114,10 +111,7 @@
         }
     },
     "坚持作战": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -449,10 +443,7 @@
         ]
     },
     "领取血量奖励": {
-        "post_wait_freezes": {
-            "time": 300,
-            "timeout": 3000
-        },
+        "post_delay": 1500,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -484,10 +475,7 @@
         ]
     },
     "关闭奖励_拟真围剿": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -513,10 +501,7 @@
         }
     },
     "领取全局奖励": {
-        "post_wait_freezes": {
-            "time": 300,
-            "timeout": 3000
-        },
+        "post_delay": 1500,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -548,10 +533,7 @@
         ]
     },
     "点击BOSS区": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -579,10 +561,7 @@
         }
     },
     "点击特遣区": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -631,10 +610,7 @@
         ]
     },
     "保存分数": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -678,10 +654,7 @@
         ]
     },
     "选择其他人物": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -714,10 +687,7 @@
         }
     },
     "开始作战_拟真围剿": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -735,10 +705,7 @@
         }
     },
     "点击常序区": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -766,10 +733,7 @@
         }
     },
     "准备作战_拟真围剿": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -824,10 +788,7 @@
         ]
     },
     "领取本周贡献": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -853,10 +814,7 @@
         ]
     },
     "识别本周贡献3000": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -888,10 +846,7 @@
         ]
     },
     "识别本周贡献6000": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -923,10 +878,7 @@
         ]
     },
     "识别本周贡献9000": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -958,10 +910,7 @@
         ]
     },
     "识别本周贡献12000": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -993,10 +942,7 @@
         ]
     },
     "识别本周贡献15000": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1028,10 +974,7 @@
         ]
     },
     "返回指挥局": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {

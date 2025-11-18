@@ -185,10 +185,7 @@
         }
     },
     "检查主界面": {
-        "post_wait_freezes": {
-            "time": 400,
-            "timeout": 4000
-        },
+        "post_delay": 3000,
         "recognition": {
             "type": "OCR",
             "param": {

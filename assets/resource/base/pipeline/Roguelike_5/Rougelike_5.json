@@ -138,10 +138,7 @@
         }
     },
     "情报分析_神寂启示录": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -162,10 +159,7 @@
         ]
     },
     "情报分析_渡边": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -202,10 +196,7 @@
         ]
     },
     "情报分析_死亡骑士": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -319,10 +310,7 @@
         ]
     },
     "推演": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 5000
-        },
+        "post_delay": 2500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -476,10 +464,7 @@
         ]
     },
     "退出战斗_神寂启示录": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -505,10 +490,7 @@
         }
     },
     "退出战斗2_神寂启示录": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -556,10 +538,7 @@
         ]
     },
     "打开启示之路": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {

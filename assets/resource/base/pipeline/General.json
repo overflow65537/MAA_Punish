@@ -1,9 +1,6 @@
 {
     "关闭奖励": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -31,10 +28,7 @@
         }
     },
     "返回主菜单": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -60,10 +54,7 @@
         ]
     },
     "返回主菜单_reco": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -81,10 +72,7 @@
         }
     },
     "返回主菜单_图标": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -111,10 +99,7 @@
         ]
     },
     "意外点击_主界面": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -140,10 +125,7 @@
         }
     },
     "返回": {
-        "post_wait_freezes": {
-            "time": 300,
-            "timeout": 3000
-        },
+        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -161,10 +143,7 @@
         }
     },
     "返回_图标": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -250,10 +229,7 @@
         }
     },
     "跳过剧情": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -300,10 +276,7 @@
         ]
     },
     "点击频率过快": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -369,10 +342,7 @@
         }
     },
     "确定_sp": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -393,10 +363,7 @@
         ]
     },
     "退出血清界面_err": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {

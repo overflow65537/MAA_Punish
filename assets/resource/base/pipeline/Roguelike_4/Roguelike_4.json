@@ -42,10 +42,7 @@
         ]
     },
     "完成所有任务_重开": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -70,10 +67,7 @@
         ]
     },
     "寒境曙光主界面_重开": {
-        "post_wait_freezes": {
-            "time": 300,
-            "timeout": 3000
-        },
+        "post_delay": 1500,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -119,10 +113,7 @@
         }
     },
     "标准进入方式_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -245,10 +236,7 @@
         ]
     },
     "物资事件结束_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -280,10 +268,7 @@
         "focus": {
             "succeeded": "[color:LightSalmon]未搜索到目标,重新进入[/color]"
         },
-        "post_wait_freezes": {
-            "time": 400,
-            "timeout": 4000
-        },
+        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -310,10 +295,7 @@
         ]
     },
     "暂离_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "action": {
             "type": "Click",
             "param": {
@@ -467,10 +449,7 @@
         }
     },
     "行动点不足2_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -503,10 +482,7 @@
         ]
     },
     "驻扎点报警_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 300,
-            "timeout": 3000
-        },
+        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -532,10 +508,7 @@
         }
     },
     "选择军事支援_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -561,10 +534,7 @@
         }
     },
     "选择经济支援_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -590,10 +560,7 @@
         }
     },
     "选择基建支援_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -619,10 +586,7 @@
         }
     },
     "文字地块_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -704,10 +668,7 @@
         ]
     },
     "战斗中_货币不足": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -766,10 +727,7 @@
         ]
     },
     "重启_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -835,10 +793,7 @@
         ]
     },
     "事件完成_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -882,10 +837,7 @@
         }
     },
     "已选人_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -903,10 +855,7 @@
         }
     },
     "未选人_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -931,10 +880,7 @@
         ]
     },
     "关闭未拥有人物提示": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1044,10 +990,7 @@
         }
     },
     "选择对应人物_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1088,10 +1031,7 @@
         }
     },
     "选择首发_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1109,10 +1049,7 @@
         }
     },
     "支援等级提升_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 300,
-            "timeout": 3000
-        },
+        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1138,10 +1075,7 @@
         }
     },
     "局内招募_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 400,
-            "timeout": 4000
-        },
+        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1191,16 +1125,10 @@
                 "expected": "未达标"
             }
         },
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        }
+        "post_delay": 1000
     },
     "退出_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1230,10 +1158,7 @@
                 "expected": "已达标"
             }
         },
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "action": {
             "type": "Click"
         },
@@ -1285,10 +1210,7 @@
                 ]
             }
         },
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "action": {
             "type": "Click",
             "param": {
@@ -1314,10 +1236,7 @@
                 "expected": "已达标"
             }
         },
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "action": {
             "type": "Click"
         }
@@ -1362,10 +1281,7 @@
         ]
     },
     "区域未连通": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1520,10 +1436,7 @@
         }
     },
     "完成所有任务": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1548,10 +1461,7 @@
         ]
     },
     "刷新次数用尽失败_寒镜曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1581,10 +1491,7 @@
         ]
     },
     "寒境曙光主界面": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -1781,10 +1688,7 @@
         ]
     },
     "选择代理_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1864,10 +1768,7 @@
         }
     },
     "领取战斗奖励": {
-        "post_wait_freezes": {
-            "time": 300,
-            "timeout": 3000
-        },
+        "post_delay": 1500,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1913,10 +1814,7 @@
         }
     },
     "关闭奖励_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1942,10 +1840,7 @@
         }
     },
     "继续对话_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1973,10 +1868,7 @@
         }
     },
     "行动点不足_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2014,10 +1906,7 @@
         ]
     },
     "休息完成_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2032,10 +1921,7 @@
         }
     },
     "点击空白处关闭": {
-        "post_wait_freezes": {
-            "time": 300,
-            "timeout": 3000
-        },
+        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2121,10 +2007,7 @@
         }
     },
     "选择已有战斗逻辑的人物": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2151,10 +2034,7 @@
         ]
     },
     "招募人物_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2173,10 +2053,7 @@
         }
     },
     "启程_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 5000
-        },
+        "post_delay": 2500,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -2334,10 +2211,7 @@
         ]
     },
     "选择具体难度_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2361,10 +2235,7 @@
         ]
     },
     "难度切换_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2446,10 +2317,7 @@
         }
     },
     "选择具体开局_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2471,10 +2339,7 @@
         ]
     },
     "开局切换_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2506,10 +2371,7 @@
         }
     },
     "选择开局完成_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {

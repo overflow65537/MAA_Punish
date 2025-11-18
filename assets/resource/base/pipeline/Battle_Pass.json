@@ -35,10 +35,7 @@
         ]
     },
     "打开通行证_图片": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -89,10 +86,7 @@
         ]
     },
     "一键领取_评定任务": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -141,10 +135,7 @@
         ]
     },
     "一键领取_战略补给": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -172,10 +163,7 @@
         ]
     },
     "打开通行证": {
-        "post_wait_freezes": {
-            "time": 400,
-            "timeout": 4000
-        },
+        "post_delay": 4000,
         "recognition": {
             "type": "OCR",
             "param": {

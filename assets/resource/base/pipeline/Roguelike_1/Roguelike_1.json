@@ -102,10 +102,7 @@
         }
     },
     "意外点击_队伍": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 5000
-        },
+        "post_delay": 5000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -123,10 +120,7 @@
         ]
     },
     "宣叙妄响内部_reco2": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 5000
-        },
+        "post_delay": 3000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1260,10 +1254,7 @@
         }
     },
     "退出结算_宣叙妄响": {
-        "post_wait_freezes": {
-            "time": 400,
-            "timeout": 4000
-        },
+        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {

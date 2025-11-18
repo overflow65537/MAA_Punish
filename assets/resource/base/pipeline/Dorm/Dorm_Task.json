@@ -117,10 +117,7 @@
         ]
     },
     "一键领取_宿舍任务": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -141,10 +138,7 @@
         }
     },
     "关闭奖励_宿舍任务": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -191,10 +185,7 @@
         }
     },
     "宿舍任务_领取执勤": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -209,10 +200,7 @@
         ]
     },
     "打开宿舍任务": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -302,10 +290,7 @@
                 "expected": "开始执勤"
             }
         },
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "action": {
             "type": "Click"
         },
@@ -419,10 +404,7 @@
         }
     },
     "打开执勤": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -503,10 +485,7 @@
         }
     },
     "关闭回收界面": {
-        "post_wait_freezes": {
-            "time": 300,
-            "timeout": 3000
-        },
+        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -638,10 +617,7 @@
         }
     },
     "开始制造": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -800,10 +776,7 @@
         ]
     },
     "无派遣任务": {
-        "post_wait_freezes": {
-            "time": 400,
-            "timeout": 4000
-        },
+        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -835,10 +808,7 @@
         ]
     },
     "一键派遣": {
-        "post_wait_freezes": {
-            "time": 300,
-            "timeout": 3000
-        },
+        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -856,10 +826,7 @@
         }
     },
     "领取委托完成奖励": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
