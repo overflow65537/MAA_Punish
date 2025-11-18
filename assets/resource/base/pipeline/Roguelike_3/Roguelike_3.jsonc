@@ -28,7 +28,35 @@
             "确认装备_矩阵循生",
             "选择装备_矩阵循生",
             "意外点击_限定活动"
-        ]
+        ],
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "选择模式_矩阵循生": {
+                        "enabled": true
+                    },
+                    "选择首发_矩阵循生": {
+                        "enabled": true
+                    },
+                    "异度投影_矩阵循生": {
+                        "enabled": true
+                    },
+                    "进入物归新主_矩阵循生": {
+                        "enabled": false
+                    },
+                    "选择首发2_矩阵循生": {
+                        "enabled": false
+                    },
+                    "选择角色程序_矩阵循生": {
+                        "action": {
+                            "param": {}
+                        }
+                    }
+                }
+            }
+        }
     },
     "返回_矩阵循生": {
         "recognition": {
