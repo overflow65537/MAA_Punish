@@ -26,11 +26,8 @@ MAA_Punish 链合回路求解器
 
 from maa.context import Context
 from maa.custom_action import CustomAction
-import json
 import random
 import time
-
-from numpy import gradient
 
 
 class ChainLoopCircuit(CustomAction):
