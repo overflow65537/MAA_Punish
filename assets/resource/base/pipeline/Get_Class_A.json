@@ -10,7 +10,7 @@
     },
     "检查是否是资源副本界面": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -34,7 +34,7 @@
     },
     "进入资源副本": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -123,7 +123,7 @@
     },
     "A级角色": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -151,7 +151,7 @@
             "succeeded": "[color:Tomato]未解锁自动作战[/color]"
         },
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -172,7 +172,7 @@
     },
     "使用体力刷碎片": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -214,7 +214,7 @@
     },
     "A_MAX": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -340,7 +340,7 @@
     },
     "A_血清组": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -429,7 +429,7 @@
     },
     "A_出战结束_确认": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {

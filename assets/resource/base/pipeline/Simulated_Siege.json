@@ -94,7 +94,7 @@
     },
     "确定选择": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -115,7 +115,7 @@
     },
     "坚持作战": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -485,7 +485,7 @@
     },
     "关闭奖励_拟真围剿": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -549,7 +549,7 @@
     },
     "点击BOSS区": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -580,7 +580,7 @@
     },
     "点击特遣区": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -632,7 +632,7 @@
     },
     "保存分数": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -679,7 +679,7 @@
     },
     "选择其他人物": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -715,7 +715,7 @@
     },
     "开始作战_拟真围剿": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -736,7 +736,7 @@
     },
     "点击常序区": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -767,7 +767,7 @@
     },
     "准备作战_拟真围剿": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -825,7 +825,7 @@
     },
     "领取本周贡献": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -854,7 +854,7 @@
     },
     "识别本周贡献3000": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -889,7 +889,7 @@
     },
     "识别本周贡献6000": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -924,7 +924,7 @@
     },
     "识别本周贡献9000": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -959,7 +959,7 @@
     },
     "识别本周贡献12000": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -994,7 +994,7 @@
     },
     "识别本周贡献15000": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1029,7 +1029,7 @@
     },
     "返回指挥局": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {

@@ -33,7 +33,7 @@
     },
     "打开挑战_纷争战区": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -235,7 +235,7 @@
     },
     "战斗准备": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {

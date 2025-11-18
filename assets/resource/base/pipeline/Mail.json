@@ -33,7 +33,7 @@
     },
     "打开邮件": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {

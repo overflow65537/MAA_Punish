@@ -96,7 +96,7 @@
     },
     "选择宝箱奖励_厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -288,7 +288,7 @@
     },
     "事件确定": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -500,7 +500,7 @@
             }
         },
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "action": {
@@ -576,7 +576,7 @@
     },
     "领取藏品_厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -597,7 +597,7 @@
     },
     "点击藏品_厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -724,7 +724,7 @@
     },
     "确认招募完毕": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -782,7 +782,7 @@
     },
     "点击升星_金色1": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -816,7 +816,7 @@
     },
     "点击招募_金色1": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -883,7 +883,7 @@
     },
     "点击升星_金色2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -917,7 +917,7 @@
     },
     "点击招募_金色2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -984,7 +984,7 @@
     },
     "点击升星_金色3": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1018,7 +1018,7 @@
     },
     "点击招募_金色3": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1085,7 +1085,7 @@
     },
     "点击升星_紫色1": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1119,7 +1119,7 @@
     },
     "点击招募_紫色1": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1186,7 +1186,7 @@
     },
     "点击升星_紫色2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1220,7 +1220,7 @@
     },
     "点击招募_紫色2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1287,7 +1287,7 @@
     },
     "点击升星_紫色3": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1321,7 +1321,7 @@
     },
     "点击招募_紫色3": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1388,7 +1388,7 @@
     },
     "点击升星_蓝色1": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1422,7 +1422,7 @@
     },
     "点击招募_蓝色1": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1489,7 +1489,7 @@
     },
     "点击升星_蓝色2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1523,7 +1523,7 @@
     },
     "点击招募_蓝色2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1590,7 +1590,7 @@
     },
     "点击升星_蓝色3": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1624,7 +1624,7 @@
     },
     "点击招募_蓝色3": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1658,7 +1658,7 @@
     },
     "没有羁绊": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1682,7 +1682,7 @@
     },
     "领取_厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1730,7 +1730,7 @@
     },
     "放弃战斗_厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1775,7 +1775,7 @@
     },
     "邀约选择_厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1809,7 +1809,7 @@
     },
     "邀约选择二次点击_厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1875,7 +1875,7 @@
     },
     "刷新次数为0_厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1919,7 +1919,7 @@
     },
     "刷新人物_厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1940,7 +1940,7 @@
     },
     "选择人物1_厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1978,7 +1978,7 @@
     },
     "选择人物2_厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2017,7 +2017,7 @@
     },
     "选择人物3_厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2096,7 +2096,7 @@
     },
     "选择策略_厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2149,7 +2149,7 @@
             }
         },
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "next": [
@@ -2269,7 +2269,7 @@
     },
     "下一步_厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2290,7 +2290,7 @@
     },
     "终止_厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2311,7 +2311,7 @@
     },
     "打开厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {

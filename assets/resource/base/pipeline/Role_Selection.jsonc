@@ -79,7 +79,7 @@
     },
     "反向滑动_选人": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "action": {
@@ -144,7 +144,7 @@
     },
     "卸下队伍": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "pre_delay": 1000,

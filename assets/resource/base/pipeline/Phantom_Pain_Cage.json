@@ -309,7 +309,7 @@
     },
     "囚笼作战程序": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -631,7 +631,7 @@
     },
     "挑战次数不足": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -670,7 +670,7 @@
     },
     "一键领取_囚笼": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -759,7 +759,7 @@
     },
     "查找目标": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -828,7 +828,7 @@
     },
     "打开幻痛囚笼": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -881,7 +881,7 @@
     },
     "打开挑战_幻痛囚笼": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -906,7 +906,7 @@
     },
     "手动作战": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -931,7 +931,7 @@
     },
     "挑战次数不足_sub": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {

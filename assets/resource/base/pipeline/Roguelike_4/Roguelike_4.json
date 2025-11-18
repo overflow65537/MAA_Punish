@@ -43,7 +43,7 @@
     },
     "完成所有任务_重开": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -120,7 +120,7 @@
     },
     "标准进入方式_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -246,7 +246,7 @@
     },
     "物资事件结束_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -311,7 +311,7 @@
     },
     "暂离_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "action": {
@@ -468,7 +468,7 @@
     },
     "行动点不足2_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -533,7 +533,7 @@
     },
     "选择军事支援_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -562,7 +562,7 @@
     },
     "选择经济支援_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -591,7 +591,7 @@
     },
     "选择基建支援_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -620,7 +620,7 @@
     },
     "文字地块_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -705,7 +705,7 @@
     },
     "战斗中_货币不足": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -767,7 +767,7 @@
     },
     "重启_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -836,7 +836,7 @@
     },
     "事件完成_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -883,7 +883,7 @@
     },
     "已选人_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -904,7 +904,7 @@
     },
     "未选人_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -932,7 +932,7 @@
     },
     "关闭未拥有人物提示": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1045,7 +1045,7 @@
     },
     "选择对应人物_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1089,7 +1089,7 @@
     },
     "选择首发_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1192,13 +1192,13 @@
             }
         },
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         }
     },
     "退出_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1231,7 +1231,7 @@
             }
         },
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "action": {
@@ -1286,7 +1286,7 @@
             }
         },
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "action": {
@@ -1315,7 +1315,7 @@
             }
         },
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "action": {
@@ -1363,7 +1363,7 @@
     },
     "区域未连通": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1521,7 +1521,7 @@
     },
     "完成所有任务": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1549,7 +1549,7 @@
     },
     "刷新次数用尽失败_寒镜曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1582,7 +1582,7 @@
     },
     "寒境曙光主界面": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1782,7 +1782,7 @@
     },
     "选择代理_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1914,7 +1914,7 @@
     },
     "关闭奖励_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1943,7 +1943,7 @@
     },
     "继续对话_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1974,7 +1974,7 @@
     },
     "行动点不足_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2015,7 +2015,7 @@
     },
     "休息完成_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2122,7 +2122,7 @@
     },
     "选择已有战斗逻辑的人物": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2152,7 +2152,7 @@
     },
     "招募人物_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2335,7 +2335,7 @@
     },
     "选择具体难度_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2362,7 +2362,7 @@
     },
     "难度切换_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2447,7 +2447,7 @@
     },
     "选择具体开局_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2472,7 +2472,7 @@
     },
     "开局切换_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2507,7 +2507,7 @@
     },
     "选择开局完成_寒境曙光": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {

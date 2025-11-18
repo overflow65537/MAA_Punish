@@ -118,7 +118,7 @@
     },
     "一键领取_宿舍任务": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -142,7 +142,7 @@
     },
     "关闭奖励_宿舍任务": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -192,7 +192,7 @@
     },
     "宿舍任务_领取执勤": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -210,7 +210,7 @@
     },
     "打开宿舍任务": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -303,7 +303,7 @@
             }
         },
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "action": {
@@ -420,7 +420,7 @@
     },
     "打开执勤": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -639,7 +639,7 @@
     },
     "开始制造": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -857,7 +857,7 @@
     },
     "领取委托完成奖励": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {

@@ -47,7 +47,7 @@
     },
     "进入商店_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -98,7 +98,7 @@
     },
     "结束购物_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -149,7 +149,7 @@
     },
     "在途存货_对话1": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -170,7 +170,7 @@
     },
     "在途存货_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -224,7 +224,7 @@
     },
     "亚人少女_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -248,7 +248,7 @@
     },
     "亚人少女_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -304,7 +304,7 @@
     },
     "贴心搭档_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -359,7 +359,7 @@
     },
     "逃出生天_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -383,7 +383,7 @@
     },
     "逃出生天_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -438,7 +438,7 @@
     },
     "隐秘工坊_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -462,7 +462,7 @@
     },
     "隐秘工坊_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -516,7 +516,7 @@
     },
     "洁塔薇的游戏_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -540,7 +540,7 @@
     },
     "洁塔薇的游戏_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -595,7 +595,7 @@
     },
     "禁忌验证_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -620,7 +620,7 @@
     },
     "禁忌验证_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -680,7 +680,7 @@
     },
     "头号玩家_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -703,7 +703,7 @@
     },
     "头号玩家_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -757,7 +757,7 @@
     },
     "致命失误_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -781,7 +781,7 @@
     },
     "致命失误_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -835,7 +835,7 @@
     },
     "工业怪谈_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -858,7 +858,7 @@
     },
     "工业怪谈_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -914,7 +914,7 @@
     },
     "动物坟场_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -939,7 +939,7 @@
     },
     "动物坟场_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1002,7 +1002,7 @@
     },
     "观星真相_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1027,7 +1027,7 @@
     },
     "观星真相_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1084,7 +1084,7 @@
     },
     "异界通讯I_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1111,7 +1111,7 @@
     },
     "异界通讯I_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1173,7 +1173,7 @@
     },
     "步履蹒跚_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1230,7 +1230,7 @@
     },
     "举手之劳_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1256,7 +1256,7 @@
     },
     "举手之劳_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1282,7 +1282,7 @@
     },
     "步履蹒跚_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1339,7 +1339,7 @@
     },
     "无效救援_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1365,7 +1365,7 @@
     },
     "无效救援_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1421,7 +1421,7 @@
     },
     "盛典纪行_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1446,7 +1446,7 @@
     },
     "盛典纪行_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1507,7 +1507,7 @@
     },
     "火灾现场_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1532,7 +1532,7 @@
     },
     "火灾现场_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1588,7 +1588,7 @@
     },
     "棋盘难题_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1613,7 +1613,7 @@
     },
     "棋盘难题_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1671,7 +1671,7 @@
     },
     "皇后游戏_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1699,7 +1699,7 @@
     },
     "皇后游戏_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1770,7 +1770,7 @@
     },
     "瑕疵造物_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1794,7 +1794,7 @@
     },
     "瑕疵造物_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1850,7 +1850,7 @@
     },
     "迷失之馆_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1874,7 +1874,7 @@
     },
     "迷失之馆_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1930,7 +1930,7 @@
     },
     "圣殿战役_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1956,7 +1956,7 @@
     },
     "圣殿战役_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2013,7 +2013,7 @@
     },
     "西西弗斯_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2036,7 +2036,7 @@
     },
     "西西弗斯_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2092,7 +2092,7 @@
     },
     "野性之森_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2118,7 +2118,7 @@
     },
     "野性之森_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2174,7 +2174,7 @@
     },
     "蓝色裂痕_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2200,7 +2200,7 @@
     },
     "蓝色裂痕_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2257,7 +2257,7 @@
     },
     "铁石心肠_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2280,7 +2280,7 @@
     },
     "铁石心肠_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2339,7 +2339,7 @@
     },
     "栩栩如生_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2364,7 +2364,7 @@
     },
     "栩栩如生_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2421,7 +2421,7 @@
     },
     "荒废古卷_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2445,7 +2445,7 @@
     },
     "荒废古卷_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2472,7 +2472,7 @@
     },
     "回答_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2523,7 +2523,7 @@
     },
     "洁塔薇的食材_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2548,7 +2548,7 @@
     },
     "洁塔薇的食材_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2605,7 +2605,7 @@
     },
     "荒废古堡_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2629,7 +2629,7 @@
     },
     "荒废古堡_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2685,7 +2685,7 @@
     },
     "天台扭蛋机_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2708,7 +2708,7 @@
     },
     "天台扭蛋机_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2763,7 +2763,7 @@
     },
     "莫比乌斯_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2788,7 +2788,7 @@
     },
     "莫比乌斯_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2845,7 +2845,7 @@
     },
     "赝品工匠_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2869,7 +2869,7 @@
     },
     "赝品工匠_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2924,7 +2924,7 @@
     },
     "继承之物_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2949,7 +2949,7 @@
     },
     "继承之物_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3005,7 +3005,7 @@
     },
     "异界通讯II_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3031,7 +3031,7 @@
     },
     "异界通讯II_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3086,7 +3086,7 @@
     },
     "禁忌实验_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3112,7 +3112,7 @@
     },
     "禁忌实验_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3167,7 +3167,7 @@
     },
     "失败造物_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3192,7 +3192,7 @@
     },
     "失败造物_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3220,7 +3220,7 @@
     },
     "继续_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3241,7 +3241,7 @@
     },
     "调查_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3291,7 +3291,7 @@
     },
     "旧日情谊_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3315,7 +3315,7 @@
     },
     "旧日情谊_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3370,7 +3370,7 @@
     },
     "贫困收藏家_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3393,7 +3393,7 @@
     },
     "贫困收藏家_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3448,7 +3448,7 @@
     },
     "英雄真相_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3472,7 +3472,7 @@
     },
     "英雄真相_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3529,7 +3529,7 @@
     },
     "记忆真相_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3554,7 +3554,7 @@
     },
     "记忆真相_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3609,7 +3609,7 @@
     },
     "天选者的故事_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3635,7 +3635,7 @@
     },
     "天选者的故事_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3662,7 +3662,7 @@
     },
     "翻阅_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3683,7 +3683,7 @@
     },
     "树神之女_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3716,7 +3716,7 @@
     },
     "树神之女_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3739,7 +3739,7 @@
     },
     "树神之女_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3795,7 +3795,7 @@
     },
     "物归新主_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3818,7 +3818,7 @@
     },
     "物归新主_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3844,7 +3844,7 @@
     },
     "无尽长廊_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3877,7 +3877,7 @@
     },
     "无尽长廊_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3901,7 +3901,7 @@
     },
     "无尽长廊_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3929,7 +3929,7 @@
     },
     "万两黄金_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3962,7 +3962,7 @@
     },
     "万两黄金_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -3986,7 +3986,7 @@
     },
     "万两黄金_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -4041,7 +4041,7 @@
     },
     "工业幽灵_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -4064,7 +4064,7 @@
     },
     "工业幽灵_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -4091,7 +4091,7 @@
     },
     "自投罗网_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -4124,7 +4124,7 @@
     },
     "自投罗网_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -4148,7 +4148,7 @@
     },
     "自投罗网_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -4203,7 +4203,7 @@
     },
     "武器技师_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -4226,7 +4226,7 @@
     },
     "武器技师_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -4281,7 +4281,7 @@
     },
     "致命隐患_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -4307,7 +4307,7 @@
     },
     "致命隐患_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -4363,7 +4363,7 @@
     },
     "物归新主非兼容_对话": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -4386,7 +4386,7 @@
     },
     "物归新主非兼容_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -4412,7 +4412,7 @@
     },
     "未知事件_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {

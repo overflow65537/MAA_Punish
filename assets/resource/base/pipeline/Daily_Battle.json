@@ -22,7 +22,7 @@
             }
         },
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "next": [
@@ -44,7 +44,7 @@
     },
     "作战失败": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -147,7 +147,7 @@
     "吃体力药": {
         "pre_delay": 4000,
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -172,7 +172,7 @@
     },
     "使用补给包": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -207,7 +207,7 @@
     },
     "关闭弹窗_1": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "action": {
@@ -258,7 +258,7 @@
     },
     "关闭弹窗_2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "action": {
@@ -308,7 +308,7 @@
     },
     "关闭弹窗_3": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "action": {
@@ -381,7 +381,7 @@
     },
     "退出血清界面": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -475,7 +475,7 @@
     },
     "打开拟战场域": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -594,7 +594,7 @@
     },
     "检查结果_体力不足": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {

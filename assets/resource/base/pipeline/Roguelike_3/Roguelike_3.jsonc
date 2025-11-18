@@ -152,7 +152,7 @@
     "选择首发2_矩阵循生": {
         "enabled": false,
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -204,7 +204,7 @@
     },
     "打开矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -259,7 +259,7 @@
     },
     "启程_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -324,7 +324,7 @@
     },
     "转场_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -356,7 +356,7 @@
     },
     "链路崩溃": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -540,7 +540,7 @@
             }
         },
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "action": {
@@ -555,7 +555,7 @@
     },
     "确定编队_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -632,7 +632,7 @@
     },
     "事件确定_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -754,7 +754,7 @@
     },
     "终止_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -829,7 +829,7 @@
     },
     "转换层级_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -872,7 +872,7 @@
     },
     "进入异度投影": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -906,7 +906,7 @@
     },
     "异度投影_对话3": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -981,7 +981,7 @@
     },
     "异度投影_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1133,7 +1133,7 @@
             "succeeded": "[color:Tomato]寄![/color]"
         },
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1162,7 +1162,7 @@
     },
     "进入战斗_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1318,7 +1318,7 @@
     },
     "确认装备_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1366,7 +1366,7 @@
     },
     "领取_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1542,7 +1542,7 @@
     },
     "出发_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1579,7 +1579,7 @@
     },
     "选择难度_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1647,7 +1647,7 @@
     },
     "下一步_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1668,7 +1668,7 @@
     },
     "选择首发_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1727,7 +1727,7 @@
     },
     "编入_矩阵循生": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1766,7 +1766,7 @@
     },
     "开始演算": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {

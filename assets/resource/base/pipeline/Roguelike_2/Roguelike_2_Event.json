@@ -1,7 +1,7 @@
 {
     "下定决心_厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -22,7 +22,7 @@
     },
     "事件完成_厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -119,7 +119,7 @@
     },
     "商店_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -215,7 +215,7 @@
     },
     "布道者_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -362,7 +362,7 @@
     },
     "鲨鲨置物箱_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -436,7 +436,7 @@
     },
     "名为知识的诅咒_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -510,7 +510,7 @@
     },
     "集市_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -583,7 +583,7 @@
     },
     "废弃庭院_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -656,7 +656,7 @@
     },
     "恶魔配方_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -733,7 +733,7 @@
     },
     "军备库_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -808,7 +808,7 @@
     },
     "迷雾之梦_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -881,7 +881,7 @@
     },
     "旅行剧团_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -954,7 +954,7 @@
     },
     "返乡者_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1032,7 +1032,7 @@
     },
     "命运前路_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1110,7 +1110,7 @@
     },
     "拾荒者派对_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1188,7 +1188,7 @@
     },
     "名为禁忌的睿智_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1264,7 +1264,7 @@
     },
     "遗骨之滨_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1340,7 +1340,7 @@
     },
     "柯雷多尔的馈赠_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1416,7 +1416,7 @@
     },
     "街头艺人_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1491,7 +1491,7 @@
     },
     "继承意志_厄愿潮声": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1512,7 +1512,7 @@
     },
     "失败者_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1590,7 +1590,7 @@
     },
     "欢乐时光_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1668,7 +1668,7 @@
     },
     "谨听忠告_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1747,7 +1747,7 @@
     },
     "禁忌教堂_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1825,7 +1825,7 @@
     },
     "被完成的谜题_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1903,7 +1903,7 @@
     },
     "藏书库_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -1981,7 +1981,7 @@
     },
     "另一面圆桌_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2059,7 +2059,7 @@
     },
     "恶魔传说_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2137,7 +2137,7 @@
     },
     "许愿之井_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2215,7 +2215,7 @@
     },
     "迷途之子_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2294,7 +2294,7 @@
     },
     "阵营冲突_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
@@ -2373,7 +2373,7 @@
     },
     "珠宝猎人_对话2": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {

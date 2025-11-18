@@ -18,7 +18,7 @@
     },
     "点击作战开始": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {

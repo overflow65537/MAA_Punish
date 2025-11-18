@@ -164,7 +164,7 @@
     },
     "开始行动": {
         "post_wait_freezes": {
-            "time": 200,
+            "time": 500,
             "timeout": 2000
         },
         "recognition": {
