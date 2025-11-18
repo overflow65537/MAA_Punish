@@ -43,9 +43,7 @@ class Limpidity(CustomAction):
 
         # 检查普攻1
         if action.check_status("检查普攻1_霁梦"):
-            action.logger.info("检测到普攻形态1")
             if action.check_status("检查核心条_霁梦"):
-                action.logger.info("核心已就绪，长按闪避")
                 action.long_press_dodge(1000)  # 直面天闪!
                 for _ in range(15):
                     action.use_skill()  # 以苦厄,澈我心镜
@@ -63,15 +61,12 @@ class Limpidity(CustomAction):
 
         # 检查普攻2
         if action.check_status("检查普攻2_霁梦"):
-            action.logger.info("检测到普攻形态2")
             if action.check_status("检查核心球_霁梦"):
-                action.logger.info("核心球已就绪，进行核心球消除")
                 start_time = time.time()
                 while not action.check_status("检查核心条2_霁梦"):
                     if context.tasker.stopping:
                         return CustomAction.RunResult(success=True)
                     if time.time() - start_time > 5:
-                        action.logger.info("等待核心条就绪超时，跳出循环")
                         return CustomAction.RunResult(success=True)
                     action.ball_elimination_target(1)  # 见证,我的意志
                     time.sleep(0.1)
@@ -88,8 +83,6 @@ class Limpidity(CustomAction):
                 action.ball_elimination_target()
                 return CustomAction.RunResult(success=True)
 
-        # 默认普攻
-        action.logger.info("默认状态，执行连续普攻")
         for _ in range(30):
             action.attack()
             time.sleep(0.1)
