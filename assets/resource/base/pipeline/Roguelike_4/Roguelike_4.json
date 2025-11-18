@@ -1584,6 +1584,7 @@
         }
     },
     "终止_寒境曙光": {
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
