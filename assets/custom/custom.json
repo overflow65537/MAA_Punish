@@ -131,7 +131,7 @@
     },
     "PrintInfo": {
         "type": "action",
-        "class": "print_info",
+        "class": "PrintInfo",
         "file_path": "{custom_path}/action/basics/PrintInfo.py"
     },
     "NextStageRecognition": {
