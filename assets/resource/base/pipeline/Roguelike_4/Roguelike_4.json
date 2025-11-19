@@ -2054,7 +2054,10 @@
         }
     },
     "启程_寒境曙光": {
-        "post_delay": 2500,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 6000
+        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -2069,6 +2072,24 @@
         },
         "action": {
             "type": "Click"
+        },
+        "next": [
+            "确认进入场景_寒境曙光"
+        ]
+    },
+    "确认进入场景_寒境曙光": {
+        "post_delay": 5000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1131,
+                    651,
+                    111,
+                    44
+                ],
+                "expected": "下一天"
+            }
         },
         "next": [
             "重启计数"
