@@ -1766,6 +1766,9 @@
         ]
     },
     "刷新次数为0_厄愿潮声": {
+        "focus": {
+            "succeeded": "未找到指定角色,即将重新进入"
+        },
         "post_delay": 500,
         "recognition": {
             "type": "OCR",
