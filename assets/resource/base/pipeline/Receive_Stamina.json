@@ -91,15 +91,15 @@
     },
     "点击补给包": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    441,
-                    35,
-                    217,
-                    142
+                    453,
+                    63,
+                    187,
+                    75
                 ],
-                "template": "领取体力/点击补给包_488_87_117_35__438_37_217_135.png"
+                "expected": "补给包"
             }
         },
         "action": {
@@ -108,15 +108,15 @@
     },
     "点击日常补给包": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    0,
-                    198,
-                    240,
-                    149
+                    13,
+                    173,
+                    132,
+                    505
                 ],
-                "template": "领取体力/点击日常补给包_21_248_127_45__0_198_227_145.png"
+                "expected": "日常补给包"
             }
         },
         "action": {
