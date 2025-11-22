@@ -559,7 +559,6 @@
         }
     },
     "战斗中": {
-        "timeout": 90000,
         "post_delay": 0,
         "pre_delay": 0,
         "rate_limit": 0,
@@ -573,7 +572,8 @@
                     131
                 ],
                 "template": "战斗/闪避.png",
-                "green_mask": true
+                "green_mask": true,
+                "threshold": 0.6
             }
         }
     },
