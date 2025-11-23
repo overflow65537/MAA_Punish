@@ -389,6 +389,31 @@
             }
         }
     },
+    "检查u3_max": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    746,
+                    622,
+                    47,
+                    17
+                ],
+                "lower": [
+                    220,
+                    219,
+                    140
+                ],
+                "upper": [
+                    245,
+                    235,
+                    165
+                ],
+                "count": 100,
+                "connected": true
+            }
+        }
+    },
     "检查p1动能条_誓焰": {
         "recognition": {
             "type": "ColorMatch",

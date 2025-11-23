@@ -37,39 +37,43 @@ class Pyroath(CustomAction):
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
 
-        actions = CombatActions(context, role_name="誓焰")
+        action = CombatActions(context, role_name="誓焰")
 
-        actions.lens_lock()
+        action.lens_lock()
 
-        if actions.check_status("检查u1_誓焰"):
-            actions.logger.info("誓焰u1")
-            if actions.check_status("检查p1动能条_誓焰"):
-                actions.logger.info("p1动能条max")
-                actions.long_press_skill()  # 汇聚,阳炎之光
+        if action.check_status("检查u1_誓焰"):
+            action.logger.info("誓焰u1")
+            if action.check_status("检查p1动能条_誓焰"):
+                action.logger.info("p1动能条max")
+                action.long_press_skill()  # 汇聚,阳炎之光
             else:
-                actions.logger.info("p1动能条非max")
-                actions.ball_elimination_target()  # 消球2
-                actions.continuous_attack(20, 100)  # 攻击
+                action.logger.info("p1动能条非max")
+                action.ball_elimination_target()  # 消球2
+                action.continuous_attack(20, 100)  # 攻击
 
-        elif actions.check_status("检查u2_誓焰"):
-            actions.logger.info("誓焰u2")
-            if actions.check_Skill_energy_bar():
-                actions.use_skill()  # 进入3阶段
+        elif action.check_status("检查u2_誓焰"):
+            action.logger.info("誓焰u2")
+            if action.check_Skill_energy_bar():
+                action.use_skill()  # 进入3阶段
             else:
-                actions.long_press_attack()
-                actions.continuous_attack(20, 100)  # 攻击
-                actions.ball_elimination_target()  # 消球2
+                action.long_press_attack()
+                action.continuous_attack(20, 100)  # 攻击
+                action.ball_elimination_target()  # 消球2
 
-        elif actions.check_status("检查u3_誓焰"):
-            actions.logger.info("誓焰u3")
-            if actions.check_Skill_energy_bar():
-                actions.use_skill()
-            else:
-                actions.long_press_attack(4000)  # 长按攻击
-                actions.use_skill()
+        elif action.check_status("检查u3_誓焰"):
+            action.logger.info("誓焰u3")
+            if action.check_Skill_energy_bar():
+                action.use_skill()
+            elif not action.check_status("检查u3_max"):
+                action.attack()
+                for _ in range(10):
+                    time.sleep(0.3)
+                    action.attack()
+            action.long_press_attack(4000)  # 长按攻击
+            action.use_skill()
             time.sleep(0.5)
-            actions.auxiliary_machine()
-            actions.trigger_qte(1)
-            actions.trigger_qte(2)
+            action.auxiliary_machine()
+            action.trigger_qte(1)
+            action.trigger_qte(2)
 
         return CustomAction.RunResult(success=True)
