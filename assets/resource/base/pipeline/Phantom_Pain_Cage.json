@@ -299,6 +299,9 @@
         }
     },
     "囚笼作战程序": {
+        "focus": {
+            "failed": "[color:tomato]未识别到已知BOSS,可能处于终极区[/color]"
+        },
         "post_delay": 1000,
         "recognition": {
             "type": "OCR",
