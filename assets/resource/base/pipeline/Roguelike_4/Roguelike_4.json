@@ -946,6 +946,24 @@
                     1
                 ]
             }
+        },
+        "next": [
+            "选人滑动计数"
+        ]
+    },
+    "选人滑动计数": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Count",
+                "custom_action_param": {
+                    "count": 0,
+                    "target_count": 3,
+                    "next_node": [
+                        "返回主菜单"
+                    ]
+                }
+            }
         }
     },
     "选择对应人物头像_寒境曙光": {
