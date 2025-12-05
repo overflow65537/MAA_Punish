@@ -65,7 +65,7 @@ class CalculateScore(CustomRecognition):
             "检查分数", image, {"检查分数": {"roi": [196, 416, 61, 43], "expected": ""}}
         )
 
-        if None in [
+        recognition_list = [
             current_score,
             target_score,
             military_score,
@@ -74,7 +74,10 @@ class CalculateScore(CustomRecognition):
             economic_multiplier,
             research_score,
             research_multiplier,
-        ]:
+        ]
+        if not all(
+            reco and reco.hit and reco.best_result for reco in recognition_list
+        ):
             return
 
         if (

@@ -41,8 +41,10 @@ class NextStageRecognition(CustomRecognition):
             "检查当前章节",
             image,
         )
-        if not current_stage_reco or not isinstance(
-            current_stage_reco.best_result, OCRResult
+        if not (
+            current_stage_reco
+            and current_stage_reco.hit
+            and isinstance(current_stage_reco.best_result, OCRResult)
         ):
             return
         current_stage_text = current_stage_reco.best_result.text
@@ -68,8 +70,10 @@ class NextStageRecognition(CustomRecognition):
                 }
             },
         )
-        if not last_stage_reco or not isinstance(
-            last_stage_reco.best_result, OCRResult
+        if not (
+            last_stage_reco
+            and last_stage_reco.hit
+            and isinstance(last_stage_reco.best_result, OCRResult)
         ):
             return
         return CustomRecognition.AnalyzeResult(

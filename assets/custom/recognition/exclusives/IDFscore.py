@@ -42,7 +42,12 @@ class IDFscore(CustomRecognition):
         # 检查当前分数
         context.run_recognition("检查当前分数区域", image)
         current_score = context.run_recognition("检查当前分数", image)
-        if current_score is None or target_score is None:
+        if not (
+            current_score
+            and current_score.hit
+            and target_score
+            and target_score.hit
+        ):
             return
         if (
             current_score.best_result.text.isdigit()

@@ -48,7 +48,7 @@ class MultiplayerAutoBattle(CustomAction):
             recognized_role = None
             for role_name, action in ROLE_ACTIONS.items():
                 result = context.run_recognition(f"检查{role_name}", image)
-                if result is not None:
+                if result and result.hit:
                     recognized_role = {"action": "Custom", "custom_action": action}
                     break
 

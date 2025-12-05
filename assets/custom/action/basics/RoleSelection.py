@@ -204,7 +204,7 @@ class RoleSelection(CustomAction):
                         }
                     },
                 )
-            if target and (
+            if target and target.hit and (
                 isinstance(target.best_result, TemplateMatchResult)
                 or isinstance(target.best_result, ColorMatchResult)
             ):
@@ -216,7 +216,7 @@ class RoleSelection(CustomAction):
                 self.logger.info(f"选择角色成功: {selected_role}")
                 return CustomAction.RunResult(success=True)
             context.run_action("滑动_选人")
-        if target is None:
+        if not (target and target.hit):
             for i, img in enumerate(images, 1):
                 self.save_screenshot(img, f"未找到角色_尝试{i}")
             self.logger.info(f"选择角色失败: {selected_role}")
@@ -260,28 +260,28 @@ class RoleSelection(CustomAction):
             )
 
             # 检查识别结果并提取box信息
-            if result and isinstance(result.best_result, TemplateMatchResult):
+            if result and result.hit and isinstance(result.best_result, TemplateMatchResult):
                 self.logger.info(f"识别到角色: {role_name}")
                 role[role_name] = role_actions.copy().get("metadata", {})
                 if cage:
-                    role[role_name]["cage"] = bool(
-                        context.run_recognition(entry="识别囚笼次数", image=image)
+                    cage_result = context.run_recognition(
+                        entry="识别囚笼次数", image=image
                     )
+                    role[role_name]["cage"] = bool(cage_result and cage_result.hit)
                 if roguelike_3_mode == 1:
-                    role[role_name]["master_level"] = bool(
-                        context.run_recognition(
-                            entry="识别精通等级",
-                            image=image,
-                            pipeline_override={
-                                "识别精通等级": {
-                                    "recognition": {
-                                        "param": {
-                                            "roi": result.best_result.box,
-                                        },
-                                    }
+                    mastery_result = context.run_recognition(
+                        entry="识别精通等级",
+                        image=image,
+                        pipeline_override={
+                            "识别精通等级": {
+                                "recognition": {
+                                    "param": {"roi": result.best_result.box},
                                 }
-                            },
-                        )
+                            }
+                        },
+                    )
+                    role[role_name]["master_level"] = bool(
+                        mastery_result and mastery_result.hit
                     )
 
         return role

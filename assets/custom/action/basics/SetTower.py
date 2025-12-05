@@ -34,7 +34,7 @@ class SetTower(CustomAction):
     ) -> CustomAction.RunResult:
         image = context.tasker.controller.post_screencap().wait().get()
         target_pos = context.run_recognition("战斗地块_寒境曙光", image)
-        if target_pos:
+        if target_pos and target_pos.hit:
             image = context.tasker.controller.post_screencap().wait().get()
             empty_pos = context.run_recognition(
                 "识别周围空地",
@@ -46,7 +46,7 @@ class SetTower(CustomAction):
                     }
                 },
             )
-            if empty_pos:
+            if empty_pos and empty_pos.hit and empty_pos.best_result:
                 context.tasker.controller.post_click(
                     empty_pos.best_result.box[0], empty_pos.best_result.box[1]
                 ).wait()

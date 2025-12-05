@@ -29,7 +29,7 @@ class RecognitionRole(CustomAction):
                     }
                 },
             )
-            if result:
+            if result and result.hit:
                 context.override_pipeline(
                     {
                         "识别人物": {"enabled": False},

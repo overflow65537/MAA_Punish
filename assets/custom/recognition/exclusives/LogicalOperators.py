@@ -78,8 +78,10 @@ class LOp(CustomRecognition):
     def _eval_node(self, node, context: Context, image) -> bool|None:
 
         if isinstance(node, str):
-            return bool(context.run_recognition(node, image))
+            recognition_result = context.run_recognition(node, image)
+            return bool(recognition_result and recognition_result.hit)
 
         elif isinstance(node, list) and len(node) == 1:
             inner_node = node[0]
-            return not bool(context.run_recognition(inner_node, image))
+            inner_result = context.run_recognition(inner_node, image)
+            return not bool(inner_result and inner_result.hit)
