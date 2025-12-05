@@ -117,9 +117,11 @@ jobs:
         with:
           repository: overflow65537/MFW-PyQt6
           fileName: "MFW-PyQt6-win-${{ matrix.arch }}*"
-          latest: true
+          #latest: true
           out-file-path: "install"
           extract: true
+          #preRelease: true
+          tag: "v4.0.0-alpha.1"
 
       - name: Install MFW
         shell: bash
@@ -161,10 +163,11 @@ jobs:
         with:
           repository: overflow65537/MFW-PyQt6
           fileName: "MFW-PyQt6-linux-${{ matrix.arch }}*"
-          latest: true
+          #latest: true
           out-file-path: "install"
           extract: true
-          preRelease: true
+          #preRelease: true
+          tag: "v4.0.0-alpha.1"
 
       - name: Install MFW
         shell: bash
