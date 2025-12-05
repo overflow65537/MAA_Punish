@@ -105,7 +105,9 @@
         "child_exec": "python",
         "child_args": [
             "{PROJECT_DIR}/custom/main.py"
-        ]
+        ],
+        "timeout": -1,
+        "embedded_mode": true
     },
     "task": [
         {
