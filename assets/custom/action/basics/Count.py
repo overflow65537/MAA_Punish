@@ -130,5 +130,5 @@ class Count(CustomAction):
             context.run_task(node)
 
     def custom_notify(self, context: Context, msg):
-        context.override_pipeline({"custom通知": {"focus": {"succeeded": msg}}})
+        context.override_pipeline({"custom通知": {"focus": {"Tasker.Task.Succeeded": msg}}})
         context.run_task("custom通知")

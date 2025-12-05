@@ -143,7 +143,6 @@ class RoleSelection(CustomAction):
                 context.run_action("反向滑动_选人")
         # 找出权重最高的key
         selected_role = max(role_weight.items(), key=lambda x: x[1])[0]
-        # print出所有的角色和权重
         for role_name, weight in role_weight.items():
             self.send_msg(context, f"角色: {role_name}, 权重: {weight}")
         if condition.get("pick") and condition.get("pick") not in role_weight.keys():
@@ -226,7 +225,7 @@ class RoleSelection(CustomAction):
             context.override_pipeline(
                 {
                     "停止任务": {
-                        "focus": {"succeeded": f"未找到角色 {selected_role},退出任务"}
+                        "focus": {"Tasker.Task.Succeeded": f"未找到角色 {selected_role},退出任务"}
                     }
                 }
             )
@@ -378,7 +377,7 @@ class RoleSelection(CustomAction):
     def send_msg(self, context: Context, msg: str):
         msg_node = {
             "发送消息_这是程序自动生成的node所以故意写的很长来防止某一天想不开用了这个名字导致报错": {
-                "focus": {"succeeded": msg}
+                "focus": {"Tasker.Task.Succeeded": msg}
             }
         }
         context.run_task(

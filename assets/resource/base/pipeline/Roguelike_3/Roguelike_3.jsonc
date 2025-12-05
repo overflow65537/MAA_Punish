@@ -1,7 +1,7 @@
 {
     "矩阵循生": {
         "focus": {
-            "succeeded": "[color:ForestGreen]开始演算[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]开始演算[/color]"
         },
         "next": [
             "肉鸽内部",
@@ -989,7 +989,7 @@
     "战斗事件_矩阵循生": {
         "timeout": 300000,
         "focus": {
-            "succeeded": "[color:ForestGreen]开始战斗[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]开始战斗[/color]"
         },
         "recognition": {
             "type": "TemplateMatch",
@@ -1089,7 +1089,7 @@
     },
     "战斗失败": {
         "focus": {
-            "succeeded": "[color:Tomato]寄![/color]"
+            "Tasker.Task.Succeeded": "[color:Tomato]寄![/color]"
         },
         "post_delay": 1000,
         "recognition": {

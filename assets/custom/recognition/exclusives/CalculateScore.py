@@ -96,7 +96,7 @@ class CalculateScore(CustomRecognition):
                 * int(research_multiplier.best_result.text[1:])
                 + int(current_score.best_result.text)
             )
-            print(final_score)
+
             if final_score >= int(target_score.best_result.text):
                 return CustomRecognition.AnalyzeResult(
                     box=(0, 0, 100, 100), detail="success"

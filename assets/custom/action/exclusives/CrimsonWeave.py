@@ -83,7 +83,6 @@ class CrimsonWeave(CustomAction):
                 if light_less_value == -1:  # 处于一阶段
                     if action.check_Skill_energy_bar():
                         # 崩落的束缚化为利刃
-                        print("激进 一阶段中断 使用大招")
                         for _ in range(10):
                             action.use_skill()
                             action.ball_elimination_target(1)
@@ -92,11 +91,9 @@ class CrimsonWeave(CustomAction):
                 elif (
                     light_less_value == 300 or light_less_value >= 474
                 ):  # 无光值足够登龙
-                    print("激进 二阶段中断 使用登龙")
                     action.long_press_dodge(1500)
                     action.long_press_attack(2300)  # 登龙
                     if action.check_Skill_energy_bar():
-                        print("激进 二阶段中断 使用大招")
                         for _ in range(10):
                             action.use_skill()  # 宿命的囚笼由我斩断
                             time.sleep(0.2)
@@ -124,21 +121,18 @@ class CrimsonWeave(CustomAction):
                 context.tasker.controller.post_touch_up()
                 if action.check_Skill_energy_bar():
                     # 崩落的束缚化为利刃
-                    print("保守 一阶段中断 使用大招")
                     for _ in range(10):
                         action.use_skill()
                         action.ball_elimination_target(1)
                         time.sleep(0.2)
 
             else:
-                print("保守 二阶段中断 使用登龙")
                 elapsed = time.time() - start_time
                 if elapsed < 1.5:
                     time.sleep(1.5 - elapsed)
                 context.tasker.controller.post_touch_up()
                 action.long_press_attack(2300)  # 登龙
                 if action.check_Skill_energy_bar():
-                    print("保守 二阶段中断 使用大招")
                     for _ in range(10):
                         action.use_skill()  # 宿命的囚笼由我斩断
                         time.sleep(0.2)

@@ -23,7 +23,7 @@
     },
     "没过教程提示": {
         "focus": {
-            "succeeded": "[color:Tomato]请通关教程后再使用该功能[/color]"
+            "Tasker.Task.Succeeded": "[color:Tomato]请通关教程后再使用该功能[/color]"
         },
         "recognition": {
             "type": "OCR",

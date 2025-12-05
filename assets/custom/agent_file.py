@@ -8,6 +8,8 @@ from action.basics.PPOverride import PPOverride
 from action.basics.ChainLoopCircuit import ChainLoopCircuit
 from action.basics.RoleSelection import RoleSelection
 from action.basics.RecognitionRole import RecognitionRole
+from action.basics.Post_Stop import PostStop
+
 
 
 from action.exclusives.CrimsonWeave import CrimsonWeave
@@ -31,6 +33,13 @@ from recognition.exclusives.LogicalOperators import LOp
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
 from recognition.exclusives.NextStageRecognition import NextStageRecognition
+
+
+
+@AgentServer.custom_action("PostStop")
+class Agent_PostStop(PostStop):
+    pass
+
 
 
 @AgentServer.custom_action("Limpidity")

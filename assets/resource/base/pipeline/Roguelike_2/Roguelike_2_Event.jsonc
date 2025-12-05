@@ -84,7 +84,7 @@
     },
     "商店_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]鲨鲨特卖[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]鲨鲨特卖[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -149,7 +149,7 @@
     },
     "布道者_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]布道者[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]布道者[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -219,7 +219,7 @@
     },
     "悠久之歌_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]悠久之歌[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]悠久之歌[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -291,7 +291,7 @@
     },
     "鲨鲨置物箱_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]鲨鲨置物箱[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]鲨鲨置物箱[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -359,7 +359,7 @@
     },
     "名为知识的诅咒_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]名为知识的诅咒[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]名为知识的诅咒[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -428,7 +428,7 @@
     },
     "集市_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]集市[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]集市[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -497,7 +497,7 @@
     },
     "废弃庭院_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]废弃庭院[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]废弃庭院[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -565,7 +565,7 @@
     },
     "恶魔配方_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]恶魔配方[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]恶魔配方[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -633,7 +633,7 @@
     },
     "军备库_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]军备库[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]军备库[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -706,7 +706,7 @@
     },
     "迷雾之梦_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]迷雾之梦[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]迷雾之梦[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -775,7 +775,7 @@
     },
     "旅行剧团_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]旅行剧团[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]旅行剧团[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -843,7 +843,7 @@
     },
     "返乡者_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]返乡者[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]返乡者[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -911,7 +911,7 @@
     },
     "命运前路_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]命运前路[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]命运前路[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -989,7 +989,7 @@
     },
     "拾荒者派对_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]拾荒者派对[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]拾荒者派对[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -1057,7 +1057,7 @@
     },
     "名为禁忌的睿智_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]名为禁忌的睿智[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]名为禁忌的睿智[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -1136,7 +1136,7 @@
     },
     "遗骨之滨_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]遗骨之滨[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]遗骨之滨[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -1207,7 +1207,7 @@
     },
     "柯蕾多尔的馈赠_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]柯蕾多尔的馈赠[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]柯蕾多尔的馈赠[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -1278,7 +1278,7 @@
     },
     "街头艺人_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]街头艺人[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]街头艺人[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -1349,7 +1349,7 @@
     },
     "失败者_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]失败者[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]失败者[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -1437,7 +1437,7 @@
     },
     "欢乐时光_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]欢乐时光[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]欢乐时光[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -1510,7 +1510,7 @@
     },
     "谨听忠告_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]谨听忠告[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]谨听忠告[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -1584,7 +1584,7 @@
     },
     "禁忌教堂_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]禁忌教堂[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]禁忌教堂[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -1657,7 +1657,7 @@
     },
     "被完成的谜题_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]被完成的谜题[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]被完成的谜题[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -1730,7 +1730,7 @@
     },
     "藏书库_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]藏书库[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]藏书库[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -1803,7 +1803,7 @@
     },
     "另一面圆桌_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]另一面圆桌[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]另一面圆桌[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -1876,7 +1876,7 @@
     },
     "恶魔传说_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]恶魔传说[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]恶魔传说[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -1949,7 +1949,7 @@
     },
     "许愿之井_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]许愿之井[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]许愿之井[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -2022,7 +2022,7 @@
     },
     "迷途之子_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]迷途之子[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]迷途之子[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -2096,7 +2096,7 @@
     },
     "阵营冲突_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]阵营冲突[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]阵营冲突[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -2170,7 +2170,7 @@
     },
     "珠宝猎人_厄愿潮声": {
         "focus": {
-            "succeeded": "[color:ForestGreen]珠宝猎人[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]珠宝猎人[/color]"
         },
         "recognition": {
             "type": "OCR",

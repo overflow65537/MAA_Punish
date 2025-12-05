@@ -26,6 +26,7 @@ MAA_Punish 多人自动战斗
 
 import sys
 from pathlib import Path
+from venv import logger
 
 from maa.context import Context
 from maa.custom_action import CustomAction
@@ -65,6 +66,6 @@ class MultiplayerAutoBattle(CustomAction):
 
             return CustomAction.RunResult(success=True)
         except Exception as e:
-            # 捕获异常并记录错误信息
-            print(f"执行MultiplayerAutoBattle时发生错误: {e}")
+            logger.error(f"执行MultiplayerAutoBattle时发生错误: {e}")
+
             return CustomAction.RunResult(success=False)

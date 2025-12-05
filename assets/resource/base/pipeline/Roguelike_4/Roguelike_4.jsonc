@@ -208,7 +208,7 @@
     },
     "物资_寒境曙光": {
         "focus": {
-            "succeeded": "[color:ForestGreen]物资地块[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]物资地块[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -261,7 +261,7 @@
     },
     "重新进入_寒境曙光": {
         "focus": {
-            "succeeded": "[color:LightSalmon]未搜索到目标,重新进入[/color]"
+            "Tasker.Task.Succeeded": "[color:LightSalmon]未搜索到目标,重新进入[/color]"
         },
         "post_delay": 2000,
         "recognition": {
@@ -304,7 +304,7 @@
     },
     "分数计算": {
         "focus": {
-            "succeeded": "[color:ForestGreen]分数确认,强制结算[/color]"
+            "Tasker.Task.Succeeded": "[color:ForestGreen]分数确认,强制结算[/color]"
         },
         "recognition": {
             "type": "Custom",
@@ -1351,7 +1351,7 @@
             }
         },
         "focus": {
-            "succeeded": "未搜索到目标,重置镜头"
+            "Tasker.Task.Succeeded": "未搜索到目标,重置镜头"
         }
     },
     "领取奖励界面_结束": {
@@ -2086,7 +2086,7 @@
     },
     "强制失败": {
         "focus": {
-            "succeeded": "[color:tomato]未检测到目标,结束当前游戏[/color]"
+            "Tasker.Task.Succeeded": "[color:tomato]未检测到目标,结束当前游戏[/color]"
         },
         "next": [
             "强制失败_成功",
@@ -2283,7 +2283,7 @@
     },
     "未解锁开局": {
         "focus": {
-            "succeeded": "[color:Tomato]未解锁对应开局[/color]"
+            "Tasker.Task.Succeeded": "[color:Tomato]未解锁对应开局[/color]"
         },
         "recognition": {
             "type": "OCR",

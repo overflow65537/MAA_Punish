@@ -38,7 +38,7 @@ class PrintInfo(CustomAction):
                     {
                         "自定义信息_为了防止重复所以名字长一点": {
                             "focus": {
-                                "succeeded": f"[color:Tomato]当前识别结果:{argv.reco_detail.best_result.text}[/color]",
+                                "Tasker.Task.Succeeded": f"[color:Tomato]当前识别结果:{argv.reco_detail.best_result.text}[/color]",
                             }
                         }
                     }
@@ -48,7 +48,7 @@ class PrintInfo(CustomAction):
                     {
                         "自定义信息_为了防止重复所以名字长一点": {
                             "focus": {
-                                "succeeded": f"[color:Tomato]未识别到任何信息,已保存截图至debug目录[/color]",
+                                "Tasker.Task.Succeeded": f"[color:Tomato]未识别到任何信息,已保存截图至debug目录[/color]",
                             },
                             "action": {
                                 "type": "Custom",
@@ -66,7 +66,7 @@ class PrintInfo(CustomAction):
                 {
                     "自定义信息_为了防止重复所以名字长一点": {
                         "focus": {
-                            "succeeded": f"[color:Tomato]当前识别结果:{argv.reco_detail.best_result}[/color]",
+                            "Tasker.Task.Succeeded": f"[color:Tomato]当前识别结果:{argv.reco_detail.best_result}[/color]",
                         }
                     }
                 }
