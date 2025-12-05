@@ -5,16 +5,14 @@
             "检查分辨率",
             "关闭纷争战区通知",
             "关闭拟真围剿通知",
-            "检查主界面"
-        ],
-        "interrupt": [
-            "关闭奖励",
-            "进入游戏",
-            "更新",
-            "关闭低内存提示",
-            "更新中",
-            "返回主菜单",
-            "打开应用"
+            "检查主界面",
+            "[JumpBack]关闭奖励",
+            "[JumpBack]进入游戏",
+            "[JumpBack]更新",
+            "[JumpBack]关闭低内存提示",
+            "[JumpBack]更新中",
+            "[JumpBack]返回主菜单",
+            "[JumpBack]打开应用"
         ]
     },
     "更新中": {
@@ -45,7 +43,7 @@
     },
     "提示分辨率错误": {
         "focus": {
-            "succeeded": "[color:Tomato]分辨率错误,请设置为1280*720 240DPI[/color]"
+            "Node.Recognition.Succeeded": "[color:Tomato]分辨率错误,请设置为1280*720 240DPI[/color]"
         },
         "post_delay": 5000,
         "next": [
@@ -267,9 +265,14 @@
         ]
     },
     "服务器错误提示": {
-        "post_delay": 99999999,
         "focus": {
-            "succeeded": "[color:Tomato]服务器错误,请选择所在服务器[/color]"
+            "Node.Recognition.Succeeded": "[color:Tomato]服务器错误,请选择所在服务器[/color]"
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PostStop"
+            }
         }
     },
     "黑屏计数": {

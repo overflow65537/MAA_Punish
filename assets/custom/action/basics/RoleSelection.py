@@ -143,7 +143,6 @@ class RoleSelection(CustomAction):
                 context.run_action("反向滑动_选人")
         # 找出权重最高的key
         selected_role = max(role_weight.items(), key=lambda x: x[1])[0]
-        # print出所有的角色和权重
         for role_name, weight in role_weight.items():
             self.send_msg(context, f"角色: {role_name}, 权重: {weight}")
         if condition.get("pick") and condition.get("pick") not in role_weight.keys():
@@ -205,7 +204,7 @@ class RoleSelection(CustomAction):
                         }
                     },
                 )
-            if target and (
+            if target and target.hit and (
                 isinstance(target.best_result, TemplateMatchResult)
                 or isinstance(target.best_result, ColorMatchResult)
             ):
@@ -217,7 +216,7 @@ class RoleSelection(CustomAction):
                 self.logger.info(f"选择角色成功: {selected_role}")
                 return CustomAction.RunResult(success=True)
             context.run_action("滑动_选人")
-        if target is None:
+        if not (target and target.hit):
             for i, img in enumerate(images, 1):
                 self.save_screenshot(img, f"未找到角色_尝试{i}")
             self.logger.info(f"选择角色失败: {selected_role}")
@@ -226,7 +225,7 @@ class RoleSelection(CustomAction):
             context.override_pipeline(
                 {
                     "停止任务": {
-                        "focus": {"succeeded": f"未找到角色 {selected_role},退出任务"}
+                        "focus": {"Node.Recognition.Succeeded": f"未找到角色 {selected_role},退出任务"}
                     }
                 }
             )
@@ -261,28 +260,28 @@ class RoleSelection(CustomAction):
             )
 
             # 检查识别结果并提取box信息
-            if result and isinstance(result.best_result, TemplateMatchResult):
+            if result and result.hit and isinstance(result.best_result, TemplateMatchResult):
                 self.logger.info(f"识别到角色: {role_name}")
                 role[role_name] = role_actions.copy().get("metadata", {})
                 if cage:
-                    role[role_name]["cage"] = bool(
-                        context.run_recognition(entry="识别囚笼次数", image=image)
+                    cage_result = context.run_recognition(
+                        entry="识别囚笼次数", image=image
                     )
+                    role[role_name]["cage"] = bool(cage_result and cage_result.hit)
                 if roguelike_3_mode == 1:
-                    role[role_name]["master_level"] = bool(
-                        context.run_recognition(
-                            entry="识别精通等级",
-                            image=image,
-                            pipeline_override={
-                                "识别精通等级": {
-                                    "recognition": {
-                                        "param": {
-                                            "roi": result.best_result.box,
-                                        },
-                                    }
+                    mastery_result = context.run_recognition(
+                        entry="识别精通等级",
+                        image=image,
+                        pipeline_override={
+                            "识别精通等级": {
+                                "recognition": {
+                                    "param": {"roi": result.best_result.box},
                                 }
-                            },
-                        )
+                            }
+                        },
+                    )
+                    role[role_name]["master_level"] = bool(
+                        mastery_result and mastery_result.hit
                     )
 
         return role
@@ -378,7 +377,7 @@ class RoleSelection(CustomAction):
     def send_msg(self, context: Context, msg: str):
         msg_node = {
             "发送消息_这是程序自动生成的node所以故意写的很长来防止某一天想不开用了这个名字导致报错": {
-                "focus": {"succeeded": msg}
+                "focus": {"Node.Recognition.Succeeded": msg}
             }
         }
         context.run_task(

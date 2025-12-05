@@ -24,6 +24,9 @@ MAA_Punish 链合回路求解器
 作者:overflow65537
 """
 
+from maa.define import RecognitionDetail
+
+
 from maa.context import Context
 from maa.custom_action import CustomAction
 import random
@@ -36,7 +39,7 @@ class ChainLoopCircuit(CustomAction):
     ) -> CustomAction.RunResult:
         image = context.tasker.controller.post_screencap().wait().get()
         S4_ball = context.run_recognition("识别闪星_链合回路", image)
-        if S4_ball and S4_ball.best_result:
+        if S4_ball and S4_ball.hit and S4_ball.best_result:
             x, y = (
                 S4_ball.best_result.box[0] + S4_ball.best_result.box[2] // 2,
                 S4_ball.best_result.box[1] + S4_ball.best_result.box[3] // 2,
@@ -47,7 +50,7 @@ class ChainLoopCircuit(CustomAction):
             return CustomAction.RunResult(success=True)
 
         S2_ball = context.run_recognition("识别爆破_链合回路", image)
-        if S2_ball and S2_ball.best_result:
+        if S2_ball and S2_ball.hit and S2_ball.best_result:
             x, y = (
                 S2_ball.best_result.box[0] + S2_ball.best_result.box[2] // 2,
                 S2_ball.best_result.box[1] + S2_ball.best_result.box[3] // 2,
@@ -58,7 +61,7 @@ class ChainLoopCircuit(CustomAction):
             return CustomAction.RunResult(success=True)
 
         S3_ball = context.run_recognition("识别纵斩_链合回路", image)
-        if S3_ball and S3_ball.best_result:
+        if S3_ball and S3_ball.hit and S3_ball.best_result:
             x, y = (
                 S3_ball.best_result.box[0] + S3_ball.best_result.box[2] // 2,
                 S3_ball.best_result.box[1] + S3_ball.best_result.box[3] // 2,
@@ -68,7 +71,7 @@ class ChainLoopCircuit(CustomAction):
             context.tasker.controller.post_click(x, y)
             return CustomAction.RunResult(success=True)
         S1_ball = context.run_recognition("识别快枪_链合回路", image)
-        if S1_ball and S1_ball.best_result:
+        if S1_ball and S1_ball.hit and S1_ball.best_result:
             x, y = (
                 S1_ball.best_result.box[0] + S1_ball.best_result.box[2] // 2,
                 S1_ball.best_result.box[1] + S1_ball.best_result.box[3] // 2,
@@ -98,12 +101,10 @@ class ChainLoopCircuit(CustomAction):
             S3_ball,
             S4_ball,
         ]
-        for idx, recognition_data in enumerate(reco_list):
+        for idx, recognition_data in enumerate[RecognitionDetail | None](reco_list):
             matrix = self.parse_puzzle_layout(
                 recognition_data, matrix, fill_value=idx + 1
             )
-        for i in matrix:
-            print(i)
         result = self.find_max_elimination(matrix)
         if result:
             (start_i, start_j), (end_i, end_j), count = result
@@ -128,7 +129,7 @@ class ChainLoopCircuit(CustomAction):
         Returns:
             8x8的二维数组，识别到的位置用fill_value填充
         """
-        if not recognition_data:
+        if not recognition_data or not recognition_data.hit:
             return matrix
 
         # 计算每个单元格的Y坐标(行)和X坐标(列)
@@ -138,7 +139,7 @@ class ChainLoopCircuit(CustomAction):
         ROW_Y = [61 + i * cell_height + cell_height // 2 for i in range(8)]
         COL_X = [430 + j * cell_width + cell_width // 2 for j in range(8)]
 
-        for item in recognition_data.filterd_results:
+        for item in recognition_data.filtered_results:
             x, y, w, h = item.box
 
             # 行列索引查找逻辑

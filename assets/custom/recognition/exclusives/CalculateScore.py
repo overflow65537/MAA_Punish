@@ -65,7 +65,7 @@ class CalculateScore(CustomRecognition):
             "检查分数", image, {"检查分数": {"roi": [196, 416, 61, 43], "expected": ""}}
         )
 
-        if None in [
+        recognition_list = [
             current_score,
             target_score,
             military_score,
@@ -74,7 +74,10 @@ class CalculateScore(CustomRecognition):
             economic_multiplier,
             research_score,
             research_multiplier,
-        ]:
+        ]
+        if not all(
+            reco and reco.hit and reco.best_result for reco in recognition_list
+        ):
             return
 
         if (
@@ -96,7 +99,7 @@ class CalculateScore(CustomRecognition):
                 * int(research_multiplier.best_result.text[1:])
                 + int(current_score.best_result.text)
             )
-            print(final_score)
+
             if final_score >= int(target_score.best_result.text):
                 return CustomRecognition.AnalyzeResult(
                     box=(0, 0, 100, 100), detail="success"

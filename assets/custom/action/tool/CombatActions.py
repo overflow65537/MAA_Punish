@@ -277,7 +277,10 @@ class CombatActions:
             image = self.context.tasker.controller.post_screencap().wait().get()
             # 识别并返回结果
             result = self.context.run_recognition(node, image, pipeline_override)
-            return result
+            if result and result.hit:
+                return result
+            else:
+                return False
         except Exception as e:
             self.logger.exception(node + ":" + str(e))
             return False
@@ -292,7 +295,8 @@ class CombatActions:
             # 获取截图
             image = self.context.tasker.controller.post_screencap().wait().get()
             # 识别并返回结果
-            return self.context.run_recognition("技能_能量条", image) is not None
+            energy_result = self.context.run_recognition("技能_能量条", image)
+            return bool(energy_result and energy_result.hit)
 
         except Exception as e:
             self.logger.exception("检查技能_能量条:" + str(e))
@@ -331,11 +335,14 @@ class CombatActions:
                 result = self.context.run_recognition(
                     "识别信号球", image, self.template.get(color, {})
                 )
+                has_hit = bool(result and result.hit)
+                if result is None:
+                    return []
                 self.logger.info(
-                    f"识别到{color}球: {result.filterd_results if result else '无'}"
+                    f"识别到{color}球: {result.filtered_results if has_hit else '无'}"
                 )
-                if result:
-                    for item in result.filterd_results:
+                if has_hit:
+                    for item in result.filtered_results:
                         try:
                             pos = analyze_position(item.box)
                             # 确保pos是整数且在有效范围内
@@ -465,7 +472,7 @@ class CombatActions:
         result = self.context.run_recognition("统计信号球数量", image)
         from maa.define import OCRResult
 
-        if result and isinstance(result.best_result, OCRResult):
+        if result and result.hit and isinstance(result.best_result, OCRResult):
             num = re.search(r"\d+", result.best_result.text)
             if num:
                 return int(num.group())
@@ -481,7 +488,7 @@ class CombatActions:
         result = self.context.run_recognition("检查血量百分比", image)
         from maa.define import ColorMatchResult
 
-        if result and isinstance(result.best_result, ColorMatchResult):
+        if result and result.hit and isinstance(result.best_result, ColorMatchResult):
             hp_pixels = int(result.best_result.count)
             hp_percent = int((hp_pixels / 429) * 100)
             return min(max(hp_percent, 0), 100)

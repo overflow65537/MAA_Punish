@@ -42,7 +42,7 @@ class AutoCounter(CustomRecognition):
         in_battle = context.run_recognition(
             "战斗中", image,
         )
-        if not in_battle:
+        if not (in_battle and in_battle.hit):
             return 
         #当前血量
         current_hp = json.loads(argv.custom_recognition_param).get("current_hp", None)
@@ -51,7 +51,9 @@ class AutoCounter(CustomRecognition):
         expected_hp = context.run_recognition(
             "检查血量", image,
         )
-        if not expected_hp or not isinstance(expected_hp.best_result, OCRResult):
+        if not (expected_hp and expected_hp.hit) or not isinstance(
+            expected_hp.best_result, OCRResult
+        ):
             return 
         if current_hp is None or expected_hp.best_result.text !=current_hp:
             context.override_pipeline(

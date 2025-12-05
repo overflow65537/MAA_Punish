@@ -109,6 +109,7 @@ jobs:
         run: |
           pip install pyinstaller
           pip install -r requirements.txt
+          Python -m pip install json-with-comments
           python ./install.py ${{ needs.meta.outputs.tag }}
           
       - name: Download MFW
@@ -163,6 +164,7 @@ jobs:
           latest: true
           out-file-path: "install"
           extract: true
+          preRelease: true
 
       - name: Install MFW
         shell: bash

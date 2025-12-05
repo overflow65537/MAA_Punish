@@ -38,8 +38,6 @@ class CheckResolution(CustomRecognition):
         try:
             image:ndarray = argv.image # type: ignore
             height, width = image.shape[:2]
-            print(f"CheckResolution: 分辨率 {width}x{height}")
-
             if width not in [720,1280] or height not in [1280,720]:
                 return CustomRecognition.AnalyzeResult(
                 box=[0, 0, 0, 0],

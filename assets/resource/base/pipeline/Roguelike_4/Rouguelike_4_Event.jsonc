@@ -1,7 +1,7 @@
 {
     "战斗地块_寒境曙光": {
         "focus": {
-            "succeeded": "[color:ForestGreen]战斗地块[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]战斗地块[/color]"
         },
         "post_wait_freezes": 1000,
         "recognition": {
@@ -197,17 +197,15 @@
             }
         },
         "focus": {
-            "succeeded": "[color:ForestGreen]汇合[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]汇合[/color]"
         },
         "action": {
             "type": "Click"
         },
         "next": [
-            "离开对话_寒境曙光"
-        ],
-        "interrupt": [
-            "汇合_对话_寒境曙光",
-            "开始探索_寒境曙光"
+            "离开对话_寒境曙光",
+            "[JumpBack]汇合_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
         ]
     },
     "汇合_结束对话_寒境曙光": {
@@ -265,19 +263,17 @@
             }
         },
         "focus": {
-            "succeeded": "[color:ForestGreen]拓荒[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]拓荒[/color]"
         },
         "action": {
             "type": "Click"
         },
         "next": [
-            "离开对话_寒境曙光"
-        ],
-        "interrupt": [
-            "继续_寒境曙光",
-            "拓荒_寒境曙光_对话_寒境曙光",
-            "开始探索_寒境曙光",
-            "关闭奖励_寒境曙光"
+            "离开对话_寒境曙光",
+            "[JumpBack]继续_寒境曙光",
+            "[JumpBack]拓荒_寒境曙光_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光",
+            "[JumpBack]关闭奖励_寒境曙光"
         ]
     },
     "拓荒_寒境曙光_对话_寒境曙光": {
@@ -314,11 +310,9 @@
             }
         },
         "next": [
-            "决定事件_寒境曙光"
-        ],
-        "interrupt": [
-            "继续对话_寒境曙光",
-            "无尚之戒_寒境曙光_对话_寒境曙光"
+            "决定事件_寒境曙光",
+            "[JumpBack]继续对话_寒境曙光",
+            "[JumpBack]无尚之戒_寒境曙光_对话_寒境曙光"
         ]
     },
     "无尚之戒_寒境曙光_对话_寒境曙光": {
@@ -358,15 +352,13 @@
             "type": "Click"
         },
         "focus": {
-            "succeeded": "[color:ForestGreen]前方有陷阱[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]前方有陷阱[/color]"
         },
         "next": [
-            "离开对话_寒境曙光"
-        ],
-        "interrupt": [
-            "决定事件_寒境曙光",
-            "前方有陷阱_对话_寒境曙光",
-            "开始探索_寒境曙光"
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]前方有陷阱_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
         ]
     },
     "前方有陷阱_对话_寒境曙光": {
@@ -409,16 +401,14 @@
             "type": "Click"
         },
         "focus": {
-            "succeeded": "[color:ForestGreen]剩余资金[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]剩余资金[/color]"
         },
         "next": [
             "离开对话_寒境曙光",
-            "物资事件结束_寒境曙光"
-        ],
-        "interrupt": [
-            "决定事件_寒境曙光",
-            "剩余资金_寒境曙光_对话_寒境曙光",
-            "开始探索_寒境曙光"
+            "物资事件结束_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]剩余资金_寒境曙光_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
         ]
     },
     "剩余资金_寒境曙光_对话_寒境曙光": {
@@ -455,17 +445,15 @@
             }
         },
         "focus": {
-            "succeeded": "[color:ForestGreen]冬日之影[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]冬日之影[/color]"
         },
         "action": {
             "type": "Click"
         },
         "next": [
-            "离开对话_寒境曙光"
-        ],
-        "interrupt": [
-            "冬日之影_对话_寒境曙光",
-            "开始探索_寒境曙光"
+            "离开对话_寒境曙光",
+            "[JumpBack]冬日之影_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
         ]
     },
     "冬日之影_对话_寒境曙光": {
@@ -511,19 +499,17 @@
             "type": "Click"
         },
         "next": [
-            "事件完成_寒境曙光"
-        ],
-        "interrupt": [
-            "局内招募_寒境曙光",
-            "继续对话_寒境曙光",
-            "点击空白处关闭",
-            "领取战斗奖励",
-            "驻扎点报警_寒境曙光",
-            "支援等级提升_寒境曙光",
-            "选择军事支援_寒境曙光",
-            "选择经济支援_寒境曙光",
-            "选择基建支援_寒境曙光",
-            "关闭奖励_寒境曙光"
+            "事件完成_寒境曙光",
+            "[JumpBack]局内招募_寒境曙光",
+            "[JumpBack]继续对话_寒境曙光",
+            "[JumpBack]点击空白处关闭",
+            "[JumpBack]领取战斗奖励",
+            "[JumpBack]驻扎点报警_寒境曙光",
+            "[JumpBack]支援等级提升_寒境曙光",
+            "[JumpBack]选择军事支援_寒境曙光",
+            "[JumpBack]选择经济支援_寒境曙光",
+            "[JumpBack]选择基建支援_寒境曙光",
+            "[JumpBack]关闭奖励_寒境曙光"
         ]
     },
     "战马瑞恩_寒境曙光": {
@@ -549,18 +535,16 @@
             }
         },
         "focus": {
-            "succeeded": "[color:ForestGreen]战马瑞恩[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]战马瑞恩[/color]"
         },
         "action": {
             "type": "Click"
         },
         "next": [
-            "离开对话_寒境曙光"
-        ],
-        "interrupt": [
-            "决定事件_寒境曙光",
-            "战马瑞恩_对话_寒境曙光",
-            "开始探索_寒境曙光"
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]战马瑞恩_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
         ]
     },
     "战马瑞恩_对话_寒境曙光": {
@@ -618,18 +602,16 @@
             }
         },
         "focus": {
-            "succeeded": "[color:ForestGreen]鲨鱼置物箱[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]鲨鱼置物箱[/color]"
         },
         "action": {
             "type": "Click"
         },
         "next": [
-            "离开对话_寒境曙光"
-        ],
-        "interrupt": [
-            "决定事件_寒境曙光",
-            "鲨鱼置物箱_对话_寒境曙光",
-            "开始探索_寒境曙光"
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]鲨鱼置物箱_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
         ]
     },
     "鲨鱼置物箱_对话_寒境曙光": {
@@ -669,15 +651,13 @@
             "type": "Click"
         },
         "focus": {
-            "succeeded": "[color:ForestGreen]学者来访[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]学者来访[/color]"
         },
         "next": [
-            "离开对话_寒境曙光"
-        ],
-        "interrupt": [
-            "决定事件_寒境曙光",
-            "学者来访_对话_寒境曙光",
-            "开始探索_寒境曙光"
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]学者来访_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
         ]
     },
     "学者来访_对话_寒境曙光": {
@@ -718,15 +698,13 @@
             "type": "Click"
         },
         "focus": {
-            "succeeded": "[color:ForestGreen]运力紧张[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]运力紧张[/color]"
         },
         "next": [
-            "离开对话_寒境曙光"
-        ],
-        "interrupt": [
-            "决定事件_寒境曙光",
-            "运力紧张_对话_寒境曙光",
-            "开始探索_寒境曙光"
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]运力紧张_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
         ]
     },
     "运力紧张_对话_寒境曙光": {
@@ -766,15 +744,13 @@
             "type": "Click"
         },
         "focus": {
-            "succeeded": "[color:ForestGreen]废弃港口[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]废弃港口[/color]"
         },
         "next": [
-            "离开对话_寒境曙光"
-        ],
-        "interrupt": [
-            "决定事件_寒境曙光",
-            "废弃港口_对话_寒境曙光",
-            "开始探索_寒境曙光"
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]废弃港口_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
         ]
     },
     "废弃港口_对话_寒境曙光": {
@@ -814,15 +790,13 @@
             "type": "Click"
         },
         "focus": {
-            "succeeded": "[color:ForestGreen]商队来访[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]商队来访[/color]"
         },
         "next": [
-            "离开对话_寒境曙光"
-        ],
-        "interrupt": [
-            "决定事件_寒境曙光",
-            "商队来访_对话_寒境曙光",
-            "开始探索_寒境曙光"
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]商队来访_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
         ]
     },
     "商队来访_对话_寒境曙光": {
@@ -866,15 +840,13 @@
             "type": "Click"
         },
         "focus": {
-            "succeeded": "[color:ForestGreen]拦路的废墟[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]拦路的废墟[/color]"
         },
         "next": [
-            "离开对话_寒境曙光"
-        ],
-        "interrupt": [
-            "决定事件_寒境曙光",
-            "拦路的废墟_对话_寒境曙光",
-            "开始探索_寒境曙光"
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]拦路的废墟_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
         ]
     },
     "拦路的废墟_对话_寒境曙光": {
@@ -914,15 +886,13 @@
             "type": "Click"
         },
         "focus": {
-            "succeeded": "[color:ForestGreen]难民团到访[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]难民团到访[/color]"
         },
         "next": [
-            "离开对话_寒境曙光"
-        ],
-        "interrupt": [
-            "决定事件_寒境曙光",
-            "难民团到访_对话_寒境曙光",
-            "开始探索_寒境曙光"
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]难民团到访_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
         ]
     },
     "决定事件_寒境曙光": {
@@ -983,15 +953,13 @@
             "type": "Click"
         },
         "focus": {
-            "succeeded": "[color:ForestGreen]建筑师的建议[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]建筑师的建议[/color]"
         },
         "next": [
-            "离开对话_寒境曙光"
-        ],
-        "interrupt": [
-            "决定事件_寒境曙光",
-            "建筑师的建议_对话_寒境曙光",
-            "开始探索_寒境曙光"
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]建筑师的建议_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
         ]
     },
     "建筑师的建议_对话_寒境曙光": {
@@ -1037,15 +1005,13 @@
             "type": "Click"
         },
         "focus": {
-            "succeeded": "[color:ForestGreen]旧国遗产[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]旧国遗产[/color]"
         },
         "next": [
-            "离开对话_寒境曙光"
-        ],
-        "interrupt": [
-            "决定事件_寒境曙光",
-            "旧国遗产_对话_寒境曙光",
-            "开始探索_寒境曙光"
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]旧国遗产_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
         ]
     },
     "旧国遗产_对话_寒境曙光": {
@@ -1070,7 +1036,7 @@
     },
     "纯色地块黄_寒境曙光": {
         "focus": {
-            "succeeded": "[color:ForestGreen]黄色地块[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]黄色地块[/color]"
         },
         "post_delay": 1000,
         "recognition": {
@@ -1104,7 +1070,7 @@
     },
     "纯色地块红_寒境曙光": {
         "focus": {
-            "succeeded": "[color:ForestGreen]红色地块[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]红色地块[/color]"
         },
         "post_delay": 1000,
         "recognition": {
@@ -1138,7 +1104,7 @@
     },
     "纯色地块蓝_寒境曙光": {
         "focus": {
-            "succeeded": "[color:ForestGreen]蓝色地块[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]蓝色地块[/color]"
         },
         "post_delay": 1000,
         "recognition": {

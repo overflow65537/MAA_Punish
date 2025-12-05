@@ -24,8 +24,9 @@ MAA_Punish 识别宿舍角色数量
 作者:overflow65537
 """
 
-from maa.context import Context
 from maa.custom_recognition import CustomRecognition
+from typing import Union, Optional
+from maa.define import RectType,OCRResult
 
 
 class IDFMembers(CustomRecognition):
@@ -34,24 +35,25 @@ class IDFMembers(CustomRecognition):
         self,
         context,
         argv: CustomRecognition.AnalyzeArg,
-    ) -> CustomRecognition.AnalyzeResult:
+    ) -> Union[CustomRecognition.AnalyzeResult, Optional[RectType]]:
         image = context.tasker.controller.post_screencap().wait().get()
         # 检查目标数量
         target_score = context.run_recognition("检查目标数量", image)
         # 检查当前数量
         current_score = context.run_recognition("检查当前数量", image)
-        if current_score is None or target_score is None:
-            return
-        if (
-            current_score.best_result.text.isdigit()
-            and target_score.best_result.text.isdigit()
-        ):
+        if current_score and current_score.hit and target_score and target_score.hit:
+            if isinstance(current_score.best_result, OCRResult) and isinstance(target_score.best_result, OCRResult):
+                if (
+                    current_score.best_result.text.isdigit()
+                    and target_score.best_result.text.isdigit()
+                ):
 
-            if int(current_score.best_result.text) == int(
-                target_score.best_result.text
-            ):
-                return CustomRecognition.AnalyzeResult(
-                    box=(0, 0, 100, 100), detail="success"
-                )
-        else:
-            return
+                    if int(current_score.best_result.text) == int(
+                        target_score.best_result.text
+                    ):
+                        return CustomRecognition.AnalyzeResult(
+                            box=(0, 0, 100, 100), detail={"status":"success"}
+                        )
+                else:
+                    return
+        return

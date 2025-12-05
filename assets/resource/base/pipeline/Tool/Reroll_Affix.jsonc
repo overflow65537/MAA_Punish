@@ -1,16 +1,14 @@
 {
     "洗词缀": {
         "next": [
-            "确认目标词缀"
-        ],
-        "interrupt": [
-            "结果检查_不可信",
-            "结果检查_可信"
+            "确认目标词缀",
+            "[JumpBack]结果检查_不可信",
+            "[JumpBack]结果检查_可信"
         ]
     },
     "确认目标词缀": {
         "focus": {
-            "succeeded": "[color:ForestGreen]完成[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]完成[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -30,7 +28,7 @@
     "结果检查左侧_不可信": {
         "inverse": true,
         "focus": {
-            "succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
+            "Node.Recognition.Succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -63,7 +61,7 @@
     "结果检查_不可信": {
         "inverse": true,
         "focus": {
-            "succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
+            "Node.Recognition.Succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
         },
         "recognition": {
             "type": "OCR",

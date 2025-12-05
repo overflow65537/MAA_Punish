@@ -452,4 +452,4 @@ maapicli.spec
 .vscode/settings.json
 assets/README.md
 install.spec
-config/maa_option.json
+config

@@ -72,9 +72,9 @@ class IDFMasteryLevel(CustomRecognition):
                 }
             },
         )
-        if result:
-            for i in result.filterd_results:
-                if context.run_recognition(
+        if result and result.hit:
+            for i in result.filtered_results:
+                mastery_reco = context.run_recognition(
                     "识别精通等级",
                     argv.image,
                     {
@@ -83,13 +83,13 @@ class IDFMasteryLevel(CustomRecognition):
                             "roi_offset": [189, 25, -51, -45],
                         }
                     },
-                ):
+                )
+                if mastery_reco and mastery_reco.hit:
                     context.override_pipeline(
                         {
                             "识别人物": {"enabled": True},
                         }
                     )
-                    print("IDFMasteryLevel success")
                     return CustomRecognition.AnalyzeResult(box=i.box, detail="success")
         print("IDFMasteryLevel failed")
         return

@@ -45,12 +45,10 @@
             "type": "Click"
         },
         "next": [
-            "检查主界面2"
-        ],
-        "interrupt": [
-            "关闭奖励",
-            "确定",
-            "返回主菜单_reco"
+            "检查主界面2",
+            "[JumpBack]关闭奖励",
+            "[JumpBack]确定",
+            "[JumpBack]返回主菜单_reco"
         ]
     },
     "返回主菜单_reco": {
@@ -162,7 +160,7 @@
     },
     "返回主菜单_err": {
         "focus": {
-            "succeeded": "[color:Tomato]识别错误，返回主菜单[/color]",
+            "Node.Recognition.Succeeded": "[color:Tomato]识别错误，返回主菜单[/color]",
             "aborted": true
         },
         "action": {
@@ -185,13 +183,11 @@
             "检查主界面",
             "退出血清界面_err",
             "返回主菜单",
-            "返回主菜单_图标"
-        ],
-        "interrupt": [
-            "确定",
-            "领取藏品_厄愿潮声",
-            "关闭奖励",
-            "等级提升"
+            "返回主菜单_图标",
+            "[JumpBack]确定",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]关闭奖励",
+            "[JumpBack]等级提升"
         ],
         "on_error": [
             "重启游戏"
@@ -199,7 +195,7 @@
     },
     "重启游戏": {
         "focus": {
-            "succeeded": "[color:Tomato]未知错误,重启游戏[/color]"
+            "Node.Recognition.Succeeded": "[color:Tomato]未知错误,重启游戏[/color]"
         },
         "action": {
             "type": "StopApp",
