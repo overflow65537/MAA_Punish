@@ -209,6 +209,7 @@ jobs:
           latest: true
           out-file-path: "install"
           extract: true
+          preRelease: true
 
       - name: Install MFW
         shell: bash
