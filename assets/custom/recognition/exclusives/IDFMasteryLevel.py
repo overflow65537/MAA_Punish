@@ -73,7 +73,7 @@ class IDFMasteryLevel(CustomRecognition):
             },
         )
         if result and result.hit:
-            for i in result.filterd_results:
+            for i in result.filtered_results:
                 mastery_reco = context.run_recognition(
                     "识别精通等级",
                     argv.image,

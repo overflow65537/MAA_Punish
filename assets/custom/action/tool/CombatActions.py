@@ -277,7 +277,10 @@ class CombatActions:
             image = self.context.tasker.controller.post_screencap().wait().get()
             # 识别并返回结果
             result = self.context.run_recognition(node, image, pipeline_override)
-            return result
+            if result and result.hit:
+                return result
+            else:
+                return False
         except Exception as e:
             self.logger.exception(node + ":" + str(e))
             return False
@@ -333,11 +336,13 @@ class CombatActions:
                     "识别信号球", image, self.template.get(color, {})
                 )
                 has_hit = bool(result and result.hit)
+                if result is None:
+                    return []
                 self.logger.info(
-                    f"识别到{color}球: {result.filterd_results if has_hit else '无'}"
+                    f"识别到{color}球: {result.filtered_results if has_hit else '无'}"
                 )
                 if has_hit:
-                    for item in result.filterd_results:
+                    for item in result.filtered_results:
                         try:
                             pos = analyze_position(item.box)
                             # 确保pos是整数且在有效范围内

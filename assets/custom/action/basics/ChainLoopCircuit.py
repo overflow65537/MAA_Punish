@@ -139,7 +139,7 @@ class ChainLoopCircuit(CustomAction):
         ROW_Y = [61 + i * cell_height + cell_height // 2 for i in range(8)]
         COL_X = [430 + j * cell_width + cell_width // 2 for j in range(8)]
 
-        for item in recognition_data.filterd_results:
+        for item in recognition_data.filtered_results:
             x, y, w, h = item.box
 
             # 行列索引查找逻辑
