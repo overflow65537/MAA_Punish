@@ -3,6 +3,7 @@
     "name": "MAA_Punish",
     "mirrorchyan_rid": "MAA_Punish",
     "url": "https://github.com/overflow65537/MAA_Punish",
+    "license": "./LICENSE",
     "MFW_min_req_version": "99.99.99",
     "controller": [
         {
