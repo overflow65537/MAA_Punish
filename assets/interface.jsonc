@@ -119,9 +119,14 @@
             "name": "指挥局",
             "entry": "指挥局",
             "speedrun": {
-                "schedule_mode": "daily",
-                "refresh_time": {
-                    "H": 5
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
                 }
             }
         },
@@ -174,16 +179,18 @@
                 }
             },
             "speedrun": {
-                "schedule_mode": "weekly",
-                "refresh_time": {
-                    "H": 5,
-                    "w": 1
+                "mode": "weekly",
+                "trigger": {
+                    "weekly": {
+                        "weekday": [
+                            2
+                        ],
+                        "hour_start": 5
+                    }
                 },
-                "interval": {
-                    "unit": 0,
-                    "item": 0,
-                    "loop_item": 0,
-                    "current_loop": 0
+                "run": {
+                    "count": 2,
+                    "min_interval_hours": 24
                 }
             }
         },
@@ -219,16 +226,18 @@
                 }
             },
             "speedrun": {
-                "schedule_mode": "weekly",
-                "refresh_time": {
-                    "H": 5,
-                    "w": 1
+                "mode": "weekly",
+                "trigger": {
+                    "weekly": {
+                        "weekday": [
+                            2
+                        ],
+                        "hour_start": 5
+                    }
                 },
-                "interval": {
-                    "unit": 0,
-                    "item": 0,
-                    "loop_item": 0,
-                    "current_loop": 0
+                "run": {
+                    "count": 2,
+                    "min_interval_hours": 24
                 }
             }
         },
@@ -236,16 +245,18 @@
             "name": "诺曼复兴战",
             "entry": "诺曼复兴战",
             "speedrun": {
-                "schedule_mode": "weekly",
-                "refresh_time": {
-                    "H": 5,
-                    "w": 1
+                "mode": "weekly",
+                "trigger": {
+                    "weekly": {
+                        "weekday": [
+                            2
+                        ],
+                        "hour_start": 5
+                    }
                 },
-                "interval": {
-                    "unit": 0,
-                    "item": 0,
-                    "loop_item": 0,
-                    "current_loop": 0
+                "run": {
+                    "count": 2,
+                    "min_interval_hours": 24
                 }
             }
         },
@@ -288,16 +299,18 @@
                 }
             },
             "speedrun": {
-                "schedule_mode": "weekly",
-                "refresh_time": {
-                    "H": 5,
-                    "w": 1
+                "mode": "weekly",
+                "trigger": {
+                    "weekly": {
+                        "weekday": [
+                            2
+                        ],
+                        "hour_start": 5
+                    }
                 },
-                "interval": {
-                    "unit": 0,
-                    "item": 0,
-                    "loop_item": 0,
-                    "current_loop": 0
+                "run": {
+                    "count": 2,
+                    "min_interval_hours": 24
                 }
             }
         },
@@ -309,13 +322,15 @@
                 "选择A级角色",
                 "是否使用体力"
             ],
-            "advanced": [
-                "选择A级角色"
-            ],
             "speedrun": {
-                "schedule_mode": "daily",
-                "refresh_time": {
-                    "H": 5
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
                 }
             }
         },
@@ -323,9 +338,14 @@
             "name": "领取体力",
             "entry": "领取体力",
             "speedrun": {
-                "schedule_mode": "daily",
-                "refresh_time": {
-                    "H": 5
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
                 }
             }
         },
@@ -333,9 +353,14 @@
             "name": "领取邮件",
             "entry": "邮件",
             "speedrun": {
-                "schedule_mode": "daily",
-                "refresh_time": {
-                    "H": 5
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
                 }
             }
         },
@@ -346,9 +371,14 @@
                 "选择物品"
             ],
             "speedrun": {
-                "schedule_mode": "daily",
-                "refresh_time": {
-                    "H": 5
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
                 }
             }
         },
@@ -356,9 +386,14 @@
             "name": "宿舍任务",
             "entry": "宿舍任务",
             "speedrun": {
-                "schedule_mode": "daily",
-                "refresh_time": {
-                    "H": 5
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
                 }
             }
         },
@@ -373,9 +408,14 @@
             "name": "维系者行动",
             "entry": "维系者行动",
             "speedrun": {
-                "schedule_mode": "daily",
-                "refresh_time": {
-                    "H": 5
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
                 }
             }
         },
@@ -533,57 +573,6 @@
             "spt": true
         }
     ],
-    "advanced": {
-        "选择A级角色": {
-            "doc": [
-                "输入角色的代号"
-            ],
-            "field": [
-                "选择A级角色名"
-            ],
-            "type": [
-                "string"
-            ],
-            "default": [
-                "裁律",
-                "破晓",
-                "徊闪",
-                "耀炎",
-                "觅语",
-                "擎驱",
-                "清商",
-                "琉璃",
-                "XXI",
-                "明觉",
-                "游麟",
-                "瑰丽",
-                "弧光",
-                "溢彩",
-                "重能",
-                "银牙",
-                "流光",
-                "零度",
-                "夜刃",
-                "爆裂",
-                "夙星",
-                "异火",
-                "风暴",
-                "流光",
-                "蚀暗",
-                "黎明",
-                "红莲"
-            ],
-            "pipeline_override": {
-                "A级角色": {
-                    "recognition": {
-                        "param": {
-                            "expected": "{选择A级角色名}"
-                        }
-                    }
-                }
-            }
-        }
-    },
     "option": {
         "战斗模式": {
             "cases": [
@@ -636,13 +625,14 @@
             ]
         },
         "速通模式": {
+            "type": "switch",
             "cases": [
                 {
-                    "name": "开",
+                    "name": "yes",
                     "pipeline_override": {}
                 },
                 {
-                    "name": "关",
+                    "name": "no",
                     "pipeline_override": {
                         "未选人": {
                             "enabled": false
@@ -673,13 +663,14 @@
             ]
         },
         "跳过剧情": {
+            "type": "switch",
             "cases": [
                 {
-                    "name": "是",
+                    "name": "yes",
                     "pipeline_override": {}
                 },
                 {
-                    "name": "否",
+                    "name": "no",
                     "pipeline_override": {
                         "跳过剧情": {
                             "enabled": false
@@ -1533,9 +1524,10 @@
             ]
         },
         "是否使用体力": {
+            "type": "switch",
             "cases": [
                 {
-                    "name": "是",
+                    "name": "yes",
                     "pipeline_override": {
                         "A_不使用体力": {
                             "enabled": false
@@ -1546,7 +1538,7 @@
                     }
                 },
                 {
-                    "name": "否",
+                    "name": "no",
                     "pipeline_override": {
                         "A_使用体力": {
                             "enabled": false
@@ -1687,9 +1679,10 @@
             ]
         },
         "使用临期体力": {
+            "type": "switch",
             "cases": [
                 {
-                    "name": "是",
+                    "name": "yes",
                     "pipeline_override": {
                         "拟战场域": {
                             "next": [
@@ -1701,7 +1694,7 @@
                     }
                 },
                 {
-                    "name": "否",
+                    "name": "no",
                     "pipeline_override": {
                         "拟战场域": {
                             "next": [
@@ -1714,8 +1707,37 @@
                 }
             ]
         },
+        "输入A级角色名": {
+            "label": "请输角色名",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "角色名",
+                    "description": "请输入角色代号,比如破晓",
+                    "default": "破晓",
+                    "pipeline_type": "string"
+                }
+            ],
+            "pipeline_override": {
+                "A级角色": {
+                    "recognition": {
+                        "param": {
+                            "expected": "{角色名}"
+                        }
+                    }
+                }
+            }
+        },
         "选择A级角色": {
+            "type": "select",
             "cases": [
+                {
+                    "name": "自行输入角色名",
+                    "pipeline_override": {},
+                    "option": [
+                        "输入A级角色名"
+                    ]
+                },
                 {
                     "name": "破晓",
                     "pipeline_override": {
