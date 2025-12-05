@@ -15,7 +15,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]商店[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]商店[/color]"
         },
         "action": {
             "type": "Click"
@@ -120,7 +120,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]在途存货[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]在途存货[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -187,7 +187,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]亚人少女[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]亚人少女[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -259,7 +259,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]贴心搭档[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]贴心搭档[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -309,7 +309,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]逃出生天[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]逃出生天[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -379,7 +379,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]隐秘工坊[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]隐秘工坊[/color]"
         },
         "next": [
             "事件完成_结束_矩阵循生",
@@ -450,7 +450,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]洁塔薇的游戏[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]洁塔薇的游戏[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -521,7 +521,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]禁忌验证[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]禁忌验证[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -598,7 +598,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]头号玩家[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]头号玩家[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -667,7 +667,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]致命失误[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]致命失误[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -737,7 +737,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]工业怪谈[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]工业怪谈[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -808,7 +808,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]动物坟场[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]动物坟场[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -888,7 +888,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]观星真相[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]观星真相[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -962,7 +962,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]机械性故障[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]机械性故障[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -1043,7 +1043,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]步履蹒跚[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]步履蹒跚[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -1095,7 +1095,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]举手之劳[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]举手之劳[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -1192,7 +1192,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]无效救援[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]无效救援[/color]"
         },
         "next": [
             "事件完成_结束_矩阵循生",
@@ -1267,7 +1267,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]盛典纪行[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]盛典纪行[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -1345,7 +1345,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]火灾现场[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]火灾现场[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -1418,7 +1418,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]棋盘难题[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]棋盘难题[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -1493,7 +1493,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]皇后游戏[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]皇后游戏[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -1584,7 +1584,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]瑕疵造物[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]瑕疵造物[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -1656,7 +1656,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]迷失之馆[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]迷失之馆[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -1728,7 +1728,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]圣殿战役[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]圣殿战役[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -1803,7 +1803,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]西西弗斯[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]西西弗斯[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -1874,7 +1874,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]野性之森[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]野性之森[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -1948,7 +1948,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]蓝色裂痕[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]蓝色裂痕[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -2023,7 +2023,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]铁石心肠[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]铁石心肠[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -2097,7 +2097,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]栩栩如生[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]栩栩如生[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -2171,7 +2171,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]荒废古卷[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]荒废古卷[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -2262,7 +2262,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]洁塔薇的食材[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]洁塔薇的食材[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -2336,7 +2336,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]荒废古堡[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]荒废古堡[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -2408,7 +2408,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]天台扭蛋机[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]天台扭蛋机[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -2479,7 +2479,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]莫比乌斯[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]莫比乌斯[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -2553,7 +2553,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]赝品工匠[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]赝品工匠[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -2624,7 +2624,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]继承之物[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]继承之物[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -2697,7 +2697,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]异界通讯II[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]异界通讯II[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -2770,7 +2770,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]禁忌实验[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]禁忌实验[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -2843,7 +2843,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]失败造物[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]失败造物[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -2953,7 +2953,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]旧日情谊[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]旧日情谊[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -3024,7 +3024,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]贫困收藏家[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]贫困收藏家[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -3094,7 +3094,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]英雄真相[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]英雄真相[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -3166,7 +3166,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]记忆真相[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]记忆真相[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -3239,7 +3239,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]天选者的故事[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]天选者的故事[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -3332,7 +3332,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]树神之女[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]树神之女[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -3402,7 +3402,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]物归新主[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]物归新主[/color]"
         },
         "next": [
             "物归新主完成_矩阵循生",
@@ -3474,7 +3474,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]无尽长廊[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]无尽长廊[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -3548,7 +3548,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]万两黄金[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]万两黄金[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -3619,7 +3619,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]工业幽灵[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]工业幽灵[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -3691,7 +3691,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]自投罗网[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]自投罗网[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -3762,7 +3762,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]武器技师[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]武器技师[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -3832,7 +3832,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]致命隐患[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]致命隐患[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -3905,7 +3905,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]物归新主[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]物归新主[/color]"
         },
         "next": [
             "事件完成_矩阵循生",
@@ -3977,7 +3977,7 @@
             }
         },
         "focus": {
-            "Tasker.Task.Succeeded": "[color:Tomato]文本识别错误[/color]"
+            "Node.Recognition.Succeeded": "[color:Tomato]文本识别错误[/color]"
         },
         "action": {
             "type": "Custom",

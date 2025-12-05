@@ -8,7 +8,7 @@
     },
     "确认目标词缀": {
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]完成[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]完成[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -28,7 +28,7 @@
     "结果检查左侧_不可信": {
         "inverse": true,
         "focus": {
-            "Tasker.Task.Succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
+            "Node.Recognition.Succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
         },
         "recognition": {
             "type": "OCR",
@@ -61,7 +61,7 @@
     "结果检查_不可信": {
         "inverse": true,
         "focus": {
-            "Tasker.Task.Succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
+            "Node.Recognition.Succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
         },
         "recognition": {
             "type": "OCR",

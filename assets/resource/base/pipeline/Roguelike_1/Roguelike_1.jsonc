@@ -1,7 +1,7 @@
 {
     "宣叙妄响": {
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]开始演绎[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]开始演绎[/color]"
         },
         "action": {
             "type": "Custom",

@@ -225,7 +225,7 @@ class RoleSelection(CustomAction):
             context.override_pipeline(
                 {
                     "停止任务": {
-                        "focus": {"Tasker.Task.Succeeded": f"未找到角色 {selected_role},退出任务"}
+                        "focus": {"Node.Recognition.Succeeded": f"未找到角色 {selected_role},退出任务"}
                     }
                 }
             )
@@ -377,7 +377,7 @@ class RoleSelection(CustomAction):
     def send_msg(self, context: Context, msg: str):
         msg_node = {
             "发送消息_这是程序自动生成的node所以故意写的很长来防止某一天想不开用了这个名字导致报错": {
-                "focus": {"Tasker.Task.Succeeded": msg}
+                "focus": {"Node.Recognition.Succeeded": msg}
             }
         }
         context.run_task(

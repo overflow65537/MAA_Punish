@@ -135,7 +135,7 @@
     },
     "未解锁自动作战": {
         "focus": {
-            "Tasker.Task.Succeeded": "[color:Tomato]未解锁自动作战[/color]"
+            "Node.Recognition.Succeeded": "[color:Tomato]未解锁自动作战[/color]"
         },
         "post_delay": 1000,
         "recognition": {

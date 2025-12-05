@@ -192,7 +192,7 @@
     },
     "不使用体力": {
         "focus": {
-            "Tasker.Task.Succeeded": "[color:ForestGreen]体力不足,任务结束[/color]"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]体力不足,任务结束[/color]"
         },
         "recognition": {
             "type": "OCR",
