@@ -8,6 +8,7 @@
     "welcome": "./README.md",
     "MFW_min_req_version": "99.99.99",
     "icon": "./logo.png",
+    "custom": "./custom/custom.json",
     "controller": [
         {
             "name": "安卓端",
@@ -106,14 +107,6 @@
             ]
         }
     ],
-    "agent": {
-        "child_exec": "python",
-        "child_args": [
-            "{PROJECT_DIR}/custom/main.py"
-        ],
-        "timeout": -1,
-        "embedded_mode": true
-    },
     "task": [
         {
             "name": "进入游戏",
@@ -123,6 +116,7 @@
         {
             "name": "指挥局",
             "entry": "指挥局",
+            "description": "自动领取妙算神机\n速通设置:每天5点后可运行一次,运行后将等待24小时后可再次运行",
             "speedrun": {
                 "mode": "daily",
                 "trigger": {
@@ -138,6 +132,7 @@
         {
             "name": "拟真围剿",
             "entry": "拟真围剿",
+            "description": "自动进行工会战,自动领取奖励\n速通设置:每周二5点后可运行两次次,首次运行后将等待24小时后可再次运行",
             "pipeline_override": {
                 "编入队伍": {
                     "next": [
@@ -191,17 +186,18 @@
                             2
                         ],
                         "hour_start": 5
+                    },
+                    "run": {
+                        "count": 2,
+                        "min_interval_hours": 24
                     }
-                },
-                "run": {
-                    "count": 2,
-                    "min_interval_hours": 24
                 }
             }
         },
         {
             "name": "纷争战区",
             "entry": "纷争战区",
+            "description": "自动首通纷争战区,如果已经打过首通则只会领取奖励\n速通设置:每周二5点后可运行两次次,首次运行后将等待24小时后可再次运行",
             "pipeline_override": {
                 "自动战斗结束": {
                     "post_delay": 1500,
@@ -249,6 +245,7 @@
         {
             "name": "诺曼复兴战",
             "entry": "诺曼复兴战",
+            "description": "自动扫荡诺曼复兴战,不会自动领取奖励,奖励会在结算后自动发送到邮箱中\n速通设置:每周二5点后可运行两次次,首次运行后将等待24小时后可再次运行",
             "speedrun": {
                 "mode": "weekly",
                 "trigger": {
@@ -268,7 +265,7 @@
         {
             "name": "幻痛囚笼",
             "entry": "幻痛囚笼",
-            "description": "自动作战只能适配高级区",
+            "description": "自动战斗幻痛囚笼.注意!该任务会自动选择人物进行战斗,请注意角色锁定状态\n速通设置:每周二5点后可运行两次次,首次运行后将等待24小时后可再次运行",
             "option": [
                 "选择区域"
             ],
@@ -322,26 +319,16 @@
         {
             "name": "刷A级碎片",
             "entry": "刷A级碎片",
-            "description": "MFW v2.2.0以上版本可以更改下拉框内容为新角色代号",
+            "description": "自动扫荡A级碎片,不会自动战斗",
             "option": [
                 "选择A级角色",
                 "是否使用体力"
-            ],
-            "speedrun": {
-                "mode": "daily",
-                "trigger": {
-                    "daily": {
-                        "hour_start": 5
-                    }
-                },
-                "run": {
-                    "count": 1
-                }
-            }
+            ]
         },
         {
             "name": "领取体力",
             "entry": "领取体力",
+            "description": "自动领取体力\n每天5点后可运行一次,运行后将等待24小时后可再次运行",
             "speedrun": {
                 "mode": "daily",
                 "trigger": {
@@ -357,6 +344,7 @@
         {
             "name": "领取邮件",
             "entry": "邮件",
+            "description": "自动领取邮件\n每天5点后可运行一次,运行后将等待24小时后可再次运行",
             "speedrun": {
                 "mode": "daily",
                 "trigger": {
@@ -372,24 +360,15 @@
         {
             "name": "购买物品",
             "entry": "购买物品",
+            "description": "自动购买指定物品\n角色碎片:完成每日任务\n涂装碎片:每日限购\n武器涂装:每月限购",
             "option": [
                 "选择物品"
-            ],
-            "speedrun": {
-                "mode": "daily",
-                "trigger": {
-                    "daily": {
-                        "hour_start": 5
-                    }
-                },
-                "run": {
-                    "count": 1
-                }
-            }
+            ]
         },
         {
             "name": "宿舍任务",
             "entry": "宿舍任务",
+            "description": "自动完成宿舍任务,\n每天5点后可运行一次,运行后将等待24小时后可再次运行",
             "speedrun": {
                 "mode": "daily",
                 "trigger": {
@@ -405,6 +384,7 @@
         {
             "name": "拟战场域",
             "entry": "拟战场域",
+            "description": "自动完成拟战场域,临期体力是指剩余时间小于3天的体力\n每天5点后可运行一次,运行后将等待24小时后可再次运行",
             "option": [
                 "使用临期体力"
             ]
@@ -412,6 +392,7 @@
         {
             "name": "维系者行动",
             "entry": "维系者行动",
+            "description": "自动完成维系者行动\n每天5点后可运行一次,运行后将等待24小时后可再次运行",
             "speedrun": {
                 "mode": "daily",
                 "trigger": {
@@ -426,10 +407,12 @@
         },
         {
             "name": "领取任务",
+            "description": "自动领取任务",
             "entry": "任务"
         },
         {
             "name": "战令",
+            "description": "自动领取成战令",
             "entry": "通行证"
         },
         {
@@ -580,9 +563,11 @@
     ],
     "option": {
         "战斗模式": {
+            "description": "战斗模式:\n自动检测: 根据当前战斗情况自动选择是否开启持续战斗模式或者静默\n持续战斗: 一直保持持续战斗模式,不会因为没有敌人而暂停战斗\n我该使用什么模式?\n如果你发现你所在的关卡需要解密或者跑图,但角色还在战斗,请开启[color:Tomato]自动检测模式[/color]\n如果你选择的关卡没有剧情或者解密,并且进入地图后就可以战斗,但角色没有战斗,请开启[color:Tomato]持续战斗模式[/color]",
             "cases": [
                 {
                     "name": "自动检测",
+                    "description": "检测条件为:观察到敌人血条 或者 左上角任务目标包含 消灭 感染体 等字样",
                     "pipeline_override": {
                         "战斗辅助": {
                             "next": [
@@ -615,6 +600,7 @@
                 },
                 {
                     "name": "持续战斗",
+                    "description": "不会因为没有敌人而暂停战斗,请注意,如果关卡需要解密或者跑图,请使用自动检测模式",
                     "pipeline_override": {
                         "进入战斗": {
                             "enabled": false
@@ -697,6 +683,7 @@
             ]
         },
         "选择人物": {
+            "description": "选择人物: 选择你想要使用的角色进行战斗,如果没找到则会自动选择",
             "cases": [
                 {
                     "name": "露西亚·深红囚影",
@@ -1313,6 +1300,7 @@
                 },
                 {
                     "name": "涂装设计草稿-宿舍商店",
+                    "description": "购买涂装设计草稿,需要宿舍币,每日限购",
                     "pipeline_override": {
                         "购买物品": {
                             "next": [
@@ -1327,6 +1315,7 @@
                 },
                 {
                     "name": "武器设计草稿-宿舍商店",
+                    "description": "购买武器设计草稿,需要宿舍委托币,每月限购",
                     "pipeline_override": {
                         "购买物品": {
                             "next": [

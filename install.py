@@ -21,11 +21,16 @@ def install_resource():
     )
     shutil.rmtree(install_path / "MaaCommonAssets")
 
+    shutil.copy2(
+        working_dir / "logo.png",
+        install_path / "logo.png",
+    )
+
     with open(install_path / "interface.jsonc", "r", encoding="utf-8") as f:
         interface = jsonc.load(f)
 
     interface["version"] = version
-    interface["version"] = "法奥斯之矛 | "+version
+    interface["version"] = "法奥斯之矛 | " + version
 
     with open(install_path / "interface.jsonc", "w", encoding="utf-8") as f:
         jsonc.dump(interface, f, ensure_ascii=False, indent=4)
