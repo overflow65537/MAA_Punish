@@ -60,7 +60,7 @@ class LOp(CustomRecognition):
                 if not result:
                     return
             return CustomRecognition.AnalyzeResult(
-                box=(0, 0, 100, 100), detail=f"{nodes} used in {mode} success"
+                box=(0, 0, 100, 100), detail={"status":"success","message":f"{nodes} used in {mode} success"}
             )
 
         elif mode.lower() == "or":
@@ -68,7 +68,7 @@ class LOp(CustomRecognition):
                 result = self._eval_node(item, context, image)
                 if result:
                     return CustomRecognition.AnalyzeResult(
-                        box=(0, 0, 100, 100), detail=f"{nodes} used in {mode} success"
+                        box=(0, 0, 100, 100), detail={"status":"success","message":f"{nodes} used in {mode} success"}
                     )
             return
 

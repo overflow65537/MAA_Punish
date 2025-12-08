@@ -26,6 +26,7 @@ MAA_Punish 肉鸽4分数计算
 
 from maa.context import Context
 from maa.custom_recognition import CustomRecognition
+from maa.define import OCRResult
 
 
 class CalculateScore(CustomRecognition):
@@ -75,34 +76,43 @@ class CalculateScore(CustomRecognition):
             research_score,
             research_multiplier,
         ]
-        if not all(
-            reco and reco.hit and reco.best_result for reco in recognition_list
-        ):
-            return
+        for reco in recognition_list:
+            if not reco or not reco.hit or not isinstance(reco.best_result, OCRResult):
+                return
+
+        # 明确类型断言以解决类型检查错误
+        current_result: OCRResult = current_score.best_result  # type: ignore
+        target_result: OCRResult = target_score.best_result  # type: ignore
+        military_result: OCRResult = military_score.best_result  # type: ignore
+        military_multi_result: OCRResult = military_multiplier.best_result  # type: ignore
+        economic_result: OCRResult = economic_score.best_result  # type: ignore
+        economic_multi_result: OCRResult = economic_multiplier.best_result  # type: ignore
+        research_result: OCRResult = research_score.best_result  # type: ignore
+        research_multi_result: OCRResult = research_multiplier.best_result  # type: ignore
 
         if (
-            current_score.best_result.text.isdigit()
-            and target_score.best_result.text.isdigit()
-            and military_score.best_result.text.isdigit()
-            and military_multiplier.best_result.text[1:].isdigit()
-            and economic_score.best_result.text.isdigit()
-            and economic_multiplier.best_result.text[1:].isdigit()
-            and research_score.best_result.text.isdigit()
-            and research_multiplier.best_result.text[1:].isdigit()
+            current_result.text.isdigit()
+            and target_result.text.isdigit()
+            and military_result.text.isdigit()
+            and military_multi_result.text[1:].isdigit()
+            and economic_result.text.isdigit()
+            and economic_multi_result.text[1:].isdigit()
+            and research_result.text.isdigit()
+            and research_multi_result.text[1:].isdigit()
         ):
             final_score = (
-                int(military_score.best_result.text)
-                * int(military_multiplier.best_result.text[1:])
-                + int(economic_score.best_result.text)
-                * int(economic_multiplier.best_result.text[1:])
-                + int(research_score.best_result.text)
-                * int(research_multiplier.best_result.text[1:])
-                + int(current_score.best_result.text)
+                int(military_result.text)
+                * int(military_multi_result.text[1:])
+                + int(economic_result.text)
+                * int(economic_multi_result.text[1:])
+                + int(research_result.text)
+                * int(research_multi_result.text[1:])
+                + int(current_result.text)
             )
 
-            if final_score >= int(target_score.best_result.text):
+            if final_score >= int(target_result.text):
                 return CustomRecognition.AnalyzeResult(
-                    box=(0, 0, 100, 100), detail="success"
+                    box=(0, 0, 100, 100), detail={"status": "success"}
                 )
         else:
             return

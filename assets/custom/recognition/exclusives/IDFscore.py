@@ -26,6 +26,7 @@ MAA_Punish 肉鸽4分数识别
 
 from maa.context import Context
 from maa.custom_recognition import CustomRecognition
+from maa.define import OCRResult
 
 
 class IDFscore(CustomRecognition):
@@ -34,7 +35,7 @@ class IDFscore(CustomRecognition):
         self,
         context,
         argv: CustomRecognition.AnalyzeArg,
-    ) -> CustomRecognition.AnalyzeResult:
+    ) -> CustomRecognition.AnalyzeResult | None:
         image = context.tasker.controller.post_screencap().wait().get()
         # 检查目标分数
         context.run_recognition("检查目标分数区域", image)
@@ -49,17 +50,23 @@ class IDFscore(CustomRecognition):
             and target_score.hit
         ):
             return
-        if (
-            current_score.best_result.text.isdigit()
-            and target_score.best_result.text.isdigit()
-        ):
 
-            if int(current_score.best_result.text) >= int(
-                target_score.best_result.text
-            ):
+        # 检查best_result是否为OCRResult类型
+        if not isinstance(current_score.best_result, OCRResult) or not isinstance(target_score.best_result, OCRResult):
+            return
+
+        # 类型断言
+        current_result: OCRResult = current_score.best_result  # type: ignore
+        target_result: OCRResult = target_score.best_result  # type: ignore
+
+        if current_result.text.isdigit() and target_result.text.isdigit():
+            if int(current_result.text) >= int(target_result.text):
                 return CustomRecognition.AnalyzeResult(
                     box=(0, 0, 100, 100),
-                    detail=f"{current_score.best_result.text}>={target_score.best_result.text}",
+                    detail={
+                        "status": "success",
+                        "result": f"{current_result.text}>={target_result.text}"
+                    },
                 )
         else:
             return

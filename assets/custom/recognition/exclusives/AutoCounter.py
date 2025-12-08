@@ -71,6 +71,6 @@ class AutoCounter(CustomRecognition):
 
 
             return CustomRecognition.AnalyzeResult(
-                    box=(1193,637, 100, 100), detail="success"
+                    box=(1193,637, 100, 100), detail={"status":"success"}
                 )
         return

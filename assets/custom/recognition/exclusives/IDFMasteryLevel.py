@@ -90,6 +90,6 @@ class IDFMasteryLevel(CustomRecognition):
                             "识别人物": {"enabled": True},
                         }
                     )
-                    return CustomRecognition.AnalyzeResult(box=i.box, detail="success")
+                    return CustomRecognition.AnalyzeResult(box=i.box, detail={"status":"success"})
         print("IDFMasteryLevel failed")
         return

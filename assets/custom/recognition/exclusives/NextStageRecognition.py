@@ -88,5 +88,5 @@ class NextStageRecognition(CustomRecognition):
                     0,
                 )
             ),
-            detail=f"hit {last_stage_reco.best_result.text}",
+            detail={"status":"success","message":f"hit {last_stage_reco.best_result.text}"},
         )
