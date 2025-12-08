@@ -86,13 +86,32 @@ jobs:
       is_release: ${{ steps.set_tag.outputs.is_release }}
       is_prerelease: ${{ steps.set_tag.outputs.is_prerelease }}
 
-  windows:
+  build:
     needs: meta
-    runs-on: windows-latest
+    runs-on: ${{ matrix.os }}
+    name: Build ${{ matrix.platform }}-${{ matrix.arch }}
     strategy:
-      matrix:
-        arch: [aarch64, x86_64]
       fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            platform: win
+            arch: aarch64
+          - os: windows-latest
+            platform: win
+            arch: x86_64
+          - os: ubuntu-latest
+            platform: linux
+            arch: aarch64
+          - os: ubuntu-latest
+            platform: linux
+            arch: x86_64
+          - os: macos-latest
+            platform: macos
+            arch: aarch64
+          - os: macos-latest
+            platform: macos
+            arch: x86_64
 
     steps:
       - uses: actions/checkout@v4
@@ -107,128 +126,34 @@ jobs:
       - name: Install
         shell: bash
         run: |
-          pip install pyinstaller
-          pip install -r requirements.txt
-          Python -m pip install json-with-comments
-          python ./install.py ${{ needs.meta.outputs.tag }}
-          
-      - name: Download MFW
-        uses: robinraju/release-downloader@v1
-        with:
-          repository: overflow65537/MFW-PyQt6
-          fileName: "MFW-PyQt6-win-${{ matrix.arch }}*"
-          #latest: true
-          out-file-path: "install"
-          extract: true
-          #preRelease: true
-          tag: "v4.0.0-beta.1"
-
-      - name: Install MFW
-        shell: bash
-        run: |
-          rm install/MFW-PyQt6-win-${{ matrix.arch }}* 
-      
-      - uses: actions/upload-artifact@v4
-        with:
-          name: MPA-win-${{ matrix.arch }}
-          path: "install"
-
-  ubuntu:
-    needs: meta
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        arch: [aarch64, x86_64]
-      fail-fast: false
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: true
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.12'
-          
-      - name: Install
-        shell: bash
-        run: |
-          pip install pyinstaller
-          pip install -r requirements.txt
+          python -m pip install pyinstaller
+          python -m pip install -r requirements.txt
+          python -m pip install json-with-comments
           python ./install.py ${{ needs.meta.outputs.tag }}
 
       - name: Download MFW
         uses: robinraju/release-downloader@v1
         with:
           repository: overflow65537/MFW-PyQt6
-          fileName: "MFW-PyQt6-linux-${{ matrix.arch }}*"
-          #latest: true
+          fileName: "MFW-PyQt6-${{ matrix.platform }}-${{ matrix.arch }}*"
           out-file-path: "install"
           extract: true
-          #preRelease: true
-          tag: "v4.0.0-beta.1"
+          latest: true
+          #tag: "v4.0.0-beta.1"
 
       - name: Install MFW
         shell: bash
         run: |
-          rm install/MFW-PyQt6-linux-${{ matrix.arch }}* 
+          rm install/MFW-PyQt6-${{ matrix.platform }}-${{ matrix.arch }}*
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MPA-linux-${{ matrix.arch }}
-          path: "install"
-
-  macos:
-    needs: meta
-    runs-on: macos-latest
-    strategy:
-      matrix:
-        arch: [aarch64, x86_64]
-      fail-fast: false
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: true
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.12'
-  
-      - name: Install
-        shell: bash
-        run: |
-          pip install pyinstaller
-          pip install -r requirements.txt
-          python ./install.py ${{ needs.meta.outputs.tag }}
-
-      - name: Download MFW
-        uses: robinraju/release-downloader@v1
-        with:
-          repository: overflow65537/MFW-PyQt6
-          fileName: "MFW-PyQt6-macos-${{ matrix.arch }}*"
-          #latest: true
-          out-file-path: "install"
-          extract: true
-          #preRelease: true
-          tag: "v4.0.0-beta.1"
-
-      - name: Install MFW
-        shell: bash
-        run: |
-          rm install/MFW-PyQt6-macos-${{ matrix.arch }}*
-          
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: MPA-macos-${{ matrix.arch }}
+          name: MPA-${{ matrix.platform }}-${{ matrix.arch }}
           path: "install"
 
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
-    needs: [meta, windows, ubuntu, macos, changelog]
+    needs: [meta, build, changelog]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
