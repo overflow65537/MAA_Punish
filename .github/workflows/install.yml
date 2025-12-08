@@ -121,7 +121,7 @@ jobs:
           out-file-path: "install"
           extract: true
           #preRelease: true
-          tag: "v4.0.0-alpha.3"
+          tag: "v4.0.0-beta.1"
 
       - name: Install MFW
         shell: bash
@@ -167,7 +167,7 @@ jobs:
           out-file-path: "install"
           extract: true
           #preRelease: true
-          tag: "v4.0.0-alpha.3"
+          tag: "v4.0.0-beta.1"
 
       - name: Install MFW
         shell: bash
@@ -213,7 +213,7 @@ jobs:
           out-file-path: "install"
           extract: true
           #preRelease: true
-          tag: "v4.0.0-alpha.3"
+          tag: "v4.0.0-beta.1"
 
       - name: Install MFW
         shell: bash
