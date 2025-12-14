@@ -110,11 +110,13 @@
     "task": [
         {
             "name": "进入游戏",
+            "default_check": true,
             "entry": "启动",
             "description": "<p>仅支持安卓模拟器，不支持官方模拟器。</p><p>请在游戏设置中关闭异形屏适配。</p>"
         },
         {
             "name": "指挥局",
+            "default_check": true,
             "entry": "指挥局",
             "description": "<p>自动领取妙算神机。</p><p><b>速通</b>：每天5点后可运行1次，运行后需等待24小时。</p>",
             "speedrun": {
@@ -131,6 +133,7 @@
         },
         {
             "name": "拟真围剿",
+            "default_check": true,
             "entry": "拟真围剿",
             "description": "<p>自动进行工会战并领取奖励。</p><p><b>速通</b>：每周二5点后可运行2次，首次运行后需等待24小时。</p>",
             "pipeline_override": {
@@ -196,6 +199,7 @@
         },
         {
             "name": "纷争战区",
+            "default_check": true,
             "entry": "纷争战区",
             "description": "<p>自动首通纷争战区；如已通关则仅领取奖励。</p><p><b>速通</b>：每周二5点后可运行2次，首次运行后需等待24小时。</p>",
             "pipeline_override": {
@@ -244,6 +248,7 @@
         },
         {
             "name": "诺曼复兴战",
+            "default_check": true,
             "entry": "诺曼复兴战",
             "description": "<p>自动扫荡诺曼复兴战，不自动领取奖励；结算后奖励会发送至邮箱。</p><p><b>速通</b>：每周二5点后可运行2次，首次运行后需等待24小时。</p>",
             "speedrun": {
@@ -264,6 +269,7 @@
         },
         {
             "name": "幻痛囚笼",
+            "default_check": true,
             "entry": "幻痛囚笼",
             "description": "<p>自动战斗幻痛囚笼，并自动选择人物作战；请注意角色锁定状态。</p><p><b>速通</b>：每周二5点后可运行2次，首次运行后需等待24小时。</p>",
             "option": [
@@ -328,6 +334,7 @@
         },
         {
             "name": "领取体力",
+            "default_check": true,
             "entry": "领取体力",
             "description": "<p>自动领取体力。</p><p><b>速通</b>：每天5点后可运行1次，运行后需等待24小时。</p>",
             "speedrun": {
@@ -344,6 +351,7 @@
         },
         {
             "name": "领取邮件",
+            "default_check": true,
             "entry": "邮件",
             "description": "<p>自动领取邮件。</p><p><b>速通</b>：每天5点后可运行1次，运行后需等待24小时。</p>",
             "speedrun": {
@@ -368,6 +376,7 @@
         },
         {
             "name": "宿舍任务",
+            "default_check": true,
             "entry": "宿舍任务",
             "description": "<p>自动完成宿舍任务。</p><p><b>速通</b>：每天5点后可运行1次，运行后需等待24小时。</p>",
             "speedrun": {
@@ -384,6 +393,7 @@
         },
         {
             "name": "拟战场域",
+            "default_check": true,
             "entry": "拟战场域",
             "description": "<p>自动完成拟战场域；“临期体力”指剩余时间小于3天的体力。</p><p><b>速通</b>：每天5点后可运行1次，运行后需等待24小时。</p>",
             "option": [
@@ -392,6 +402,7 @@
         },
         {
             "name": "维系者行动",
+            "default_check": true,
             "entry": "维系者行动",
             "description": "<p>自动完成维系者行动。</p><p><b>速通</b>：每天5点后可运行1次，运行后需等待24小时。</p>",
             "speedrun": {
@@ -408,16 +419,19 @@
         },
         {
             "name": "领取任务",
+            "default_check": true,
             "description": "<p>自动领取任务。</p>",
             "entry": "任务"
         },
         {
             "name": "战令",
+            "default_check": true,
             "description": "<p>自动领取战令奖励。</p>",
             "entry": "通行证"
         },
         {
             "name": "结束游戏",
+            "default_check": true,
             "entry": "停止"
         },
         {
