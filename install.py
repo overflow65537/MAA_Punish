@@ -30,13 +30,13 @@ def install_resource():
         install_path / "update_flag.txt",
     )
 
-    with open(install_path / "interface.jsonc", "r", encoding="utf-8") as f:
+    with open(install_path / "interface.json", "r", encoding="utf-8") as f:
         interface = jsonc.load(f)
 
     interface["version"] = version
     interface["title"] = "法奥斯之矛 | " + version
 
-    with open(install_path / "interface.jsonc", "w", encoding="utf-8") as f:
+    with open(install_path / "interface.json", "w", encoding="utf-8") as f:
         jsonc.dump(interface, f, ensure_ascii=False, indent=4)
 
 
