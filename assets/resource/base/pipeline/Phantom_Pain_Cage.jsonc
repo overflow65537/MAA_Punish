@@ -285,9 +285,9 @@
         }
     },
     "囚笼作战程序": {
-        "focus": {
-            "Tasker.Task.Failed": "[color:tomato]未识别到已知BOSS,可能处于终极区[/color]"
-        },
+        "on_error": [
+            "boss识别错误"
+        ],
         "post_delay": 1000,
         "recognition": {
             "type": "OCR",
@@ -311,6 +311,14 @@
             "查看Boss_雷队",
             "查看Boss_物队",
             "查看Boss_冰队"
+        ]
+    },
+    "boss识别错误": {
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:tomato]未识别到已知BOSS,可能处于终极区[/color]"
+        },
+        "next": [
+            "返回主菜单"
         ]
     },
     "挑战次数不足_弹窗": {
