@@ -20,22 +20,50 @@
 
 """
 MAA_Punish
-MAA_Punish 通用战斗程序
+MAA_Punish 超刻战斗程序
 作者:overflow65537
 """
 
-from custom.action.basics import CombatActions
+import time
+
+
 from maa.context import Context
 from maa.custom_action import CustomAction
+from MPAcustom.action.basics import CombatActions
 
 
-class GeneralFight(CustomAction):
+class Hyperreal(CustomAction):
+
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        action = CombatActions(context, role_name="通用")
+
+        action = CombatActions(context=context, role_name="超刻")
+
         action.lens_lock()
-        action.ball_elimination_target()
-        action.use_skill()
-        action.continuous_attack(4, 300)
+
+        if action.check_Skill_energy_bar():
+            action.logger.info("大招就绪")
+            action.use_skill()  # 在时间的尽头,湮灭吧
+            time.sleep(1)
+
+        elif action.check_status("检查核心技能_超刻"):  # 核心技能就绪
+            action.logger.info("核心技能就绪")
+            action.long_press_attack()
+
+            start_time = time.time()
+            while (
+                not action.check_status("检查核心技能结束_超刻")
+            ) and time.time() - start_time < 10:
+                target = action.Arrange_Signal_Balls("any")
+                action.ball_elimination_target(target)
+                action.attack()
+            action.logger.info("核心技能结束")
+
+        else:
+            action.logger.info("核心技能未就绪")
+            action.continuous_attack(5, 100)
+            target = action.Arrange_Signal_Balls("any")
+            if action.count_signal_balls() >= 9 or target > 0:
+                action.ball_elimination_target(target)
         return CustomAction.RunResult(success=True)

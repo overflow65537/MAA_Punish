@@ -32,11 +32,7 @@ from typing import Dict, Optional
 from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.define import OCRResult
-
-# 获取当前文件的绝对路径
-current_file = Path(__file__).resolve()
-sys.path.append(str(current_file.parent.parent.parent.parent))
-from custom.action.tool.LoadSetting import ROLE_ACTIONS
+from MPAcustom.action.tool.LoadSetting import ROLE_ACTIONS
 
 
 class IdentifyRoles(CustomAction):

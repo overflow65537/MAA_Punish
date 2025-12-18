@@ -20,41 +20,29 @@
 
 """
 MAA_Punish
-MAA_Punish 铮骨战斗程序
+MAA_Punish 晖暮战斗程序
 作者:overflow65537
 """
 
-import time
-from custom.action.basics import CombatActions
+from MPAcustom.action.basics import CombatActions
 from maa.context import Context
 from maa.custom_action import CustomAction
 
 
-class Aegis(CustomAction):
+class Crepuscule(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        action = CombatActions(context, role_name="维罗妮卡·铮骨")
+        action = CombatActions(context,role_name="晖暮")
 
         action.lens_lock()
-
-        for _ in range(10):
-            action.ball_elimination_target(1)
-            time.sleep(0.1)
-            action.attack()
-            if action.check_Skill_energy_bar():
-                for _ in range(10):
-                    action.use_skill()
-                    time.sleep(0.1)
-                continue
-
-            if ball_count := action.count_signal_balls() >= 3:
-                for _ in range(3):
-                    action.ball_elimination_target()
-                    time.sleep(0.1)
-                if action.count_signal_balls() == ball_count:
-                    action.dodge()
-                    time.sleep(0.1)
-                    action.ball_elimination_target()
-
+        if action.check_Skill_energy_bar():
+            action.logger.info("大招就绪")
+            action.use_skill()
+        elif action.check_status("检查核心被动_晖暮"):
+            action.long_press_dodge(3000)
+            context.tasker.controller.post_swipe(1212, 513, 1212, 513, 3000).wait()
+        else:
+            action.logger.info("核心技能未就绪")
+            action.continuous_attack(50,100)
         return CustomAction.RunResult(success=True)

@@ -6,7 +6,7 @@ MAA_Punish 在战斗中识别角色
 
 from maa.context import Context
 from maa.custom_action import CustomAction
-from custom.action.tool.LoadSetting import ROLE_ACTIONS
+from MPAcustom.action.tool.LoadSetting import ROLE_ACTIONS
 
 
 class RecognitionRole(CustomAction):

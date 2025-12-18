@@ -20,42 +20,22 @@
 
 """
 MAA_Punish
-MAA_Punish 深痕战斗程序
-作者:overflow65537,HCX0426
+MAA_Punish 通用战斗程序
+作者:overflow65537
 """
 
-
-import time
-
-from custom.action.basics import CombatActions
-
-
+from MPAcustom.action.basics import CombatActions
 from maa.context import Context
 from maa.custom_action import CustomAction
 
 
-class Stigmata(CustomAction):
-
+class GeneralFight(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        actions = CombatActions(context, role_name="深痕")
-
-        actions.lens_lock()
-        if actions.check_Skill_energy_bar():
-            actions.use_skill()  # 此刻,见证终焉之光/以此宣告,噩梦的崩解
-            return CustomAction.RunResult(success=True)
-
-        elif actions.check_status("检查比安卡·深痕一阶段"):
-            if actions.check_status("检查核心被动_深痕"):
-                actions.long_press_dodge()  # 开启照域
-                for _ in range(10):
-                    actions.ball_elimination_target(1)  # 消球
-                    time.sleep(0.3)
-                    actions.attack()
-                    time.sleep(0.1)
-                return CustomAction.RunResult(success=True)
-
-        actions.continuous_attack(8, 300)
-
+        action = CombatActions(context, role_name="通用")
+        action.lens_lock()
+        action.ball_elimination_target()
+        action.use_skill()
+        action.continuous_attack(4, 300)
         return CustomAction.RunResult(success=True)

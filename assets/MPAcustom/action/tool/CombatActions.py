@@ -26,19 +26,13 @@ MAA_Punish 通用战斗对象
 
 
 from maa.context import Context
-from pathlib import Path
 import time
-import sys
+
 import logging
-from pathlib import Path
 import os
 from datetime import datetime, timedelta
 import re
-
-# 获取当前文件的绝对路径
-current_file = Path(__file__).resolve()
-sys.path.append(str(current_file.parent.parent.parent.parent))
-from custom.action.tool.LoadSetting import ROLE_ACTIONS
+from MPAcustom.action.tool.LoadSetting import ROLE_ACTIONS
 
 
 class CombatActions:

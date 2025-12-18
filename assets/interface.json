@@ -8,7 +8,7 @@
     "welcome": "./README.md",
     "MFW_min_req_version": "99.99.99",
     "icon": "./logo.png",
-    "custom": "./custom/custom.json",
+    "custom": "./MPAcustom/custom.json",
     "controller": [
         {
             "name": "安卓端",

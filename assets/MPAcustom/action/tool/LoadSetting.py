@@ -24,12 +24,6 @@ MAA_Punish 角色配置载入
 作者:HCX0426,overflow65537
 """
 
-import sys
-from pathlib import Path
-
-current_file = Path(__file__).resolve()
-sys.path.append(str(current_file.parent.parent.parent.parent))
-
 # 角色名称到动作的映射表
 ROLE_ACTIONS = {
     "里·超刻": {

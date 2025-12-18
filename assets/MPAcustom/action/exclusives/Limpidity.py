@@ -19,7 +19,7 @@
 # SOFTWARE.
 
 
-from custom.action.basics import CombatActions
+from MPAcustom.action.basics import CombatActions
 from maa.context import Context
 from maa.custom_action import CustomAction
 import time

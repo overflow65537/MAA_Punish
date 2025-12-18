@@ -28,7 +28,7 @@ MAA_Punish 启明战斗程序
 import time
 
 
-from custom.action.basics import CombatActions
+from MPAcustom.action.basics import CombatActions
 
 
 from maa.context import Context
