@@ -146,6 +146,13 @@ jobs:
         run: |
           rm install/MFW-PyQt6-${{ matrix.platform }}-${{ matrix.arch }}*
 
+
+      - name: Download background image
+        shell: bash
+        run: |
+          curl -L -o maapicli/background.png "https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/images/1764000000000/skoi7dbbzdwogxvnin-176404371364016.png"
+
+
       - uses: actions/upload-artifact@v4
         with:
           name: MPA-${{ matrix.platform }}-${{ matrix.arch }}
