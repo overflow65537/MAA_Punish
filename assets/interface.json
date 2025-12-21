@@ -20,7 +20,7 @@
             "win32": {
                 "class_regex": ".*",
                 "window_regex": "^战双帕弥什$",
-                "screen": "PrintWindow",
+                "screencap": "PrintWindow",
                 "mouse": "PostMessageWithCursorPos",
                 "keyboard": "Seize"
             }
