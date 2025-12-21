@@ -1,5 +1,37 @@
 {
-    "打开应用": {
-        "enabled": false
+    "启动": {
+        "next": [
+            "关闭公告",
+            "检查分辨率",
+            "[JumpBack]关闭纷争战区通知",
+            "[JumpBack]关闭拟真围剿通知",
+            "检查主界面",
+            "[JumpBack]关闭奖励",
+            "[JumpBack]进入游戏",
+            "[JumpBack]更新",
+            "[JumpBack]关闭低内存提示",
+            "[JumpBack]更新中",
+            "[JumpBack]返回主菜单",
+            "[JumpBack]点击登录"
+        ]
+    },
+    "点击登录": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    502,
+                    285,
+                    349,
+                    245
+                ],
+                "expected": [
+                    "^登录$"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }
