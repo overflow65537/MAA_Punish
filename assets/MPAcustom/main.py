@@ -1,4 +1,10 @@
 import sys
+import os
+
+# 添加父目录为sys.path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+print(sys.path)
+
 from maa.agent.agent_server import AgentServer
 from maa.toolkit import Toolkit
 

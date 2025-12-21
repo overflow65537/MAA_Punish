@@ -13,6 +13,17 @@
         {
             "name": "安卓端",
             "type": "Adb"
+        },
+        {
+            "name": "桌面端",
+            "type": "Win32",
+            "description": "截图方式优先PrintWindow,不行自己改一下",
+            "win32": {
+                "class_regex": ".*",
+                "window_regex": "^战双帕弥什$",
+                "mouse": "PostMessageWithCursorPos",
+                "keyboard": "Seize"
+            }
         }
     ],
     "resource": [
@@ -20,6 +31,18 @@
             "name": "官服",
             "path": [
                 "{PROJECT_DIR}/resource/base"
+            ],
+            "controller": [
+                "安卓端"
+            ]
+        },
+        {
+            "name": "电脑端",
+            "path": [
+                "{PROJECT_DIR}/resource/base"
+            ],
+            "controller": [
+                "桌面端"
             ]
         },
         {
@@ -27,6 +50,9 @@
             "path": [
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/pgr_cloud"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
@@ -34,6 +60,9 @@
             "path": [
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/bilibili"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
@@ -41,6 +70,9 @@
             "path": [
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/tencent"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
@@ -48,6 +80,9 @@
             "path": [
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/vivo"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
@@ -55,6 +90,9 @@
             "path": [
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/oppo"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
@@ -62,6 +100,9 @@
             "path": [
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/mi"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
@@ -69,6 +110,9 @@
             "path": [
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/4399"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
@@ -76,6 +120,9 @@
             "path": [
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/huawei"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
@@ -83,6 +130,9 @@
             "path": [
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/bytedance"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
@@ -90,6 +140,9 @@
             "path": [
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/aligames"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
@@ -97,6 +150,9 @@
             "path": [
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/mumu"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
@@ -104,6 +160,9 @@
             "path": [
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/waydroid_base"
+            ],
+            "controller": [
+                "安卓端"
             ]
         }
     ],
