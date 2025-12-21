@@ -21,7 +21,7 @@
                 "class_regex": ".*",
                 "window_regex": "^战双帕弥什$",
                 "screencap": "PrintWindow",
-                "mouse": "PostMessageWithCursorPos",
+                "mouse": "SendMessageWithCursorPos",
                 "keyboard": "Seize"
             }
         }
