@@ -6,6 +6,7 @@
     "license": "./LICENSE",
     "contact": "./CONTACT.md",
     "welcome": "./DISCLAIMER.md",
+    "description": "基于全新架构的 战双帕弥什 小助手。图像技术 + 模拟控制，解放双手！由 MaaFramework 强力驱动！",
     "MFW_min_req_version": "99.99.99",
     "icon": "./logo.png",
     "custom": "./MPAcustom/custom.json",
