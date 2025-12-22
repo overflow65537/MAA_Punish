@@ -13,97 +13,157 @@
         {
             "name": "安卓端",
             "type": "Adb"
+        },
+        {
+            "name": "桌面端",
+            "type": "Win32",
+            "win32": {
+                "class_regex": ".*",
+                "window_regex": "^战双帕弥什$",
+                "screencap": "PrintWindow",
+                "mouse": "SendMessageWithCursorPos",
+                "keyboard": "Seize"
+            }
         }
     ],
     "resource": [
         {
             "name": "官服",
             "path": [
-                "{PROJECT_DIR}/resource/base"
+                "./resource/base"
+            ],
+            "controller": [
+                "安卓端"
+            ]
+        },
+        {
+            "name": "电脑端",
+            "path": [
+                "./resource/base",
+                "./resource/pgr_win32"
+            ],
+            "controller": [
+                "桌面端"
             ]
         },
         {
             "name": "云战双",
             "path": [
-                "{PROJECT_DIR}/resource/base",
-                "{PROJECT_DIR}/resource/pgr_cloud"
+                "./resource/base",
+                "./resource/pgr_cloud"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
             "name": "B 服",
             "path": [
-                "{PROJECT_DIR}/resource/base",
-                "{PROJECT_DIR}/resource/bilibili"
+                "./resource/base",
+                "./resource/bilibili"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
             "name": "应用宝服",
             "path": [
-                "{PROJECT_DIR}/resource/base",
-                "{PROJECT_DIR}/resource/tencent"
+                "./resource/base",
+                "./resource/tencent"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
             "name": "vivo服",
             "path": [
-                "{PROJECT_DIR}/resource/base",
-                "{PROJECT_DIR}/resource/vivo"
+                "./resource/base",
+                "./resource/vivo"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
             "name": "oppo服",
             "path": [
-                "{PROJECT_DIR}/resource/base",
-                "{PROJECT_DIR}/resource/oppo"
+                "./resource/base",
+                "./resource/oppo"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
             "name": "小米服",
             "path": [
-                "{PROJECT_DIR}/resource/base",
-                "{PROJECT_DIR}/resource/mi"
+                "./resource/base",
+                "./resource/mi"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
             "name": "4399服",
             "path": [
-                "{PROJECT_DIR}/resource/base",
-                "{PROJECT_DIR}/resource/4399"
+                "./resource/base",
+                "./resource/4399"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
             "name": "华为服",
             "path": [
-                "{PROJECT_DIR}/resource/base",
-                "{PROJECT_DIR}/resource/huawei"
+                "./resource/base",
+                "./resource/huawei"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
             "name": "抖音(字节跳动)服",
             "path": [
-                "{PROJECT_DIR}/resource/base",
-                "{PROJECT_DIR}/resource/bytedance"
+                "./resource/base",
+                "./resource/bytedance"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
             "name": "九游服",
             "path": [
-                "{PROJECT_DIR}/resource/base",
-                "{PROJECT_DIR}/resource/aligames"
+                "./resource/base",
+                "./resource/aligames"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
             "name": "MuMu服",
             "path": [
-                "{PROJECT_DIR}/resource/base",
-                "{PROJECT_DIR}/resource/mumu"
+                "./resource/base",
+                "./resource/mumu"
+            ],
+            "controller": [
+                "安卓端"
             ]
         },
         {
             "name": "waydroid官服",
             "path": [
-                "{PROJECT_DIR}/resource/base",
-                "{PROJECT_DIR}/resource/waydroid_base"
+                "./resource/base",
+                "./resource/waydroid_base"
+            ],
+            "controller": [
+                "安卓端"
             ]
         }
     ],

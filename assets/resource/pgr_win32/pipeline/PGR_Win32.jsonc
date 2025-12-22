@@ -1,0 +1,76 @@
+{
+    "启动": {
+        "next": [
+            "关闭公告",
+            "检查分辨率",
+            "[JumpBack]关闭纷争战区通知",
+            "[JumpBack]关闭拟真围剿通知",
+            "检查主界面",
+            "[JumpBack]关闭奖励",
+            "[JumpBack]点击登录",
+            "[JumpBack]进入游戏",
+            "[JumpBack]更新",
+            "[JumpBack]关闭低内存提示",
+            "[JumpBack]更新中",
+            "[JumpBack]返回主菜单"
+        ]
+    },
+    "点击登录": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    502,
+                    285,
+                    349,
+                    245
+                ],
+                "expected": [
+                    "^登录$"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "停止": {
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "确认退出",
+            "[JumpBack]esc键"
+        ]
+    },
+    "esc键": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 27
+            }
+        }
+    },
+    "确认退出": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    735,
+                    488,
+                    104,
+                    59
+                ],
+                "expected": [
+                    "确定"
+                ]
+            }
+        },
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 74
+            }
+        }
+    }
+}

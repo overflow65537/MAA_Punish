@@ -133,41 +133,6 @@
             }
         }
     },
-    "检查u1_铮骨": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    1147,
-                    452,
-                    121,
-                    132
-                ],
-                "template": [
-                    "自定义战斗/铮骨_u1.png"
-                ],
-                "green_mask": true
-            }
-        }
-    },
-    "检查u2_铮骨": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    1147,
-                    452,
-                    121,
-                    132
-                ],
-                "template": [
-                    "自定义战斗/铮骨_u2.png",
-                    "自定义战斗/铮骨_u2_1.png"
-                ],
-                "green_mask": true
-            }
-        }
-    },
     "检查核心条_铮骨": {
         "recognition": {
             "type": "ColorMatch",
@@ -271,64 +236,6 @@
             }
         }
     },
-    "检查u2数值_深痕": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    717,
-                    601,
-                    57,
-                    31
-                ],
-                "expected": "^9\\d|[1-9]\\d{2,}$"
-            }
-        }
-    },
-    "检查u1_深痕": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    857,
-                    578,
-                    113,
-                    112
-                ],
-                "template": "自定义战斗/深痕_u1.png",
-                "green_mask": true
-            }
-        }
-    },
-    "检查u2_深痕": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    857,
-                    578,
-                    113,
-                    112
-                ],
-                "template": "自定义战斗/深痕_u2.png",
-                "green_mask": true
-            }
-        }
-    },
-    "检查阶段_深痕": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    717,
-                    601,
-                    57,
-                    31
-                ],
-                "expected": "^-?\\d+$"
-            }
-        }
-    },
     "检查u1_誓焰": {
         "recognition": {
             "type": "TemplateMatch",
@@ -355,21 +262,6 @@
                     161
                 ],
                 "template": "自定义战斗/誓焰_u2.png",
-                "green_mask": true
-            }
-        }
-    },
-    "检查u2max_誓焰": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    837,
-                    558,
-                    163,
-                    161
-                ],
-                "template": "自定义战斗/誓焰_u2max.png",
                 "green_mask": true
             }
         }
@@ -463,36 +355,6 @@
                     135
                 ],
                 "template": "自定义战斗/深谣_p2.png",
-                "green_mask": true
-            }
-        }
-    },
-    "检查u1_深谣": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    837,
-                    558,
-                    163,
-                    161
-                ],
-                "template": "自定义战斗/深谣_u1.png",
-                "green_mask": true
-            }
-        }
-    },
-    "检查u2_深谣": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    837,
-                    558,
-                    163,
-                    161
-                ],
-                "template": "自定义战斗/深谣_u2.png",
                 "green_mask": true
             }
         }

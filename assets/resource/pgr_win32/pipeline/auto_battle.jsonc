@@ -1,0 +1,17 @@
+{
+    "检查核心球_霁梦": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "green_mask": true,
+                "template": "自定义战斗/霁梦核心球.png",
+                "roi": [
+                    900,
+                    412,
+                    100,
+                    87
+                ]
+            }
+        }
+    }
+}

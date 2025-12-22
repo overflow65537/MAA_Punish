@@ -66,11 +66,7 @@ class IdentifyRoles(CustomAction):
             result = context.run_recognition(
                 "识别角色名", image, {"识别角色名": {"roi": roi}}
             )
-            if (
-                result
-                and result.hit
-                and isinstance(result.best_result, OCRResult)
-            ):
+            if result and result.hit and isinstance(result.best_result, OCRResult):
                 role_names[pos] = result.best_result.text
             else:
                 role_names[pos] = None
@@ -126,6 +122,7 @@ class IdentifyRoles(CustomAction):
                         "自动战斗开始": {"next": ["单人自动战斗循环"]},
                     }
                 )
+                print(f"覆盖{action}")
             case n if n > 1:  # 多个角色匹配
                 context.override_pipeline(
                     {

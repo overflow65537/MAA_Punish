@@ -31,6 +31,10 @@
         ]
     },
     "检查指定按钮": {
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
