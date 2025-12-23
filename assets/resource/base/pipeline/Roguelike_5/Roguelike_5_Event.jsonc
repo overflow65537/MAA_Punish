@@ -68,7 +68,6 @@
         }
     },
     "选择技能_神寂启示录": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -95,12 +94,15 @@
             }
         },
         "next": [
-            "[JumpBack]背包已满_神寂启示录",
             "装备技能_神寂启示录",
             "空任务"
         ]
     },
     "装备技能_神寂启示录": {
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -117,7 +119,11 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "[JumpBack]背包已满_神寂启示录",
+            "空任务"
+        ]
     },
     "背包已满_神寂启示录": {
         "recognition": {
