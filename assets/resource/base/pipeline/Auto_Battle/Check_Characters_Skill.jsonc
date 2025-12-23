@@ -38,6 +38,31 @@
             }
         }
     },
+    "检查骇影2阶段": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    530,
+                    583,
+                    235,
+                    61
+                ],
+                "lower": [
+                    120,
+                    120,
+                    120
+                ],
+                "upper": [
+                    140,
+                    140,
+                    140
+                ],
+                "connected": true,
+                "count": 300
+            }
+        }
+    },
     "检查核心条2_霁梦": {
         "recognition": {
             "type": "ColorMatch",

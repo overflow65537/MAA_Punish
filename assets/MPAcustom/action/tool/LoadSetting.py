@@ -205,15 +205,26 @@ ROLE_ACTIONS = {
             "lightning": 100,
             "generation": 3,
         },
-        "template": [
-            "肉鸽通用/霁梦.png",
-            "肉鸽通用/霁梦终解.png"
-        ],
+        "template": ["肉鸽通用/霁梦.png", "肉鸽通用/霁梦终解.png"],
         "attack_template": "自定义战斗/霁梦普攻1.png",
         "skill_template": {
             "red": {"识别信号球": {"template": ["信号球/霁梦红球.png"]}},
             "blue": {"识别信号球": {"template": ["信号球/霁梦蓝球.png"]}},
             "yellow": {"识别信号球": {"template": ["信号球/霁梦黄球.png"]}},
+        },
     },
-}
+    "布偶熊·骇影": {
+        "name": "骇影",
+        "type": "Support",
+        "cls_name": "Spectre",
+        "metadata": {
+            "ice": 100,
+            "generation": 3,
+        },
+        "template": [
+            "肉鸽通用/骇影终解.png",
+            "肉鸽通用/骇影.png",
+        ],
+        "attack_template": "自定义战斗/骇影.png",
+    },
 }

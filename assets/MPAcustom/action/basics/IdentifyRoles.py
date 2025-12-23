@@ -24,9 +24,7 @@ MAA_Punish 识别角色
 作者:HCX0426
 """
 
-import sys
 import time
-from pathlib import Path
 from typing import Dict, Optional
 
 from maa.context import Context
