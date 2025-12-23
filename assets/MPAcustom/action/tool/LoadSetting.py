@@ -182,6 +182,25 @@ ROLE_ACTIONS = {
         ],
         "attack_template": "自定义战斗/晖暮.png",
     },
+    "赛琳娜·希声": {
+        "name": "希声",
+        "type": "Attacker",
+        "cls_name": "Pianissimo",
+        "metadata": {
+            "physical": 100,
+            "generation": 3,
+        },
+        "template": [
+            "肉鸽通用/希声终解.png",
+            "肉鸽通用/希声.png",
+        ],
+        "attack_template": "自定义战斗/希声.png",
+        "skill_template": {
+            "red": {"识别信号球": {"template": ["信号球/希声_红.png"]}},
+            "blue": {"识别信号球": {"template": ["信号球/希声_蓝.png"]}},
+            "yellow": {"识别信号球": {"template": ["信号球/希声_黄.png"]}},
+        },
+    },
     "维罗妮卡·铮骨": {
         "name": "铮骨",
         "type": "Support",

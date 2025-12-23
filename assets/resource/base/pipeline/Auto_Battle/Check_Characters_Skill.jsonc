@@ -38,6 +38,98 @@
             }
         }
     },
+    "检查希声2阶段": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    584,
+                    608,
+                    167,
+                    12
+                ],
+                "lower": [
+                    220,
+                    220,
+                    250
+                ],
+                "upper": [
+                    230,
+                    240,
+                    255
+                ],
+                "connected": true,
+                "count": 10
+            }
+        }
+    },
+    "检查希声红球": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    494,
+                    454,
+                    657,
+                    106
+                ],
+                "green_mask": true,
+                "template": [
+                    "信号球/希声_红.png",
+                    "信号球/启明_黄.png"
+                ]
+            }
+        }
+    },
+    "检查希声长闪": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    962,
+                    558,
+                    190,
+                    158
+                ],
+                "lower": [
+                    [
+                        80,
+                        99,
+                        180
+                    ],
+                    [
+                        108,
+                        194,
+                        220
+                    ],
+                    [
+                        99,
+                        172,
+                        227
+                    ]
+                ],
+                "upper": [
+                    [
+                        103,
+                        118,
+                        214
+                    ],
+                    [
+                        97,
+                        176,
+                        212
+                    ],
+                    [
+                        92,
+                        151,
+                        208
+                    ]
+                ],
+                "connected": true,
+                "count": 10
+            }
+        }
+    },
     "检查骇影2阶段": {
         "recognition": {
             "type": "ColorMatch",
