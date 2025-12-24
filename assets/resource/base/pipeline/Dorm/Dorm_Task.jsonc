@@ -130,7 +130,7 @@
     "关闭奖励_宿舍任务": {
         "post_delay": 1000,
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
                     409,
@@ -138,7 +138,9 @@
                     491,
                     150
                 ],
-                "template": "通用任务/105157_624_220_86_57__574_170_186_157.png"
+                "expected": [
+                    "^(获得)?奖励$"
+                ]
             }
         },
         "action": {
