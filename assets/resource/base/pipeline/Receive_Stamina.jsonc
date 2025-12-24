@@ -2,7 +2,7 @@
     "领取体力": {
         "next": [
             "补给包售罄",
-            "[JumpBack]领取补给包成功",
+            "[JumpBack]关闭奖励",
             "[JumpBack]领取",
             "[JumpBack]检查限购",
             "[JumpBack]点击日常补给包",
@@ -66,7 +66,8 @@
             }
         },
         "next": [
-            "返回主菜单"
+            "返回主菜单",
+            "[JumpBack]关闭奖励"
         ]
     },
     "进入采购": {
@@ -161,31 +162,6 @@
         },
         "action": {
             "type": "Click"
-        }
-    },
-    "领取补给包成功": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    624,
-                    220,
-                    86,
-                    57
-                ],
-                "expected": "奖励"
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    1,
-                    0,
-                    0,
-                    0
-                ]
-            }
         }
     }
 }
