@@ -13,11 +13,13 @@
     "controller": [
         {
             "name": "安卓端",
-            "type": "Adb"
+            "type": "Adb",
+            "description": "<p>仅支持安卓模拟器，不支持官方模拟器。</p><p>请在游戏设置中关闭异形屏适配。</p>"
         },
         {
             "name": "桌面端",
             "type": "Win32",
+            "description": "<p>官方模拟器,官方PC版</p>",
             "win32": {
                 "class_regex": ".*",
                 "window_regex": "^战双帕弥什$",
