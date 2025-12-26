@@ -109,6 +109,16 @@
         "class": "Limpidity",
         "file_path": "{custom_path}/action/exclusives/Limpidity.py"
     },
+    "Spectre": {
+        "type": "action",
+        "class": "Spectre",
+        "file_path": "{custom_path}/action/exclusives/Spectre.py"
+    },
+    "CheckMasteryLevel": {
+        "type": "recognition",
+        "class": "CheckMasteryLevel",
+        "file_path": "{custom_path}/recognition/exclusives/CheckMasteryLevel.py"
+    },
     "CheckResolution": {
         "type": "recognition",
         "class": "CheckResolution",
