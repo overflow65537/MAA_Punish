@@ -55,8 +55,9 @@ class Hyperreal(CustomAction):
             while (
                 not action.check_status("检查核心技能结束_超刻")
             ) and time.time() - start_time < 10:
-                target = action.Arrange_Signal_Balls("any")
-                action.ball_elimination_target(target)
+                while action.count_signal_balls():
+                    action.ball_elimination_target(1)
+                time.sleep(0.1)
                 action.attack()
             action.logger.info("核心技能结束")
 
