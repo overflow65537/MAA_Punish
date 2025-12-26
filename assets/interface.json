@@ -624,8 +624,7 @@
             "name": "神寂启示录",
             "entry": "神寂启示录",
             "option": [
-                "选择角色",
-                "选择策略"
+                "选择角色"
             ],
             "pipeline_override": {
                 "检查主界面2": {
@@ -1141,22 +1140,6 @@
                                     "expected": "精通"
                                 }
                             }
-                        }
-                    }
-                }
-            ]
-        },
-        "选择策略": {
-            "cases": [
-                {
-                    "name": "刷胜利次数",
-                    "pipeline_override": {}
-                },
-                {
-                    "name": "刷战斗次数",
-                    "pipeline_override": {
-                        "战斗失败_神寂启示录": {
-                            "enabled": false
                         }
                     }
                 }

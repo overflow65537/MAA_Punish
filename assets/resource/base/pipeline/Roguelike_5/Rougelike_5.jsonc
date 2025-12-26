@@ -6,6 +6,8 @@
             "[JumpBack]跳过剧情",
             "[JumpBack]退出_神寂启示录",
             "[JumpBack]下一页_神寂启示录",
+            "[JumpBack]废弃刻印",
+            "[JumpBack]处理刻印过多",
             "[JumpBack]确定",
             "[JumpBack]终止_神寂启示录",
             "[JumpBack]情报分析_神寂启示录",
@@ -20,6 +22,56 @@
             "[JumpBack]打开战斗",
             "[JumpBack]继续_神寂启示录"
         ]
+    },
+    "废弃刻印": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    649,
+                    448,
+                    79,
+                    46
+                ],
+                "expected": [
+                    "废弃"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "处理刻印过多": {
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 2000
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    648,
+                    588,
+                    330,
+                    37
+                ],
+                "expected": [
+                    "临时"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    694,
+                    560,
+                    1,
+                    1
+                ]
+            }
+        }
     },
     "没过教程提示": {
         "focus": {

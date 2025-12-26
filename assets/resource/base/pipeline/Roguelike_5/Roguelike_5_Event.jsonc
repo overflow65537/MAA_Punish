@@ -146,8 +146,36 @@
         },
         "next": [
             "出售_神寂启示录",
+            "[JumpBack]选择界面未关闭",
             "[JumpBack]点击多余技能_神寂启示录"
         ]
+    },
+    "选择界面未关闭": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    623,
+                    563,
+                    81,
+                    39
+                ],
+                "expected": [
+                    "选择"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    169,
+                    622,
+                    1,
+                    1
+                ]
+            }
+        }
     },
     "出售_神寂启示录": {
         "recognition": {
@@ -173,8 +201,8 @@
             "type": "Click",
             "param": {
                 "target": [
-                    605,
-                    640,
+                    608,
+                    656,
                     1,
                     1
                 ]
