@@ -19,7 +19,7 @@
         {
             "name": "桌面端",
             "type": "Win32",
-            "description": "<p>官方模拟器,官方PC版</p>",
+            "description": "<p style=\"color: red; font-weight: bold;\">必需使用管理员权限启动!</p><p>点击放大镜图标搜索正确设备</p><p>注意:战双的登录器和游戏同名,推荐启动后关闭登录器在尝试连接</p>",
             "win32": {
                 "class_regex": ".*",
                 "window_regex": "^战双帕弥什$",
