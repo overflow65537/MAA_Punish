@@ -72,5 +72,14 @@
                 "key": 74
             }
         }
+    },
+    "重启游戏": {
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:Tomato]严重错误[/color]"
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": []
     }
 }
