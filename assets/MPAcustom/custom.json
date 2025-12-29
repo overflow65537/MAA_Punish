@@ -119,10 +119,10 @@
         "class": "Pianissimo",
         "file_path": "{custom_path}/action/exclusives/Pianissimo.py"
     },
-    "CheckMasteryLevel": {
-        "type": "recognition",
-        "class": "CheckMasteryLevel",
-        "file_path": "{custom_path}/recognition/exclusives/CheckMasteryLevel.py"
+    "Notice": {
+        "type": "action",
+        "class": "Notice",
+        "file_path": "{custom_path}/action/basics/Notice.py"
     },
     "CheckResolution": {
         "type": "recognition",

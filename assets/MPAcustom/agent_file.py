@@ -9,7 +9,7 @@ from action.basics.ChainLoopCircuit import ChainLoopCircuit
 from action.basics.RoleSelection import RoleSelection
 from action.basics.RecognitionRole import RecognitionRole
 from action.basics.Post_Stop import PostStop
-
+from action.basics.Notice import Notice
 
 
 from action.exclusives.CrimsonWeave import CrimsonWeave
@@ -36,10 +36,15 @@ from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
 from recognition.exclusives.NextStageRecognition import NextStageRecognition
 
+
+@AgentServer.custom_action("Notice")
+class Agent_Notice(Notice):
+    pass
+
+
 @AgentServer.custom_action("Pianissimo")
 class Agent_Pianissimo(Pianissimo):
     pass
-
 
 
 @AgentServer.custom_action("Spectre")
@@ -47,11 +52,9 @@ class Agent_Spectre(Spectre):
     pass
 
 
-
 @AgentServer.custom_action("PostStop")
 class Agent_PostStop(PostStop):
     pass
-
 
 
 @AgentServer.custom_action("Limpidity")

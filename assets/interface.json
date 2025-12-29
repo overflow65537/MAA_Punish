@@ -175,7 +175,20 @@
             "name": "进入游戏",
             "default_check": true,
             "entry": "启动",
-            "description": "<p>仅支持安卓模拟器，不支持官方模拟器。</p><p>请在游戏设置中关闭异形屏适配。</p>"
+            "description": "<p>仅支持安卓模拟器，不支持官方模拟器。</p><p>请在游戏设置中关闭异形屏适配。</p>",
+            "pipeline_override": {
+                "检查主界面2": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "Notice",
+                            "custom_action_param": {
+                                "action": "set_black_card"
+                            }
+                        }
+                    }
+                }
+            }
         },
         {
             "name": "指挥局",
@@ -495,7 +508,20 @@
         {
             "name": "结束游戏",
             "default_check": true,
-            "entry": "停止"
+            "entry": "停止",
+            "pipeline_override": {
+                "停止": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "Notice",
+                            "custom_action_param": {
+                                "action": "show_black_card"
+                            }
+                        }
+                    }
+                }
+            }
         },
         {
             "name": "洗词缀",
