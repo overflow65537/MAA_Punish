@@ -178,7 +178,8 @@
             "[JumpBack]确定",
             "[JumpBack]领取藏品_厄愿潮声",
             "[JumpBack]关闭奖励",
-            "[JumpBack]等级提升"
+            "[JumpBack]等级提升",
+            "[JumpBack]返回"
         ],
         "on_error": [
             "重启游戏"
