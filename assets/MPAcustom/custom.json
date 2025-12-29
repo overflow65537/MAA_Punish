@@ -114,6 +114,11 @@
         "class": "Spectre",
         "file_path": "{custom_path}/action/exclusives/Spectre.py"
     },
+    "Pianissimo": {
+        "type": "action",
+        "class": "Pianissimo",
+        "file_path": "{custom_path}/action/exclusives/Pianissimo.py"
+    },
     "CheckMasteryLevel": {
         "type": "recognition",
         "class": "CheckMasteryLevel",
