@@ -1,4 +1,18 @@
 {
+    "关闭": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Notice",
+                "custom_action_param": {
+                    "action": "show_black_card"
+                }
+            }
+        },
+        "next": [
+            "停止"
+        ]
+    },
     "停止": {
         "action": {
             "type": "StopApp",

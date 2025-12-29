@@ -508,20 +508,7 @@
         {
             "name": "结束游戏",
             "default_check": true,
-            "entry": "停止",
-            "pipeline_override": {
-                "停止": {
-                    "action": {
-                        "type": "Custom",
-                        "param": {
-                            "custom_action": "Notice",
-                            "custom_action_param": {
-                                "action": "show_black_card"
-                            }
-                        }
-                    }
-                }
-            }
+            "entry": "关闭"
         },
         {
             "name": "洗词缀",
