@@ -19,7 +19,7 @@ class Notice(CustomAction):
         action = param.get("action")
         if action == "set_black_card":
             image = context.tasker.controller.post_screencap().wait().get()
-            black_card_reco = context.run_recognition("识别初始黑卡", image)
+            black_card_reco = context.run_recognition("识别黑卡", image)
             if (
                 black_card_reco
                 and black_card_reco.hit
@@ -69,10 +69,10 @@ class Notice(CustomAction):
                 and energy.isdigit()
             ):
                 profit = int(end_black_card) - int(start_black_card)
-                next_energy = 240 - int(energy) * 6
+                next_energy = 240 - int(energy) * 6*60
 
                 now_time = datetime.datetime.now()
-                next_time = now_time + datetime.timedelta(minutes=next_energy)
+                next_time = now_time + datetime.timedelta(seconds=next_energy)
                 self.custom_notify(context, "初始黑卡:")
                 self.custom_notify(context, start_black_card)
                 self.custom_notify(context, "当前黑卡:")
