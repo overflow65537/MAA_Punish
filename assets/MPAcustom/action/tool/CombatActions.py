@@ -39,28 +39,6 @@ from MPAcustom.action.tool.LoadSetting import ROLE_ACTIONS
 class CombatActions:
     """通用战斗功能"""
 
-    COORDINATES = {
-        "attack": (1197, 636),
-        "dodge": (1052, 633),
-        "skill": (915, 626),
-        "ball_positions": [
-            (1220, 500),  # 1
-            (1111, 500),  # 2
-            (1003, 500),  # 3
-            (894, 500),  # 4
-            (786, 500),  # 5
-            (677, 500),  # 6
-            (569, 500),  # 7
-            (460, 500),  # 8
-        ],
-        "qte": {
-            1: (1208, 154),
-            2: (1208, 265),
-        },
-        "lens_lock": (1108, 383),
-        "auxiliary_machine": (1214, 387),
-    }
-
     def __init__(self, context: Context, role_name: str = ""):
         self.context = context
         self.role_name = role_name
@@ -141,9 +119,7 @@ class CombatActions:
         攻击
         执行一次攻击操作。
         """
-        return self.context.tasker.controller.post_click(
-            *self.COORDINATES["attack"]
-        ).wait()
+        return self.context.run_action("攻击")
 
     def continuous_attack(self, count: int = 10, interval: int = 100) -> bool:
         """
@@ -164,20 +140,18 @@ class CombatActions:
         按住攻击键一段时间。
         :param duration: 长按时间（毫秒），默认1000
         """
-        atk_x = self.COORDINATES["attack"][0]
-        atk_y = self.COORDINATES["attack"][1]
-        return self.context.tasker.controller.post_swipe(
-            atk_x, atk_y, atk_x, atk_y, duration
-        ).wait()
+        if duration != 1000:
+            self.context.override_pipeline(
+                {"长按攻击": {"action": {"param": {"duration": duration}}}}
+            )
+        return self.context.run_action("长按攻击")
 
     def dodge(self):
         """
         闪避
         执行一次闪避操作。
         """
-        return self.context.tasker.controller.post_click(
-            *self.COORDINATES["dodge"]
-        ).wait()
+        return self.context.run_action("闪避")
 
     def long_press_dodge(self, duration: int = 1000):
         """
@@ -185,11 +159,11 @@ class CombatActions:
         按住闪避键一段时间。
         :param duration: 长按时间（毫秒），默认1000
         """
-        dodge_x = self.COORDINATES["dodge"][0]
-        dodge_y = self.COORDINATES["dodge"][1]
-        return self.context.tasker.controller.post_swipe(
-            dodge_x, dodge_y, dodge_x, dodge_y, duration
-        ).wait()
+        if duration != 1000:
+            self.context.override_pipeline(
+                {"长按闪避": {"action": {"param": {"duration": duration}}}}
+            )
+        return self.context.run_action("长按闪避")
 
     def use_skill(self, duration: int = 0):
         """
@@ -197,7 +171,7 @@ class CombatActions:
         执行一次技能释放操作。
         :param duration: 技能释放后等待时间（毫秒），默认0
         """
-        self.context.tasker.controller.post_click(*self.COORDINATES["skill"]).wait()
+        self.context.run_action("技能")
         time.sleep(duration / 1000)
         return
 
@@ -207,11 +181,33 @@ class CombatActions:
         按住技能键一段时间。
         :param time: 长按时间（毫秒），默认1000
         """
-        skill_x = self.COORDINATES["skill"][0]
-        skill_y = self.COORDINATES["skill"][1]
-        return self.context.tasker.controller.post_swipe(
-            skill_x, skill_y, skill_x, skill_y, time
-        ).wait()
+        if time != 1000:
+            self.context.override_pipeline(
+                {"长按技能": {"action": {"param": {"duration": time}}}}
+            )
+        return self.context.run_action("长按技能")
+
+    def down_dodge(self, contact: int = 0):
+        """
+        按下闪避
+        按下闪避操作。
+        :param contact: 触摸编号
+        """
+        self.context.override_pipeline(
+            {"按下闪避": {"action": {"param": {"contact": contact}}}}
+        )
+        return self.context.run_action("按下闪避")
+
+    def up_dodge(self, contact: int = 0):
+        """
+        松开闪避
+        松开闪避操作。
+        :param contact: 触摸编号
+        """
+        self.context.override_pipeline(
+            {"松开闪避": {"action": {"param": {"contact": contact}}}}
+        )
+        return self.context.run_action("松开闪避")
 
     def ball_elimination_target(self, target: int = 2):
         """
@@ -219,10 +215,10 @@ class CombatActions:
         消除指定位置的信号球。
         :param target: 消球位置（1~8），默认2
         """
-        target = abs(target) - 1
-        ball_x = self.COORDINATES["ball_positions"][target][0]
-        ball_y = self.COORDINATES["ball_positions"][target][1]
-        return self.context.tasker.controller.post_click(ball_x, ball_y).wait()
+        target = abs(target)
+        if target < 1 or target > 8:
+            raise ValueError("target 参数必须在 1~8 之间")
+        return self.context.run_action(f"消球{target}")
 
     def trigger_qte(self, target: int = 1):
         """
@@ -233,11 +229,7 @@ class CombatActions:
         """
         if target not in (1, 2):
             raise ValueError("target 参数必须为 1 或 2")
-
-        # 获取目标坐标
-        qte_coord = self.COORDINATES["qte"][target]
-
-        return self.context.tasker.controller.post_click(*qte_coord).wait()
+        return self.context.run_action(f"qte{target}")
 
     def _try_qte_by_color(self, color: str, image):
         """
@@ -303,18 +295,14 @@ class CombatActions:
         镜头锁定
         执行镜头锁定操作。
         """
-        return self.context.tasker.controller.post_click(
-            *self.COORDINATES["lens_lock"]
-        ).wait()
+        return self.context.run_action("锁定视角")
 
     def auxiliary_machine(self):
         """
         辅助机
         执行辅助机操作。
         """
-        return self.context.tasker.controller.post_click(
-            *self.COORDINATES["auxiliary_machine"]
-        ).wait()
+        return self.context.run_action("辅助机")
 
     def check_status(self, node: str, pipeline_override: dict = {}):
         """
@@ -365,14 +353,24 @@ class CombatActions:
             self.logger.error("模板未加载")
             return 0
 
+        # 信号球位置坐标（用于位置分析）
+        ball_positions = [
+            (1220, 500),  # 1
+            (1111, 500),  # 2
+            (1003, 500),  # 3
+            (894, 500),  # 4
+            (786, 500),  # 5
+            (677, 500),  # 6
+            (569, 500),  # 7
+            (460, 500),  # 8
+        ]
+
         def analyze_position(box) -> int:
             """分析信号球位置"""
             try:
                 # 确保box可以解包为4个整数
                 x, y, w, h = box
-                for idx, (pos_x, pos_y) in enumerate(
-                    self.COORDINATES["ball_positions"]
-                ):
+                for idx, (pos_x, pos_y) in enumerate(ball_positions):
                     if x <= pos_x <= x + w and y <= pos_y <= y + h:
                         return idx
                 return -1
