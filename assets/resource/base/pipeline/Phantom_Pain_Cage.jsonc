@@ -305,6 +305,37 @@
             "type": "Click"
         },
         "next": [
+            "囚笼覆盖"
+        ]
+    },
+    "囚笼覆盖": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "选择装甲位": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "cage": true
+                                }
+                            }
+                        }
+                    },
+                    "选择辅助位": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "cage": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "next": [
             "挑战次数不足_弹窗",
             "查看Boss_火队",
             "查看Boss_暗队",
@@ -470,8 +501,7 @@
                         "action": {
                             "param": {
                                 "custom_action_param": {
-                                    "cage": true,
-                                    "need_element": "fire"
+                                    "cage": true
                                 }
                             }
                         }

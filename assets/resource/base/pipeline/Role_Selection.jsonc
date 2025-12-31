@@ -81,6 +81,32 @@
             }
         }
     },
+    "识别囚笼次数_辅助": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": "检查支援类型角色是否被选中",
+                "roi_offset": [
+                    -100,
+                    60,
+                    30,
+                    10
+                ],
+                "upper": [
+                    53,
+                    175,
+                    248
+                ],
+                "lower": [
+                    53,
+                    175,
+                    248
+                ],
+                "connected": true,
+                "count": 10
+            }
+        }
+    },
     "滑动_选人": {
         "action": {
             "type": "Swipe",

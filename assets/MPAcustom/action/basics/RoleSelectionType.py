@@ -85,6 +85,8 @@ class RoleSelectionType(CustomAction):
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
 
+        param = json.loads(argv.custom_action_param)
+
         switch_item = 0
         while switch_item < 5:
             image = context.tasker.controller.post_screencap().wait().get()
@@ -105,6 +107,11 @@ class RoleSelectionType(CustomAction):
                             }
                         },
                     )
+                    if param.get("cage"):
+                        cage_reco = context.run_recognition("识别囚笼次数_辅助", image)
+                        if cage_reco and not cage_reco.hit:
+                            continue
+
                     if flag and not flag.hit:
                         context.tasker.controller.post_click(
                             reco.box[0], reco.box[1]
