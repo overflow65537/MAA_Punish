@@ -34,6 +34,7 @@ class Pianissimo(CustomAction):
             print("希声2阶段消球结束")
 
             action.long_press_attack(1000)
+            action.auto_qte("a")
             for _ in range(20):
                 action.attack()
                 time.sleep(0.05)
@@ -75,13 +76,13 @@ class Pianissimo(CustomAction):
             print("希声1阶段消球结束")
 
             action.long_press_attack(1000)
+            action.auto_qte("a")
             for _ in range(15):
                 action.attack()
                 time.sleep(0.05)
                 action.ball_elimination_target(1)
                 time.sleep(0.05)
                 action.use_skill()
-                action.auto_qte("a")
         else:
             print("希声1阶段信号球不足")
             for _ in range(30):

@@ -31,6 +31,7 @@
             "type": "Click"
         },
         "next": [
+            "结算",
             "战斗失败_历战",
             "[JumpBack]识别人物",
             "[JumpBack]战斗中",
@@ -41,14 +42,18 @@
         ]
     },
     "继续挑战": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    820,
-                    555,
-                    460,
-                    165
+                    635,
+                    376,
+                    620,
+                    339
                 ],
                 "expected": [
                     "继续挑战"

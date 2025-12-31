@@ -107,11 +107,8 @@ class CrimsonWeave(CustomAction):
                     time.sleep(0.3 - elapsed)
 
         else:
-            dodge_x = action.COORDINATES.get("dodge", ())[0]
-            dodge_y = action.COORDINATES.get("dodge", ())[-1]
-            context.tasker.controller.post_touch_down(dodge_x, dodge_y)
+            action.down_dodge()
             start_time = time.time()
-
             if not action.check_status(
                 "检查无光值_囚影",
                 self.light_less_any,
@@ -119,7 +116,7 @@ class CrimsonWeave(CustomAction):
                 elapsed = time.time() - start_time
                 if elapsed < 1.5:
                     time.sleep(1.5 - elapsed)
-                context.tasker.controller.post_touch_up()
+                action.up_dodge()
                 if action.check_Skill_energy_bar():
                     # 崩落的束缚化为利刃
                     for _ in range(10):
@@ -131,7 +128,7 @@ class CrimsonWeave(CustomAction):
                 elapsed = time.time() - start_time
                 if elapsed < 1.5:
                     time.sleep(1.5 - elapsed)
-                context.tasker.controller.post_touch_up()
+                action.up_dodge()
                 action.auto_qte("a")
                 action.long_press_attack(2300)  # 登龙
                 if action.check_Skill_energy_bar():
