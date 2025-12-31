@@ -29,7 +29,7 @@ ROLE_ACTIONS = {
     "里·超刻": {
         # 部分场景下会识别这个名字
         "name": "超刻",
-        # 角色型号 Attacker:进攻,Tank:装甲,Support:支援,Observer:观测者 注意!露娜被算作进攻型,所有的增幅算作支援型
+        # 角色型号 Attacker:进攻,Tank:装甲,Support:支援, 注意!终焉被算作进攻型,幻日被算作装甲型,所有的增幅算作支援型,所有破甲被算做装甲型
         "type": "Attacker",
         # 自动战斗的动作名
         "cls_name": "Hyperreal",

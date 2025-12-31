@@ -122,11 +122,24 @@ class IdentifyRoles(CustomAction):
                 )
                 print(f"覆盖{action}")
             case n if n > 1:  # 多个角色匹配
+                pos, role_info = next(iter(matched_roles.items()))
+                action = role_info["cls_name"]
+
+                # 设置队长位置(单个角色特用)
+                if leader_flags.get(pos):
+                    color_map = {"pos1": "蓝色", "pos2": "红色", "pos3": "黄色"}
+                    context.run_task(
+                        "点击首选位置", {"点击首选位置": {"expected": color_map[pos]}}
+                    )
+
+                # 覆写战斗流程
                 context.override_pipeline(
                     {
-                        "自动战斗开始": {"next": ["多人轮切自动战斗循环"]},
+                        "角色特有战斗": {"action": "Custom", "custom_action": action},
+                        "自动战斗开始": {"next": ["单人自动战斗循环"]},
                     }
                 )
+                print(f"覆盖{action}")
             case _:  # 无匹配角色
                 if len(role_names) == 1:
                     # 设置队长位置(单个角色特用)

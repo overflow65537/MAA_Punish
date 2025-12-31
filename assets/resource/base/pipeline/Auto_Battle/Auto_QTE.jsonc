@@ -1,0 +1,246 @@
+{
+    "检查蓝色QTE冷却中": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1214,
+                    159,
+                    50,
+                    177
+                ],
+                "lower": [
+                    5,
+                    22,
+                    37
+                ],
+                "upper": [
+                    9,
+                    33,
+                    50
+                ]
+            }
+        }
+    },
+    "检查红色QTE冷却中": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1214,
+                    159,
+                    50,
+                    177
+                ],
+                "lower": [
+                    10,
+                    0,
+                    0
+                ],
+                "upper": [
+                    30,
+                    5,
+                    5
+                ],
+                "connected": true,
+                "count": 10
+            }
+        }
+    },
+    "检查黄色QTE冷却中": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1214,
+                    159,
+                    50,
+                    177
+                ],
+                "lower": [
+                    30,
+                    25,
+                    0
+                ],
+                "upper": [
+                    40,
+                    35,
+                    5
+                ]
+            }
+        }
+    },
+    "检查蓝色QTE": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1214,
+                    159,
+                    50,
+                    177
+                ],
+                "lower": [
+                    48,
+                    126,
+                    192
+                ],
+                "upper": [
+                    63,
+                    142,
+                    207
+                ],
+                "connected": true,
+                "count": 100
+            }
+        }
+    },
+    "检查红色QTE": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1214,
+                    159,
+                    50,
+                    177
+                ],
+                "connected": true,
+                "count": 100,
+                "upper": [
+                    181,
+                    44,
+                    54
+                ],
+                "lower": [
+                    133,
+                    11,
+                    19
+                ]
+            }
+        }
+    },
+    "检查黄色QTE": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1214,
+                    159,
+                    50,
+                    177
+                ],
+                "upper": [
+                    200,
+                    178,
+                    36
+                ],
+                "lower": [
+                    168,
+                    148,
+                    0
+                ],
+                "connected": true,
+                "count": 100
+            }
+        }
+    },
+    "检查一号位置": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1220,
+                    176,
+                    39,
+                    37
+                ],
+                "lower": [
+                    [
+                        5,
+                        22,
+                        37
+                    ],
+                    [
+                        10,
+                        0,
+                        0
+                    ],
+                    [
+                        30,
+                        25,
+                        0
+                    ]
+                ],
+                "upper": [
+                    [
+                        9,
+                        33,
+                        50
+                    ],
+                    [
+                        30,
+                        5,
+                        5
+                    ],
+                    [
+                        40,
+                        35,
+                        5
+                    ]
+                ],
+                "connected": true,
+                "count": 20
+            }
+        }
+    },
+    "检查二号位置": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1219,
+                    287,
+                    41,
+                    40
+                ],
+                "lower": [
+                    [
+                        5,
+                        22,
+                        37
+                    ],
+                    [
+                        10,
+                        0,
+                        0
+                    ],
+                    [
+                        30,
+                        25,
+                        0
+                    ]
+                ],
+                "upper": [
+                    [
+                        9,
+                        33,
+                        50
+                    ],
+                    [
+                        30,
+                        5,
+                        5
+                    ],
+                    [
+                        40,
+                        35,
+                        5
+                    ]
+                ],
+                "connected": true,
+                "count": 20
+            }
+        }
+    }
+}

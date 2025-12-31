@@ -26,6 +26,7 @@ class Spectre(CustomAction):
                 time.sleep(0.05)
                 actions.ball_elimination_target(1)
                 time.sleep(0.05)
+                actions.auto_qte("r")
             time.sleep(0.1)
 
             # 黄球

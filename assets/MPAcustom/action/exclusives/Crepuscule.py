@@ -24,6 +24,7 @@ MAA_Punish 晖暮战斗程序
 作者:overflow65537
 """
 
+import time
 from MPAcustom.action.basics import CombatActions
 from maa.context import Context
 from maa.custom_action import CustomAction
@@ -33,16 +34,19 @@ class Crepuscule(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        action = CombatActions(context,role_name="晖暮")
+        action = CombatActions(context, role_name="晖暮")
 
         action.lens_lock()
         if action.check_Skill_energy_bar():
             action.logger.info("大招就绪")
             action.use_skill()
+            time.sleep(0.05)
+            action.auto_qte("a")
+
         elif action.check_status("检查核心被动_晖暮"):
             action.long_press_dodge(3000)
             context.tasker.controller.post_swipe(1212, 513, 1212, 513, 3000).wait()
         else:
             action.logger.info("核心技能未就绪")
-            action.continuous_attack(50,100)
+            action.continuous_attack(50, 100)
         return CustomAction.RunResult(success=True)

@@ -46,6 +46,9 @@ class Pyroath(CustomAction):
             if action.check_status("检查p1动能条_誓焰"):
                 action.logger.info("p1动能条max")
                 action.long_press_skill()  # 汇聚,阳炎之光
+                time.sleep(0.1)
+                action.auto_qte("a")
+               
             else:
                 action.logger.info("p1动能条非max")
                 action.ball_elimination_target()  # 消球2
@@ -55,6 +58,7 @@ class Pyroath(CustomAction):
             action.logger.info("誓焰u2")
             if action.check_Skill_energy_bar():
                 action.use_skill()  # 进入3阶段
+                time.sleep(0.2)
             else:
                 action.long_press_attack()
                 action.continuous_attack(20, 100)  # 攻击
@@ -71,9 +75,8 @@ class Pyroath(CustomAction):
                     action.attack()
             action.long_press_attack(4000)  # 长按攻击
             action.use_skill()
-            time.sleep(0.5)
+            time.sleep(0.1)
             action.auxiliary_machine()
-            action.trigger_qte(1)
-            action.trigger_qte(2)
+            action.auto_qte("a")
 
         return CustomAction.RunResult(success=True)

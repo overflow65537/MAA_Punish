@@ -38,4 +38,5 @@ class GeneralFight(CustomAction):
         action.ball_elimination_target()
         action.use_skill()
         action.continuous_attack(4, 300)
+        action.auto_qte("a")
         return CustomAction.RunResult(success=True)

@@ -92,6 +92,7 @@ class CrimsonWeave(CustomAction):
                     light_less_value == 300 or light_less_value >= 474
                 ):  # 无光值足够登龙
                     action.long_press_dodge(1500)
+                    action.auto_qte("a")
                     action.long_press_attack(2300)  # 登龙
                     if action.check_Skill_energy_bar():
                         for _ in range(10):
@@ -131,6 +132,7 @@ class CrimsonWeave(CustomAction):
                 if elapsed < 1.5:
                     time.sleep(1.5 - elapsed)
                 context.tasker.controller.post_touch_up()
+                action.auto_qte("a")
                 action.long_press_attack(2300)  # 登龙
                 if action.check_Skill_energy_bar():
                     for _ in range(10):

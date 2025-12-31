@@ -452,3 +452,4 @@ maapicli.spec
 assets/README.md
 install.spec
 config
+.nicegui/storage-general.json

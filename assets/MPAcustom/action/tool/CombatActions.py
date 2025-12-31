@@ -26,6 +26,7 @@ MAA_Punish 通用战斗对象
 
 
 from maa.context import Context
+from maa.define import ColorMatchResult, TemplateMatchResult
 import time
 
 import logging
@@ -228,17 +229,74 @@ class CombatActions:
         触发QTE/换人
         执行QTE或换人操作。
         :param target: QTE位置（1或2），默认1
+        :return: 点击操作结果
         """
         if target not in (1, 2):
             raise ValueError("target 参数必须为 1 或 2")
-        elif target == 1:
-            return self.context.tasker.controller.post_click(
-                *self.COORDINATES["qte"][1]
-            ).wait()
-        elif target == 2:
-            return self.context.tasker.controller.post_click(
-                *self.COORDINATES["qte"][2]
-            ).wait()
+
+        # 获取目标坐标
+        qte_coord = self.COORDINATES["qte"][target]
+
+        return self.context.tasker.controller.post_click(*qte_coord).wait()
+
+    def _try_qte_by_color(self, color: str, image):
+        """
+        尝试触发指定颜色的QTE
+        :param color: QTE颜色(r,y,b)
+        :param image: 截图对象
+        :return: 成功返回点击操作结果，失败返回False
+        """
+        # 颜色映射字典
+        color_map = {
+            "r": ("检查红色QTE", "检查红色QTE冷却中"),
+            "y": ("检查黄色QTE", "检查黄色QTE冷却中"),
+            "b": ("检查蓝色QTE", "检查蓝色QTE冷却中"),
+        }
+
+        if color not in color_map:
+            return False
+
+        qte_name, cooldown_name = color_map[color]
+
+        # 检查目标QTE是否存在
+        target_color_reco = self.context.run_recognition(qte_name, image)
+        if (
+            target_color_reco
+            and target_color_reco.hit
+            and isinstance(target_color_reco.best_result, ColorMatchResult)
+        ):
+
+            # 检查QTE是否在冷却中
+            target_qte_reco = self.context.run_recognition(cooldown_name, image)
+            if target_qte_reco and not target_qte_reco.hit:
+                print(f"发现{color}QTE，尝试点击")
+                # 点击QTE
+                return self.context.tasker.controller.post_click(
+                    target_color_reco.best_result.box[0],
+                    target_color_reco.best_result.box[1],
+                ).wait()
+        return False
+
+    def auto_qte(self, target: str = "a"):
+        """
+        触发QTE
+        :param target: QTE颜色(r,y,b,a)，默认r。a表示依次检查r、b、y
+        :return: 点击操作结果
+        """
+        image = self.context.tasker.controller.post_screencap().wait().get()
+
+        # 处理自动模式：依次检查r、b、y
+        if target == "a":
+            for color in ["r", "b", "y"]:
+                self._try_qte_by_color(color, image)
+                time.sleep(0.05)
+            return False
+
+        # 处理单色模式
+        result = self._try_qte_by_color(target, image)
+        if result is False and target not in ("r", "y", "b"):
+            raise ValueError("target 参数必须为 r, y, b, a")
+        return result
 
     def lens_lock(self):
         """
@@ -480,7 +538,6 @@ class CombatActions:
         """
         image = self.context.tasker.controller.post_screencap().wait().get()
         result = self.context.run_recognition("检查血量百分比", image)
-        from maa.define import ColorMatchResult
 
         if result and result.hit and isinstance(result.best_result, ColorMatchResult):
             hp_pixels = int(result.best_result.count)
@@ -488,3 +545,63 @@ class CombatActions:
             return min(max(hp_percent, 0), 100)
         else:
             return 0
+
+    def _auto_QTE(self):
+        """自动处理QTE"""
+        image = self.context.tasker.controller.post_screencap().wait().get()
+
+        y_result = self.context.run_recognition("检查黄色QTE", image)
+        r_result = self.context.run_recognition("检查红色QTE", image)
+        b_result = self.context.run_recognition("检查蓝色QTE", image)
+        if (
+            y_result
+            and y_result.hit
+            and isinstance(y_result.best_result, ColorMatchResult)
+        ):
+            y_cooldown = self.context.run_recognition("检查黄色QTE冷却中", image)
+            if y_cooldown and not y_cooldown.hit:
+                self.context.tasker.controller.post_click(
+                    y_result.best_result.box.x,
+                    y_result.best_result.box.y,
+                ).wait()
+        elif (
+            r_result
+            and r_result.hit
+            and isinstance(r_result.best_result, ColorMatchResult)
+        ):
+            r_cooldown = self.context.run_recognition("检查红色QTE冷却中", image)
+            if r_cooldown and not r_cooldown.hit:
+                self.context.tasker.controller.post_click(
+                    r_result.best_result.box.x,
+                    r_result.best_result.box.y,
+                ).wait()
+        elif (
+            b_result
+            and b_result.hit
+            and isinstance(b_result.best_result, ColorMatchResult)
+        ):
+            b_cooldown = self.context.run_recognition("检查蓝色QTE冷却中", image)
+            if b_cooldown and not b_cooldown.hit:
+                self.context.tasker.controller.post_click(
+                    b_result.best_result.box.x,
+                    b_result.best_result.box.y,
+                ).wait()
+
+    def Switch(
+        self,
+    ):
+        """
+        切换角色
+        """
+
+        role_type = ROLE_ACTIONS[self.role_name]["type"]
+
+        match role_type:
+            case "Attacker":
+                pass
+            case "Tank":
+                pass
+            case "Support":
+                pass
+            case _:
+                self.logger.error(f"未知角色类型: {role_type}")
