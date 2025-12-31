@@ -533,6 +533,38 @@
                 "green_mask": true,
                 "threshold": 0.6
             }
+        },
+        "next": [
+            "点击红色QTE", //保险措施,防止QTE情况下意外切人,使用这个人物再切回来
+            "空任务"
+        ]
+    },
+    "点击红色QTE": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1214,
+                    159,
+                    50,
+                    177
+                ],
+                "connected": true,
+                "count": 100,
+                "upper": [
+                    181,
+                    44,
+                    54
+                ],
+                "lower": [
+                    133,
+                    11,
+                    19
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
         }
     },
     "载入中": {

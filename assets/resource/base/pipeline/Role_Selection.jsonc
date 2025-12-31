@@ -195,6 +195,23 @@
         }
     },
     "清除队伍": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1120,
+                    278,
+                    160,
+                    227
+                ],
+                "expected": [
+                    "红色"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "队伍净空_红",
             "[JumpBack]清空红色位"

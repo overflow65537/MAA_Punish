@@ -85,7 +85,7 @@ class RoleSelectionType(CustomAction):
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
 
-        param = json.loads(argv.custom_action_param)
+        param = json.loads(argv.custom_action_param) or {}
 
         switch_item = 0
         while switch_item < 5:

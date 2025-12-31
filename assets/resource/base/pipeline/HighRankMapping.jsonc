@@ -1,0 +1,206 @@
+{
+    "历战映射": {
+        "next": [
+            "[JumpBack]选人_历战",
+            "[JumpBack]成员整备",
+            "识别历战分数",
+            "[JumpBack]开始挑战",
+            "[JumpBack]前往作战",
+            "[JumpBack]打开历战映射",
+            "[JumpBack]打开挑战",
+            "[JumpBack]打开战斗",
+            "[JumpBack]意外点击_限定活动"
+        ]
+    },
+    "开始挑战": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    976,
+                    564,
+                    256,
+                    143
+                ],
+                "expected": [
+                    "开始挑战"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "战斗失败_历战",
+            "[JumpBack]识别人物",
+            "[JumpBack]战斗中",
+            "[JumpBack]继续挑战",
+            "[JumpBack]载入中",
+            "[JumpBack]点击空白处关闭",
+            "[JumpBack]确定"
+        ]
+    },
+    "继续挑战": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    820,
+                    555,
+                    460,
+                    165
+                ],
+                "expected": [
+                    "继续挑战"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "战斗失败_历战": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    148,
+                    113,
+                    618,
+                    330
+                ],
+                "expected": [
+                    "战斗失败"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "战斗失败_历战",
+            "结算"
+        ]
+    },
+    "结算": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1024,
+                    79,
+                    159,
+                    138
+                ],
+                "expected": [
+                    "结算"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "选人_历战": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1023,
+                    621,
+                    179,
+                    92
+                ],
+                "expected": [
+                    "作战开始"
+                ]
+            }
+        },
+        "next": [
+            "清除队伍"
+        ]
+    },
+    "成员整备": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    647,
+                    350,
+                    614,
+                    273
+                ],
+                "template": [
+                    "历战映射/成员整备.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "前往作战": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    926,
+                    547,
+                    329,
+                    173
+                ],
+                "expected": [
+                    "前往作战"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "打开历战映射": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    84,
+                    334,
+                    1196,
+                    244
+                ],
+                "expected": [
+                    "历战映射"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "识别历战分数": {
+        "focus": {
+            "Node.Recognition.Succeeded": "历战分数达标"
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    166,
+                    419,
+                    79,
+                    38
+                ],
+                "expected": [
+                    "1500"
+                ]
+            }
+        },
+        "next": [
+            "返回主菜单"
+        ]
+    }
+}
