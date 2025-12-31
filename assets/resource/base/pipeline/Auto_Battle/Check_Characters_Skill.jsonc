@@ -60,6 +60,32 @@
             "检查支援类型角色是否被选中"
         ]
     },
+    "识别试用角色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": "识别角色",
+                "roi_offset": [
+                    0,
+                    -30,
+                    0,
+                    0
+                ],
+                "lower": [
+                    170,
+                    60,
+                    0
+                ],
+                "upper": [
+                    180,
+                    75,
+                    40
+                ],
+                "count": 500,
+                "connected": true
+            }
+        }
+    },
     "检查支援类型角色是否被选中": {
         "recognition": {
             "type": "OCR",

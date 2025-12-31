@@ -130,6 +130,7 @@ class RoleSelection(CustomAction):
         role_weight = self.calculate_weight(role, condition)
         self.logger.info(f"条件: {condition}")
         self.logger.info(f"角色权重: {role_weight}")
+        print(f"角色权重: {role_weight}")
         if not (not condition.get("cage") and condition.get("pick", "") in role.keys()):
             for _ in range(int(condition.get("max_try", 5))):
                 if context.tasker.stopping:
@@ -144,6 +145,9 @@ class RoleSelection(CustomAction):
                 context,
                 f"未检测到 {condition.get('pick')},选中权重最高的角色 {selected_role}",
             )
+        trial = False
+        if "[试用]" in selected_role:
+            trial = True
 
         target = None
         nonselected_roles = False
@@ -155,12 +159,14 @@ class RoleSelection(CustomAction):
 
         target = None
         images = []
+        target_x, target_y = None, None
         for _ in range(int(condition.get("max_try", 5)) + 1):
             if context.tasker.stopping:
                 return CustomAction.RunResult(success=True)
             image = context.tasker.controller.post_screencap().wait().get()
             images.append(image)
             if nonselected_roles and condition.get("cage"):
+                # 没有对应任务,且是囚笼模式,随便选一个带次数的
                 target = context.run_recognition(
                     "选择人物",
                     image,
@@ -180,6 +186,7 @@ class RoleSelection(CustomAction):
                     },
                 )
             elif nonselected_roles:
+                # 随便选一个带次数的
                 context.run_task("编入队伍")
                 return CustomAction.RunResult(success=True)
             else:
@@ -190,14 +197,21 @@ class RoleSelection(CustomAction):
                         "选择人物": {
                             "recognition": {
                                 "param": {
-                                    "template": role_dict[selected_role]["template"],
+                                    "template": role_dict[
+                                        selected_role.replace("[试用]", "")
+                                    ]["template"],
                                     "threshold": [0.7]
-                                    * len(role_dict[selected_role]["template"]),
+                                    * len(
+                                        role_dict[selected_role.replace("[试用]", "")][
+                                            "template"
+                                        ]
+                                    ),
                                 },
                             },
                         }
                     },
                 )
+
             if (
                 target
                 and target.hit
@@ -206,13 +220,30 @@ class RoleSelection(CustomAction):
                     or isinstance(target.best_result, ColorMatchResult)
                 )
             ):
-                context.tasker.controller.post_click(
-                    target.best_result.box[0] + target.best_result.box[2] // 2,
-                    target.best_result.box[1] + target.best_result.box[3] // 2,
-                ).wait()
-                context.run_task("编入队伍")
-                self.logger.info(f"选择角色成功: {selected_role}")
-                return CustomAction.RunResult(success=True)
+                for result in target.filtered_results:
+                    trial_reco = context.run_recognition(
+                        "识别试用角色",
+                        image,
+                        {
+                            "识别试用角色": {
+                                "recognition": {
+                                    "roi": result.box,
+                                },
+                            }
+                        },
+                    )
+
+                    if trial_reco and ("[试用]" in selected_role) == trial_reco.hit:
+                        target_x, target_y = (
+                            result.box[0] + result.box[2] // 2,
+                            result.box[1] + result.box[3] // 2,
+                        )
+
+                if target_x and target_y:
+                    context.tasker.controller.post_click(target_x, target_y).wait()
+                    context.run_task("编入队伍")
+                    self.logger.info(f"选择角色成功: {selected_role}")
+                    return CustomAction.RunResult(success=True)
             context.run_action("滑动_选人")
         if not (target and target.hit):
             for i, img in enumerate(images, 1):
@@ -258,6 +289,13 @@ class RoleSelection(CustomAction):
                 image=image,
                 pipeline_override=pipeline_override,
             )
+            trial_reco = context.run_recognition(
+                entry="识别试用角色",
+                image=image,
+            )
+            trial = False
+            if trial_reco and trial_reco.hit:
+                trial = True
 
             # 检查识别结果并提取box信息
             if (
@@ -265,7 +303,10 @@ class RoleSelection(CustomAction):
                 and result.hit
                 and isinstance(result.best_result, TemplateMatchResult)
             ):
-                self.logger.info(f"识别到角色: {role_name}")
+
+                self.logger.info(f"识别到角色: {role_name} {"试用"if trial else ""}")
+                if trial:
+                    role_name = role_name + "[试用]"
                 role[role_name] = role_actions.copy().get("metadata", {})
                 context.run_recognition(
                     entry="识别战斗参数",
@@ -281,7 +322,10 @@ class RoleSelection(CustomAction):
                     and power_reco.hit
                     and isinstance(power_reco.best_result, OCRResult)
                 ):
-                    role[role_name]["power"] = int(power_reco.best_result.text)
+                    if power_reco.best_result.text.isdigit():
+                        role[role_name]["power"] = int(power_reco.best_result.text)
+                    else:
+                        role[role_name]["power"] = 0
 
                 if cage:
                     cage_result = context.run_recognition(
