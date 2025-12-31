@@ -45,11 +45,13 @@ class Limpidity(CustomAction):
         if action.check_status("检查普攻1_霁梦"):
             if action.check_status("检查核心条_霁梦"):
                 action.long_press_dodge(1000)  # 直面天闪!
+                print("直面天闪!")
                 for _ in range(15):
                     action.use_skill()  # 以苦厄,澈我心镜
                     action.auxiliary_machine()
                     action.attack()
                     time.sleep(0.1)
+                print("以苦厄,澈我心镜")
                 return CustomAction.RunResult(success=True)
 
             # 信号球消除逻辑
@@ -69,13 +71,16 @@ class Limpidity(CustomAction):
                     if time.time() - start_time > 5:
                         return CustomAction.RunResult(success=True)
                     action.ball_elimination_target(1)  # 见证,我的意志
+                    print("见证,我的意志")
                     time.sleep(0.1)
 
                 action.long_press_attack(3000)  # 终于,梦醒时分
+                print("终于,梦醒时分")
                 for _ in range(15):
                     action.use_skill()  # 映天地,渡你新生
                     action.auxiliary_machine()
                     time.sleep(0.1)
+                print("映天地,渡你新生")
 
                 return CustomAction.RunResult(success=True)
 

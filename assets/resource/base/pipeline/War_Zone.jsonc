@@ -540,6 +540,9 @@
         ]
     },
     "点击红色QTE": {
+        "post_delay": 0,
+        "pre_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {

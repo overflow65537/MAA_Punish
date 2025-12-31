@@ -217,7 +217,7 @@ class CombatActions:
         """
         target = abs(target)
         if target < 1 or target > 8:
-            raise ValueError("target 参数必须在 1~8 之间")
+            return False
         return self.context.run_action(f"消球{target}")
 
     def trigger_qte(self, target: int = 1):

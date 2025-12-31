@@ -104,7 +104,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "确定"
+        ]
     },
     "选人_历战": {
         "recognition": {
