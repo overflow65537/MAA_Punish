@@ -29,11 +29,6 @@
         "class": "IdentifyRoles",
         "file_path": "{custom_path}/action/basics/IdentifyRoles.py"
     },
-    "IDFMasteryLevel": {
-        "type": "recognition",
-        "class": "IDFMasteryLevel",
-        "file_path": "{custom_path}/recognition/exclusives/IDFMasteryLevel.py"
-    },
     "MultiplayerAutoBattle": {
         "type": "action",
         "class": "MultiplayerAutoBattle",
@@ -153,5 +148,10 @@
         "type": "recognition",
         "class": "NextStageRecognition",
         "file_path": "{custom_path}/recognition/exclusives/NextStageRecognition.py"
+    },
+    "RoleSelectionType": {
+        "type": "action",
+        "class": "RoleSelectionType",
+        "file_path": "{custom_path}/action/basics/RoleSelectionType.py"
     }
 }

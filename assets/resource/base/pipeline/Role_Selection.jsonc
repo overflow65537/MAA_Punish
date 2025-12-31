@@ -148,6 +148,10 @@
         }
     },
     "编入队伍": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -304,6 +308,32 @@
                 "template": "幻痛囚笼/队伍净空_蓝黄.png"
             }
         },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "选择装甲位"
+        ]
+    },
+    "选择装甲位": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    983,
+                    464,
+                    276,
+                    244
+                ],
+                "expected": "编入"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "RoleSelectionType"
+            }
+        },
         "next": [
             "队伍净空",
             "[JumpBack]清空蓝色位"
@@ -320,6 +350,35 @@
                     108
                 ],
                 "template": "幻痛囚笼/队伍净空_蓝黄.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "选择辅助位"
+        ]
+    },
+    "选择辅助位": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    983,
+                    464,
+                    276,
+                    244
+                ],
+                "expected": [
+                    "编入",
+                    "卸下"
+                ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "RoleSelectionType"
             }
         },
         "next": [
@@ -357,7 +416,7 @@
                     276,
                     244
                 ],
-                "expected": "编入"
+                "expected": "队伍"
             }
         },
         "action": {
@@ -376,6 +435,14 @@
                     "roguelike_3_mode": 0,
                     "pick": "露西亚·深红囚影"
                 }
+            }
+        }
+    },
+    "选择支援任务测试": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "RoleSelectionType"
             }
         }
     }

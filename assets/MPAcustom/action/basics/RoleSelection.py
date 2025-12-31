@@ -368,7 +368,7 @@ class RoleSelection(CustomAction):
             )
             print(f"{role_name}: 权重={w}")
             weight[role_name] = w
-        
+
         return weight
 
     def save_screenshot(self, image: numpy.ndarray, img_type: str) -> bool:

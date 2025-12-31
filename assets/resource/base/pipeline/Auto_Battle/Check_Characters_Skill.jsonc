@@ -38,6 +38,46 @@
             }
         }
     },
+    "检查支援类型角色": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    158,
+                    70,
+                    125,
+                    577
+                ],
+                "template": [
+                    "选择角色类型/增幅.png",
+                    "选择角色类型/支援.png",
+                    "选择角色类型/装甲.png",
+                    "选择角色类型/观测者.png"
+                ]
+            }
+        },
+        "next": [
+            "检查支援类型角色是否被选中"
+        ]
+    },
+    "检查支援类型角色是否被选中": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "检查支援类型角色",
+                "only_rec": true,
+                "roi_offset": [
+                    -100,
+                    60,
+                    30,
+                    -10
+                ],
+                "expected": [
+                    "编队中"
+                ]
+            }
+        }
+    },
     "检查希声2阶段": {
         "recognition": {
             "type": "ColorMatch",

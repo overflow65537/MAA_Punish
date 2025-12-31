@@ -10,6 +10,7 @@ from action.basics.RoleSelection import RoleSelection
 from action.basics.RecognitionRole import RecognitionRole
 from action.basics.Post_Stop import PostStop
 from action.basics.Notice import Notice
+from action.basics.RoleSelectionType import RoleSelectionType
 
 
 from action.exclusives.CrimsonWeave import CrimsonWeave
@@ -30,11 +31,15 @@ from action.exclusives.Spectre import Spectre
 from recognition.exclusives.CalculateScore import CalculateScore
 from recognition.exclusives.IDFMembers import IDFMembers
 from recognition.exclusives.IDFscore import IDFscore
-from recognition.exclusives.IDFMasteryLevel import IDFMasteryLevel
 from recognition.exclusives.LogicalOperators import LOp
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
 from recognition.exclusives.NextStageRecognition import NextStageRecognition
+
+        
+@AgentServer.custom_action("RoleSelectionType")
+class Agent_RoleSelectionType(RoleSelectionType):
+    pass
 
 
 @AgentServer.custom_action("Notice")
@@ -131,10 +136,6 @@ class Agent_PPOverride(PPOverride):
 class Agent_Count(Count):
     pass
 
-
-@AgentServer.custom_recognition("IDFMasteryLevel")
-class Agent_IDFMasteryLevel(IDFMasteryLevel):
-    pass
 
 
 @AgentServer.custom_action("SetTower")
