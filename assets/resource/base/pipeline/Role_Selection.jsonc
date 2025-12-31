@@ -14,6 +14,41 @@
             }
         }
     },
+    "识别战斗参数": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "识别角色",
+                "roi_offset": [
+                    0,
+                    0,
+                    150,
+                    0
+                ],
+                "expected": [
+                    "战斗参数"
+                ]
+            }
+        }
+    },
+    "识别战力": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "识别战斗参数",
+                "only_rec": true,
+                "roi_offset": [
+                    70,
+                    0,
+                    0,
+                    0
+                ],
+                "expected": [
+                    "\\d"
+                ]
+            }
+        }
+    },
     "测试任务": {
         "next": [
             "循环执行器",

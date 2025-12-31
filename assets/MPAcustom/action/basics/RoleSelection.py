@@ -198,9 +198,13 @@ class RoleSelection(CustomAction):
                         }
                     },
                 )
-            if target and target.hit and (
-                isinstance(target.best_result, TemplateMatchResult)
-                or isinstance(target.best_result, ColorMatchResult)
+            if (
+                target
+                and target.hit
+                and (
+                    isinstance(target.best_result, TemplateMatchResult)
+                    or isinstance(target.best_result, ColorMatchResult)
+                )
             ):
                 context.tasker.controller.post_click(
                     target.best_result.box[0] + target.best_result.box[2] // 2,
@@ -219,7 +223,9 @@ class RoleSelection(CustomAction):
             context.override_pipeline(
                 {
                     "停止任务": {
-                        "focus": {"Node.Recognition.Succeeded": f"未找到角色 {selected_role},退出任务"}
+                        "focus": {
+                            "Node.Recognition.Succeeded": f"未找到角色 {selected_role},退出任务"
+                        }
                     }
                 }
             )
@@ -254,9 +260,29 @@ class RoleSelection(CustomAction):
             )
 
             # 检查识别结果并提取box信息
-            if result and result.hit and isinstance(result.best_result, TemplateMatchResult):
+            if (
+                result
+                and result.hit
+                and isinstance(result.best_result, TemplateMatchResult)
+            ):
                 self.logger.info(f"识别到角色: {role_name}")
                 role[role_name] = role_actions.copy().get("metadata", {})
+                context.run_recognition(
+                    entry="识别战斗参数",
+                    image=image,
+                )
+                power_reco = context.run_recognition(
+                    entry="识别战力",
+                    image=image,
+                )
+
+                if (
+                    power_reco
+                    and power_reco.hit
+                    and isinstance(power_reco.best_result, OCRResult)
+                ):
+                    role[role_name]["power"] = int(power_reco.best_result.text)
+
                 if cage:
                     cage_result = context.run_recognition(
                         entry="识别囚笼次数", image=image
@@ -284,11 +310,13 @@ class RoleSelection(CustomAction):
     def calculate_weight(self, role_info: dict, condition: dict[str, dict]) -> dict:
         """
         公式
-        权重 = (( 属性分数 * 45) + (代数分数 * 2300) + (是否被选中 * 10000) + (是否精通等级没满 * 10000)) * 是否有次数
+        权重 = ( 战力 * 0.5 + ( 属性分数 * 45) + (代数分数 * 2300) + (是否被选中 * 10000) + (是否精通等级没满 * 10000)) * 是否有次数
         """
         weight = {}
 
         for role_name, info in role_info.items():
+            # 战力
+            power = info.get("power", 0)
             # 属性分数
             attribute_score = info.get(condition.get("need_element", ""), 0)
             # 代数分数
@@ -307,6 +335,9 @@ class RoleSelection(CustomAction):
             # 精通等级是否未满
 
             # 权重计算
+            # 1. 战力
+            power_weight = power * 0.5
+
             # 1. 属性分数
             attribute_weight = attribute_score * 45
 
@@ -319,19 +350,25 @@ class RoleSelection(CustomAction):
             # 4. 被选中加成
             pick_bonus = 10000 if is_pick else 0
 
-            # 5. 基础权重 = (属性 + 代数 + 精通) * 是否有次数
+            # 5. 基础权重 = ( 属性 + 代数 + 精通) * 是否有次数
             base_weight = (
-                attribute_weight + generation_weight + master_level_weight + pick_bonus
+                power_weight
+                + attribute_weight
+                + generation_weight
+                + master_level_weight
+                + pick_bonus
             ) * (1 if has_count else 0)
 
             # 6. 最终权重 = 基础权重 + 选中加成
             w = base_weight
 
             self.logger.debug(
-                f"{role_name}: 属性分={attribute_weight}, 代数分={generation_weight}, "
+                f"{role_name}: 战力={power_weight}, 属性分={attribute_weight}, 代数分={generation_weight}, "
                 f"精通分={master_level_weight}, 选中加成={pick_bonus}, 基础权重={base_weight}, 最终权重={w}"
             )
+            print(f"{role_name}: 权重={w}")
             weight[role_name] = w
+        
         return weight
 
     def save_screenshot(self, image: numpy.ndarray, img_type: str) -> bool:
