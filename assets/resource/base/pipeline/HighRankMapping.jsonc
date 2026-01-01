@@ -72,7 +72,7 @@
             "[JumpBack]战斗中",
             "[JumpBack]开始挑战_点击丢失",
             "结算",
-            "战斗失败_历战",
+            "[JumpBack]战斗失败_历战",
             "[JumpBack]继续挑战",
             "[JumpBack]载入中",
             "[JumpBack]点击空白处关闭",
@@ -131,6 +131,10 @@
         }
     },
     "战斗失败_历战": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -141,17 +145,13 @@
                     330
                 ],
                 "expected": [
-                    "战斗失败"
+                    "作战失败"
                 ]
             }
         },
         "action": {
             "type": "Click"
-        },
-        "next": [
-            "战斗失败_历战",
-            "结算"
-        ]
+        }
     },
     "结算": {
         "post_wait_freezes": {
@@ -176,14 +176,18 @@
             "type": "Click"
         },
         "next": [
-            "[JumpBack]结算_点击失效",
             "历战映射主界面",
             "[JumpBack]确定",
+            "[JumpBack]结算_点击失效",
             "[JumpBack]继续",
             "[JumpBack]返回"
         ]
     },
     "结算_点击失效": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -347,12 +351,38 @@
                     38
                 ],
                 "expected": [
-                    "1500"
+                    "^1500$"
+                ],
+                "only_rec": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]领取历战奖励",
+            "[JumpBack]关闭奖励",
+            "返回主菜单"
+        ]
+    },
+    "领取历战奖励": {
+        "max_hit": 2,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    892,
+                    534,
+                    388,
+                    186
+                ],
+                "expected": [
+                    "键领取"
                 ]
             }
         },
-        "next": [
-            "返回主菜单"
-        ]
+        "action": {
+            "type": "Click"
+        }
     }
 }

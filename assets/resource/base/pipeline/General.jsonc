@@ -310,7 +310,7 @@
     },
     "确定": {
         "post_wait_freezes": {
-            "time": 1000,
+            "time": 500,
             "timeout": 5000
         },
         "recognition": {
