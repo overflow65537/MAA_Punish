@@ -1,5 +1,8 @@
 {
     "统计信号球数量": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -15,6 +18,9 @@
         }
     },
     "检查血量百分比": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -105,6 +111,9 @@
         }
     },
     "检查希声2阶段": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -130,6 +139,9 @@
         }
     },
     "检查希声红球": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -148,6 +160,9 @@
         }
     },
     "检查希声长闪": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -197,6 +212,9 @@
         }
     },
     "检查骇影2阶段": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -222,6 +240,9 @@
         }
     },
     "检查核心条2_霁梦": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -247,6 +268,9 @@
         }
     },
     "检查核心球_霁梦": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -262,6 +286,9 @@
         }
     },
     "检查核心条_霁梦": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -287,6 +314,9 @@
         }
     },
     "检查普攻2_霁梦": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -302,6 +332,9 @@
         }
     },
     "检查普攻1_霁梦": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -317,6 +350,9 @@
         }
     },
     "检查核心条_铮骨": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -341,6 +377,9 @@
         }
     },
     "检查残月值_终焉": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -366,6 +405,9 @@
         }
     },
     "检查无光值_囚影": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -380,6 +422,9 @@
         }
     },
     "检查比安卡·深痕一阶段": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -397,6 +442,9 @@
         }
     },
     "检查核心被动_深痕": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -420,6 +468,9 @@
         }
     },
     "检查u1_誓焰": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -435,6 +486,9 @@
         }
     },
     "检查u2_誓焰": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -450,6 +504,9 @@
         }
     },
     "检查u3_誓焰": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -465,6 +522,9 @@
         }
     },
     "检查u3_max": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -490,6 +550,9 @@
         }
     },
     "检查p1动能条_誓焰": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -513,6 +576,9 @@
         }
     },
     "检查阶段p1_深谣": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -528,6 +594,9 @@
         }
     },
     "检查阶段p2_深谣": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -543,6 +612,9 @@
         }
     },
     "检查核心被动1_深谣": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -558,6 +630,9 @@
         }
     },
     "检查核心被动2_深谣": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -573,6 +648,9 @@
         }
     },
     "检查p2动能条_深谣": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -596,7 +674,9 @@
         }
     },
     "检查核心技能_超刻": {
+        "rate_limit": 0,
         "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -622,6 +702,9 @@
         }
     },
     "检查核心技能结束_超刻": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -636,6 +719,9 @@
         }
     },
     "检查核心被动_晖暮": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -659,6 +745,9 @@
         }
     },
     "识别信号球": {
+        "rate_limit": 0,
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {

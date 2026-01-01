@@ -988,6 +988,7 @@
     },
     "战斗事件_矩阵循生": {
         "timeout": 300000,
+        "rate_limit": 0,
         "focus": {
             "Node.Recognition.Succeeded": "[color:ForestGreen]开始战斗[/color]"
         },

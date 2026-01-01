@@ -345,6 +345,7 @@
     },
     "战斗事件_厄愿潮声": {
         "timeout": 300000,
+        "rate_limit": 0,
         "focus": {
             "Node.Recognition.Succeeded": "[color:ForestGreen]战斗事件[/color]"
         },

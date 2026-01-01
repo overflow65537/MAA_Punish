@@ -13,6 +13,7 @@
         ]
     },
     "开始挑战": {
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {

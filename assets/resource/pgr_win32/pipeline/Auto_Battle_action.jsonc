@@ -1,0 +1,170 @@
+{
+    "攻击": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 74
+            }
+        }
+    },
+    "闪避": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 75
+            }
+        }
+    },
+    "技能": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 76
+            }
+        }
+    },
+    "长按攻击": {
+        "action": {
+            "type": "LongPressKey",
+            "param": {
+                "key": 74
+            }
+        }
+    },
+    "长按闪避": {
+        "action": {
+            "type": "LongPressKey",
+            "param": {
+                "key": 75
+            }
+        }
+    },
+    "长按技能": {
+        "action": {
+            "type": "LongPressKey",
+            "param": {
+                "key": 76
+            }
+        }
+    },
+    "按下攻击": {
+        "action": {
+            "type": "KeyDown",
+            "param": {
+                "key": 74
+            }
+        }
+    },
+    "按下闪避": {
+        "action": {
+            "type": "KeyDown",
+            "param": {
+                "key": 75
+            }
+        }
+    },
+    "松开闪避": {
+        "action": {
+            "type": "KeyDown",
+            "param": {
+                "key": 76
+            }
+        }
+    },
+    "qte1": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 81
+            }
+        }
+    },
+    "qte2": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 69
+            }
+        }
+    },
+    "消球1": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 49
+            }
+        }
+    },
+    "消球2": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 50
+            }
+        }
+    },
+    "消球3": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 51
+            }
+        }
+    },
+    "消球4": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 52
+            }
+        }
+    },
+    "消球5": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 53
+            }
+        }
+    },
+    "消球6": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 54
+            }
+        }
+    },
+    "消球7": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 55
+            }
+        }
+    },
+    "消球8": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 56
+            }
+        }
+    },
+    "锁定视角": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 9
+            }
+        }
+    },
+    "辅助机": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 67
+            }
+        }
+    }
+}

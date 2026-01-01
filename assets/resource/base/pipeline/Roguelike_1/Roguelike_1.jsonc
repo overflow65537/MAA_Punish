@@ -601,6 +601,7 @@
         "post_wait_freezes": {
             "time": 1000
         },
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -637,6 +638,7 @@
         "post_wait_freezes": {
             "time": 1000
         },
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {

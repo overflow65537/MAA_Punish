@@ -129,6 +129,7 @@
     "角色特有战斗": {
         "post_delay": 0,
         "pre_delay": 0,
+        "rate_limit": 0,
         "action": {
             "type": "Custom",
             "param": {
@@ -139,6 +140,7 @@
     "通用战斗模式": {
         "post_delay": 0,
         "pre_delay": 0,
+        "rate_limit": 0,
         "action": {
             "type": "Custom",
             "param": {
@@ -149,6 +151,7 @@
     "自动战斗结束": {
         "post_delay": 0,
         "pre_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -165,26 +168,28 @@
     "技能_能量条": {
         "post_delay": 0,
         "pre_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
                 "roi": [
-                    28,
-                    59,
-                    216,
-                    6
+                    15,
+                    49,
+                    243,
+                    32
                 ],
-                "connected": true,
                 "upper": [
                     194,
                     255,
                     255
                 ],
                 "lower": [
-                    100,
-                    230,
-                    255
-                ]
+                    90,
+                    175,
+                    225
+                ],
+                "connected": true,
+                "count": 30
             }
         }
     }

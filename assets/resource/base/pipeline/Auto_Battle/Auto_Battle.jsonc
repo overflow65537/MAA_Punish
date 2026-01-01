@@ -4,7 +4,6 @@
         "pre_delay": 0,
         "rate_limit": 0,
         "next": [
-            "循环执行器",
             "[JumpBack]战斗重启1",
             "[JumpBack]播放剧情",
             "[JumpBack]主线跳过",
@@ -294,6 +293,7 @@
         }
     },
     "播放剧情": {
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -367,6 +367,7 @@
         }
     },
     "战斗重启1": {
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -410,6 +411,7 @@
     "进入战斗_条件2": {
         "post_delay": 0,
         "pre_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -434,13 +436,14 @@
         },
         "next": [
             "识别人物",
-            "战斗中",
+            "[JumpBack]战斗中",
             "空任务"
         ]
     },
     "进入战斗": {
         "post_delay": 0,
         "pre_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -479,7 +482,7 @@
         },
         "next": [
             "识别人物",
-            "战斗中",
+            "[JumpBack]战斗中",
             "空任务"
         ]
     },
@@ -497,6 +500,9 @@
         }
     },
     "主线跳过": {
+        "post_delay": 0,
+        "pre_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
