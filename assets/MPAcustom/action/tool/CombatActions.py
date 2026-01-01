@@ -257,15 +257,15 @@ class CombatActions:
         """
         # 颜色映射字典
         color_map = {
-            "r": ("检查红色QTE", "检查红色QTE冷却中"),
-            "y": ("检查黄色QTE", "检查黄色QTE冷却中"),
-            "b": ("检查蓝色QTE", "检查蓝色QTE冷却中"),
+            "r": "检查红色QTE",
+            "y": "检查黄色QTE",
+            "b": "检查蓝色QTE"
         }
 
         if color not in color_map:
             return False
 
-        qte_name, cooldown_name = color_map[color]
+        qte_name = color_map[color]
 
         # 检查目标QTE是否存在
         target_color_reco = self.context.run_recognition(qte_name, image)
@@ -274,16 +274,10 @@ class CombatActions:
             and target_color_reco.hit
             and isinstance(target_color_reco.best_result, ColorMatchResult)
         ):
-
-            # 检查QTE是否在冷却中
-            target_qte_reco = self.context.run_recognition(cooldown_name, image)
-            if target_qte_reco and not target_qte_reco.hit:
-                print(f"发现{color}QTE，尝试点击")
-                # 点击QTE
-                return self.context.tasker.controller.post_click(
-                    target_color_reco.best_result.box[0],
-                    target_color_reco.best_result.box[1],
-                ).wait()
+            return self.context.tasker.controller.post_click(
+                target_color_reco.best_result.box[0],
+                target_color_reco.best_result.box[1],
+            ).wait()
         return False
 
     def auto_qte(self, target: str = "a"):
