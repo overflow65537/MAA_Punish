@@ -37,46 +37,63 @@ class Pyroath(CustomAction):
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
 
-        action = CombatActions(context, role_name="誓焰")
+        self.action = CombatActions(context, role_name="誓焰")
 
-        action.lens_lock()
+        start_time = time.time()
+        print(f"启动时间: {start_time}")
+        self.action.lens_lock()
+        self.action.attack()
 
-        if action.check_status("检查u1_誓焰"):
-            action.logger.info("誓焰u1")
-            if action.check_status("检查p1动能条_誓焰"):
-                action.logger.info("p1动能条max")
-                action.long_press_skill()  # 汇聚,阳炎之光
-                time.sleep(0.1)
-                action.auto_qte("a")
-               
-            else:
-                action.logger.info("p1动能条非max")
-                action.ball_elimination_target()  # 消球2
-                action.continuous_attack(20, 100)  # 攻击
+        if self.action.check_status("检查u1_誓焰"):
+            self.action.logger.info("誓焰u1")
+            print("u1, 攻击")
+            atk_items = 0
+            while not self.action.check_status("检查p1动能条_誓焰") and atk_items < 100:
+                self.action.ball_elimination_target()  # 消球2
+                self.action.attack()
+                time.sleep(0.05)
+                atk_items += 1
 
-        elif action.check_status("检查u2_誓焰"):
-            action.logger.info("誓焰u2")
-            if action.check_Skill_energy_bar():
-                action.use_skill()  # 进入3阶段
-                time.sleep(0.2)
-            else:
-                action.long_press_attack()
-                action.continuous_attack(20, 100)  # 攻击
-                action.ball_elimination_target()  # 消球2
-
-        elif action.check_status("检查u3_誓焰"):
-            action.logger.info("誓焰u3")
-            if action.check_Skill_energy_bar():
-                action.use_skill()
-            elif not action.check_status("检查u3_max"):
-                action.attack()
-                for _ in range(10):
-                    time.sleep(0.3)
-                    action.attack()
-            action.long_press_attack(4000)  # 长按攻击
-            action.use_skill()
+            self.action.logger.info("p1动能条max")
+            print("p1动能条max, 汇聚,阳炎之光")
+            self.action.long_press_skill()  # 汇聚,阳炎之光
             time.sleep(0.1)
-            action.auxiliary_machine()
-            action.auto_qte("a")
+            self.action.auto_qte("a")
+            print("长按攻击")
+            start_time = time.time()
+            while time.time() - start_time < 1.5:
+                if self.action.check_status("检查p1动能条_誓焰"):
+                    self.action.long_press_attack(700)
+                self.action.attack()
+
+        elif self.action.check_status("检查u2_誓焰"):
+            self.action.logger.info("誓焰u2")
+            print("u2, 攻击")
+
+            atk_items = 0
+            while not self.action.check_Skill_energy_bar() and atk_items < 20:
+                self.action.attack()
+                time.sleep(0.05)
+                self.action.ball_elimination_target()
+                time.sleep(0.05)
+                atk_items += 1
+            self.action.use_skill()
+        elif self.action.check_status("检查u3_誓焰"):
+            print("u3, 攻击")
+            self.action.logger.info("誓焰u3")
+            atk_items = 0
+            while not self.action.check_status("检查u3_max") and atk_items < 20:
+                self.action.attack()
+                time.sleep(0.3)
+                atk_items += 1
+            self.action.long_press_attack(4000)  # 长按攻击
+            self.action.use_skill()
+            time.sleep(0.1)
+            self.action.auxiliary_machine()
+            self.action.auto_qte("a")
+        self.action.attack()
+        end_time = time.time()
+        print(f"誓焰: {end_time - start_time}")
+        print(f"结束时间: {end_time}")
 
         return CustomAction.RunResult(success=True)
