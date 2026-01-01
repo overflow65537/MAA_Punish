@@ -39,4 +39,5 @@ class GeneralFight(CustomAction):
         action.use_skill()
         action.continuous_attack(4, 300)
         action.auto_qte("a")
+        action.auxiliary_machine()
         return CustomAction.RunResult(success=True)

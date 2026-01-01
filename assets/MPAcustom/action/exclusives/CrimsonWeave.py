@@ -70,7 +70,7 @@ class CrimsonWeave(CustomAction):
             action.dodge()  # 闪避
             for _ in range(7):
                 start_time = time.time()
-                action.attack()  # 宿命的囚笼由我斩断
+                action.attack() 
                 light_less = action.check_status(
                     "检查无光值_囚影",
                     self.light_less_any,
@@ -87,6 +87,7 @@ class CrimsonWeave(CustomAction):
                             action.use_skill()
                             action.ball_elimination_target(1)
                             time.sleep(0.2)
+                        action.auto_qte("a")
                         break
                 elif (
                     light_less_value == 300 or light_less_value >= 474
@@ -98,6 +99,7 @@ class CrimsonWeave(CustomAction):
                         for _ in range(10):
                             action.use_skill()  # 宿命的囚笼由我斩断
                             time.sleep(0.2)
+                        action.auxiliary_machine()
                     for _ in range(10):
                         action.ball_elimination_target(1)
                         time.sleep(0.2)
@@ -123,6 +125,7 @@ class CrimsonWeave(CustomAction):
                         action.use_skill()
                         action.ball_elimination_target(1)
                         time.sleep(0.2)
+                    action.auxiliary_machine()
 
             else:
                 elapsed = time.time() - start_time
@@ -135,6 +138,7 @@ class CrimsonWeave(CustomAction):
                     for _ in range(10):
                         action.use_skill()  # 宿命的囚笼由我斩断
                         time.sleep(0.2)
+                    action.auxiliary_machine()
                 for _ in range(10):
                     action.ball_elimination_target(1)
                     time.sleep(0.2)

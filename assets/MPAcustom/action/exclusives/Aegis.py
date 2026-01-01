@@ -46,15 +46,20 @@ class Aegis(CustomAction):
                 for _ in range(10):
                     action.use_skill()
                     time.sleep(0.1)
+                action.auto_qte("a")
+                action.auxiliary_machine()
                 continue
 
             if ball_count := action.count_signal_balls() >= 3:
                 for _ in range(3):
                     action.ball_elimination_target()
                     time.sleep(0.1)
+                action.auto_qte("a")
                 if action.count_signal_balls() == ball_count:
                     action.dodge()
                     time.sleep(0.1)
                     action.ball_elimination_target()
+                action.auto_qte("a")
+                action.auxiliary_machine()
 
         return CustomAction.RunResult(success=True)

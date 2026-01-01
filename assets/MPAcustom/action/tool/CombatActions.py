@@ -248,13 +248,13 @@ class CombatActions:
             raise ValueError("target 参数必须为 1 或 2")
         return self.context.run_action(f"qte{target}")
 
-    def _try_qte_by_color(self, color: str, image):
+    def _try_qte_by_color(self, color: str):
         """
         尝试触发指定颜色的QTE
         :param color: QTE颜色(r,y,b)
-        :param image: 截图对象
         :return: 成功返回点击操作结果，失败返回False
         """
+        image = self.context.tasker.controller.post_screencap().wait().get()
         # 颜色映射字典
         color_map = {
             "r": "检查红色QTE",
@@ -274,6 +274,7 @@ class CombatActions:
             and target_color_reco.hit
             and isinstance(target_color_reco.best_result, ColorMatchResult)
         ):
+            print(target_color_reco.best_result)
             return self.context.tasker.controller.post_click(
                 target_color_reco.best_result.box[0],
                 target_color_reco.best_result.box[1],
@@ -286,17 +287,17 @@ class CombatActions:
         :param target: QTE颜色(r,y,b,a)，默认r。a表示依次检查r、b、y
         :return: 点击操作结果
         """
-        image = self.context.tasker.controller.post_screencap().wait().get()
+        
 
         # 处理自动模式：依次检查r、b、y
         if target == "a":
             for color in ["r", "b", "y"]:
-                self._try_qte_by_color(color, image)
+                self._try_qte_by_color(color)
                 time.sleep(0.05)
             return False
 
         # 处理单色模式
-        result = self._try_qte_by_color(target, image)
+        result = self._try_qte_by_color(target)
         if result is False and target not in ("r", "y", "b"):
             raise ValueError("target 参数必须为 r, y, b, a")
         return result

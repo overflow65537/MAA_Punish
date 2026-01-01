@@ -76,7 +76,8 @@
             "[JumpBack]继续挑战",
             "[JumpBack]载入中",
             "[JumpBack]点击空白处关闭",
-            "[JumpBack]确定"
+            "[JumpBack]确定",
+            "[JumpBack]作战开始"
         ]
     },
     "开始挑战_点击丢失": {
@@ -153,6 +154,10 @@
         ]
     },
     "结算": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -171,11 +176,39 @@
             "type": "Click"
         },
         "next": [
+            "[JumpBack]结算_点击失效",
             "历战映射主界面",
             "[JumpBack]确定",
             "[JumpBack]继续",
             "[JumpBack]返回"
         ]
+    },
+    "结算_点击失效": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    734,
+                    602,
+                    78,
+                    38
+                ],
+                "expected": [
+                    "^[1-9]\\d*$"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1103,
+                    141,
+                    1,
+                    1
+                ]
+            }
+        }
     },
     "继续": {
         "post_wait_freezes": {

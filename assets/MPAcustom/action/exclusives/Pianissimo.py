@@ -44,6 +44,7 @@ class Pianissimo(CustomAction):
                 if action.check_status("检查希声红球"):
                     action.use_skill()
                     time.sleep(0.2)
+                    action.auxiliary_machine()
                     action.auto_qte("a")
                     return CustomAction.RunResult(success=True)
                 action.ball_elimination_target(2)
@@ -52,11 +53,12 @@ class Pianissimo(CustomAction):
                 time.sleep(0.03)
 
             action.long_press_dodge(700)
+            action.auxiliary_machine()
+            action.auto_qte("a")
 
             for _ in range(5):
                 time.sleep(0.05)
                 action.use_skill()
-                action.auto_qte("a")
 
         elif action.count_signal_balls() > 5:
             print("希声1阶段")
@@ -74,7 +76,9 @@ class Pianissimo(CustomAction):
             print("希声1阶段消球结束")
 
             action.long_press_attack(1000)
+            time.sleep(0.01)
             action.auto_qte("a")
+            action.auxiliary_machine()
             for _ in range(15):
                 action.attack()
                 time.sleep(0.05)

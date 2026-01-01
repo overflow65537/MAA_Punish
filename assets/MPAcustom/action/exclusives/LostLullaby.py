@@ -35,44 +35,48 @@ class LostLullaby(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        actions = CombatActions(context=context, role_name="深谣")
+        action = CombatActions(context=context, role_name="深谣")
 
-        actions.lens_lock()
-        if actions.check_status("检查阶段p1_深谣"):
-            actions.logger.info("p1阶段")
-            if actions.check_Skill_energy_bar():
-                actions.use_skill()  # 像泡沫一样,消散吧
+        action.lens_lock()
+        if action.check_status("检查阶段p1_深谣"):
+            action.logger.info("p1阶段")
+            if action.check_Skill_energy_bar():
+                action.use_skill()  # 像泡沫一样,消散吧
+                action.auxiliary_machine()
 
             else:
-                if actions.check_status("检查核心被动1_深谣"):
-                    actions.logger.info("p1核心被动1")  # 海啸球
-                    actions.ball_elimination_target(1)
+                if action.check_status("检查核心被动1_深谣"):
+                    action.logger.info("p1核心被动1")  # 海啸球
+                    action.ball_elimination_target(1)
+                    action.auto_qte("a")
                     time.sleep(0.3)
-                    actions.dodge()  # 闪避
+                    action.dodge()  # 闪避
 
-                elif actions.check_status("检查核心被动2_深谣"):
-                    actions.logger.info("p1核心被动2")
-                    actions.ball_elimination_target(1)
+                elif action.check_status("检查核心被动2_深谣"):
+                    action.logger.info("p1核心被动2")
+                    action.ball_elimination_target(1)
 
                 else:
-                    actions.logger.info("没有核心被动")
-                    actions.ball_elimination_target(2)
-                    actions.continuous_attack(8, 300)
+                    action.logger.info("没有核心被动")
+                    action.ball_elimination_target(2)
+                    action.continuous_attack(8, 300)
 
-        elif actions.check_status("检查阶段p2_深谣"):
-            actions.logger.info("p2阶段")
-            if actions.check_Skill_energy_bar():
+        elif action.check_status("检查阶段p2_深谣"):
+            action.logger.info("p2阶段")
+            if action.check_Skill_energy_bar():
                 for _ in range(10):
                     time.sleep(0.1)
-                    actions.ball_elimination_target(1)  # 滚出这里
+                    action.ball_elimination_target(1)  # 滚出这里
                 time.sleep(1)
-                actions.long_press_attack()  # 毁灭吧
+                action.long_press_attack()  # 毁灭吧
                 for _ in range(10):
                     time.sleep(0.1)
-                    actions.use_skill()  # 沉没在,这片海底
+                    action.use_skill()  # 沉没在,这片海底
+                    action.auxiliary_machine()
+                    action.auto_qte("a")
 
             else:
-                actions.ball_elimination_target(1)
-                actions.ball_elimination_target(2)
-                actions.continuous_attack(8, 300)
+                action.ball_elimination_target(1)
+                action.ball_elimination_target(2)
+                action.continuous_attack(8, 300)
         return CustomAction.RunResult(success=True)

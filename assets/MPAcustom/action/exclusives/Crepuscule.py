@@ -42,10 +42,13 @@ class Crepuscule(CustomAction):
             action.use_skill()
             time.sleep(0.05)
             action.auto_qte("a")
+            action.auxiliary_machine()
 
         elif action.check_status("检查核心被动_晖暮"):
             action.long_press_dodge(3000)
             context.tasker.controller.post_swipe(1212, 513, 1212, 513, 3000).wait()
+            action.auto_qte("a")
+            action.auxiliary_machine()
         else:
             action.logger.info("核心技能未就绪")
             action.continuous_attack(50, 100)

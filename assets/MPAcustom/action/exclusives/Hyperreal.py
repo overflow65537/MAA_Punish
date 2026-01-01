@@ -45,11 +45,16 @@ class Hyperreal(CustomAction):
         if action.check_Skill_energy_bar():
             action.logger.info("大招就绪")
             action.use_skill()  # 在时间的尽头,湮灭吧
+            action.auxiliary_machine()
             time.sleep(1)
+            action.auto_qte("a")
+            
 
         elif action.check_status("检查核心技能_超刻"):  # 核心技能就绪
             action.logger.info("核心技能就绪")
             action.long_press_attack()
+            action.auto_qte("a")
+            action.auxiliary_machine()
 
             start_time = time.time()
             while (
@@ -57,7 +62,9 @@ class Hyperreal(CustomAction):
             ) and time.time() - start_time < 10:
                 while action.count_signal_balls():
                     action.ball_elimination_target(1)
+                    
                 time.sleep(0.1)
+                action.auto_qte("a")
                 action.attack()
             action.logger.info("核心技能结束")
 

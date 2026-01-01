@@ -45,6 +45,7 @@ class Limpidity(CustomAction):
         if action.check_status("检查普攻1_霁梦"):
             if action.check_status("检查核心条_霁梦"):
                 action.long_press_dodge(1000)  # 直面天闪!
+                action.auto_qte("a")
                 print("直面天闪!")
                 for _ in range(15):
                     action.use_skill()  # 以苦厄,澈我心镜
@@ -73,6 +74,7 @@ class Limpidity(CustomAction):
                     action.ball_elimination_target(1)  # 见证,我的意志
                     print("见证,我的意志")
                     time.sleep(0.1)
+                action.auto_qte("a")
 
                 action.long_press_attack(3000)  # 终于,梦醒时分
                 print("终于,梦醒时分")

@@ -36,21 +36,23 @@ class Oblivion(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        actions = CombatActions(context, role_name="终焉")
+        action = CombatActions(context, role_name="终焉")
 
-        actions.lens_lock()
+        action.lens_lock()
 
-        if actions.check_Skill_energy_bar():
-            actions.use_skill(1000)  # 技能
-        elif actions.check_status("检查残月值_终焉"):
-            actions.long_press_attack(2000)
-        elif actions.count_signal_balls() >= 9:
-            actions.ball_elimination_target(1)
+        if action.check_Skill_energy_bar():
+            action.use_skill(1000)  # 技能
+            action.auxiliary_machine()
+            action.auto_qte("a")
+        elif action.check_status("检查残月值_终焉"):
+            action.long_press_attack(2000)
+        elif action.count_signal_balls() >= 9:
+            action.ball_elimination_target(1)
         else:
             time.sleep(0.1)
-            actions.ball_elimination_target(1)
-            actions.continuous_attack(8, 200)
-            actions.long_press_attack(2000)
+            action.ball_elimination_target(1)
+            action.continuous_attack(8, 200)
+            action.long_press_attack(2000)
             time.sleep(1)
 
         return CustomAction.RunResult(success=True)

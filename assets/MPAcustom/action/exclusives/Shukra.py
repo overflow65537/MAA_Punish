@@ -57,40 +57,41 @@ class Shukra(CustomAction):
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
 
-        actions = CombatActions(context, role_name="启明")
+        action = CombatActions(context, role_name="启明")
 
-        actions.lens_lock()
+        action.lens_lock()
 
-        if actions.check_Skill_energy_bar():
-            actions.use_skill()  # 万世生死,淬于寒冰
+        if action.check_Skill_energy_bar():
+            action.use_skill()  # 万世生死,淬于寒冰
             start_time = time.time()
             while time.time() - start_time < 3:  # 生死喧嚣,归于寂静
                 time.sleep(0.1)
-                actions.ball_elimination_target(1)
-            actions.use_skill()
+                action.ball_elimination_target(1)
+            action.use_skill()
             time.sleep(0.1)
-            actions.auto_qte("a")
+            action.auxiliary_machine()
+            action.auto_qte("a")
 
-        elif actions.count_signal_balls() >= 9:  # 信号球数量大于9
+        elif action.count_signal_balls() >= 9:  # 信号球数量大于9
             start_time = time.time()
             while time.time() - start_time < 7:
                 time.sleep(0.3)
-                target = actions.Arrange_Signal_Balls("any")
-                actions.ball_elimination_target(target)
-                actions.logger.info(f"初次消球")
+                target = action.Arrange_Signal_Balls("any")
+                action.ball_elimination_target(target)
+                action.logger.info(f"初次消球")
                 if target > 0:
                     time.sleep(0.1)
-                    actions.logger.info(f"三连目标,开始二次消球")
-                    actions.ball_elimination_target(1)  # 单独消球
+                    action.logger.info(f"三连目标,开始二次消球")
+                    action.ball_elimination_target(1)  # 单独消球
                 elif target == 0:
-                    actions.logger.info(f"信号球空,结束")
+                    action.logger.info(f"信号球空,结束")
                     break
-            actions.logger.info(f"长按攻击")
-            actions.long_press_attack()
+            action.logger.info(f"长按攻击")
+            action.long_press_attack()
         else:
-            actions.logger.info(f"普攻")
+            action.logger.info(f"普攻")
             start_time = time.time()
             while time.time() - start_time < 2:
-                actions.attack()  # 攻击
+                action.attack()  # 攻击
                 time.sleep(0.1)
         return CustomAction.RunResult(success=True)
