@@ -9,11 +9,47 @@
             "[JumpBack]打开历战映射",
             "[JumpBack]打开挑战",
             "[JumpBack]打开战斗",
-            "[JumpBack]意外点击_限定活动"
+            "[JumpBack]意外点击_限定活动",
+            "[JumpBack]意外点击_环境情报"
         ]
+    },
+    "意外点击_环境情报": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    66,
+                    51,
+                    252,
+                    106
+                ],
+                "expected": [
+                    "环境情报"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1197,
+                    66,
+                    1,
+                    1
+                ]
+            }
+        }
     },
     "开始挑战": {
         "rate_limit": 0,
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -32,15 +68,43 @@
             "type": "Click"
         },
         "next": [
-            "结算",
-            "战斗失败_历战",
             "[JumpBack]识别人物",
             "[JumpBack]战斗中",
+            "[JumpBack]开始挑战_点击丢失",
+            "结算",
+            "战斗失败_历战",
             "[JumpBack]继续挑战",
             "[JumpBack]载入中",
             "[JumpBack]点击空白处关闭",
             "[JumpBack]确定"
         ]
+    },
+    "开始挑战_点击丢失": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    734,
+                    602,
+                    78,
+                    38
+                ],
+                "expected": [
+                    "^0$"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    644,
+                    575,
+                    258,
+                    131
+                ]
+            }
+        }
     },
     "继续挑战": {
         "post_wait_freezes": {
@@ -107,8 +171,50 @@
             "type": "Click"
         },
         "next": [
-            "确定"
+            "历战映射主界面",
+            "[JumpBack]确定",
+            "[JumpBack]继续",
+            "[JumpBack]返回"
         ]
+    },
+    "继续": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    882,
+                    536,
+                    222,
+                    174
+                ],
+                "expected": [
+                    "继续"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "历战映射主界面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    30,
+                    70,
+                    405,
+                    227
+                ],
+                "expected": [
+                    "历战映射"
+                ]
+            }
+        }
     },
     "选人_历战": {
         "recognition": {
@@ -149,6 +255,10 @@
         }
     },
     "前往作战": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
