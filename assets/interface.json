@@ -402,7 +402,7 @@
         {
             "name": "历战映射",
             "entry": "历战映射",
-            "description": "<p>历战映射</p>",
+            "description": "<p>历战映射</p><p><b>速通</b>：每周二5点后可运行1次</p>",
             "pipeline_override": {
                 "选择角色程序": {
                     "next": [
@@ -412,6 +412,20 @@
                 "作战开始": {
                     "post_delay": 1000,
                     "next": []
+                }
+            },
+            "speedrun": {
+                "mode": "weekly",
+                "trigger": {
+                    "weekly": {
+                        "weekday": [
+                            2
+                        ],
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
                 }
             }
         },
