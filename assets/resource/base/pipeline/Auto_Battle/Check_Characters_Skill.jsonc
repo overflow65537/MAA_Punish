@@ -1,4 +1,21 @@
 {
+    "测试": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "green_mask": true,
+                "roi": [
+                    1156,
+                    594,
+                    75,
+                    81
+                ],
+                "template": [
+                    "自定义战斗/希声.png"
+                ]
+            }
+        }
+    },
     "统计信号球数量": {
         "rate_limit": 0,
         "post_delay": 0,
@@ -154,7 +171,7 @@
                 "green_mask": true,
                 "template": [
                     "信号球/希声_红.png",
-                    "信号球/启明_黄.png"
+                    "信号球/希声_黄.png"
                 ]
             }
         }

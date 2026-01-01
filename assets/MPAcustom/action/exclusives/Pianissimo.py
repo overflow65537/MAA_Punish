@@ -5,7 +5,6 @@ MAA_Punish 希声战斗程序
 """
 
 import time
-from tracemalloc import start
 from MPAcustom.action.basics import CombatActions
 from maa.context import Context
 from maa.custom_action import CustomAction
@@ -18,7 +17,6 @@ class Pianissimo(CustomAction):
         action = CombatActions(context, role_name="希声")
 
         action.lens_lock()
-
         if action.check_status("检查希声2阶段"):
             print("希声2阶段")
 
@@ -87,7 +85,11 @@ class Pianissimo(CustomAction):
             print("希声1阶段信号球不足")
             for _ in range(30):
                 start_time = time.time()
-                if action.check_status("检查希声2阶段"):
+                if (
+                    action.check_status("检查希声2阶段")
+                    or action.count_signal_balls() > 5
+                    or context.tasker.stopping
+                ):
                     break
                 action.attack()
                 end_time = time.time()
