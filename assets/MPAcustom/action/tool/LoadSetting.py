@@ -193,6 +193,7 @@ ROLE_ACTIONS = {
         "template": [
             "肉鸽通用/希声终解.png",
             "肉鸽通用/希声.png",
+            "肉鸽通用/希声_缘纺祈糸.png",
         ],
         "attack_template": "自定义战斗/希声.png",
         "skill_template": {
@@ -241,7 +242,6 @@ ROLE_ACTIONS = {
             "generation": 3,
         },
         "template": [
-
             "肉鸽通用/骇影.png",
         ],
         "attack_template": "自定义战斗/骇影.png",
