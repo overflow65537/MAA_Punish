@@ -27,6 +27,14 @@
                 "mouse": "SendMessageWithCursorPos",
                 "keyboard": "SendMessageWithCursorPos"
             }
+        },
+        {
+            "name": "PlayCover端",
+            "type": "PlayCover",
+            "description": "<p style=\"color: red; font-weight: bold;\">Macos 专用,支持PlayCover</p><p>playcover无法自己启动游戏</p>",
+            "playcover": {
+                "uuid": "maa.playcover"
+            }
         }
     ],
     "agent": {
@@ -44,6 +52,16 @@
             ],
             "controller": [
                 "安卓端"
+            ]
+        },
+        {
+            "name": "PlayCover端",
+            "path": [
+                "./resource/base",
+                "./resource/playcover"
+            ],
+            "controller": [
+                "playcover端"
             ]
         },
         {
@@ -183,6 +201,22 @@
             "default_check": true,
             "entry": "启动",
             "description": "<p>仅支持安卓模拟器，不支持官方模拟器。</p><p>请在游戏设置中关闭异形屏适配。</p>",
+            "resource": [
+                "官服",
+                "电脑端",
+                "云战双",
+                "B 服",
+                "应用宝服",
+                "vivo服",
+                "oppo服",
+                "小米服",
+                "4399服",
+                "华为服",
+                "抖音(字节跳动)服",
+                "九游服",
+                "MuMu服",
+                "waydroid官服"
+            ],
             "pipeline_override": {
                 "检查主界面2": {
                     "action": {

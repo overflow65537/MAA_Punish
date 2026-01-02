@@ -1,0 +1,15 @@
+{
+    "打开应用": {
+        "focus": {
+            "Node.Recognition.Succeeded": "别看了,playcover无法启动游戏"
+        },
+        "action": {
+            "type": "DoNothing"
+        }
+    },
+    "关闭应用": {
+        "action": {
+            "param": {}
+        }
+    }
+}
