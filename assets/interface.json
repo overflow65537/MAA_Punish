@@ -25,10 +25,17 @@
                 "window_regex": "^战双帕弥什$",
                 "screencap": "PrintWindow",
                 "mouse": "SendMessageWithCursorPos",
-                "keyboard": "Seize"
+                "keyboard": "SendMessageWithCursorPos"
             }
         }
     ],
+    "agent": {
+        "child_exec": "python",
+        "child_args": [
+            "{PROJECT_DIR}/MPAcustom/main.py"
+        ],
+        "embedded": true
+    },
     "resource": [
         {
             "name": "官服",
