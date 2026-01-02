@@ -130,7 +130,7 @@
 
 目前支持的战斗逻辑：
 
-|||
+| | | |
 |---|---|---|
 |[深红囚影](assets/custom/action/exclusives/CrimsonWeave.py)|[深谣](assets/custom/action/exclusives/LostLullaby.py)|[终焉](assets/custom/action/exclusives/Oblivion.py)|
 |[誓焰](assets/custom/action/exclusives/Pyroath.py)|[启明](assets/custom/action/exclusives/Shukra.py)|[深痕](assets/custom/action/exclusives/Stigmata.py)|
@@ -171,8 +171,8 @@
   
   基于图像识别的自动化黑盒测试框架 | An automation black-box testing framework based on image recognition
 
-- [MFW-PyQt6](https://github.com/overflow65537/MFW-PyQt6)
-  基于 PyQt6 的 MaaFramework 前端 | A frontend based on PyQt6 for MaaFramework
+- [MFW-ChainFlow Assistant](https://github.com/overflow65537/MFW-PyQt6)
+  基于 PySide6 的 MaaFramework 前端 | A frontend based on PySide6 for MaaFramework
 
 ### 开发者
 
