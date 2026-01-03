@@ -101,8 +101,8 @@
                 ],
                 "upper": [
                     180,
-                    75,
-                    40
+                    90,
+                    55
                 ],
                 "count": 500,
                 "connected": true
