@@ -145,11 +145,7 @@ class RoleSelection(CustomAction):
                 context,
                 f"未检测到 {condition.get('pick')},选中权重最高的角色 {selected_role}",
             )
-        trial = False
-        if "[试用]" in selected_role:
-            trial = True
 
-        target = None
         nonselected_roles = False
         if role_weight[selected_role] == 0:
             self.logger.info(f"角色次数全为0")
@@ -160,13 +156,14 @@ class RoleSelection(CustomAction):
         target = None
         images = []
         target_x, target_y = None, None
-        for _ in range(int(condition.get("max_try", 5)) + 1):
+        for _ in range(int(condition.get("max_try", 5))):
             if context.tasker.stopping:
                 return CustomAction.RunResult(success=True)
             image = context.tasker.controller.post_screencap().wait().get()
             images.append(image)
             if nonselected_roles and condition.get("cage"):
-                # 没有对应任务,且是囚笼模式,随便选一个带次数的
+                # 没有对应人物,且是囚笼模式,随便选一个带次数的
+                print("没有对应人物,且是囚笼模式,随便选一个带次数的")
                 target = context.run_recognition(
                     "选择人物",
                     image,
@@ -185,11 +182,21 @@ class RoleSelection(CustomAction):
                         }
                     },
                 )
+                if target and target.hit:
+                    if isinstance(target.best_result, ColorMatchResult):
+                        context.tasker.controller.post_click(
+                            target.best_result.box[0], target.best_result.box[1]
+                        )
+                        context.run_task("编入队伍")
+                        return CustomAction.RunResult(success=True)
             elif nonselected_roles:
-                # 随便选一个带次数的
+                # 没有对应人物,随便选一个带次数的
+                print("没有对应人物,随便选一个带次数的")
                 context.run_task("编入队伍")
                 return CustomAction.RunResult(success=True)
             else:
+                # 有对应人物,选对应人物
+                print(f"有对应人物,选对应人物: {selected_role}")
                 target = context.run_recognition(
                     "选择人物",
                     image,
@@ -215,25 +222,24 @@ class RoleSelection(CustomAction):
             if (
                 target
                 and target.hit
-                and (
-                    isinstance(target.best_result, TemplateMatchResult)
-                    or isinstance(target.best_result, ColorMatchResult)
-                )
+                and isinstance(target.best_result, TemplateMatchResult)
             ):
+                print(
+                    f"找到对应人物: {selected_role},数量: {len(target.filtered_results)}"
+                )
                 for result in target.filtered_results:
+                    print(f"对应人物位置: {result.box}")
                     trial_reco = context.run_recognition(
                         "识别试用角色",
                         image,
                         {
                             "识别试用角色": {
-                                "recognition": {
-                                    "roi": result.box,
-                                },
+                                "recognition": {"param": {"roi": result.box}},
                             }
                         },
                     )
-
                     if trial_reco and ("[试用]" in selected_role) == trial_reco.hit:
+                        print(f"对应人物是否是试用角色: {trial_reco.hit}")
                         target_x, target_y = (
                             result.box[0] + result.box[2] // 2,
                             result.box[1] + result.box[3] // 2,
@@ -274,12 +280,12 @@ class RoleSelection(CustomAction):
         # 对每个角色进行识别
         role = {}
         image = context.tasker.controller.post_screencap().wait().get()
-        for role_name, role_actions in role_actions.items():
+        for role_name, role_action in role_actions.items():
 
             pipeline_override = {
                 "识别角色": {
                     "recognition": {
-                        "param": {"template": role_actions["template"]},
+                        "param": {"template": role_action["template"]},
                     },
                 }
             }
@@ -289,64 +295,106 @@ class RoleSelection(CustomAction):
                 image=image,
                 pipeline_override=pipeline_override,
             )
-            trial_reco = context.run_recognition(
-                entry="识别试用角色",
-                image=image,
-            )
-            trial = False
-            if trial_reco and trial_reco.hit:
-                trial = True
 
-            # 检查识别结果并提取box信息
             if (
                 result
                 and result.hit
                 and isinstance(result.best_result, TemplateMatchResult)
             ):
+                for role_reco in result.filtered_results:
+                    # 检查识别结果并提取box信息
+                    print(role_reco.box)
 
-                self.logger.info(f"识别到角色: {role_name} {"试用"if trial else ""}")
-                if trial:
-                    role_name = role_name + "[试用]"
-                role[role_name] = role_actions.copy().get("metadata", {})
-                context.run_recognition(
-                    entry="识别战斗参数",
-                    image=image,
-                )
-                power_reco = context.run_recognition(
-                    entry="识别战力",
-                    image=image,
-                )
-
-                if (
-                    power_reco
-                    and power_reco.hit
-                    and isinstance(power_reco.best_result, OCRResult)
-                ):
-                    if power_reco.best_result.text.isdigit():
-                        role[role_name]["power"] = int(power_reco.best_result.text)
-                    else:
-                        role[role_name]["power"] = 0
-
-                if cage:
-                    cage_result = context.run_recognition(
-                        entry="识别囚笼次数", image=image
-                    )
-                    role[role_name]["cage"] = bool(cage_result and cage_result.hit)
-                if roguelike_3_mode == 1:
-                    mastery_result = context.run_recognition(
-                        entry="识别精通等级",
+                    trial_reco = context.run_recognition(
+                        entry="识别试用角色",
                         image=image,
                         pipeline_override={
-                            "识别精通等级": {
+                            "识别试用角色": {
                                 "recognition": {
-                                    "param": {"roi": result.best_result.box},
-                                }
+                                    "param": {"roi": role_reco.box},
+                                },
                             }
                         },
                     )
-                    role[role_name]["master_level"] = bool(
-                        mastery_result and mastery_result.hit
+                    trial = False
+                    if trial_reco and trial_reco.hit:
+                        trial = True
+                    print(f"role_name: {role_name} trial: {trial}")
+
+                    trial_label = " 试用" if trial and "[试用]" not in role_name else ""
+                    self.logger.info(f"识别到角色: {role_name}{trial_label}")
+
+                    display_name = (
+                        role_name + "[试用]"
+                        if trial and "[试用]" not in role_name
+                        else role_name
                     )
+                    metadata = role_action.get("metadata", {})
+                    role[display_name] = (
+                        metadata.copy() if isinstance(metadata, dict) else {}
+                    )
+
+                    context.run_recognition(
+                        entry="识别战斗参数",
+                        image=image,
+                        pipeline_override={
+                            "识别战斗参数": {
+                                "recognition": {
+                                    "param": {"roi": role_reco.box},
+                                },
+                            }
+                        },
+                    )
+                    power_reco = context.run_recognition(
+                        entry="识别战力",
+                        image=image,
+                    )
+
+                    if (
+                        power_reco
+                        and power_reco.hit
+                        and isinstance(power_reco.best_result, OCRResult)
+                    ):
+                        if power_reco.best_result.text.isdigit():
+                            role[display_name]["power"] = int(
+                                power_reco.best_result.text
+                            )
+                        else:
+                            role[display_name]["power"] = 0
+                        print(
+                            f"识别到角色: {display_name} 战力: {role[display_name]['power']}"
+                        )
+
+                    if cage:
+                        cage_result = context.run_recognition(
+                            entry="识别囚笼次数",
+                            image=image,
+                            pipeline_override={
+                                "识别囚笼次数": {
+                                    "recognition": {
+                                        "param": {"roi": role_reco.box},
+                                    }
+                                }
+                            },
+                        )
+                        role[display_name]["cage"] = bool(
+                            cage_result and cage_result.hit
+                        )
+                    if roguelike_3_mode == 1:
+                        mastery_result = context.run_recognition(
+                            entry="识别精通等级",
+                            image=image,
+                            pipeline_override={
+                                "识别精通等级": {
+                                    "recognition": {
+                                        "param": {"roi": role_reco.box},
+                                    }
+                                }
+                            },
+                        )
+                        role[display_name]["master_level"] = bool(
+                            mastery_result and mastery_result.hit
+                        )
 
         return role
 
