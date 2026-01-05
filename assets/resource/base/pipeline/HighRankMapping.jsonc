@@ -10,8 +10,36 @@
             "[JumpBack]打开挑战",
             "[JumpBack]打开战斗",
             "[JumpBack]意外点击_限定活动",
-            "[JumpBack]意外点击_环境情报"
+            "[JumpBack]意外点击_环境情报",
+            "[JumpBack]意外点击_物品详情"
         ]
+    },
+    "意外点击_物品详情": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    211,
+                    36,
+                    395,
+                    205
+                ],
+                "expected": [
+                    "物品详情"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1270,
+                    10,
+                    1,
+                    1
+                ]
+            }
+        }
     },
     "意外点击_环境情报": {
         "post_wait_freezes": {
@@ -77,7 +105,8 @@
             "[JumpBack]载入中",
             "[JumpBack]点击空白处关闭",
             "[JumpBack]确定",
-            "[JumpBack]作战开始"
+            "[JumpBack]作战开始",
+            "[JumpBack]意外点击_物品详情"
         ]
     },
     "开始挑战_点击丢失": {
