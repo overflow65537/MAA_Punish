@@ -23,7 +23,7 @@ class RecognitionRole(CustomAction):
                         "recognition": {
                             "param": {
                                 "template": role_info["attack_template"],
-                                "threshold": 0.8,
+                                "threshold": [0.8] * len(role_info["attack_template"]),
                             },
                         }
                     }
@@ -34,8 +34,8 @@ class RecognitionRole(CustomAction):
                     {
                         "识别人物": {"enabled": False},
                         "战斗中": {
-                            "action": "Custom",
-                            "custom_action": role_info["cls_name"],
+                            "type": "Custom",
+                            "param": {"custom_action": role_info["cls_name"]},
                         },
                     }
                 )
@@ -44,8 +44,10 @@ class RecognitionRole(CustomAction):
             {
                 "识别人物": {"enabled": False},
                 "战斗中": {
-                    "action": "Custom",
-                    "custom_action": "GeneralFight",
+                    "type": "Custom",
+                    "param": {
+                        "custom_action": "GeneralFight",
+                    },
                 },
             }
         )

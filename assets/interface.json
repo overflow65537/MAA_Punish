@@ -614,7 +614,7 @@
             "pipeline_override": {
                 "战斗中": {
                     "action": {
-                        "type": "custom",
+                        "type": "Custom",
                         "param": {
                             "custom_action": "CombatActions"
                         }
