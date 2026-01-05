@@ -11,6 +11,7 @@ from action.basics.RecognitionRole import RecognitionRole
 from action.basics.Post_Stop import PostStop
 from action.basics.Notice import Notice
 from action.basics.RoleSelectionType import RoleSelectionType
+from action.basics.RedmeeCode import RedeemCode
 
 
 from action.exclusives.CrimsonWeave import CrimsonWeave
@@ -36,7 +37,12 @@ from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
 from recognition.exclusives.NextStageRecognition import NextStageRecognition
 
-        
+
+@AgentServer.custom_action("RedeemCode")
+class Agent_RedeemCode(RedeemCode):
+    pass
+
+
 @AgentServer.custom_action("RoleSelectionType")
 class Agent_RoleSelectionType(RoleSelectionType):
     pass
@@ -135,7 +141,6 @@ class Agent_PPOverride(PPOverride):
 @AgentServer.custom_action("Count")
 class Agent_Count(Count):
     pass
-
 
 
 @AgentServer.custom_action("SetTower")

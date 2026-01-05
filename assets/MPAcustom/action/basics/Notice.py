@@ -69,7 +69,7 @@ class Notice(CustomAction):
                 and energy.isdigit()
             ):
                 profit = int(end_black_card) - int(start_black_card)
-                next_energy = 240 - int(energy) * 6*60
+                next_energy = 240 - int(energy) * 6 * 60
 
                 now_time = datetime.datetime.now()
                 next_time = now_time + datetime.timedelta(seconds=next_energy)

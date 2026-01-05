@@ -1,0 +1,128 @@
+{
+    "兑换码": {
+        "next": [
+            "[JumpBack]可以输入兑换码",
+            "[JumpBack]打开个人页面",
+            "[JumpBack]关闭奖励",
+            "[JumpBack]返回主菜单"
+        ]
+    },
+    "打开个人页面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    236,
+                    217
+                ],
+                "expected": [
+                    "等级"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "可以输入兑换码": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    752,
+                    468,
+                    528,
+                    252
+                ],
+                "expected": [
+                    "请输入兑换码"
+                ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "RedeemCode",
+                "custom_action_param": {
+                    "code": []
+                }
+            }
+        }
+    },
+    "兑换码提示": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    275,
+                    187,
+                    585,
+                    353
+                ],
+                "expected": [
+                    "兑换码",
+                    "不正确",
+                    "过期",
+                    "已兑换"
+                ]
+            }
+        }
+    },
+    "输入兑换码": {
+        "action": {
+            "type": "InputText",
+            "param": {
+                "input_text": "PUNISHING"
+            }
+        }
+    },
+    "确认兑换": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1058,
+                    395,
+                    222,
+                    325
+                ],
+                "expected": [
+                    "兑换"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "点击兑换码": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    752,
+                    468,
+                    528,
+                    252
+                ],
+                "expected": [
+                    "请输入兑换码"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "按下删除": {
+        "action": {
+            "type": "LongPressKey",
+            "param": {
+                "key": 67,
+                "duration": 1000
+            }
+        }
+    }
+}

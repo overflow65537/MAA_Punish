@@ -255,6 +255,7 @@ class RoleSelection(CustomAction):
             for i, img in enumerate(images, 1):
                 self.save_screenshot(img, f"未找到角色_尝试{i}")
             self.logger.info(f"选择角色失败: {selected_role}")
+            self.send_msg(context, f"未找到角色 {selected_role},退出任务")
             context.run_task("返回主菜单")
             context.override_next(argv.node_name, ["停止任务"])
             context.override_pipeline(
