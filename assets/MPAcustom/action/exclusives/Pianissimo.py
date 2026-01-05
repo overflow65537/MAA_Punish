@@ -19,8 +19,9 @@ class Pianissimo(CustomAction):
         action.lens_lock()
         if action.check_status("检查希声2阶段"):
             print("希声2阶段")
+            start_time = time.time()
 
-            while action.count_signal_balls():
+            while action.count_signal_balls() and time.time() - start_time < 10:
                 if action.check_status("检查希声红球"):
                     action.use_skill()
                     return CustomAction.RunResult(success=True)
@@ -40,7 +41,8 @@ class Pianissimo(CustomAction):
                 time.sleep(0.05)
             print("希声2阶段核心结束")
 
-            while action.count_signal_balls():
+            start_time = time.time()
+            while action.count_signal_balls() and time.time() - start_time < 10:
                 if action.check_status("检查希声红球"):
                     action.use_skill()
                     time.sleep(0.2)
@@ -62,7 +64,8 @@ class Pianissimo(CustomAction):
 
         elif action.count_signal_balls() > 5:
             print("希声1阶段")
-            while action.count_signal_balls():
+            start_time = time.time()
+            while action.count_signal_balls() and time.time() - start_time < 10:
                 if action.check_status("检查希声2阶段"):
                     return CustomAction.RunResult(success=True)
                 target = action.Arrange_Signal_Balls()

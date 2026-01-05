@@ -48,7 +48,6 @@ class Hyperreal(CustomAction):
             action.auxiliary_machine()
             time.sleep(1)
             action.auto_qte("a")
-            
 
         elif action.check_status("检查核心技能_超刻"):  # 核心技能就绪
             action.logger.info("核心技能就绪")
@@ -60,9 +59,9 @@ class Hyperreal(CustomAction):
             while (
                 not action.check_status("检查核心技能结束_超刻")
             ) and time.time() - start_time < 10:
-                while action.count_signal_balls():
+                while action.count_signal_balls() and time.time() - start_time < 10:
                     action.ball_elimination_target(1)
-                    
+
                 time.sleep(0.1)
                 action.auto_qte("a")
                 action.attack()
