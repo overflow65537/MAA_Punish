@@ -12,6 +12,7 @@ from action.basics.Post_Stop import PostStop
 from action.basics.Notice import Notice
 from action.basics.RoleSelectionType import RoleSelectionType
 from action.basics.RedmeeCode import RedeemCode
+from action.basics.RedmeeCode import CheckRedeemCode
 
 
 from action.exclusives.CrimsonWeave import CrimsonWeave
@@ -36,6 +37,11 @@ from recognition.exclusives.LogicalOperators import LOp
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
 from recognition.exclusives.NextStageRecognition import NextStageRecognition
+
+
+@AgentServer.custom_action("CheckRedeemCode")
+class Agent_CheckRedeemCode(CheckRedeemCode):
+    pass
 
 
 @AgentServer.custom_action("RedeemCode")

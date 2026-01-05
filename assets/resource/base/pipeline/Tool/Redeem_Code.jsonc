@@ -1,11 +1,16 @@
 {
     "兑换码": {
         "next": [
-            "[JumpBack]可以输入兑换码",
-            "[JumpBack]打开个人页面",
-            "[JumpBack]关闭奖励",
-            "[JumpBack]返回主菜单"
+            "[JumpBack]检查是否需要运行" //这里真实的next路径需要去检查是否需要运行的custom中查看
         ]
+    },
+    "检查是否需要运行": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "CheckRedeemCode"
+            }
+        }
     },
     "打开个人页面": {
         "recognition": {
