@@ -49,12 +49,13 @@ class RedeemCode(CustomAction):
                 self.send_msg(context, f"开始兑换 {code}")
                 print(f"输入兑换码 {code}")
                 context.tasker.controller.post_input_text(str(code))
+                time.sleep(0.1)
+                context.run_task("确认兑换")
 
                 inv_code.append(code)
                 with open("inv_code.json", "w") as f:
                     json.dump({"inv_code": inv_code}, f, indent=4)
 
-                context.run_task("确认兑换")
                 return CustomAction.RunResult(success=True)
 
         self.send_msg(context, "所有兑换码已兑换")
