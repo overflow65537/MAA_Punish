@@ -98,13 +98,13 @@
         "next": [
             "[JumpBack]识别人物",
             "[JumpBack]战斗中",
+            "[JumpBack]确定",
             "[JumpBack]开始挑战_点击丢失",
             "结算",
             "[JumpBack]战斗失败_历战",
             "[JumpBack]继续挑战",
             "[JumpBack]载入中",
             "[JumpBack]点击空白处关闭",
-            "[JumpBack]确定",
             "[JumpBack]作战开始",
             "[JumpBack]意外点击_物品详情"
         ]
