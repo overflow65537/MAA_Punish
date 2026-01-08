@@ -58,7 +58,13 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "expected": ""
+                "expected": "",
+                "replace": [
+                    [
+                        "雾",
+                        "霁"
+                    ]
+                ]
             }
         }
     },

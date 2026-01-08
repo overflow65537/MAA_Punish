@@ -87,28 +87,36 @@ class RoleSelectionType(CustomAction):
 
         param = json.loads(argv.custom_action_param) or {}
 
-        switch_item = 0
-        while switch_item < 5:
+        for _ in range(5):
             image = context.tasker.controller.post_screencap().wait().get()
             target_reco = context.run_recognition("检查支援类型角色", image)
             if target_reco and target_reco.hit:
                 for reco in target_reco.filtered_results:
+                    if not isinstance(reco, TemplateMatchResult):
+                        continue
                     flag = context.run_recognition(
                         "检查支援类型角色是否被选中",
                         image,
                         {
                             "检查支援类型角色是否被选中": {
                                 "recognition": {
-                                    "param": {
-                                        "roi": reco.box,
-                                        "roi_offset": [-100, 60, 30, -10],
-                                    },
+                                    "param": {"roi": reco.box},
                                 }
                             }
                         },
                     )
                     if param.get("cage"):
-                        cage_reco = context.run_recognition("识别囚笼次数_辅助", image)
+                        cage_reco = context.run_recognition(
+                            "识别囚笼次数_辅助",
+                            image,
+                            {
+                                "识别囚笼次数_辅助": {
+                                    "recognition": {
+                                        "param": {"roi": reco.box},
+                                    }
+                                }
+                            },
+                        )
                         if cage_reco and not cage_reco.hit:
                             continue
 
@@ -120,8 +128,6 @@ class RoleSelectionType(CustomAction):
                         return CustomAction.RunResult(success=True)
 
             context.run_action("滑动_选人")
-            switch_item += 1
 
-        context.tasker.controller.post_click(210, 105).wait()
-        context.run_task("编入队伍")
+        context.run_task("返回")
         return CustomAction.RunResult(success=True)

@@ -85,7 +85,7 @@
         "recognition": {
             "type": "ColorMatch",
             "param": {
-                "roi": "检查支援类型角色是否被选中",
+                "roi": "检查支援类型角色",
                 "roi_offset": [
                     -100,
                     60,
@@ -343,10 +343,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    223,
-                    346,
-                    132,
-                    118
+                    810,
+                    292,
+                    318,
+                    272
                 ],
                 "template": "幻痛囚笼/队伍净空_蓝黄.png"
             }
@@ -390,10 +390,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    905,
-                    351,
-                    113,
-                    108
+                    186,
+                    297,
+                    229,
+                    235
                 ],
                 "template": "幻痛囚笼/队伍净空_蓝黄.png"
             }
