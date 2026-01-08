@@ -1,5 +1,6 @@
 import logging
 import os
+import sys
 from datetime import datetime, timedelta
 
 LOG_DIR = "debug"
@@ -35,6 +36,11 @@ class LoggerComponent:
         file_handler.setFormatter(logging.Formatter(LOG_FORMAT))
 
         logger.addHandler(file_handler)
+
+        stream_handler = logging.StreamHandler(stream=sys.stdout)
+        stream_handler.setLevel(logging.DEBUG)
+        stream_handler.setFormatter(logging.Formatter(LOG_FORMAT))
+        logger.addHandler(stream_handler)
         return logger
 
     def _clear_old_logs(self):

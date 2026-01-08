@@ -342,6 +342,8 @@ class CombatActions:
                 )
                 if has_hit:
                     for item in result.filtered_results:
+                        if not isinstance(item, TemplateMatchResult):
+                            continue
                         try:
                             pos = analyze_position(item.box)
                             # 确保pos是整数且在有效范围内
@@ -474,7 +476,9 @@ class CombatActions:
         if result and result.hit and isinstance(result.best_result, OCRResult):
             num = re.search(r"\d+", result.best_result.text)
             if num:
+                self.logger.info(f"识别到信号球数量: {int(num.group())}")
                 return int(num.group())
+                
         return 0
 
     def get_hp_percent(self) -> int:
@@ -489,6 +493,7 @@ class CombatActions:
         if result and result.hit and isinstance(result.best_result, ColorMatchResult):
             hp_pixels = int(result.best_result.count)
             hp_percent = int((hp_pixels / 429) * 100)
+            self.logger.info(f"当前血量百分比: {hp_percent}%")
             return min(max(hp_percent, 0), 100)
         else:
             return 0

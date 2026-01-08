@@ -31,9 +31,15 @@ from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.define import OCRResult
 from MPAcustom.action.tool.LoadSetting import ROLE_ACTIONS
+from MPAcustom.logger_component import LoggerComponent
 
 
 class IdentifyRoles(CustomAction):
+    def __init__(self):
+        super().__init__()
+        self._logger_component = LoggerComponent(__name__)
+        self.logger = self._logger_component.logger
+
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
@@ -82,8 +88,8 @@ class IdentifyRoles(CustomAction):
             )
             leader_flags[pos] = bool(flag_text)
 
-        print("识别结果:", role_names)
-        print("队长标记:", leader_flags)
+        self.logger.info("识别结果:", role_names)
+        self.logger.info("队长标记:", leader_flags)
         if (
             not leader_flags.get("pos1")
             and not leader_flags.get("pos2")
@@ -120,7 +126,7 @@ class IdentifyRoles(CustomAction):
                         "自动战斗开始": {"next": ["单人自动战斗循环"]},
                     }
                 )
-                print(f"覆盖{action}")
+                self.logger.info(f"覆盖{action}")
             case n if n > 1:  # 多个角色匹配
                 pos, role_info = next(iter(matched_roles.items()))
                 action = role_info["cls_name"]
@@ -139,7 +145,7 @@ class IdentifyRoles(CustomAction):
                         "自动战斗开始": {"next": ["单人自动战斗循环"]},
                     }
                 )
-                print(f"覆盖{action}")
+                self.logger.info(f"覆盖{action}")
             case _:  # 无匹配角色
                 if len(role_names) == 1:
                     # 设置队长位置(单个角色特用)
