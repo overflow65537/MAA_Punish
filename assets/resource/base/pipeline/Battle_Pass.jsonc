@@ -80,9 +80,29 @@
             "type": "Click"
         },
         "next": [
+            "[JumpBack]没点上评定任务",
             "通行证-意外处理-点击确认",
             "一键领取_评定任务"
         ]
+    },
+    "没点上评定任务": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    11,
+                    307,
+                    188,
+                    78
+                ],
+                "expected": [
+                    "战略"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "一键领取_评定任务": {
         "post_delay": 1000,
@@ -127,9 +147,29 @@
             "type": "Click"
         },
         "next": [
+            "[JumpBack]没点上战略补给",
             "通行证-意外处理-点击确认",
             "一键领取_战略补给"
         ]
+    },
+    "没点上战略补给": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    4,
+                    222,
+                    236,
+                    135
+                ],
+                "expected": [
+                    "战略"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "一键领取_战略补给": {
         "post_delay": 1000,
