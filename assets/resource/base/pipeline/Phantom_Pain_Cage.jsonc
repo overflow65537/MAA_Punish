@@ -158,16 +158,49 @@
     },
     "A区退出": {
         "recognition": {
-            "type": "Custom",
+            "type": "And",
             "param": {
-                "custom_recognition": "LOp",
-                "custom_recognition_param": {
-                    "mode": "and",
-                    "nodes": [
-                        "检查是否是最终难度",
-                        "检查是否存在分数"
-                    ]
-                }
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    17,
+                                    424,
+                                    112,
+                                    110
+                                ],
+                                "count": 2000,
+                                "connected": true,
+                                "upper": [
+                                    8,
+                                    8,
+                                    8
+                                ],
+                                "lower": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    1050,
+                                    235,
+                                    115,
+                                    40
+                                ],
+                                "expected": "^(?!^0$).+$"
+                            }
+                        }
+                    }
+                ]
             }
         },
         "next": [
@@ -180,16 +213,49 @@
     },
     "B区退出": {
         "recognition": {
-            "type": "Custom",
+            "type": "And",
             "param": {
-                "custom_recognition": "LOp",
-                "custom_recognition_param": {
-                    "mode": "and",
-                    "nodes": [
-                        "检查是否是最终难度",
-                        "检查是否存在分数"
-                    ]
-                }
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    17,
+                                    424,
+                                    112,
+                                    110
+                                ],
+                                "count": 2000,
+                                "connected": true,
+                                "upper": [
+                                    8,
+                                    8,
+                                    8
+                                ],
+                                "lower": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    1050,
+                                    235,
+                                    115,
+                                    40
+                                ],
+                                "expected": "^(?!^0$).+$"
+                            }
+                        }
+                    }
+                ]
             }
         },
         "next": [
@@ -202,16 +268,49 @@
     },
     "C区退出": {
         "recognition": {
-            "type": "Custom",
+            "type": "And",
             "param": {
-                "custom_recognition": "LOp",
-                "custom_recognition_param": {
-                    "mode": "and",
-                    "nodes": [
-                        "检查是否是最终难度",
-                        "检查是否存在分数"
-                    ]
-                }
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    17,
+                                    424,
+                                    112,
+                                    110
+                                ],
+                                "count": 2000,
+                                "connected": true,
+                                "upper": [
+                                    8,
+                                    8,
+                                    8
+                                ],
+                                "lower": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    1050,
+                                    235,
+                                    115,
+                                    40
+                                ],
+                                "expected": "^(?!^0$).+$"
+                            }
+                        }
+                    }
+                ]
             }
         },
         "next": [
