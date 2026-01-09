@@ -16,11 +16,11 @@ jobs:
     steps:
       - id: check
         run: |
-          if [[ "${{ github.repository }}" == "miaojiuqing/MAA_Punish" ]]; then
-            echo "Repository is miaojiuqing/MAA_Punish, proceeding with sync"
+          if [[ "${{ github.repository }}" == "overflow65537/MAA_Punish" ]]; then
+            echo "Repository is overflow65537/MAA_Punish, proceeding with sync"
             echo "should_run=true" >> $GITHUB_OUTPUT
           else
-            echo "Repository is not miaojiuqing/MAA_Punish, skipping sync"
+            echo "Repository is not overflow65537/MAA_Punish, skipping sync"
             echo "should_run=false" >> $GITHUB_OUTPUT
           fi
 
