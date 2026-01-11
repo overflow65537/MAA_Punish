@@ -103,40 +103,39 @@ class RoleSelection(CustomAction):
             if nonselected_roles and condition.get("cage"):
                 # 没有对应人物,且是囚笼模式,随便选一个带次数的
                 print("没有对应人物,且是囚笼模式,随便选一个带次数的")
-                item = 0
 
-                while item < 10:
-                    item += 1
-                    target = context.run_recognition(
-                        "选择人物",
-                        image,
-                        {
-                            "选择人物": {
-                                "recognition": {
-                                    "type": "ColorMatch",
-                                    "param": {
-                                        "roi": [72, 69, 140, 521],
-                                        "upper": [53, 175, 248],
-                                        "lower": [53, 175, 248],
-                                        "connected": True,
-                                        "count": 10,
-                                        "index": -1,
-                                    },
+                target = context.run_recognition(
+                    "选择人物",
+                    image,
+                    {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "ColorMatch",
+                                "param": {
+                                    "roi": [72, 69, 140, 521],
+                                    "upper": [53, 175, 248],
+                                    "lower": [53, 175, 248],
+                                    "connected": True,
+                                    "count": 10,
+                                    "index": -1,
                                 },
-                            }
-                        },
-                    )
-                    if (
-                        target
-                        and target.hit
-                        and isinstance(target.best_result, ColorMatchResult)
-                    ):
-                        context.tasker.controller.post_click(
-                            target.best_result.box[0], target.best_result.box[1]
-                        )
-                        context.run_task("编入队伍")
-                        return CustomAction.RunResult(success=True)
-                self.send_msg(context, f"未检测到带次数的角色,已尝试{item}次")
+                            },
+                        }
+                    },
+                )
+                print(f"检测到: \n{target}")
+                if (
+                    target
+                    and target.hit
+                    and isinstance(target.best_result, ColorMatchResult)
+                ):
+                    context.tasker.controller.post_click(
+                        target.best_result.box[0], target.best_result.box[1]
+                    ).wait()
+                    context.run_task("编入队伍")
+                    return CustomAction.RunResult(success=True)
+                self.send_msg(context, f"未检测到带次数的角色")
+                print(f"未检测到带次数的角色")
             elif nonselected_roles:
                 # 没有对应人物,随便选一个带次数的
                 print("没有对应人物,随便选一个带次数的")
@@ -176,6 +175,10 @@ class RoleSelection(CustomAction):
                     f"找到对应人物: {selected_role},数量: {len(target.filtered_results)}"
                 )
                 for result in target.filtered_results:
+                    if not isinstance(result, TemplateMatchResult):
+                        self.send_msg(context, f"未检测到对应人物: {selected_role}")
+                        return CustomAction.RunResult(success=False)
+
                     print(f"对应人物位置: {result.box}")
                     trial_reco = context.run_recognition(
                         "识别试用角色",
@@ -252,6 +255,9 @@ class RoleSelection(CustomAction):
             ):
                 for role_reco in result.filtered_results:
                     # 检查识别结果并提取box信息
+                    if not isinstance(role_reco, TemplateMatchResult):
+                        self.send_msg(context, f"未检测到对应人物: {role_name}")
+                        return {}
                     print(role_reco.box)
 
                     trial_reco = context.run_recognition(
