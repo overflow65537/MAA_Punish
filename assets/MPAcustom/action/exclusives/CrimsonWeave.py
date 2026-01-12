@@ -38,31 +38,6 @@ class CrimsonWeave(CustomAction):
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
 
-        # 检查无光值等于300或者大于474,证明需要登龙
-        self.light_less_474 = {
-            "检查无光值_囚影": {
-                "recognition": {
-                    "type": "OCR",
-                    "param": {
-                        "roi": [473, 598, 41, 27],
-                        "expected": "^(300|[4-5][7-9][4-9]|[4-5][0-9]{2}|600)$",
-                    },
-                }
-            }
-        }
-        # 检查二阶段无光值存在,证明处在二阶段
-        self.light_less_any = {
-            "检查无光值_囚影": {
-                "recognition": {
-                    "type": "OCR",
-                    "param": {
-                        "roi": [473, 598, 41, 27],
-                        "expected": "^(0|[1-9][0-9]?|[1-5][0-9][0-9]|600)$",
-                    },
-                }
-            }
-        }
-
         action = CombatActions(context, role_name="露西亚·深红囚影")
         action.lens_lock()
 
@@ -70,10 +45,9 @@ class CrimsonWeave(CustomAction):
             action.dodge()  # 闪避
             for _ in range(7):
                 start_time = time.time()
-                action.attack() 
+                action.attack()
                 light_less = action.check_status(
                     "检查无光值_囚影",
-                    self.light_less_any,
                 )
                 if light_less and light_less.best_result.text.isdigit():  # type: ignore
                     light_less_value = int(light_less.best_result.text)  # type: ignore
@@ -113,7 +87,6 @@ class CrimsonWeave(CustomAction):
             start_time = time.time()
             if not action.check_status(
                 "检查无光值_囚影",
-                self.light_less_any,
             ):  # 处于一阶段
                 elapsed = time.time() - start_time
                 if elapsed < 1.5:
