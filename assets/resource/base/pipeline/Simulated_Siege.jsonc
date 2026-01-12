@@ -353,157 +353,9 @@
             }
         },
         "next": [
-            "没有全局奖励",
-            "[JumpBack]领取全局奖励"
-        ]
-    },
-    "没有全局奖励": {
-        "inverse": true,
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": [
-                    135,
-                    82,
-                    34,
-                    423
-                ],
-                "connected": true,
-                "upper": [
-                    0,
-                    161,
-                    255
-                ],
-                "lower": [
-                    0,
-                    161,
-                    255
-                ]
-            }
-        },
-        "next": [
-            "没有血量奖励",
-            "[JumpBack]领取血量奖励"
-        ]
-    },
-    "没有血量奖励": {
-        "inverse": true,
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": [
-                    1212,
-                    51,
-                    30,
-                    24
-                ],
-                "connected": true,
-                "upper": [
-                    0,
-                    161,
-                    255
-                ],
-                "lower": [
-                    0,
-                    161,
-                    255
-                ]
-            }
-        },
-        "next": [
             "返回指挥局主界面",
             "[JumpBack]返回主菜单",
             "[JumpBack]打开指挥局"
-        ]
-    },
-    "领取血量奖励": {
-        "post_delay": 1500,
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": [
-                    1212,
-                    51,
-                    30,
-                    24
-                ],
-                "connected": true,
-                "upper": [
-                    0,
-                    161,
-                    255
-                ],
-                "lower": [
-                    0,
-                    161,
-                    255
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "关闭奖励_拟真围剿",
-            "空任务"
-        ]
-    },
-    "关闭奖励_拟真围剿": {
-        "post_delay": 1000,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    409,
-                    176,
-                    491,
-                    150
-                ],
-                "expected": "奖励"
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    446,
-                    30,
-                    0,
-                    0
-                ]
-            }
-        }
-    },
-    "领取全局奖励": {
-        "post_delay": 1500,
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": [
-                    135,
-                    82,
-                    34,
-                    423
-                ],
-                "connected": true,
-                "upper": [
-                    0,
-                    161,
-                    255
-                ],
-                "lower": [
-                    0,
-                    161,
-                    255
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "关闭奖励_拟真围剿",
-            "空任务"
         ]
     },
     "点击BOSS区": {
@@ -771,6 +623,8 @@
             "type": "Click"
         },
         "next": [
+            "[JumpBack]一键领取_宿舍任务",
+            "[JumpBack]关闭奖励",
             "识别本周贡献15000",
             "识别本周贡献12000",
             "识别本周贡献9000",
