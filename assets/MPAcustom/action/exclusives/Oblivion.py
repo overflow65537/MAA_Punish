@@ -39,6 +39,7 @@ class Oblivion(CustomAction):
         action = CombatActions(context, role_name="终焉")
 
         action.lens_lock()
+        action.attack()
 
         if action.check_Skill_energy_bar():
             action.use_skill(1000)  # 技能
@@ -54,5 +55,6 @@ class Oblivion(CustomAction):
             action.continuous_attack(8, 200)
             action.long_press_attack(2000)
             time.sleep(1)
+        action.attack()
 
         return CustomAction.RunResult(success=True)

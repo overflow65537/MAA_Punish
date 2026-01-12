@@ -40,6 +40,7 @@ class CrimsonWeave(CustomAction):
 
         action = CombatActions(context, role_name="露西亚·深红囚影")
         action.lens_lock()
+        action.attack()
 
         if action.get_hp_percent() >= 70:
             action.dodge()  # 闪避
@@ -115,5 +116,6 @@ class CrimsonWeave(CustomAction):
                 for _ in range(10):
                     action.ball_elimination_target(1)
                     time.sleep(0.2)
+        action.attack()
 
         return CustomAction.RunResult(True)

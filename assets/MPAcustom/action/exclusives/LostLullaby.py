@@ -38,6 +38,7 @@ class LostLullaby(CustomAction):
         action = CombatActions(context=context, role_name="深谣")
 
         action.lens_lock()
+        action.attack()
         if action.check_status("检查阶段p1_深谣"):
             action.logger.info("p1阶段")
             if action.check_Skill_energy_bar():
@@ -79,4 +80,5 @@ class LostLullaby(CustomAction):
                 action.ball_elimination_target(1)
                 action.ball_elimination_target(2)
                 action.continuous_attack(8, 300)
+        action.attack()
         return CustomAction.RunResult(success=True)

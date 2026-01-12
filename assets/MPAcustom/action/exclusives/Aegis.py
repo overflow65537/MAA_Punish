@@ -37,6 +37,7 @@ class Aegis(CustomAction):
         action = CombatActions(context, role_name="维罗妮卡·铮骨")
 
         action.lens_lock()
+        action.attack()
 
         for _ in range(10):
             action.ball_elimination_target(1)
@@ -61,5 +62,5 @@ class Aegis(CustomAction):
                     action.ball_elimination_target()
                 action.auto_qte("a")
                 action.auxiliary_machine()
-
+        action.attack()
         return CustomAction.RunResult(success=True)

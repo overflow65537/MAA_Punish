@@ -37,6 +37,7 @@ class Crepuscule(CustomAction):
         action = CombatActions(context, role_name="晖暮")
 
         action.lens_lock()
+        action.attack()
         if action.check_Skill_energy_bar():
             action.logger.info("大招就绪")
             action.use_skill()
@@ -52,4 +53,5 @@ class Crepuscule(CustomAction):
         else:
             action.logger.info("核心技能未就绪")
             action.continuous_attack(50, 100)
+        action.attack()
         return CustomAction.RunResult(success=True)

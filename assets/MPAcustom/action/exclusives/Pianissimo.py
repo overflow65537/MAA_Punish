@@ -17,6 +17,7 @@ class Pianissimo(CustomAction):
         action = CombatActions(context, role_name="希声")
 
         action.lens_lock()
+        action.attack()
         if action.check_status("检查希声2阶段"):
             print("希声2阶段")
             start_time = time.time()
@@ -68,7 +69,9 @@ class Pianissimo(CustomAction):
             while action.count_signal_balls() and time.time() - start_time < 10:
                 if action.check_status("检查希声2阶段"):
                     return CustomAction.RunResult(success=True)
+                action.attack()
                 target = action.Arrange_Signal_Balls()
+                action.attack()
                 if target == -1:
                     target = -2
                 action.ball_elimination_target(target)
@@ -105,5 +108,5 @@ class Pianissimo(CustomAction):
                 wait_ms = max(0, 50 - elapsed_ms)
                 if wait_ms > 0:
                     time.sleep(wait_ms / 1000)
-
+        action.attack()
         return CustomAction.RunResult(success=True)

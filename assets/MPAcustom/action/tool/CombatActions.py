@@ -275,7 +275,7 @@ class CombatActions:
     def Arrange_Signal_Balls(self, target_ball: str = "any") -> int:
         """
         识别三消位置
-        自动消球逻辑，返回消球目标位置。
+        自动消球逻辑，返回消球目标位置。耗时大约300ms
         :param target_ball: 目标球颜色（red|blue|yellow|any）
         :return: int，正数为三消目标，负数为可促成三消，0为无效
         """

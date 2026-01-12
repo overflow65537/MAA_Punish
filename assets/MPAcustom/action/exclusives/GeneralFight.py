@@ -35,6 +35,7 @@ class GeneralFight(CustomAction):
     ) -> CustomAction.RunResult:
         action = CombatActions(context, role_name="通用")
         action.lens_lock()
+        action.attack()
         action.ball_elimination_target()
         action.use_skill()
         action.continuous_attack(4, 300)

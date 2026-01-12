@@ -17,6 +17,7 @@ class Spectre(CustomAction):
         action = CombatActions(context, role_name="骇影")
 
         action.lens_lock()
+        action.attack()
         if action.check_status("检查骇影2阶段"):
             print("二阶段")
             # 红球
@@ -78,5 +79,6 @@ class Spectre(CustomAction):
                 print(bool(action.check_status("检查骇影2阶段")))
                 time.sleep(0.05)
                 item += 1
+        action.attack()
 
         return CustomAction.RunResult(success=True)

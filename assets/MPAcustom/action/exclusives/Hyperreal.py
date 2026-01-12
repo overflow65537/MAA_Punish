@@ -41,6 +41,7 @@ class Hyperreal(CustomAction):
         action = CombatActions(context=context, role_name="超刻")
 
         action.lens_lock()
+        action.attack()
 
         if action.check_Skill_energy_bar():
             action.logger.info("大招就绪")
@@ -73,4 +74,5 @@ class Hyperreal(CustomAction):
             target = action.Arrange_Signal_Balls("any")
             if action.count_signal_balls() >= 9 or target > 0:
                 action.ball_elimination_target(target)
+        action.attack()
         return CustomAction.RunResult(success=True)

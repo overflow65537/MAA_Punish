@@ -40,6 +40,7 @@ class Limpidity(CustomAction):
     ) -> CustomAction.RunResult:
         action = CombatActions(context, role_name="丽芙·霁梦")
         action.lens_lock()
+        action.attack()
 
         # 检查普攻1
         if action.check_status("检查普攻1_霁梦"):
@@ -53,6 +54,7 @@ class Limpidity(CustomAction):
                     action.attack()
                     time.sleep(0.1)
                 print("以苦厄,澈我心镜")
+                action.attack()
                 return CustomAction.RunResult(success=True)
 
             # 信号球消除逻辑
@@ -60,6 +62,7 @@ class Limpidity(CustomAction):
             if target > 0 or action.count_signal_balls() >= 5:
                 action.ball_elimination_target(target)
                 time.sleep(0.2)
+                action.attack()
                 return CustomAction.RunResult(success=True)
 
         # 检查普攻2
@@ -83,11 +86,13 @@ class Limpidity(CustomAction):
                     action.auxiliary_machine()
                     time.sleep(0.1)
                 print("映天地,渡你新生")
+                action.attack()
 
                 return CustomAction.RunResult(success=True)
 
             elif action.count_signal_balls() != 0:
                 action.ball_elimination_target()
+                action.attack()
                 return CustomAction.RunResult(success=True)
 
         for _ in range(30):

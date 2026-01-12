@@ -60,6 +60,7 @@ class Shukra(CustomAction):
         action = CombatActions(context, role_name="启明")
 
         action.lens_lock()
+        action.attack()
 
         if action.check_Skill_energy_bar():
             action.use_skill()  # 万世生死,淬于寒冰
@@ -94,4 +95,5 @@ class Shukra(CustomAction):
             while time.time() - start_time < 2:
                 action.attack()  # 攻击
                 time.sleep(0.1)
+        action.attack()
         return CustomAction.RunResult(success=True)
