@@ -91,15 +91,15 @@ jobs:
       - name: Download background image
         shell: bash
         run: |
-          curl -L -o install/background.png "https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/images/1764000000000/skoi7dbbzdwogxvnin-176404371364016.png"
+          curl -L -o background.png "https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/images/1764000000000/skoi7dbbzdwogxvnin-176404371364016.png"
 
       - uses: actions/upload-artifact@v4
         with:
           name: background
-          path: install/background.png
+          path: background.png
 
   build:
-    needs: meta
+    needs: [meta,background]
     runs-on: ${{ matrix.os }}
     name: Build ${{ matrix.platform }}-${{ matrix.arch }}
     strategy:
