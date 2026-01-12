@@ -56,10 +56,7 @@ class CombatActions:
         攻击
         执行一次攻击操作。
         """
-        image = self.context.tasker.controller.post_screencap().wait().get()
-        if self.context.run_recognition("战斗中", image):
-            return self.context.run_action("攻击")
-        return False
+        return self.context.run_action("攻击")
 
     def continuous_attack(self, count: int = 10, interval: int = 100) -> bool:
         """
@@ -91,10 +88,7 @@ class CombatActions:
         闪避
         执行一次闪避操作。
         """
-        image = self.context.tasker.controller.post_screencap().wait().get()
-        if self.context.run_recognition("战斗中", image):
-            return self.context.run_action("闪避")
-        return False
+        return self.context.run_action("闪避")
 
     def long_press_dodge(self, duration: int = 1000):
         """
@@ -114,12 +108,10 @@ class CombatActions:
         执行一次技能释放操作。
         :param duration: 技能释放后等待时间（毫秒），默认0
         """
-        image = self.context.tasker.controller.post_screencap().wait().get()
-        if self.context.run_recognition("战斗中", image):
-            self.context.run_action("技能")
-            time.sleep(duration / 1000)
-            return True
-        return False
+
+        self.context.run_action("技能")
+        time.sleep(duration / 1000)
+        return True
 
     def long_press_skill(self, time: int = 1000):
         """
@@ -161,9 +153,6 @@ class CombatActions:
         消除指定位置的信号球。
         :param target: 消球位置（1~8），默认2
         """
-        image = self.context.tasker.controller.post_screencap().wait().get()
-        if not self.context.run_recognition("战斗中", image):
-            return False
         target = abs(target)
         if target == 0:
             target = 2
@@ -178,9 +167,6 @@ class CombatActions:
         :param target: QTE位置（1或2），默认1
         :return: 点击操作结果
         """
-        image = self.context.tasker.controller.post_screencap().wait().get()
-        if not self.context.run_recognition("战斗中", image):
-            return False
         if target not in (1, 2):
             raise ValueError("target 参数必须为 1 或 2")
         return self.context.run_action(f"qte{target}")
@@ -193,11 +179,7 @@ class CombatActions:
         """
         image = self.context.tasker.controller.post_screencap().wait().get()
         # 颜色映射字典
-        color_map = {
-            "r": "检查红色QTE",
-            "y": "检查黄色QTE",
-            "b": "检查蓝色QTE"
-        }
+        color_map = {"r": "检查红色QTE", "y": "检查黄色QTE", "b": "检查蓝色QTE"}
 
         if color not in color_map:
             return False
@@ -224,7 +206,6 @@ class CombatActions:
         :param target: QTE颜色(r,y,b,a)，默认r。a表示依次检查r、b、y
         :return: 点击操作结果
         """
-        
 
         # 处理自动模式：依次检查r、b、y
         if target == "a":
@@ -478,7 +459,7 @@ class CombatActions:
             if num:
                 self.logger.info(f"识别到信号球数量: {int(num.group())}")
                 return int(num.group())
-                
+
         return 0
 
     def get_hp_percent(self) -> int:
