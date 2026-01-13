@@ -56,7 +56,12 @@ class CombatActions:
         攻击
         执行一次攻击操作。
         """
-        return self.context.run_action("攻击")
+        image = self.context.tasker.controller.post_screencap().wait().get()
+        result = self.context.run_recognition("战斗中", image)
+        if result and result.hit:
+            return self.context.run_action("攻击")
+        else:
+            return False
 
     def continuous_attack(self, count: int = 10, interval: int = 100) -> bool:
         """
