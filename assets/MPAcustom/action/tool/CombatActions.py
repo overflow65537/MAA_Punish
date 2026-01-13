@@ -184,7 +184,7 @@ class CombatActions:
         """
         image = self.context.tasker.controller.post_screencap().wait().get()
         # 颜色映射字典
-        color_map = {"r": "检查红色QTE", "y": "检查黄色QTE", "b": "检查蓝色QTE"}
+        color_map = {"r": "检查红色QTE待激发", "y": "检查黄色QTE待激发", "b": "检查蓝色QTE待激发"}
 
         if color not in color_map:
             return False
@@ -483,47 +483,6 @@ class CombatActions:
             return min(max(hp_percent, 0), 100)
         else:
             return 0
-
-    def _auto_QTE(self):
-        """自动处理QTE"""
-        image = self.context.tasker.controller.post_screencap().wait().get()
-
-        y_result = self.context.run_recognition("检查黄色QTE", image)
-        r_result = self.context.run_recognition("检查红色QTE", image)
-        b_result = self.context.run_recognition("检查蓝色QTE", image)
-        if (
-            y_result
-            and y_result.hit
-            and isinstance(y_result.best_result, ColorMatchResult)
-        ):
-            y_cooldown = self.context.run_recognition("检查黄色QTE冷却中", image)
-            if y_cooldown and not y_cooldown.hit:
-                self.context.tasker.controller.post_click(
-                    y_result.best_result.box.x,
-                    y_result.best_result.box.y,
-                ).wait()
-        elif (
-            r_result
-            and r_result.hit
-            and isinstance(r_result.best_result, ColorMatchResult)
-        ):
-            r_cooldown = self.context.run_recognition("检查红色QTE冷却中", image)
-            if r_cooldown and not r_cooldown.hit:
-                self.context.tasker.controller.post_click(
-                    r_result.best_result.box.x,
-                    r_result.best_result.box.y,
-                ).wait()
-        elif (
-            b_result
-            and b_result.hit
-            and isinstance(b_result.best_result, ColorMatchResult)
-        ):
-            b_cooldown = self.context.run_recognition("检查蓝色QTE冷却中", image)
-            if b_cooldown and not b_cooldown.hit:
-                self.context.tasker.controller.post_click(
-                    b_result.best_result.box.x,
-                    b_result.best_result.box.y,
-                ).wait()
 
     def Switch(
         self,

@@ -1,90 +1,5 @@
 {
-    "检查蓝色QTE冷却中": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": [
-                    1207,
-                    170,
-                    60,
-                    158
-                ],
-                "lower": [
-                    [
-                        5,
-                        22,
-                        37
-                    ],
-                    [
-                        49,
-                        131,
-                        200
-                    ]
-                ],
-                "upper": [
-                    [
-                        9,
-                        33,
-                        50
-                    ],
-                    [
-                        65,
-                        146,
-                        217
-                    ]
-                ]
-            }
-        }
-    },
-    "检查红色QTE冷却中": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": [
-                    1207,
-                    170,
-                    60,
-                    158
-                ],
-                "lower": [
-                    10,
-                    0,
-                    0
-                ],
-                "upper": [
-                    30,
-                    5,
-                    5
-                ],
-                "connected": true,
-                "count": 10
-            }
-        }
-    },
-    "检查黄色QTE冷却中": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": [
-                    1207,
-                    170,
-                    60,
-                    158
-                ],
-                "lower": [
-                    30,
-                    25,
-                    0
-                ],
-                "upper": [
-                    40,
-                    35,
-                    5
-                ]
-            }
-        }
-    },
-    "检查蓝色QTE": {
+    "检查蓝色QTE待激发": {
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -109,7 +24,7 @@
             }
         }
     },
-    "检查红色QTE": {
+    "检查红色QTE待激发": {
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -134,7 +49,7 @@
             }
         }
     },
-    "检查黄色QTE": {
+    "检查黄色QTE待激发": {
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -156,104 +71,6 @@
                 ],
                 "connected": true,
                 "count": 50
-            }
-        }
-    },
-    "检查一号位置": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": [
-                    1220,
-                    176,
-                    39,
-                    37
-                ],
-                "lower": [
-                    [
-                        5,
-                        22,
-                        37
-                    ],
-                    [
-                        10,
-                        0,
-                        0
-                    ],
-                    [
-                        30,
-                        25,
-                        0
-                    ]
-                ],
-                "upper": [
-                    [
-                        9,
-                        33,
-                        50
-                    ],
-                    [
-                        30,
-                        5,
-                        5
-                    ],
-                    [
-                        40,
-                        35,
-                        5
-                    ]
-                ],
-                "connected": true,
-                "count": 20
-            }
-        }
-    },
-    "检查二号位置": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": [
-                    1219,
-                    287,
-                    41,
-                    40
-                ],
-                "lower": [
-                    [
-                        5,
-                        22,
-                        37
-                    ],
-                    [
-                        10,
-                        0,
-                        0
-                    ],
-                    [
-                        30,
-                        25,
-                        0
-                    ]
-                ],
-                "upper": [
-                    [
-                        9,
-                        33,
-                        50
-                    ],
-                    [
-                        30,
-                        5,
-                        5
-                    ],
-                    [
-                        40,
-                        35,
-                        5
-                    ]
-                ],
-                "connected": true,
-                "count": 20
             }
         }
     }
