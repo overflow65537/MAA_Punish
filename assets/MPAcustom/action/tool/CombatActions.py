@@ -72,8 +72,12 @@ class CombatActions:
         :return: True
         """
         for _ in range(count):
+            start_time = time.monotonic()
             self.attack()
-            time.sleep(interval / 1000)
+            elapsed_ms = (time.monotonic() - start_time) * 1000
+            remaining_ms = interval - elapsed_ms
+            if remaining_ms > 0:
+                time.sleep(remaining_ms / 1000)
         return True
 
     def long_press_attack(self, duration: int = 1000):
@@ -184,7 +188,11 @@ class CombatActions:
         """
         image = self.context.tasker.controller.post_screencap().wait().get()
         # 颜色映射字典
-        color_map = {"r": "检查红色QTE待激发", "y": "检查黄色QTE待激发", "b": "检查蓝色QTE待激发"}
+        color_map = {
+            "r": "检查红色QTE待激发",
+            "y": "检查黄色QTE待激发",
+            "b": "检查蓝色QTE待激发",
+        }
 
         if color not in color_map:
             return False
@@ -484,21 +492,64 @@ class CombatActions:
         else:
             return 0
 
-    def Switch(
-        self,
-    ):
+    def Switch(self):
         """
         切换角色
         """
+        role_type = ROLE_ACTIONS.get(self.role_name, {}).get("type", "general")
+        print(f"当前角色: {role_type}")
 
-        role_type = ROLE_ACTIONS[self.role_name]["type"]
+        def _click_qte(reco_name: str, color: str):
+            image = self.context.tasker.controller.cached_image
+            qte = self.context.run_recognition(reco_name, image)
+            if qte and qte.hit:
+                print(f"找到{color}QTE")
+                self.context.tasker.controller.post_click(
+                    qte.best_result.box[0], qte.best_result.box[1]  # type: ignore
+                )
 
-        match role_type:
-            case "Attacker":
-                pass
-            case "Tank":
-                pass
-            case "Support":
-                pass
+                for _ in range(100):
+                    image = self.context.tasker.controller.post_screencap().wait().get()
+                    qte = self.context.run_recognition(reco_name, image)
+                    self.attack()
+                    if qte and qte.hit:
+                        self.context.tasker.controller.post_click(
+                            qte.best_result.box[0], qte.best_result.box[1]  # type: ignore
+                        )
+                    else:
+                        break
+
+            else:
+                print(f"未找到{color}QTE")
+                print(qte)
+
+        match role_type.lower():
+            case "attacker":
+                self.attack()
+                print("切换到辅助角色")
+                _click_qte("切换蓝色QTE", "蓝色")
+            case "tank":
+                self.attack()
+                print("切换到攻击角色")
+                _click_qte("切换红色QTE", "红色")
+            case "support":
+                self.attack()
+                print("切换到防御角色")
+                _click_qte("切换黄色QTE", "黄色")
+            case "general":
+                target_node = self.context.get_node_data("QTE目标")
+                if not target_node:
+                    self.logger.error("未找到QTE目标 node")
+                    return
+                target = int(target_node.get("post_delay", 1))
+                if target == 1:
+                    print("切换到通用角色2")
+                    self.trigger_qte(2)
+                    self.context.override_pipeline({"QTE目标": {"post_delay": 2}})
+                else:
+                    print("切换到通用角色1")
+                    self.trigger_qte(1)
+                    self.context.override_pipeline({"QTE目标": {"post_delay": 1}})
             case _:
                 self.logger.error(f"未知角色类型: {role_type}")
+        self.context.override_pipeline({"识别人物": {"enabled": True}})

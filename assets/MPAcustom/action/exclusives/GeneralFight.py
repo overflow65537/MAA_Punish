@@ -34,11 +34,13 @@ class GeneralFight(CustomAction):
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
         action = CombatActions(context, role_name="通用")
+        print("开始战斗")
         action.lens_lock()
         action.attack()
         action.ball_elimination_target()
         action.use_skill()
-        action.continuous_attack(4, 300)
-        action.auto_qte("a")
+        action.continuous_attack(10, 300)
         action.auxiliary_machine()
+        action.Switch()
+        print("切换完成")
         return CustomAction.RunResult(success=True)

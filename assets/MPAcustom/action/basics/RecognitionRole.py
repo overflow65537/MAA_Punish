@@ -15,6 +15,7 @@ class RecognitionRole(CustomAction):
     ) -> CustomAction.RunResult:
         image = context.tasker.controller.post_screencap().wait().get()
         for role_name, role_info in ROLE_ACTIONS.items():
+            context.run_action("攻击")
             result = context.run_recognition(
                 entry="检查角色",
                 image=image,
@@ -29,6 +30,7 @@ class RecognitionRole(CustomAction):
                     }
                 },
             )
+
             if result and result.hit:
                 context.override_pipeline(
                     {
