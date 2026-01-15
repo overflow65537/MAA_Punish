@@ -1,12 +1,12 @@
 {
     "自动qte": {
-        "enabled": true
+        "enabled": false
     },
     "自动切换": {
-        "enabled": true
+        "enabled": false
     },
     "多成员组队": {
-        "enabled": true
+        "enabled": false
     },
     "关闭奖励": {
         "post_delay": 1000,
