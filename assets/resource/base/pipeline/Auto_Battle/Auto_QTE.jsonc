@@ -73,5 +73,83 @@
                 "count": 50
             }
         }
+    },
+    "切换红色QTE": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1219,
+                    173,
+                    41,
+                    159
+                ],
+                "connected": true,
+                "count": 100,
+                "upper": [
+                    140,
+                    40,
+                    40
+                ],
+                "lower": [
+                    100,
+                    15,
+                    15
+                ]
+            }
+        }
+    },
+    "切换蓝色QTE": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1219,
+                    173,
+                    41,
+                    159
+                ],
+                "connected": true,
+                "count": 100,
+                "upper": [
+                    80,
+                    140,
+                    210
+                ],
+                "lower": [
+                    40,
+                    110,
+                    90
+                ]
+            }
+        }
+    },
+    "切换黄色QTE": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1219,
+                    173,
+                    41,
+                    159
+                ],
+                "connected": true,
+                "count": 100,
+                "upper": [
+                    190,
+                    170,
+                    50
+                ],
+                "lower": [
+                    150,
+                    130,
+                    0
+                ]
+            }
+        }
+    },
+    "QTE目标": {
+        "post_delay": 1 //这个是用来标记QTE目标的
     }
 }

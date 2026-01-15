@@ -51,6 +51,11 @@
             ],
             "controller": [
                 "安卓端"
+            ],
+            "option": [
+                "自动QTE",
+                "自动切换角色",
+                "使用多名角色"
             ]
         },
         {
@@ -61,6 +66,11 @@
             ],
             "controller": [
                 "playcover端"
+            ],
+            "option": [
+                "自动QTE",
+                "自动切换角色",
+                "使用多名角色"
             ]
         },
         {
@@ -71,6 +81,11 @@
             ],
             "controller": [
                 "桌面端"
+            ],
+            "option": [
+                "自动QTE",
+                "自动切换角色",
+                "使用多名角色"
             ]
         },
         {
@@ -81,6 +96,11 @@
             ],
             "controller": [
                 "安卓端"
+            ],
+            "option": [
+                "自动QTE",
+                "自动切换角色",
+                "使用多名角色"
             ]
         },
         {
@@ -91,6 +111,11 @@
             ],
             "controller": [
                 "安卓端"
+            ],
+            "option": [
+                "自动QTE",
+                "自动切换角色",
+                "使用多名角色"
             ]
         },
         {
@@ -101,6 +126,11 @@
             ],
             "controller": [
                 "安卓端"
+            ],
+            "option": [
+                "自动QTE",
+                "自动切换角色",
+                "使用多名角色"
             ]
         },
         {
@@ -111,6 +141,11 @@
             ],
             "controller": [
                 "安卓端"
+            ],
+            "option": [
+                "自动QTE",
+                "自动切换角色",
+                "使用多名角色"
             ]
         },
         {
@@ -121,6 +156,11 @@
             ],
             "controller": [
                 "安卓端"
+            ],
+            "option": [
+                "自动QTE",
+                "自动切换角色",
+                "使用多名角色"
             ]
         },
         {
@@ -131,6 +171,11 @@
             ],
             "controller": [
                 "安卓端"
+            ],
+            "option": [
+                "自动QTE",
+                "自动切换角色",
+                "使用多名角色"
             ]
         },
         {
@@ -141,6 +186,11 @@
             ],
             "controller": [
                 "安卓端"
+            ],
+            "option": [
+                "自动QTE",
+                "自动切换角色",
+                "使用多名角色"
             ]
         },
         {
@@ -151,6 +201,11 @@
             ],
             "controller": [
                 "安卓端"
+            ],
+            "option": [
+                "自动QTE",
+                "自动切换角色",
+                "使用多名角色"
             ]
         },
         {
@@ -161,6 +216,11 @@
             ],
             "controller": [
                 "安卓端"
+            ],
+            "option": [
+                "自动QTE",
+                "自动切换角色",
+                "使用多名角色"
             ]
         },
         {
@@ -171,6 +231,11 @@
             ],
             "controller": [
                 "安卓端"
+            ],
+            "option": [
+                "自动QTE",
+                "自动切换角色",
+                "使用多名角色"
             ]
         },
         {
@@ -181,6 +246,11 @@
             ],
             "controller": [
                 "安卓端"
+            ],
+            "option": [
+                "自动QTE",
+                "自动切换角色",
+                "使用多名角色"
             ]
         },
         {
@@ -191,6 +261,11 @@
             ],
             "controller": [
                 "安卓端"
+            ],
+            "option": [
+                "自动QTE",
+                "自动切换角色",
+                "使用多名角色"
             ]
         }
     ],
@@ -1715,6 +1790,72 @@
                             "enabled": false
                         },
                         "使用体力": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
+        "自动QTE": {
+            "description": "<p>是否允许在战斗中使用QTE功能</p>",
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "yes",
+                    "pipeline_override": {
+                        "自动qte": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "no",
+                    "pipeline_override": {
+                        "自动qte": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
+        "自动切换角色": {
+            "description": "<p>是否允许在战斗中进行轮切</p>",
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "yes",
+                    "pipeline_override": {
+                        "自动切换": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "no",
+                    "pipeline_override": {
+                        "自动切换": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
+        "使用多名角色": {
+            "description": "<p>是否使用其他角色填充剩余位置</p>",
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "yes",
+                    "pipeline_override": {
+                        "多成员组队": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "no",
+                    "pipeline_override": {
+                        "多成员组队": {
                             "enabled": false
                         }
                     }

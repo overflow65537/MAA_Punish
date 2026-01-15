@@ -630,6 +630,7 @@
     },
     "肉鸽战斗_寒境曙光": {
         "timeout": 300000,
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {

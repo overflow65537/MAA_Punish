@@ -533,55 +533,6 @@
                 "green_mask": true,
                 "threshold": 0.6
             }
-        },
-        "next": [
-            "[JumpBack]点击红色QTE", //保险措施,防止QTE情况下意外切人,使用这个人物再切回来
-            "空任务"
-        ]
-    },
-    "点击红色QTE": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": [
-                    1214,
-                    159,
-                    50,
-                    177
-                ],
-                "connected": true,
-                "count": 100,
-                "upper": [
-                    [
-                        181,
-                        44,
-                        54
-                    ],
-                    [
-                        30,
-                        5,
-                        5
-                    ]
-                ],
-                "lower": [
-                    [
-                        133,
-                        11,
-                        19
-                    ],
-                    [
-                        10,
-                        0,
-                        0
-                    ]
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "载入中": {

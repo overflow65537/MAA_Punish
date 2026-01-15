@@ -55,16 +55,68 @@
             "[JumpBack]停止任务"
         ]
     },
-    "识别囚笼次数": {
+    "识别囚笼次数1": {
         "recognition": {
             "type": "ColorMatch",
             "param": {
                 "roi": "识别角色",
                 "roi_offset": [
-                    0,
-                    0,
-                    0,
-                    10
+                    20,
+                    40,
+                    -73,
+                    -20
+                ],
+                "upper": [
+                    53,
+                    175,
+                    248
+                ],
+                "lower": [
+                    53,
+                    175,
+                    248
+                ],
+                "connected": true,
+                "count": 10
+            }
+        }
+    },
+    "识别囚笼次数2": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": "识别角色",
+                "roi_offset": [
+                    107,
+                    38,
+                    -71,
+                    -20
+                ],
+                "upper": [
+                    53,
+                    175,
+                    248
+                ],
+                "lower": [
+                    53,
+                    175,
+                    248
+                ],
+                "connected": true,
+                "count": 10
+            }
+        }
+    },
+    "识别囚笼次数3": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": "识别角色",
+                "roi_offset": [
+                    196,
+                    40,
+                    -71,
+                    -26
                 ],
                 "upper": [
                     53,
