@@ -50,19 +50,10 @@ class CombatActions:
                     break
         self._logger_component = LoggerComponent(__name__)
         self.logger = self._logger_component.logger
-        auto_qte_config = self.context.get_node_data("自动qte")
-        switch_config = self.context.get_node_data("自动切换")
-        self.auto_qte_config = (
-            True
-            if auto_qte_config
-            and auto_qte_config.get("enabled", False)
-            else False
-        )
-        self.switch_config = (
-            True
-            if switch_config and switch_config.get("enabled", False)
-            else False
-        )
+        auto_qte_config = self.context.get_node_data("自动qte") or {}
+        switch_config = self.context.get_node_data("自动切换") or {}
+        self.auto_qte_config = auto_qte_config.get("enabled", False)
+        self.switch_config = switch_config.get("enabled", False)
 
     def attack(self):
         """
