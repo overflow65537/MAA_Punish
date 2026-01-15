@@ -51,7 +51,7 @@ class RoleSelection(CustomAction):
         role_dict = ROLE_ACTIONS.copy()
         role_node = context.get_node_data("角色权重")
         _cache = False
-        if role_node :
+        if role_node:
             self.logger.info(f"读取缓存: {role_node}")
             role = role_node.get("focus", {})
             _cache = True
@@ -91,22 +91,29 @@ class RoleSelection(CustomAction):
                 if context.tasker.stopping:
                     return CustomAction.RunResult(success=True)
                 context.run_action("反向滑动_选人")
-        # 找出权重最高的key
-        selected_role = max(role_weight.items(), key=lambda x: x[1])[0]
-        for role_name, weight in role_weight.items():
-            self.send_msg(context, f"角色: {role_name}, 权重: {weight}")
-        if condition.get("pick") and condition.get("pick") not in role_weight.keys():
-            self.send_msg(
-                context,
-                f"未检测到 {condition.get('pick')},选中权重最高的角色 {selected_role}",
-            )
+        if role_weight:
+            # 找出权重最高的key
+            selected_role = max(role_weight.items(), key=lambda x: x[1])[0]
+            for role_name, weight in role_weight.items():
+                self.send_msg(context, f"角色: {role_name}, 权重: {weight}")
+            if (
+                condition.get("pick")
+                and condition.get("pick") not in role_weight.keys()
+            ):
+                self.send_msg(
+                    context,
+                    f"未检测到 {condition.get('pick')},选中权重最高的角色 {selected_role}",
+                )
 
-        nonselected_roles = False
-        if role_weight[selected_role] == 0:
-            self.logger.info(f"角色次数全为0")
-            nonselected_roles = True
+            nonselected_roles = False
+            if role_weight[selected_role] == 0:
+                self.logger.info(f"角色次数全为0")
+                nonselected_roles = True
+            else:
+                self.logger.info(f"选择角色: {selected_role}")
         else:
-            self.logger.info(f"选择角色: {selected_role}")
+            nonselected_roles = True
+            selected_role = ""
 
         target = None
         images = []
@@ -182,44 +189,44 @@ class RoleSelection(CustomAction):
                     },
                 )
 
-            if (
-                target
-                and target.hit
-                and isinstance(target.best_result, TemplateMatchResult)
-            ):
-                print(
-                    f"找到对应人物: {selected_role},数量: {len(target.filtered_results)}"
-                )
-                for result in target.filtered_results:
-                    if not isinstance(result, TemplateMatchResult):
-                        self.send_msg(context, f"未检测到对应人物: {selected_role}")
-                        return CustomAction.RunResult(success=False)
-
-                    print(f"对应人物位置: {result.box}")
-                    trial_reco = context.run_recognition(
-                        "识别试用角色",
-                        image,
-                        {
-                            "识别试用角色": {
-                                "recognition": {"param": {"roi": result.box}},
-                            }
-                        },
+                if (
+                    target
+                    and target.hit
+                    and isinstance(target.best_result, TemplateMatchResult)
+                ):
+                    print(
+                        f"找到对应人物: {selected_role},数量: {len(target.filtered_results)}"
                     )
-                    if trial_reco and ("[试用]" in selected_role) == trial_reco.hit:
-                        print(f"对应人物是否是试用角色: {trial_reco.hit}")
-                        target_x, target_y = (
-                            result.box[0] + result.box[2] // 2,
-                            result.box[1] + result.box[3] // 2,
-                        )
+                    for result in target.filtered_results:
+                        if not isinstance(result, TemplateMatchResult):
+                            self.send_msg(context, f"未检测到对应人物: {selected_role}")
+                            return CustomAction.RunResult(success=False)
 
-                if target_x and target_y:
-                    context.tasker.controller.post_click(target_x, target_y).wait()
-                    context.run_task("编入队伍")
-                    self.logger.info(f"选择角色成功: {selected_role}")
-                    if condition.get("cage") and role[selected_role]["cage"] != 0:
-                        role[selected_role]["cage"] -= 1
-                    context.override_pipeline({"角色权重": {"focus": role}})
-                    return CustomAction.RunResult(success=True)
+                        print(f"对应人物位置: {result.box}")
+                        trial_reco = context.run_recognition(
+                            "识别试用角色",
+                            image,
+                            {
+                                "识别试用角色": {
+                                    "recognition": {"param": {"roi": result.box}},
+                                }
+                            },
+                        )
+                        if trial_reco and ("[试用]" in selected_role) == trial_reco.hit:
+                            print(f"对应人物是否是试用角色: {trial_reco.hit}")
+                            target_x, target_y = (
+                                result.box[0] + result.box[2] // 2,
+                                result.box[1] + result.box[3] // 2,
+                            )
+
+                    if target_x and target_y:
+                        context.tasker.controller.post_click(target_x, target_y).wait()
+                        context.run_task("编入队伍")
+                        self.logger.info(f"选择角色成功: {selected_role}")
+                        if condition.get("cage") and role[selected_role]["cage"] != 0:
+                            role[selected_role]["cage"] -= 1
+                        context.override_pipeline({"角色权重": {"focus": role}})
+                        return CustomAction.RunResult(success=True)
             context.run_action("滑动_选人")
         if not (target and target.hit):
             for i, img in enumerate(images, 1):
