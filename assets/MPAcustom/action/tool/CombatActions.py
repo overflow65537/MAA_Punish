@@ -50,6 +50,19 @@ class CombatActions:
                     break
         self._logger_component = LoggerComponent(__name__)
         self.logger = self._logger_component.logger
+        auto_qte_config = self.context.get_node_data("自动qte")
+        switch_config = self.context.get_node_data("自动切换")
+        self.auto_qte_config = (
+            True
+            if auto_qte_config
+            and auto_qte_config.get("enabled", False)
+            else False
+        )
+        self.switch_config = (
+            True
+            if switch_config and switch_config.get("enabled", False)
+            else False
+        )
 
     def attack(self):
         """
@@ -219,6 +232,9 @@ class CombatActions:
         :param target: QTE颜色(r,y,b,a)，默认r。a表示依次检查r、b、y
         :return: 点击操作结果
         """
+        if not self.auto_qte_config:
+            self.logger.info("未开启自动QTE功能")
+            return False
 
         # 处理自动模式：依次检查r、b、y
         if target == "a":
@@ -496,6 +512,9 @@ class CombatActions:
         """
         切换角色
         """
+        if not self.switch_config:
+            self.logger.info("未开启切换角色功能")
+            return
         role_type = ROLE_ACTIONS.get(self.role_name, {}).get("type", "general")
         print(f"当前角色: {role_type}")
 

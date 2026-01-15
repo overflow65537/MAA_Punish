@@ -4,6 +4,7 @@ MAA_Punish 选择特定类型角色
 作者:overflow65537
 """
 
+import re
 from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.define import TemplateMatchResult, OCRResult, ColorMatchResult
@@ -22,6 +23,11 @@ class RoleSelectionType(CustomAction):
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
 
+        multi_member_config = context.get_node_data("多成员组队")
+        if multi_member_config and multi_member_config.get("enabled", False):
+            context.run_task("返回")
+            self.send_msg(context, "关闭多成员选择模式")
+            return CustomAction.RunResult(success=False)
         param = json.loads(argv.custom_action_param) or {}
 
         for _ in range(5):
@@ -68,3 +74,14 @@ class RoleSelectionType(CustomAction):
 
         context.run_task("返回")
         return CustomAction.RunResult(success=True)
+
+    def send_msg(self, context: Context, msg: str):
+        msg_node = {
+            "发送消息_这是程序自动生成的node所以故意写的很长来防止某一天想不开用了这个名字导致报错": {
+                "focus": {"Node.Recognition.Succeeded": msg}
+            }
+        }
+        context.run_task(
+            "发送消息_这是程序自动生成的node所以故意写的很长来防止某一天想不开用了这个名字导致报错",
+            pipeline_override=msg_node,
+        )
