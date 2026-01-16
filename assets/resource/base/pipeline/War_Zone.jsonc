@@ -327,6 +327,9 @@
                                 }
                             }
                         }
+                    },
+                    "识别人物": {
+                        "enabled": true
                     }
                 }
             }
@@ -362,6 +365,9 @@
                                 }
                             }
                         }
+                    },
+                    "识别人物": {
+                        "enabled": true
                     }
                 }
             }
@@ -397,6 +403,9 @@
                                 }
                             }
                         }
+                    },
+                    "识别人物": {
+                        "enabled": true
                     }
                 }
             }
@@ -432,6 +441,9 @@
                                 }
                             }
                         }
+                    },
+                    "识别人物": {
+                        "enabled": true
                     }
                 }
             }
@@ -467,6 +479,9 @@
                                 }
                             }
                         }
+                    },
+                    "识别人物": {
+                        "enabled": true
                     }
                 }
             }
@@ -502,6 +517,9 @@
                                 }
                             }
                         }
+                    },
+                    "识别人物": {
+                        "enabled": true
                     }
                 }
             }
@@ -528,7 +546,20 @@
                 ]
             }
         },
-        "next": []
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "识别人物": {
+                        "enabled": true
+                    }
+                }
+            }
+        },
+        "next": [
+            "清除队伍"
+        ]
     },
     "作战开始": {
         "post_delay": 15000,
@@ -537,7 +568,6 @@
             "param": {
                 "all_of": [
                     {
-                        "sub_name": "作战开始_1",
                         "recognition": {
                             "type": "OCR",
                             "param": {
@@ -555,7 +585,12 @@
                         "recognition": {
                             "type": "ColorMatch",
                             "param": {
-                                "roi": "作战开始_1",
+                                "roi": [
+                                    1032,
+                                    641,
+                                    148,
+                                    53
+                                ],
                                 "lower": [
                                     250,
                                     250,
