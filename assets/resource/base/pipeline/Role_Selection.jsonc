@@ -502,7 +502,10 @@
             "param": {
                 "custom_action": "RoleSelection"
             }
-        }
+        },
+        "next": [
+            "作战开始"
+        ]
     },
     "选人测试": {
         "action": {

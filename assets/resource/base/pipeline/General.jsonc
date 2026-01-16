@@ -5,9 +5,6 @@
     "自动切换": {
         "enabled": true
     },
-    "多成员组队": {
-        "enabled": true
-    },
     "选择人物_配置": {},
     "肉鸽模式_配置": {
         "focus": null
