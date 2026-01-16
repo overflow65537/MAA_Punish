@@ -82,169 +82,14 @@ class RoleSelection(CustomAction):
         role_weight = self.calculate_weight(role, condition)
         self.logger.info(f"条件: {condition}")
         self.logger.info(f"角色权重: {role_weight}")
-        print(f"角色权重: {role_weight}")
         if (
             not (not condition.get("cage") and condition.get("pick", "") in role.keys())
             and not _cache
         ):
-            for _ in range(int(condition.get("max_try", 5))):
+            for _ in range(int(condition.get("max_try", 4))):
                 if context.tasker.stopping:
                     return CustomAction.RunResult(success=True)
                 context.run_action("反向滑动_选人")
-        if role_weight:
-            # 找出权重最高的key
-            selected_role = max(role_weight.items(), key=lambda x: x[1])[0]
-            for role_name, weight in role_weight.items():
-                self.send_msg(context, f"角色: {role_name}, 权重: {weight}")
-            if (
-                condition.get("pick")
-                and condition.get("pick") not in role_weight.keys()
-            ):
-                self.send_msg(
-                    context,
-                    f"未检测到 {condition.get('pick')},选中权重最高的角色 {selected_role}",
-                )
-
-            nonselected_roles = False
-            if role_weight[selected_role] == 0:
-                self.logger.info(f"角色次数全为0")
-                nonselected_roles = True
-            else:
-                self.logger.info(f"选择角色: {selected_role}")
-        else:
-            nonselected_roles = True
-            selected_role = ""
-
-        target = None
-        images = []
-        target_x, target_y = None, None
-        for _ in range(int(condition.get("max_try", 5))):
-            if context.tasker.stopping:
-                return CustomAction.RunResult(success=True)
-            image = context.tasker.controller.post_screencap().wait().get()
-            images.append(image)
-            if nonselected_roles and condition.get("cage"):
-                # 没有对应人物,且是囚笼模式,随便选一个带次数的
-                print("没有对应人物,且是囚笼模式,随便选一个带次数的")
-
-                target = context.run_recognition(
-                    "选择人物",
-                    image,
-                    {
-                        "选择人物": {
-                            "recognition": {
-                                "type": "ColorMatch",
-                                "param": {
-                                    "roi": [72, 69, 140, 521],
-                                    "upper": [53, 175, 248],
-                                    "lower": [53, 175, 248],
-                                    "connected": True,
-                                    "count": 10,
-                                    "index": -1,
-                                },
-                            },
-                        }
-                    },
-                )
-                print(f"检测到: \n{target}")
-                if (
-                    target
-                    and target.hit
-                    and isinstance(target.best_result, ColorMatchResult)
-                ):
-                    context.tasker.controller.post_click(
-                        target.best_result.box[0], target.best_result.box[1]
-                    ).wait()
-                    context.run_task("编入队伍")
-                    return CustomAction.RunResult(success=True)
-                self.send_msg(context, f"未检测到带次数的角色")
-                print(f"未检测到带次数的角色")
-            elif nonselected_roles:
-                # 没有对应人物,随便选一个
-                print("没有对应人物,随便选一个")
-                context.run_task("编入队伍")
-                return CustomAction.RunResult(success=True)
-            else:
-                # 有对应人物,选对应人物
-                print(f"有对应人物,选对应人物: {selected_role}")
-                target = context.run_recognition(
-                    "选择人物",
-                    image,
-                    {
-                        "选择人物": {
-                            "recognition": {
-                                "param": {
-                                    "template": role_dict[
-                                        selected_role.replace("[试用]", "")
-                                    ]["template"],
-                                    "threshold": [0.7]
-                                    * len(
-                                        role_dict[selected_role.replace("[试用]", "")][
-                                            "template"
-                                        ]
-                                    ),
-                                },
-                            },
-                        }
-                    },
-                )
-
-                if (
-                    target
-                    and target.hit
-                    and isinstance(target.best_result, TemplateMatchResult)
-                ):
-                    print(
-                        f"找到对应人物: {selected_role},数量: {len(target.filtered_results)}"
-                    )
-                    for result in target.filtered_results:
-                        if not isinstance(result, TemplateMatchResult):
-                            self.send_msg(context, f"未检测到对应人物: {selected_role}")
-                            return CustomAction.RunResult(success=False)
-
-                        print(f"对应人物位置: {result.box}")
-                        trial_reco = context.run_recognition(
-                            "识别试用角色",
-                            image,
-                            {
-                                "识别试用角色": {
-                                    "recognition": {"param": {"roi": result.box}},
-                                }
-                            },
-                        )
-                        if trial_reco and ("[试用]" in selected_role) == trial_reco.hit:
-                            print(f"对应人物是否是试用角色: {trial_reco.hit}")
-                            target_x, target_y = (
-                                result.box[0] + result.box[2] // 2,
-                                result.box[1] + result.box[3] // 2,
-                            )
-
-                    if target_x and target_y:
-                        context.tasker.controller.post_click(target_x, target_y).wait()
-                        context.run_task("编入队伍")
-                        self.logger.info(f"选择角色成功: {selected_role}")
-                        if condition.get("cage") and role[selected_role]["cage"] != 0:
-                            role[selected_role]["cage"] -= 1
-                        context.override_pipeline({"角色权重": {"focus": role}})
-                        return CustomAction.RunResult(success=True)
-            context.run_action("滑动_选人")
-        if not (target and target.hit):
-            for i, img in enumerate(images, 1):
-                self.save_screenshot(img, f"未找到角色_尝试{i}")
-            self.logger.info(f"选择角色失败: {selected_role}")
-            self.send_msg(context, f"未找到角色 {selected_role},退出任务")
-            context.run_task("返回主菜单")
-            context.override_next(argv.node_name, ["停止任务"])
-            context.override_pipeline(
-                {
-                    "停止任务": {
-                        "focus": {
-                            "Node.Recognition.Succeeded": f"未找到角色 {selected_role},退出任务"
-                        }
-                    }
-                }
-            )
-
         return CustomAction.RunResult(success=True)
 
     def recognize_role(
@@ -466,14 +311,14 @@ class RoleSelection(CustomAction):
                 + generation_weight
                 + master_level_weight
                 + pick_bonus
-            ) * (1 if has_count else 0)
+            ) * (1 if (not condition.get("cage", False)) or has_count else 0)
 
             # 6. 最终权重 = 基础权重 + 选中加成
             w = base_weight
 
             self.logger.debug(
                 f"{role_name}: 战力={power_weight}, 属性分={attribute_weight}, 代数分={generation_weight}, "
-                f"精通分={master_level_weight}, 选中加成={pick_bonus}, 基础权重={base_weight}, 最终权重={w}"
+                f"精通分={master_level_weight}, 选中加成={pick_bonus}, 基础权重={base_weight}, 是否有次数={bool(1 if (not condition.get("cage", False)) or has_count else 0)}, 最终权重={w}"
             )
             print(f"{role_name}: 权重={w}")
             weight[role_name] = w
