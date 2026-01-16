@@ -466,7 +466,7 @@ class RoleSelection(CustomAction):
                 + generation_weight
                 + master_level_weight
                 + pick_bonus
-            ) * (1 if has_count else 0)
+            ) * (1 if (not condition.get("cage", False)) or has_count else 0)
 
             # 6. 最终权重 = 基础权重 + 选中加成
             w = base_weight
