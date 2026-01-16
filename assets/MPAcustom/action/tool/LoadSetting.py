@@ -122,7 +122,7 @@ ROLE_ACTIONS = {
             "肉鸽通用/深红囚影终解.png",
             "肉鸽通用/深红囚影_矩阵.png",
             "肉鸽通用/深红囚影终解_矩阵.png",
-            "肉鸽通用/深红囚影_赤樗椿__矩阵.png",
+            "肉鸽通用/深红囚影_赤樗椿_矩阵.png",
         ],
         "attack_template": "自定义战斗/深红囚影.png",
     },
@@ -141,6 +141,7 @@ ROLE_ACTIONS = {
             "肉鸽通用/誓焰终解_矩阵.png",
             "肉鸽通用/誓焰_矩阵.png",
             "肉鸽通用/誓焰_粼海浮荧_矩阵.png",
+            "肉鸽通用/誓焰_光耀颂赞.png",
         ],
         "attack_template": "自定义战斗/誓焰.png",
     },
@@ -243,6 +244,7 @@ ROLE_ACTIONS = {
         },
         "template": [
             "肉鸽通用/骇影.png",
+            "肉鸽通用/骇影终解.png",
         ],
         "attack_template": "自定义战斗/骇影.png",
     },
@@ -256,6 +258,7 @@ ROLE_ACTIONS = {
         },
         "template": [
             "肉鸽通用/谬影.png",
+            "肉鸽通用/谬影终解.png",
         ],
         "attack_template": "自定义战斗/谬影.png",
     },
@@ -269,6 +272,7 @@ ROLE_ACTIONS = {
         },
         "template": [
             "肉鸽通用/回音.png",
+            "肉鸽通用/回音_沙飞虹芒.png",
         ],
         "attack_template": "自定义战斗/回音.png",
     },
@@ -347,6 +351,7 @@ ROLE_ACTIONS = {
         },
         "template": [
             "肉鸽通用/森息.png",
+            "肉鸽通用/森息终解.png",
         ],
         "attack_template": "自定义战斗/森息.png",
     },
@@ -375,5 +380,88 @@ ROLE_ACTIONS = {
             "肉鸽通用/幻奏.png",
         ],
         "attack_template": "自定义战斗/幻奏.png",
-    }
+    },
+    "七实·芒星之迹": {
+        "name": "芒星之迹",
+        "type": "Tank",
+        "cls_name": "GeneralFight",
+        "metadata": {
+            "lightning": 100,
+            "generation": 0,
+        },
+        "template": [
+            "肉鸽通用/芒星之迹.png",
+            "肉鸽通用/芒星之迹终解.png",
+        ],
+        "attack_template": "自定义战斗/芒星之迹.png",
+    },
+    "渡边·尘铭": {
+        "name": "尘铭",
+        "type": "Tank",
+        "cls_name": "GeneralFight",
+        "metadata": {
+            "fire": 100,
+            "generation": 0,
+        },
+        "template": [
+            "肉鸽通用/尘铭.png",
+            "肉鸽通用/尘铭终解.png",
+        ],
+        "attack_template": "自定义战斗/尘铭.png",
+    },
+    "万事·明晰梦": {
+        "name": "明晰梦",
+        "type": "Tank",
+        "cls_name": "GeneralFight",
+        "metadata": {
+            "ice": 100,
+            "generation": 0,
+        },
+        "template": ["肉鸽通用/明晰梦.png"],
+        "attack_template": "自定义战斗/明晰梦.png",
+    },
+    "罗塞塔·凛冽": {
+        "name": "凛冽",
+        "type": "Tank",
+        "cls_name": "GeneralFight",
+        "metadata": {
+            "physical": 100,
+            "generation": 0,
+        },
+        "template": ["肉鸽通用/凛冽.png"],
+        "attack_template": "自定义战斗/凛冽.png",
+    },
+    "含英·檀心": {
+        "name": "檀心",
+        "type": "Tank",
+        "cls_name": "GeneralFight",
+        "metadata": {
+            "dark": 100,
+            "generation": 0,
+        },
+        "template": ["肉鸽通用/檀心.png", "肉鸽通用/檀心终解.png"],
+        "attack_template": "自定义战斗/檀心.png",
+    },
+    "丽芙·极昼": {
+        "name": "极昼",
+        "type": "Support",
+        "cls_name": "GeneralFight",
+        "metadata": {
+            "fire": 100,
+            "generation": 0,
+        },
+        "template": ["肉鸽通用/极昼.png", "肉鸽通用/极昼终解.png"],
+        "attack_template": "自定义战斗/极昼.png",
+    },
+    "薇拉·灼惘": {
+        "name": "灼惘",
+        "type": "Support",
+        "cls_name": "GeneralFight",
+        "metadata": {
+            "fire": 100,
+            "generation": 0,
+        },
+        "template": ["肉鸽通用/灼惘.png", "肉鸽通用/灼惘终解.png"],
+        "attack_template": "自定义战斗/灼惘.png",
+    },
 }

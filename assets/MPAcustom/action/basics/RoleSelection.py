@@ -89,14 +89,30 @@ class RoleSelection(CustomAction):
         self.logger.info(f"最佳进攻: {attacker_name or '无'}")
         self.logger.info(f"最佳装甲: {tank_name or '无'}")
         self.logger.info(f"最佳支援: {support_name or '无'}")
-        if attacker_name:
-            self.find_role(context, role_dict, attacker_name)
+        if attacker_name and self.find_role(context, role_dict, attacker_name):
+            context.run_task("编入队伍")
+
+        if condition.get("roguelike_3_mode") is None:
+            print("非肉鸽模式")
+            if tank_name:
+                context.run_task("打开黄色位置")
+                if self.find_role(context, role_dict, tank_name):
+                    context.run_task("编入队伍")
+                else:
+                    context.run_action("返回")
+
+            if support_name:
+                context.run_task("打开蓝色位置")
+                if self.find_role(context, role_dict, support_name):
+                    context.run_task("编入队伍")
+                else:
+                    context.run_action("返回")
 
         return CustomAction.RunResult(success=True)
 
     def find_role(
         self, context: Context, role_dict: dict, role_name: str, max_try: int = 5
-    ) -> dict:
+    ) -> bool:
         if "[试用]" in role_name:
             role_name = role_name.replace("[试用]", "")
             trial = True
@@ -152,12 +168,12 @@ class RoleSelection(CustomAction):
             )
             if role_reco and role_reco.hit:
                 context.tasker.controller.post_click(
-                    role_reco.best_result.box[0] + role_reco.best_result.box[3] // 2, role_reco.best_result.box[1] + role_reco.best_result.box[4] // 2  # type: ignore
+                    role_reco.best_result.box[0] + role_reco.best_result.box[2] // 2, role_reco.best_result.box[1] + role_reco.best_result.box[3] // 2  # type: ignore
                 ).wait()
-                return {role_name: role_reco}
+                return True
             context.run_action("滑动_选人")
         print(f"未识别到角色")
-        return {}
+        return False
 
     def recognize_role(
         self,

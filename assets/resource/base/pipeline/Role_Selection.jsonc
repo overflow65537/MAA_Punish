@@ -49,12 +49,6 @@
             }
         }
     },
-    "测试任务": {
-        "next": [
-            "循环执行器",
-            "[JumpBack]停止任务"
-        ]
-    },
     "识别囚笼次数1": {
         "recognition": {
             "type": "ColorMatch",
@@ -434,6 +428,40 @@
             "队伍净空"
         ]
     },
+    "打开蓝色位置": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    186,
+                    297,
+                    229,
+                    235
+                ],
+                "template": "幻痛囚笼/队伍净空_蓝黄.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "打开黄色位置": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    810,
+                    292,
+                    318,
+                    272
+                ],
+                "template": "幻痛囚笼/队伍净空_蓝黄.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
     "选择首发": {
         "post_delay": 2000,
         "recognition": {
@@ -482,7 +510,8 @@
             "param": {
                 "custom_action": "RoleSelection",
                 "custom_action_param": {
-                    "need_element": "fire"
+                    "need_element": "dark"
+                    // "cage": true
                 }
             }
         }
