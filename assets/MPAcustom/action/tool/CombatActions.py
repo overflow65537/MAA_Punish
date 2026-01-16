@@ -171,6 +171,7 @@ class CombatActions:
             target = 2
         elif target < 1 or target > 8:
             return False
+        print(f"消球{target}")
         return self.context.run_action(f"消球{target}")
 
     def trigger_qte(self, target: int = 1):
@@ -499,7 +500,7 @@ class CombatActions:
         else:
             return 0
 
-    def Switch(self):
+    def switch(self):
         """
         切换角色
         """
@@ -559,6 +560,9 @@ class CombatActions:
             return [color for _, color in candidates]
 
         localtion_mapping = _create_qte_mapping()
+        if not localtion_mapping:
+            self.logger.error("未找到任何QTE")
+            return
 
         target_node = self.context.get_node_data("QTE目标")
         if not target_node:
@@ -566,11 +570,13 @@ class CombatActions:
             return
         target = int(target_node.get("post_delay", 0))
         if target == 0:
-            _click_qte(localtion_mapping[1])
-            self.context.override_pipeline({"QTE目标": {"post_delay": 0}})
-        elif target == 1:
-            _click_qte(localtion_mapping[0])
+            print(f"切换到{localtion_mapping[-1]},目标{target}")
+            _click_qte(localtion_mapping[-1])
             self.context.override_pipeline({"QTE目标": {"post_delay": 1}})
+        elif target == 1:
+            print(f"切换到{localtion_mapping[0]},目标{target}")
+            _click_qte(localtion_mapping[0])
+            self.context.override_pipeline({"QTE目标": {"post_delay": 0}})
         else:
             return
 

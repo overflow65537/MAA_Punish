@@ -67,6 +67,10 @@ class Hyperreal(CustomAction):
                 action.auto_qte("a")
                 action.attack()
             action.logger.info("核心技能结束")
+            action.auxiliary_machine()
+            action.switch()
+            print("切换完成")
+            return CustomAction.RunResult(success=True)
 
         else:
             action.logger.info("核心技能未就绪")

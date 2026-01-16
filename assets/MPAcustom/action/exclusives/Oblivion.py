@@ -45,16 +45,51 @@ class Oblivion(CustomAction):
             action.use_skill(1000)  # 技能
             action.auxiliary_machine()
             action.auto_qte("a")
-        elif action.check_status("检查残月值_终焉"):
-            action.long_press_attack(2000)
-        elif action.count_signal_balls() >= 9:
-            action.ball_elimination_target(1)
-        else:
             time.sleep(0.1)
-            action.ball_elimination_target(1)
-            action.continuous_attack(8, 200)
-            action.long_press_attack(2000)
-            time.sleep(1)
+            item = 0
+            while not action.check_Skill_energy_bar() and item < 30:
+                if context.tasker.stopping:
+                    return CustomAction.RunResult(success=True)
+                item = 0
+                action.attack()
+                while (
+                    action.count_signal_balls()
+                    and item < 5
+                    and not action.check_Skill_energy_bar()
+                ):
+                    action.ball_elimination_target(1)
+                    item += 1
+                    action.attack()
+                    action.auto_qte("a")
+                action.attack()
+                if (
+                    action.check_status("检查残月值_终焉")
+                    and not action.check_Skill_energy_bar()
+                ):
+                    action.long_press_attack(2000)
+            action.use_skill(1000)  # 技能
+            action.auxiliary_machine()
+            action.auto_qte("a")
+            for _ in range(10):
+                action.attack()
+            action.switch()
+            print("切换完成")
+            return CustomAction.RunResult(success=True)
+
+        else:
+            for _ in range(30):
+                if context.tasker.stopping or action.check_Skill_energy_bar():
+                    return CustomAction.RunResult(success=True)
+                item = 0
+                action.attack()
+                while action.count_signal_balls() and item < 5:
+                    action.ball_elimination_target(1)
+                    item += 1
+                    action.attack()
+                    action.auto_qte("a")
+                action.attack()
+                if action.check_status("检查残月值_终焉"):
+                    action.long_press_attack(2000)
         action.attack()
 
         return CustomAction.RunResult(success=True)

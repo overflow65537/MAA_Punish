@@ -78,7 +78,7 @@ class CrimsonWeave(CustomAction):
                     for _ in range(10):
                         action.ball_elimination_target(1)
                         time.sleep(0.2)
-                    action.Switch()
+                    action.switch()
                     return CustomAction.RunResult(True)
                 elapsed = time.time() - start_time
                 if elapsed < 0.3:
@@ -117,7 +117,7 @@ class CrimsonWeave(CustomAction):
                 for _ in range(10):
                     action.ball_elimination_target(1)
                     time.sleep(0.2)
-                action.Switch()
+                action.switch()
                 print("切换角色")
         action.attack()
 

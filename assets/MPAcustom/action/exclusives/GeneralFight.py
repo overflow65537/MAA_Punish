@@ -27,6 +27,7 @@ MAA_Punish 通用战斗程序
 from MPAcustom.action.basics import CombatActions
 from maa.context import Context
 from maa.custom_action import CustomAction
+import time
 
 
 class GeneralFight(CustomAction):
@@ -37,10 +38,23 @@ class GeneralFight(CustomAction):
         print("开始战斗")
         action.lens_lock()
         action.attack()
-        action.ball_elimination_target()
-        action.use_skill()
-        action.continuous_attack(10, 300)
+        item = 0
+        while action.count_signal_balls() and item < 5:
+            if context.tasker.stopping:
+                return CustomAction.RunResult(success=True)
+            action.ball_elimination_target()
+            item += 1
+            action.attack()
+            action.auto_qte("a")
+
+        for _ in range(30):
+            if context.tasker.stopping:
+                return CustomAction.RunResult(success=True)
+            action.use_skill()
+            action.auxiliary_machine()
+            action.auto_qte("a")
+            action.attack()
         action.auxiliary_machine()
-        action.Switch()
+        action.switch()
         print("切换完成")
         return CustomAction.RunResult(success=True)

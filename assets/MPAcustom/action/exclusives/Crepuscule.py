@@ -40,18 +40,23 @@ class Crepuscule(CustomAction):
         action.attack()
         if action.check_Skill_energy_bar():
             action.logger.info("大招就绪")
-            action.use_skill()
-            time.sleep(0.05)
-            action.auto_qte("a")
-            action.auxiliary_machine()
+            for _ in range(10):
+                action.use_skill()
+                time.sleep(0.05)
+                action.auxiliary_machine()
+            action.switch()
+            print("切换完成")
+            return CustomAction.RunResult(success=True)
 
         elif action.check_status("检查核心被动_晖暮"):
             action.long_press_dodge(3000)
-            context.tasker.controller.post_swipe(1212, 513, 1212, 513, 3000).wait()
+            context.run_action("长按1号球")
             action.auto_qte("a")
             action.auxiliary_machine()
         else:
             action.logger.info("核心技能未就绪")
-            action.continuous_attack(50, 100)
+            item = 0
+            while action.count_signal_balls() < 9 and item < 100:
+                action.attack()
         action.attack()
         return CustomAction.RunResult(success=True)
