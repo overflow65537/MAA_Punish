@@ -541,7 +541,7 @@
             "param": {
                 "custom_action": "RoleSelection",
                 "custom_action_param": {
-                    "roguelike_3_mode": 0
+                    "need_element": "fire"
                 }
             }
         }
