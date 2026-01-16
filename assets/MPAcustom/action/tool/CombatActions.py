@@ -509,7 +509,13 @@ class CombatActions:
         role_type = ROLE_ACTIONS.get(self.role_name, {}).get("type", "general")
         print(f"当前角色: {role_type}")
 
-        def _click_qte(reco_name: str, color: str):
+        def _click_qte(color: str):
+            mapping = {
+                "blue": "切换蓝色QTE",
+                "yellow": "切换黄色QTE",
+                "red": "切换红色QTE",
+            }
+            reco_name = mapping.get(color, "")
             image = self.context.tasker.controller.cached_image
             qte = self.context.run_recognition(reco_name, image)
             if qte and qte.hit:
@@ -533,33 +539,39 @@ class CombatActions:
                 print(f"未找到{color}QTE")
                 print(qte)
 
-        match role_type.lower():
-            case "attacker":
-                self.attack()
-                print("切换到辅助角色")
-                _click_qte("切换蓝色QTE", "蓝色")
-            case "tank":
-                self.attack()
-                print("切换到攻击角色")
-                _click_qte("切换红色QTE", "红色")
-            case "support":
-                self.attack()
-                print("切换到防御角色")
-                _click_qte("切换黄色QTE", "黄色")
-            case "general":
-                target_node = self.context.get_node_data("QTE目标")
-                if not target_node:
-                    self.logger.error("未找到QTE目标 node")
-                    return
-                target = int(target_node.get("post_delay", 1))
-                if target == 1:
-                    print("切换到通用角色2")
-                    self.trigger_qte(2)
-                    self.context.override_pipeline({"QTE目标": {"post_delay": 2}})
-                else:
-                    print("切换到通用角色1")
-                    self.trigger_qte(1)
-                    self.context.override_pipeline({"QTE目标": {"post_delay": 1}})
-            case _:
-                self.logger.error(f"未知角色类型: {role_type}")
+        def _create_qte_mapping():
+            image = self.context.tasker.controller.post_screencap().wait().get()
+            candidates = []
+            for color, reco_name in (
+                ("blue", "切换蓝色QTE"),
+                ("yellow", "切换黄色QTE"),
+                ("red", "切换红色QTE"),
+            ):
+                result = self.context.run_recognition(reco_name, image)
+                if result and result.hit and result.best_result:
+                    box = result.best_result.box  # type: ignore[attr-defined]
+                    # box 为 xywh，按中心 y 值排序
+                    center_y = box[1] + box[3] / 2
+                    candidates.append((center_y, color))
+
+            candidates.sort(key=lambda item: item[0])
+            # 返回颜色列表：0 为最上面，1 为最下面
+            return [color for _, color in candidates]
+
+        localtion_mapping = _create_qte_mapping()
+
+        target_node = self.context.get_node_data("QTE目标")
+        if not target_node:
+            self.logger.error("未找到QTE目标 node")
+            return
+        target = int(target_node.get("post_delay", 0))
+        if target == 0:
+            _click_qte(localtion_mapping[1])
+            self.context.override_pipeline({"QTE目标": {"post_delay": 0}})
+        elif target == 1:
+            _click_qte(localtion_mapping[0])
+            self.context.override_pipeline({"QTE目标": {"post_delay": 1}})
+        else:
+            return
+
         self.context.override_pipeline({"识别人物": {"enabled": True}})

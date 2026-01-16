@@ -1,6 +1,4 @@
 from maa.agent.agent_server import AgentServer
-from action.basics.IdentifyRoles import IdentifyRoles
-from action.basics.MultiplayerAutoBattle import MultiplayerAutoBattle
 from action.basics.ScreenShot import ScreenShot
 from action.basics.SetTower import SetTower
 from action.basics.Count import Count
@@ -149,14 +147,6 @@ class Agent_SetTower(SetTower):
     pass
 
 
-@AgentServer.custom_action("IdentifyRoles")
-class Agent_IdentifyRoles(IdentifyRoles):
-    pass
-
-
-@AgentServer.custom_action("MultiplayerAutoBattle")
-class Agent_MultiplayerAutoBattle(MultiplayerAutoBattle):
-    pass
 
 
 @AgentServer.custom_action("ScreenShot")
