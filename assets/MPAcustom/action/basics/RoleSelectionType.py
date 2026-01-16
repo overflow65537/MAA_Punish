@@ -26,8 +26,9 @@ class RoleSelectionType(CustomAction):
         multi_member_config = context.get_node_data("多成员组队") or {}
         if not multi_member_config.get("enabled", False):
             context.run_task("返回")
+            print("关闭多成员选择模式")
             self.send_msg(context, "关闭多成员选择模式")
-            return CustomAction.RunResult(success=False)
+            return CustomAction.RunResult(success=True)
         param = json.loads(argv.custom_action_param) or {}
 
         for _ in range(5):
