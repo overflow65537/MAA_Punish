@@ -100,7 +100,7 @@
             }
         },
         "next": [
-            "首通未完成",
+            "[JumpBack]首通未完成",
             "首通已完成"
         ]
     },
@@ -264,16 +264,41 @@
             }
         },
         "next": [
-            "查看地图_空区",
-            "查看地图_火区",
-            "查看地图_暗区",
-            "查看地图_雷区",
-            "查看地图_物理区",
-            "查看地图_冰区",
-            "查看地图_特性区"
+            "[JumpBack]识别人物",
+            "[JumpBack]战斗中",
+            "战斗结束_战区",
+            "[JumpBack]查看地图_空区",
+            "[JumpBack]查看地图_火区",
+            "[JumpBack]查看地图_暗区",
+            "[JumpBack]查看地图_雷区",
+            "[JumpBack]查看地图_物理区",
+            "[JumpBack]查看地图_冰区",
+            "[JumpBack]查看地图_特性区"
         ]
     },
+    "战斗结束_战区": {
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1051,
+                    641,
+                    113,
+                    44
+                ],
+                "expected": "退出战斗"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
     "查看地图_空区": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -308,6 +333,7 @@
         ]
     },
     "查看地图_火区": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -342,6 +368,7 @@
         ]
     },
     "查看地图_暗区": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -376,6 +403,7 @@
         ]
     },
     "查看地图_雷区": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -410,6 +438,7 @@
         ]
     },
     "查看地图_物理区": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -444,6 +473,7 @@
         ]
     },
     "查看地图_冰区": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -478,6 +508,7 @@
         ]
     },
     "查看地图_特性区": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -494,22 +525,48 @@
                 ]
             }
         },
-        "next": [
-            "清除队伍"
-        ]
+        "next": []
     },
     "作战开始": {
         "post_delay": 15000,
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    1032,
-                    641,
-                    148,
-                    53
-                ],
-                "expected": "作战开始"
+                "all_of": [
+                    {
+                        "sub_name": "作战开始_1",
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    1032,
+                                    641,
+                                    148,
+                                    53
+                                ],
+                                "expected": "作战开始"
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": "作战开始_1",
+                                "lower": [
+                                    250,
+                                    250,
+                                    250
+                                ],
+                                "upper": [
+                                    255,
+                                    255,
+                                    255
+                                ]
+                            }
+                        }
+                    }
+                ]
             }
         },
         "action": {

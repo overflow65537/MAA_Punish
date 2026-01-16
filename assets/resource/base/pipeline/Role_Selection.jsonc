@@ -510,8 +510,8 @@
             "param": {
                 "custom_action": "RoleSelection",
                 "custom_action_param": {
-                    "need_element": "dark"
                     // "cage": true
+                    "pick": "拉弥亚·深谣"
                 }
             }
         }

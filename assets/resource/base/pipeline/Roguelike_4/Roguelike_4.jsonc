@@ -651,7 +651,7 @@
             "[JumpBack]战斗中",
             "[JumpBack]跳过战斗对话",
             "[JumpBack]未选人_寒境曙光",
-            "[JumpBack]已选人_寒境曙光",
+            "[JumpBack]作战开始",
             "[JumpBack]载入中"
         ]
     },
@@ -818,24 +818,6 @@
             }
         }
     },
-    "已选人_寒境曙光": {
-        "post_delay": 1000,
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    1002,
-                    621,
-                    270,
-                    90
-                ],
-                "template": "肉鸽通用/作战开始.png"
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
     "未选人_寒境曙光": {
         "post_delay": 1000,
         "recognition": {
@@ -971,16 +953,48 @@
         }
     },
     "选人完成_寒境曙光": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 15000
+        },
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "And",
             "param": {
-                "roi": [
-                    1002,
-                    621,
-                    270,
-                    90
-                ],
-                "template": "肉鸽通用/作战开始.png"
+                "all_of": [
+                    {
+                        "sub_name": "作战开始_1",
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    1032,
+                                    641,
+                                    148,
+                                    53
+                                ],
+                                "expected": "作战开始"
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": "作战开始_1",
+                                "lower": [
+                                    250,
+                                    250,
+                                    250
+                                ],
+                                "upper": [
+                                    255,
+                                    255,
+                                    255
+                                ]
+                            }
+                        }
+                    }
+                ]
             }
         }
     },

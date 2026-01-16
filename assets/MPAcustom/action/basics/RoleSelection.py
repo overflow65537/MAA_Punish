@@ -45,13 +45,30 @@ class RoleSelection(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
+        roguelike_3_mode = context.get_node_data("肉鸽模式_配置")
+        if roguelike_3_mode:
+            roguelike_3_mode = roguelike_3_mode.get("focus")
+        else:
+            roguelike_3_mode = None
+        print(f"肉鸽模式: {roguelike_3_mode}")
+        pick = context.get_node_data("选择人物_配置")
+        if pick and pick.get("focus", None):
+            pick = pick.get("focus", "")
+        else:
+            pick = ""
         condition = json.loads(argv.custom_action_param)
         if condition is None:
             condition = {}
+        condition.update(
+            {
+                "roguelike_3_mode": roguelike_3_mode,
+                "pick": pick,
+            }
+        )
         role_dict = ROLE_ACTIONS.copy()
         role_node = context.get_node_data("角色权重")
         _cache = False
-        if role_node:
+        if role_node and role_node.get("focus", None) and roguelike_3_mode is None:
             self.logger.info(f"读取缓存: {role_node}")
             role = role_node.get("focus", {})
             _cache = True
@@ -107,6 +124,21 @@ class RoleSelection(CustomAction):
                     context.run_task("编入队伍")
                 else:
                     context.run_action("返回")
+        # 缓存数据
+        if roguelike_3_mode is None:
+            if condition.get("cage"):
+                for selected_name in (attacker_name, tank_name, support_name):
+                    if not selected_name:
+                        continue
+                    role_key = selected_name
+                    if role_key not in role:
+                        role_key = selected_name.replace("[试用]", "")
+                    if role_key in role:
+                        role[role_key]["cage"] = max(
+                            int(role[role_key].get("cage", 0)) - 1, 0
+                        )
+            context.override_pipeline({"角色权重": {"focus": role}})
+            self.logger.info(f"缓存数据: {role}")
 
         return CustomAction.RunResult(success=True)
 
@@ -120,57 +152,43 @@ class RoleSelection(CustomAction):
             trial = False
         for i in range(max_try):
             image = context.tasker.controller.post_screencap().wait().get()
-            pipeline_override = {}
-            if trial:  # 选择角色
-                pipeline_override = {
-                    "识别角色": {
-                        "recognition": {
-                            "type": "And",
-                            "all_of": [
-                                {
-                                    "recognition": {
-                                        "sub_name": "识别试用角色模板",
-                                        "type": "TemplateMatch",
-                                        "param": {
-                                            "template": role_dict[role_name]["template"]
-                                        },
-                                    },
-                                },
-                                {
-                                    "recognition": {
-                                        "type": "ColorMatch",
-                                        "param": {
-                                            "roi": "识别试用角色模板",
-                                            "roi_offset": [0, -30, 0, 0],
-                                            "lower": [170, 60, 0],
-                                            "upper": [180, 90, 55],
-                                            "count": 500,
-                                            "connected": True,
-                                        },
-                                    }
-                                },
-                            ],
-                        },
-                    }
+            pipeline_override = {
+                "识别角色": {
+                    "recognition": {
+                        "param": {"template": role_dict[role_name]["template"]},
+                    },
                 }
-            else:
-                pipeline_override = {
-                    "识别角色": {
-                        "recognition": {
-                            "param": {"template": role_dict[role_name]["template"]},
-                        },
-                    }
-                }
+            }
             role_reco = context.run_recognition(
                 entry="识别角色",
                 image=image,
                 pipeline_override=pipeline_override,
             )
             if role_reco and role_reco.hit:
-                context.tasker.controller.post_click(
-                    role_reco.best_result.box[0] + role_reco.best_result.box[2] // 2, role_reco.best_result.box[1] + role_reco.best_result.box[3] // 2  # type: ignore
-                ).wait()
-                return True
+                if trial:
+                    for role in role_reco.filtered_results:
+                        trial_pipeline_override = {
+                            "识别试用角色": {
+                                "recognition": {
+                                    "param": {"roi": role.box},  # type: ignore
+                                },
+                            }
+                        }
+                        trial_reco = context.run_recognition(
+                            "识别试用角色",
+                            image=image,
+                            pipeline_override=trial_pipeline_override,
+                        )
+                        if trial_reco and trial_reco.hit:
+                            context.tasker.controller.post_click(
+                                role.box[0] + role.box[2], role.box[1] + role.box[3]  # type: ignore
+                            ).wait()
+                            return True
+                else:
+                    context.tasker.controller.post_click(
+                        role_reco.best_result.box[0] + role_reco.best_result.box[2] // 2, role_reco.best_result.box[1] + role_reco.best_result.box[3] // 2  # type: ignore
+                    ).wait()
+                    return True
             context.run_action("滑动_选人")
         print(f"未识别到角色")
         return False
@@ -346,7 +364,7 @@ class RoleSelection(CustomAction):
     def calculate_weight(self, role_info: dict, condition: dict[str, dict]) -> dict:
         """
         公式
-        权重 = ( 战力 * 0.5 + ( 属性分数 * 45) + (代数分数 * 2300) + (是否被选中 * 10000) + (是否精通等级没满 * 10000)) * 是否有次数
+        权重 = ( 战力 * 0.5 + ( 属性分数 * 45) + (代数分数 * 2300) + (是否被选中 * 20000) + (是否精通等级没满 * 10000)) * 是否有次数
         """
         weight = {}
 
@@ -362,7 +380,7 @@ class RoleSelection(CustomAction):
             # 肉鸽3模式 0代表初始招募能量4，只需要提取是否被肉鸽选中。1代表初始招募能量3，只提取精通等级
             # 是否被选中
             if condition.get("roguelike_3_mode", 0) == 1:
-                is_pick = False
+                is_pick = role_name == condition.get("pick", "")
                 is_master_level_not_full = info.get("master_level", False)
             else:
                 is_pick = role_name == condition.get("pick", "")
@@ -384,7 +402,7 @@ class RoleSelection(CustomAction):
             master_level_weight = 10000 if is_master_level_not_full else 0
 
             # 4. 被选中加成
-            pick_bonus = 10000 if is_pick else 0
+            pick_bonus = 20000 if is_pick else 0
 
             # 5. 基础权重 = ( 属性 + 代数 + 精通) * 是否有次数
             base_weight = (
@@ -402,7 +420,6 @@ class RoleSelection(CustomAction):
                 f"{role_name}: 战力={power_weight}, 属性分={attribute_weight}, 代数分={generation_weight}, "
                 f"精通分={master_level_weight}, 选中加成={pick_bonus}, 基础权重={base_weight}, 是否有次数={bool(1 if (not condition.get("cage", False)) or has_count else 0)}, 最终权重={w}"
             )
-            print(f"{role_name}: 权重={w}")
             weight[role_name] = w
 
         return weight
