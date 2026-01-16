@@ -83,12 +83,14 @@ class RoleSelection(CustomAction):
         best_team = self.select_best_team(role_weight)
         self.logger.info(f"条件: {condition}")
         self.logger.info(f"角色权重: {role_weight}")
-        self.logger.info(f"最佳进攻: {best_team.get('attacker', {}).get('name', '无')}")
-        self.logger.info(f"最佳装甲: {best_team.get('tank', {}).get('name', '无')}")
-        self.logger.info(f"最佳支援: {best_team.get('support', {}).get('name', '无')}")
-        self.find_role(
-            context, role_dict, best_team.get("attacker", {}).get("name", "无")
-        )
+        attacker_name = best_team.get("attacker", {}).get("name")
+        tank_name = best_team.get("tank", {}).get("name")
+        support_name = best_team.get("support", {}).get("name")
+        self.logger.info(f"最佳进攻: {attacker_name or '无'}")
+        self.logger.info(f"最佳装甲: {tank_name or '无'}")
+        self.logger.info(f"最佳支援: {support_name or '无'}")
+        if attacker_name:
+            self.find_role(context, role_dict, attacker_name)
 
         return CustomAction.RunResult(success=True)
 
@@ -100,11 +102,10 @@ class RoleSelection(CustomAction):
             trial = True
         else:
             trial = False
-        print(f"开始识别角色: {role_dict[role_name]["template"]}")
         for i in range(max_try):
             image = context.tasker.controller.post_screencap().wait().get()
             pipeline_override = {}
-            if trial:  # 选择试用角色
+            if trial:  # 选择角色
                 pipeline_override = {
                     "识别角色": {
                         "recognition": {
@@ -115,11 +116,7 @@ class RoleSelection(CustomAction):
                                         "sub_name": "识别试用角色模板",
                                         "type": "TemplateMatch",
                                         "param": {
-                                            "template": role_dict[role_name][
-                                                "template"
-                                            ],
-                                            "threshold": [0.8]
-                                            * len(role_dict[role_name]["template"]),
+                                            "template": role_dict[role_name]["template"]
                                         },
                                     },
                                 },
@@ -144,11 +141,7 @@ class RoleSelection(CustomAction):
                 pipeline_override = {
                     "识别角色": {
                         "recognition": {
-                            "param": {
-                                "template": role_dict[role_name]["template"],
-                                "threshold": [0.8]
-                                * len(role_dict[role_name]["template"]),
-                            },
+                            "param": {"template": role_dict[role_name]["template"]},
                         },
                     }
                 }
@@ -157,17 +150,10 @@ class RoleSelection(CustomAction):
                 image=image,
                 pipeline_override=pipeline_override,
             )
-            print(f"第{i}次识别到角色: {role_reco}")
             if role_reco and role_reco.hit:
-                if not isinstance(role_reco.best_result, TemplateMatchResult):
-                    self.logger.debug(
-                        f"识别结果非模板匹配: {type(role_reco.best_result)}"
-                    )
-                    context.run_action("滑动_选人")
-                    continue
                 context.tasker.controller.post_click(
-                    role_reco.best_result.box[0], role_reco.best_result.box[1]
-                )
+                    role_reco.best_result.box[0] + role_reco.best_result.box[3] // 2, role_reco.best_result.box[1] + role_reco.best_result.box[4] // 2  # type: ignore
+                ).wait()
                 return {role_name: role_reco}
             context.run_action("滑动_选人")
         print(f"未识别到角色")
@@ -350,7 +336,7 @@ class RoleSelection(CustomAction):
 
         for role_name, info in role_info.items():
             # 战力
-            power = info.get("power", 0) or 4000  # 如果战力为0，则设置为4000
+            power = info.get("power", 0)
             # 属性分数
             attribute_score = info.get(condition.get("need_element", ""), 0)
             # 代数分数
@@ -407,21 +393,66 @@ class RoleSelection(CustomAction):
 
     def select_best_team(self, role_weight: dict) -> dict:
         best = {
-            "attacker": {"name": "", "weight": 0},
-            "tank": {"name": "", "weight": 0},
-            "support": {"name": "", "weight": 0},
+            "attacker": {"name": None, "weight": 0},
+            "tank": {"name": None, "weight": 0},
+            "support": {"name": None, "weight": 0},
         }
-        support_candidates = []
+        candidates = []
         for role_name, w in role_weight.items():
             if w <= 0:
                 continue
+            is_trial = "[试用]" in role_name
             base_name = role_name.replace("[试用]", "")
             role_type_value = ROLE_ACTIONS.get(base_name, {}).get("type", "")
             role_type_key = str(role_type_value).lower()
             if role_type_key not in best:
                 continue
+            candidates.append((role_name, w, role_type_key, base_name, is_trial))
+
+        unique_candidates = {}
+        for role_name, w, role_type_key, base_name, is_trial in candidates:
+            if base_name not in unique_candidates:
+                unique_candidates[base_name] = (
+                    role_name,
+                    w,
+                    role_type_key,
+                    base_name,
+                    is_trial,
+                )
+                continue
+            existing = unique_candidates[base_name]
+            if w > existing[1] or (w == existing[1] and is_trial and not existing[4]):
+                unique_candidates[base_name] = (
+                    role_name,
+                    w,
+                    role_type_key,
+                    base_name,
+                    is_trial,
+                )
+        candidates = list(unique_candidates.values())
+
+        if len(candidates) < 3:
+            candidates.sort(key=lambda item: item[1], reverse=True)
+            if candidates:
+                best["attacker"] = {
+                    "name": candidates[0][0],
+                    "weight": candidates[0][1],
+                }
+                remaining = candidates[1:]
+            else:
+                remaining = []
+            for role_name, w, role_type_key, _base_name, _is_trial in remaining:
+                if w > best[role_type_key]["weight"]:
+                    best[role_type_key] = {"name": role_name, "weight": w}
+            return best
+
+        support_candidates = []
+        tank_candidates = []
+        for role_name, w, role_type_key, _base_name, _is_trial in candidates:
             if role_type_key == "support":
                 support_candidates.append((role_name, w))
+            if role_type_key == "tank":
+                tank_candidates.append((role_name, w))
             if w > best[role_type_key]["weight"]:
                 best[role_type_key] = {"name": role_name, "weight": w}
 
@@ -429,6 +460,21 @@ class RoleSelection(CustomAction):
             support_candidates.sort(key=lambda item: item[1], reverse=True)
             second_support = support_candidates[1]
             best["tank"] = {"name": second_support[0], "weight": second_support[1]}
+
+        if not best["attacker"]["name"]:
+            combined_candidates = tank_candidates + support_candidates
+            exclude_names = {
+                name for name in (best["tank"]["name"], best["support"]["name"]) if name
+            }
+            combined_candidates = [
+                item for item in combined_candidates if item[0] not in exclude_names
+            ]
+            if combined_candidates:
+                combined_candidates.sort(key=lambda item: item[1], reverse=True)
+                best["attacker"] = {
+                    "name": combined_candidates[0][0],
+                    "weight": combined_candidates[0][1],
+                }
 
         return best
 
