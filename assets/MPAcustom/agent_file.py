@@ -10,7 +10,6 @@ from action.basics.RoleSelection import RoleSelection
 from action.basics.RecognitionRole import RecognitionRole
 from action.basics.Post_Stop import PostStop
 from action.basics.Notice import Notice
-from action.basics.RoleSelectionType import RoleSelectionType
 from action.basics.RedmeeCode import RedeemCode
 from action.basics.RedmeeCode import CheckRedeemCode
 
@@ -48,10 +47,6 @@ class Agent_CheckRedeemCode(CheckRedeemCode):
 class Agent_RedeemCode(RedeemCode):
     pass
 
-
-@AgentServer.custom_action("RoleSelectionType")
-class Agent_RoleSelectionType(RoleSelectionType):
-    pass
 
 
 @AgentServer.custom_action("Notice")

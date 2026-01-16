@@ -246,4 +246,134 @@ ROLE_ACTIONS = {
         ],
         "attack_template": "自定义战斗/骇影.png",
     },
+    "莉莉丝·谬影": {
+        "name": "谬影",
+        "type": "Support",
+        "cls_name": "GeneralFight",
+        "metadata": {
+            "dark": 100,
+            "generation": 0,  # 未适配专属战斗逻辑
+        },
+        "template": [
+            "肉鸽通用/谬影.png",
+        ],
+        "attack_template": "自定义战斗/谬影.png",
+    },
+    "亚里莎·回音": {
+        "name": "谬影",
+        "type": "Support",
+        "cls_name": "GeneralFight",
+        "metadata": {
+            "physical": 100,
+            "generation": 0,
+        },
+        "template": [
+            "肉鸽通用/回音.png",
+        ],
+        "attack_template": "自定义战斗/回音.png",
+    },
+    "艾拉·万华": {
+        "name": "万华",
+        "type": "Support",
+        "cls_name": "GeneralFight",
+        "metadata": {
+            "ice": 100,
+            "generation": 0,
+        },
+        "template": [
+            "肉鸽通用/万华.png",
+        ],
+        "attack_template": "自定义战斗/万华.png",
+    },
+    "丽芙·流光": {
+        "name": "流光",
+        "type": "Support",
+        "cls_name": "GeneralFight",
+        "metadata": {
+            "lightning": 100,
+            "generation": 0,
+        },
+        "template": [
+            "肉鸽通用/流光.png",
+        ],
+        "attack_template": "自定义战斗/浮游炮通用.png",
+    },
+    "丽芙·仰光": {
+        "name": "仰光",
+        "type": "Support",
+        "cls_name": "GeneralFight",
+        "metadata": {
+            "physical": 100,
+            "generation": 0,
+        },
+        "template": [
+            "肉鸽通用/仰光.png",
+        ],
+        "attack_template": "自定义战斗/浮游炮通用.png",
+    },
+    "丽芙·蚀暗": {
+        "name": "蚀暗",
+        "type": "Support",
+        "cls_name": "GeneralFight",
+        "metadata": {
+            "physical": 100,
+            "generation": 0,
+        },
+        "template": [
+            "肉鸽通用/蚀暗.png",
+        ],
+        "attack_template": "自定义战斗/浮游炮通用.png",
+    },
+    "薇拉·瑰丽": {
+        "name": "瑰丽",
+        "type": "Support",
+        "cls_name": "GeneralFight",
+        "metadata": {
+            "dark": 100,
+            "generation": 0,
+        },
+        "template": [
+            "肉鸽通用/瑰丽.png",
+        ],
+        "attack_template": "自定义战斗/太刀通用.png",
+    },
+    "21号·森息": {
+        "name": "森息",
+        "type": "Support",
+        "cls_name": "GeneralFight",
+        "metadata": {
+            "lightning": 100,
+            "generation": 0,
+        },
+        "template": [
+            "肉鸽通用/森息.png",
+        ],
+        "attack_template": "自定义战斗/森息.png",
+    },
+    "万事·明觉": {
+        "name": "明觉",
+        "type": "Support",
+        "cls_name": "GeneralFight",
+        "metadata": {
+            "ice": 100,
+            "generation": 0,
+        },
+        "template": [
+            "肉鸽通用/明觉.png",
+        ],
+        "attack_template": "自定义战斗/明觉.png",
+    },
+    "赛琳娜·幻奏": {
+        "name": "幻奏",
+        "type": "Support",
+        "cls_name": "GeneralFight",
+        "metadata": {
+            "dark": 100,
+            "generation": 0,
+        },
+        "template": [
+            "肉鸽通用/幻奏.png",
+        ],
+        "attack_template": "自定义战斗/幻奏.png",
+    }
 }

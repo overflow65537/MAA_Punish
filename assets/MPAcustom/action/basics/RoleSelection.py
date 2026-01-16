@@ -70,27 +70,108 @@ class RoleSelection(CustomAction):
                         condition.get("roguelike_3_mode", 0),
                     )
                 )
-                if (
-                    not condition.get("cage")
-                    and condition.get("pick", "") in role.keys()
-                ):
-                    break
                 context.run_action("滑动_选人")
+
+            for _ in range(int(condition.get("max_try", 5))):
+                if context.tasker.stopping:
+                    return CustomAction.RunResult(success=True)
+                context.run_action("反向滑动_选人")
 
         print(f"角色列表: {role}")
 
         role_weight = self.calculate_weight(role, condition)
+        best_team = self.select_best_team(role_weight)
         self.logger.info(f"条件: {condition}")
         self.logger.info(f"角色权重: {role_weight}")
-        if (
-            not (not condition.get("cage") and condition.get("pick", "") in role.keys())
-            and not _cache
-        ):
-            for _ in range(int(condition.get("max_try", 4))):
-                if context.tasker.stopping:
-                    return CustomAction.RunResult(success=True)
-                context.run_action("反向滑动_选人")
+        self.logger.info(f"最佳进攻: {best_team.get('attacker', {}).get('name', '无')}")
+        self.logger.info(f"最佳装甲: {best_team.get('tank', {}).get('name', '无')}")
+        self.logger.info(f"最佳支援: {best_team.get('support', {}).get('name', '无')}")
+        self.find_role(
+            context, role_dict, best_team.get("attacker", {}).get("name", "无")
+        )
+
         return CustomAction.RunResult(success=True)
+
+    def find_role(
+        self, context: Context, role_dict: dict, role_name: str, max_try: int = 5
+    ) -> dict:
+        if "[试用]" in role_name:
+            role_name = role_name.replace("[试用]", "")
+            trial = True
+        else:
+            trial = False
+        print(f"开始识别角色: {role_dict[role_name]["template"]}")
+        for i in range(max_try):
+            image = context.tasker.controller.post_screencap().wait().get()
+            pipeline_override = {}
+            if trial:  # 选择试用角色
+                pipeline_override = {
+                    "识别角色": {
+                        "recognition": {
+                            "type": "And",
+                            "all_of": [
+                                {
+                                    "recognition": {
+                                        "sub_name": "识别试用角色模板",
+                                        "type": "TemplateMatch",
+                                        "param": {
+                                            "template": role_dict[role_name][
+                                                "template"
+                                            ],
+                                            "threshold": [0.8]
+                                            * len(role_dict[role_name]["template"]),
+                                        },
+                                    },
+                                },
+                                {
+                                    "recognition": {
+                                        "type": "ColorMatch",
+                                        "param": {
+                                            "roi": "识别试用角色模板",
+                                            "roi_offset": [0, -30, 0, 0],
+                                            "lower": [170, 60, 0],
+                                            "upper": [180, 90, 55],
+                                            "count": 500,
+                                            "connected": True,
+                                        },
+                                    }
+                                },
+                            ],
+                        },
+                    }
+                }
+            else:
+                pipeline_override = {
+                    "识别角色": {
+                        "recognition": {
+                            "param": {
+                                "template": role_dict[role_name]["template"],
+                                "threshold": [0.8]
+                                * len(role_dict[role_name]["template"]),
+                            },
+                        },
+                    }
+                }
+            role_reco = context.run_recognition(
+                entry="识别角色",
+                image=image,
+                pipeline_override=pipeline_override,
+            )
+            print(f"第{i}次识别到角色: {role_reco}")
+            if role_reco and role_reco.hit:
+                if not isinstance(role_reco.best_result, TemplateMatchResult):
+                    self.logger.debug(
+                        f"识别结果非模板匹配: {type(role_reco.best_result)}"
+                    )
+                    context.run_action("滑动_选人")
+                    continue
+                context.tasker.controller.post_click(
+                    role_reco.best_result.box[0], role_reco.best_result.box[1]
+                )
+                return {role_name: role_reco}
+            context.run_action("滑动_选人")
+        print(f"未识别到角色")
+        return {}
 
     def recognize_role(
         self,
@@ -145,7 +226,6 @@ class RoleSelection(CustomAction):
                     trial = False
                     if trial_reco and trial_reco.hit:
                         trial = True
-                    print(f"role_name: {role_name} trial: {trial}")
 
                     trial_label = " 试用" if trial and "[试用]" not in role_name else ""
                     self.logger.info(f"识别到角色: {role_name}{trial_label}")
@@ -270,7 +350,7 @@ class RoleSelection(CustomAction):
 
         for role_name, info in role_info.items():
             # 战力
-            power = info.get("power", 0)
+            power = info.get("power", 0) or 4000  # 如果战力为0，则设置为4000
             # 属性分数
             attribute_score = info.get(condition.get("need_element", ""), 0)
             # 代数分数
@@ -324,6 +404,33 @@ class RoleSelection(CustomAction):
             weight[role_name] = w
 
         return weight
+
+    def select_best_team(self, role_weight: dict) -> dict:
+        best = {
+            "attacker": {"name": "", "weight": 0},
+            "tank": {"name": "", "weight": 0},
+            "support": {"name": "", "weight": 0},
+        }
+        support_candidates = []
+        for role_name, w in role_weight.items():
+            if w <= 0:
+                continue
+            base_name = role_name.replace("[试用]", "")
+            role_type_value = ROLE_ACTIONS.get(base_name, {}).get("type", "")
+            role_type_key = str(role_type_value).lower()
+            if role_type_key not in best:
+                continue
+            if role_type_key == "support":
+                support_candidates.append((role_name, w))
+            if w > best[role_type_key]["weight"]:
+                best[role_type_key] = {"name": role_name, "weight": w}
+
+        if not best["tank"]["name"] and len(support_candidates) >= 2:
+            support_candidates.sort(key=lambda item: item[1], reverse=True)
+            second_support = support_candidates[1]
+            best["tank"] = {"name": second_support[0], "weight": second_support[1]}
+
+        return best
 
     def save_screenshot(self, image: numpy.ndarray, img_type: str) -> bool:
 

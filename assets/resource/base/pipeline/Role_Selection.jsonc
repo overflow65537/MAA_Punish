@@ -246,29 +246,6 @@
             "type": "Click"
         }
     },
-    "清除队伍": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1120,
-                    278,
-                    160,
-                    227
-                ],
-                "expected": [
-                    "红色"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "队伍净空_红",
-            "[JumpBack]清空红色位"
-        ]
-    },
     "卸下队伍": {
         "post_delay": 1000,
         "pre_delay": 1000,
@@ -372,6 +349,29 @@
             "卸下队伍"
         ]
     },
+    "清除队伍": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1120,
+                    278,
+                    160,
+                    227
+                ],
+                "expected": [
+                    "红色"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "队伍净空_红",
+            "[JumpBack]清空红色位"
+        ]
+    },
     "队伍净空_红": {
         "recognition": {
             "type": "TemplateMatch",
@@ -407,39 +407,9 @@
                 "template": "幻痛囚笼/队伍净空_蓝黄.png"
             }
         },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "选择装甲位",
-            "队伍净空_黄"
-        ]
-    },
-    "选择装甲位": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    983,
-                    464,
-                    276,
-                    244
-                ],
-                "expected": [
-                    "编入",
-                    "卸下"
-                ]
-            }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "RoleSelectionType"
-            }
-        },
         "next": [
             "队伍净空",
-            "[JumpBack]清空蓝色位"
+            "[JumpBack]清空黄色位"
         ]
     },
     "队伍净空": {
@@ -459,38 +429,9 @@
                 "template": "幻痛囚笼/队伍净空_蓝黄.png"
             }
         },
-        "action": {
-            "type": "Click"
-        },
         "next": [
-            "选择辅助位",
+            "选择首发",
             "队伍净空"
-        ]
-    },
-    "选择辅助位": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    983,
-                    464,
-                    276,
-                    244
-                ],
-                "expected": [
-                    "编入",
-                    "卸下"
-                ]
-            }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "RoleSelectionType"
-            }
-        },
-        "next": [
-            "选择首发"
         ]
     },
     "选择首发": {
@@ -543,14 +484,6 @@
                 "custom_action_param": {
                     "need_element": "fire"
                 }
-            }
-        }
-    },
-    "选择支援任务测试": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "RoleSelectionType"
             }
         }
     }

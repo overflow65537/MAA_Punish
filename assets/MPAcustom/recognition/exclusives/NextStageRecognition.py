@@ -26,8 +26,6 @@ MAA_Punish 下一关识别程序
 
 from maa.custom_recognition import CustomRecognition
 from maa.define import OCRResult
-import numpy as np
-
 
 class NextStageRecognition(CustomRecognition):
     def analyze(
