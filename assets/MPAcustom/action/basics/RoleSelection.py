@@ -89,7 +89,6 @@ class RoleSelection(CustomAction):
             condition = {}
         elif condition.get("cache"):
             need_cache = True
-            context.run_task("反向滑动_选人")
         roguelike_3_mode = context.get_node_data("肉鸽模式_配置")
         if roguelike_3_mode:
             roguelike_3_mode = roguelike_3_mode.get("focus")
