@@ -24,7 +24,6 @@ MAA_Punish 选择角色
 作者:overflow65537
 """
 
-from email.mime import image
 from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.define import TemplateMatchResult, OCRResult, ColorMatchResult
