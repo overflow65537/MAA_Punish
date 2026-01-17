@@ -143,8 +143,6 @@ class RoleSelection(CustomAction):
                     return CustomAction.RunResult(success=True)
                 context.run_action("反向滑动_选人")
 
-        print(f"角色列表: {role}")
-
         role_weight = self.calculate_weight(role, condition)
         best_team = self.select_best_team(role_weight)
         self.logger.info(f"条件: {condition}")
@@ -152,9 +150,13 @@ class RoleSelection(CustomAction):
         attacker_name = best_team.get("attacker", {}).get("name")
         tank_name = best_team.get("tank", {}).get("name")
         support_name = best_team.get("support", {}).get("name")
-        self.logger.info(f"最佳进攻: {attacker_name or '无'}")
-        self.logger.info(f"最佳装甲: {tank_name or '无'}")
-        self.logger.info(f"最佳支援: {support_name or '无'}")
+        self.logger.info(
+            f"队伍构成: {support_name or '无'} {attacker_name or '无'} {tank_name or '无'}"
+        )
+        self.send_msg(
+            context,
+            f"队伍构成: {support_name or '无'} {attacker_name or '无'} {tank_name or '无'}",
+        )
         if attacker_name and self.find_role(
             context, role_dict, attacker_name, 5 if roguelike_3_mode else 16
         ):
@@ -167,6 +169,7 @@ class RoleSelection(CustomAction):
                 if self.find_role(context, role_dict, tank_name):
                     context.run_task("编入队伍")
                 else:
+                    self.send_msg(context, f"未找到装甲角色: {tank_name}")
                     context.run_task("返回")
 
             if support_name:
@@ -174,6 +177,7 @@ class RoleSelection(CustomAction):
                 if self.find_role(context, role_dict, support_name):
                     context.run_task("编入队伍")
                 else:
+                    self.send_msg(context, f"未找到支援角色: {support_name}")
                     context.run_task("返回")
         # 缓存数据
         if roguelike_3_mode is None:
@@ -415,7 +419,7 @@ class RoleSelection(CustomAction):
     def calculate_weight(self, role_info: dict, condition: dict[str, dict]) -> dict:
         """
         公式
-        权重 = ( 战力 * 0.5 + ( 属性分数 * 45) + (代数分数 * 2300) + (是否被选中 * 20000) + (是否精通等级没满 * 10000)) * 是否有次数
+        权重 = ( 战力 * 0.3 + ( 属性分数 * 60) + (代数分数 * 2300) + (是否被选中 * 20000) + (是否精通等级没满 * 10000)) * 是否有次数
         """
         weight = {}
 
@@ -441,10 +445,10 @@ class RoleSelection(CustomAction):
 
             # 权重计算
             # 1. 战力
-            power_weight = power * 0.5
+            power_weight = power * 0.3
 
             # 1. 属性分数
-            attribute_weight = attribute_score * 45
+            attribute_weight = attribute_score * 60
 
             # 2. 代数分数
             generation_weight = element_score * 2300
