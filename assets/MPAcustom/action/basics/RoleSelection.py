@@ -121,7 +121,7 @@ class RoleSelection(CustomAction):
             role = {}
 
             for _ in range(
-                int(condition.get("max_try", 5 if roguelike_3_mode else 15))
+                int(condition.get("max_try", 5 if roguelike_3_mode is None else 15))
             ):
                 if context.tasker.stopping:
                     return CustomAction.RunResult(success=True)
@@ -138,7 +138,7 @@ class RoleSelection(CustomAction):
                 self.save_cache(role)
                 return CustomAction.RunResult(success=True)
             for _ in range(
-                int(condition.get("max_try", 5 if roguelike_3_mode else 15))
+                int(condition.get("max_try", 5 if roguelike_3_mode is None else 15))
             ):
                 if context.tasker.stopping:
                     return CustomAction.RunResult(success=True)
@@ -159,7 +159,7 @@ class RoleSelection(CustomAction):
             f"队伍构成: {support_name or '无'} {attacker_name or '无'} {tank_name or '无'}",
         )
         if attacker_name and self.find_role(
-            context, role_dict, attacker_name, 5 if roguelike_3_mode else 16
+            context, role_dict, attacker_name, 5 if roguelike_3_mode is None else 16
         ):
             context.run_task("编入队伍")
 
