@@ -265,12 +265,9 @@
         "focus": {
             "Node.Recognition.Succeeded": "[color:Tomato]服务器错误,请选择所在服务器[/color]"
         },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PostStop"
-            }
-        }
+        "next": [
+            "启动"
+        ]
     },
     "黑屏计数": {
         "recognition": {
