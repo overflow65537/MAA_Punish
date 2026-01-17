@@ -25,6 +25,7 @@ MAA_Punish 深谣战斗程序
 """
 
 
+import re
 import time
 from MPAcustom.action.basics import CombatActions
 from maa.context import Context
@@ -75,6 +76,10 @@ class LostLullaby(CustomAction):
                     action.use_skill()  # 沉没在,这片海底
                     action.auxiliary_machine()
                     action.auto_qte("a")
+                    action.switch()
+                    print("切换完成")
+                    return CustomAction.RunResult(success=True)
+
 
             else:
                 action.ball_elimination_target(1)

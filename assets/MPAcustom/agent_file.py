@@ -1,6 +1,4 @@
 from maa.agent.agent_server import AgentServer
-from action.basics.IdentifyRoles import IdentifyRoles
-from action.basics.MultiplayerAutoBattle import MultiplayerAutoBattle
 from action.basics.ScreenShot import ScreenShot
 from action.basics.SetTower import SetTower
 from action.basics.Count import Count
@@ -10,7 +8,6 @@ from action.basics.RoleSelection import RoleSelection
 from action.basics.RecognitionRole import RecognitionRole
 from action.basics.Post_Stop import PostStop
 from action.basics.Notice import Notice
-from action.basics.RoleSelectionType import RoleSelectionType
 from action.basics.RedmeeCode import RedeemCode
 from action.basics.RedmeeCode import CheckRedeemCode
 
@@ -37,6 +34,13 @@ from recognition.exclusives.LogicalOperators import LOp
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
 from recognition.exclusives.NextStageRecognition import NextStageRecognition
+from recognition.exclusives.CacheRole import CacheRole
+
+
+@AgentServer.custom_recognition("CacheRole")
+class Agent_CacheRole(CacheRole):
+    pass
+
 
 
 @AgentServer.custom_action("CheckRedeemCode")
@@ -48,10 +52,6 @@ class Agent_CheckRedeemCode(CheckRedeemCode):
 class Agent_RedeemCode(RedeemCode):
     pass
 
-
-@AgentServer.custom_action("RoleSelectionType")
-class Agent_RoleSelectionType(RoleSelectionType):
-    pass
 
 
 @AgentServer.custom_action("Notice")
@@ -154,14 +154,6 @@ class Agent_SetTower(SetTower):
     pass
 
 
-@AgentServer.custom_action("IdentifyRoles")
-class Agent_IdentifyRoles(IdentifyRoles):
-    pass
-
-
-@AgentServer.custom_action("MultiplayerAutoBattle")
-class Agent_MultiplayerAutoBattle(MultiplayerAutoBattle):
-    pass
 
 
 @AgentServer.custom_action("ScreenShot")

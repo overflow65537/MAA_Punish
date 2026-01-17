@@ -46,14 +46,6 @@
                     },
                     "选择首发2_矩阵循生": {
                         "enabled": false
-                    },
-                    "选择角色程序_矩阵循生": {
-                        "action": {
-                            "param": {}
-                        }
-                    },
-                    "角色权重": {
-                        "focus": {}
                     }
                 }
             }
@@ -165,14 +157,8 @@
                     "选择首发2_矩阵循生": {
                         "enabled": true
                     },
-                    "选择角色程序_矩阵循生": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "roguelike_3_mode": 1
-                                }
-                            }
-                        }
+                    "肉鸽模式_配置": {
+                        "focus": 1
                     }
                 }
             }
@@ -1630,7 +1616,10 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "RoleSelection"
+                "custom_action": "RoleSelection",
+                "custom_action_param": {
+                    "max_try": 5
+                }
             }
         }
     },

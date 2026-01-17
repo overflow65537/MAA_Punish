@@ -1,6 +1,7 @@
 {
     "纷争战区": {
         "next": [
+            "[JumpBack]是否需要缓存",
             "结算期",
             "纷争战区内部",
             "[JumpBack]打开纷争战区",
@@ -100,7 +101,7 @@
             }
         },
         "next": [
-            "首通未完成",
+            "[JumpBack]首通未完成",
             "首通已完成"
         ]
     },
@@ -264,24 +265,52 @@
             }
         },
         "next": [
-            "查看地图_空区",
-            "查看地图_火区",
-            "查看地图_暗区",
-            "查看地图_雷区",
-            "查看地图_物理区",
-            "查看地图_冰区",
-            "查看地图_特性区"
+            "[JumpBack]识别人物",
+            "[JumpBack]战斗中",
+            "战斗结束",
+            "[JumpBack]查看地图_空区",
+            "[JumpBack]查看地图_火区",
+            "[JumpBack]查看地图_暗区",
+            "[JumpBack]查看地图_雷区",
+            "[JumpBack]查看地图_物理区",
+            "[JumpBack]查看地图_冰区",
+            "[JumpBack]查看地图_特性区"
         ]
     },
-    "查看地图_空区": {
+    "战斗结束": {
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    22,
-                    77,
-                    125,
-                    45
+                    978,
+                    628,
+                    241,
+                    56
+                ],
+                "expected": [
+                    "退出战斗",
+                    "保存"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "查看地图_空区": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    57,
+                    165,
+                    85
                 ],
                 "expected": "空域浮台"
             }
@@ -299,6 +328,9 @@
                                 }
                             }
                         }
+                    },
+                    "识别人物": {
+                        "enabled": true
                     }
                 }
             }
@@ -308,14 +340,15 @@
         ]
     },
     "查看地图_火区": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    22,
-                    77,
-                    125,
-                    45
+                    0,
+                    57,
+                    165,
+                    85
                 ],
                 "expected": "火焰轮回"
             }
@@ -333,6 +366,9 @@
                                 }
                             }
                         }
+                    },
+                    "识别人物": {
+                        "enabled": true
                     }
                 }
             }
@@ -342,14 +378,15 @@
         ]
     },
     "查看地图_暗区": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    22,
-                    77,
-                    125,
-                    45
+                    0,
+                    57,
+                    165,
+                    85
                 ],
                 "expected": "暗影深林"
             }
@@ -367,6 +404,9 @@
                                 }
                             }
                         }
+                    },
+                    "识别人物": {
+                        "enabled": true
                     }
                 }
             }
@@ -376,14 +416,15 @@
         ]
     },
     "查看地图_雷区": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    22,
-                    77,
-                    125,
-                    45
+                    0,
+                    57,
+                    165,
+                    85
                 ],
                 "expected": "镭射合金"
             }
@@ -401,6 +442,9 @@
                                 }
                             }
                         }
+                    },
+                    "识别人物": {
+                        "enabled": true
                     }
                 }
             }
@@ -410,14 +454,15 @@
         ]
     },
     "查看地图_物理区": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    22,
-                    77,
-                    125,
-                    45
+                    0,
+                    57,
+                    165,
+                    85
                 ],
                 "expected": "机械工厂"
             }
@@ -435,6 +480,9 @@
                                 }
                             }
                         }
+                    },
+                    "识别人物": {
+                        "enabled": true
                     }
                 }
             }
@@ -444,14 +492,15 @@
         ]
     },
     "查看地图_冰区": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    22,
-                    77,
-                    125,
-                    45
+                    0,
+                    57,
+                    165,
+                    85
                 ],
                 "expected": "猩红冰原"
             }
@@ -469,6 +518,9 @@
                                 }
                             }
                         }
+                    },
+                    "识别人物": {
+                        "enabled": true
                     }
                 }
             }
@@ -478,20 +530,32 @@
         ]
     },
     "查看地图_特性区": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    22,
-                    77,
-                    125,
-                    45
+                    0,
+                    57,
+                    165,
+                    85
                 ],
                 "expected": [
                     "熵钟异数",
                     "鸣音碎瓦",
                     "骤雪冰暴"
                 ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "识别人物": {
+                        "enabled": true
+                    }
+                }
             }
         },
         "next": [
@@ -501,15 +565,47 @@
     "作战开始": {
         "post_delay": 15000,
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    1032,
-                    641,
-                    148,
-                    53
-                ],
-                "expected": "作战开始"
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    1032,
+                                    641,
+                                    148,
+                                    53
+                                ],
+                                "expected": "作战开始"
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    1032,
+                                    641,
+                                    148,
+                                    53
+                                ],
+                                "lower": [
+                                    250,
+                                    250,
+                                    250
+                                ],
+                                "upper": [
+                                    255,
+                                    255,
+                                    255
+                                ]
+                            }
+                        }
+                    }
+                ]
             }
         },
         "action": {

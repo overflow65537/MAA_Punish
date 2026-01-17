@@ -87,6 +87,14 @@
             }
         }
     },
+    "长按1号球": {
+        "action": {
+            "type": "LongPressKey",
+            "param": {
+                "key": 49
+            }
+        }
+    },
     "消球1": {
         "action": {
             "type": "ClickKey",

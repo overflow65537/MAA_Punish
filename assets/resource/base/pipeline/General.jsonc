@@ -1,12 +1,13 @@
 {
     "自动qte": {
-        "enabled": false
+        "enabled": true
     },
     "自动切换": {
-        "enabled": false
+        "enabled": true
     },
-    "多成员组队": {
-        "enabled": false
+    "选择人物_配置": {},
+    "肉鸽模式_配置": {
+        "focus": null
     },
     "关闭奖励": {
         "post_delay": 1000,

@@ -71,7 +71,9 @@ class Shukra(CustomAction):
             action.use_skill()
             time.sleep(0.1)
             action.auxiliary_machine()
-            action.auto_qte("a")
+            action.switch()
+            print("切换完成")
+            return CustomAction.RunResult(success=True)
 
         elif action.count_signal_balls() >= 9:  # 信号球数量大于9
             start_time = time.time()

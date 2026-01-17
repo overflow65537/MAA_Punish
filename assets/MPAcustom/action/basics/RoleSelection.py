@@ -24,11 +24,14 @@ MAA_Punish 选择角色
 作者:overflow65537
 """
 
+from email.mime import image
 from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.define import TemplateMatchResult, OCRResult, ColorMatchResult
+import datetime
 import json
 import os
+from pathlib import Path
 import numpy
 
 
@@ -42,24 +45,84 @@ class RoleSelection(CustomAction):
         self._logger_component = LoggerComponent(__name__)
         self.logger = self._logger_component.logger
 
+    def _cache_path(self) -> Path:
+        return (
+            Path(__file__).resolve().parents[2]
+            / "recognition"
+            / "exclusives"
+            / "role_cache.json"
+        )
+
+    def _current_week(self) -> int:
+        return datetime.date.today().isocalendar().week
+
+    def _load_cache(self) -> dict | None:
+        cache_path = self._cache_path()
+        if not cache_path.exists():
+            return None
+        try:
+            with open(cache_path, "r", encoding="utf-8") as f:
+                cache_data = json.load(f)
+        except (OSError, json.JSONDecodeError):
+            return None
+        if not isinstance(cache_data, dict):
+            return None
+        last_time = cache_data.get("last_time")
+        if last_time is None:
+            return None
+        try:
+            last_week = int(last_time)
+        except (TypeError, ValueError):
+            return None
+        if last_week != self._current_week():
+            return None
+        focus = cache_data.get("focus")
+        if not isinstance(focus, dict) or not focus:
+            return None
+        return focus
+
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
         condition = json.loads(argv.custom_action_param)
+        need_cache = False
         if condition is None:
             condition = {}
-        role_dict = ROLE_ACTIONS.copy()
-        role_node = context.get_node_data("角色权重")
-        _cache = False
-        if role_node:
-            self.logger.info(f"读取缓存: {role_node}")
-            role = role_node.get("focus", {})
-            _cache = True
+        elif condition.get("cache"):
+            need_cache = True
+        roguelike_3_mode = context.get_node_data("肉鸽模式_配置")
+        if roguelike_3_mode:
+            roguelike_3_mode = roguelike_3_mode.get("focus")
         else:
-            self.logger.info(f"未读取到缓存, 开始识别")
+            roguelike_3_mode = None
+        print(f"肉鸽模式: {roguelike_3_mode}")
+        pick = context.get_node_data("选择人物_配置")
+        if pick and pick.get("focus", None):
+            pick = pick.get("focus", "")
+        else:
+            pick = ""
+
+        condition.update(
+            {
+                "roguelike_3_mode": roguelike_3_mode,
+                "pick": pick,
+            }
+        )
+        role_dict = ROLE_ACTIONS.copy()
+
+        role = None
+        if roguelike_3_mode is None and not need_cache:
+            role = self._load_cache()
+            if role:
+                self.logger.info("读取文件缓存成功")
+
+        if not role:
+            self.logger.info("未读取到缓存, 开始识别")
             role = {}
 
-            for _ in range(int(condition.get("max_try", 5))):
+            for _ in range(
+                int(condition.get("max_try", 5 if roguelike_3_mode is None else 15))
+            ):
                 if context.tasker.stopping:
                     return CustomAction.RunResult(success=True)
                 role.update(
@@ -70,182 +133,121 @@ class RoleSelection(CustomAction):
                         condition.get("roguelike_3_mode", 0),
                     )
                 )
-                if (
-                    not condition.get("cage")
-                    and condition.get("pick", "") in role.keys()
-                ):
-                    break
                 context.run_action("滑动_选人")
-
-        print(f"角色列表: {role}")
-
-        role_weight = self.calculate_weight(role, condition)
-        self.logger.info(f"条件: {condition}")
-        self.logger.info(f"角色权重: {role_weight}")
-        print(f"角色权重: {role_weight}")
-        if (
-            not (not condition.get("cage") and condition.get("pick", "") in role.keys())
-            and not _cache
-        ):
-            for _ in range(int(condition.get("max_try", 5))):
+            if need_cache:
+                self.save_cache(role)
+                return CustomAction.RunResult(success=True)
+            for _ in range(
+                int(condition.get("max_try", 5 if roguelike_3_mode is None else 15))
+            ):
                 if context.tasker.stopping:
                     return CustomAction.RunResult(success=True)
                 context.run_action("反向滑动_选人")
-        if role_weight:
-            # 找出权重最高的key
-            selected_role = max(role_weight.items(), key=lambda x: x[1])[0]
-            for role_name, weight in role_weight.items():
-                self.send_msg(context, f"角色: {role_name}, 权重: {weight}")
-            if (
-                condition.get("pick")
-                and condition.get("pick") not in role_weight.keys()
-            ):
-                self.send_msg(
-                    context,
-                    f"未检测到 {condition.get('pick')},选中权重最高的角色 {selected_role}",
-                )
 
-            nonselected_roles = False
-            if role_weight[selected_role] == 0:
-                self.logger.info(f"角色次数全为0")
-                nonselected_roles = True
-            else:
-                self.logger.info(f"选择角色: {selected_role}")
-        else:
-            nonselected_roles = True
-            selected_role = ""
+        role_weight = self.calculate_weight(role, condition)
+        best_team = self.select_best_team(role_weight)
+        self.logger.info(f"条件: {condition}")
+        self.logger.info(f"角色权重: {role_weight}")
+        attacker_name = best_team.get("attacker", {}).get("name")
+        tank_name = best_team.get("tank", {}).get("name")
+        support_name = best_team.get("support", {}).get("name")
+        self.logger.info(
+            f"队伍构成: {support_name or '无'} {attacker_name or '无'} {tank_name or '无'}"
+        )
+        self.send_msg(
+            context,
+            f"队伍构成: {support_name or '无'} {attacker_name or '无'} {tank_name or '无'}",
+        )
+        if attacker_name and self.find_role(
+            context, role_dict, attacker_name, 5 if roguelike_3_mode is None else 16
+        ):
+            context.run_task("编入队伍")
 
-        target = None
-        images = []
-        target_x, target_y = None, None
-        for _ in range(int(condition.get("max_try", 5))):
-            if context.tasker.stopping:
-                return CustomAction.RunResult(success=True)
-            image = context.tasker.controller.post_screencap().wait().get()
-            images.append(image)
-            if nonselected_roles and condition.get("cage"):
-                # 没有对应人物,且是囚笼模式,随便选一个带次数的
-                print("没有对应人物,且是囚笼模式,随便选一个带次数的")
-
-                target = context.run_recognition(
-                    "选择人物",
-                    image,
-                    {
-                        "选择人物": {
-                            "recognition": {
-                                "type": "ColorMatch",
-                                "param": {
-                                    "roi": [72, 69, 140, 521],
-                                    "upper": [53, 175, 248],
-                                    "lower": [53, 175, 248],
-                                    "connected": True,
-                                    "count": 10,
-                                    "index": -1,
-                                },
-                            },
-                        }
-                    },
-                )
-                print(f"检测到: \n{target}")
-                if (
-                    target
-                    and target.hit
-                    and isinstance(target.best_result, ColorMatchResult)
-                ):
-                    context.tasker.controller.post_click(
-                        target.best_result.box[0], target.best_result.box[1]
-                    ).wait()
+        if condition.get("roguelike_3_mode") is None:
+            print("非肉鸽模式")
+            if tank_name:
+                context.run_task("打开黄色位置")
+                if self.find_role(context, role_dict, tank_name):
                     context.run_task("编入队伍")
-                    return CustomAction.RunResult(success=True)
-                self.send_msg(context, f"未检测到带次数的角色")
-                print(f"未检测到带次数的角色")
-            elif nonselected_roles:
-                # 没有对应人物,随便选一个
-                print("没有对应人物,随便选一个")
-                context.run_task("编入队伍")
-                return CustomAction.RunResult(success=True)
-            else:
-                # 有对应人物,选对应人物
-                print(f"有对应人物,选对应人物: {selected_role}")
-                target = context.run_recognition(
-                    "选择人物",
-                    image,
-                    {
-                        "选择人物": {
-                            "recognition": {
-                                "param": {
-                                    "template": role_dict[
-                                        selected_role.replace("[试用]", "")
-                                    ]["template"],
-                                    "threshold": [0.7]
-                                    * len(
-                                        role_dict[selected_role.replace("[试用]", "")][
-                                            "template"
-                                        ]
-                                    ),
-                                },
-                            },
-                        }
-                    },
-                )
+                else:
+                    self.send_msg(context, f"未找到装甲角色: {tank_name}")
+                    context.run_task("返回")
 
-                if (
-                    target
-                    and target.hit
-                    and isinstance(target.best_result, TemplateMatchResult)
-                ):
-                    print(
-                        f"找到对应人物: {selected_role},数量: {len(target.filtered_results)}"
-                    )
-                    for result in target.filtered_results:
-                        if not isinstance(result, TemplateMatchResult):
-                            self.send_msg(context, f"未检测到对应人物: {selected_role}")
-                            return CustomAction.RunResult(success=False)
-
-                        print(f"对应人物位置: {result.box}")
-                        trial_reco = context.run_recognition(
-                            "识别试用角色",
-                            image,
-                            {
-                                "识别试用角色": {
-                                    "recognition": {"param": {"roi": result.box}},
-                                }
-                            },
-                        )
-                        if trial_reco and ("[试用]" in selected_role) == trial_reco.hit:
-                            print(f"对应人物是否是试用角色: {trial_reco.hit}")
-                            target_x, target_y = (
-                                result.box[0] + result.box[2] // 2,
-                                result.box[1] + result.box[3] // 2,
-                            )
-
-                    if target_x and target_y:
-                        context.tasker.controller.post_click(target_x, target_y).wait()
-                        context.run_task("编入队伍")
-                        self.logger.info(f"选择角色成功: {selected_role}")
-                        if condition.get("cage") and role[selected_role]["cage"] != 0:
-                            role[selected_role]["cage"] -= 1
-                        context.override_pipeline({"角色权重": {"focus": role}})
-                        return CustomAction.RunResult(success=True)
-            context.run_action("滑动_选人")
-        if not (target and target.hit):
-            for i, img in enumerate(images, 1):
-                self.save_screenshot(img, f"未找到角色_尝试{i}")
-            self.logger.info(f"选择角色失败: {selected_role}")
-            self.send_msg(context, f"未找到角色 {selected_role},退出任务")
-            context.run_task("返回主菜单")
-            context.override_next(argv.node_name, ["停止任务"])
-            context.override_pipeline(
-                {
-                    "停止任务": {
-                        "focus": {
-                            "Node.Recognition.Succeeded": f"未找到角色 {selected_role},退出任务"
-                        }
-                    }
-                }
-            )
+            if support_name:
+                context.run_task("打开蓝色位置")
+                if self.find_role(context, role_dict, support_name):
+                    context.run_task("编入队伍")
+                else:
+                    self.send_msg(context, f"未找到支援角色: {support_name}")
+                    context.run_task("返回")
+        # 缓存数据
+        if roguelike_3_mode is None:
+            if condition.get("cage"):
+                for selected_name in (attacker_name, tank_name, support_name):
+                    if not selected_name:
+                        continue
+                    role_key = selected_name
+                    if role_key not in role:
+                        role_key = selected_name.replace("[试用]", "")
+                    if role_key in role:
+                        role[role_key]["cage"] = 0
+            context.override_pipeline({"角色权重": {"focus": role}})
+            self.logger.info(f"缓存数据: {role}")
+            self.save_cache(role)
 
         return CustomAction.RunResult(success=True)
+
+    def find_role(
+        self, context: Context, role_dict: dict, role_name: str, max_try: int = 16
+    ) -> bool:
+        if "[试用]" in role_name:
+            role_name = role_name.replace("[试用]", "")
+            trial = True
+        else:
+            trial = False
+        for i in range(max_try):
+            image = context.tasker.controller.post_screencap().wait().get()
+            pipeline_override = {
+                "识别角色": {
+                    "recognition": {
+                        "param": {"template": role_dict[role_name]["template"]},
+                    },
+                }
+            }
+            role_reco = context.run_recognition(
+                entry="识别角色",
+                image=image,
+                pipeline_override=pipeline_override,
+            )
+            if role_reco and role_reco.hit:
+                if trial:
+                    for role in role_reco.filtered_results:
+                        trial_pipeline_override = {
+                            "识别试用角色": {
+                                "recognition": {
+                                    "param": {"roi": role.box},  # type: ignore
+                                },
+                            }
+                        }
+                        trial_reco = context.run_recognition(
+                            "识别试用角色",
+                            image=image,
+                            pipeline_override=trial_pipeline_override,
+                        )
+                        if trial_reco and trial_reco.hit:
+                            context.tasker.controller.post_click(
+                                role.box[0] + role.box[2], role.box[1] + role.box[3]  # type: ignore
+                            ).wait()
+                            return True
+                else:
+                    context.tasker.controller.post_click(
+                        role_reco.best_result.box[0] + role_reco.best_result.box[2] // 2, role_reco.best_result.box[1] + role_reco.best_result.box[3] // 2  # type: ignore
+                    ).wait()
+                    return True
+            context.run_action("滑动_选人")
+        print(f"未识别到角色")
+        self.logger.info(f"未识别到角色{role_name}")
+        return False
 
     def recognize_role(
         self,
@@ -300,7 +302,6 @@ class RoleSelection(CustomAction):
                     trial = False
                     if trial_reco and trial_reco.hit:
                         trial = True
-                    print(f"role_name: {role_name} trial: {trial}")
 
                     trial_label = " 试用" if trial and "[试用]" not in role_name else ""
                     self.logger.info(f"识别到角色: {role_name}{trial_label}")
@@ -419,7 +420,7 @@ class RoleSelection(CustomAction):
     def calculate_weight(self, role_info: dict, condition: dict[str, dict]) -> dict:
         """
         公式
-        权重 = ( 战力 * 0.5 + ( 属性分数 * 45) + (代数分数 * 2300) + (是否被选中 * 10000) + (是否精通等级没满 * 10000)) * 是否有次数
+        权重 = ( 战力 * 0.3 + ( 属性分数 * 60) + (代数分数 * 2300) + (是否被选中 * 20000) + (是否精通等级没满 * 10000)) * 是否有次数
         """
         weight = {}
 
@@ -435,7 +436,7 @@ class RoleSelection(CustomAction):
             # 肉鸽3模式 0代表初始招募能量4，只需要提取是否被肉鸽选中。1代表初始招募能量3，只提取精通等级
             # 是否被选中
             if condition.get("roguelike_3_mode", 0) == 1:
-                is_pick = False
+                is_pick = role_name == condition.get("pick", "")
                 is_master_level_not_full = info.get("master_level", False)
             else:
                 is_pick = role_name == condition.get("pick", "")
@@ -445,10 +446,10 @@ class RoleSelection(CustomAction):
 
             # 权重计算
             # 1. 战力
-            power_weight = power * 0.5
+            power_weight = power * 0.3
 
             # 1. 属性分数
-            attribute_weight = attribute_score * 45
+            attribute_weight = attribute_score * 60
 
             # 2. 代数分数
             generation_weight = element_score * 2300
@@ -457,7 +458,7 @@ class RoleSelection(CustomAction):
             master_level_weight = 10000 if is_master_level_not_full else 0
 
             # 4. 被选中加成
-            pick_bonus = 10000 if is_pick else 0
+            pick_bonus = 20000 if is_pick else 0
 
             # 5. 基础权重 = ( 属性 + 代数 + 精通) * 是否有次数
             base_weight = (
@@ -473,12 +474,98 @@ class RoleSelection(CustomAction):
 
             self.logger.debug(
                 f"{role_name}: 战力={power_weight}, 属性分={attribute_weight}, 代数分={generation_weight}, "
-                f"精通分={master_level_weight}, 选中加成={pick_bonus}, 基础权重={base_weight}, 最终权重={w}"
+                f"精通分={master_level_weight}, 选中加成={pick_bonus}, 基础权重={base_weight}, 是否有次数={bool(1 if (not condition.get("cage", False)) or has_count else 0)}, 最终权重={w}"
             )
-            print(f"{role_name}: 权重={w}")
             weight[role_name] = w
 
         return weight
+
+    def select_best_team(self, role_weight: dict) -> dict:
+        best = {
+            "attacker": {"name": None, "weight": 0},
+            "tank": {"name": None, "weight": 0},
+            "support": {"name": None, "weight": 0},
+        }
+        candidates = []
+        for role_name, w in role_weight.items():
+            if w <= 0:
+                continue
+            is_trial = "[试用]" in role_name
+            base_name = role_name.replace("[试用]", "")
+            role_type_value = ROLE_ACTIONS.get(base_name, {}).get("type", "")
+            role_type_key = str(role_type_value).lower()
+            if role_type_key not in best:
+                continue
+            candidates.append((role_name, w, role_type_key, base_name, is_trial))
+
+        unique_candidates = {}
+        for role_name, w, role_type_key, base_name, is_trial in candidates:
+            if base_name not in unique_candidates:
+                unique_candidates[base_name] = (
+                    role_name,
+                    w,
+                    role_type_key,
+                    base_name,
+                    is_trial,
+                )
+                continue
+            existing = unique_candidates[base_name]
+            if w > existing[1] or (w == existing[1] and is_trial and not existing[4]):
+                unique_candidates[base_name] = (
+                    role_name,
+                    w,
+                    role_type_key,
+                    base_name,
+                    is_trial,
+                )
+        candidates = list(unique_candidates.values())
+
+        if len(candidates) < 3:
+            candidates.sort(key=lambda item: item[1], reverse=True)
+            if candidates:
+                best["attacker"] = {
+                    "name": candidates[0][0],
+                    "weight": candidates[0][1],
+                }
+                remaining = candidates[1:]
+            else:
+                remaining = []
+            for role_name, w, role_type_key, _base_name, _is_trial in remaining:
+                if w > best[role_type_key]["weight"]:
+                    best[role_type_key] = {"name": role_name, "weight": w}
+            return best
+
+        support_candidates = []
+        tank_candidates = []
+        for role_name, w, role_type_key, _base_name, _is_trial in candidates:
+            if role_type_key == "support":
+                support_candidates.append((role_name, w))
+            if role_type_key == "tank":
+                tank_candidates.append((role_name, w))
+            if w > best[role_type_key]["weight"]:
+                best[role_type_key] = {"name": role_name, "weight": w}
+
+        if not best["tank"]["name"] and len(support_candidates) >= 2:
+            support_candidates.sort(key=lambda item: item[1], reverse=True)
+            second_support = support_candidates[1]
+            best["tank"] = {"name": second_support[0], "weight": second_support[1]}
+
+        if not best["attacker"]["name"]:
+            combined_candidates = tank_candidates + support_candidates
+            exclude_names = {
+                name for name in (best["tank"]["name"], best["support"]["name"]) if name
+            }
+            combined_candidates = [
+                item for item in combined_candidates if item[0] not in exclude_names
+            ]
+            if combined_candidates:
+                combined_candidates.sort(key=lambda item: item[1], reverse=True)
+                best["attacker"] = {
+                    "name": combined_candidates[0][0],
+                    "weight": combined_candidates[0][1],
+                }
+
+        return best
 
     def save_screenshot(self, image: numpy.ndarray, img_type: str) -> bool:
 
@@ -524,3 +611,13 @@ class RoleSelection(CustomAction):
             "发送消息_这是程序自动生成的node所以故意写的很长来防止某一天想不开用了这个名字导致报错",
             pipeline_override=msg_node,
         )
+
+    def save_cache(self, role: dict):
+        cache_path = self._cache_path()
+        cache_path.parent.mkdir(parents=True, exist_ok=True)
+        cache_data = {
+            "last_time": self._current_week(),
+            "focus": role,
+        }
+        with open(cache_path, "w", encoding="utf-8") as f:
+            json.dump(cache_data, f, ensure_ascii=False, indent=2)

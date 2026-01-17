@@ -4,10 +4,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    72,
-                    69,
-                    140,
-                    521
+                    77,
+                    54,
+                    132,
+                    560
                 ],
                 "order_by": "Vertical",
                 "template": []
@@ -38,22 +38,16 @@
                 "roi": "识别战斗参数",
                 "only_rec": true,
                 "roi_offset": [
-                    70,
-                    0,
-                    0,
-                    0
+                    60,
+                    -5,
+                    10,
+                    5
                 ],
                 "expected": [
                     "\\d"
                 ]
             }
         }
-    },
-    "测试任务": {
-        "next": [
-            "循环执行器",
-            "[JumpBack]停止任务"
-        ]
     },
     "识别囚笼次数1": {
         "recognition": {
@@ -244,29 +238,11 @@
         },
         "action": {
             "type": "Click"
-        }
-    },
-    "清除队伍": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1120,
-                    278,
-                    160,
-                    227
-                ],
-                "expected": [
-                    "红色"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
         },
         "next": [
-            "队伍净空_红",
-            "[JumpBack]清空红色位"
+            "[JumpBack]关闭未拥有人物提示",
+            "编入队伍",
+            "空任务"
         ]
     },
     "卸下队伍": {
@@ -372,6 +348,29 @@
             "卸下队伍"
         ]
     },
+    "清除队伍": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1120,
+                    278,
+                    160,
+                    227
+                ],
+                "expected": [
+                    "红色"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "队伍净空_红",
+            "[JumpBack]清空红色位"
+        ]
+    },
     "队伍净空_红": {
         "recognition": {
             "type": "TemplateMatch",
@@ -407,39 +406,9 @@
                 "template": "幻痛囚笼/队伍净空_蓝黄.png"
             }
         },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "选择装甲位",
-            "队伍净空_黄"
-        ]
-    },
-    "选择装甲位": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    983,
-                    464,
-                    276,
-                    244
-                ],
-                "expected": [
-                    "编入",
-                    "卸下"
-                ]
-            }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "RoleSelectionType"
-            }
-        },
         "next": [
             "队伍净空",
-            "[JumpBack]清空蓝色位"
+            "[JumpBack]清空黄色位"
         ]
     },
     "队伍净空": {
@@ -459,39 +428,44 @@
                 "template": "幻痛囚笼/队伍净空_蓝黄.png"
             }
         },
-        "action": {
-            "type": "Click"
-        },
         "next": [
-            "选择辅助位",
+            "选择首发",
             "队伍净空"
         ]
     },
-    "选择辅助位": {
+    "打开蓝色位置": {
         "recognition": {
-            "type": "OCR",
+            "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    983,
-                    464,
-                    276,
-                    244
+                    186,
+                    297,
+                    229,
+                    235
                 ],
-                "expected": [
-                    "编入",
-                    "卸下"
-                ]
+                "template": "幻痛囚笼/队伍净空_蓝黄.png"
             }
         },
         "action": {
-            "type": "Custom",
+            "type": "Click"
+        }
+    },
+    "打开黄色位置": {
+        "recognition": {
+            "type": "TemplateMatch",
             "param": {
-                "custom_action": "RoleSelectionType"
+                "roi": [
+                    810,
+                    292,
+                    318,
+                    272
+                ],
+                "template": "幻痛囚笼/队伍净空_蓝黄.png"
             }
         },
-        "next": [
-            "选择首发"
-        ]
+        "action": {
+            "type": "Click"
+        }
     },
     "选择首发": {
         "post_delay": 2000,
@@ -533,7 +507,10 @@
             "param": {
                 "custom_action": "RoleSelection"
             }
-        }
+        },
+        "next": [
+            "作战开始"
+        ]
     },
     "选人测试": {
         "action": {
@@ -541,17 +518,128 @@
             "param": {
                 "custom_action": "RoleSelection",
                 "custom_action_param": {
-                    "roguelike_3_mode": 0
+                    "cage": true,
+                    "max_try": 10
                 }
             }
         }
     },
-    "选择支援任务测试": {
+    "缓存角色": {
+        "focus": {
+            "Node.Recognition.Succeeded": "正在更新角色缓存"
+        },
+        "next": [
+            "缓存角色程序",
+            "[JumpBack]卸下队伍",
+            "[JumpBack]点击首发",
+            "[JumpBack]作战准备",
+            "[JumpBack]点击A区",
+            "[JumpBack]选择区域",
+            "[JumpBack]打开幻痛囚笼",
+            "[JumpBack]打开挑战_幻痛囚笼",
+            "[JumpBack]打开战斗",
+            "[JumpBack]意外点击_限定活动"
+        ]
+    },
+    "缓存角色程序": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    960,
+                    437,
+                    163,
+                    102
+                ],
+                "expected": "编入"
+            }
+        },
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "RoleSelectionType"
+                "custom_action": "RoleSelection",
+                "custom_action_param": {
+                    "cage": true,
+                    "max_try": 15,
+                    "cache": true
+                }
             }
+        },
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "点击首发": {
+        "post_delay": 2000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    140,
+                    301,
+                    979,
+                    182
+                ],
+                "expected": "首发"
+            }
+        },
+        "action": {
+            "type": "Click"
         }
+    },
+    "点击A区": {
+        "post_delay": 2000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    500,
+                    385,
+                    769,
+                    161
+                ],
+                "expected": [
+                    "骑士",
+                    "混沌",
+                    "地狱"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "作战准备": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1029,
+                    656,
+                    128,
+                    44
+                ],
+                "expected": "作战准备"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "是否需要缓存": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CacheRole"
+            }
+        },
+        "next": [
+            "缓存角色"
+        ]
     }
 }

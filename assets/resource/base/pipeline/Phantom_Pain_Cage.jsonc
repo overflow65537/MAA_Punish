@@ -1,6 +1,7 @@
 {
     "幻痛囚笼": {
         "next": [
+            "[JumpBack]是否需要缓存",
             "全部已完成",
             "挑战次数不足",
             "挑战次数不足_弹窗",
@@ -42,9 +43,12 @@
                     80
                 ],
                 "expected": [
-                    "作战准备"
+                    "作战开始"
                 ]
             }
+        },
+        "action": {
+            "type": "Click"
         }
     },
     "关闭难度说明": {
@@ -385,10 +389,14 @@
         }
     },
     "囚笼作战程序": {
+        "rate_limit": 0,
         "on_error": [
             "boss识别错误"
         ],
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -405,45 +413,52 @@
             "type": "Click"
         },
         "next": [
-            "囚笼覆盖"
+            "[JumpBack]识别人物",
+            "[JumpBack]战斗中",
+            "战斗结束",
+            "挑战次数不足_弹窗",
+            "[JumpBack]耐力值不足",
+            "[JumpBack]查看Boss_火队",
+            "[JumpBack]查看Boss_暗队",
+            "[JumpBack]查看Boss_雷队",
+            "[JumpBack]查看Boss_物队",
+            "[JumpBack]查看Boss_冰队",
+            "[JumpBack]没打过",
+            "意外处理_没识别到返回"
         ]
     },
-    "囚笼覆盖": {
-        "action": {
-            "type": "Custom",
+    "耐力值不足": {
+        "recognition": {
+            "type": "OCR",
             "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择装甲位": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true
-                                }
-                            }
-                        }
-                    },
-                    "选择辅助位": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true
-                                }
-                            }
-                        }
-                    }
-                }
+                "roi": [
+                    374,
+                    268,
+                    529,
+                    177
+                ],
+                "expected": "耐力值不足"
             }
         },
         "next": [
-            "挑战次数不足_弹窗",
-            "查看Boss_火队",
-            "查看Boss_暗队",
-            "查看Boss_雷队",
-            "查看Boss_物队",
-            "查看Boss_冰队",
-            "[JumpBack]没打过"
+            "清除队伍"
         ]
+    },
+    "意外处理_没识别到返回": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1066,
+                    82,
+                    214,
+                    170
+                ],
+                "expected": [
+                    "查看排行"
+                ]
+            }
+        }
     },
     "boss识别错误": {
         "focus": {
@@ -485,6 +500,7 @@
         ]
     },
     "查看Boss_冰队": {
+        "max_hit": 1,
         "on_error": [
             "未命中BOSS名"
         ],
@@ -519,6 +535,9 @@
                                 }
                             }
                         }
+                    },
+                    "识别人物": {
+                        "enabled": true
                     }
                 }
             }
@@ -528,6 +547,7 @@
         ]
     },
     "查看Boss_暗队": {
+        "max_hit": 1,
         "on_error": [
             "未命中BOSS名"
         ],
@@ -564,6 +584,9 @@
                                 }
                             }
                         }
+                    },
+                    "识别人物": {
+                        "enabled": true
                     }
                 }
             }
@@ -573,6 +596,7 @@
         ]
     },
     "查看Boss_火队": {
+        "max_hit": 1,
         "on_error": [
             "未命中BOSS名"
         ],
@@ -606,6 +630,9 @@
                                 }
                             }
                         }
+                    },
+                    "识别人物": {
+                        "enabled": true
                     }
                 }
             }
@@ -615,6 +642,7 @@
         ]
     },
     "查看Boss_物队": {
+        "max_hit": 1,
         "on_error": [
             "未命中BOSS名"
         ],
@@ -650,6 +678,9 @@
                                 }
                             }
                         }
+                    },
+                    "识别人物": {
+                        "enabled": true
                     }
                 }
             }
@@ -659,6 +690,7 @@
         ]
     },
     "查看Boss_雷队": {
+        "max_hit": 1,
         "on_error": [
             "未命中BOSS名"
         ],
@@ -693,6 +725,9 @@
                                 }
                             }
                         }
+                    },
+                    "识别人物": {
+                        "enabled": true
                     }
                 }
             }

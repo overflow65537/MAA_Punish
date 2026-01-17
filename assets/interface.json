@@ -54,8 +54,7 @@
             ],
             "option": [
                 "自动QTE",
-                "自动切换角色",
-                "使用多名角色"
+                "自动切换角色"
             ]
         },
         {
@@ -69,8 +68,7 @@
             ],
             "option": [
                 "自动QTE",
-                "自动切换角色",
-                "使用多名角色"
+                "自动切换角色"
             ]
         },
         {
@@ -84,8 +82,7 @@
             ],
             "option": [
                 "自动QTE",
-                "自动切换角色",
-                "使用多名角色"
+                "自动切换角色"
             ]
         },
         {
@@ -99,8 +96,7 @@
             ],
             "option": [
                 "自动QTE",
-                "自动切换角色",
-                "使用多名角色"
+                "自动切换角色"
             ]
         },
         {
@@ -114,8 +110,7 @@
             ],
             "option": [
                 "自动QTE",
-                "自动切换角色",
-                "使用多名角色"
+                "自动切换角色"
             ]
         },
         {
@@ -129,8 +124,7 @@
             ],
             "option": [
                 "自动QTE",
-                "自动切换角色",
-                "使用多名角色"
+                "自动切换角色"
             ]
         },
         {
@@ -144,8 +138,7 @@
             ],
             "option": [
                 "自动QTE",
-                "自动切换角色",
-                "使用多名角色"
+                "自动切换角色"
             ]
         },
         {
@@ -159,8 +152,7 @@
             ],
             "option": [
                 "自动QTE",
-                "自动切换角色",
-                "使用多名角色"
+                "自动切换角色"
             ]
         },
         {
@@ -174,8 +166,7 @@
             ],
             "option": [
                 "自动QTE",
-                "自动切换角色",
-                "使用多名角色"
+                "自动切换角色"
             ]
         },
         {
@@ -189,8 +180,7 @@
             ],
             "option": [
                 "自动QTE",
-                "自动切换角色",
-                "使用多名角色"
+                "自动切换角色"
             ]
         },
         {
@@ -204,8 +194,7 @@
             ],
             "option": [
                 "自动QTE",
-                "自动切换角色",
-                "使用多名角色"
+                "自动切换角色"
             ]
         },
         {
@@ -219,8 +208,7 @@
             ],
             "option": [
                 "自动QTE",
-                "自动切换角色",
-                "使用多名角色"
+                "自动切换角色"
             ]
         },
         {
@@ -234,8 +222,7 @@
             ],
             "option": [
                 "自动QTE",
-                "自动切换角色",
-                "使用多名角色"
+                "自动切换角色"
             ]
         },
         {
@@ -249,8 +236,7 @@
             ],
             "option": [
                 "自动QTE",
-                "自动切换角色",
-                "使用多名角色"
+                "自动切换角色"
             ]
         },
         {
@@ -264,8 +250,7 @@
             ],
             "option": [
                 "自动QTE",
-                "自动切换角色",
-                "使用多名角色"
+                "自动切换角色"
             ]
         }
     ],
@@ -341,41 +326,6 @@
                         "[JumpBack]关闭未拥有人物提示",
                         "[JumpBack]关闭战斗力提示"
                     ]
-                },
-                "作战开始": {
-                    "post_delay": 0,
-                    "recognition": {
-                        "type": "OCR",
-                        "param": {
-                            "roi": [
-                                1032,
-                                641,
-                                148,
-                                53
-                            ],
-                            "expected": "作战开始"
-                        }
-                    },
-                    "action": {
-                        "type": "DoNothing"
-                    },
-                    "next": [
-                        "自动战斗任务"
-                    ]
-                },
-                "自动战斗结束": {
-                    "recognition": {
-                        "type": "OCR",
-                        "param": {
-                            "roi": [
-                                1024,
-                                647,
-                                139,
-                                35
-                            ],
-                            "expected": "保存"
-                        }
-                    }
                 }
             },
             "speedrun": {
@@ -399,34 +349,6 @@
             "default_check": true,
             "entry": "纷争战区",
             "description": "<p>自动首通纷争战区；如已通关则仅领取奖励。</p><p><b>速通</b>：每周二5点后可运行2次，首次运行后需等待24小时。</p>",
-            "pipeline_override": {
-                "自动战斗结束": {
-                    "post_delay": 1500,
-                    "recognition": {
-                        "type": "OCR",
-                        "param": {
-                            "roi": [
-                                1051,
-                                641,
-                                113,
-                                44
-                            ],
-                            "expected": "退出战斗"
-                        }
-                    },
-                    "action": {
-                        "type": "Click"
-                    },
-                    "next": [
-                        "纷争战区"
-                    ]
-                },
-                "选择角色程序": {
-                    "next": [
-                        "自动战斗任务"
-                    ]
-                }
-            },
             "speedrun": {
                 "mode": "weekly",
                 "trigger": {
@@ -472,38 +394,6 @@
             "option": [
                 "选择区域"
             ],
-            "pipeline_override": {
-                "单人自动战斗循环": {
-                    "next": [
-                        "自动战斗结束",
-                        "没打过",
-                        "[JumpBack]角色特有战斗"
-                    ]
-                },
-                "自动战斗结束": {
-                    "post_delay": 1500,
-                    "recognition": {
-                        "type": "OCR",
-                        "param": {
-                            "roi": [
-                                978,
-                                628,
-                                241,
-                                56
-                            ],
-                            "expected": "保存"
-                        }
-                    },
-                    "action": {
-                        "type": "Click"
-                    }
-                },
-                "选择角色程序": {
-                    "next": [
-                        "自动战斗任务"
-                    ]
-                }
-            },
             "speedrun": {
                 "mode": "weekly",
                 "trigger": {
@@ -662,6 +552,12 @@
             "entry": "关闭"
         },
         {
+            "name": "手动更新角色缓存",
+            "entry": "缓存角色",
+            "description": "<p>手动更新角色的缓存。</p>",
+            "spt": true
+        },
+        {
             "name": "洗词缀",
             "entry": "洗词缀",
             "option": [
@@ -731,6 +627,9 @@
                             }
                         }
                     }
+                },
+                "肉鸽模式_配置": {
+                    "focus": 0
                 }
             },
             "description": "<p>推荐选择精通难度。</p><p>当前支持自动作战人物：深痕、深瑶、深红囚影、超刻。</p><p>该任务不会帮你领取每日任务，请自行领取。</p>",
@@ -758,6 +657,9 @@
                             }
                         }
                     }
+                },
+                "肉鸽模式_配置": {
+                    "focus": 0
                 }
             },
             "description": "<p>推荐选择普通及以下难度，其他难度可能无法通关。</p><p>当前支持自动作战人物：深痕、深瑶、深红囚影、超刻。</p>",
@@ -775,6 +677,9 @@
                 },
                 "返回": {
                     "post_delay": 2500
+                },
+                "选择角色程序": {
+                    "next": []
                 }
             },
             "option": [
@@ -802,6 +707,9 @@
                             }
                         }
                     }
+                },
+                "肉鸽模式_配置": {
+                    "focus": 0
                 }
             },
             "option": [
@@ -956,15 +864,9 @@
                 {
                     "name": "露西亚·深红囚影",
                     "pipeline_override": {
-                        "选择角色程序": {
-                            "action": {
-                                "type": "Custom",
-                                "param": {
-                                    "custom_action": "RoleSelection",
-                                    "custom_action_param": {
-                                        "pick": "露西亚·深红囚影"
-                                    }
-                                }
+                        "选择人物_配置": {
+                            "focus": {
+                                "pick": "露西亚·深红囚影"
                             }
                         }
                     }
@@ -972,144 +874,72 @@
                 {
                     "name": "丽芙·霁梦",
                     "pipeline_override": {
-                        "选择角色程序": {
-                            "action": {
-                                "type": "Custom",
-                                "param": {
-                                    "custom_action": "RoleSelection",
-                                    "custom_action_param": {
-                                        "pick": "丽芙·霁梦"
-                                    }
-                                }
-                            }
+                        "选择人物_配置": {
+                            "focus": "丽芙·霁梦"
                         }
                     }
                 },
                 {
                     "name": "露西亚·誓焰",
                     "pipeline_override": {
-                        "选择角色程序": {
-                            "action": {
-                                "type": "Custom",
-                                "param": {
-                                    "custom_action": "RoleSelection",
-                                    "custom_action_param": {
-                                        "pick": "露西亚·誓焰"
-                                    }
-                                }
-                            }
+                        "选择人物_配置": {
+                            "focus": "露西亚·誓焰"
                         }
                     }
                 },
                 {
                     "name": "比安卡·晖暮",
                     "pipeline_override": {
-                        "选择角色程序": {
-                            "action": {
-                                "type": "Custom",
-                                "param": {
-                                    "custom_action": "RoleSelection",
-                                    "custom_action_param": {
-                                        "pick": "比安卡·晖暮"
-                                    }
-                                }
-                            }
+                        "选择人物_配置": {
+                            "focus": "比安卡·晖暮"
                         }
                     }
                 },
                 {
                     "name": "比安卡·深痕",
                     "pipeline_override": {
-                        "选择角色程序": {
-                            "action": {
-                                "type": "Custom",
-                                "param": {
-                                    "custom_action": "RoleSelection",
-                                    "custom_action_param": {
-                                        "pick": "比安卡·深痕"
-                                    }
-                                }
-                            }
+                        "选择人物_配置": {
+                            "focus": "比安卡·深痕"
                         }
                     }
                 },
                 {
                     "name": "露娜·终焉",
                     "pipeline_override": {
-                        "选择角色程序": {
-                            "action": {
-                                "type": "Custom",
-                                "param": {
-                                    "custom_action": "RoleSelection",
-                                    "custom_action_param": {
-                                        "pick": "露娜·终焉"
-                                    }
-                                }
-                            }
+                        "选择人物_配置": {
+                            "focus": "露娜·终焉"
                         }
                     }
                 },
                 {
                     "name": "维罗妮卡·铮骨",
                     "pipeline_override": {
-                        "选择角色程序": {
-                            "action": {
-                                "type": "Custom",
-                                "param": {
-                                    "custom_action": "RoleSelection",
-                                    "custom_action_param": {
-                                        "pick": "维罗妮卡·铮骨"
-                                    }
-                                }
-                            }
+                        "选择人物_配置": {
+                            "focus": "维罗妮卡·铮骨"
                         }
                     }
                 },
                 {
                     "name": "拉弥亚·深谣",
                     "pipeline_override": {
-                        "选择角色程序": {
-                            "action": {
-                                "type": "Custom",
-                                "param": {
-                                    "custom_action": "RoleSelection",
-                                    "custom_action_param": {
-                                        "pick": "拉弥亚·深谣"
-                                    }
-                                }
-                            }
+                        "选择人物_配置": {
+                            "focus": "拉弥亚·深谣"
                         }
                     }
                 },
                 {
                     "name": "曲·启明",
                     "pipeline_override": {
-                        "选择角色程序": {
-                            "action": {
-                                "type": "Custom",
-                                "param": {
-                                    "custom_action": "RoleSelection",
-                                    "custom_action_param": {
-                                        "pick": "曲·启明"
-                                    }
-                                }
-                            }
+                        "选择人物_配置": {
+                            "focus": "曲·启明"
                         }
                     }
                 },
                 {
                     "name": "里·超刻",
                     "pipeline_override": {
-                        "选择角色程序": {
-                            "action": {
-                                "type": "Custom",
-                                "param": {
-                                    "custom_action": "RoleSelection",
-                                    "custom_action_param": {
-                                        "pick": "里·超刻"
-                                    }
-                                }
-                            }
+                        "选择人物_配置": {
+                            "focus": "里·超刻"
                         }
                     }
                 }
@@ -1614,105 +1444,77 @@
                 {
                     "name": "誓焰",
                     "pipeline_override": {
-                        "选择角色程序_矩阵循生": {
-                            "action": {
-                                "param": {
-                                    "custom_action_param": {
-                                        "roguelike_3_mode": 0,
-                                        "pick": "露西亚·誓焰"
-                                    }
-                                }
-                            }
+                        "选择人物_配置": {
+                            "focus": "露西亚·誓焰"
+                        },
+                        "肉鸽模式_配置": {
+                            "focus": 0
                         }
                     }
                 },
                 {
                     "name": "深红囚影",
                     "pipeline_override": {
-                        "选择角色程序_矩阵循生": {
-                            "action": {
-                                "param": {
-                                    "custom_action_param": {
-                                        "roguelike_3_mode": 0,
-                                        "pick": "露西亚·深红囚影"
-                                    }
-                                }
-                            }
+                        "选择人物_配置": {
+                            "focus": "露西亚·深红囚影"
+                        },
+                        "肉鸽模式_配置": {
+                            "focus": 0
                         }
                     }
                 },
                 {
                     "name": "深谣",
                     "pipeline_override": {
-                        "选择角色程序_矩阵循生": {
-                            "action": {
-                                "param": {
-                                    "custom_action_param": {
-                                        "roguelike_3_mode": 0,
-                                        "pick": "拉弥亚·深谣"
-                                    }
-                                }
-                            }
+                        "选择人物_配置": {
+                            "focus": "拉弥亚·深谣"
+                        },
+                        "肉鸽模式_配置": {
+                            "focus": 0
                         }
                     }
                 },
                 {
                     "name": "终焉",
                     "pipeline_override": {
-                        "选择角色程序_矩阵循生": {
-                            "action": {
-                                "param": {
-                                    "custom_action_param": {
-                                        "roguelike_3_mode": 0,
-                                        "pick": "露娜·终焉"
-                                    }
-                                }
-                            }
+                        "选择人物_配置": {
+                            "focus": "露娜·终焉"
+                        },
+                        "肉鸽模式_配置": {
+                            "focus": 0
                         }
                     }
                 },
                 {
                     "name": "深痕",
                     "pipeline_override": {
-                        "选择角色程序_矩阵循生": {
-                            "action": {
-                                "param": {
-                                    "custom_action_param": {
-                                        "roguelike_3_mode": 0,
-                                        "pick": "比安卡·深痕"
-                                    }
-                                }
-                            }
+                        "选择人物_配置": {
+                            "focus": "比安卡·深痕"
+                        },
+                        "肉鸽模式_配置": {
+                            "focus": 0
                         }
                     }
                 },
                 {
                     "name": "启明",
                     "pipeline_override": {
-                        "选择角色程序_矩阵循生": {
-                            "action": {
-                                "param": {
-                                    "custom_action_param": {
-                                        "roguelike_3_mode": 0,
-                                        "pick": "曲·启明"
-                                    }
-                                }
-                            }
+                        "选择人物_配置": {
+                            "focus": "曲·启明"
+                        },
+                        "肉鸽模式_配置": {
+                            "focus": 0
                         }
                     }
                 },
                 {
                     "name": "超刻",
                     "pipeline_override": {
-                        "选择角色程序_矩阵循生": {
-                            "action": {
-                                "param": {
-                                    "custom_action_param": {
-                                        "roguelike_3_mode": 0,
-                                        "pick": "里·超刻"
-                                    }
-                                }
-                            }
+                        "选择人物_配置": {
+                            "focus": "里·超刻"
+                        },
+                        "肉鸽模式_配置": {
+                            "focus": 0
                         }
                     }
                 }
@@ -1834,28 +1636,6 @@
                     "name": "no",
                     "pipeline_override": {
                         "自动切换": {
-                            "enabled": false
-                        }
-                    }
-                }
-            ]
-        },
-        "使用多名角色": {
-            "description": "<p>是否使用其他角色填充剩余位置</p>",
-            "type": "switch",
-            "cases": [
-                {
-                    "name": "yes",
-                    "pipeline_override": {
-                        "多成员组队": {
-                            "enabled": true
-                        }
-                    }
-                },
-                {
-                    "name": "no",
-                    "pipeline_override": {
-                        "多成员组队": {
                             "enabled": false
                         }
                     }

@@ -49,6 +49,8 @@ class Pianissimo(CustomAction):
                     time.sleep(0.2)
                     action.auxiliary_machine()
                     action.auto_qte("a")
+                    action.switch()
+                    print("切换完成")
                     return CustomAction.RunResult(success=True)
                 action.ball_elimination_target(2)
                 time.sleep(0.05)
@@ -62,6 +64,11 @@ class Pianissimo(CustomAction):
             for _ in range(5):
                 time.sleep(0.05)
                 action.use_skill()
+                action.auxiliary_machine()
+                action.auto_qte("a")
+                action.switch()
+                print("切换完成")
+                return CustomAction.RunResult(success=True)
 
         elif action.count_signal_balls() > 5:
             print("希声1阶段")
