@@ -349,8 +349,8 @@
             "[JumpBack]获得奖励_神寂启示录",
             "[JumpBack]符纹宝箱_神寂启示录",
             "[JumpBack]选择技能_神寂启示录",
-            "[JumpBack]通用事件处理_对话1",
-            "[JumpBack]通用事件处理_对话2"
+            "[JumpBack]通用事件处理_对话2",
+            "[JumpBack]通用事件处理_对话1"
         ]
     },
     "符纹宝箱_神寂启示录": {
@@ -397,26 +397,60 @@
     },
     "通用事件处理_对话1": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "And",
             "param": {
-                "roi": [
-                    1065,
-                    632,
-                    182,
-                    55
-                ],
-                "upper": [
-                    217,
-                    33,
-                    40
-                ],
-                "lower": [
-                    173,
-                    4,
-                    21
-                ],
-                "connected": true,
-                "count": 1000
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    1065,
+                                    632,
+                                    182,
+                                    55
+                                ],
+                                "upper": [
+                                    217,
+                                    33,
+                                    40
+                                ],
+                                "lower": [
+                                    173,
+                                    4,
+                                    21
+                                ],
+                                "connected": true,
+                                "count": 1000
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    1065,
+                                    632,
+                                    182,
+                                    55
+                                ],
+                                "upper": [
+                                    210,
+                                    205,
+                                    205
+                                ],
+                                "lower": [
+                                    170,
+                                    170,
+                                    170
+                                ],
+                                "connected": true,
+                                "count": 100
+                            }
+                        }
+                    }
+                ]
             }
         },
         "action": {
@@ -426,26 +460,60 @@
     "通用事件处理_对话2": {
         "post_delay": 1000,
         "recognition": {
-            "type": "ColorMatch",
+            "type": "And",
             "param": {
-                "roi": [
-                    777,
-                    352,
-                    476,
-                    249
-                ],
-                "upper": [
-                    48,
-                    56,
-                    61
-                ],
-                "lower": [
-                    16,
-                    24,
-                    24
-                ],
-                "connected": true,
-                "count": 1500
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    777,
+                                    352,
+                                    476,
+                                    249
+                                ],
+                                "upper": [
+                                    48,
+                                    56,
+                                    61
+                                ],
+                                "lower": [
+                                    16,
+                                    24,
+                                    24
+                                ],
+                                "connected": true,
+                                "count": 1500
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    777,
+                                    352,
+                                    476,
+                                    249
+                                ],
+                                "upper": [
+                                    214,
+                                    217,
+                                    218
+                                ],
+                                "lower": [
+                                    194,
+                                    198,
+                                    199
+                                ],
+                                "connected": true,
+                                "count": 100
+                            }
+                        }
+                    }
+                ]
             }
         },
         "action": {
