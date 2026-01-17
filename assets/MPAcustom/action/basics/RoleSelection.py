@@ -24,6 +24,7 @@ MAA_Punish 选择角色
 作者:overflow65537
 """
 
+from email.mime import image
 from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.define import TemplateMatchResult, OCRResult, ColorMatchResult
@@ -161,6 +162,7 @@ class RoleSelection(CustomAction):
             context, role_dict, attacker_name, 5 if roguelike_3_mode else 16
         ):
             context.run_task("编入队伍")
+            image = context.tasker.controller.post_screencap().wait().get()
 
         if condition.get("roguelike_3_mode") is None:
             print("非肉鸽模式")
