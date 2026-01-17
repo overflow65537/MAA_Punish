@@ -45,7 +45,12 @@ class RoleSelection(CustomAction):
         self.logger = self._logger_component.logger
 
     def _cache_path(self) -> Path:
-        return Path(__file__).resolve().parents[2] / "recognition" / "exclusives" / "role_cache.json"
+        return (
+            Path(__file__).resolve().parents[2]
+            / "recognition"
+            / "exclusives"
+            / "role_cache.json"
+        )
 
     def _current_week(self) -> int:
         return datetime.date.today().isocalendar().week
@@ -84,6 +89,7 @@ class RoleSelection(CustomAction):
             condition = {}
         elif condition.get("cache"):
             need_cache = True
+            context.run_task("反向滑动_选人")
         roguelike_3_mode = context.get_node_data("肉鸽模式_配置")
         if roguelike_3_mode:
             roguelike_3_mode = roguelike_3_mode.get("focus")
@@ -103,23 +109,20 @@ class RoleSelection(CustomAction):
             }
         )
         role_dict = ROLE_ACTIONS.copy()
-        role_node = context.get_node_data("角色权重")
 
         role = None
         if roguelike_3_mode is None and not need_cache:
-            if role_node and role_node.get("focus", None):
-                role = role_node.get("focus", {})
-                self.logger.info(f"读取缓存: {role_node}")
-            else:
-                role = self._load_cache()
-                if role:
-                    self.logger.info("读取文件缓存成功")
+            role = self._load_cache()
+            if role:
+                self.logger.info("读取文件缓存成功")
 
         if not role:
             self.logger.info("未读取到缓存, 开始识别")
             role = {}
 
-            for _ in range(int(condition.get("max_try", 5))):
+            for _ in range(
+                int(condition.get("max_try", 5 if roguelike_3_mode else 15))
+            ):
                 if context.tasker.stopping:
                     return CustomAction.RunResult(success=True)
                 role.update(
@@ -131,16 +134,18 @@ class RoleSelection(CustomAction):
                     )
                 )
                 context.run_action("滑动_选人")
-
-            for _ in range(int(condition.get("max_try", 5))):
+            if need_cache:
+                self.save_cache(role)
+                return CustomAction.RunResult(success=True)
+            for _ in range(
+                int(condition.get("max_try", 5 if roguelike_3_mode else 15))
+            ):
                 if context.tasker.stopping:
                     return CustomAction.RunResult(success=True)
                 context.run_action("反向滑动_选人")
 
         print(f"角色列表: {role}")
-        if need_cache:
-            self.save_cache(role)
-            return CustomAction.RunResult(success=True)
+
         role_weight = self.calculate_weight(role, condition)
         best_team = self.select_best_team(role_weight)
         self.logger.info(f"条件: {condition}")
@@ -151,7 +156,9 @@ class RoleSelection(CustomAction):
         self.logger.info(f"最佳进攻: {attacker_name or '无'}")
         self.logger.info(f"最佳装甲: {tank_name or '无'}")
         self.logger.info(f"最佳支援: {support_name or '无'}")
-        if attacker_name and self.find_role(context, role_dict, attacker_name):
+        if attacker_name and self.find_role(
+            context, role_dict, attacker_name, 5 if roguelike_3_mode else 16
+        ):
             context.run_task("编入队伍")
 
         if condition.get("roguelike_3_mode") is None:
@@ -161,14 +168,14 @@ class RoleSelection(CustomAction):
                 if self.find_role(context, role_dict, tank_name):
                     context.run_task("编入队伍")
                 else:
-                    context.run_action("返回")
+                    context.run_task("返回")
 
             if support_name:
                 context.run_task("打开蓝色位置")
                 if self.find_role(context, role_dict, support_name):
                     context.run_task("编入队伍")
                 else:
-                    context.run_action("返回")
+                    context.run_task("返回")
         # 缓存数据
         if roguelike_3_mode is None:
             if condition.get("cage"):
@@ -179,9 +186,7 @@ class RoleSelection(CustomAction):
                     if role_key not in role:
                         role_key = selected_name.replace("[试用]", "")
                     if role_key in role:
-                        role[role_key]["cage"] = max(
-                            int(role[role_key].get("cage", 0)) - 1, 0
-                        )
+                        role[role_key]["cage"] = 0
             context.override_pipeline({"角色权重": {"focus": role}})
             self.logger.info(f"缓存数据: {role}")
             self.save_cache(role)
@@ -189,7 +194,7 @@ class RoleSelection(CustomAction):
         return CustomAction.RunResult(success=True)
 
     def find_role(
-        self, context: Context, role_dict: dict, role_name: str, max_try: int = 5
+        self, context: Context, role_dict: dict, role_name: str, max_try: int = 16
     ) -> bool:
         if "[试用]" in role_name:
             role_name = role_name.replace("[试用]", "")
@@ -237,6 +242,7 @@ class RoleSelection(CustomAction):
                     return True
             context.run_action("滑动_选人")
         print(f"未识别到角色")
+        self.logger.info(f"未识别到角色{role_name}")
         return False
 
     def recognize_role(

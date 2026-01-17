@@ -4,10 +4,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    72,
-                    69,
-                    140,
-                    521
+                    77,
+                    54,
+                    132,
+                    560
                 ],
                 "order_by": "Vertical",
                 "template": []
@@ -520,8 +520,11 @@
         }
     },
     "缓存角色": {
+        "focus": {
+            "Node.Recognition.Succeeded": "正在更新角色缓存"
+        },
         "next": [
-            "[JumpBack]缓存角色程序",
+            "缓存角色程序",
             "[JumpBack]点击首发",
             "[JumpBack]作战准备",
             "[JumpBack]点击A区",
@@ -537,12 +540,12 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    983,
-                    464,
-                    276,
-                    244
+                    1035,
+                    547,
+                    111,
+                    102
                 ],
-                "expected": "队伍"
+                "expected": "意识"
             }
         },
         "action": {
@@ -620,5 +623,17 @@
         "action": {
             "type": "Click"
         }
+    },
+    "是否需要缓存": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CacheRole"
+            }
+        },
+        "next": [
+            "缓存角色程序"
+        ]
     }
 }

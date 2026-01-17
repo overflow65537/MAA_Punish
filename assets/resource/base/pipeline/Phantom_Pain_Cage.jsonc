@@ -1,6 +1,7 @@
 {
     "幻痛囚笼": {
         "next": [
+            "[JumpBack]是否需要缓存",
             "全部已完成",
             "挑战次数不足",
             "挑战次数不足_弹窗",
@@ -45,6 +46,9 @@
                     "作战开始"
                 ]
             }
+        },
+        "action": {
+            "type": "Click"
         }
     },
     "关闭难度说明": {
@@ -385,10 +389,14 @@
         }
     },
     "囚笼作战程序": {
+        "rate_limit": 0,
         "on_error": [
             "boss识别错误"
         ],
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -448,17 +456,6 @@
                 ],
                 "expected": [
                     "查看排行"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    1202,
-                    70,
-                    1,
-                    1
                 ]
             }
         }

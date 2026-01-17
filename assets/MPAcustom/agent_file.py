@@ -34,6 +34,13 @@ from recognition.exclusives.LogicalOperators import LOp
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
 from recognition.exclusives.NextStageRecognition import NextStageRecognition
+from recognition.exclusives.CacheRole import CacheRole
+
+
+@AgentServer.custom_recognition("CacheRole")
+class Agent_CacheRole(CacheRole):
+    pass
+
 
 
 @AgentServer.custom_action("CheckRedeemCode")
