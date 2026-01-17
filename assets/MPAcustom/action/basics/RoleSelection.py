@@ -162,7 +162,6 @@ class RoleSelection(CustomAction):
             context, role_dict, attacker_name, 5 if roguelike_3_mode else 16
         ):
             context.run_task("编入队伍")
-            image = context.tasker.controller.post_screencap().wait().get()
 
         if condition.get("roguelike_3_mode") is None:
             print("非肉鸽模式")
