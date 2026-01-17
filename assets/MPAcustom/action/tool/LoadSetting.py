@@ -480,7 +480,7 @@ ROLE_ACTIONS = {
         "type": "Tank",
         "cls_name": "GeneralFight",
         "metadata": {
-            "dark": 100,
+            "physical": 100,
             "generation": 0,
         },
         "template": [
@@ -568,5 +568,21 @@ ROLE_ACTIONS = {
             "人物索引/伊什梅尔/幻日/幻日_终解.png",
         ],
         "attack_template": "自定义战斗/幻日.png",
+    },
+    "卡列尼娜·辉晓": {
+        "name": "辉晓",
+        "type": "Tank",
+        "cls_name": "GeneralFight",
+        "metadata": {
+            "dark": 100,
+            "generation": 0,
+        },
+        "template": [
+            "人物索引/卡列尼娜/辉晓/辉晓.png",
+            "人物索引/卡列尼娜/辉晓/辉晓_晓兔阗春.png",
+            "人物索引/卡列尼娜/辉晓/辉晓_炸裂霓虹.png",
+            "人物索引/卡列尼娜/辉晓/辉晓_终解.png",
+        ],
+        "attack_template": "自定义战斗/辉晓.png",
     },
 }

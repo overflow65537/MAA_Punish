@@ -27,8 +27,10 @@ MAA_Punish 选择角色
 from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.define import TemplateMatchResult, OCRResult, ColorMatchResult
+import datetime
 import json
 import os
+from pathlib import Path
 import numpy
 
 
@@ -42,9 +44,46 @@ class RoleSelection(CustomAction):
         self._logger_component = LoggerComponent(__name__)
         self.logger = self._logger_component.logger
 
+    def _cache_path(self) -> Path:
+        return Path(__file__).resolve().parents[2] / "recognition" / "exclusives" / "role_cache.json"
+
+    def _current_week(self) -> int:
+        return datetime.date.today().isocalendar().week
+
+    def _load_cache(self) -> dict | None:
+        cache_path = self._cache_path()
+        if not cache_path.exists():
+            return None
+        try:
+            with open(cache_path, "r", encoding="utf-8") as f:
+                cache_data = json.load(f)
+        except (OSError, json.JSONDecodeError):
+            return None
+        if not isinstance(cache_data, dict):
+            return None
+        last_time = cache_data.get("last_time")
+        if last_time is None:
+            return None
+        try:
+            last_week = int(last_time)
+        except (TypeError, ValueError):
+            return None
+        if last_week != self._current_week():
+            return None
+        focus = cache_data.get("focus")
+        if not isinstance(focus, dict) or not focus:
+            return None
+        return focus
+
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
+        condition = json.loads(argv.custom_action_param)
+        need_cache = False
+        if condition is None:
+            condition = {}
+        elif condition.get("cache"):
+            need_cache = True
         roguelike_3_mode = context.get_node_data("肉鸽模式_配置")
         if roguelike_3_mode:
             roguelike_3_mode = roguelike_3_mode.get("focus")
@@ -56,9 +95,7 @@ class RoleSelection(CustomAction):
             pick = pick.get("focus", "")
         else:
             pick = ""
-        condition = json.loads(argv.custom_action_param)
-        if condition is None:
-            condition = {}
+
         condition.update(
             {
                 "roguelike_3_mode": roguelike_3_mode,
@@ -67,13 +104,19 @@ class RoleSelection(CustomAction):
         )
         role_dict = ROLE_ACTIONS.copy()
         role_node = context.get_node_data("角色权重")
-        _cache = False
-        if role_node and role_node.get("focus", None) and roguelike_3_mode is None:
-            self.logger.info(f"读取缓存: {role_node}")
-            role = role_node.get("focus", {})
-            _cache = True
-        else:
-            self.logger.info(f"未读取到缓存, 开始识别")
+
+        role = None
+        if roguelike_3_mode is None and not need_cache:
+            if role_node and role_node.get("focus", None):
+                role = role_node.get("focus", {})
+                self.logger.info(f"读取缓存: {role_node}")
+            else:
+                role = self._load_cache()
+                if role:
+                    self.logger.info("读取文件缓存成功")
+
+        if not role:
+            self.logger.info("未读取到缓存, 开始识别")
             role = {}
 
             for _ in range(int(condition.get("max_try", 5))):
@@ -95,7 +138,9 @@ class RoleSelection(CustomAction):
                 context.run_action("反向滑动_选人")
 
         print(f"角色列表: {role}")
-
+        if need_cache:
+            self.save_cache(role)
+            return CustomAction.RunResult(success=True)
         role_weight = self.calculate_weight(role, condition)
         best_team = self.select_best_team(role_weight)
         self.logger.info(f"条件: {condition}")
@@ -139,6 +184,7 @@ class RoleSelection(CustomAction):
                         )
             context.override_pipeline({"角色权重": {"focus": role}})
             self.logger.info(f"缓存数据: {role}")
+            self.save_cache(role)
 
         return CustomAction.RunResult(success=True)
 
@@ -555,3 +601,13 @@ class RoleSelection(CustomAction):
             "发送消息_这是程序自动生成的node所以故意写的很长来防止某一天想不开用了这个名字导致报错",
             pipeline_override=msg_node,
         )
+
+    def save_cache(self, role: dict):
+        cache_path = self._cache_path()
+        cache_path.parent.mkdir(parents=True, exist_ok=True)
+        cache_data = {
+            "last_time": self._current_week(),
+            "focus": role,
+        }
+        with open(cache_path, "w", encoding="utf-8") as f:
+            json.dump(cache_data, f, ensure_ascii=False, indent=2)

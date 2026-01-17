@@ -513,10 +513,112 @@
             "param": {
                 "custom_action": "RoleSelection",
                 "custom_action_param": {
-                    // "cage": true
-                    "pick": "拉弥亚·深谣"
+                    "cage": true,
+                    "max_try": 10
                 }
             }
+        }
+    },
+    "缓存角色": {
+        "next": [
+            "[JumpBack]缓存角色程序",
+            "[JumpBack]点击首发",
+            "[JumpBack]作战准备",
+            "[JumpBack]点击A区",
+            "[JumpBack]选择区域",
+            "[JumpBack]打开幻痛囚笼",
+            "[JumpBack]打开挑战_幻痛囚笼",
+            "[JumpBack]打开战斗",
+            "[JumpBack]意外点击_限定活动"
+        ]
+    },
+    "缓存角色程序": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    983,
+                    464,
+                    276,
+                    244
+                ],
+                "expected": "队伍"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "RoleSelection",
+                "custom_action_param": {
+                    "cage": true,
+                    "max_try": 15,
+                    "cache": true
+                }
+            }
+        },
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "点击首发": {
+        "post_delay": 2000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    140,
+                    301,
+                    979,
+                    182
+                ],
+                "expected": "首发"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "点击A区": {
+        "post_delay": 2000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    500,
+                    385,
+                    769,
+                    161
+                ],
+                "expected": [
+                    "骑士",
+                    "混沌",
+                    "地域"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "作战准备": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1029,
+                    656,
+                    128,
+                    44
+                ],
+                "expected": "作战准备"
+            }
+        },
+        "action": {
+            "type": "Click"
         }
     }
 }
