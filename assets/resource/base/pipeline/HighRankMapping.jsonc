@@ -1,5 +1,6 @@
 {
     "历战映射": {
+        "max_hit": 1,
         "next": [
             "[JumpBack]是否需要缓存",
             "[JumpBack]选人_历战",

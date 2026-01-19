@@ -1,0 +1,65 @@
+{
+  "last_time": 4,
+  "focus": {
+    "露娜·终焉": {
+      "nihil": 100,
+      "generation": 3,
+      "power": 5402,
+      "cage": 3
+    },
+    "露西亚·深红囚影": {
+      "lightning": 100,
+      "generation": 2,
+      "power": 6784,
+      "cage": 3
+    },
+    "莉莉丝·谬影": {
+      "dark": 100,
+      "generation": 0,
+      "power": 5071,
+      "cage": 3
+    },
+    "丽芙·霁梦": {
+      "lightning": 100,
+      "generation": 3,
+      "power": 4812,
+      "cage": 3
+    },
+    "丽芙·仰光": {
+      "physical": 100,
+      "generation": 0,
+      "power": 5040,
+      "cage": 3
+    },
+    "丽芙·流光": {
+      "lightning": 100,
+      "generation": 0,
+      "power": 3846,
+      "cage": 3
+    },
+    "丽芙·蚀暗": {
+      "physical": 100,
+      "generation": 0,
+      "power": 707,
+      "cage": 3
+    },
+    "21号·森息": {
+      "lightning": 100,
+      "generation": 0,
+      "power": 326,
+      "cage": 3
+    },
+    "万事·明觉": {
+      "ice": 100,
+      "generation": 0,
+      "power": 262,
+      "cage": 3
+    },
+    "薇拉·瑰丽": {
+      "dark": 100,
+      "generation": 0,
+      "power": 251,
+      "cage": 3
+    }
+  }
+}
