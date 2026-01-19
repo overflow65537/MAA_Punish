@@ -345,27 +345,6 @@
             }
         },
         {
-            "name": "纷争战区",
-            "default_check": true,
-            "entry": "纷争战区",
-            "description": "<p>自动首通纷争战区；如已通关则仅领取奖励。</p><p><b>速通</b>：每周二5点后可运行2次，首次运行后需等待24小时。</p>",
-            "speedrun": {
-                "mode": "weekly",
-                "trigger": {
-                    "weekly": {
-                        "weekday": [
-                            2
-                        ],
-                        "hour_start": 5
-                    }
-                },
-                "run": {
-                    "count": 2,
-                    "min_interval_hours": 24
-                }
-            }
-        },
-        {
             "name": "诺曼复兴战",
             "default_check": true,
             "entry": "诺曼复兴战",
@@ -394,6 +373,27 @@
             "option": [
                 "选择区域"
             ],
+            "speedrun": {
+                "mode": "weekly",
+                "trigger": {
+                    "weekly": {
+                        "weekday": [
+                            2
+                        ],
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 2,
+                    "min_interval_hours": 24
+                }
+            }
+        },
+        {
+            "name": "纷争战区",
+            "default_check": true,
+            "entry": "纷争战区",
+            "description": "<p>自动首通纷争战区；如已通关则仅领取奖励。</p><p><b>速通</b>：每周二5点后可运行2次，首次运行后需等待24小时。</p>",
             "speedrun": {
                 "mode": "weekly",
                 "trigger": {
