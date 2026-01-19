@@ -696,7 +696,11 @@
             "cases": [
                 {
                     "name:": "yes",
-                    "pipeline_override": {}
+                    "pipeline_override": {
+                        "幻痛囚笼": {
+                            "enabled": true
+                        }
+                    }
                 },
                 {
                     "name": "no",
@@ -714,7 +718,11 @@
             "cases": [
                 {
                     "name:": "yes",
-                    "pipeline_override": {}
+                    "pipeline_override": {
+                        "纷争战区": {
+                            "enabled": true
+                        }
+                    }
                 },
                 {
                     "name": "no",
@@ -732,7 +740,11 @@
             "cases": [
                 {
                     "name:": "yes",
-                    "pipeline_override": {}
+                    "pipeline_override": {
+                        "历战映射": {
+                            "enabled": true
+                        }
+                    }
                 },
                 {
                     "name": "no",
