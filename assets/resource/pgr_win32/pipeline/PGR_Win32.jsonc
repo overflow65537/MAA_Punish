@@ -95,5 +95,13 @@
                 "key": 27
             }
         }
+    },
+    "失败_宣叙妄响": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 74
+            }
+        }
     }
 }
