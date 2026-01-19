@@ -32,6 +32,7 @@ import datetime
 import json
 import os
 from pathlib import Path
+from matplotlib.pylab import f
 import numpy
 
 
@@ -200,6 +201,7 @@ class RoleSelection(CustomAction):
     def find_role(
         self, context: Context, role_dict: dict, role_name: str, max_try: int = 16
     ) -> bool:
+        _image_cache=[]
         if "[试用]" in role_name:
             role_name = role_name.replace("[试用]", "")
             trial = True
@@ -207,6 +209,7 @@ class RoleSelection(CustomAction):
             trial = False
         for _ in range(max_try):
             image = context.tasker.controller.post_screencap().wait().get()
+            _image_cache.append(image)
             pipeline_override = {
                 "识别角色": {
                     "recognition": {
@@ -265,6 +268,8 @@ class RoleSelection(CustomAction):
         print(f"未识别到角色")
         self.logger.info(f"未识别到角色{role_name}")
         self.send_msg(context, f"未识别到角色{role_name}")
+        for idx,error_image in enumerate(_image_cache):
+            self.save_screenshot(error_image ,f"{role_name}_{idx+1}")
         return False
 
     def recognize_role(
