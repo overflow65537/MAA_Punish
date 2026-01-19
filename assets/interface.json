@@ -345,16 +345,10 @@
             }
         },
         {
-            "name": "周常战斗",
+            "name": "纷争战区",
             "default_check": true,
-            "entry": "周常战斗",
-            "description": "<p>每周任务的战斗部分</p><p>请正确选择幻痛囚笼的区域选项</p><p><b>速通</b>：每周二5点后可运行3次，首次运行后需等待23小时。</p>",
-            "option": [
-                "选择区域",
-                "幻痛囚笼",
-                "纷争战区",
-                "历战映射"
-            ],
+            "entry": "纷争战区",
+            "description": "<p>自动首通纷争战区；如已通关则仅领取奖励。</p><p><b>速通</b>：每周二5点后可运行2次，首次运行后需等待24小时。</p>",
             "speedrun": {
                 "mode": "weekly",
                 "trigger": {
@@ -366,8 +360,8 @@
                     }
                 },
                 "run": {
-                    "count": 3,
-                    "min_interval_hours": 23
+                    "count": 2,
+                    "min_interval_hours": 24
                 }
             }
         },
@@ -389,6 +383,60 @@
                 "run": {
                     "count": 2,
                     "min_interval_hours": 24
+                }
+            }
+        },
+        {
+            "name": "幻痛囚笼",
+            "default_check": true,
+            "entry": "幻痛囚笼",
+            "description": "<p>自动战斗幻痛囚笼，并自动选择人物作战；请注意角色锁定状态。</p><p><b>速通</b>：每周二5点后可运行2次，首次运行后需等待24小时。</p>",
+            "option": [
+                "选择区域"
+            ],
+            "speedrun": {
+                "mode": "weekly",
+                "trigger": {
+                    "weekly": {
+                        "weekday": [
+                            2
+                        ],
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 2,
+                    "min_interval_hours": 24
+                }
+            }
+        },
+        {
+            "name": "历战映射",
+            "entry": "历战映射",
+            "description": "<p>历战映射</p><p><b>速通</b>：每周二5点后可运行1次</p>",
+            "pipeline_override": {
+                "选择角色程序": {
+                    "next": [
+                        "作战开始"
+                    ]
+                },
+                "作战开始": {
+                    "post_delay": 1000,
+                    "next": []
+                }
+            },
+            "speedrun": {
+                "mode": "weekly",
+                "trigger": {
+                    "weekly": {
+                        "weekday": [
+                            2
+                        ],
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
                 }
             }
         },
@@ -690,72 +738,6 @@
         }
     ],
     "option": {
-        "幻痛囚笼": {
-            "type": "switch",
-            "description": "<p>是否启用幻痛囚笼功能</p>",
-            "cases": [
-                {
-                    "name:": "yes",
-                    "pipeline_override": {
-                        "幻痛囚笼": {
-                            "enabled": true
-                        }
-                    }
-                },
-                {
-                    "name": "no",
-                    "pipeline_override": {
-                        "幻痛囚笼": {
-                            "enabled": false
-                        }
-                    }
-                }
-            ]
-        },
-        "纷争战区": {
-            "type": "switch",
-            "description": "<p>是否启用纷争战区功能</p>",
-            "cases": [
-                {
-                    "name:": "yes",
-                    "pipeline_override": {
-                        "纷争战区": {
-                            "enabled": true
-                        }
-                    }
-                },
-                {
-                    "name": "no",
-                    "pipeline_override": {
-                        "纷争战区": {
-                            "enabled": false
-                        }
-                    }
-                }
-            ]
-        },
-        "历战映射": {
-            "type": "switch",
-            "description": "<p>是否启用历战映射功能</p>",
-            "cases": [
-                {
-                    "name:": "yes",
-                    "pipeline_override": {
-                        "历战映射": {
-                            "enabled": true
-                        }
-                    }
-                },
-                {
-                    "name": "no",
-                    "pipeline_override": {
-                        "历战映射": {
-                            "enabled": false
-                        }
-                    }
-                }
-            ]
-        },
         "战斗模式": {
             "description": "<p><b>战斗模式</b></p><ul><li><b>自动检测</b>：根据当前战斗情况自动选择持续战斗或静默。</li><li><b>持续战斗</b>：一直保持持续战斗，不会因为没有敌人而暂停。</li></ul><p><b>使用建议</b></p><ul><li>关卡需要解密或跑图且角色仍在战斗时，使用<span style=\"color:Tomato\">自动检测模式</span>。</li><li>关卡无剧情/解密，进入地图即可战斗但角色未开打时，使用<span style=\"color:Tomato\">持续战斗模式</span>。</li></ul>",
             "cases": [

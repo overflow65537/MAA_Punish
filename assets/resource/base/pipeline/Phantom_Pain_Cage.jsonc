@@ -1,7 +1,5 @@
 {
     "幻痛囚笼": {
-        "max_hit": 1,
-        "enabled": false,
         "next": [
             "[JumpBack]是否需要缓存",
             "全部已完成",
