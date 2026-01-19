@@ -87,5 +87,13 @@
             "[JumpBack]确定",
             "[JumpBack]esc键"
         ]
+    },
+    "失败2_宣叙妄响": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 27
+            }
+        }
     }
 }
