@@ -24,6 +24,7 @@ MAA_Punish 选择角色
 作者:overflow65537
 """
 
+import time
 from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.define import TemplateMatchResult, OCRResult, ColorMatchResult
@@ -169,7 +170,6 @@ class RoleSelection(CustomAction):
                 if self.find_role(context, role_dict, tank_name):
                     context.run_task("编入队伍")
                 else:
-                    self.send_msg(context, f"未找到装甲角色: {tank_name}")
                     context.run_task("返回")
 
             if support_name:
@@ -177,7 +177,6 @@ class RoleSelection(CustomAction):
                 if self.find_role(context, role_dict, support_name):
                     context.run_task("编入队伍")
                 else:
-                    self.send_msg(context, f"未找到支援角色: {support_name}")
                     context.run_task("返回")
         # 缓存数据
         if roguelike_3_mode is None:
@@ -204,7 +203,7 @@ class RoleSelection(CustomAction):
             trial = True
         else:
             trial = False
-        for i in range(max_try):
+        for _ in range(max_try):
             image = context.tasker.controller.post_screencap().wait().get()
             pipeline_override = {
                 "识别角色": {
@@ -234,18 +233,36 @@ class RoleSelection(CustomAction):
                             pipeline_override=trial_pipeline_override,
                         )
                         if trial_reco and trial_reco.hit:
-                            context.tasker.controller.post_click(
-                                role.box[0] + role.box[2], role.box[1] + role.box[3]  # type: ignore
-                            ).wait()
+
+                            for _ in range(4):
+                                context.tasker.controller.post_click(
+                                    role.box[0] + role.box[2], role.box[1] + role.box[3]  # type: ignore
+                                ).wait()
+                                image = (
+                                    context.tasker.controller.post_screencap()
+                                    .wait()
+                                    .get()
+                                )
+                                reco = context.run_recognition("编入队伍", image)
+                                if reco and reco.hit:
+                                    break
+                                time.sleep(0.5)
                             return True
                 else:
-                    context.tasker.controller.post_click(
-                        role_reco.best_result.box[0] + role_reco.best_result.box[2] // 2, role_reco.best_result.box[1] + role_reco.best_result.box[3] // 2  # type: ignore
-                    ).wait()
+                    for _ in range(4):
+                        context.tasker.controller.post_click(
+                            role_reco.best_result.box[0] + role_reco.best_result.box[2] // 2, role_reco.best_result.box[1] + role_reco.best_result.box[3] // 2  # type: ignore
+                        ).wait()
+                        image = context.tasker.controller.post_screencap().wait().get()
+                        reco = context.run_recognition("编入队伍", image)
+                        if reco and reco.hit:
+                            break
+                        time.sleep(0.5)
                     return True
             context.run_action("滑动_选人")
         print(f"未识别到角色")
         self.logger.info(f"未识别到角色{role_name}")
+        self.send_msg(context, f"未识别到角色{role_name}")
         return False
 
     def recognize_role(

@@ -36,13 +36,16 @@ class CheckResolution(CustomRecognition):
         argv: CustomRecognition.AnalyzeArg,
     ) -> CustomRecognition.AnalyzeResult | None:
         try:
-            image:ndarray = argv.image # type: ignore
+            image: ndarray = argv.image  # type: ignore
             height, width = image.shape[:2]
-            if width not in [720,1280] or height not in [1280,720]:
+            if width not in [720, 1280] or height not in [1280, 720]:
                 return CustomRecognition.AnalyzeResult(
-                box=[0, 0, 0, 0],
-                detail={"status":"error","message":f"分辨率{width}x{height} 错误"},
-            )
+                    box=[0, 0, 0, 0],
+                    detail={
+                        "status": "error",
+                        "message": f"分辨率{width}x{height} 错误",
+                    },
+                )
             else:
                 return None
         except Exception as e:

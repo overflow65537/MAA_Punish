@@ -325,7 +325,8 @@
                         "action": {
                             "param": {
                                 "custom_action_param": {
-                                    "need_element": "nihil"
+                                    "need_element": "nihil",
+                                    "cage": false
                                 }
                             }
                         }
@@ -363,7 +364,8 @@
                         "action": {
                             "param": {
                                 "custom_action_param": {
-                                    "need_element": "fire"
+                                    "need_element": "fire",
+                                    "cage": false
                                 }
                             }
                         }
@@ -401,7 +403,8 @@
                         "action": {
                             "param": {
                                 "custom_action_param": {
-                                    "need_element": "dark"
+                                    "need_element": "dark",
+                                    "cage": false
                                 }
                             }
                         }
@@ -439,7 +442,8 @@
                         "action": {
                             "param": {
                                 "custom_action_param": {
-                                    "need_element": "lightning"
+                                    "need_element": "lightning",
+                                    "cage": false
                                 }
                             }
                         }
@@ -477,7 +481,8 @@
                         "action": {
                             "param": {
                                 "custom_action_param": {
-                                    "need_element": "physical"
+                                    "need_element": "physical",
+                                    "cage": false
                                 }
                             }
                         }
@@ -515,7 +520,8 @@
                         "action": {
                             "param": {
                                 "custom_action_param": {
-                                    "need_element": "ice"
+                                    "need_element": "ice",
+                                    "cage": false
                                 }
                             }
                         }
@@ -553,6 +559,16 @@
             "param": {
                 "custom_action": "PPOverride",
                 "custom_action_param": {
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "cage": false,
+                                    "need_element": ""
+                                }
+                            }
+                        }
+                    },
                     "识别人物": {
                         "enabled": true
                     }

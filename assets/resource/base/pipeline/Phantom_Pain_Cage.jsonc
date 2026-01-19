@@ -625,7 +625,8 @@
                         "action": {
                             "param": {
                                 "custom_action_param": {
-                                    "cage": true
+                                    "cage": true,
+                                    "need_element": "fire"
                                 }
                             }
                         }
