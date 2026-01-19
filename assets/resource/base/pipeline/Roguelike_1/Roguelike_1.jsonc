@@ -570,7 +570,8 @@
     },
     "战斗冲突_宣叙妄响": {
         "post_wait_freezes": {
-            "time": 1000
+            "time": 1000,
+            "timeout": 5000
         },
         "recognition": {
             "type": "OCR",
@@ -636,7 +637,8 @@
     },
     "战斗冲突处理_宣叙妄响": {
         "post_wait_freezes": {
-            "time": 1000
+            "time": 1000,
+            "timeout": 5000
         },
         "rate_limit": 0,
         "recognition": {

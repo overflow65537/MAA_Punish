@@ -563,7 +563,7 @@
         ]
     },
     "作战开始": {
-        "post_delay": 15000,
+        "post_delay": 1500,
         "recognition": {
             "type": "And",
             "param": {
