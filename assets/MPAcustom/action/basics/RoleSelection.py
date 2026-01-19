@@ -170,6 +170,7 @@ class RoleSelection(CustomAction):
                 if self.find_role(context, role_dict, tank_name):
                     context.run_task("编入队伍")
                 else:
+                    time.sleep(0.5)
                     context.run_task("返回")
 
             if support_name:
@@ -177,6 +178,7 @@ class RoleSelection(CustomAction):
                 if self.find_role(context, role_dict, support_name):
                     context.run_task("编入队伍")
                 else:
+                    time.sleep(0.5)
                     context.run_task("返回")
         # 缓存数据
         if roguelike_3_mode is None:
