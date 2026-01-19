@@ -345,6 +345,7 @@
         },
         "next": [
             "囚笼作战程序",
+            "[JumpBack]作战准备",
             "[JumpBack]打开幻痛囚笼",
             "没打满"
         ]
@@ -406,11 +407,8 @@
                     128,
                     44
                 ],
-                "expected": "作战准备"
+                "expected": "作战开始"
             }
-        },
-        "action": {
-            "type": "Click"
         },
         "next": [
             "[JumpBack]识别人物",
