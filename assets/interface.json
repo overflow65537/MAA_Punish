@@ -18,6 +18,7 @@
         {
             "name": "桌面端",
             "type": "Win32",
+            "permission_required": true,
             "description": "<p style=\"color: red; font-weight: bold;\">必需使用管理员权限启动!</p><p>请正确填写程序路径为游戏入口PGR.exe而非启动器的launcher.exe</p><p>填写后可以使用自动启动游戏功能</p><p>桌面端目前不是很稳定,如果出现过多错误,请尝试使用安卓端</p>",
             "win32": {
                 "class_regex": "UnityWndClass",
