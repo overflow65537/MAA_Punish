@@ -46,19 +46,19 @@ class Oblivion(CustomAction):
             action.auxiliary_machine()
             action.auto_qte("a")
             time.sleep(0.1)
-            item = 0
-            while not action.check_Skill_energy_bar() and item < 30:
+            loop_count = 0
+            while not action.check_Skill_energy_bar() and loop_count < 30:
                 if context.tasker.stopping:
                     return CustomAction.RunResult(success=True)
-                item = 0
+                inside_item = 0
                 action.attack()
                 while (
                     action.count_signal_balls()
-                    and item < 5
+                    and inside_item < 5
                     and not action.check_Skill_energy_bar()
                 ):
                     action.ball_elimination_target(1)
-                    item += 1
+                    inside_item += 1
                     action.attack()
                     action.auto_qte("a")
                 action.attack()
@@ -67,6 +67,7 @@ class Oblivion(CustomAction):
                     and not action.check_Skill_energy_bar()
                 ):
                     action.long_press_attack(2000)
+                loop_count += 1
             action.use_skill(1000)  # 技能
             action.auxiliary_machine()
             action.auto_qte("a")
