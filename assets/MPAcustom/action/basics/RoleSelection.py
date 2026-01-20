@@ -167,10 +167,14 @@ class RoleSelection(CustomAction):
 
         # 仅在 need_multi 为 True 且 roguelike_3_mode 为 False 时显示名称，否则显示“无”
         display_tank_name = (
-            tank_name if need_multi is True and roguelike_3_mode is False else None
+            tank_name
+            if need_multi is True and condition.get("roguelike_3_mode") is None
+            else None
         )
         display_support_name = (
-            support_name if need_multi is True and roguelike_3_mode is False else None
+            support_name
+            if need_multi is True and condition.get("roguelike_3_mode") is None
+            else None
         )
 
         self.logger.info(
@@ -185,7 +189,7 @@ class RoleSelection(CustomAction):
         ):
             context.run_task("编入队伍")
 
-        if condition.get("roguelike_3_mode") is None:
+        if need_multi is True and condition.get("roguelike_3_mode") is None:
             if tank_name:
                 context.run_task("打开黄色位置")
                 if self.find_role(context, role_dict, tank_name):
@@ -206,6 +210,8 @@ class RoleSelection(CustomAction):
             if condition.get("cage"):
                 for selected_name in (attacker_name, tank_name, support_name):
                     if not selected_name:
+                        continue
+                    if need_multi is False and selected_name != attacker_name:
                         continue
                     role_key = selected_name
                     if role_key not in role:
