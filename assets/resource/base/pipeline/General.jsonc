@@ -9,6 +9,9 @@
     "肉鸽模式_配置": {
         "focus": null
     },
+    "多人选择": {
+        "focus": false
+    },
     "关闭奖励": {
         "post_delay": 1000,
         "recognition": {
