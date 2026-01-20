@@ -95,7 +95,18 @@ class RoleSelection(CustomAction):
             roguelike_3_mode = roguelike_3_mode.get("focus")
         else:
             roguelike_3_mode = None
-        print(f"肉鸽模式: {roguelike_3_mode}")
+
+        need_multi_node = context.get_node_data("多人选择")
+        if need_multi_node:
+            need_multi = need_multi_node.get("focus")
+        else:
+            need_multi = None
+
+        self.logger.info(
+            f"开始执行配队: condition={condition}, need_cache={need_cache}, "
+            f"roguelike_3_mode={roguelike_3_mode}, need_multi={need_multi}"
+        )
+
         pick = context.get_node_data("选择人物_配置")
         if pick and pick.get("focus", None):
             pick = pick.get("focus", "")
@@ -136,6 +147,7 @@ class RoleSelection(CustomAction):
                 context.run_action("滑动_选人")
             if need_cache:
                 self.save_cache(role)
+                self.logger.info(f"识别完成并写入缓存, 共识别到角色数量: {len(role)}")
                 return CustomAction.RunResult(success=True)
             for _ in range(
                 int(condition.get("max_try", 5 if roguelike_3_mode is None else 15))
@@ -145,18 +157,28 @@ class RoleSelection(CustomAction):
                 context.run_action("反向滑动_选人")
 
         role_weight = self.calculate_weight(role, condition)
+        self.logger.info(f"根据识别结果计算权重完成, 共 {len(role_weight)} 个角色")
         best_team = self.select_best_team(role_weight)
         self.logger.info(f"条件: {condition}")
         self.logger.info(f"角色权重: {role_weight}")
         attacker_name = best_team.get("attacker", {}).get("name")
         tank_name = best_team.get("tank", {}).get("name")
         support_name = best_team.get("support", {}).get("name")
+
+        # 仅在 need_multi 为 True 且 roguelike_3_mode 为 False 时显示名称，否则显示“无”
+        display_tank_name = (
+            tank_name if need_multi is True and roguelike_3_mode is False else None
+        )
+        display_support_name = (
+            support_name if need_multi is True and roguelike_3_mode is False else None
+        )
+
         self.logger.info(
-            f"队伍构成: {support_name or '无'} {attacker_name or '无'} {tank_name or '无'}"
+            f"队伍构成: {display_support_name or '无'} {attacker_name or '无'} {display_tank_name or '无'}"
         )
         self.send_msg(
             context,
-            f"队伍构成: {support_name or '无'} {attacker_name or '无'} {tank_name or '无'}",
+            f"队伍构成: {display_support_name or '无'} {attacker_name or '无'} {display_tank_name or '无'}",
         )
         if attacker_name and self.find_role(
             context, role_dict, attacker_name, 5 if roguelike_3_mode is None else 16
@@ -164,7 +186,6 @@ class RoleSelection(CustomAction):
             context.run_task("编入队伍")
 
         if condition.get("roguelike_3_mode") is None:
-            print("非肉鸽模式")
             if tank_name:
                 context.run_task("打开黄色位置")
                 if self.find_role(context, role_dict, tank_name):
@@ -200,12 +221,16 @@ class RoleSelection(CustomAction):
     def find_role(
         self, context: Context, role_dict: dict, role_name: str, max_try: int = 16
     ) -> bool:
-        _image_cache=[]
+        _image_cache = []
         if "[试用]" in role_name:
             role_name = role_name.replace("[试用]", "")
             trial = True
         else:
             trial = False
+        self.logger.info(
+            f"开始查找角色: {role_name}, max_try={max_try}, trial角色={trial}"
+        )
+
         for _ in range(max_try):
             image = context.tasker.controller.post_screencap().wait().get()
             _image_cache.append(image)
@@ -253,6 +278,7 @@ class RoleSelection(CustomAction):
                                 time.sleep(0.5)
                             return True
                 else:
+                    self.logger.info(f"找到角色 {role_name}, 开始尝试编入队伍")
                     for _ in range(4):
                         context.tasker.controller.post_click(
                             role_reco.best_result.box[0] + role_reco.best_result.box[2] // 2, role_reco.best_result.box[1] + role_reco.best_result.box[3] // 2  # type: ignore
@@ -260,6 +286,7 @@ class RoleSelection(CustomAction):
                         image = context.tasker.controller.post_screencap().wait().get()
                         reco = context.run_recognition("编入队伍", image)
                         if reco and reco.hit:
+                            self.logger.info(f"角色 {role_name} 编入队伍识别成功")
                             break
                         time.sleep(0.5)
                     return True
@@ -267,8 +294,8 @@ class RoleSelection(CustomAction):
         print(f"未识别到角色")
         self.logger.info(f"未识别到角色{role_name}")
         self.send_msg(context, f"未识别到角色{role_name}")
-        for idx,error_image in enumerate(_image_cache):
-            self.save_screenshot(error_image ,f"{role_name}_{idx+1}")
+        for idx, error_image in enumerate(_image_cache):
+            self.save_screenshot(error_image, f"{role_name}_{idx+1}")
         return False
 
     def recognize_role(
@@ -280,6 +307,9 @@ class RoleSelection(CustomAction):
     ) -> dict:
 
         # 对每个角色进行识别
+        self.logger.info(
+            f"开始整页角色识别, cage={cage}, roguelike_3_mode={roguelike_3_mode}"
+        )
         role = {}
         image = context.tasker.controller.post_screencap().wait().get()
         for role_name, role_action in role_actions.items():
@@ -436,6 +466,7 @@ class RoleSelection(CustomAction):
                         role[display_name]["master_level"] = bool(
                             mastery_result and mastery_result.hit
                         )
+        self.logger.info(f"整页角色识别结束, 共识别到角色数量: {len(role)}")
         return role
 
     # 计算权重
@@ -496,13 +527,16 @@ class RoleSelection(CustomAction):
 
             self.logger.debug(
                 f"{role_name}: 战力={power_weight}, 属性分={attribute_weight}, 代数分={generation_weight}, "
-                f"精通分={master_level_weight}, 选中加成={pick_bonus}, 基础权重={base_weight}, 是否有次数={bool(1 if (not condition.get("cage", False)) or has_count else 0)}, 最终权重={w}"
+                f"精通分={master_level_weight}, 选中加成={pick_bonus}, 基础权重={base_weight}, "
+                f"是否有次数={bool(1 if (not condition.get('cage', False)) or has_count else 0)}, 最终权重={w}"
             )
             weight[role_name] = w
 
         return weight
 
     def select_best_team(self, role_weight: dict) -> dict:
+        self.logger.info(f"开始从 {len(role_weight)} 个角色中筛选最佳队伍")
+
         best = {
             "attacker": {"name": None, "weight": 0},
             "tank": {"name": None, "weight": 0},
@@ -555,6 +589,8 @@ class RoleSelection(CustomAction):
             for role_name, w, role_type_key, _base_name, _is_trial in remaining:
                 if w > best[role_type_key]["weight"]:
                     best[role_type_key] = {"name": role_name, "weight": w}
+
+            self.logger.info(f"候选人不足三人, 使用降级策略得到队伍: {best}")
             return best
 
         support_candidates = []
@@ -587,6 +623,7 @@ class RoleSelection(CustomAction):
                     "weight": combined_candidates[0][1],
                 }
 
+        self.logger.info(f"筛选完成, 最终队伍: {best}")
         return best
 
     def save_screenshot(self, image: numpy.ndarray, img_type: str) -> bool:
