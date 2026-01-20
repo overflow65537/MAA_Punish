@@ -434,6 +434,7 @@
         ]
     },
     "打开蓝色位置": {
+        "post_delay": 2000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -448,9 +449,30 @@
         },
         "action": {
             "type": "Click"
+        },
+        "next": [
+            "确认进入选人界面",
+            "打开蓝色位置"
+        ]
+    },
+    "确认进入选人界面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    22,
+                    613,
+                    154,
+                    91
+                ],
+                "expected": [
+                    "效应筛选"
+                ]
+            }
         }
     },
     "打开黄色位置": {
+        "post_delay": 2000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -465,7 +487,11 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "确认进入选人界面",
+            "打开黄色位置"
+        ]
     },
     "选择首发": {
         "post_delay": 2000,
