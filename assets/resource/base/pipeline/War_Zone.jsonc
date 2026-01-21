@@ -624,6 +624,73 @@
                 ]
             }
         },
+        "next": [
+            "[JumopBack]未选择队长",
+            "点击作战开始"
+        ]
+    },
+    "点击作战开始": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "作战开始"
+            }
+        }
+    },
+    "未选择队长": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    21,
+                    605,
+                    155,
+                    82
+                ],
+                "expected": [
+                    "未选择队长"
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]点击更换队长",
+            "点击选择队长"
+        ]
+    },
+    "点击选择队长": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    480,
+                    715,
+                    103
+                ],
+                "expected": [
+                    "选择"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "点击更换队长": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    275,
+                    598,
+                    117,
+                    93
+                ],
+                "expected": [
+                    "更换"
+                ]
+            }
+        },
         "action": {
             "type": "Click"
         }
