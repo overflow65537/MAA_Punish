@@ -188,6 +188,11 @@ class RoleSelection(CustomAction):
             context, role_dict, attacker_name, 5 if roguelike_3_mode is None else 16
         ):
             context.run_task("编入队伍")
+        else:
+            time.sleep(0.5)
+            self.send_msg(context, f"未找到{attacker_name}")
+            context.run_task("返回主菜单")
+            context.run_action("停止任务")
 
         if need_multi is True and condition.get("roguelike_3_mode") is None:
             if tank_name:
