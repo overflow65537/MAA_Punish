@@ -335,7 +335,7 @@
     },
     "自动反击": {
         "post_delay": 0,
-        "pre_delay": 0,
+        "pre_delay": 500,
         "recognition": {
             "type": "Custom",
             "param": {
@@ -345,10 +345,10 @@
                 }
             }
         },
-        "action": {
-            "type": "Click",
-            "param": {}
-        }
+        "next": [
+            "[JumpBack]识别人物",
+            "战斗中"
+        ]
     },
     "检查血量": {
         "recognition": {
