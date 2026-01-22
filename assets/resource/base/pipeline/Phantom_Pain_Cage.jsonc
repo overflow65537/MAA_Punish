@@ -392,6 +392,7 @@
         }
     },
     "囚笼作战程序": {
+        "timeout": 40000,
         "rate_limit": 0,
         "on_error": [
             "boss识别错误"
