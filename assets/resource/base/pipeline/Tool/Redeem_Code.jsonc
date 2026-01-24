@@ -51,7 +51,10 @@
             "param": {
                 "custom_action": "RedeemCode",
                 "custom_action_param": {
-                    "code": []
+                    "code": [
+                        "NEWROSETTA0203",
+                        "PGR2026"
+                    ]
                 }
             }
         }
