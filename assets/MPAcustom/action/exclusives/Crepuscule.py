@@ -58,5 +58,6 @@ class Crepuscule(CustomAction):
             item = 0
             while action.count_signal_balls() < 9 and item < 100:
                 action.attack()
+                item += 1
         action.attack()
         return CustomAction.RunResult(success=True)
