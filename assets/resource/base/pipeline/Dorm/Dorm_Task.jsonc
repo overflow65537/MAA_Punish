@@ -51,21 +51,29 @@
             }
         },
         "next": [
-            "宿舍任务_领取执勤",
-            "退出执勤",
-            "退出执勤_custom",
+            "[JumpBack]宿舍任务_领取执勤",
             "[JumpBack]意外点击_退出代工",
             "[JumpBack]关闭奖励",
-            "[JumpBack]选择执勤伙伴",
+            "二次进入执勤",
+            "选择执勤伙伴",
             "[JumpBack]开始执勤",
             "[JumpBack]打开执勤"
         ]
     },
-    "退出执勤_custom": {
+    "二次进入执勤": {
         "recognition": {
-            "type": "Custom",
+            "type": "OCR",
             "param": {
-                "custom_recognition": "IDFMembers"
+                "roi": [
+                    163,
+                    211,
+                    294,
+                    104
+                ],
+                "expected": [
+                    "执勤中",
+                    "休息中"
+                ]
             }
         },
         "next": [
@@ -185,10 +193,7 @@
         },
         "action": {
             "type": "Click"
-        },
-        "next": [
-            "宿舍任务_执勤"
-        ]
+        }
     },
     "打开宿舍任务": {
         "post_delay": 1000,
@@ -242,16 +247,35 @@
             "type": "Click"
         }
     },
-    "退出执勤": {
+    "选择执勤伙伴": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    439,
-                    93,
-                    84,
-                    60
+                    199,
+                    66,
+                    292,
+                    102
                 ],
+                "expected": "选择执勤伙伴"
+            }
+        },
+        "next": [
+            "执勤已满",
+            "[JumpBack]开始选择执勤伙伴"
+        ]
+    },
+    "执勤已满": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    978,
+                    92,
+                    59,
+                    49
+                ],
+                "only_rec": true,
                 "expected": [
                     "^1/1$",
                     "^2/2$",
@@ -265,7 +289,7 @@
             }
         },
         "next": [
-            "宿舍任务_返回2"
+            "点击开始执勤"
         ]
     },
     "点击开始执勤": {
@@ -278,100 +302,67 @@
                     96,
                     39
                 ],
-                "expected": "开始执勤"
-            }
-        },
-        "post_delay": 1000,
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "未选择执勤伙伴",
-            "空任务"
-        ]
-    },
-    "未选择执勤伙伴": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    560,
-                    330,
-                    157,
-                    58
-                ],
-                "expected": "未选择角色"
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    1,
-                    1,
-                    0,
-                    0
-                ]
-            }
-        },
-        "next": [
-            "选择执勤伙伴"
-        ]
-    },
-    "选择执勤伙伴": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    188,
-                    124,
-                    900,
-                    487
-                ],
-                "expected": "体力"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "执勤界面主菜单",
-            "[JumpBack]点击开始执勤"
-        ]
-    },
-    "执勤界面主菜单": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    366,
-                    105,
-                    90,
-                    52
-                ],
                 "expected": [
-                    "执勤"
+                    "开始执勤"
                 ]
             }
-        }
-    },
-    "休息中": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    1054,
-                    333,
-                    226,
-                    161
-                ],
-                "template": "宿舍委托/休息中_1154_383_126_61__1054_333_226_161.png"
-            }
+        },
+        "action": {
+            "type": "Click"
         },
         "next": [
-            "宿舍任务_返回2",
-            "[JumpBack]关闭奖励"
+            "宿舍任务_返回2"
         ]
+    },
+    "开始选择执勤伙伴": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "box_index": 1,
+                "all_of": [
+                    {
+                        "sub_name": "_目标人物",
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    290,
+                                    174,
+                                    770,
+                                    386
+                                ],
+                                "expected": [
+                                    "体力"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": "_目标人物",
+                                "lower": [
+                                    255,
+                                    255,
+                                    255
+                                ],
+                                "upper": [
+                                    255,
+                                    255,
+                                    255
+                                ],
+                                "count": 10,
+                                "connected": true
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "开始执勤": {
         "recognition": {
