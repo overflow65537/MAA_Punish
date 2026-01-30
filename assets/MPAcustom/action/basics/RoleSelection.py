@@ -211,19 +211,18 @@ class RoleSelection(CustomAction):
                     time.sleep(0.5)
                     context.run_task("返回")
         # 缓存数据
-        if roguelike_3_mode is None:
-            if condition.get("cage"):
-                for selected_name in (attacker_name, tank_name, support_name):
-                    if not selected_name:
-                        continue
-                    if need_multi is False and selected_name != attacker_name:
-                        continue
-                    role_key = selected_name
-                    if role_key not in role:
-                        role_key = selected_name.replace("[试用]", "")
-                    if role_key in role:
-                        role[role_key]["cage"] = 0
-            context.override_pipeline({"角色权重": {"focus": role}})
+        if roguelike_3_mode is None and condition.get("cage"):
+            #只有非肉鸽模式并且是囚笼模式才会保存缓存
+            for selected_name in (attacker_name, tank_name, support_name):
+                if not selected_name:
+                    continue
+                if need_multi is False and selected_name != attacker_name:
+                    continue
+                role_key = selected_name
+                if role_key not in role:
+                    role_key = selected_name.replace("[试用]", "")
+                if role_key in role:
+                    role[role_key]["cage"] = 0
             self.logger.info(f"缓存数据: {role}")
             self.save_cache(role)
 
