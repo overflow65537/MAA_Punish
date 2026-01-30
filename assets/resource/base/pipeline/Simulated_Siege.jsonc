@@ -415,6 +415,7 @@
         }
     },
     "作战界面": {
+        "timeout": 60000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -434,7 +435,8 @@
             "编入队伍",
             "[JumpBack]添加人物",
             "[JumpBack]选择其他人物",
-            "[JumpBack]作战开始"
+            "[JumpBack]作战开始",
+            "[JumpBack]载入中"
         ]
     },
     "保存分数": {
