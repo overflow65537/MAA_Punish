@@ -52,15 +52,45 @@
     },
     "打开遣测商店": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "And",
             "param": {
-                "roi": [
-                    8,
-                    442,
-                    238,
-                    70
-                ],
-                "template": "宿舍委托/打开遣测商店.png"
+                "all_of": [
+                    {
+                        "sub_name": "_目标文字",
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    9,
+                                    156,
+                                    267,
+                                    442
+                                ],
+                                "expected": "遣测商店"
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": "_目标文字",
+                                "lower": [
+                                    167,
+                                    178,
+                                    200
+                                ],
+                                "upper": [
+                                    244,
+                                    245,
+                                    248
+                                ],
+                                "count": 1000,
+                                "connected": true
+                            }
+                        }
+                    }
+                ]
             }
         },
         "action": {
@@ -137,15 +167,45 @@
     "遣测商店内部": {
         "post_delay": 1000,
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "And",
             "param": {
-                "roi": [
-                    10,
-                    447,
-                    238,
-                    64
-                ],
-                "template": "宿舍委托/遣测商店内部.png"
+                "all_of": [
+                    {
+                        "sub_name": "_目标文字",
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    9,
+                                    156,
+                                    267,
+                                    442
+                                ],
+                                "expected": "遣测商店"
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": "_目标文字",
+                                "lower": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "upper": [
+                                    47,
+                                    47,
+                                    47
+                                ],
+                                "count": 1000,
+                                "connected": true
+                            }
+                        }
+                    }
+                ]
             }
         },
         "next": [
@@ -156,15 +216,45 @@
     "在宿舍币商店中": {
         "post_delay": 1500,
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "And",
             "param": {
-                "roi": [
-                    11,
-                    193,
-                    235,
-                    65
-                ],
-                "template": "宿舍委托/宿舍商店内部.png"
+                "all_of": [
+                    {
+                        "sub_name": "_目标文字",
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    9,
+                                    156,
+                                    267,
+                                    442
+                                ],
+                                "expected": "宿舍币商店"
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": "_目标文字",
+                                "lower": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "upper": [
+                                    47,
+                                    47,
+                                    47
+                                ],
+                                "count": 1000,
+                                "connected": true
+                            }
+                        }
+                    }
+                ]
             }
         },
         "next": [
@@ -306,15 +396,45 @@
     },
     "选择宿舍币商店": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "And",
             "param": {
-                "roi": [
-                    9,
-                    189,
-                    243,
-                    74
-                ],
-                "template": "宿舍委托/进入宿舍币商店.png"
+                "all_of": [
+                    {
+                        "sub_name": "_目标文字",
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    9,
+                                    156,
+                                    267,
+                                    442
+                                ],
+                                "expected": "宿舍币商店"
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": "_目标文字",
+                                "lower": [
+                                    167,
+                                    178,
+                                    200
+                                ],
+                                "upper": [
+                                    244,
+                                    245,
+                                    248
+                                ],
+                                "count": 1000,
+                                "connected": true
+                            }
+                        }
+                    }
+                ]
             }
         },
         "action": {
