@@ -361,23 +361,18 @@
                     316,
                     113
                 ],
-                "expected": "维护公告"
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    580,
-                    562,
-                    127,
-                    27
+                "expected": [
+                    "维护公告",
+                    "服务器维护中.*"
                 ]
             }
         },
+        "action": {
+            "type": "Click" //这个点击动作单纯为了多发条通知（
+        },
         "focus": {
-            "Node.Recognition.Succeeded": "所有任务都已完成", //骗MAS用的
-            "Node.Action.Succeeded": "战双维护中"
+            "Node.Action.Succeeded": "战双维护中",
+            "Node.Recognition.Succeeded": "所有任务都已完成" //骗MAS用的
         }
     }
 }
