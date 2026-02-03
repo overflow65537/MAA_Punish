@@ -1,6 +1,7 @@
 {
     "启动": {
         "next": [
+            "[JumpBack]MAS联动处理-检查到维护公告_将发送假通知",
             "[JumpBack]关闭公告",
             "检查分辨率",
             "[JumpBack]关闭纷争战区通知",
@@ -346,6 +347,32 @@
             "param": {
                 "expected": ""
             }
+        }
+    },
+    "MAS联动处理-检查到维护公告_将发送假通知": {
+        "enabled": false,
+        //通过发送假通知让MAS以为所有任务已经完成,不然队列整个都会卡主()
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    482,
+                    69,
+                    316,
+                    113
+                ],
+                "expected": [
+                    "维护公告",
+                    "服务器维护中.*"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click" //这个点击动作单纯为了多发条通知（
+        },
+        "focus": {
+            "Node.Action.Succeeded": "战双维护中",
+            "Node.Recognition.Succeeded": "所有任务都已完成" //骗MAS用的
         }
     }
 }

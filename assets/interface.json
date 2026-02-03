@@ -303,7 +303,10 @@
                         }
                     }
                 }
-            }
+            },
+            "option": [
+                "MAS通知处理"
+            ]
         },
         {
             "name": "兑换码",
@@ -759,6 +762,30 @@
         }
     ],
     "option": {
+        "MAS通知处理": {
+            "label": "是否启用了MAS",
+            "description": "若您不清楚MAS是什么的话请尽量不要启用本功能",
+            "type": "switch",
+            "default": "No",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "MAS联动处理-检查到维护公告_将发送假通知": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "MAS联动处理-检查到维护公告_将发送假通知": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
         "战斗模式": {
             "description": "<p><b>战斗模式</b></p><ul><li><b>自动检测</b>：根据当前战斗情况自动选择持续战斗或静默。</li><li><b>持续战斗</b>：一直保持持续战斗，不会因为没有敌人而暂停。</li></ul><p><b>使用建议</b></p><ul><li>关卡需要解密或跑图且角色仍在战斗时，使用<span style=\"color:Tomato\">自动检测模式</span>。</li><li>关卡无剧情/解密，进入地图即可战斗但角色未开打时，使用<span style=\"color:Tomato\">持续战斗模式</span>。</li></ul>",
             "cases": [
