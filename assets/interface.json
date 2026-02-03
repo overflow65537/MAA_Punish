@@ -66,7 +66,7 @@
                 "./resource/playcover"
             ],
             "controller": [
-                "playcover端"
+                "PlayCover端"
             ],
             "option": [
                 "自动QTE",
@@ -275,22 +275,6 @@
             "name": "进入游戏",
             "default_check": true,
             "entry": "启动",
-            "resource": [
-                "官服",
-                "电脑端",
-                "云战双",
-                "B 服",
-                "应用宝服",
-                "vivo服",
-                "oppo服",
-                "小米服",
-                "4399服",
-                "华为服",
-                "抖音(字节跳动)服",
-                "九游服",
-                "MuMu服",
-                "waydroid官服"
-            ],
             "pipeline_override": {
                 "检查主界面2": {
                     "action": {
@@ -843,11 +827,11 @@
             "type": "switch",
             "cases": [
                 {
-                    "name": "yes",
+                    "name": "Yes",
                     "pipeline_override": {}
                 },
                 {
-                    "name": "no",
+                    "name": "No",
                     "pipeline_override": {
                         "未选人": {
                             "enabled": false
@@ -881,11 +865,11 @@
             "type": "switch",
             "cases": [
                 {
-                    "name": "yes",
+                    "name": "Yes",
                     "pipeline_override": {}
                 },
                 {
-                    "name": "no",
+                    "name": "No",
                     "pipeline_override": {
                         "跳过剧情": {
                             "enabled": false
@@ -1623,7 +1607,7 @@
             "type": "switch",
             "cases": [
                 {
-                    "name": "yes",
+                    "name": "Yes",
                     "pipeline_override": {
                         "A_不使用体力": {
                             "enabled": false
@@ -1634,7 +1618,7 @@
                     }
                 },
                 {
-                    "name": "no",
+                    "name": "No",
                     "pipeline_override": {
                         "A_使用体力": {
                             "enabled": false
@@ -1651,7 +1635,7 @@
             "type": "switch",
             "cases": [
                 {
-                    "name": "yes",
+                    "name": "Yes",
                     "pipeline_override": {
                         "自动qte": {
                             "enabled": true
@@ -1659,7 +1643,7 @@
                     }
                 },
                 {
-                    "name": "no",
+                    "name": "No",
                     "pipeline_override": {
                         "自动qte": {
                             "enabled": false
@@ -1673,7 +1657,7 @@
             "type": "switch",
             "cases": [
                 {
-                    "name": "yes",
+                    "name": "Yes",
                     "pipeline_override": {
                         "自动切换": {
                             "enabled": true
@@ -1681,7 +1665,7 @@
                     }
                 },
                 {
-                    "name": "no",
+                    "name": "No",
                     "pipeline_override": {
                         "自动切换": {
                             "enabled": false
@@ -1695,7 +1679,7 @@
             "description": "<p>是否允许在选人中同时选择多名角色</p>",
             "cases": [
                 {
-                    "name": "yes",
+                    "name": "Yes",
                     "pipeline_override": {
                         "多人选择": {
                             "focus": true
@@ -1703,7 +1687,7 @@
                     }
                 },
                 {
-                    "name": "no",
+                    "name": "No",
                     "pipeline_override": {
                         "多人选择": {
                             "focus": false
@@ -1844,7 +1828,7 @@
             "type": "switch",
             "cases": [
                 {
-                    "name": "yes",
+                    "name": "Yes",
                     "pipeline_override": {
                         "拟战场域": {
                             "next": [
@@ -1856,7 +1840,7 @@
                     }
                 },
                 {
-                    "name": "no",
+                    "name": "No",
                     "pipeline_override": {
                         "拟战场域": {
                             "next": [
@@ -2159,18 +2143,6 @@
                             "recognition": {
                                 "param": {
                                     "expected": "风暴"
-                                }
-                            }
-                        }
-                    }
-                },
-                {
-                    "name": "流光",
-                    "pipeline_override": {
-                        "A级角色": {
-                            "recognition": {
-                                "param": {
-                                    "expected": "流光"
                                 }
                             }
                         }
