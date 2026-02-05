@@ -349,9 +349,54 @@
             "[JumpBack]获得奖励_神寂启示录",
             "[JumpBack]符纹宝箱_神寂启示录",
             "[JumpBack]选择技能_神寂启示录",
+            "[JumpBack]选择委托_神寂启示录",
             "[JumpBack]通用事件处理_对话2",
             "[JumpBack]通用事件处理_对话1"
         ]
+    },
+    "选择委托_神寂启示录": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    176,
+                                    545,
+                                    987,
+                                    143
+                                ],
+                                "expected": [
+                                    "确定"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    528,
+                                    0,
+                                    234,
+                                    122
+                                ],
+                                "expected": [
+                                    "选择委托"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "符纹宝箱_神寂启示录": {
         "post_delay": 2500,
