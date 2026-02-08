@@ -46,22 +46,23 @@ class LostLullaby(CustomAction):
                 action.use_skill()  # 像泡沫一样,消散吧
                 action.auxiliary_machine()
 
+            elif action.check_status("检查核心被动1_深谣"):
+                action.logger.info("p1核心被动1")  # 海啸球
+                action.ball_elimination_target(1)
+                action.auto_qte("a")
+                time.sleep(0.3)
+                action.dodge()  # 闪避
+
+            elif action.check_status("检查核心被动2_深谣"):
+                action.logger.info("p1核心被动2")
+                action.ball_elimination_target(1)
+
             else:
-                if action.check_status("检查核心被动1_深谣"):
-                    action.logger.info("p1核心被动1")  # 海啸球
-                    action.ball_elimination_target(1)
-                    action.auto_qte("a")
-                    time.sleep(0.3)
-                    action.dodge()  # 闪避
-
-                elif action.check_status("检查核心被动2_深谣"):
-                    action.logger.info("p1核心被动2")
-                    action.ball_elimination_target(1)
-
-                else:
-                    action.logger.info("没有核心被动")
+                action.logger.info("没有核心被动")
+                for _ in range(5):
                     action.ball_elimination_target(2)
-                    action.continuous_attack(8, 300)
+                    action.attack()
+                    time.sleep(0.1)
 
         elif action.check_status("检查阶段p2_深谣"):
             action.logger.info("p2阶段")
@@ -79,7 +80,6 @@ class LostLullaby(CustomAction):
                     action.switch()
                     print("切换完成")
                     return CustomAction.RunResult(success=True)
-
 
             else:
                 action.ball_elimination_target(1)
