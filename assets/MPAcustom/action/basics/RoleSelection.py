@@ -25,7 +25,6 @@ MAA_Punish 选择角色
 """
 
 import time
-from venv import logger
 from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.define import TemplateMatchResult, OCRResult, ColorMatchResult
@@ -681,7 +680,7 @@ class RoleSelection(CustomAction):
 
     def save_cache(self, role: dict):
         cache_path = self._cache_path()
-        logger.info(f"正在保存缓存到 {cache_path}, 数据: {role}")
+        self.logger.info(f"正在保存缓存到 {cache_path}, 数据: {role}")
         cache_path.parent.mkdir(parents=True, exist_ok=True)
         cache_data = {
             "last_time": self._current_week(),
