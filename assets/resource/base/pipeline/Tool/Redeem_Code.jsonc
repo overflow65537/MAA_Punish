@@ -50,10 +50,11 @@
             "type": "Custom",
             "param": {
                 "custom_action": "RedeemCode",
-                "custom_action_param": {
+                "custom_action_param": { //兑换码放在这里
                     "code": [
                         "NEWROSETTA0203",
-                        "PGR2026"
+                        "PGR2026",
+                        "HAPPYNEWYEAR2026"
                     ]
                 }
             }
