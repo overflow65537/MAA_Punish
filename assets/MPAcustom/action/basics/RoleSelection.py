@@ -25,6 +25,7 @@ MAA_Punish 选择角色
 """
 
 import time
+from venv import logger
 from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.define import TemplateMatchResult, OCRResult, ColorMatchResult
@@ -46,12 +47,7 @@ class RoleSelection(CustomAction):
         self.logger = self._logger_component.logger
 
     def _cache_path(self) -> Path:
-        return (
-            Path(__file__).resolve().parents[2]
-            / "recognition"
-            / "exclusives"
-            / "role_cache.json"
-        )
+        return Path(__file__).resolve().parents[3] / "role_cache.json"
 
     def _current_week(self) -> int:
         return datetime.date.today().isocalendar().week
@@ -146,6 +142,8 @@ class RoleSelection(CustomAction):
                 )
                 context.run_action("滑动_选人")
             if need_cache:
+                for r in role.values():
+                    r["cage"] = 3  # 强制设置为有次数
                 self.save_cache(role)
                 self.logger.info(f"识别完成并写入缓存, 共识别到角色数量: {len(role)}")
                 return CustomAction.RunResult(success=True)
@@ -212,7 +210,7 @@ class RoleSelection(CustomAction):
                     context.run_task("返回")
         # 缓存数据
         if roguelike_3_mode is None and condition.get("cage"):
-            #只有非肉鸽模式并且是囚笼模式才会保存缓存
+            # 只有非肉鸽模式并且是囚笼模式才会保存缓存
             for selected_name in (attacker_name, tank_name, support_name):
                 if not selected_name:
                     continue
@@ -683,6 +681,7 @@ class RoleSelection(CustomAction):
 
     def save_cache(self, role: dict):
         cache_path = self._cache_path()
+        logger.info(f"正在保存缓存到 {cache_path}, 数据: {role}")
         cache_path.parent.mkdir(parents=True, exist_ok=True)
         cache_data = {
             "last_time": self._current_week(),
