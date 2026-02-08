@@ -249,6 +249,7 @@
         ]
     },
     "进入战区选人界面": {
+        "timeout": 60000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -268,6 +269,7 @@
             "[JumpBack]识别人物",
             "[JumpBack]战斗中",
             "战斗结束",
+            "[JumpBack]载入中",
             "[JumpBack]查看地图_空区",
             "[JumpBack]查看地图_火区",
             "[JumpBack]查看地图_暗区",
