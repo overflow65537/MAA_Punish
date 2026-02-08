@@ -416,6 +416,7 @@
         "next": [
             "[JumpBack]识别人物",
             "[JumpBack]战斗中",
+            "[JumpBack]载入中",
             "战斗结束",
             "挑战次数不足_弹窗",
             "[JumpBack]耐力值不足",
