@@ -33,7 +33,7 @@ class CacheRole(CustomRecognition):
         context,
         argv: CustomRecognition.AnalyzeArg,
     ) -> CustomRecognition.AnalyzeResult | None:
-        cache_path = Path(__file__).parent / "role_cache.json"
+        cache_path = Path(__file__).resolve().parents[3] / "role_cache.json"
         if not cache_path.exists():
             return CustomRecognition.AnalyzeResult(
                 box=(0, 0, 100, 100), detail={"status": "success"}
