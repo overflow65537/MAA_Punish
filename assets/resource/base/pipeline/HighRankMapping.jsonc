@@ -1,9 +1,7 @@
 {
     "历战映射": {
         "next": [
-            "[JumpBack]是否需要缓存",
-            "[JumpBack]选人_历战",
-            "[JumpBack]成员整备",
+            "成员整备",
             "识别历战分数",
             "[JumpBack]开始挑战",
             "[JumpBack]前往作战",
@@ -283,44 +281,10 @@
             }
         }
     },
-    "选人_历战": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1023,
-                    621,
-                    179,
-                    92
-                ],
-                "expected": [
-                    "作战开始"
-                ]
-            }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择角色程序": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": false,
-                                    "need_element": ""
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "next": [
-            "清除队伍"
-        ]
-    },
     "成员整备": {
+        "focus": {
+            "Node.Recognition.Succeeded": "未选择配队"
+        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -335,9 +299,9 @@
                 ]
             }
         },
-        "action": {
-            "type": "Click"
-        }
+        "next": [
+            "返回主菜单"
+        ]
     },
     "前往作战": {
         "post_wait_freezes": {
