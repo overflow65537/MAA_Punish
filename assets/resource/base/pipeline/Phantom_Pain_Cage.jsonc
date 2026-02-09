@@ -560,6 +560,9 @@
         ]
     },
     "查看终极区Boss": {
+        "focus": {
+            "Node.Recognition.Succeeded": "已选择终极区"
+        },
         "max_hit": 1,
         "on_error": [
             "未命中BOSS名"

@@ -159,6 +159,31 @@
             "识别囚笼次数_辅助"
         ]
     },
+    "检查极锋核心条1": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    654,
+                    632,
+                    64,
+                    41
+                ],
+                "lower": [
+                    217,
+                    216,
+                    236
+                ],
+                "upper": [
+                    236,
+                    233,
+                    254
+                ],
+                "count": 10,
+                "connected": true
+            }
+        }
+    },
     "检查希声2阶段": {
         "rate_limit": 0,
         "post_delay": 0,
