@@ -892,7 +892,9 @@
                     "pipeline_override": {
                         "选择人物_配置": {
                             "focus": {
-                                "pick": "露西亚·深红囚影"
+                                "pick": [
+                                    "露西亚·深红囚影"
+                                ]
                             }
                         }
                     }
@@ -901,7 +903,11 @@
                     "name": "丽芙·霁梦",
                     "pipeline_override": {
                         "选择人物_配置": {
-                            "focus": "丽芙·霁梦"
+                            "focus": {
+                                "pick": [
+                                    "丽芙·霁梦"
+                                ]
+                            }
                         }
                     }
                 },
@@ -909,7 +915,11 @@
                     "name": "露西亚·誓焰",
                     "pipeline_override": {
                         "选择人物_配置": {
-                            "focus": "露西亚·誓焰"
+                            "focus": {
+                                "pick": [
+                                    "露西亚·誓焰"
+                                ]
+                            }
                         }
                     }
                 },
@@ -917,7 +927,11 @@
                     "name": "比安卡·晖暮",
                     "pipeline_override": {
                         "选择人物_配置": {
-                            "focus": "比安卡·晖暮"
+                            "focus": {
+                                "pick": [
+                                    "比安卡·晖暮"
+                                ]
+                            }
                         }
                     }
                 },
@@ -925,7 +939,11 @@
                     "name": "比安卡·深痕",
                     "pipeline_override": {
                         "选择人物_配置": {
-                            "focus": "比安卡·深痕"
+                            "focus": {
+                                "pick": [
+                                    "比安卡·深痕"
+                                ]
+                            }
                         }
                     }
                 },
@@ -933,7 +951,11 @@
                     "name": "露娜·终焉",
                     "pipeline_override": {
                         "选择人物_配置": {
-                            "focus": "露娜·终焉"
+                            "focus": {
+                                "pick": [
+                                    "露娜·终焉"
+                                ]
+                            }
                         }
                     }
                 },
@@ -941,7 +963,11 @@
                     "name": "维罗妮卡·铮骨",
                     "pipeline_override": {
                         "选择人物_配置": {
-                            "focus": "维罗妮卡·铮骨"
+                            "focus": {
+                                "pick": [
+                                    "维罗妮卡·铮骨"
+                                ]
+                            }
                         }
                     }
                 },
@@ -949,7 +975,11 @@
                     "name": "拉弥亚·深谣",
                     "pipeline_override": {
                         "选择人物_配置": {
-                            "focus": "拉弥亚·深谣"
+                            "focus": {
+                                "pick": [
+                                    "拉弥亚·深谣"
+                                ]
+                            }
                         }
                     }
                 },
@@ -957,7 +987,11 @@
                     "name": "曲·启明",
                     "pipeline_override": {
                         "选择人物_配置": {
-                            "focus": "曲·启明"
+                            "focus": {
+                                "pick": [
+                                    "曲·启明"
+                                ]
+                            }
                         }
                     }
                 },
@@ -965,7 +999,11 @@
                     "name": "里·超刻",
                     "pipeline_override": {
                         "选择人物_配置": {
-                            "focus": "里·超刻"
+                            "focus": {
+                                "pick": [
+                                    "里·超刻"
+                                ]
+                            }
                         }
                     }
                 }
@@ -1280,9 +1318,74 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "option": [
+                        "选择终极区战斗角色"
+                    ]
                 }
             ]
+        },
+        "选择终极区战斗角色": {
+            "label": "请输入角色全名",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "角色名1",
+                    "description": "<p>请输入角色全名，例如：露西亚·深红囚影,。</p>",
+                    "default": "露西亚·深红囚影",
+                    "pipeline_type": "string",
+                    "verify": ".*·.*",
+                    "pattern_msg": "角色名应包含一个“·”符号(dian)，例如：露西亚·深红囚影"
+                },
+                {
+                    "name": "角色名2",
+                    "description": "<p>请输入角色全名，例如：露西亚·深红囚影,。</p>",
+                    "default": "比安卡·深痕",
+                    "pipeline_type": "string",
+                    "verify": ".*·.*",
+                    "pattern_msg": "角色名应包含一个“·”符号(dian)，例如：比安卡·深痕"
+                },
+                {
+                    "name": "角色名3",
+                    "description": "<p>请输入角色全名，例如：露西亚·深红囚影,。</p>",
+                    "default": "拉弥亚·深谣",
+                    "pipeline_type": "string",
+                    "verify": ".*·.*",
+                    "pattern_msg": "角色名应包含一个“·”符号(dian)，例如：拉弥亚·深谣"
+                }
+            ],
+            "pipeline_override": {
+                "查看终极区Boss": {
+                    "action": {
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择角色程序": {
+                                    "action": {
+                                        "param": {
+                                            "custom_action_param": {
+                                                "cage": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                },
+                                "选择人物_配置": {
+                                    "focus": {
+                                        "pick": [
+                                            "{角色名1}",
+                                            "{角色名2}",
+                                            "{角色名3}"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         },
         "调查团组建": {
             "cases": [
@@ -1471,7 +1574,11 @@
                     "name": "誓焰",
                     "pipeline_override": {
                         "选择人物_配置": {
-                            "focus": "露西亚·誓焰"
+                            "focus": {
+                                "pick": [
+                                    "露西亚·誓焰"
+                                ]
+                            }
                         },
                         "肉鸽模式_配置": {
                             "focus": 0
@@ -1482,7 +1589,11 @@
                     "name": "深红囚影",
                     "pipeline_override": {
                         "选择人物_配置": {
-                            "focus": "露西亚·深红囚影"
+                            "focus": {
+                                "pick": [
+                                    "露西亚·深红囚影"
+                                ]
+                            }
                         },
                         "肉鸽模式_配置": {
                             "focus": 0
@@ -1493,7 +1604,11 @@
                     "name": "深谣",
                     "pipeline_override": {
                         "选择人物_配置": {
-                            "focus": "拉弥亚·深谣"
+                            "focus": {
+                                "pick": [
+                                    "拉弥亚·深谣"
+                                ]
+                            }
                         },
                         "肉鸽模式_配置": {
                             "focus": 0
@@ -1504,7 +1619,11 @@
                     "name": "终焉",
                     "pipeline_override": {
                         "选择人物_配置": {
-                            "focus": "露娜·终焉"
+                            "focus": {
+                                "pick": [
+                                    "露娜·终焉"
+                                ]
+                            }
                         },
                         "肉鸽模式_配置": {
                             "focus": 0
@@ -1515,7 +1634,11 @@
                     "name": "深痕",
                     "pipeline_override": {
                         "选择人物_配置": {
-                            "focus": "比安卡·深痕"
+                            "focus": {
+                                "pick": [
+                                    "比安卡·深痕"
+                                ]
+                            }
                         },
                         "肉鸽模式_配置": {
                             "focus": 0
@@ -1526,7 +1649,11 @@
                     "name": "启明",
                     "pipeline_override": {
                         "选择人物_配置": {
-                            "focus": "曲·启明"
+                            "focus": {
+                                "pick": [
+                                    "曲·启明"
+                                ]
+                            }
                         },
                         "肉鸽模式_配置": {
                             "focus": 0
@@ -1537,7 +1664,11 @@
                     "name": "超刻",
                     "pipeline_override": {
                         "选择人物_配置": {
-                            "focus": "里·超刻"
+                            "focus": {
+                                "pick": [
+                                    "里·超刻"
+                                ]
+                            }
                         },
                         "肉鸽模式_配置": {
                             "focus": 0

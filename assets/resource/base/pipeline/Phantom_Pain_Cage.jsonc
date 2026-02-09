@@ -425,6 +425,7 @@
             "[JumpBack]查看Boss_雷队",
             "[JumpBack]查看Boss_物队",
             "[JumpBack]查看Boss_冰队",
+            "[JumpBack]查看终极区Boss",
             "[JumpBack]没打过",
             "意外处理_没识别到返回"
         ]
@@ -499,6 +500,120 @@
         },
         "next": [
             "返回主菜单"
+        ]
+    },
+    "查看终极区Boss_A区": {
+        "max_hit": 1,
+        "on_error": [
+            "未命中BOSS名"
+        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    53,
+                    193,
+                    93
+                ],
+                "expected": [
+                    "特异型机械体·马德拉",
+                    "光辉行进者",
+                    "国王",
+                    "斯凯奇",
+                    "修特罗尔",
+                    "柯蕾多尔",
+                    "蒙扎诺夫人",
+                    "维罗妮卡",
+                    "格温普兰",
+                    "坠星·帕瓦特",
+                    "埃比阿提斯",
+                    "千子",
+                    "监管者",
+                    "墨利诺厄"
+                ],
+                "order_by": "Vertical"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "cage": true
+                                }
+                            }
+                        }
+                    },
+                    "识别人物": {
+                        "enabled": true
+                    }
+                }
+            }
+        },
+        "next": [
+            "清除队伍"
+        ]
+    },
+    "查看终极区Boss": {
+        "max_hit": 1,
+        "on_error": [
+            "未命中BOSS名"
+        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    53,
+                    193,
+                    93
+                ],
+                "expected": [
+                    "特异型机械体",
+                    "光辉行进者",
+                    "国王",
+                    "斯凯奇",
+                    "修特罗尔",
+                    "柯蕾多尔",
+                    "蒙扎诺夫人",
+                    "维罗妮卡",
+                    "格温普兰",
+                    "坠星·帕瓦特",
+                    "埃比阿提斯",
+                    "千子",
+                    "监管者",
+                    "墨利诺厄"
+                ],
+                "order_by": "Vertical"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "cage": true
+                                }
+                            }
+                        }
+                    },
+                    "识别人物": {
+                        "enabled": true
+                    }
+                }
+            }
+        },
+        "next": [
+            "清除队伍"
         ]
     },
     "查看Boss_冰队": {

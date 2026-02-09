@@ -104,9 +104,9 @@ class RoleSelection(CustomAction):
 
         pick = context.get_node_data("选择人物_配置")
         if pick and pick.get("focus", None):
-            pick = pick.get("focus", "")
+            pick = pick.get("focus",{}).get("pick", [])
         else:
-            pick = ""
+            pick = []
 
         condition.update(
             {
@@ -496,10 +496,10 @@ class RoleSelection(CustomAction):
             # 肉鸽3模式 0代表初始招募能量4，只需要提取是否被肉鸽选中。1代表初始招募能量3，只提取精通等级
             # 是否被选中
             if condition.get("roguelike_3_mode", 0) == 1:
-                is_pick = role_name == condition.get("pick", "")
+                is_pick = role_name in condition.get("pick", [])
                 is_master_level_not_full = info.get("master_level", False)
             else:
-                is_pick = role_name == condition.get("pick", "")
+                is_pick = role_name in condition.get("pick", [])
                 is_master_level_not_full = False
 
             # 精通等级是否未满
