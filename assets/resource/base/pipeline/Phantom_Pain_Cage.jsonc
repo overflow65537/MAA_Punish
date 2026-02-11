@@ -163,46 +163,8 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    17,
-                                    424,
-                                    112,
-                                    110
-                                ],
-                                "count": 2000,
-                                "connected": true,
-                                "upper": [
-                                    8,
-                                    8,
-                                    8
-                                ],
-                                "lower": [
-                                    0,
-                                    0,
-                                    0
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    1050,
-                                    235,
-                                    115,
-                                    40
-                                ],
-                                "only_rec": true,
-                                "expected": "^(?!^0$).+$"
-                            }
-                        }
-                    }
+                    "检查是否存在分数",
+                    "检查是否是最终难度"
                 ]
             }
         },
@@ -219,46 +181,8 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    17,
-                                    424,
-                                    112,
-                                    110
-                                ],
-                                "count": 2000,
-                                "connected": true,
-                                "upper": [
-                                    8,
-                                    8,
-                                    8
-                                ],
-                                "lower": [
-                                    0,
-                                    0,
-                                    0
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    1050,
-                                    235,
-                                    115,
-                                    40
-                                ],
-                                "only_rec": true,
-                                "expected": "^(?!^0$).+$"
-                            }
-                        }
-                    }
+                    "检查是否存在分数",
+                    "检查是否是最终难度"
                 ]
             }
         },
@@ -275,46 +199,8 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    17,
-                                    424,
-                                    112,
-                                    110
-                                ],
-                                "count": 2000,
-                                "connected": true,
-                                "upper": [
-                                    8,
-                                    8,
-                                    8
-                                ],
-                                "lower": [
-                                    0,
-                                    0,
-                                    0
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    1050,
-                                    235,
-                                    115,
-                                    40
-                                ],
-                                "only_rec": true,
-                                "expected": "^(?!^0$).+$"
-                            }
-                        }
-                    }
+                    "检查是否存在分数",
+                    "检查是否是最终难度"
                 ]
             }
         },
@@ -328,20 +214,12 @@
     },
     "没打满": {
         "recognition": {
-            "type": "Custom",
+            "type": "Or",
             "param": {
-                "custom_recognition": "LOp",
-                "custom_recognition_param": {
-                    "mode": "or",
-                    "nodes": [
-                        [
-                            "检查是否是最终难度"
-                        ],
-                        [
-                            "检查是否存在分数"
-                        ]
-                    ]
-                }
+                "any_of": [
+                    "检查是否是最终难度_反向",
+                    "检查是否存在分数_反向"
+                ]
             }
         },
         "next": [
@@ -379,6 +257,48 @@
         }
     },
     "检查是否存在分数": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1050,
+                    235,
+                    115,
+                    40
+                ],
+                "only_rec": true,
+                "expected": "^(?!^0$).+$"
+            }
+        }
+    },
+    "检查是否是最终难度_反向": {
+        "inverse": true,
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    17,
+                    424,
+                    112,
+                    110
+                ],
+                "count": 2000,
+                "connected": true,
+                "upper": [
+                    8,
+                    8,
+                    8
+                ],
+                "lower": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        }
+    },
+    "检查是否存在分数_反向": {
+        "inverse": true,
         "recognition": {
             "type": "OCR",
             "param": {
