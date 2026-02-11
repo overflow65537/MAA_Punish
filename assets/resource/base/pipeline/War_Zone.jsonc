@@ -277,7 +277,7 @@
     },
     "战斗结束": {
         "post_wait_freezes": {
-            "time": 1000,
+            "time": 1500,
             "timeout": 5000
         },
         "recognition": {
