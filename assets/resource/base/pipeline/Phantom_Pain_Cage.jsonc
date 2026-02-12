@@ -214,9 +214,9 @@
     },
     "没打满": {
         "recognition": {
-            "type": "Or",
+            "type": "And",
             "param": {
-                "any_of": [
+                "all_of": [
                     "检查是否是最终难度_反向",
                     "检查是否存在分数_反向"
                 ]
@@ -258,21 +258,50 @@
     },
     "检查是否存在分数": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    1050,
-                    235,
-                    115,
-                    40
-                ],
-                "only_rec": true,
-                "expected": "^(?!^0$).+$"
+                "all_of": [
+                    {
+                        "sub_name": "_蓝色文字",
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    947,
+                                    162,
+                                    333,
+                                    184
+                                ],
+                                "lower": [
+                                    13,
+                                    112,
+                                    189
+                                ],
+                                "upper": [
+                                    36,
+                                    115,
+                                    190
+                                ],
+                                "count": 10,
+                                "connected": true
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": "_蓝色文字",
+                                "only_rec": true,
+                                "expected": "^(?!^0$).+$"
+                            }
+                        }
+                    }
+                ]
             }
         }
     },
     "检查是否是最终难度_反向": {
-        "inverse": true,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -285,9 +314,9 @@
                 "count": 2000,
                 "connected": true,
                 "upper": [
-                    8,
-                    8,
-                    8
+                    214,
+                    220,
+                    226
                 ],
                 "lower": [
                     0,
@@ -298,18 +327,47 @@
         }
     },
     "检查是否存在分数_反向": {
-        "inverse": true,
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    1050,
-                    235,
-                    115,
-                    40
-                ],
-                "only_rec": true,
-                "expected": "^(?!^0$).+$"
+                "all_of": [
+                    {
+                        "sub_name": "_蓝色文字",
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    947,
+                                    162,
+                                    333,
+                                    184
+                                ],
+                                "lower": [
+                                    13,
+                                    112,
+                                    189
+                                ],
+                                "upper": [
+                                    36,
+                                    115,
+                                    190
+                                ],
+                                "count": 10,
+                                "connected": true
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": "_蓝色文字",
+                                "only_rec": true,
+                                "expected": "^0$"
+                            }
+                        }
+                    }
+                ]
             }
         }
     },
