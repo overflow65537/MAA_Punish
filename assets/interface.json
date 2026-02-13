@@ -823,6 +823,7 @@
         },
         "输入键码": {
             "type": "input",
+            "label": "按键设置",
             "description": "请输入对应按键的键码",
             "inputs": [
                 {
