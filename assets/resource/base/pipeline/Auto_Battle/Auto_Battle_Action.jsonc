@@ -98,6 +98,21 @@
             }
         }
     },
+    "按下攻击": {
+        "post_delay": 0,
+        "pre_delay": 0,
+        "rate_limit": 0,
+        "action": {
+            "type": "TouchDown",
+            "param": {
+                "contact": 0,
+                "target": [
+                    1200,
+                    690
+                ]
+            }
+        }
+    },
     "按下闪避": {
         "post_delay": 0,
         "pre_delay": 0,

@@ -89,7 +89,8 @@
                 "自动QTE",
                 "自动切换角色",
                 "同时选择多名角色",
-                "跳过分辨率警告"
+                "跳过分辨率警告",
+                "自定义键位"
             ]
         },
         {
@@ -802,6 +803,312 @@
                     }
                 }
             ]
+        },
+        "自定义键位": {
+            "label": "是否启用自定义键位",
+            "description": "打开后可以自定义游戏中的按键设置",
+            "type": "switch",
+            "default": "No",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "option": [
+                        "输入键码"
+                    ]
+                },
+                {
+                    "name": "No"
+                }
+            ]
+        },
+        "输入键码": {
+            "type": "input",
+            "description": "请输入对应按键的键码",
+            "inputs": [
+                {
+                    "name": "攻击",
+                    "default": "74",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$",
+                    "pattern_msg": "请输入有效的数字键码"
+                },
+                {
+                    "name": "闪避",
+                    "default": "75",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$",
+                    "pattern_msg": "请输入有效的数字键码"
+                },
+                {
+                    "name": "技能",
+                    "default": "76",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$",
+                    "pattern_msg": "请输入有效的数字键码"
+                },
+                {
+                    "name": "上方QTE",
+                    "default": "81",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$",
+                    "pattern_msg": "请输入有效的数字键码"
+                },
+                {
+                    "name": "下方QTE",
+                    "default": "69",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$",
+                    "pattern_msg": "请输入有效的数字键码"
+                },
+                {
+                    "name": "1号球",
+                    "default": "49",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$",
+                    "pattern_msg": "请输入有效的数字键码"
+                },
+                {
+                    "name": "2号球",
+                    "default": "50",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$",
+                    "pattern_msg": "请输入有效的数字键码"
+                },
+                {
+                    "name": "3号球",
+                    "default": "51",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$",
+                    "pattern_msg": "请输入有效的数字键码"
+                },
+                {
+                    "name": "4号球",
+                    "default": "52",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$",
+                    "pattern_msg": "请输入有效的数字键码"
+                },
+                {
+                    "name": "5号球",
+                    "default": "53",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$",
+                    "pattern_msg": "请输入有效的数字键码"
+                },
+                {
+                    "name": "6号球",
+                    "default": "54",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$",
+                    "pattern_msg": "请输入有效的数字键码"
+                },
+                {
+                    "name": "7号球",
+                    "default": "55",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$",
+                    "pattern_msg": "请输入有效的数字键码"
+                },
+                {
+                    "name": "8号球",
+                    "default": "56",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$",
+                    "pattern_msg": "请输入有效的数字键码"
+                },
+                {
+                    "name": "锁定视角",
+                    "default": "9",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$",
+                    "pattern_msg": "请输入有效的数字键码"
+                },
+                {
+                    "name": "辅助机",
+                    "default": "67",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$",
+                    "pattern_msg": "请输入有效的数字键码"
+                }
+            ],
+            "pipeline_override": {
+                "攻击": {
+                    "action": {
+                        "type": "ClickKey",
+                        "param": {
+                            "key": "{攻击}"
+                        }
+                    }
+                },
+                "闪避": {
+                    "action": {
+                        "type": "ClickKey",
+                        "param": {
+                            "key": "{闪避}"
+                        }
+                    }
+                },
+                "技能": {
+                    "action": {
+                        "type": "ClickKey",
+                        "param": {
+                            "key": "{技能}"
+                        }
+                    }
+                },
+                "长按攻击": {
+                    "action": {
+                        "type": "LongPressKey",
+                        "param": {
+                            "key": "{攻击}"
+                        }
+                    }
+                },
+                "长按闪避": {
+                    "action": {
+                        "type": "LongPressKey",
+                        "param": {
+                            "key": "{闪避}"
+                        }
+                    }
+                },
+                "长按技能": {
+                    "action": {
+                        "type": "LongPressKey",
+                        "param": {
+                            "key": "{技能}"
+                        }
+                    }
+                },
+                "按下攻击": {
+                    "action": {
+                        "type": "KeyDown",
+                        "param": {
+                            "key": "{攻击}"
+                        }
+                    }
+                },
+                "按下闪避": {
+                    "action": {
+                        "type": "KeyDown",
+                        "param": {
+                            "key": "{闪避}"
+                        }
+                    }
+                },
+                "松开闪避": {
+                    "action": {
+                        "type": "KeyDown",
+                        "param": {
+                            "key": "{技能}"
+                        }
+                    }
+                },
+                "qte1": {
+                    "action": {
+                        "type": "ClickKey",
+                        "param": {
+                            "key": "{上方QTE}"
+                        }
+                    }
+                },
+                "qte2": {
+                    "action": {
+                        "type": "ClickKey",
+                        "param": {
+                            "key": "{下方QTE}"
+                        }
+                    }
+                },
+                "长按1号球": {
+                    "action": {
+                        "type": "LongPressKey",
+                        "param": {
+                            "key": "{1号球}"
+                        }
+                    }
+                },
+                "消球1": {
+                    "action": {
+                        "type": "ClickKey",
+                        "param": {
+                            "key": "{1号球}"
+                        }
+                    }
+                },
+                "消球2": {
+                    "action": {
+                        "type": "ClickKey",
+                        "param": {
+                            "key": "{2号球}"
+                        }
+                    }
+                },
+                "消球3": {
+                    "action": {
+                        "type": "ClickKey",
+                        "param": {
+                            "key": "{3号球}"
+                        }
+                    }
+                },
+                "消球4": {
+                    "action": {
+                        "type": "ClickKey",
+                        "param": {
+                            "key": "{4号球}"
+                        }
+                    }
+                },
+                "消球5": {
+                    "action": {
+                        "type": "ClickKey",
+                        "param": {
+                            "key": "{5号球}"
+                        }
+                    }
+                },
+                "消球6": {
+                    "action": {
+                        "type": "ClickKey",
+                        "param": {
+                            "key": "{6号球}"
+                        }
+                    }
+                },
+                "消球7": {
+                    "action": {
+                        "type": "ClickKey",
+                        "param": {
+                            "key": "{7号球}"
+                        }
+                    }
+                },
+                "消球8": {
+                    "action": {
+                        "type": "ClickKey",
+                        "param": {
+                            "key": "{8号球}"
+                        }
+                    }
+                },
+                "锁定视角": {
+                    "action": {
+                        "type": "ClickKey",
+                        "param": {
+                            "key": "{锁定视角}"
+                        }
+                    }
+                },
+                "辅助机": {
+                    "action": {
+                        "type": "ClickKey",
+                        "param": {
+                            "key": "{辅助机}"
+                        }
+                    }
+                }
+            }
         },
         "战斗模式": {
             "description": "<p><b>战斗模式</b></p><ul><li><b>自动检测</b>：根据当前战斗情况自动选择持续战斗或静默。</li><li><b>持续战斗</b>：一直保持持续战斗，不会因为没有敌人而暂停。</li></ul><p><b>使用建议</b></p><ul><li>关卡需要解密或跑图且角色仍在战斗时，使用<span style=\"color:Tomato\">自动检测模式</span>。</li><li>关卡无剧情/解密，进入地图即可战斗但角色未开打时，使用<span style=\"color:Tomato\">持续战斗模式</span>。</li></ul>",
