@@ -344,9 +344,29 @@
             "[JumpBack]符纹宝箱_神寂启示录",
             "[JumpBack]选择技能_神寂启示录",
             "[JumpBack]选择委托_神寂启示录",
+            "[JumpBack]领取委托_神寂启示录",
             "[JumpBack]通用事件处理_对话2",
             "[JumpBack]通用事件处理_对话1"
         ]
+    },
+    "领取委托_神寂启示录": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    545,
+                    567,
+                    189,
+                    96
+                ],
+                "expected": [
+                    "确定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "选择委托_神寂启示录": {
         "recognition": {
