@@ -456,6 +456,10 @@
         }
     },
     "添加人物": {
+        "post_wait_freezes": {
+            "time": 300,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
