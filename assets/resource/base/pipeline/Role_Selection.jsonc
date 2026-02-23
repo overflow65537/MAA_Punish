@@ -646,7 +646,7 @@
     },
     "作战准备": {
         "post_wait_freezes": {
-            "time": 500,
+            "time": 1000,
             "timeout": 2000
         },
         "recognition": {
