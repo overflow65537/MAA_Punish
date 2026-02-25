@@ -59,7 +59,7 @@ class Notice(CustomAction):
 
             resource = context.get_node_object("资源变量")
             if resource is None:
-                return CustomAction.RunResult(success=False)
+                return CustomAction.RunResult(success=True)
             start_black_card = resource.focus.get("start_black_card")
 
             # 收益
