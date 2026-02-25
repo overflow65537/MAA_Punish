@@ -335,18 +335,17 @@ class RoleSelection(CustomAction):
                 pipeline_override=pipeline_override,
             )
 
-            if context.run_recognition(
-                entry="检查人物是否拥有",
-                image=image,
-            ):
-                self.logger.info(f"角色 {role_name} 未拥有")
-                break
-
             if (
                 result
                 and result.hit
                 and isinstance(result.best_result, TemplateMatchResult)
             ):
+                if context.run_recognition(
+                    entry="检查人物是否拥有",
+                    image=image,
+                ):
+                    self.logger.info(f"角色 {role_name} 未拥有")
+                    return role
                 for role_reco in result.filtered_results:
                     # 检查识别结果并提取box信息
                     if not isinstance(role_reco, TemplateMatchResult):
