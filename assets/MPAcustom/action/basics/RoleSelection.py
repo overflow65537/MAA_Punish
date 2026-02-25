@@ -104,7 +104,7 @@ class RoleSelection(CustomAction):
 
         pick = context.get_node_data("选择人物_配置")
         if pick and pick.get("focus", None):
-            pick = pick.get("focus",{}).get("pick", [])
+            pick = pick.get("focus", {}).get("pick", [])
         else:
             pick = []
 
@@ -334,6 +334,13 @@ class RoleSelection(CustomAction):
                 image=image,
                 pipeline_override=pipeline_override,
             )
+
+            if context.run_recognition(
+                entry="检查人物是否拥有",
+                image=image,
+            ):
+                self.logger.info(f"角色 {role_name} 未拥有")
+                break
 
             if (
                 result
