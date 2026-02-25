@@ -340,10 +340,11 @@ class RoleSelection(CustomAction):
                 and result.hit
                 and isinstance(result.best_result, TemplateMatchResult)
             ):
-                if context.run_recognition(
+                is_have_role = context.run_recognition(
                     entry="检查人物是否拥有",
                     image=image,
-                ):
+                )
+                if is_have_role and is_have_role.hit:
                     self.logger.info(f"角色 {role_name} 未拥有")
                     return role
                 for role_reco in result.filtered_results:
