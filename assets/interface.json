@@ -68,7 +68,7 @@
             "name": "繁体中文",
             "path": [
                 "./resource/base",
-                "./resource/zh_tw"
+                "./resource/zh_TW"
             ]
         }
     ],

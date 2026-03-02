@@ -1,0 +1,4550 @@
+{
+    "点击空白处关闭_速通": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
+        "zh_CN": "点击空白处",
+        "zh_TW": "點擊空白處"
+    },
+    "从中间开始": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
+        "zh_CN": "从中间开始",
+        "zh_TW": "從中間開始"
+    },
+    "使用体力": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
+        "zh_CN": "确定",
+        "zh_TW": "確定"
+    },
+    "体力取消": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
+        "zh_CN": "取消",
+        "zh_TW": "取消"
+    },
+    "不使用体力": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
+        "zh_CN": "取消",
+        "zh_TW": "取消"
+    },
+    "未选人": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
+        "zh_CN": "未选择队长",
+        "zh_TW": "未選擇隊長"
+    },
+    "点击作战开始_速通": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
+        "zh_CN": "战开始",
+        "zh_TW": "戰開始"
+    },
+    "战斗准备_速通": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
+        "zh_CN": "战斗准备",
+        "zh_TW": "戰鬥準備"
+    },
+    "打开速通开关": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
+        "zh_CN": "OFF",
+        "zh_TW": "OFF"
+    },
+    "播放剧情": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
+        "zh_CN": "播放剧情",
+        "zh_TW": "播放劇情"
+    },
+    "跳过战斗对话_主线": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
+        "zh_CN": "跳过",
+        "zh_TW": "跳過"
+    },
+    "检查血量": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
+        "zh_CN": "\\d+/\\d+",
+        "zh_TW": "\\d+/\\d+"
+    },
+    "战斗重启1": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
+        "zh_CN": "重启",
+        "zh_TW": "重啟"
+    },
+    "对话跳过": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
+        "zh_CN": "跳过",
+        "zh_TW": "跳過"
+    },
+    "进入战斗_条件2": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
+        "zh_CN": "^击败.*",
+        "zh_TW": "^擊敗.*"
+    },
+    "主线跳过": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
+        "zh_CN": "SKIP",
+        "zh_TW": "SKIP"
+    },
+    "检查最后关卡": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
+        "zh_CN": "",
+        "zh_TW": ""
+    },
+    "统计信号球数量": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Check_Characters_Skill.jsonc",
+        "zh_CN": "\\d+",
+        "zh_TW": "\\d+"
+    },
+    "检查支援类型角色是否被选中": {
+        "path": "assets/resource/base/pipeline/Auto_Battle/Check_Characters_Skill.jsonc",
+        "zh_CN": "编队中",
+        "zh_TW": "編隊中"
+    },
+    "通行证-意外处理-点击确认": {
+        "path": "assets/resource/base/pipeline/Battle_Pass.jsonc",
+        "zh_CN": "确定",
+        "zh_TW": "確定"
+    },
+    "评定任务": {
+        "path": "assets/resource/base/pipeline/Battle_Pass.jsonc",
+        "zh_CN": "评定任务",
+        "zh_TW": "評定任務"
+    },
+    "没点上评定任务": {
+        "path": "assets/resource/base/pipeline/Battle_Pass.jsonc",
+        "zh_CN": "评定任务",
+        "zh_TW": "評定任務"
+    },
+    "一键领取_评定任务": {
+        "path": "assets/resource/base/pipeline/Battle_Pass.jsonc",
+        "zh_CN": "一键领取",
+        "zh_TW": "一鍵領取"
+    },
+    "战略补给": {
+        "path": "assets/resource/base/pipeline/Battle_Pass.jsonc",
+        "zh_CN": "战略补给",
+        "zh_TW": "戰略補給"
+    },
+    "没点上战略补给": {
+        "path": "assets/resource/base/pipeline/Battle_Pass.jsonc",
+        "zh_CN": "战略",
+        "zh_TW": "戰略"
+    },
+    "一键领取_战略补给": {
+        "path": "assets/resource/base/pipeline/Battle_Pass.jsonc",
+        "zh_CN": "一键领取",
+        "zh_TW": "一鍵領取"
+    },
+    "检查碎片": {
+        "path": "assets/resource/base/pipeline/Buy_Item.jsonc",
+        "zh_CN": "逆元碎片",
+        "zh_TW": "逆元碎片"
+    },
+    "滑动": {
+        "path": "assets/resource/base/pipeline/Buy_Item.jsonc",
+        "zh_CN": "补给商店",
+        "zh_TW": "補給商店"
+    },
+    "打开商店": {
+        "path": "assets/resource/base/pipeline/Buy_Item.jsonc",
+        "zh_CN": "商店",
+        "zh_TW": "商店"
+    },
+    "购买": {
+        "path": "assets/resource/base/pipeline/Buy_Item.jsonc",
+        "zh_CN": "逆元碎片",
+        "zh_TW": "逆元碎片"
+    },
+    "购买碎片成功": {
+        "path": "assets/resource/base/pipeline/Buy_Item.jsonc",
+        "zh_CN": "购买成功",
+        "zh_TW": "購買成功"
+    },
+    "购买碎片失败": {
+        "path": "assets/resource/base/pipeline/Buy_Item.jsonc",
+        "zh_CN": "超过商店可购买的数量",
+        "zh_TW": "超過商店可購買的數量"
+    },
+    "继续_链合回路": {
+        "path": "assets/resource/base/pipeline/Chain_Loop_Circuit.jsonc",
+        "zh_CN": "重新挑战",
+        "zh_TW": "重新挑戰"
+    },
+    "任务过程": {
+        "path": "assets/resource/base/pipeline/Chain_Loop_Circuit.jsonc",
+        "zh_CN": "道具说明",
+        "zh_TW": "道具說明"
+    },
+    "每日任务": {
+        "path": "assets/resource/base/pipeline/Collect_Quest.jsonc",
+        "zh_CN": "每日",
+        "zh_TW": "每日"
+    },
+    "每周任务": {
+        "path": "assets/resource/base/pipeline/Collect_Quest.jsonc",
+        "zh_CN": "每周",
+        "zh_TW": "每週"
+    },
+    "打开任务": {
+        "path": "assets/resource/base/pipeline/Collect_Quest.jsonc",
+        "zh_CN": "任务",
+        "zh_TW": "任務"
+    },
+    "一键领取_定期": {
+        "path": "assets/resource/base/pipeline/Collect_Quest.jsonc",
+        "zh_CN": "键领取",
+        "zh_TW": "鍵領取"
+    },
+    "一键领取_任务": {
+        "path": "assets/resource/base/pipeline/Collect_Quest.jsonc",
+        "zh_CN": "键领取",
+        "zh_TW": "鍵領取"
+    },
+    "关闭奖励_每周": {
+        "path": "assets/resource/base/pipeline/Collect_Quest.jsonc",
+        "zh_CN": "^(获得)?奖励$",
+        "zh_TW": "^(獲得)?獎勵$"
+    },
+    "关闭奖励_任务": {
+        "path": "assets/resource/base/pipeline/Collect_Quest.jsonc",
+        "zh_CN": "^(获得)?奖励$",
+        "zh_TW": "^(獲得)?獎勵$"
+    },
+    "拟战场域_作战任务": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "^战斗$",
+        "zh_TW": "^戰鬥$"
+    },
+    "作战失败": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "作战失败",
+        "zh_TW": "作戰失敗"
+    },
+    "手动作战_custom": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "多重挑战",
+        "zh_TW": "多重挑戰"
+    },
+    "返回_拟战场域": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "返回",
+        "zh_TW": "返回"
+    },
+    "体力不足结束战斗任务": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "体力不足",
+        "zh_TW": "體力不足"
+    },
+    "使用补给包": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "注射血清",
+        "zh_TW": "注射血清"
+    },
+    "使用1号补给包": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "小时",
+        "zh_TW": "小時"
+    },
+    "使用2号补给包": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "小时",
+        "zh_TW": "小時"
+    },
+    "使用3号补给包": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "小时",
+        "zh_TW": "小時"
+    },
+    "确认使用": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "确定",
+        "zh_TW": "確定"
+    },
+    "退出血清界面": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "取消",
+        "zh_TW": "取消"
+    },
+    "打开战斗": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "战斗",
+        "zh_TW": "戰鬥"
+    },
+    "意外点击_限定活动": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "限定开放",
+        "zh_TW": "限定開放"
+    },
+    "打开资源": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "资源",
+        "zh_TW": "資源"
+    },
+    "打开拟战场域": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "拟战场域",
+        "zh_TW": "擬戰場域"
+    },
+    "选择战斗_拟战场域": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "拟战场域",
+        "zh_TW": "擬戰場域"
+    },
+    "开始自动战斗": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "最大",
+        "zh_TW": "最大"
+    },
+    "点击自动作战": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "自动作战",
+        "zh_TW": "自動作戰"
+    },
+    "等级提升": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "指挥官等级提升",
+        "zh_TW": "指揮官等級提升"
+    },
+    "检查结果_体力不足": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "自动作战",
+        "zh_TW": "自動作戰"
+    },
+    "检查结果_战斗完成": {
+        "path": "assets/resource/base/pipeline/Daily_Battle.jsonc",
+        "zh_CN": "确定",
+        "zh_TW": "確定"
+    },
+    "错误购买": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Shop.jsonc",
+        "zh_CN": "入住凭证",
+        "zh_TW": "入住憑證"
+    },
+    "购买碎片失败_宿舍": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Shop.jsonc",
+        "zh_CN": "超过商店可购买的数量",
+        "zh_TW": "超過商店可購買的數量"
+    },
+    "翻到底了_遣测": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Shop.jsonc",
+        "zh_CN": "武器涂装设计图",
+        "zh_TW": "武器塗裝設計圖"
+    },
+    "翻到底了_宿舍": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Shop.jsonc",
+        "zh_CN": "普通礼物盒",
+        "zh_TW": "普通禮物盒"
+    },
+    "购买_宿舍": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Shop.jsonc",
+        "zh_CN": "涂装设计草稿",
+        "zh_TW": "塗裝設計草稿"
+    },
+    "点击购买_宿舍": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Shop.jsonc",
+        "zh_CN": "购买",
+        "zh_TW": "購買"
+    },
+    "购买成功": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Shop.jsonc",
+        "zh_CN": "购买成功",
+        "zh_TW": "購買成功"
+    },
+    "打开宿舍商店": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Shop.jsonc",
+        "zh_CN": "商店",
+        "zh_TW": "商店"
+    },
+    "推荐物品": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Shop.jsonc",
+        "zh_CN": "可购",
+        "zh_TW": "可購"
+    },
+    "今日任务已完成": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "今日任务已完成",
+        "zh_TW": "今日任務已完成"
+    },
+    "二次进入执勤": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "执勤",
+        "zh_TW": "執勤"
+    },
+    "宿舍内部": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "制造",
+        "zh_TW": "製造"
+    },
+    "一键领取_宿舍任务": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "键领取",
+        "zh_TW": "鍵領取"
+    },
+    "关闭奖励_宿舍任务": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "^(获得)?奖励$",
+        "zh_TW": "^(獲得)?獎勵$"
+    },
+    "宿舍任务_领取执勤": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "执勤完成",
+        "zh_TW": "執勤完成"
+    },
+    "意外点击_退出代工": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "库罗罗代工",
+        "zh_TW": "庫羅羅代工"
+    },
+    "意外点击_退出代工_确定": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "取消",
+        "zh_TW": "取消"
+    },
+    "选择执勤伙伴": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "选择执勤伙伴",
+        "zh_TW": "選擇執勤伙伴"
+    },
+    "退出执勤": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "开始执勤",
+        "zh_TW": "開始執勤"
+    },
+    "打开执勤": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "执勤",
+        "zh_TW": "執勤"
+    },
+    "关闭完成事件": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "完成事件",
+        "zh_TW": "完成事件"
+    },
+    "宿舍事件无": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "完成事件",
+        "zh_TW": "完成事件"
+    },
+    "完成事件": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "完成事件",
+        "zh_TW": "完成事件"
+    },
+    "宿舍任务_返回": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "返回",
+        "zh_TW": "返回"
+    },
+    "宿舍任务_返回2": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "返回",
+        "zh_TW": "返回"
+    },
+    "宿舍任务_返回3": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "返回",
+        "zh_TW": "返回"
+    },
+    "无派遣任务": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "暂无空闲",
+        "zh_TW": "暫無空閑"
+    },
+    "一键派遣": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "派遣",
+        "zh_TW": "派遣"
+    },
+    "领取委托完成奖励": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "归",
+        "zh_TW": "歸"
+    },
+    "关闭委托完成通知": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "委托完成",
+        "zh_TW": "委托完成"
+    },
+    "打开宿舍": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "宿舍",
+        "zh_TW": "宿舍"
+    },
+    "打开委托界面": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "委托",
+        "zh_TW": "委托"
+    },
+    "检查当前数量": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "^\\d*$",
+        "zh_TW": "^\\d*$"
+    },
+    "检查目标数量": {
+        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
+        "zh_CN": "^\\d*$",
+        "zh_TW": "^\\d*$"
+    },
+    "关闭奖励": {
+        "path": "assets/resource/base/pipeline/General.jsonc",
+        "zh_CN": "^(获得)?奖励$",
+        "zh_TW": "^(獲得)?獎勵$"
+    },
+    "返回主菜单": {
+        "path": "assets/resource/base/pipeline/General.jsonc",
+        "zh_CN": "主界面",
+        "zh_TW": "主界面"
+    },
+    "返回主菜单_reco": {
+        "path": "assets/resource/base/pipeline/General.jsonc",
+        "zh_CN": "主界面",
+        "zh_TW": "主界面"
+    },
+    "返回主菜单_图标": {
+        "path": "assets/resource/base/pipeline/General.jsonc",
+        "zh_CN": "O",
+        "zh_TW": "O"
+    },
+    "意外点击_主界面": {
+        "path": "assets/resource/base/pipeline/General.jsonc",
+        "zh_CN": "库街区",
+        "zh_TW": "庫街區"
+    },
+    "返回": {
+        "path": "assets/resource/base/pipeline/General.jsonc",
+        "zh_CN": "返回",
+        "zh_TW": "返回"
+    },
+    "跳过剧情": {
+        "path": "assets/resource/base/pipeline/General.jsonc",
+        "zh_CN": "跳",
+        "zh_TW": "跳"
+    },
+    "确认跳过": {
+        "path": "assets/resource/base/pipeline/General.jsonc",
+        "zh_CN": "跳过",
+        "zh_TW": "跳過"
+    },
+    "点击频率过快": {
+        "path": "assets/resource/base/pipeline/General.jsonc",
+        "zh_CN": "消息发送过于",
+        "zh_TW": "消息發送過於"
+    },
+    "点击频率过快_确认": {
+        "path": "assets/resource/base/pipeline/General.jsonc",
+        "zh_CN": "确定",
+        "zh_TW": "確定"
+    },
+    "确定": {
+        "path": "assets/resource/base/pipeline/General.jsonc",
+        "zh_CN": "^确定$",
+        "zh_TW": "^確定$"
+    },
+    "确定_sp": {
+        "path": "assets/resource/base/pipeline/General.jsonc",
+        "zh_CN": "^确定$",
+        "zh_TW": "^確定$"
+    },
+    "退出血清界面_err": {
+        "path": "assets/resource/base/pipeline/General.jsonc",
+        "zh_CN": "取消",
+        "zh_TW": "取消"
+    },
+    "检查是否是资源副本界面": {
+        "path": "assets/resource/base/pipeline/Get_Class_A.jsonc",
+        "zh_CN": "角色碎片",
+        "zh_TW": "角色碎片"
+    },
+    "进入资源副本": {
+        "path": "assets/resource/base/pipeline/Get_Class_A.jsonc",
+        "zh_CN": "资源",
+        "zh_TW": "資源"
+    },
+    "滑动角色碎片界面": {
+        "path": "assets/resource/base/pipeline/Get_Class_A.jsonc",
+        "zh_CN": "角色碎片",
+        "zh_TW": "角色碎片"
+    },
+    "未解锁自动作战": {
+        "path": "assets/resource/base/pipeline/Get_Class_A.jsonc",
+        "zh_CN": "^战斗$",
+        "zh_TW": "^戰鬥$"
+    },
+    "使用体力刷碎片": {
+        "path": "assets/resource/base/pipeline/Get_Class_A.jsonc",
+        "zh_CN": "自动作战",
+        "zh_TW": "自動作戰"
+    },
+    "A_挑战次数不足": {
+        "path": "assets/resource/base/pipeline/Get_Class_A.jsonc",
+        "zh_CN": "挑战次数不足",
+        "zh_TW": "挑戰次數不足"
+    },
+    "A_MAX": {
+        "path": "assets/resource/base/pipeline/Get_Class_A.jsonc",
+        "zh_CN": "MAX",
+        "zh_TW": "MAX"
+    },
+    "A_确认出战": {
+        "path": "assets/resource/base/pipeline/Get_Class_A.jsonc",
+        "zh_CN": "确认",
+        "zh_TW": "確認"
+    },
+    "补给包不足": {
+        "path": "assets/resource/base/pipeline/Get_Class_A.jsonc",
+        "zh_CN": "黑卡",
+        "zh_TW": "黑卡"
+    },
+    "退出自动作战": {
+        "path": "assets/resource/base/pipeline/Get_Class_A.jsonc",
+        "zh_CN": "确认出战",
+        "zh_TW": "確認出戰"
+    },
+    "退出战斗界面": {
+        "path": "assets/resource/base/pipeline/Get_Class_A.jsonc",
+        "zh_CN": "自动作战",
+        "zh_TW": "自動作戰"
+    },
+    "A_血清组": {
+        "path": "assets/resource/base/pipeline/Get_Class_A.jsonc",
+        "zh_CN": "注射血清",
+        "zh_TW": "注射血清"
+    },
+    "A_使用体力": {
+        "path": "assets/resource/base/pipeline/Get_Class_A.jsonc",
+        "zh_CN": "确定",
+        "zh_TW": "確定"
+    },
+    "A_体力取消": {
+        "path": "assets/resource/base/pipeline/Get_Class_A.jsonc",
+        "zh_CN": "取消",
+        "zh_TW": "取消"
+    },
+    "A_不使用体力": {
+        "path": "assets/resource/base/pipeline/Get_Class_A.jsonc",
+        "zh_CN": "取消",
+        "zh_TW": "取消"
+    },
+    "A_出战结束_确认": {
+        "path": "assets/resource/base/pipeline/Get_Class_A.jsonc",
+        "zh_CN": "确定",
+        "zh_TW": "確定"
+    },
+    "战斗任务": {
+        "path": "assets/resource/base/pipeline/Guardian.jsonc",
+        "zh_CN": "战斗任务",
+        "zh_TW": "戰鬥任務"
+    },
+    "废弃仓库": {
+        "path": "assets/resource/base/pipeline/Guardian.jsonc",
+        "zh_CN": "废弃仓库",
+        "zh_TW": "廢棄倉庫"
+    },
+    "支援箱": {
+        "path": "assets/resource/base/pipeline/Guardian.jsonc",
+        "zh_CN": "支援箱",
+        "zh_TW": "支援箱"
+    },
+    "识别战斗任务完成情况": {
+        "path": "assets/resource/base/pipeline/Guardian.jsonc",
+        "zh_CN": "已完成",
+        "zh_TW": "已完成"
+    },
+    "识别废弃仓库完成情况": {
+        "path": "assets/resource/base/pipeline/Guardian.jsonc",
+        "zh_CN": "已完成",
+        "zh_TW": "已完成"
+    },
+    "识别支援箱完成情况": {
+        "path": "assets/resource/base/pipeline/Guardian.jsonc",
+        "zh_CN": "已完成",
+        "zh_TW": "已完成"
+    },
+    "行动上限": {
+        "path": "assets/resource/base/pipeline/Guardian.jsonc",
+        "zh_CN": "每日行动次数已达上限",
+        "zh_TW": "每日行動次數已達上限"
+    },
+    "开始行动": {
+        "path": "assets/resource/base/pipeline/Guardian.jsonc",
+        "zh_CN": "战斗任务",
+        "zh_TW": "戰鬥任務"
+    },
+    "打开维系者行动": {
+        "path": "assets/resource/base/pipeline/Guardian.jsonc",
+        "zh_CN": "维系者行动",
+        "zh_TW": "維系者行動"
+    },
+    "检查是否在指挥局内部": {
+        "path": "assets/resource/base/pipeline/Guild.jsonc",
+        "zh_CN": "新版指挥局",
+        "zh_TW": "新版指揮局"
+    },
+    "检查指定按钮": {
+        "path": "assets/resource/base/pipeline/Guild.jsonc",
+        "zh_CN": "算一签",
+        "zh_TW": "算一簽"
+    },
+    "移动_鲸律星屿": {
+        "path": "assets/resource/base/pipeline/Guild.jsonc",
+        "zh_CN": "鲸律星屿",
+        "zh_TW": "鯨律星嶼"
+    },
+    "移动_经典舱室": {
+        "path": "assets/resource/base/pipeline/Guild.jsonc",
+        "zh_CN": "经典舱室",
+        "zh_TW": "經典艙室"
+    },
+    "移动_庭梨栖雪": {
+        "path": "assets/resource/base/pipeline/Guild.jsonc",
+        "zh_CN": "庭梨栖雪",
+        "zh_TW": "庭梨棲雪"
+    },
+    "移动_岁雪新宵": {
+        "path": "assets/resource/base/pipeline/Guild.jsonc",
+        "zh_CN": "岁雪新宵",
+        "zh_TW": "歲雪新宵"
+    },
+    "移动_蔚蓝之夏": {
+        "path": "assets/resource/base/pipeline/Guild.jsonc",
+        "zh_CN": "蔚蓝之夏",
+        "zh_TW": "蔚藍之夏"
+    },
+    "移动_云海空岛": {
+        "path": "assets/resource/base/pipeline/Guild.jsonc",
+        "zh_CN": "云海空岛",
+        "zh_TW": "云海空島"
+    },
+    "移动_漫花清夏": {
+        "path": "assets/resource/base/pipeline/Guild.jsonc",
+        "zh_CN": "漫花清夏",
+        "zh_TW": "漫花清夏"
+    },
+    "关闭奖励_指挥局": {
+        "path": "assets/resource/base/pipeline/Guild.jsonc",
+        "zh_CN": "已领取",
+        "zh_TW": "已領取"
+    },
+    "意外点击_物品详情": {
+        "path": "assets/resource/base/pipeline/HighRankMapping.jsonc",
+        "zh_CN": "物品详情",
+        "zh_TW": "物品詳情"
+    },
+    "意外点击_环境情报": {
+        "path": "assets/resource/base/pipeline/HighRankMapping.jsonc",
+        "zh_CN": "环境情报",
+        "zh_TW": "環境情報"
+    },
+    "开始挑战": {
+        "path": "assets/resource/base/pipeline/HighRankMapping.jsonc",
+        "zh_CN": "开始挑战",
+        "zh_TW": "開始挑戰"
+    },
+    "继续挑战": {
+        "path": "assets/resource/base/pipeline/HighRankMapping.jsonc",
+        "zh_CN": "继续挑战",
+        "zh_TW": "繼續挑戰"
+    },
+    "战斗失败_历战": {
+        "path": "assets/resource/base/pipeline/HighRankMapping.jsonc",
+        "zh_CN": "作战失败",
+        "zh_TW": "作戰失敗"
+    },
+    "结算": {
+        "path": "assets/resource/base/pipeline/HighRankMapping.jsonc",
+        "zh_CN": "结算",
+        "zh_TW": "結算"
+    },
+    "继续": {
+        "path": "assets/resource/base/pipeline/HighRankMapping.jsonc",
+        "zh_CN": "继续",
+        "zh_TW": "繼續"
+    },
+    "历战映射主界面": {
+        "path": "assets/resource/base/pipeline/HighRankMapping.jsonc",
+        "zh_CN": "历战映射",
+        "zh_TW": "曆戰映射"
+    },
+    "前往作战": {
+        "path": "assets/resource/base/pipeline/HighRankMapping.jsonc",
+        "zh_CN": "前往作战",
+        "zh_TW": "前往作戰"
+    },
+    "打开历战映射": {
+        "path": "assets/resource/base/pipeline/HighRankMapping.jsonc",
+        "zh_CN": "历战映射",
+        "zh_TW": "曆戰映射"
+    },
+    "领取历战奖励": {
+        "path": "assets/resource/base/pipeline/HighRankMapping.jsonc",
+        "zh_CN": "键领取",
+        "zh_TW": "鍵領取"
+    },
+    "领取全部": {
+        "path": "assets/resource/base/pipeline/Mail.jsonc",
+        "zh_CN": "领取全部",
+        "zh_TW": "領取全部"
+    },
+    "打开邮件": {
+        "path": "assets/resource/base/pipeline/Mail.jsonc",
+        "zh_CN": "邮件",
+        "zh_TW": "郵件"
+    },
+    "全部已完成": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "全部已完成",
+        "zh_TW": "全部已完成"
+    },
+    "没打过": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "作战开始",
+        "zh_TW": "作戰開始"
+    },
+    "关闭难度说明": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "难度说明",
+        "zh_TW": "難度說明"
+    },
+    "检查A区": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "讨伐",
+        "zh_TW": "討伐"
+    },
+    "检查B区": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "讨伐",
+        "zh_TW": "討伐"
+    },
+    "检查C区": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "讨伐",
+        "zh_TW": "討伐"
+    },
+    "囚笼作战程序": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "作战开始",
+        "zh_TW": "作戰開始"
+    },
+    "耐力值不足": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "耐力值不足",
+        "zh_TW": "耐力值不足"
+    },
+    "意外处理_没识别到返回": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "查看排行",
+        "zh_TW": "查看排行"
+    },
+    "挑战次数不足_弹窗": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "挑战次数不足",
+        "zh_TW": "挑戰次數不足"
+    },
+    "查看终极区Boss_A区": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "特异型机械体·马德拉",
+        "zh_TW": "特異型機械體·馬德拉"
+    },
+    "查看终极区Boss": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "特异型机械体",
+        "zh_TW": "特異型機械體"
+    },
+    "查看Boss_冰队": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "马基雅维利",
+        "zh_TW": "馬基雅維利"
+    },
+    "查看Boss_暗队": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "苦刑之女",
+        "zh_TW": "苦刑之女"
+    },
+    "查看Boss_火队": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "喷涂机械",
+        "zh_TW": "噴塗機械"
+    },
+    "查看Boss_物队": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "武藏玖型",
+        "zh_TW": "武藏玖型"
+    },
+    "查看Boss_雷队": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "安博莉亚",
+        "zh_TW": "安博莉亞"
+    },
+    "意外点击_保存分数": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "作战",
+        "zh_TW": "作戰"
+    },
+    "检查是否在囚笼主界面": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "幻痛囚笼",
+        "zh_TW": "幻痛囚籠"
+    },
+    "一键领取_囚笼": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "键领取",
+        "zh_TW": "鍵領取"
+    },
+    "领取囚笼奖励": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "需求",
+        "zh_TW": "需求"
+    },
+    "查找目标": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "骑士",
+        "zh_TW": "騎士"
+    },
+    "选择区域": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "高级",
+        "zh_TW": "高級"
+    },
+    "确认区域选择": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "确定",
+        "zh_TW": "確定"
+    },
+    "打开幻痛囚笼": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "幻痛囚笼",
+        "zh_TW": "幻痛囚籠"
+    },
+    "滑动_幻痛囚笼": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "幻痛囚笼",
+        "zh_TW": "幻痛囚籠"
+    },
+    "打开挑战_幻痛囚笼": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "挑战",
+        "zh_TW": "挑戰"
+    },
+    "手动作战": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "作战准备",
+        "zh_TW": "作戰準備"
+    },
+    "挑战次数不足_sub": {
+        "path": "assets/resource/base/pipeline/Phantom_Pain_Cage.jsonc",
+        "zh_CN": "挑战次数不足",
+        "zh_TW": "挑戰次數不足"
+    },
+    "意外点击_涂装界面": {
+        "path": "assets/resource/base/pipeline/Receive_Stamina.jsonc",
+        "zh_CN": "涂装",
+        "zh_TW": "塗裝"
+    },
+    "意外点击_皮肤卡池": {
+        "path": "assets/resource/base/pipeline/Receive_Stamina.jsonc",
+        "zh_CN": "音量设置",
+        "zh_TW": "音量設置"
+    },
+    "补给包售罄": {
+        "path": "assets/resource/base/pipeline/Receive_Stamina.jsonc",
+        "zh_CN": "已售罄",
+        "zh_TW": "已售罄"
+    },
+    "进入采购": {
+        "path": "assets/resource/base/pipeline/Receive_Stamina.jsonc",
+        "zh_CN": "采购",
+        "zh_TW": "釆購"
+    },
+    "点击补给包": {
+        "path": "assets/resource/base/pipeline/Receive_Stamina.jsonc",
+        "zh_CN": "补给包",
+        "zh_TW": "補給包"
+    },
+    "点击日常补给包": {
+        "path": "assets/resource/base/pipeline/Receive_Stamina.jsonc",
+        "zh_CN": "日常补给包",
+        "zh_TW": "日常補給包"
+    },
+    "检查限购": {
+        "path": "assets/resource/base/pipeline/Receive_Stamina.jsonc",
+        "zh_CN": "每周限购补给包",
+        "zh_TW": "每週限購補給包"
+    },
+    "领取": {
+        "path": "assets/resource/base/pipeline/Receive_Stamina.jsonc",
+        "zh_CN": "^购买$",
+        "zh_TW": "^購買$"
+    },
+    "检查宝来矿区": {
+        "path": "assets/resource/base/pipeline/Renaissance_War.jsonc",
+        "zh_CN": "宝来",
+        "zh_TW": "寶來"
+    },
+    "检查宝来矿区次数": {
+        "path": "assets/resource/base/pipeline/Renaissance_War.jsonc",
+        "zh_CN": "^进度：3/3$",
+        "zh_TW": "^進度：3/3$"
+    },
+    "打通诺曼复兴战": {
+        "path": "assets/resource/base/pipeline/Renaissance_War.jsonc",
+        "zh_CN": "渊山",
+        "zh_TW": "淵山"
+    },
+    "未解锁自动扫荡_无提示": {
+        "path": "assets/resource/base/pipeline/Renaissance_War.jsonc",
+        "zh_CN": "战斗准备",
+        "zh_TW": "戰鬥準備"
+    },
+    "滑动_诺曼复兴战内部": {
+        "path": "assets/resource/base/pipeline/Renaissance_War.jsonc",
+        "zh_CN": "诺曼复兴战",
+        "zh_TW": "諾曼復興戰"
+    },
+    "未解锁自动扫荡": {
+        "path": "assets/resource/base/pipeline/Renaissance_War.jsonc",
+        "zh_CN": "当前难度下使用不多于",
+        "zh_TW": "當前難度下使用不多於"
+    },
+    "当前矿区清理完成": {
+        "path": "assets/resource/base/pipeline/Renaissance_War.jsonc",
+        "zh_CN": "章节已通关",
+        "zh_TW": "章節已通關"
+    },
+    "关闭深巢作战": {
+        "path": "assets/resource/base/pipeline/Renaissance_War.jsonc",
+        "zh_CN": "战斗准备",
+        "zh_TW": "戰鬥準備"
+    },
+    "返回至诺曼复兴战": {
+        "path": "assets/resource/base/pipeline/Renaissance_War.jsonc",
+        "zh_CN": "返回",
+        "zh_TW": "返回"
+    },
+    "返回_诺曼复兴战": {
+        "path": "assets/resource/base/pipeline/Renaissance_War.jsonc",
+        "zh_CN": "返回",
+        "zh_TW": "返回"
+    },
+    "扫荡作战": {
+        "path": "assets/resource/base/pipeline/Renaissance_War.jsonc",
+        "zh_CN": "扫荡作战",
+        "zh_TW": "掃蕩作戰"
+    },
+    "检查结果_扫荡完成": {
+        "path": "assets/resource/base/pipeline/Renaissance_War.jsonc",
+        "zh_CN": "返回",
+        "zh_TW": "返回"
+    },
+    "检查结果_章节已完成": {
+        "path": "assets/resource/base/pipeline/Renaissance_War.jsonc",
+        "zh_CN": "章节已通关",
+        "zh_TW": "章節已通關"
+    },
+    "直达深巢": {
+        "path": "assets/resource/base/pipeline/Renaissance_War.jsonc",
+        "zh_CN": "直达深巢",
+        "zh_TW": "直達深巢"
+    },
+    "选择挑战目标": {
+        "path": "assets/resource/base/pipeline/Renaissance_War.jsonc",
+        "zh_CN": "^进度：0/3$",
+        "zh_TW": "^進度：0/3$"
+    },
+    "打开诺曼复兴战": {
+        "path": "assets/resource/base/pipeline/Renaissance_War.jsonc",
+        "zh_CN": "诺曼复兴战",
+        "zh_TW": "諾曼復興戰"
+    },
+    "打开挑战_诺曼复兴战": {
+        "path": "assets/resource/base/pipeline/Renaissance_War.jsonc",
+        "zh_CN": "挑战",
+        "zh_TW": "挑戰"
+    },
+    "滑动_诺曼复兴战": {
+        "path": "assets/resource/base/pipeline/Renaissance_War.jsonc",
+        "zh_CN": "诺曼复兴战",
+        "zh_TW": "諾曼復興戰"
+    },
+    "宣叙妄响内部_reco": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "队伍",
+        "zh_TW": "隊伍"
+    },
+    "宣叙妄响内部": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "队伍",
+        "zh_TW": "隊伍"
+    },
+    "解锁自用角色_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "解锁自用角色",
+        "zh_TW": "解鎖自用角色"
+    },
+    "意外点击_队伍": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "教学",
+        "zh_TW": "教學"
+    },
+    "宣叙妄响内部_reco2": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "队伍",
+        "zh_TW": "隊伍"
+    },
+    "宣叙妄响主界面_reco": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "未完待续",
+        "zh_TW": "未完待續"
+    },
+    "撤退_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "撤退",
+        "zh_TW": "撤退"
+    },
+    "boss_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "剧幕高潮",
+        "zh_TW": "劇幕高潮"
+    },
+    "战斗失败_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "作战失败",
+        "zh_TW": "作戰失敗"
+    },
+    "没打过_宣叙妄响_reco": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "作战失败",
+        "zh_TW": "作戰失敗"
+    },
+    "幕间准备_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "幕间准备",
+        "zh_TW": "幕間準備"
+    },
+    "幕间准备处理_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "确认选择",
+        "zh_TW": "確認選擇"
+    },
+    "结束交易_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "结束交易",
+        "zh_TW": "結束交易"
+    },
+    "选择增益_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "升级",
+        "zh_TW": "升級"
+    },
+    "选择增益替换_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "替换",
+        "zh_TW": "替換"
+    },
+    "跳过选择_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "跳过选择",
+        "zh_TW": "跳過選擇"
+    },
+    "选择增益处理_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "确认选择",
+        "zh_TW": "確認選擇"
+    },
+    "剧情节点_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "密林深处",
+        "zh_TW": "密林深處"
+    },
+    "剧情节点处理_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "确认选择",
+        "zh_TW": "確認選擇"
+    },
+    "对话按钮_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "交谈",
+        "zh_TW": "交談"
+    },
+    "事件处理_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "快速离开这里",
+        "zh_TW": "快速離開這里"
+    },
+    "下一步_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "下一步",
+        "zh_TW": "下一步"
+    },
+    "离开_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "战斗冲突_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "战斗冲突",
+        "zh_TW": "戰鬥沖突"
+    },
+    "意外步骤_战斗界面": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "作战开始",
+        "zh_TW": "作戰開始"
+    },
+    "战斗冲突处理_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "确认选择",
+        "zh_TW": "確認選擇"
+    },
+    "招募奖励事件_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "演员招募",
+        "zh_TW": "演員招募"
+    },
+    "未找到演员招募": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "演员招募",
+        "zh_TW": "演員招募"
+    },
+    "增益奖励事件_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "跳过选择",
+        "zh_TW": "跳過選擇"
+    },
+    "未搜索到跳过选择": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "跳过选择",
+        "zh_TW": "跳過選擇"
+    },
+    "失败2_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "前往目标点",
+        "zh_TW": "前往目標點"
+    },
+    "全队等级提升": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "全队等级提升",
+        "zh_TW": "全隊等級提升"
+    },
+    "失败_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "作战失败",
+        "zh_TW": "作戰失敗"
+    },
+    "刷新_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "刷新",
+        "zh_TW": "刷新"
+    },
+    "刷新次数不足_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "剩余刷新次数不足",
+        "zh_TW": "剩余刷新次數不足"
+    },
+    "一号位_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "红网",
+        "zh_TW": "紅網"
+    },
+    "二号位_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "红网",
+        "zh_TW": "紅網"
+    },
+    "三号位_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "红网",
+        "zh_TW": "紅網"
+    },
+    "点击招募_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "^招募$",
+        "zh_TW": "^招募$"
+    },
+    "点击招募_倒序_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "^招募$",
+        "zh_TW": "^招募$"
+    },
+    "确认招募_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "招募",
+        "zh_TW": "招募"
+    },
+    "选定演员_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "选定演员",
+        "zh_TW": "選定演員"
+    },
+    "跳过剧情_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "吟游诗人",
+        "zh_TW": "吟游詩人"
+    },
+    "选择难度_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "入门",
+        "zh_TW": "入門"
+    },
+    "选定难度_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "选定难度",
+        "zh_TW": "選定難度"
+    },
+    "选择人物_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "演员招募",
+        "zh_TW": "演員招募"
+    },
+    "未完待续_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "未完待续",
+        "zh_TW": "未完待續"
+    },
+    "揭开帷幕_宣叙妄响_reco": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "开帷幕",
+        "zh_TW": "開帷幕"
+    },
+    "揭开帷幕_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "开帷幕",
+        "zh_TW": "開帷幕"
+    },
+    "退出结算_宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "退出",
+        "zh_TW": "退出"
+    },
+    "就此收场": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "至此收场",
+        "zh_TW": "至此收場"
+    },
+    "打开宣叙妄响": {
+        "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
+        "zh_CN": "宣叙妄响",
+        "zh_TW": "宣敘妄響"
+    },
+    "不可重复获得该秘藏品": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "不可重复获得",
+        "zh_TW": "不可重復獲得"
+    },
+    "意外点击_溯渊歧想": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "流程任务",
+        "zh_TW": "流程任務"
+    },
+    "选择宝箱奖励_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "宝箱奖励",
+        "zh_TW": "寶箱獎勵"
+    },
+    "肉鸽内部_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "第[一二三四五六七八九十百千]+章",
+        "zh_TW": "第[一二三四五六七八九十百千]+章"
+    },
+    "返回_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "返回",
+        "zh_TW": "返回"
+    },
+    "商店事件_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "鲨鲨",
+        "zh_TW": "鯊鯊"
+    },
+    "商店确认_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "确认",
+        "zh_TW": "確認"
+    },
+    "事件确定": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "确认",
+        "zh_TW": "確認"
+    },
+    "特殊事件确定": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "确认",
+        "zh_TW": "確認"
+    },
+    "意外点击_选择人物": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "卸下",
+        "zh_TW": "卸下"
+    },
+    "进入战斗_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "确认",
+        "zh_TW": "確認"
+    },
+    "战斗完成_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "领取战斗奖励",
+        "zh_TW": "領取戰鬥獎勵"
+    },
+    "选择过秘藏品": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "不可重复获得",
+        "zh_TW": "不可重復獲得"
+    },
+    "意外点击_羁绊选择": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "追忆",
+        "zh_TW": "追憶"
+    },
+    "取消_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "取消",
+        "zh_TW": "取消"
+    },
+    "领取藏品_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "选择",
+        "zh_TW": "選擇"
+    },
+    "点击藏品_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "之纹",
+        "zh_TW": "之紋"
+    },
+    "已领取所有奖励_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "已领取所有奖励",
+        "zh_TW": "已領取所有獎勵"
+    },
+    "关闭奖励_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "奖励",
+        "zh_TW": "獎勵"
+    },
+    "领取人物_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "邀约",
+        "zh_TW": "邀約"
+    },
+    "确认招募": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "招募",
+        "zh_TW": "招募"
+    },
+    "确认招募完毕": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "下一步",
+        "zh_TW": "下一步"
+    },
+    "没有羁绊": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "招募",
+        "zh_TW": "招募"
+    },
+    "领取_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "领取",
+        "zh_TW": "領取"
+    },
+    "战斗失败_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "道具数量不足",
+        "zh_TW": "道具數量不足"
+    },
+    "放弃战斗_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "放弃",
+        "zh_TW": "放棄"
+    },
+    "邀约选择_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "之邀约LV2",
+        "zh_TW": "之邀約LV2"
+    },
+    "邀约选择二次点击_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "之邀约LV2",
+        "zh_TW": "之邀約LV2"
+    },
+    "邀约下一步_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "下一步",
+        "zh_TW": "下一步"
+    },
+    "厄愿潮声主界面": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "失落外典",
+        "zh_TW": "失落外典"
+    },
+    "刷新人物_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "刷新",
+        "zh_TW": "刷新"
+    },
+    "选择人物1_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "红网",
+        "zh_TW": "紅網"
+    },
+    "选择人物2_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "红网",
+        "zh_TW": "紅網"
+    },
+    "选择人物3_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "红网",
+        "zh_TW": "紅網"
+    },
+    "招募人物_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "招募",
+        "zh_TW": "招募"
+    },
+    "调查团组建_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "调查团组建",
+        "zh_TW": "調查團組建"
+    },
+    "选择策略_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "旅行剧团",
+        "zh_TW": "旅行劇團"
+    },
+    "滑动_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "调查团组建",
+        "zh_TW": "調查團組建"
+    },
+    "调查团组建reco_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "调查团组建",
+        "zh_TW": "調查團組建"
+    },
+    "选择难度_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "浅听潮涌",
+        "zh_TW": "淺聽潮涌"
+    },
+    "开始旅途_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "开始旅途",
+        "zh_TW": "開始旅途"
+    },
+    "退出_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "退出",
+        "zh_TW": "退出"
+    },
+    "下一步_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "下一步",
+        "zh_TW": "下一步"
+    },
+    "终止_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "终止",
+        "zh_TW": "終止"
+    },
+    "打开厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
+        "zh_CN": "厄愿潮声",
+        "zh_TW": "厄願潮聲"
+    },
+    "下定决心_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "下定决心",
+        "zh_TW": "下定決心"
+    },
+    "事件完成_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "第[一二三四五六七八九十百千]+章",
+        "zh_TW": "第[一二三四五六七八九十百千]+章"
+    },
+    "关闭事件奖励_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "奖励",
+        "zh_TW": "獎勵"
+    },
+    "事件完成_二次确认_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "第[一二三四五六七八九十百千]+章",
+        "zh_TW": "第[一二三四五六七八九十百千]+章"
+    },
+    "商店_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "鲨鲨特卖",
+        "zh_TW": "鯊鯊特賣"
+    },
+    "商店_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "继续旅途",
+        "zh_TW": "繼續旅途"
+    },
+    "结束交易_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "结束交易",
+        "zh_TW": "結束交易"
+    },
+    "布道者_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "布道者",
+        "zh_TW": "布道者"
+    },
+    "布道者_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "选择秘血",
+        "zh_TW": "選擇秘血"
+    },
+    "布道者_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "收下物资",
+        "zh_TW": "收下物資"
+    },
+    "悠久之歌_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "悠久之歌",
+        "zh_TW": "悠久之歌"
+    },
+    "悠久之歌_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "不妨听听",
+        "zh_TW": "不妨聽聽"
+    },
+    "悠久之歌_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "招募同伴",
+        "zh_TW": "招募同伴"
+    },
+    "鲨鲨置物箱_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "鲨鲨置物箱",
+        "zh_TW": "鯊鯊置物箱"
+    },
+    "鲨鲨置物箱_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "感觉不值",
+        "zh_TW": "感覺不值"
+    },
+    "鲨鲨置物箱_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "继续旅途",
+        "zh_TW": "繼續旅途"
+    },
+    "名为知识的诅咒_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "“知识”",
+        "zh_TW": "“知識”"
+    },
+    "名为知识的诅咒_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "无视并离开",
+        "zh_TW": "無視并離開"
+    },
+    "名为知识的诅咒_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "继续旅途",
+        "zh_TW": "繼續旅途"
+    },
+    "集市_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "集市",
+        "zh_TW": "集市"
+    },
+    "集市_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "离开这里",
+        "zh_TW": "離開這里"
+    },
+    "集市_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "继续旅途",
+        "zh_TW": "繼續旅途"
+    },
+    "废弃庭院_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "废弃庭院",
+        "zh_TW": "廢棄庭院"
+    },
+    "废弃庭院_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "探索储藏室",
+        "zh_TW": "探索儲藏室"
+    },
+    "废弃庭院_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "收入",
+        "zh_TW": "收入"
+    },
+    "恶魔配方_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "配方",
+        "zh_TW": "配方"
+    },
+    "恶魔配方_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "带走古",
+        "zh_TW": "帶走古"
+    },
+    "恶魔配方_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "收获满满",
+        "zh_TW": "收獲滿滿"
+    },
+    "军备库_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "军备库",
+        "zh_TW": "軍備庫"
+    },
+    "军备库_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "秘藏品",
+        "zh_TW": "秘藏品"
+    },
+    "军备库_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "打开箱子",
+        "zh_TW": "打開箱子"
+    },
+    "迷雾之梦_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "迷雾之梦",
+        "zh_TW": "迷霧之夢"
+    },
+    "迷雾之梦_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "停在原地",
+        "zh_TW": "停在原地"
+    },
+    "迷雾之梦_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "醒来",
+        "zh_TW": "醒來"
+    },
+    "旅行剧团_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "旅行剧团",
+        "zh_TW": "旅行劇團"
+    },
+    "旅行剧团_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "你对剧目毫无兴趣",
+        "zh_TW": "你對劇目毫無興趣"
+    },
+    "旅行剧团_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "继续旅途",
+        "zh_TW": "繼續旅途"
+    },
+    "返乡者_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "返乡者",
+        "zh_TW": "返鄉者"
+    },
+    "返乡者_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "与他告别",
+        "zh_TW": "與他告別"
+    },
+    "返乡者_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "继续旅途",
+        "zh_TW": "繼續旅途"
+    },
+    "命运前路_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "命运前路",
+        "zh_TW": "命運前路"
+    },
+    "命运前路_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "接受占卜",
+        "zh_TW": "接受占卜"
+    },
+    "命运前路_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "收集物品",
+        "zh_TW": "收集物品"
+    },
+    "拾荒者派对_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "拾荒者派对",
+        "zh_TW": "拾荒者派對"
+    },
+    "拾荒者派对_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "还是算了",
+        "zh_TW": "還是算了"
+    },
+    "拾荒者派对_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "继续旅途",
+        "zh_TW": "繼續旅途"
+    },
+    "名为禁忌的睿智_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "“禁忌”",
+        "zh_TW": "“禁忌”"
+    },
+    "名为禁忌的睿智_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "取走诅咒的古籍",
+        "zh_TW": "取走詛咒的古籍"
+    },
+    "名为禁忌的睿智_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "收下古籍",
+        "zh_TW": "收下古籍"
+    },
+    "遗骨之滨_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "遗骨之滨",
+        "zh_TW": "遺骨之濱"
+    },
+    "遗骨之滨_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "探索周围",
+        "zh_TW": "探索週圍"
+    },
+    "遗骨之滨_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "收集物资",
+        "zh_TW": "收集物資"
+    },
+    "柯蕾多尔的馈赠_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "蕾多尔的馈赠",
+        "zh_TW": "蕾多爾的饋贈"
+    },
+    "柯雷多尔的馈赠_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "收下赠礼",
+        "zh_TW": "收下贈禮"
+    },
+    "柯雷多尔的馈赠_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "收下礼物",
+        "zh_TW": "收下禮物"
+    },
+    "街头艺人_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "街头艺人",
+        "zh_TW": "街頭藝人"
+    },
+    "街头艺人_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "对猜谜没有兴趣",
+        "zh_TW": "對猜謎沒有興趣"
+    },
+    "街头艺人_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "离开这里",
+        "zh_TW": "離開這里"
+    },
+    "失败者_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "失败者",
+        "zh_TW": "失敗者"
+    },
+    "失败者_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "收下他的遗物",
+        "zh_TW": "收下他的遺物"
+    },
+    "继承意志_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "继承",
+        "zh_TW": "繼承"
+    },
+    "失败者_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "继续旅途",
+        "zh_TW": "繼續旅途"
+    },
+    "欢乐时光_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "欢乐时光",
+        "zh_TW": "歡樂時光"
+    },
+    "欢乐时光_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "尽情豪饮",
+        "zh_TW": "盡情豪飲"
+    },
+    "欢乐时光_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "招募同伴",
+        "zh_TW": "招募同伴"
+    },
+    "谨听忠告_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "要塞中",
+        "zh_TW": "要塞中"
+    },
+    "谨听忠告_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "招募更多同伴",
+        "zh_TW": "招募更多同伴"
+    },
+    "谨听忠告_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "继续",
+        "zh_TW": "繼續"
+    },
+    "禁忌教堂_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "^禁忌教堂$",
+        "zh_TW": "^禁忌教堂$"
+    },
+    "禁忌教堂_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "还是算了",
+        "zh_TW": "還是算了"
+    },
+    "禁忌教堂_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "离开这里",
+        "zh_TW": "離開這里"
+    },
+    "被完成的谜题_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "被完成的谜题",
+        "zh_TW": "被完成的謎題"
+    },
+    "被完成的谜题_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "取走权杖",
+        "zh_TW": "取走權杖"
+    },
+    "被完成的谜题_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "取走圣器",
+        "zh_TW": "取走聖器"
+    },
+    "藏书库_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "藏书库",
+        "zh_TW": "藏書庫"
+    },
+    "藏书库_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "阅读古早民间的童话",
+        "zh_TW": "閱讀古早民間的童話"
+    },
+    "藏书库_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "收下物品",
+        "zh_TW": "收下物品"
+    },
+    "另一面圆桌_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "另一面圆桌",
+        "zh_TW": "另一面圓桌"
+    },
+    "另一面圆桌_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "拒绝变格",
+        "zh_TW": "拒絕變格"
+    },
+    "另一面圆桌_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "离开这里",
+        "zh_TW": "離開這里"
+    },
+    "恶魔传说_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "传说",
+        "zh_TW": "傳說"
+    },
+    "恶魔传说_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "默默记下故事",
+        "zh_TW": "默默記下故事"
+    },
+    "恶魔传说_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "收获满满",
+        "zh_TW": "收獲滿滿"
+    },
+    "许愿之井_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "许愿之井",
+        "zh_TW": "許願之井"
+    },
+    "许愿之井_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "一看就是骗人的把戏",
+        "zh_TW": "一看就是騙人的把戲"
+    },
+    "许愿之井_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "继续旅途",
+        "zh_TW": "繼續旅途"
+    },
+    "迷途之子_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "迷途之子",
+        "zh_TW": "迷途之子"
+    },
+    "迷途之子_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "无视并离开",
+        "zh_TW": "無視并離開"
+    },
+    "迷途之子_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "阵营冲突_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "阵营冲突",
+        "zh_TW": "陣營沖突"
+    },
+    "阵营冲突_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "就此离开",
+        "zh_TW": "就此離開"
+    },
+    "阵营冲突_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "继续",
+        "zh_TW": "繼續"
+    },
+    "珠宝猎人_厄愿潮声": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "珠宝猎人",
+        "zh_TW": "珠寶獵人"
+    },
+    "珠宝猎人_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "表示自己没有宝石",
+        "zh_TW": "表示自己沒有寶石"
+    },
+    "珠宝猎人_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "返回_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "藏品",
+        "zh_TW": "藏品"
+    },
+    "选择模式_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "首发",
+        "zh_TW": "首發"
+    },
+    "招募能量4点": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "4",
+        "zh_TW": "4"
+    },
+    "招募能量3点": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "3",
+        "zh_TW": "3"
+    },
+    "选择首发2_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "首发",
+        "zh_TW": "首發"
+    },
+    "点击精通等级低于3的人物": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "^0$",
+        "zh_TW": "^0$"
+    },
+    "打开矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "矩阵循生",
+        "zh_TW": "矩陣循生"
+    },
+    "打开多维演绎": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "多维演绎",
+        "zh_TW": "多維演繹"
+    },
+    "打开挑战": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "挑战",
+        "zh_TW": "挑戰"
+    },
+    "启程_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "启程",
+        "zh_TW": "啟程"
+    },
+    "重开启程_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "启程",
+        "zh_TW": "啟程"
+    },
+    "迭变投影_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "迭变投影",
+        "zh_TW": "迭變投影"
+    },
+    "转场_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "Chapter",
+        "zh_TW": "Chapter"
+    },
+    "链路崩溃": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "链路崩溃",
+        "zh_TW": "鏈路崩潰"
+    },
+    "肉鸽内部": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "藏品",
+        "zh_TW": "藏品"
+    },
+    "进入物归新主_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "物归新主",
+        "zh_TW": "物歸新主"
+    },
+    "确定进入物归新主_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "确定",
+        "zh_TW": "確定"
+    },
+    "物归新主完成_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "藏品",
+        "zh_TW": "藏品"
+    },
+    "物归新主完成_二次确认_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "藏品",
+        "zh_TW": "藏品"
+    },
+    "更换人物": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "编队",
+        "zh_TW": "編隊"
+    },
+    "点击精通等级低于12的人物": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "编入",
+        "zh_TW": "編入"
+    },
+    "确定编队_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "确定",
+        "zh_TW": "確定"
+    },
+    "识别精通等级": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "^(?!12$).*$",
+        "zh_TW": "^(?!12$).*$"
+    },
+    "点击下阵": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "下阵",
+        "zh_TW": "下陣"
+    },
+    "更换首发_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "首发",
+        "zh_TW": "首發"
+    },
+    "事件确定_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "确定",
+        "zh_TW": "確定"
+    },
+    "终止_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "终止",
+        "zh_TW": "終止"
+    },
+    "下一页": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "下一页",
+        "zh_TW": "下一頁"
+    },
+    "点击继续": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "继续",
+        "zh_TW": "繼續"
+    },
+    "离开_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "异度投影_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "异度投影",
+        "zh_TW": "異度投影"
+    },
+    "进入异度投影": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "确定",
+        "zh_TW": "確定"
+    },
+    "异度投影_对话3": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "进行观测",
+        "zh_TW": "進行觀測"
+    },
+    "beta_过场动画": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "阶段",
+        "zh_TW": "階段"
+    },
+    "异度投影_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "靠近",
+        "zh_TW": "靠近"
+    },
+    "异度投影_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "继续靠近",
+        "zh_TW": "繼續靠近"
+    },
+    "前进_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "前进",
+        "zh_TW": "前進"
+    },
+    "算力单元不足": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "算力单元",
+        "zh_TW": "算力單元"
+    },
+    "放弃战斗_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "放弃",
+        "zh_TW": "放棄"
+    },
+    "战斗失败": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "链路崩溃",
+        "zh_TW": "鏈路崩潰"
+    },
+    "进入战斗_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "确定",
+        "zh_TW": "確定"
+    },
+    "战斗完成_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "领取奖励",
+        "zh_TW": "領取獎勵"
+    },
+    "熵值通知_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "正在注入",
+        "zh_TW": "正在注入"
+    },
+    "领取熵值奖励_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "",
+        "zh_TW": ""
+    },
+    "领取藏品": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "领取奖励",
+        "zh_TW": "領取獎勵"
+    },
+    "点击藏品": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "",
+        "zh_TW": ""
+    },
+    "离开_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "确认装备_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "确定",
+        "zh_TW": "確定"
+    },
+    "选择装备_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "请选择装备",
+        "zh_TW": "請選擇裝備"
+    },
+    "领取_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "领取",
+        "zh_TW": "領取"
+    },
+    "事件完成_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "藏品",
+        "zh_TW": "藏品"
+    },
+    "事件完成_结束_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "藏品",
+        "zh_TW": "藏品"
+    },
+    "事件完成_二次确认_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "藏品",
+        "zh_TW": "藏品"
+    },
+    "事件完成_结束_二次确认_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "藏品",
+        "zh_TW": "藏品"
+    },
+    "出击_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "出击",
+        "zh_TW": "出擊"
+    },
+    "关闭奖励_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "获得奖励",
+        "zh_TW": "獲得獎勵"
+    },
+    "决定_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "决定",
+        "zh_TW": "決定"
+    },
+    "出发_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "出发",
+        "zh_TW": "出發"
+    },
+    "肉鸽战斗_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "战斗",
+        "zh_TW": "戰鬥"
+    },
+    "选择难度_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "普通",
+        "zh_TW": "普通"
+    },
+    "迭变藏品_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "外层",
+        "zh_TW": "外層"
+    },
+    "下一步_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "下一步",
+        "zh_TW": "下一步"
+    },
+    "选择首发_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "首发",
+        "zh_TW": "首發"
+    },
+    "选择角色程序_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "编入",
+        "zh_TW": "編入"
+    },
+    "链路崩溃_reco": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "链路崩溃",
+        "zh_TW": "鏈路崩潰"
+    },
+    "编入_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "编入",
+        "zh_TW": "編入"
+    },
+    "编队完成_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "队伍调整",
+        "zh_TW": "隊伍調整"
+    },
+    "开始演算": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
+        "zh_CN": "开始演算",
+        "zh_TW": "開始演算"
+    },
+    "商店_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "士多",
+        "zh_TW": "士多"
+    },
+    "意外点击藏品_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "^.品$",
+        "zh_TW": "^.品$"
+    },
+    "进入商店_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "确定",
+        "zh_TW": "確定"
+    },
+    "确认结束购物_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "确认",
+        "zh_TW": "確認"
+    },
+    "结束购物_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "结束购物",
+        "zh_TW": "結束購物"
+    },
+    "在途存货_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "在途存货",
+        "zh_TW": "在途存貨"
+    },
+    "在途存货_对话1": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "在途存货_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "射击大的捕虫袋",
+        "zh_TW": "射擊大的捕蟲袋"
+    },
+    "亚人少女_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "亚人少女",
+        "zh_TW": "亞人少女"
+    },
+    "亚人少女_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "转身逃离",
+        "zh_TW": "轉身逃離"
+    },
+    "亚人少女_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "原地观察",
+        "zh_TW": "原地觀察"
+    },
+    "贴心搭档_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "贴心搭档",
+        "zh_TW": "貼心搭檔"
+    },
+    "贴心搭档_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "取走沉甸甸的大包裹",
+        "zh_TW": "取走沉甸甸的大包裹"
+    },
+    "逃出生天_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "逃出生天",
+        "zh_TW": "逃出生天"
+    },
+    "逃出生天_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "收下",
+        "zh_TW": "收下"
+    },
+    "逃出生天_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "给巨鼠些吃的",
+        "zh_TW": "給巨鼠些吃的"
+    },
+    "隐秘工坊_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "隐秘工坊",
+        "zh_TW": "隱秘工坊"
+    },
+    "隐秘工坊_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "直接出发",
+        "zh_TW": "直接出發"
+    },
+    "隐秘工坊_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "收取",
+        "zh_TW": "收取"
+    },
+    "洁塔薇的游戏_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "洁塔薇的游戏",
+        "zh_TW": "潔塔薇的游戲"
+    },
+    "洁塔薇的游戏_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "转头看向自己背后",
+        "zh_TW": "轉頭看向自己背后"
+    },
+    "洁塔薇的游戏_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "追上她",
+        "zh_TW": "追上她"
+    },
+    "禁忌验证_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "禁忌验证",
+        "zh_TW": "禁忌驗證"
+    },
+    "禁忌验证_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "检查四周",
+        "zh_TW": "檢查四週"
+    },
+    "禁忌验证_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "寻找安全区",
+        "zh_TW": "尋找安全區"
+    },
+    "头号玩家_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "头号玩家",
+        "zh_TW": "頭號玩家"
+    },
+    "头号玩家_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "头号玩家_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "取走游戏机的芯片",
+        "zh_TW": "取走游戲機的芯片"
+    },
+    "致命失误_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "致命失误",
+        "zh_TW": "致命失誤"
+    },
+    "致命失误_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "取走东西",
+        "zh_TW": "取走東西"
+    },
+    "致命失误_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "打开实验日志阅读",
+        "zh_TW": "打開實驗日志閱讀"
+    },
+    "工业怪谈_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "工业怪谈",
+        "zh_TW": "工業怪談"
+    },
+    "工业怪谈_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "工业怪谈_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "就地回收",
+        "zh_TW": "就地回收"
+    },
+    "动物坟场_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "动物坟场",
+        "zh_TW": "動物墳場"
+    },
+    "动物坟场_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "查看周围",
+        "zh_TW": "查看週圍"
+    },
+    "动物坟场_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "挖掘",
+        "zh_TW": "挖掘"
+    },
+    "观星真相_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "观星真相",
+        "zh_TW": "觀星真相"
+    },
+    "观星真相_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "避开",
+        "zh_TW": "避開"
+    },
+    "观星真相_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "调查机器人的芯片",
+        "zh_TW": "調查機器人的芯片"
+    },
+    "异界通讯I_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "机械性故障",
+        "zh_TW": "機械性故障"
+    },
+    "异界通讯I_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "检查武器",
+        "zh_TW": "檢查武器"
+    },
+    "异界通讯I_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "建立",
+        "zh_TW": "建立"
+    },
+    "步履蹒跚_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "步履",
+        "zh_TW": "步履"
+    },
+    "步履蹒跚_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "举手之劳_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "举手之劳",
+        "zh_TW": "舉手之勞"
+    },
+    "举手之劳_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "举手之劳_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "去花园里浇水",
+        "zh_TW": "去花園里澆水"
+    },
+    "步履蹒跚_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "去看看保险柜",
+        "zh_TW": "去看看保險櫃"
+    },
+    "无效救援_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "无效救援",
+        "zh_TW": "無效救援"
+    },
+    "无效救援_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "无效救援_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "直接出发",
+        "zh_TW": "直接出發"
+    },
+    "盛典纪行_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "盛典纪行",
+        "zh_TW": "盛典紀行"
+    },
+    "盛典纪行_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "检查",
+        "zh_TW": "檢查"
+    },
+    "盛典纪行_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "解救",
+        "zh_TW": "解救"
+    },
+    "火灾现场_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "火灾现场",
+        "zh_TW": "火災現場"
+    },
+    "火灾现场_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "火灾现场_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "这是一场布局精妙的谋杀",
+        "zh_TW": "這是一場布局精妙的謀殺"
+    },
+    "棋盘难题_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "棋盘难题",
+        "zh_TW": "棋槃難題"
+    },
+    "棋盘难题_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "棋盘难题_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "接受挑战",
+        "zh_TW": "接受挑戰"
+    },
+    "皇后游戏_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "后游戏",
+        "zh_TW": "后游戲"
+    },
+    "皇后游戏_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "皇后游戏_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "接受挑战",
+        "zh_TW": "接受挑戰"
+    },
+    "瑕疵造物_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "瑕疵造物",
+        "zh_TW": "瑕疵造物"
+    },
+    "瑕疵造物_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "瑕疵造物_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "断臂维纳斯",
+        "zh_TW": "斷臂維納斯"
+    },
+    "迷失之馆_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "迷失之馆",
+        "zh_TW": "迷失之館"
+    },
+    "迷失之馆_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "迷失之馆_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "帮助他",
+        "zh_TW": "幫助他"
+    },
+    "圣殿战役_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "圣殿战役",
+        "zh_TW": "聖殿戰役"
+    },
+    "圣殿战役_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "圣殿战役_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "协助黑衣人",
+        "zh_TW": "協助黑衣人"
+    },
+    "西西弗斯_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "西西弗斯",
+        "zh_TW": "西西弗斯"
+    },
+    "西西弗斯_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "西西弗斯_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "询问少女",
+        "zh_TW": "詢問少女"
+    },
+    "野性之森_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "野性之森",
+        "zh_TW": "野性之森"
+    },
+    "野性之森_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "野性之森_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "问女孩昆虫的品种",
+        "zh_TW": "問女孩昆蟲的品種"
+    },
+    "蓝色裂痕_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "蓝色裂痕",
+        "zh_TW": "藍色裂痕"
+    },
+    "蓝色裂痕_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "蓝色裂痕_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "进入里面",
+        "zh_TW": "進入里面"
+    },
+    "铁石心肠_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "铁石心肠",
+        "zh_TW": "鐵石心腸"
+    },
+    "铁石心肠_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "铁石心肠_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "优先启动档案库",
+        "zh_TW": "優先啟動檔案庫"
+    },
+    "栩栩如生_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "栩栩",
+        "zh_TW": "栩栩"
+    },
+    "栩栩如生_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "栩栩如生_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "绝境的希望",
+        "zh_TW": "絕境的希望"
+    },
+    "荒废古卷_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "荒废古卷",
+        "zh_TW": "荒廢古卷"
+    },
+    "荒废古卷_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "荒废古卷_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "完全品",
+        "zh_TW": "完全品"
+    },
+    "回答_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "回答",
+        "zh_TW": "回答"
+    },
+    "洁塔薇的食材_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "洁塔薇的食材",
+        "zh_TW": "潔塔薇的食材"
+    },
+    "洁塔薇的食材_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "洁塔薇的食材_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "紫里透红",
+        "zh_TW": "紫里透紅"
+    },
+    "荒废古堡_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "荒废古堡",
+        "zh_TW": "荒廢古堡"
+    },
+    "荒废古堡_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "荒废古堡_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "转身离开",
+        "zh_TW": "轉身離開"
+    },
+    "天台扭蛋机_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "天台扭蛋机",
+        "zh_TW": "天台扭蛋機"
+    },
+    "天台扭蛋机_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "天台扭蛋机_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "还是算了",
+        "zh_TW": "還是算了"
+    },
+    "莫比乌斯_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "莫比乌斯",
+        "zh_TW": "莫比烏斯"
+    },
+    "莫比乌斯_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "莫比乌斯_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "不动声色",
+        "zh_TW": "不動聲色"
+    },
+    "赝品工匠_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "品工匠",
+        "zh_TW": "品工匠"
+    },
+    "赝品工匠_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "赝品工匠_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "夜里撒入的月光",
+        "zh_TW": "夜里撒入的月光"
+    },
+    "继承之物_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "继承之物",
+        "zh_TW": "繼承之物"
+    },
+    "继承之物_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "继承之物_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "询问他关于怪物的事",
+        "zh_TW": "詢問他關於怪物的事"
+    },
+    "异界通讯II_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "意外的请求",
+        "zh_TW": "意外的請求"
+    },
+    "异界通讯II_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "异界通讯II_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "接受请求",
+        "zh_TW": "接受請求"
+    },
+    "禁忌实验_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "禁忌实验",
+        "zh_TW": "禁忌實驗"
+    },
+    "禁忌实验_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "禁忌实验_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "射击怪物",
+        "zh_TW": "射擊怪物"
+    },
+    "失败造物_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "失败造物",
+        "zh_TW": "失敗造物"
+    },
+    "失败造物_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "失败造物_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "调查活泼开朗的粉发莉莉",
+        "zh_TW": "調查活潑開朗的粉發莉莉"
+    },
+    "继续_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "继续",
+        "zh_TW": "繼續"
+    },
+    "调查_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "调查",
+        "zh_TW": "調查"
+    },
+    "旧日情谊_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "旧日情谊",
+        "zh_TW": "舊日情誼"
+    },
+    "旧日情谊_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "旧日情谊_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "拒绝莉莉的请求",
+        "zh_TW": "拒絕莉莉的請求"
+    },
+    "贫困收藏家_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "贫困收藏家",
+        "zh_TW": "貧困收藏家"
+    },
+    "贫困收藏家_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "贫困收藏家_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "拒绝交换",
+        "zh_TW": "拒絕交換"
+    },
+    "英雄真相_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "英雄真相",
+        "zh_TW": "英雄真相"
+    },
+    "英雄真相_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "英雄真相_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "优先解救被困少女",
+        "zh_TW": "優先解救被困少女"
+    },
+    "记忆真相_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "记忆真相",
+        "zh_TW": "記憶真相"
+    },
+    "记忆真相_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "记忆真相_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "花费时间消灭怪物",
+        "zh_TW": "花費時間消滅怪物"
+    },
+    "天选者的故事_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "天选者的故事",
+        "zh_TW": "天選者的故事"
+    },
+    "天选者的故事_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "天选者的故事_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "与天选者的相遇",
+        "zh_TW": "與天選者的相遇"
+    },
+    "翻阅_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "翻阅",
+        "zh_TW": "翻閱"
+    },
+    "树神之女_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "树神之女",
+        "zh_TW": "樹神之女"
+    },
+    "树神之女_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "树神之女_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "开导少女",
+        "zh_TW": "開導少女"
+    },
+    "物归新主_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "物归新主",
+        "zh_TW": "物歸新主"
+    },
+    "物归新主_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "出发",
+        "zh_TW": "出發"
+    },
+    "物归新主_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "打开箱子",
+        "zh_TW": "打開箱子"
+    },
+    "无尽长廊_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "无尽长廊",
+        "zh_TW": "無盡長廊"
+    },
+    "无尽长廊_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "无尽长廊_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "前进",
+        "zh_TW": "前進"
+    },
+    "万两黄金_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "万两黄金",
+        "zh_TW": "萬兩黃金"
+    },
+    "万两黄金_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "万两黄金_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "去小花园调查",
+        "zh_TW": "去小花園調查"
+    },
+    "工业幽灵_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "工业幽灵",
+        "zh_TW": "工業幽靈"
+    },
+    "工业幽灵_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "工业幽灵_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "开枪解决感染体",
+        "zh_TW": "開槍解決感染體"
+    },
+    "自投罗网_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "自投罗网",
+        "zh_TW": "自投羅網"
+    },
+    "自投罗网_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "自投罗网_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "让他交出物资",
+        "zh_TW": "讓他交出物資"
+    },
+    "武器技师_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "武器技师",
+        "zh_TW": "武器技師"
+    },
+    "武器技师_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "武器技师_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "接入该游戏机进行游玩",
+        "zh_TW": "接入該游戲機進行游玩"
+    },
+    "致命隐患_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "致命隐患",
+        "zh_TW": "致命隱患"
+    },
+    "致命隐患_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "离开",
+        "zh_TW": "離開"
+    },
+    "致命隐患_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "开枪鸡腿两头感染体",
+        "zh_TW": "開槍雞腿兩頭感染體"
+    },
+    "物归新主非兼容_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "物归新主",
+        "zh_TW": "物歸新主"
+    },
+    "物归新主非兼容_对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "出发",
+        "zh_TW": "出發"
+    },
+    "物归新主非兼容_对话2": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "打开箱子",
+        "zh_TW": "打開箱子"
+    },
+    "未知事件_矩阵循生": {
+        "path": "assets/resource/base/pipeline/Roguelike_3/RogueLike_3_Event.jsonc",
+        "zh_CN": "",
+        "zh_TW": ""
+    },
+    "重开游戏_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "终止",
+        "zh_TW": "終止"
+    },
+    "完成所有任务_重开": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "退出",
+        "zh_TW": "退出"
+    },
+    "打开寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "寒",
+        "zh_TW": "寒"
+    },
+    "雪域异常点_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "雪域异常点",
+        "zh_TW": "雪域異常點"
+    },
+    "港口异常点_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "港口异常点",
+        "zh_TW": "港口異常點"
+    },
+    "物资_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "物资",
+        "zh_TW": "物資"
+    },
+    "物资事件结束_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "获得奖励",
+        "zh_TW": "獲得獎勵"
+    },
+    "重新进入_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "暂离",
+        "zh_TW": "暫離"
+    },
+    "下一天_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "下一天",
+        "zh_TW": "下一天"
+    },
+    "确认下一天_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "尚有行动点未消耗，是否结束日程",
+        "zh_TW": "尚有行動點未消耗，是否結束日程"
+    },
+    "意外点击_跋涉印记": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "跋涉印记",
+        "zh_TW": "跋涉印記"
+    },
+    "挑战失败_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "退出挑战",
+        "zh_TW": "退出挑戰"
+    },
+    "挑战失败_寒境曙光_reco": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "退出挑战",
+        "zh_TW": "退出挑戰"
+    },
+    "挑战失败rec_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "退出挑战",
+        "zh_TW": "退出挑戰"
+    },
+    "行动点不足2_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "0/3",
+        "zh_TW": "0/3"
+    },
+    "驻扎点报警_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "驻扎点即将遭受攻击",
+        "zh_TW": "駐扎點即將遭受攻擊"
+    },
+    "选择军事支援_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "选择军事支援",
+        "zh_TW": "選擇軍事支援"
+    },
+    "选择经济支援_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "选择经济支援",
+        "zh_TW": "選擇經濟支援"
+    },
+    "选择基建支援_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "选择基建支援",
+        "zh_TW": "選擇基建支援"
+    },
+    "文字地块_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "无尚之戒",
+        "zh_TW": "無尚之戒"
+    },
+    "开始探索_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "开始探索",
+        "zh_TW": "開始探索"
+    },
+    "肉鸽战斗_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "首发",
+        "zh_TW": "首發"
+    },
+    "战斗中_货币不足": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "新苏菲亚币不足",
+        "zh_TW": "新蘇菲亞幣不足"
+    },
+    "放弃战斗_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "放弃",
+        "zh_TW": "放棄"
+    },
+    "重启_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "重启",
+        "zh_TW": "重啟"
+    },
+    "跳过战斗对话": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "跳过",
+        "zh_TW": "跳過"
+    },
+    "战斗完成_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "领取奖励",
+        "zh_TW": "領取獎勵"
+    },
+    "事件完成_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "[×xX]\\d+",
+        "zh_TW": "[×xX]\\d+"
+    },
+    "事件完成_二次确认_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "[×xX]\\d+",
+        "zh_TW": "[×xX]\\d+"
+    },
+    "未选人_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "未选择队长",
+        "zh_TW": "未選擇隊長"
+    },
+    "关闭未拥有人物提示": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "检测到指挥官未拥有该成员",
+        "zh_TW": "檢測到指揮官未擁有該成員"
+    },
+    "滑动_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "涂装",
+        "zh_TW": "塗裝"
+    },
+    "选择对应人物_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "深红囚影",
+        "zh_TW": "深紅囚影"
+    },
+    "选择首发_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "首发",
+        "zh_TW": "首發"
+    },
+    "支援等级提升_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "支援等级提升",
+        "zh_TW": "支援等級提升"
+    },
+    "局内招募_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "^升$",
+        "zh_TW": "^升$"
+    },
+    "错误识别指数_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "未达标",
+        "zh_TW": "未達標"
+    },
+    "退出_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "暂离",
+        "zh_TW": "暫離"
+    },
+    "港口异常点end_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "已达标",
+        "zh_TW": "已達標"
+    },
+    "错误点击事件_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "旧国遗产",
+        "zh_TW": "舊國遺產"
+    },
+    "返回boss页面_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "已达标",
+        "zh_TW": "已達標"
+    },
+    "货币不足_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "新苏菲亚币",
+        "zh_TW": "新蘇菲亞幣"
+    },
+    "区域未连通": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "区域未连通",
+        "zh_TW": "區域未連通"
+    },
+    "重置镜头": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "已达标",
+        "zh_TW": "已達標"
+    },
+    "领取奖励界面_结束": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "领取奖励",
+        "zh_TW": "領取獎勵"
+    },
+    "选择图纸_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "选择图纸",
+        "zh_TW": "選擇圖紙"
+    },
+    "选择图纸2_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "",
+        "zh_TW": ""
+    },
+    "奖励领取完毕_结束": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "到达地区",
+        "zh_TW": "到達地區"
+    },
+    "完成所有任务": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "退出",
+        "zh_TW": "退出"
+    },
+    "刷新次数用尽失败_寒镜曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "返回",
+        "zh_TW": "返回"
+    },
+    "关闭升级提示": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "考核等级提升",
+        "zh_TW": "考核等級提升"
+    },
+    "下一步_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "下一步",
+        "zh_TW": "下一步"
+    },
+    "确定终止_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "是否确定终止战斗",
+        "zh_TW": "是否確定終止戰鬥"
+    },
+    "终止_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "终止",
+        "zh_TW": "終止"
+    },
+    "凛风山谷_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "离开山谷",
+        "zh_TW": "離開山谷"
+    },
+    "失落白银城_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "暂不前往",
+        "zh_TW": "暫不前往"
+    },
+    "检查是否为港口异常点战斗": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "港口异常点",
+        "zh_TW": "港口異常點"
+    },
+    "选择代理_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "代理作战",
+        "zh_TW": "代理作戰"
+    },
+    "到达下一目标": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "雪域",
+        "zh_TW": "雪域"
+    },
+    "关闭提示北部港口_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "港口",
+        "zh_TW": "港口"
+    },
+    "进入战斗_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "进入战斗",
+        "zh_TW": "進入戰鬥"
+    },
+    "关闭奖励_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "获得奖励",
+        "zh_TW": "獲得獎勵"
+    },
+    "继续对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "行动点不足",
+        "zh_TW": "行動點不足"
+    },
+    "行动点不足_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "行动点不足，是否休息",
+        "zh_TW": "行動點不足，是否休息"
+    },
+    "休息完成_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "下一天",
+        "zh_TW": "下一天"
+    },
+    "点击空白处关闭": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "点击空白处",
+        "zh_TW": "點擊空白處"
+    },
+    "选择人物_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "招募次数",
+        "zh_TW": "招募次數"
+    },
+    "无刷新次数_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "0/1",
+        "zh_TW": "0/1"
+    },
+    "刷新人物_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "1/1",
+        "zh_TW": "1/1"
+    },
+    "选择已有战斗逻辑的人物": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "深红囚影",
+        "zh_TW": "深紅囚影"
+    },
+    "招募人物_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "招募",
+        "zh_TW": "招募"
+    },
+    "确认进入场景_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "下一天",
+        "zh_TW": "下一天"
+    },
+    "强制失败_成功": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "退出挑战",
+        "zh_TW": "退出挑戰"
+    },
+    "下一天_强制失败": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "下一天",
+        "zh_TW": "下一天"
+    },
+    "确认下一天_强制失败": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "尚有行动点未消耗，是否结束日程",
+        "zh_TW": "尚有行動點未消耗，是否結束日程"
+    },
+    "选择难度_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "下一步",
+        "zh_TW": "下一步"
+    },
+    "选择具体难度_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "常温",
+        "zh_TW": "常溫"
+    },
+    "难度切换_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "下一步",
+        "zh_TW": "下一步"
+    },
+    "选择难度完成_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "选择开局效果",
+        "zh_TW": "選擇開局效果"
+    },
+    "选择开局_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "选择开局效果",
+        "zh_TW": "選擇開局效果"
+    },
+    "未解锁开局": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "通关(常温|初冷|微寒|冰冽|严霜|极寒)或以上难度解",
+        "zh_TW": "通關(常溫|初冷|微寒|冰冽|嚴霜|極寒)或以上難度解"
+    },
+    "选择具体开局_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "军事",
+        "zh_TW": "軍事"
+    },
+    "开局切换_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "选择开局效果",
+        "zh_TW": "選擇開局效果"
+    },
+    "选择开局完成_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "确定",
+        "zh_TW": "確定"
+    },
+    "检查当前分数": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "^\\d*$",
+        "zh_TW": "^\\d*$"
+    },
+    "检查目标分数": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "^\\d*$",
+        "zh_TW": "^\\d*$"
+    },
+    "检查分数": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
+        "zh_CN": "^\\d*$",
+        "zh_TW": "^\\d*$"
+    },
+    "战斗地块_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "低危区",
+        "zh_TW": "低危區"
+    },
+    "识别岗哨塔_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "[7-9]|\\d{2,}",
+        "zh_TW": "[7-9]|\\d{2,}"
+    },
+    "使用岗哨塔_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "岗哨塔",
+        "zh_TW": "崗哨塔"
+    },
+    "准备战斗_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "开始探索",
+        "zh_TW": "開始探索"
+    },
+    "剩余资金700以上_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "(7\\d{2,}|[8-9]\\d{2,}|\\d{4,})",
+        "zh_TW": "(7\\d{2,}|[8-9]\\d{2,}|\\d{4,})"
+    },
+    "汇合_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "汇合",
+        "zh_TW": "匯合"
+    },
+    "汇合_结束对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "收下",
+        "zh_TW": "收下"
+    },
+    "汇合_对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "继续",
+        "zh_TW": "繼續"
+    },
+    "拓荒_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "拓荒",
+        "zh_TW": "拓荒"
+    },
+    "拓荒_寒境曙光_对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "回报边境公社",
+        "zh_TW": "回報邊境公社"
+    },
+    "无尚之戒_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "无尚之戒",
+        "zh_TW": "無尚之戒"
+    },
+    "无尚之戒_寒境曙光_对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "不拿走戒指",
+        "zh_TW": "不拿走戒指"
+    },
+    "前方有陷阱_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "前方有陷阱",
+        "zh_TW": "前方有陷阱"
+    },
+    "前方有陷阱_对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "谨慎离开",
+        "zh_TW": "謹慎離開"
+    },
+    "剩余资金_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "剩余资金",
+        "zh_TW": "剩余資金"
+    },
+    "剩余资金_寒境曙光_对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "同意举办宴会",
+        "zh_TW": "同意舉辦宴會"
+    },
+    "冬日之影_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "冬日之",
+        "zh_TW": "冬日之"
+    },
+    "冬日之影_对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "进行松土",
+        "zh_TW": "進行松土"
+    },
+    "离开对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "追寻",
+        "zh_TW": "追尋"
+    },
+    "战马瑞恩_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "战马瑞恩",
+        "zh_TW": "戰馬瑞恩"
+    },
+    "战马瑞恩_对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "简单地驱逐感染体",
+        "zh_TW": "簡單地驅逐感染體"
+    },
+    "意外点击_求生手记": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "求生手记",
+        "zh_TW": "求生手記"
+    },
+    "鲨鱼置物箱_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "鲨鱼",
+        "zh_TW": "鯊魚"
+    },
+    "鲨鱼置物箱_对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "同意",
+        "zh_TW": "同意"
+    },
+    "学者来访_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "学者来访",
+        "zh_TW": "學者來訪"
+    },
+    "学者来访_对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "拒绝",
+        "zh_TW": "拒絕"
+    },
+    "运力紧张_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "运力紧张",
+        "zh_TW": "運力緊張"
+    },
+    "运力紧张_对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "同意铺设大道的方案",
+        "zh_TW": "同意鋪設大道的方案"
+    },
+    "废弃港口_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "废弃港口",
+        "zh_TW": "廢棄港口"
+    },
+    "废弃港口_对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "优先回收剩余材料",
+        "zh_TW": "優先回收剩余材料"
+    },
+    "商队来访_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "商队来访",
+        "zh_TW": "商隊來訪"
+    },
+    "商队来访_对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "进行小笔交易",
+        "zh_TW": "進行小筆交易"
+    },
+    "拦路的废墟_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "拦路",
+        "zh_TW": "攔路"
+    },
+    "拦路的废墟_对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "同意前往清扫",
+        "zh_TW": "同意前往清掃"
+    },
+    "难民团到访_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "难民团到访",
+        "zh_TW": "難民團到訪"
+    },
+    "难民团到访_对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "同意收留他们",
+        "zh_TW": "同意收留他們"
+    },
+    "建筑师的建议_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "建筑师的建议",
+        "zh_TW": "建筑師的建議"
+    },
+    "建筑师的建议_对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "换另一种方式铺设",
+        "zh_TW": "換另一種方式鋪設"
+    },
+    "旧国遗产_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "旧国",
+        "zh_TW": "舊國"
+    },
+    "旧国遗产_对话_寒境曙光": {
+        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
+        "zh_CN": "继续探查",
+        "zh_TW": "繼續探查"
+    },
+    "获得奖励_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "获得",
+        "zh_TW": "獲得"
+    },
+    "选择奖励_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "选择奖励",
+        "zh_TW": "選擇獎勵"
+    },
+    "点击选择奖励_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "选择",
+        "zh_TW": "選擇"
+    },
+    "选择技能_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "选择技能",
+        "zh_TW": "選擇技能"
+    },
+    "装备技能_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "选择",
+        "zh_TW": "選擇"
+    },
+    "背包已满_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "背包已满",
+        "zh_TW": "背包已滿"
+    },
+    "选择界面未关闭": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "选择",
+        "zh_TW": "選擇"
+    },
+    "出售_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "出售",
+        "zh_TW": "出售"
+    },
+    "确认_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "确认",
+        "zh_TW": "確認"
+    },
+    "结束战斗_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "结束",
+        "zh_TW": "結束"
+    },
+    "点击开战_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "开战",
+        "zh_TW": "開戰"
+    },
+    "战斗中_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "退出",
+        "zh_TW": "退出"
+    },
+    "通用事件处理_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "角色",
+        "zh_TW": "角色"
+    },
+    "领取委托_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "确定",
+        "zh_TW": "物品詳情"
+    },
+    "符纹宝箱_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "物品详情",
+        "zh_TW": "失敗"
+    },
+    "战斗失败_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "失败",
+        "zh_TW": "戰爭騎士的能力是什么"
+    },
+    "情报分析_渡边目标1": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "战争骑士的能力是什么",
+        "zh_TW": "渡邊需要力量的理由"
+    },
+    "情报分析_渡边目标2": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "渡边需要力量的理由",
+        "zh_TW": "自己如何與死亡騎士結識"
+    },
+    "情报分析_死亡骑士目标1": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "自己如何与死亡骑士结识",
+        "zh_TW": "惡魔的起源是"
+    },
+    "情报分析_死亡骑士目标2": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "恶魔的起源是",
+        "zh_TW": "如今誰在統治地獄"
+    },
+    "情报分析_死亡骑士目标3": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "如今谁在统治地狱",
+        "zh_TW": "萬事現在的身份是"
+    },
+    "情报分析_万事目标1": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "万事现在的身份是",
+        "zh_TW": "萬事與我簽訂契約的契機"
+    },
+    "情报分析_万事目标2": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "万事与我签订契约的契机",
+        "zh_TW": "這些案件之間有沒有什么"
+    },
+    "情报分析_万事目标3": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "这些案件之间有没有什么",
+        "zh_TW": "我在哪里與莉莉絲結識的"
+    },
+    "情报分析_莉莉丝目标1": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "我在哪里与莉莉丝结识的",
+        "zh_TW": ""
+    },
+    "情报分析_答案1": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "",
+        "zh_TW": ""
+    },
+    "情报分析_答案2": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "",
+        "zh_TW": ""
+    },
+    "情报分析_答案3": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": "",
+        "zh_TW": ""
+    },
+    "情报分析_答案4": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Roguelike_5_Event.jsonc",
+        "zh_CN": ""
+    },
+    "废弃刻印": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "废弃",
+        "zh_TW": "廢棄"
+    },
+    "处理刻印过多": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "临时",
+        "zh_TW": "臨時"
+    },
+    "没过教程提示": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "开始旅途",
+        "zh_TW": "開始旅途"
+    },
+    "打开时宇漫纪": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "时宇漫纪",
+        "zh_TW": "時宇漫紀"
+    },
+    "继续情报分析_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "渡边",
+        "zh_TW": "渡邊"
+    },
+    "继续_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "继续",
+        "zh_TW": "繼續"
+    },
+    "情报分析_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "剧情回顾",
+        "zh_TW": "劇情回顧"
+    },
+    "情报分析_渡边": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "渡边",
+        "zh_TW": "渡邊"
+    },
+    "情报分析_死亡骑士": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "死亡骑",
+        "zh_TW": "死亡騎"
+    },
+    "情报分析_万事": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "万事",
+        "zh_TW": "萬事"
+    },
+    "情报分析_莉莉丝": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "莉莉丝",
+        "zh_TW": "莉莉絲"
+    },
+    "推演": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "推演",
+        "zh_TW": "推演"
+    },
+    "跳过": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "跳过",
+        "zh_TW": "跳過"
+    },
+    "退出_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "退出",
+        "zh_TW": "退出"
+    },
+    "下一页_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "下一页",
+        "zh_TW": "下一頁"
+    },
+    "终止_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "终止",
+        "zh_TW": "終止"
+    },
+    "失败_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "失败",
+        "zh_TW": "失敗"
+    },
+    "主界面_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "烬土",
+        "zh_TW": "燼土"
+    },
+    "退出战斗_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "开战",
+        "zh_TW": "開戰"
+    },
+    "退出战斗2_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "选择技能",
+        "zh_TW": "選擇技能"
+    },
+    "选择事件_神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "选择",
+        "zh_TW": "選擇"
+    },
+    "打开启示之路": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "示之路",
+        "zh_TW": "示之路"
+    },
+    "进入战斗_启示之路": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "进入战斗",
+        "zh_TW": "進入戰鬥"
+    },
+    "选择成员": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "选择您的成员",
+        "zh_TW": "選擇您的成員"
+    },
+    "打开神寂启示录": {
+        "path": "assets/resource/base/pipeline/Roguelike_5/Rougelike_5.jsonc",
+        "zh_CN": "神寂启示录",
+        "zh_TW": "神寂啟示錄"
+    },
+    "识别战斗参数": {
+        "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
+        "zh_CN": "战斗参数",
+        "zh_TW": "戰鬥參數"
+    },
+    "识别战力": {
+        "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
+        "zh_CN": "\\d",
+        "zh_TW": "\\d"
+    },
+    "编入队伍": {
+        "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
+        "zh_CN": "编入",
+        "zh_TW": "編入"
+    },
+    "卸下队伍": {
+        "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
+        "zh_CN": "卸下队伍",
+        "zh_TW": "卸下隊伍"
+    },
+    "清空红色位": {
+        "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
+        "zh_CN": "作战开始",
+        "zh_TW": "作戰開始"
+    },
+    "清空黄色位": {
+        "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
+        "zh_CN": "作战开始",
+        "zh_TW": "作戰開始"
+    },
+    "清空蓝色位": {
+        "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
+        "zh_CN": "作战开始",
+        "zh_TW": "作戰開始"
+    },
+    "清除队伍": {
+        "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
+        "zh_CN": "红色",
+        "zh_TW": "紅色"
+    },
+    "确认进入选人界面": {
+        "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
+        "zh_CN": "效应筛选",
+        "zh_TW": "效應篩選"
+    },
+    "选择首发": {
+        "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
+        "zh_CN": "首发",
+        "zh_TW": "首發"
+    },
+    "选择角色程序": {
+        "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
+        "zh_CN": "队伍",
+        "zh_TW": "隊伍"
+    },
+    "缓存角色程序": {
+        "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
+        "zh_CN": "进化",
+        "zh_TW": "進化"
+    },
+    "打开成员列表": {
+        "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
+        "zh_CN": "成员",
+        "zh_TW": "成員"
+    },
+    "点击首发": {
+        "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
+        "zh_CN": "首发",
+        "zh_TW": "首發"
+    },
+    "点击A区": {
+        "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
+        "zh_CN": "骑士",
+        "zh_TW": "騎士"
+    },
+    "作战准备": {
+        "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
+        "zh_CN": "作战准备",
+        "zh_TW": "作戰準備"
+    },
+    "检查人物是否拥有": {
+        "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
+        "zh_CN": "碎片"
+    },
+    "拟真围剿无法进入": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "需要等待下一期活动开启后",
+        "zh_TW": "需要等待下一期活動開啟后"
+    },
+    "意外点击_玩家详情": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "个人信息",
+        "zh_TW": "個人信息"
+    },
+    "关闭战斗力提示": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "取消",
+        "zh_TW": "取消"
+    },
+    "拟真围剿内部": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "作战详情",
+        "zh_TW": "作戰詳情"
+    },
+    "确定选择": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "确定",
+        "zh_TW": "確定"
+    },
+    "坚持作战": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "坚持作战",
+        "zh_TW": "堅持作戰"
+    },
+    "检查常序区次数MAX": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "1/3",
+        "zh_TW": "1/3"
+    },
+    "检查常序区次数未满": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "0/3",
+        "zh_TW": "0/3"
+    },
+    "常序区作战完成": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "目标",
+        "zh_TW": "目標"
+    },
+    "检查特遣区次数MAX": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "1/3",
+        "zh_TW": "1/3"
+    },
+    "检查特遣区次数未满": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "0/3",
+        "zh_TW": "0/3"
+    },
+    "特遣区作战完成": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "目标",
+        "zh_TW": "目標"
+    },
+    "检查BOSS区次数MAX": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "1/3",
+        "zh_TW": "1/3"
+    },
+    "检查BOSS区次数未满": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "0/3",
+        "zh_TW": "0/3"
+    },
+    "BOSS区作战完成": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "目标",
+        "zh_TW": "目標"
+    },
+    "作战界面": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "作战开始",
+        "zh_TW": "作戰開始"
+    },
+    "保存分数": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "保存",
+        "zh_TW": "保存"
+    },
+    "选择其他人物": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "战斗参数",
+        "zh_TW": "戰鬥參數"
+    },
+    "选择人物_拟真围剿": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "战斗参数",
+        "zh_TW": "戰鬥參數"
+    },
+    "开始作战_拟真围剿": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "开始作战",
+        "zh_TW": "開始作戰"
+    },
+    "准备作战_拟真围剿": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "准备作战",
+        "zh_TW": "準備作戰"
+    },
+    "返回指挥局主界面": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "新版指挥局",
+        "zh_TW": "新版指揮局"
+    },
+    "领取本周贡献": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "本周贡献",
+        "zh_TW": "本週貢獻"
+    },
+    "识别本周贡献3000": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "^(3(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$",
+        "zh_TW": "^(3(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$"
+    },
+    "识别本周贡献6000": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "^(6(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$",
+        "zh_TW": "^(6(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$"
+    },
+    "识别本周贡献9000": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "^(9(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$",
+        "zh_TW": "^(9(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$"
+    },
+    "识别本周贡献12000": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "^(12(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$",
+        "zh_TW": "^(12(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$"
+    },
+    "识别本周贡献15000": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "^(15(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$",
+        "zh_TW": "^(15(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$"
+    },
+    "返回指挥局": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "拟真围剿",
+        "zh_TW": "擬真圍剿"
+    },
+    "打开指挥局": {
+        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
+        "zh_CN": "公会",
+        "zh_TW": "公會"
+    },
+    "更新中": {
+        "path": "assets/resource/base/pipeline/Start_up.jsonc",
+        "zh_CN": "预计时间",
+        "zh_TW": "預計時間"
+    },
+    "关闭低内存提示": {
+        "path": "assets/resource/base/pipeline/Start_up.jsonc",
+        "zh_CN": "设备",
+        "zh_TW": "設備"
+    },
+    "关闭拟真围剿通知": {
+        "path": "assets/resource/base/pipeline/Start_up.jsonc",
+        "zh_CN": "拟真围剿",
+        "zh_TW": "擬真圍剿"
+    },
+    "关闭纷争战区通知": {
+        "path": "assets/resource/base/pipeline/Start_up.jsonc",
+        "zh_CN": "纷争战区",
+        "zh_TW": "紛爭戰區"
+    },
+    "更新": {
+        "path": "assets/resource/base/pipeline/Start_up.jsonc",
+        "zh_CN": "检测到存在更新",
+        "zh_TW": "檢測到存在更新"
+    },
+    "进入游戏": {
+        "path": "assets/resource/base/pipeline/Start_up.jsonc",
+        "zh_CN": "适龄",
+        "zh_TW": "適齡"
+    },
+    "检查主界面": {
+        "path": "assets/resource/base/pipeline/Start_up.jsonc",
+        "zh_CN": "^战斗$",
+        "zh_TW": "^戰鬥$"
+    },
+    "关闭公告": {
+        "path": "assets/resource/base/pipeline/Start_up.jsonc",
+        "zh_CN": "点击空白处关闭",
+        "zh_TW": "點擊空白處關閉"
+    },
+    "检查主界面2": {
+        "path": "assets/resource/base/pipeline/Start_up.jsonc",
+        "zh_CN": "^战斗$",
+        "zh_TW": "^戰鬥$"
+    },
+    "MAS联动处理-检查到维护公告_将发送假通知": {
+        "path": "assets/resource/base/pipeline/Start_up.jsonc",
+        "zh_CN": "维护公告",
+        "zh_TW": "維護公告"
+    },
+    "打开个人页面": {
+        "path": "assets/resource/base/pipeline/Tool/Redeem_Code.jsonc",
+        "zh_CN": "等级",
+        "zh_TW": "等級"
+    },
+    "可以输入兑换码": {
+        "path": "assets/resource/base/pipeline/Tool/Redeem_Code.jsonc",
+        "zh_CN": "请输入兑换码",
+        "zh_TW": "請輸入兌換碼"
+    },
+    "兑换码提示": {
+        "path": "assets/resource/base/pipeline/Tool/Redeem_Code.jsonc",
+        "zh_CN": "兑换码",
+        "zh_TW": "兌換碼"
+    },
+    "确认兑换": {
+        "path": "assets/resource/base/pipeline/Tool/Redeem_Code.jsonc",
+        "zh_CN": "兑换",
+        "zh_TW": "兌換"
+    },
+    "点击兑换码": {
+        "path": "assets/resource/base/pipeline/Tool/Redeem_Code.jsonc",
+        "zh_CN": "请输入兑换码",
+        "zh_TW": "請輸入兌換碼"
+    },
+    "确认目标词缀": {
+        "path": "assets/resource/base/pipeline/Tool/Reroll_Affix.jsonc",
+        "zh_CN": "目标词缀",
+        "zh_TW": "目標詞綴"
+    },
+    "结果检查左侧_不可信": {
+        "path": "assets/resource/base/pipeline/Tool/Reroll_Affix.jsonc",
+        "zh_CN": "(?=.*攻击)(?=.*防御)",
+        "zh_TW": "(?=.*攻擊)(?=.*防御)"
+    },
+    "结果检查_不可信": {
+        "path": "assets/resource/base/pipeline/Tool/Reroll_Affix.jsonc",
+        "zh_CN": "(?=.*攻击)(?=.*防御)",
+        "zh_TW": "(?=.*攻擊)(?=.*防御)"
+    },
+    "结果检查_可信": {
+        "path": "assets/resource/base/pipeline/Tool/Reroll_Affix.jsonc",
+        "zh_CN": "继续共鸣",
+        "zh_TW": "繼續共鳴"
+    },
+    "结算期": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "结算期",
+        "zh_TW": "結算期"
+    },
+    "打开挑战_纷争战区": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "挑战",
+        "zh_TW": "挑戰"
+    },
+    "滑动_纷争战区": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "纷争战区",
+        "zh_TW": "紛爭戰區"
+    },
+    "纷争战区内部": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "积分",
+        "zh_TW": "積分"
+    },
+    "首通未完成": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "未挑战",
+        "zh_TW": "未挑戰"
+    },
+    "首通已完成": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "未挑战",
+        "zh_TW": "未挑戰"
+    },
+    "进入战区奖励": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "任务",
+        "zh_TW": "任務"
+    },
+    "战区奖励已领取": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "前往",
+        "zh_TW": "前往"
+    },
+    "领取战区奖励": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "^领取$",
+        "zh_TW": "^領取$"
+    },
+    "打开纷争战区": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "纷争战区",
+        "zh_TW": "紛爭戰區"
+    },
+    "战斗准备": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "战斗准备",
+        "zh_TW": "戰鬥準備"
+    },
+    "进入战区选人界面": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "队伍",
+        "zh_TW": "隊伍"
+    },
+    "战斗结束": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "退出战斗",
+        "zh_TW": "退出戰鬥"
+    },
+    "查看地图_空区": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "空域浮台",
+        "zh_TW": "空域浮台"
+    },
+    "查看地图_火区": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "火焰轮回",
+        "zh_TW": "火焰輪回"
+    },
+    "查看地图_暗区": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "暗影深林",
+        "zh_TW": "暗影深林"
+    },
+    "查看地图_雷区": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "镭射合金",
+        "zh_TW": "鐳射合金"
+    },
+    "查看地图_物理区": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "机械工厂",
+        "zh_TW": "機械工廠"
+    },
+    "查看地图_冰区": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "猩红冰原",
+        "zh_TW": "猩紅冰原"
+    },
+    "查看地图_特性区": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "熵钟异数",
+        "zh_TW": "熵鐘異數"
+    },
+    "作战开始识别": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "作战开始",
+        "zh_TW": "作戰開始"
+    },
+    "未选择队长": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "未选择队长",
+        "zh_TW": "未選擇隊長"
+    },
+    "点击选择队长": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "选择",
+        "zh_TW": "選擇"
+    },
+    "点击更换队长": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "更换",
+        "zh_TW": "更換"
+    },
+    "载入中": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "adin",
+        "zh_TW": "adin"
+    },
+    "退出战斗": {
+        "path": "assets/resource/base/pipeline/War_Zone.jsonc",
+        "zh_CN": "退出",
+        "zh_TW": "退出"
+    }
+}
