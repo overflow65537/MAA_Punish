@@ -214,8 +214,8 @@ def main():
     parser.add_argument(
         "--schema-dir",
         type=str,
-        default="tools/schema",
-        help="Directory containing schema files (default: tools/schema)",
+        default="deps/tools/",
+        help="Directory containing schema files (default: deps/tools/)",
     )
     parser.add_argument(
         "--resource-dirs",
