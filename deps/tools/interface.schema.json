@@ -758,6 +758,12 @@
                     "type": "string",
                     "title": "连接标识符",
                     "description": "被用来创建一个通信套接字。填写则会被使用，否则自动创建"
+                },
+                "embedded": {
+                    "type": "boolean",
+                    "title": "是否嵌入运行",
+                    "description": "是否以内嵌方式运行 Agent。若未设置则默认为 false",
+                    "default": false
                 }
             },
             "required": [
