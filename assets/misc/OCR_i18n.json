@@ -54,11 +54,6 @@
         "zh_CN": "跳过",
         "zh_TW": "跳過"
     },
-    "检查血量": {
-        "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
-        "zh_CN": "\\d+/\\d+",
-        "zh_TW": "\\d+/\\d+"
-    },
     "战斗重启1": {
         "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
         "zh_CN": "重启",
@@ -83,11 +78,6 @@
         "path": "assets/resource/base/pipeline/Auto_Battle/Auto_Battle.jsonc",
         "zh_CN": "",
         "zh_TW": ""
-    },
-    "统计信号球数量": {
-        "path": "assets/resource/base/pipeline/Auto_Battle/Check_Characters_Skill.jsonc",
-        "zh_CN": "\\d+",
-        "zh_TW": "\\d+"
     },
     "检查支援类型角色是否被选中": {
         "path": "assets/resource/base/pipeline/Auto_Battle/Check_Characters_Skill.jsonc",
@@ -468,16 +458,6 @@
         "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
         "zh_CN": "委托",
         "zh_TW": "委托"
-    },
-    "检查当前数量": {
-        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
-        "zh_CN": "^\\d*$",
-        "zh_TW": "^\\d*$"
-    },
-    "检查目标数量": {
-        "path": "assets/resource/base/pipeline/Dorm/Dorm_Task.jsonc",
-        "zh_CN": "^\\d*$",
-        "zh_TW": "^\\d*$"
     },
     "关闭奖励": {
         "path": "assets/resource/base/pipeline/General.jsonc",
@@ -2029,25 +2009,10 @@
         "zh_CN": "首发",
         "zh_TW": "首發"
     },
-    "招募能量4点": {
-        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
-        "zh_CN": "4",
-        "zh_TW": "4"
-    },
-    "招募能量3点": {
-        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
-        "zh_CN": "3",
-        "zh_TW": "3"
-    },
     "选择首发2_矩阵循生": {
         "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
         "zh_CN": "首发",
         "zh_TW": "首發"
-    },
-    "点击精通等级低于3的人物": {
-        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
-        "zh_CN": "^0$",
-        "zh_TW": "^0$"
     },
     "打开矩阵循生": {
         "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
@@ -2128,11 +2093,6 @@
         "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
         "zh_CN": "确定",
         "zh_TW": "確定"
-    },
-    "识别精通等级": {
-        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
-        "zh_CN": "^(?!12$).*$",
-        "zh_TW": "^(?!12$).*$"
     },
     "点击下阵": {
         "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
@@ -3319,16 +3279,6 @@
         "zh_CN": "领取奖励",
         "zh_TW": "領取獎勵"
     },
-    "事件完成_寒境曙光": {
-        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
-        "zh_CN": "[×xX]\\d+",
-        "zh_TW": "[×xX]\\d+"
-    },
-    "事件完成_二次确认_寒境曙光": {
-        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
-        "zh_CN": "[×xX]\\d+",
-        "zh_TW": "[×xX]\\d+"
-    },
     "未选人_寒境曙光": {
         "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
         "zh_CN": "未选择队长",
@@ -3604,30 +3554,10 @@
         "zh_CN": "确定",
         "zh_TW": "確定"
     },
-    "检查当前分数": {
-        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
-        "zh_CN": "^\\d*$",
-        "zh_TW": "^\\d*$"
-    },
-    "检查目标分数": {
-        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
-        "zh_CN": "^\\d*$",
-        "zh_TW": "^\\d*$"
-    },
-    "检查分数": {
-        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
-        "zh_CN": "^\\d*$",
-        "zh_TW": "^\\d*$"
-    },
     "战斗地块_寒境曙光": {
         "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
         "zh_CN": "低危区",
         "zh_TW": "低危區"
-    },
-    "识别岗哨塔_寒境曙光": {
-        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
-        "zh_CN": "[7-9]|\\d{2,}",
-        "zh_TW": "[7-9]|\\d{2,}"
     },
     "使用岗哨塔_寒境曙光": {
         "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
@@ -3638,11 +3568,6 @@
         "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
         "zh_CN": "开始探索",
         "zh_TW": "開始探索"
-    },
-    "剩余资金700以上_寒境曙光": {
-        "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
-        "zh_CN": "(7\\d{2,}|[8-9]\\d{2,}|\\d{4,})",
-        "zh_TW": "(7\\d{2,}|[8-9]\\d{2,}|\\d{4,})"
     },
     "汇合_寒境曙光": {
         "path": "assets/resource/base/pipeline/Roguelike_4/Rouguelike_4_Event.jsonc",
@@ -4093,11 +4018,6 @@
         "zh_CN": "战斗参数",
         "zh_TW": "戰鬥參數"
     },
-    "识别战力": {
-        "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
-        "zh_CN": "\\d",
-        "zh_TW": "\\d"
-    },
     "编入队伍": {
         "path": "assets/resource/base/pipeline/Role_Selection.jsonc",
         "zh_CN": "编入",
@@ -4202,45 +4122,15 @@
         "zh_CN": "坚持作战",
         "zh_TW": "堅持作戰"
     },
-    "检查常序区次数MAX": {
-        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
-        "zh_CN": "1/3",
-        "zh_TW": "1/3"
-    },
-    "检查常序区次数未满": {
-        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
-        "zh_CN": "0/3",
-        "zh_TW": "0/3"
-    },
     "常序区作战完成": {
         "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
         "zh_CN": "目标",
         "zh_TW": "目標"
     },
-    "检查特遣区次数MAX": {
-        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
-        "zh_CN": "1/3",
-        "zh_TW": "1/3"
-    },
-    "检查特遣区次数未满": {
-        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
-        "zh_CN": "0/3",
-        "zh_TW": "0/3"
-    },
     "特遣区作战完成": {
         "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
         "zh_CN": "目标",
         "zh_TW": "目標"
-    },
-    "检查BOSS区次数MAX": {
-        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
-        "zh_CN": "1/3",
-        "zh_TW": "1/3"
-    },
-    "检查BOSS区次数未满": {
-        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
-        "zh_CN": "0/3",
-        "zh_TW": "0/3"
     },
     "BOSS区作战完成": {
         "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
@@ -4286,31 +4176,6 @@
         "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
         "zh_CN": "本周贡献",
         "zh_TW": "本週貢獻"
-    },
-    "识别本周贡献3000": {
-        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
-        "zh_CN": "^(3(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$",
-        "zh_TW": "^(3(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$"
-    },
-    "识别本周贡献6000": {
-        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
-        "zh_CN": "^(6(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$",
-        "zh_TW": "^(6(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$"
-    },
-    "识别本周贡献9000": {
-        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
-        "zh_CN": "^(9(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$",
-        "zh_TW": "^(9(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$"
-    },
-    "识别本周贡献12000": {
-        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
-        "zh_CN": "^(12(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$",
-        "zh_TW": "^(12(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$"
-    },
-    "识别本周贡献15000": {
-        "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
-        "zh_CN": "^(15(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$",
-        "zh_TW": "^(15(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4,})$"
     },
     "返回指挥局": {
         "path": "assets/resource/base/pipeline/Simulated_Siege.jsonc",
