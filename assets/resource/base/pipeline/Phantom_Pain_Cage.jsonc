@@ -267,6 +267,7 @@
                         "recognition": {
                             "type": "ColorMatch",
                             "param": {
+                                "method": 40,
                                 "roi": [
                                     947,
                                     162,
@@ -274,17 +275,16 @@
                                     184
                                 ],
                                 "lower": [
-                                    13,
-                                    112,
-                                    189
+                                    100,
+                                    150,
+                                    150
                                 ],
                                 "upper": [
-                                    36,
-                                    115,
-                                    190
+                                    105,
+                                    255,
+                                    255
                                 ],
-                                "count": 10,
-                                "connected": true
+                                "count": 10
                             }
                         }
                     },
