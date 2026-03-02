@@ -14,10 +14,9 @@ def configure_ocr_model():
     rm_dir = assets_dir / "resource" / "base" / "model" / "ocr" / "det.onnx"
     if rm_dir.exists():
         rm_dir.unlink()
-    shutil.copytree(
+    shutil.copyfile(
         assets_dir / "MaaCommonAssets" / "OCR" / "ppocr_v4" / "zh_cn"/"det.onnx",
         assets_dir / "resource" / "base" / "model" / "ocr"/"det.onnx",
-        dirs_exist_ok=True,
     )
 
 if __name__ == "__main__":
