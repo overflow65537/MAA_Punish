@@ -1,0 +1,11 @@
+{
+    "task": [
+        {
+            "name": "手动更新角色缓存",
+            "entry": "缓存角色",
+            "description": "<p>手动更新角色的缓存。</p>",
+            "spt": true
+        }
+    ],
+    "option": {}
+}

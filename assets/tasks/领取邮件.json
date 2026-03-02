@@ -1,0 +1,22 @@
+{
+    "task": [
+        {
+            "name": "领取邮件",
+            "default_check": true,
+            "entry": "邮件",
+            "description": "<p>自动领取邮件。</p><p><b>速通</b>：每天5点后可运行1次，运行后需等待24小时。</p>",
+            "speedrun": {
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
+                }
+            }
+        }
+    ],
+    "option": {}
+}

@@ -1,0 +1,95 @@
+{
+    "task": [
+        {
+            "name": "神寂启示录",
+            "entry": "神寂启示录",
+            "option": [
+                "选择角色"
+            ],
+            "pipeline_override": {
+                "检查主界面2": {
+                    "post_delay": 1000,
+                    "next": [
+                        "神寂启示录"
+                    ]
+                }
+            },
+            "description": "<p>自动执行神寂启示录，可结合所选角色与策略进行刷本。</p>",
+            "spt": true
+        }
+    ],
+    "option": {
+        "选择角色": {
+            "cases": [
+                {
+                    "name": "渡边",
+                    "pipeline_override": {
+                        "选择成员": {
+                            "action": {
+                                "param": {
+                                    "target": [
+                                        303,
+                                        317,
+                                        1,
+                                        1
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "薇拉",
+                    "pipeline_override": {
+                        "选择成员": {
+                            "action": {
+                                "param": {
+                                    "target": [
+                                        692,
+                                        420,
+                                        1,
+                                        1
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "万事",
+                    "pipeline_override": {
+                        "选择成员": {
+                            "action": {
+                                "param": {
+                                    "target": [
+                                        980,
+                                        341,
+                                        0,
+                                        0
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "莉莉丝",
+                    "pipeline_override": {
+                        "选择成员": {
+                            "action": {
+                                "param": {
+                                    "target": [
+                                        465,
+                                        414,
+                                        1,
+                                        1
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

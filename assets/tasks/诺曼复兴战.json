@@ -1,0 +1,26 @@
+{
+    "task": [
+        {
+            "name": "诺曼复兴战",
+            "default_check": true,
+            "entry": "诺曼复兴战",
+            "description": "<p>自动扫荡诺曼复兴战，不自动领取奖励；结算后奖励会发送至邮箱。</p><p><b>速通</b>：每周二5点后可运行2次，首次运行后需等待24小时。</p>",
+            "speedrun": {
+                "mode": "weekly",
+                "trigger": {
+                    "weekly": {
+                        "weekday": [
+                            2
+                        ],
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 2,
+                    "min_interval_hours": 24
+                }
+            }
+        }
+    ],
+    "option": {}
+}

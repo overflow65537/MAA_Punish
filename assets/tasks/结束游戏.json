@@ -1,0 +1,10 @@
+{
+    "task": [
+        {
+            "name": "结束游戏",
+            "default_check": true,
+            "entry": "关闭"
+        }
+    ],
+    "option": {}
+}

@@ -1,0 +1,79 @@
+{
+    "task": [
+        {
+            "name": "购买物品",
+            "entry": "购买物品",
+            "description": "<p>自动购买指定物品。</p><ul><li><b>角色碎片</b>：完成每日任务。</li><li><b>涂装碎片</b>：每日限购。</li><li><b>武器涂装</b>：每月限购。</li></ul>",
+            "option": [
+                "选择物品"
+            ]
+        }
+    ],
+    "option": {
+        "选择物品": {
+            "cases": [
+                {
+                    "name": "逆元碎片-普通商店",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "涂装设计草稿-宿舍商店",
+                    "description": "<p>购买涂装设计草稿，需要宿舍币，<b>每日限购</b>。</p>",
+                    "pipeline_override": {
+                        "购买物品": {
+                            "next": [
+                                "在宿舍币商店中",
+                                "[JumpBack]关闭奖励",
+                                "[JumpBack]选择宿舍币商店",
+                                "[JumpBack]打开宿舍商店",
+                                "[JumpBack]打开宿舍"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "武器设计草稿-宿舍商店",
+                    "description": "<p>购买武器设计草稿，需要宿舍委托币，<b>每月限购</b>。</p>",
+                    "pipeline_override": {
+                        "购买物品": {
+                            "next": [
+                                "遣测商店内部",
+                                "[JumpBack]关闭奖励",
+                                "[JumpBack]打开遣测商店",
+                                "[JumpBack]打开宿舍商店",
+                                "[JumpBack]打开宿舍"
+                            ]
+                        },
+                        "推荐物品": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "本月"
+                                }
+                            }
+                        },
+                        "购买_宿舍": {
+                            "action": {
+                                "type": "Click",
+                                "param": {
+                                    "target": [
+                                        643,
+                                        671,
+                                        1,
+                                        1
+                                    ]
+                                }
+                            },
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "武器涂装设计图"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,51 @@
+{
+    "task": [
+        {
+            "name": "进入游戏",
+            "default_check": true,
+            "entry": "启动",
+            "pipeline_override": {
+                "检查主界面2": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "Notice",
+                            "custom_action_param": {
+                                "action": "set_black_card"
+                            }
+                        }
+                    }
+                }
+            },
+            "option": [
+                "MAS通知处理"
+            ]
+        }
+    ],
+    "option": {
+        "MAS通知处理": {
+            "label": "是否启用了MAS",
+            "description": "若您不清楚MAS是什么的话请尽量不要启用本功能",
+            "type": "switch",
+            "default": "No",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "MAS联动处理-检查到维护公告_将发送假通知": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "MAS联动处理-检查到维护公告_将发送假通知": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

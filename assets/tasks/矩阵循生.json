@@ -1,0 +1,190 @@
+{
+    "task": [
+        {
+            "name": "矩阵循生",
+            "entry": "矩阵循生",
+            "pipeline_override": {
+                "检查主界面2": {
+                    "post_delay": 1000,
+                    "next": [
+                        "矩阵循生"
+                    ]
+                },
+                "返回": {
+                    "post_delay": 2500
+                },
+                "选择角色程序": {
+                    "next": []
+                }
+            },
+            "option": [
+                "选择模式",
+                "使用人物"
+            ],
+            "description": "<p>仅在解锁4点初始招募能量后，“使用人物”选项才会生效。</p><p>未解锁时：首次选择精通等级小于3的人物；经历物归新主事件后，会在所选5人中选择精通等级小于12的人物进行战斗。</p>",
+            "spt": true
+        }
+    ],
+    "option": {
+        "选择模式": {
+            "cases": [
+                {
+                    "name": "普通模式",
+                    "pipeline_override": {
+                        "选择难度_矩阵循生": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "普通"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "困难模式",
+                    "pipeline_override": {
+                        "选择难度_矩阵循生": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "困难"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "噩梦模式",
+                    "pipeline_override": {
+                        "选择难度_矩阵循生": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "噩梦",
+                                        "墨梦",
+                                        "恶梦",
+                                        "王梦",
+                                        "聚梦",
+                                        "梦"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "使用人物": {
+            "cases": [
+                {
+                    "name": "誓焰",
+                    "pipeline_override": {
+                        "选择人物_配置": {
+                            "focus": {
+                                "pick": [
+                                    "露西亚·誓焰"
+                                ]
+                            }
+                        },
+                        "肉鸽模式_配置": {
+                            "focus": 0
+                        }
+                    }
+                },
+                {
+                    "name": "深红囚影",
+                    "pipeline_override": {
+                        "选择人物_配置": {
+                            "focus": {
+                                "pick": [
+                                    "露西亚·深红囚影"
+                                ]
+                            }
+                        },
+                        "肉鸽模式_配置": {
+                            "focus": 0
+                        }
+                    }
+                },
+                {
+                    "name": "深谣",
+                    "pipeline_override": {
+                        "选择人物_配置": {
+                            "focus": {
+                                "pick": [
+                                    "拉弥亚·深谣"
+                                ]
+                            }
+                        },
+                        "肉鸽模式_配置": {
+                            "focus": 0
+                        }
+                    }
+                },
+                {
+                    "name": "终焉",
+                    "pipeline_override": {
+                        "选择人物_配置": {
+                            "focus": {
+                                "pick": [
+                                    "露娜·终焉"
+                                ]
+                            }
+                        },
+                        "肉鸽模式_配置": {
+                            "focus": 0
+                        }
+                    }
+                },
+                {
+                    "name": "深痕",
+                    "pipeline_override": {
+                        "选择人物_配置": {
+                            "focus": {
+                                "pick": [
+                                    "比安卡·深痕"
+                                ]
+                            }
+                        },
+                        "肉鸽模式_配置": {
+                            "focus": 0
+                        }
+                    }
+                },
+                {
+                    "name": "启明",
+                    "pipeline_override": {
+                        "选择人物_配置": {
+                            "focus": {
+                                "pick": [
+                                    "曲·启明"
+                                ]
+                            }
+                        },
+                        "肉鸽模式_配置": {
+                            "focus": 0
+                        }
+                    }
+                },
+                {
+                    "name": "超刻",
+                    "pipeline_override": {
+                        "选择人物_配置": {
+                            "focus": {
+                                "pick": [
+                                    "里·超刻"
+                                ]
+                            }
+                        },
+                        "肉鸽模式_配置": {
+                            "focus": 0
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

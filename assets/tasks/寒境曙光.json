@@ -1,0 +1,164 @@
+{
+    "task": [
+        {
+            "name": "寒境曙光",
+            "entry": "寒境曙光",
+            "pipeline_override": {
+                "检查主界面2": {
+                    "post_delay": 1000,
+                    "next": [
+                        "寒境曙光"
+                    ]
+                },
+                "选择角色程序": {
+                    "action": {
+                        "param": {
+                            "custom_action_param": {
+                                "max_try": 1
+                            }
+                        }
+                    }
+                },
+                "肉鸽模式_配置": {
+                    "focus": 0
+                }
+            },
+            "option": [
+                "选择温度",
+                "选择效果"
+            ],
+            "description": "<p>推荐使用严霜和启动资金。</p>",
+            "spt": true
+        }
+    ],
+    "option": {
+        "选择温度": {
+            "cases": [
+                {
+                    "name": "常温",
+                    "pipeline_override": {
+                        "选择具体难度_寒境曙光": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "^常温$"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "初冷",
+                    "pipeline_override": {
+                        "选择具体难度_寒境曙光": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "^初冷$"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "微寒",
+                    "pipeline_override": {
+                        "选择具体难度_寒境曙光": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "^微寒$"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "冰冽",
+                    "pipeline_override": {
+                        "选择具体难度_寒境曙光": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "^冰冽$"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "严霜",
+                    "pipeline_override": {
+                        "选择具体难度_寒境曙光": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "^严霜$"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "极寒",
+                    "pipeline_override": {
+                        "选择具体难度_寒境曙光": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "^极寒$"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "选择效果": {
+            "cases": [
+                {
+                    "name": "军事",
+                    "pipeline_override": {
+                        "选择具体开局_寒境曙光": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "^军事$"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "基建",
+                    "pipeline_override": {
+                        "选择具体开局_寒境曙光": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "^基建$"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "经济",
+                    "pipeline_override": {
+                        "选择具体开局_寒境曙光": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "^经济$"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "启动资金",
+                    "pipeline_override": {
+                        "选择具体开局_寒境曙光": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "^启动资金$"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

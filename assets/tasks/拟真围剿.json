@@ -1,0 +1,36 @@
+{
+    "task": [
+        {
+            "name": "拟真围剿",
+            "default_check": true,
+            "entry": "拟真围剿",
+            "description": "<p>自动进行工会战并领取奖励。</p><p><b>速通</b>：每周二5点后可运行2次，首次运行后需等待24小时。</p>",
+            "pipeline_override": {
+                "编入队伍": {
+                    "next": [
+                        "编入队伍",
+                        "作战界面",
+                        "[JumpBack]关闭未拥有人物提示",
+                        "[JumpBack]关闭战斗力提示"
+                    ]
+                }
+            },
+            "speedrun": {
+                "mode": "weekly",
+                "trigger": {
+                    "weekly": {
+                        "weekday": [
+                            2
+                        ],
+                        "hour_start": 5
+                    },
+                    "run": {
+                        "count": 2,
+                        "min_interval_hours": 24
+                    }
+                }
+            }
+        }
+    ],
+    "option": {}
+}

@@ -1,0 +1,354 @@
+{
+    "task": [
+        {
+            "name": "刷A级碎片",
+            "entry": "刷A级碎片",
+            "description": "<p>自动扫荡A级碎片，不会自动战斗。</p>",
+            "option": [
+                "选择A级角色",
+                "是否使用体力"
+            ]
+        }
+    ],
+    "option": {
+        "选择A级角色": {
+            "type": "select",
+            "cases": [
+                {
+                    "name": "自行输入角色名",
+                    "pipeline_override": {},
+                    "option": [
+                        "输入A级角色名"
+                    ]
+                },
+                {
+                    "name": "破晓",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "破晓"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "徊闪",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "徊闪"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "耀炎",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "耀炎"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "觅语",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "觅语"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "擎驱",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "擎驱"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "清商",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "清商"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "琉璃",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "琉璃"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "XXI",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "XXI"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "明觉",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "明觉"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "游麟",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "游麟"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "瑰丽",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "瑰丽"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "弧光",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "弧光"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "银牙",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "银牙"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "溢彩",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "溢彩"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "重能",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "重能"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "零度",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "零度"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "流光",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "流光"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "夙星",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "夙星"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "夜刃",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "夜刃"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "爆裂",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "爆裂"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "异火",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "异火"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "风暴",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "风暴"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "蚀暗",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "蚀暗"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "黎明",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "黎明"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "红莲",
+                    "pipeline_override": {
+                        "A级角色": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "红莲"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "是否使用体力": {
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "A_不使用体力": {
+                            "enabled": false
+                        },
+                        "不使用体力": {
+                            "enabled": false
+                        }
+                    }
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "A_使用体力": {
+                            "enabled": false
+                        },
+                        "使用体力": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

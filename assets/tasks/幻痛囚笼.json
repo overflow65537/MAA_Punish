@@ -1,0 +1,53 @@
+{
+    "task": [
+        {
+            "name": "幻痛囚笼",
+            "default_check": true,
+            "entry": "幻痛囚笼",
+            "description": "<p>自动战斗幻痛囚笼，并自动选择人物作战；请注意角色锁定状态。</p><p>终级区需要自行选择非在岗角色,防止占用在岗角色</p><p><b>速通</b>：每周二5点后可运行2次，首次运行后需等待24小时。</p>",
+            "option": [
+                "选择区域"
+            ],
+            "speedrun": {
+                "mode": "weekly",
+                "trigger": {
+                    "weekly": {
+                        "weekday": [
+                            2
+                        ],
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 2,
+                    "min_interval_hours": 24
+                }
+            }
+        }
+    ],
+    "option": {
+        "选择区域": {
+            "cases": [
+                {
+                    "name": "高级区",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "终级区",
+                    "pipeline_override": {
+                        "选择区域": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "终级"
+                                }
+                            }
+                        }
+                    },
+                    "option": [
+                        "选择终极区战斗角色"
+                    ]
+                }
+            ]
+        }
+    }
+}

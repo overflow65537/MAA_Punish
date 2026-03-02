@@ -1,0 +1,44 @@
+{
+    "task": [
+        {
+            "name": "拟战场域",
+            "default_check": true,
+            "entry": "拟战场域",
+            "description": "<p>自动完成拟战场域；“临期体力”指剩余时间小于3天的体力。</p><p><b>速通</b>：每天5点后可运行1次，运行后需等待24小时。</p>",
+            "option": [
+                "使用临期体力"
+            ]
+        }
+    ],
+    "option": {
+        "使用临期体力": {
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "拟战场域": {
+                            "next": [
+                                "吃体力药",
+                                "[JumpBack]返回主菜单",
+                                "[JumpBack]返回"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "拟战场域": {
+                            "next": [
+                                "拟战场域_作战任务",
+                                "[JumpBack]返回主菜单",
+                                "[JumpBack]返回"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
