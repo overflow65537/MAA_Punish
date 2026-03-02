@@ -26,7 +26,10 @@
                 "screencap": "PrintWindow",
                 "mouse": "SendMessageWithCursorPos",
                 "keyboard": "SendMessageWithCursorPos"
-            }
+            },
+            "attach_resource_path": [
+                "./resource/pgr_win32"
+            ]
         },
         {
             "name": "PlayCover端",
@@ -34,7 +37,10 @@
             "description": "<p style=\"color: red; font-weight: bold;\">Macos 专用,支持PlayCover</p><p>playcover无法自己启动游戏</p>",
             "playcover": {
                 "uuid": "maa.playcover"
-            }
+            },
+            "attach_resource_path": [
+                "./resource/playcover"
+            ]
         }
     ],
     "agent": {
@@ -44,246 +50,25 @@
         ],
         "embedded": true
     },
+    "global_option": [
+        "切换服务器",
+        "自动QTE",
+        "自动切换角色",
+        "同时选择多名角色",
+        "跳过分辨率警告"
+    ],
     "resource": [
         {
             "name": "简体中文",
             "path": [
                 "./resource/base"
-            ],
-            "controller": [
-                "安卓端"
-            ],
-            "option": [
-                "切换服务器",
-                "自动QTE",
-                "自动切换角色",
-                "同时选择多名角色",
-                "跳过分辨率警告"
             ]
         },
         {
-            "name": "PlayCover端",
+            "name": "繁体中文",
             "path": [
                 "./resource/base",
-                "./resource/playcover"
-            ],
-            "controller": [
-                "PlayCover端"
-            ],
-            "option": [
-                "自动QTE",
-                "自动切换角色",
-                "同时选择多名角色",
-                "跳过分辨率警告"
-            ]
-        },
-        {
-            "name": "电脑端",
-            "path": [
-                "./resource/base",
-                "./resource/pgr_win32"
-            ],
-            "controller": [
-                "桌面端"
-            ],
-            "option": [
-                "自动QTE",
-                "自动切换角色",
-                "同时选择多名角色",
-                "跳过分辨率警告",
-                "自定义键位"
-            ]
-        },
-        {
-            "name": "云战双",
-            "path": [
-                "./resource/base",
-                "./resource/pgr_cloud"
-            ],
-            "controller": [
-                "安卓端"
-            ],
-            "option": [
-                "自动QTE",
-                "自动切换角色",
-                "同时选择多名角色",
-                "跳过分辨率警告"
-            ]
-        },
-        {
-            "name": "B 服",
-            "path": [
-                "./resource/base",
-                "./resource/bilibili"
-            ],
-            "controller": [
-                "安卓端"
-            ],
-            "option": [
-                "自动QTE",
-                "自动切换角色",
-                "同时选择多名角色",
-                "跳过分辨率警告"
-            ]
-        },
-        {
-            "name": "应用宝服",
-            "path": [
-                "./resource/base",
-                "./resource/tencent"
-            ],
-            "controller": [
-                "安卓端"
-            ],
-            "option": [
-                "自动QTE",
-                "自动切换角色",
-                "同时选择多名角色",
-                "跳过分辨率警告"
-            ]
-        },
-        {
-            "name": "vivo服",
-            "path": [
-                "./resource/base",
-                "./resource/vivo"
-            ],
-            "controller": [
-                "安卓端"
-            ],
-            "option": [
-                "自动QTE",
-                "自动切换角色",
-                "同时选择多名角色",
-                "跳过分辨率警告"
-            ]
-        },
-        {
-            "name": "oppo服",
-            "path": [
-                "./resource/base",
-                "./resource/oppo"
-            ],
-            "controller": [
-                "安卓端"
-            ],
-            "option": [
-                "自动QTE",
-                "自动切换角色",
-                "同时选择多名角色",
-                "跳过分辨率警告"
-            ]
-        },
-        {
-            "name": "小米服",
-            "path": [
-                "./resource/base",
-                "./resource/mi"
-            ],
-            "controller": [
-                "安卓端"
-            ],
-            "option": [
-                "自动QTE",
-                "自动切换角色",
-                "同时选择多名角色",
-                "跳过分辨率警告"
-            ]
-        },
-        {
-            "name": "4399服",
-            "path": [
-                "./resource/base",
-                "./resource/4399"
-            ],
-            "controller": [
-                "安卓端"
-            ],
-            "option": [
-                "自动QTE",
-                "自动切换角色",
-                "同时选择多名角色",
-                "跳过分辨率警告"
-            ]
-        },
-        {
-            "name": "华为服",
-            "path": [
-                "./resource/base",
-                "./resource/huawei"
-            ],
-            "controller": [
-                "安卓端"
-            ],
-            "option": [
-                "自动QTE",
-                "自动切换角色",
-                "同时选择多名角色",
-                "跳过分辨率警告"
-            ]
-        },
-        {
-            "name": "抖音(字节跳动)服",
-            "path": [
-                "./resource/base",
-                "./resource/bytedance"
-            ],
-            "controller": [
-                "安卓端"
-            ],
-            "option": [
-                "自动QTE",
-                "自动切换角色",
-                "同时选择多名角色",
-                "跳过分辨率警告"
-            ]
-        },
-        {
-            "name": "九游服",
-            "path": [
-                "./resource/base",
-                "./resource/aligames"
-            ],
-            "controller": [
-                "安卓端"
-            ],
-            "option": [
-                "自动QTE",
-                "自动切换角色",
-                "同时选择多名角色",
-                "跳过分辨率警告"
-            ]
-        },
-        {
-            "name": "MuMu服",
-            "path": [
-                "./resource/base",
-                "./resource/mumu"
-            ],
-            "controller": [
-                "安卓端"
-            ],
-            "option": [
-                "自动QTE",
-                "自动切换角色",
-                "同时选择多名角色",
-                "跳过分辨率警告"
-            ]
-        },
-        {
-            "name": "waydroid官服",
-            "path": [
-                "./resource/base",
-                "./resource/waydroid_base"
-            ],
-            "controller": [
-                "安卓端"
-            ],
-            "option": [
-                "自动QTE",
-                "自动切换角色",
-                "同时选择多名角色",
-                "跳过分辨率警告"
+                "./resource/zh_tw"
             ]
         }
     ],
@@ -318,6 +103,407 @@
         "./tasks/神寂启示录.json"
     ],
     "option": {
+        "切换服务器": {
+            "label": "切换服务器",
+            "description": "切换服务器",
+            "type": "select",
+            "controller": [
+                "安卓端"
+            ],
+            "cases": [
+                {
+                    "name": "官服",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "云战双",
+                    "pipeline_override": {
+                        "进入游戏": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        884,
+                                        600,
+                                        112,
+                                        60
+                                    ],
+                                    "expected": [
+                                        "进入游戏"
+                                    ]
+                                }
+                            },
+                            "action": {
+                                "type": "Click",
+                                "param": {
+                                    "target": true
+                                }
+                            }
+                        },
+                        "打开应用": {
+                            "action": {
+                                "type": "StartApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.cloud"
+                                }
+                            }
+                        },
+                        "停止": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.cloud"
+                                }
+                            }
+                        },
+                        "重启游戏": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.cloud"
+                                }
+                            },
+                            "next": [
+                                "启动"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "B服",
+                    "pipeline_override": {
+                        "打开应用": {
+                            "action": {
+                                "type": "StartApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.bilibili"
+                                }
+                            }
+                        },
+                        "停止": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.bilibili"
+                                }
+                            }
+                        },
+                        "重启游戏": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.bilibili"
+                                }
+                            },
+                            "next": [
+                                "启动"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "应用宝服",
+                    "pipeline_override": {
+                        "打开应用": {
+                            "action": {
+                                "type": "StartApp",
+                                "param": {
+                                    "package": "com.tencent.tmgp.kurogame.haru"
+                                }
+                            }
+                        },
+                        "停止": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.tencent.tmgp.kurogame.haru"
+                                }
+                            }
+                        },
+                        "重启游戏": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.tencent.tmgp.kurogame.haru"
+                                }
+                            },
+                            "next": [
+                                "启动"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "vivo服",
+                    "pipeline_override": {
+                        "打开应用": {
+                            "action": {
+                                "type": "StartApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.vivo"
+                                }
+                            }
+                        },
+                        "停止": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.vivo"
+                                }
+                            }
+                        },
+                        "重启游戏": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.vivo"
+                                }
+                            },
+                            "next": [
+                                "启动"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "oppo服",
+                    "pipeline_override": {
+                        "打开应用": {
+                            "action": {
+                                "type": "StartApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.nearme.gamecenter"
+                                }
+                            }
+                        },
+                        "停止": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.nearme.gamecenter"
+                                }
+                            }
+                        },
+                        "重启游戏": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.nearme.gamecenter"
+                                }
+                            },
+                            "next": [
+                                "启动"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "小米服",
+                    "pipeline_override": {
+                        "打开应用": {
+                            "action": {
+                                "type": "StartApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.mi"
+                                }
+                            }
+                        },
+                        "停止": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.mi"
+                                }
+                            }
+                        },
+                        "重启游戏": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.mi"
+                                }
+                            },
+                            "next": [
+                                "启动"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "4399服",
+                    "pipeline_override": {
+                        "打开应用": {
+                            "action": {
+                                "type": "StartApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.m4399"
+                                }
+                            }
+                        },
+                        "停止": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.m4399"
+                                }
+                            }
+                        },
+                        "重启游戏": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.m4399"
+                                }
+                            },
+                            "next": [
+                                "启动"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "华为服",
+                    "pipeline_override": {
+                        "打开应用": {
+                            "action": {
+                                "type": "StartApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.huawei"
+                                }
+                            }
+                        },
+                        "停止": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.huawei"
+                                }
+                            }
+                        },
+                        "重启游戏": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.huawei"
+                                }
+                            },
+                            "next": [
+                                "启动"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "抖音(字节跳动)服",
+                    "pipeline_override": {
+                        "打开应用": {
+                            "action": {
+                                "type": "StartApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.hero.bytedance.gamecenter"
+                                }
+                            }
+                        },
+                        "停止": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.hero.bytedance.gamecenter"
+                                }
+                            }
+                        },
+                        "重启游戏": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.hero.bytedance.gamecenter"
+                                }
+                            },
+                            "next": [
+                                "启动"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "九游服",
+                    "pipeline_override": {
+                        "打开应用": {
+                            "action": {
+                                "type": "StartApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.aligames"
+                                }
+                            }
+                        },
+                        "停止": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.aligames"
+                                }
+                            }
+                        },
+                        "重启游戏": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.aligames"
+                                }
+                            },
+                            "next": [
+                                "启动"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "MuMu服",
+                    "pipeline_override": {
+                        "打开应用": {
+                            "action": {
+                                "type": "StartApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.yofun.mumu"
+                                }
+                            }
+                        },
+                        "停止": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.yofun.mumu"
+                                }
+                            }
+                        },
+                        "重启游戏": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.yofun.mumu"
+                                }
+                            },
+                            "next": [
+                                "启动"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "waydroid官服",
+                    "pipeline_override": {
+                        "打开应用": {
+                            "action": {
+                                "type": "StartApp",
+                                "param": {
+                                    "package": "com.kurogame.haru.hero --pct-syskeys 0"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         "跳过分辨率警告": {
             "label": "是否跳过分辨率警报",
             "description": "打开后将跳过分辨率不符的警告提示",

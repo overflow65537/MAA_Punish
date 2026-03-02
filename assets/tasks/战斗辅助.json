@@ -280,33 +280,6 @@
                     }
                 }
             ]
-        },
-        "是否使用体力": {
-            "type": "switch",
-            "cases": [
-                {
-                    "name": "Yes",
-                    "pipeline_override": {
-                        "A_不使用体力": {
-                            "enabled": false
-                        },
-                        "不使用体力": {
-                            "enabled": false
-                        }
-                    }
-                },
-                {
-                    "name": "No",
-                    "pipeline_override": {
-                        "A_使用体力": {
-                            "enabled": false
-                        },
-                        "使用体力": {
-                            "enabled": false
-                        }
-                    }
-                }
-            ]
         }
     }
 }
