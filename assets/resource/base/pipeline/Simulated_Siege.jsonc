@@ -140,6 +140,10 @@
                 ]
             }
         },
+        "post_wait_freezes": {
+            "time": 80,
+            "timeout": 1000
+        },
         "next": [
             "常序区作战完成",
             "[JumpBack]返回"
@@ -161,6 +165,10 @@
                     "Q/3"
                 ]
             }
+        },
+        "post_wait_freezes": {
+            "time": 80,
+            "timeout": 1000
         },
         "next": [
             "常序区作战完成",
@@ -201,6 +209,10 @@
         ]
     },
     "检查特遣区次数MAX": {
+        "post_wait_freezes": {
+            "time": 80,
+            "timeout": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -279,6 +291,10 @@
         ]
     },
     "检查BOSS区次数MAX": {
+        "post_wait_freezes": {
+            "time": 80,
+            "timeout": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {

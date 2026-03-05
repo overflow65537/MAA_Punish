@@ -12,7 +12,11 @@
         "expected": "^(獲得)?獎勵$"
     },
     "打开任务": {
-        "expected": "任務"
+        "expected": "任務",
+        "replace": [
+            "稅",
+            "務"
+        ]
     },
     "每周任务": {
         "expected": "每週"
