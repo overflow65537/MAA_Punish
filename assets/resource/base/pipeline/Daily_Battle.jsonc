@@ -418,17 +418,16 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    930,
-                    665,
-                    63,
-                    36
+                    905,
+                    640,
+                    113,
+                    80
                 ],
                 "expected": "资源"
             }
         },
         "action": {
-            "type": "Click",
-            "param": {}
+            "type": "Click"
         }
     },
     "打开拟战场域": {
