@@ -100,7 +100,8 @@
             "A区退出",
             "检查主界面2",
             "[JumpBack]关闭难度说明",
-            "[JumpBack]没打满"
+            "[JumpBack]没打满",
+            "[JumpBack]战斗结束"
         ]
     },
     "检查B区": {
@@ -128,7 +129,8 @@
             "B区退出",
             "检查主界面2",
             "[JumpBack]关闭难度说明",
-            "[JumpBack]没打满"
+            "[JumpBack]没打满",
+            "[JumpBack]战斗结束"
         ]
     },
     "检查C区": {
@@ -155,7 +157,8 @@
             "C区退出",
             "检查主界面2",
             "[JumpBack]关闭难度说明",
-            "[JumpBack]没打满"
+            "[JumpBack]没打满",
+            "[JumpBack]战斗结束"
         ]
     },
     "A区退出": {
