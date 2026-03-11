@@ -847,6 +847,16 @@
                 "expected": "公会"
             }
         },
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 10000,
+            "target": [
+                1179,
+                625,
+                72,
+                66
+            ]
+        },
         "action": {
             "type": "Click"
         }
