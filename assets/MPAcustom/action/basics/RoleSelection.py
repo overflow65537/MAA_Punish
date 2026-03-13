@@ -85,11 +85,11 @@ class RoleSelection(CustomAction):
             condition = {}
         elif condition.get("cache"):
             need_cache = True
-        roguelike_3_mode = context.get_node_data("肉鸽模式_配置")
-        if roguelike_3_mode:
-            roguelike_3_mode = roguelike_3_mode.get("focus")
+        roguelike_mode = context.get_node_data("肉鸽模式_配置")
+        if roguelike_mode:
+            roguelike_mode = roguelike_mode.get("focus")
         else:
-            roguelike_3_mode = None
+            roguelike_mode = None
 
         need_multi_node = context.get_node_data("多人选择")
         if need_multi_node:
@@ -99,7 +99,7 @@ class RoleSelection(CustomAction):
 
         self.logger.info(
             f"开始执行配队: condition={condition}, need_cache={need_cache}, "
-            f"roguelike_3_mode={roguelike_3_mode}, need_multi={need_multi}"
+            f"roguelike_mode={roguelike_mode}, need_multi={need_multi}"
         )
 
         pick = context.get_node_data("选择人物_配置")
@@ -110,14 +110,14 @@ class RoleSelection(CustomAction):
 
         condition.update(
             {
-                "roguelike_3_mode": roguelike_3_mode,
+                "roguelike_mode": roguelike_mode,
                 "pick": pick,
             }
         )
         role_dict = ROLE_ACTIONS.copy()
 
         role = None
-        if roguelike_3_mode is None and not need_cache:
+        if roguelike_mode is None and not need_cache:
             role = self._load_cache()
             if role:
                 self.logger.info("读取文件缓存成功")
@@ -126,8 +126,23 @@ class RoleSelection(CustomAction):
             self.logger.info("未读取到缓存, 开始识别")
             role = {}
 
+            # 计算默认滑动次数：
+            # - 非肉鸽模式(None)：默认 15
+            # - 肉鸽模式 1 或 2：默认 1
+            # - 肉鸽模式 3：默认 5
+            if roguelike_mode is None:
+                default_max_try = 15
+            elif roguelike_mode in (1, 2, 4):
+                # 肉鸽模式 1、2、4：只滑动一次
+                default_max_try = 1
+            elif roguelike_mode == 3:
+                # 肉鸽模式 3：默认滑动 5 次
+                default_max_try = 5
+            else:
+                default_max_try = 5
+
             for _ in range(
-                int(condition.get("max_try", 15 if roguelike_3_mode is None else 5))
+                int(condition.get("max_try", default_max_try))
             ):
                 if context.tasker.stopping:
                     return CustomAction.RunResult(success=True)
@@ -136,7 +151,7 @@ class RoleSelection(CustomAction):
                         context,
                         role_dict,
                         condition.get("cage", False),
-                        condition.get("roguelike_3_mode", 0),
+                        condition.get("roguelike_mode", 0),
                     )
                 )
                 context.run_action("滑动_选人")
@@ -147,7 +162,7 @@ class RoleSelection(CustomAction):
                 self.logger.info(f"识别完成并写入缓存, 共识别到角色数量: {len(role)}")
                 return CustomAction.RunResult(success=True)
             for _ in range(
-                int(condition.get("max_try", 15 if roguelike_3_mode is None else 5))
+                int(condition.get("max_try", default_max_try))
             ):
                 if context.tasker.stopping:
                     return CustomAction.RunResult(success=True)
@@ -162,15 +177,15 @@ class RoleSelection(CustomAction):
         tank_name = best_team.get("tank", {}).get("name")
         support_name = best_team.get("support", {}).get("name")
 
-        # 仅在 need_multi 为 True 且 roguelike_3_mode 为 False 时显示名称，否则显示“无”
+        # 仅在 need_multi 为 True 且 roguelike_mode 为空(None) 时显示名称，否则显示“无”
         display_tank_name = (
             tank_name
-            if need_multi is True and condition.get("roguelike_3_mode") is None
+            if need_multi is True and condition.get("roguelike_mode") is None
             else None
         )
         display_support_name = (
             support_name
-            if need_multi is True and condition.get("roguelike_3_mode") is None
+            if need_multi is True and condition.get("roguelike_mode") is None
             else None
         )
 
@@ -182,7 +197,7 @@ class RoleSelection(CustomAction):
             f"队伍构成: {display_support_name or '无'} {attacker_name or '无'} {display_tank_name or '无'}",
         )
         if attacker_name and self.find_role(
-            context, role_dict, attacker_name, 16 if roguelike_3_mode is None else 5
+            context, role_dict, attacker_name, 16 if roguelike_mode is None else 5
         ):
             context.run_task("编入队伍")
         else:
@@ -191,7 +206,7 @@ class RoleSelection(CustomAction):
             context.run_task("返回主菜单")
             context.run_action("停止任务")
 
-        if need_multi is True and condition.get("roguelike_3_mode") is None:
+        if need_multi is True and condition.get("roguelike_mode") is None:
             if tank_name:
                 context.run_task("打开黄色位置")
                 if self.find_role(context, role_dict, tank_name):
@@ -208,7 +223,7 @@ class RoleSelection(CustomAction):
                     time.sleep(0.5)
                     context.run_task("返回")
         # 缓存数据
-        if roguelike_3_mode is None and condition.get("cage"):
+        if roguelike_mode is None and condition.get("cage"):
             # 只有非肉鸽模式并且是囚笼模式才会保存缓存
             for selected_name in (attacker_name, tank_name, support_name):
                 if not selected_name:
@@ -310,12 +325,12 @@ class RoleSelection(CustomAction):
         context: Context,
         role_actions: dict,
         cage: bool = False,
-        roguelike_3_mode: int = 0,
+        roguelike_mode: int = 0,
     ) -> dict:
 
         # 对每个角色进行识别
         self.logger.info(
-            f"开始整页角色识别, cage={cage}, roguelike_3_mode={roguelike_3_mode}"
+            f"开始整页角色识别, cage={cage}, roguelike_mode={roguelike_mode}"
         )
         role = {}
         image = context.tasker.controller.post_screencap().wait().get()
@@ -465,7 +480,7 @@ class RoleSelection(CustomAction):
                         else:
                             role[display_name]["cage"] = 0
 
-                    if roguelike_3_mode == 1:
+                    if roguelike_mode == 1:
                         mastery_result = context.run_recognition(
                             entry="识别精通等级",
                             image=image,
@@ -500,9 +515,9 @@ class RoleSelection(CustomAction):
             element_score = info.get("generation", 0)
             # 是否有次数
             has_count = info.get("cage", 0)
-            # 肉鸽3模式 0代表初始招募能量4，只需要提取是否被肉鸽选中。1代表初始招募能量3，只提取精通等级
+            # 肉鸽模式 0代表初始招募能量4，只需要提取是否被肉鸽选中。1代表初始招募能量3，只提取精通等级
             # 是否被选中
-            if condition.get("roguelike_3_mode", 0) == 1:
+            if condition.get("roguelike_mode", 0) == 1:
                 is_pick = role_name in condition.get("pick", [])
                 is_master_level_not_full = info.get("master_level", False)
             else:
