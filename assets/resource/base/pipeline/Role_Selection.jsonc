@@ -693,5 +693,154 @@
                 ]
             }
         }
+    },
+    "切换预设": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1109,
+                    0,
+                    171,
+                    137
+                ],
+                "expected": [
+                    "队伍",
+                    "预设"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "选择预设",
+            "滑动预设",
+            "切换预设",
+            "[JumpBack]意外点击_删除编队"
+        ]
+    },
+    "选择预设": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    14,
+                    100,
+                    233,
+                    551
+                ],
+                "expected": [
+                    "编队6"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "使用预设"
+        ]
+    },
+    "使用预设": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    976,
+                    614,
+                    297,
+                    106
+                ],
+                "expected": [
+                    "使用"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "作战开始"
+        ]
+    },
+    "滑动预设": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    40,
+                    258,
+                    108
+                ],
+                "expected": [
+                    "队伍预设"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    120,
+                    250
+                ],
+                "end": [
+                    [
+                        120,
+                        500
+                    ],
+                    [
+                        300,
+                        500
+                    ]
+                ]
+            }
+        }
+    },
+    "意外点击_删除编队": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    508,
+                                    473,
+                                    209,
+                                    85
+                                ],
+                                "expected": [
+                                    "取消"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    217,
+                                    121,
+                                    730,
+                                    307
+                                ],
+                                "expected": [
+                                    "是否删除当前"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }

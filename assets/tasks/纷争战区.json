@@ -22,5 +22,255 @@
             }
         }
     ],
-    "option": {}
+    "option": {
+        "自行选择编队_战区": {
+            "label": "自行选择编队",
+            "type": "switch",
+            "default": false,
+            "description": "<p>开启后将自行选择编队，关闭后将使用默认编队。</p>",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {},
+                    "option": [
+                        "选择火队_战区",
+                        "选择雷队_战区",
+                        "选择冰队_战区",
+                        "选择暗队_战区",
+                        "选择空队_战区",
+                        "选择物理队_战区",
+                        "选择特性队_战区"
+                    ]
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {}
+                }
+            ]
+        },
+        "选择火队_战区": {
+            "label": "选择火队",
+            "description": "<p>输入火队编队名称，需与游戏内预设编队名称完全一致。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string"
+                }
+            ],
+            "pipeline_override": {
+                "查看地图_火区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择雷队_战区": {
+            "label": "选择雷队",
+            "description": "<p>输入雷队编队名称，需与游戏内预设编队名称完全一致。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string"
+                }
+            ],
+            "pipeline_override": {
+                "查看地图_雷区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择冰队_战区": {
+            "label": "选择冰队",
+            "description": "<p>输入冰队编队名称，需与游戏内预设编队名称完全一致。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string"
+                }
+            ],
+            "pipeline_override": {
+                "查看地图_冰区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择暗队_战区": {
+            "label": "选择暗队",
+            "description": "<p>输入暗队编队名称，需与游戏内预设编队名称完全一致。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string"
+                }
+            ],
+            "pipeline_override": {
+                "查看地图_暗区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择空队_战区": {
+            "label": "选择空队",
+            "description": "<p>输入空队编队名称，需与游戏内预设编队名称完全一致。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string"
+                }
+            ],
+            "pipeline_override": {
+                "查看地图_空区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择物理队_战区": {
+            "label": "选择物理队",
+            "description": "<p>输入物理队编队名称，需与游戏内预设编队名称完全一致。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string"
+                }
+            ],
+            "pipeline_override": {
+                "查看地图_物理区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择特性队_战区": {
+            "label": "选择特性队",
+            "description": "<p>输入特性队编队名称，需与游戏内预设编队名称完全一致。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string"
+                }
+            ],
+            "pipeline_override": {
+                "查看地图_特性区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        }
+    }
 }
