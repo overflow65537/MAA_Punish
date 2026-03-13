@@ -36,9 +36,6 @@ def install_resource():
     interface["version"] = version
     interface["title"] = "法奥斯之矛 | " + version
 
-    interface["agent"]["embedded"] = True
-    interface["MFW_min_req_version"] = "99.99.99"
-
     with open(install_path / "interface.json", "w", encoding="utf-8") as f:
         jsonc.dump(interface, f, ensure_ascii=False, indent=4)
 
