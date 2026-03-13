@@ -97,9 +97,35 @@
             }
         },
         "next": [
+            "[JumpBack]破纪录",
             "[JumpBack]首通未完成",
             "首通已完成"
         ]
+    },
+    "破纪录": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    497,
+                    269,
+                    295,
+                    198
+                ],
+                "expected": [
+                    "NEW"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    633,
+                    700
+                ]
+            }
+        }
     },
     "首通未完成": {
         "recognition": {
