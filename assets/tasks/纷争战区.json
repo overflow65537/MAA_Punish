@@ -4,6 +4,9 @@
             "name": "纷争战区",
             "default_check": true,
             "entry": "纷争战区",
+            "option": [
+                "自行选择编队_战区"
+            ],
             "description": "<p>自动首通纷争战区；如已通关则仅领取奖励。</p><p><b>速通</b>：每周二5点后可运行2次，首次运行后需等待24小时。</p>",
             "speedrun": {
                 "mode": "weekly",
@@ -27,7 +30,7 @@
             "label": "自行选择编队",
             "type": "switch",
             "default": false,
-            "description": "<p>开启后将自行选择编队，关闭后将使用默认编队。</p>",
+            "description": "<p>开启后将自行选择编队，关闭后将使用自动编队。</p>",
             "cases": [
                 {
                     "name": "Yes",
@@ -55,7 +58,11 @@
             "inputs": [
                 {
                     "name": "编队名",
-                    "pipeline_type": "string"
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.+$",
+                    "pattern_msg": "需要输入编队名",
+                    "verify": "^\\s*\\S.+$",
+                    "pattern_msg": "需要输入编队名"
                 }
             ],
             "pipeline_override": {
@@ -87,7 +94,9 @@
             "inputs": [
                 {
                     "name": "编队名",
-                    "pipeline_type": "string"
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.+$",
+                    "pattern_msg": "需要输入编队名"
                 }
             ],
             "pipeline_override": {
@@ -119,7 +128,9 @@
             "inputs": [
                 {
                     "name": "编队名",
-                    "pipeline_type": "string"
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.+$",
+                    "pattern_msg": "需要输入编队名"
                 }
             ],
             "pipeline_override": {
@@ -151,7 +162,9 @@
             "inputs": [
                 {
                     "name": "编队名",
-                    "pipeline_type": "string"
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.+$",
+                    "pattern_msg": "需要输入编队名"
                 }
             ],
             "pipeline_override": {
@@ -183,7 +196,9 @@
             "inputs": [
                 {
                     "name": "编队名",
-                    "pipeline_type": "string"
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.+$",
+                    "pattern_msg": "需要输入编队名"
                 }
             ],
             "pipeline_override": {
@@ -215,7 +230,9 @@
             "inputs": [
                 {
                     "name": "编队名",
-                    "pipeline_type": "string"
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.+$",
+                    "pattern_msg": "需要输入编队名"
                 }
             ],
             "pipeline_override": {
@@ -247,7 +264,9 @@
             "inputs": [
                 {
                     "name": "编队名",
-                    "pipeline_type": "string"
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.+$",
+                    "pattern_msg": "需要输入编队名"
                 }
             ],
             "pipeline_override": {

@@ -6,7 +6,8 @@
             "entry": "幻痛囚笼",
             "description": "<p>自动战斗幻痛囚笼，并自动选择人物作战；请注意角色锁定状态。</p><p>终级区需要自行选择非在岗角色,防止占用在岗角色</p><p><b>速通</b>：每周二5点后可运行2次，首次运行后需等待24小时。</p>",
             "option": [
-                "选择区域"
+                "选择区域",
+                "自行选择编队_囚笼"
             ],
             "speedrun": {
                 "mode": "weekly",
@@ -53,7 +54,7 @@
             "label": "自行选择编队",
             "type": "switch",
             "default": false,
-            "description": "<p>开启后将自行选择编队，关闭后将使用默认编队。</p>",
+            "description": "<p>开启后将自行选择编队，关闭后将使用自动编队。</p>",
             "cases": [
                 {
                     "name": "Yes",
@@ -79,7 +80,9 @@
             "inputs": [
                 {
                     "name": "编队名",
-                    "pipeline_type": "string"
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.+$",
+                    "pattern_msg": "需要输入编队名"
                 }
             ],
             "pipeline_override": {
@@ -111,7 +114,9 @@
             "inputs": [
                 {
                     "name": "编队名",
-                    "pipeline_type": "string"
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.+$",
+                    "pattern_msg": "需要输入编队名"
                 }
             ],
             "pipeline_override": {
@@ -143,7 +148,9 @@
             "inputs": [
                 {
                     "name": "编队名",
-                    "pipeline_type": "string"
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.+$",
+                    "pattern_msg": "需要输入编队名"
                 }
             ],
             "pipeline_override": {
@@ -175,7 +182,9 @@
             "inputs": [
                 {
                     "name": "编队名",
-                    "pipeline_type": "string"
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.+$",
+                    "pattern_msg": "需要输入编队名"
                 }
             ],
             "pipeline_override": {
@@ -207,7 +216,9 @@
             "inputs": [
                 {
                     "name": "编队名",
-                    "pipeline_type": "string"
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.+$",
+                    "pattern_msg": "需要输入编队名"
                 }
             ],
             "pipeline_override": {
