@@ -154,6 +154,8 @@ class RoleSelection(CustomAction):
                         condition.get("roguelike_mode", 0),
                     )
                 )
+                if context.run_recognition("检查到未解锁角色",context.tasker.controller.cached_image):
+                    break
                 context.run_action("滑动_选人")
             if need_cache:
                 for r in role.values():

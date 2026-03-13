@@ -49,6 +49,22 @@
             }
         }
     },
+    "检查到未解锁角色": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    62,
+                    65,
+                    164,
+                    219
+                ],
+                "template": [
+                    "选择角色类型/未解锁人物.png"
+                ]
+            }
+        }
+    },
     "识别囚笼次数1": {
         "recognition": {
             "type": "ColorMatch",

@@ -81,7 +81,7 @@
                 {
                     "name": "编队名",
                     "pipeline_type": "string",
-                    "verify": "^\\s*\\S.+$",
+                    "verify": "^\\s*\\S.*$",
                     "pattern_msg": "需要输入编队名"
                 }
             ],
@@ -115,7 +115,7 @@
                 {
                     "name": "编队名",
                     "pipeline_type": "string",
-                    "verify": "^\\s*\\S.+$",
+                    "verify": "^\\s*\\S.*$",
                     "pattern_msg": "需要输入编队名"
                 }
             ],
@@ -149,7 +149,7 @@
                 {
                     "name": "编队名",
                     "pipeline_type": "string",
-                    "verify": "^\\s*\\S.+$",
+                    "verify": "^\\s*\\S.*$",
                     "pattern_msg": "需要输入编队名"
                 }
             ],
@@ -183,7 +183,7 @@
                 {
                     "name": "编队名",
                     "pipeline_type": "string",
-                    "verify": "^\\s*\\S.+$",
+                    "verify": "^\\s*\\S.*$",
                     "pattern_msg": "需要输入编队名"
                 }
             ],
@@ -217,7 +217,7 @@
                 {
                     "name": "编队名",
                     "pipeline_type": "string",
-                    "verify": "^\\s*\\S.+$",
+                    "verify": "^\\s*\\S.*$",
                     "pattern_msg": "需要输入编队名"
                 }
             ],
