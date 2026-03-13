@@ -48,6 +48,189 @@
                     ]
                 }
             ]
+        },
+        "自行选择编队_囚笼": {
+            "label": "自行选择编队",
+            "type": "switch",
+            "default": false,
+            "description": "<p>开启后将自行选择编队，关闭后将使用默认编队。</p>",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {},
+                    "option": [
+                        "选择火队_囚笼",
+                        "选择雷队_囚笼",
+                        "选择冰队_囚笼",
+                        "选择暗队_囚笼",
+                        "选择物理队_囚笼"
+                    ]
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {}
+                }
+            ]
+        },
+        "选择火队_囚笼": {
+            "label": "选择火队",
+            "description": "<p>输入火队编队名称，需与游戏内预设编队名称完全一致。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string"
+                }
+            ],
+            "pipeline_override": {
+                "查看Boss_火队": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择雷队_囚笼": {
+            "label": "选择雷队",
+            "description": "<p>输入雷队编队名称，需与游戏内预设编队名称完全一致。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string"
+                }
+            ],
+            "pipeline_override": {
+                "查看Boss_雷队": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择冰队_囚笼": {
+            "label": "选择冰队",
+            "description": "<p>输入冰队编队名称，需与游戏内预设编队名称完全一致。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string"
+                }
+            ],
+            "pipeline_override": {
+                "查看Boss_冰队": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择暗队_囚笼": {
+            "label": "选择暗队",
+            "description": "<p>输入暗队编队名称，需与游戏内预设编队名称完全一致。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string"
+                }
+            ],
+            "pipeline_override": {
+                "查看Boss_暗队": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择物理队_囚笼": {
+            "label": "选择物理队",
+            "description": "<p>输入物理队编队名称，需与游戏内预设编队名称完全一致。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string"
+                }
+            ],
+            "pipeline_override": {
+                "查看Boss_物队": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
         }
     }
 }
