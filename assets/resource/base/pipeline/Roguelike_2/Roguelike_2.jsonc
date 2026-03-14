@@ -631,6 +631,8 @@
                 "expected": "邀约"
             }
         },
+        "pre_delay": 1000,
+        "pre_wait_freezes": 80,
         "next": [
             "确认招募",
             "[JumpBack]选择羁绊_金色1",
