@@ -547,7 +547,7 @@
                     850,
                     56
                 ],
-                "expected": "选择"
+                "expected": "选择$"
             }
         },
         "action": {
