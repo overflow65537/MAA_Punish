@@ -692,28 +692,52 @@
             "空任务"
         ]
     },
-    "选择羁绊_金色1": {
+    "招募次数大于0_厄愿潮声": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    419,
-                    200,
-                    46,
-                    134
+                    1060,
+                    576,
+                    167,
+                    39
                 ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
-                "upper": [
-                    169,
-                    128,
-                    62
-                ],
-                "lower": [
-                    66,
-                    49,
-                    27
+                "expected": "[1-9]+"
+            }
+        }
+    },
+    "选择羁绊_金色1": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    419,
+                                    200,
+                                    46,
+                                    134
+                                ],
+                                "order_by": "Score",
+                                "count": 100,
+                                "connected": true,
+                                "upper": [
+                                    169,
+                                    128,
+                                    62
+                                ],
+                                "lower": [
+                                    66,
+                                    49,
+                                    27
+                                ]
+                            }
+                        }
+                    },
+                    "招募次数大于0_厄愿潮声"
                 ]
             }
         },
@@ -787,26 +811,36 @@
     },
     "选择羁绊_金色2": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "And",
             "param": {
-                "roi": [
-                    745,
-                    202,
-                    42,
-                    119
-                ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
-                "upper": [
-                    169,
-                    128,
-                    62
-                ],
-                "lower": [
-                    66,
-                    49,
-                    27
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    745,
+                                    202,
+                                    42,
+                                    119
+                                ],
+                                "order_by": "Score",
+                                "count": 100,
+                                "connected": true,
+                                "upper": [
+                                    169,
+                                    128,
+                                    62
+                                ],
+                                "lower": [
+                                    66,
+                                    49,
+                                    27
+                                ]
+                            }
+                        }
+                    },
+                    "招募次数大于0_厄愿潮声"
                 ]
             }
         },
@@ -880,26 +914,36 @@
     },
     "选择羁绊_金色3": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "And",
             "param": {
-                "roi": [
-                    1071,
-                    202,
-                    45,
-                    127
-                ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
-                "upper": [
-                    169,
-                    128,
-                    62
-                ],
-                "lower": [
-                    66,
-                    49,
-                    27
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    1071,
+                                    202,
+                                    45,
+                                    127
+                                ],
+                                "order_by": "Score",
+                                "count": 100,
+                                "connected": true,
+                                "upper": [
+                                    169,
+                                    128,
+                                    62
+                                ],
+                                "lower": [
+                                    66,
+                                    49,
+                                    27
+                                ]
+                            }
+                        }
+                    },
+                    "招募次数大于0_厄愿潮声"
                 ]
             }
         },
@@ -973,26 +1017,36 @@
     },
     "选择羁绊_紫色1": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "And",
             "param": {
-                "roi": [
-                    419,
-                    200,
-                    46,
-                    134
-                ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
-                "upper": [
-                    154,
-                    82,
-                    148
-                ],
-                "lower": [
-                    75,
-                    49,
-                    79
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    419,
+                                    200,
+                                    46,
+                                    134
+                                ],
+                                "order_by": "Score",
+                                "count": 100,
+                                "connected": true,
+                                "upper": [
+                                    154,
+                                    82,
+                                    148
+                                ],
+                                "lower": [
+                                    75,
+                                    49,
+                                    79
+                                ]
+                            }
+                        }
+                    },
+                    "招募次数大于0_厄愿潮声"
                 ]
             }
         },
@@ -1066,26 +1120,36 @@
     },
     "选择羁绊_紫色2": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "And",
             "param": {
-                "roi": [
-                    745,
-                    202,
-                    42,
-                    119
-                ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
-                "upper": [
-                    154,
-                    82,
-                    148
-                ],
-                "lower": [
-                    75,
-                    49,
-                    79
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    745,
+                                    202,
+                                    42,
+                                    119
+                                ],
+                                "order_by": "Score",
+                                "count": 100,
+                                "connected": true,
+                                "upper": [
+                                    154,
+                                    82,
+                                    148
+                                ],
+                                "lower": [
+                                    75,
+                                    49,
+                                    79
+                                ]
+                            }
+                        }
+                    },
+                    "招募次数大于0_厄愿潮声"
                 ]
             }
         },
@@ -1159,26 +1223,36 @@
     },
     "选择羁绊_紫色3": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "And",
             "param": {
-                "roi": [
-                    1071,
-                    202,
-                    45,
-                    127
-                ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
-                "upper": [
-                    154,
-                    82,
-                    148
-                ],
-                "lower": [
-                    75,
-                    49,
-                    79
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    1071,
+                                    202,
+                                    45,
+                                    127
+                                ],
+                                "order_by": "Score",
+                                "count": 100,
+                                "connected": true,
+                                "upper": [
+                                    154,
+                                    82,
+                                    148
+                                ],
+                                "lower": [
+                                    75,
+                                    49,
+                                    79
+                                ]
+                            }
+                        }
+                    },
+                    "招募次数大于0_厄愿潮声"
                 ]
             }
         },
@@ -1252,26 +1326,36 @@
     },
     "选择羁绊_蓝色1": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "And",
             "param": {
-                "roi": [
-                    419,
-                    200,
-                    46,
-                    134
-                ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
-                "upper": [
-                    60,
-                    97,
-                    152
-                ],
-                "lower": [
-                    43,
-                    71,
-                    113
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    419,
+                                    200,
+                                    46,
+                                    134
+                                ],
+                                "order_by": "Score",
+                                "count": 100,
+                                "connected": true,
+                                "upper": [
+                                    60,
+                                    97,
+                                    152
+                                ],
+                                "lower": [
+                                    43,
+                                    71,
+                                    113
+                                ]
+                            }
+                        }
+                    },
+                    "招募次数大于0_厄愿潮声"
                 ]
             }
         },
@@ -1345,26 +1429,36 @@
     },
     "选择羁绊_蓝色2": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "And",
             "param": {
-                "roi": [
-                    745,
-                    202,
-                    42,
-                    119
-                ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
-                "upper": [
-                    60,
-                    97,
-                    152
-                ],
-                "lower": [
-                    43,
-                    71,
-                    113
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    745,
+                                    202,
+                                    42,
+                                    119
+                                ],
+                                "order_by": "Score",
+                                "count": 100,
+                                "connected": true,
+                                "upper": [
+                                    60,
+                                    97,
+                                    152
+                                ],
+                                "lower": [
+                                    43,
+                                    71,
+                                    113
+                                ]
+                            }
+                        }
+                    },
+                    "招募次数大于0_厄愿潮声"
                 ]
             }
         },
@@ -1438,26 +1532,36 @@
     },
     "选择羁绊_蓝色3": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "And",
             "param": {
-                "roi": [
-                    1071,
-                    202,
-                    45,
-                    127
-                ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
-                "upper": [
-                    60,
-                    97,
-                    152
-                ],
-                "lower": [
-                    43,
-                    71,
-                    113
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    1071,
+                                    202,
+                                    45,
+                                    127
+                                ],
+                                "order_by": "Score",
+                                "count": 100,
+                                "connected": true,
+                                "upper": [
+                                    60,
+                                    97,
+                                    152
+                                ],
+                                "lower": [
+                                    43,
+                                    71,
+                                    113
+                                ]
+                            }
+                        }
+                    },
+                    "招募次数大于0_厄愿潮声"
                 ]
             }
         },
