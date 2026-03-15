@@ -5,7 +5,8 @@
             "[JumpBack]关闭奖励",
             "[JumpBack]选择宿舍币商店",
             "[JumpBack]打开宿舍商店",
-            "[JumpBack]打开宿舍"
+            "[JumpBack]打开宿舍",
+            "[JumpBack]意外点击_商店物品"
         ]
     },
     "宿舍任务_遣测": {
@@ -14,8 +15,36 @@
             "[JumpBack]关闭奖励",
             "[JumpBack]打开遣测商店",
             "[JumpBack]打开宿舍商店",
-            "[JumpBack]打开宿舍"
+            "[JumpBack]打开宿舍",
+            "[JumpBack]意外点击_商店物品"
         ]
+    },
+    "意外点击_商店物品": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    688,
+                    620,
+                    302,
+                    90
+                ],
+                "expected": [
+                    "购买"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1221,
+                    74,
+                    1,
+                    1
+                ]
+            }
+        }
     },
     "错误购买": {
         "post_delay": 2000,
@@ -210,6 +239,7 @@
         },
         "next": [
             "推荐物品",
+            "[JumpBack]意外点击_商店物品",
             "返回主菜单"
         ]
     },
@@ -259,6 +289,7 @@
         },
         "next": [
             "推荐物品",
+            "[JumpBack]意外点击_商店物品",
             "返回主菜单"
         ]
     },
