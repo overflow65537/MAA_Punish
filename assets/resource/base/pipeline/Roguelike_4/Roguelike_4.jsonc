@@ -687,15 +687,19 @@
             "type": "Click"
         },
         "next": [
-            "事件完成_寒境曙光",
-            "挑战失败_寒境曙光",
+            "强制失败_成功",
             "[JumpBack]点击空白处关闭",
             "[JumpBack]驻扎点报警_寒境曙光",
             "[JumpBack]支援等级提升_寒境曙光",
             "[JumpBack]选择军事支援_寒境曙光",
             "[JumpBack]选择经济支援_寒境曙光",
             "[JumpBack]选择基建支援_寒境曙光",
-            "[JumpBack]关闭奖励_寒境曙光"
+            "[JumpBack]关闭奖励_寒境曙光",
+            "[JumpBack]确认下一天_强制失败",
+            "[JumpBack]局内招募_寒境曙光",
+            "[JumpBack]继续对话_寒境曙光",
+            "[JumpBack]领取战斗奖励",
+            "[JumpBack]下一天_强制失败"
         ]
     },
     "重启_寒境曙光": {
