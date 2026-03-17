@@ -616,6 +616,10 @@
                 ]
             }
         },
+        "post_wait_freezes": {
+            "time": 100,
+            "timeout": 2000
+        },
         "action": {
             "type": "Click"
         }
