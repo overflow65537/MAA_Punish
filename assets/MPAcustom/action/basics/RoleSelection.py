@@ -154,7 +154,10 @@ class RoleSelection(CustomAction):
                         condition.get("roguelike_mode", 0),
                     )
                 )
-                if context.run_recognition("检查到未解锁角色",context.tasker.controller.cached_image):
+                image = context.tasker.controller.post_screencap().wait().get()
+                check_role = context.run_recognition("检查到未解锁角色", image) 
+                if check_role is not None and check_role.hit:
+                    self.logger.info("检测到未解锁角色, 可能已经滑到底了")
                     break
                 context.run_action("滑动_选人")
                 performed_slide_count += 1
@@ -237,6 +240,7 @@ class RoleSelection(CustomAction):
                 if need_multi is False and selected_name != attacker_name:
                     continue
                 role_key = selected_name
+                self.logger.info(f"{role_key} 选中, 清除次数")
                 if role_key not in role:
                     role_key = selected_name.replace("[试用]", "")
                 if role_key in role:
@@ -716,3 +720,4 @@ class RoleSelection(CustomAction):
         }
         with open(cache_path, "w", encoding="utf-8") as f:
             json.dump(cache_data, f, ensure_ascii=False, indent=2)
+        self.logger.info("缓存保存成功")

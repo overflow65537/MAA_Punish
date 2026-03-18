@@ -593,7 +593,7 @@
         },
         "next": [
             "缓存角色程序",
-            "[JumpBack]打开成员列表",
+            "打开成员列表",
             "[JumpBack]返回主菜单"
         ]
     },
@@ -645,9 +645,13 @@
             "time": 100,
             "timeout": 2000
         },
+        "post_delay": 1000,
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "缓存角色程序"
+        ]
     },
     "点击首发": {
         "post_delay": 2000,
