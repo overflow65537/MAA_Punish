@@ -247,10 +247,30 @@
             "type": "Click"
         },
         "next": [
+            "角色耐力不足",
             "[JumpBack]关闭未拥有人物提示",
             "编入队伍",
             "空任务"
         ]
+    },
+    "角色耐力不足": {
+        "focus": {
+            "Node.Recognition.Succeeded": "角色耐力不足"
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    514,
+                    318,
+                    272,
+                    91
+                ],
+                "expected": [
+                    "挑战角色耐力不足"
+                ]
+            }
+        }
     },
     "卸下队伍": {
         "post_delay": 1000,
