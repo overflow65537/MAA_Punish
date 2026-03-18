@@ -51,6 +51,15 @@ class RoleSelection(CustomAction):
     def _current_week(self) -> int:
         return datetime.date.today().isocalendar().week
 
+    def _default_slide_count(self, roguelike_mode: int | None) -> int:
+        if roguelike_mode is None:
+            return 15
+        if roguelike_mode in (1, 2, 4):
+            return 1
+        if roguelike_mode == 3:
+            return 5
+        return 5
+
     def _load_cache(self) -> dict | None:
         cache_path = self._cache_path()
         if not cache_path.exists():
@@ -125,25 +134,16 @@ class RoleSelection(CustomAction):
         if not role:
             self.logger.info("未读取到缓存, 开始识别")
             role = {}
+            scan_count = int(
+                condition.get("max_try", self._default_slide_count(roguelike_mode))
+            )
+            performed_slide_count = 0
 
-            # 计算默认滑动次数：
-            # - 非肉鸽模式(None)：默认 15
-            # - 肉鸽模式 1 或 2：默认 1
-            # - 肉鸽模式 3：默认 5
-            if roguelike_mode is None:
-                default_max_try = 15
-            elif roguelike_mode in (1, 2, 4):
-                # 肉鸽模式 1、2、4：只滑动一次
-                default_max_try = 1
-            elif roguelike_mode == 3:
-                # 肉鸽模式 3：默认滑动 5 次
-                default_max_try = 5
-            else:
-                default_max_try = 5
+            self.logger.info(
+                f"角色识别计划滑动次数: scan_count={scan_count}, roguelike_mode={roguelike_mode}"
+            )
 
-            for _ in range(
-                int(condition.get("max_try", default_max_try))
-            ):
+            for _ in range(scan_count):
                 if context.tasker.stopping:
                     return CustomAction.RunResult(success=True)
                 role.update(
@@ -157,15 +157,19 @@ class RoleSelection(CustomAction):
                 if context.run_recognition("检查到未解锁角色",context.tasker.controller.cached_image):
                     break
                 context.run_action("滑动_选人")
+                performed_slide_count += 1
             if need_cache:
                 for r in role.values():
                     r["cage"] = 3  # 强制设置为有次数
                 self.save_cache(role)
                 self.logger.info(f"识别完成并写入缓存, 共识别到角色数量: {len(role)}")
                 return CustomAction.RunResult(success=True)
-            for _ in range(
-                int(condition.get("max_try", default_max_try))
-            ):
+            reset_count = performed_slide_count + 1
+            self.logger.info(
+                f"角色识别实际滑动次数: performed_slide_count={performed_slide_count}, "
+                f"reset_count={reset_count}"
+            )
+            for _ in range(reset_count):
                 if context.tasker.stopping:
                     return CustomAction.RunResult(success=True)
                 context.run_action("反向滑动_选人")
