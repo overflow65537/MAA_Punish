@@ -528,10 +528,10 @@ class RoleSelection(CustomAction):
             # 肉鸽模式 0代表初始招募能量4，只需要提取是否被肉鸽选中。1代表初始招募能量3，只提取精通等级
             # 是否被选中
             if condition.get("roguelike_mode", 0) == 1:
-                is_pick = role_name in condition.get("pick", [])
+                is_pick = role_name.replace("[试用]", "") in condition.get("pick", [])
                 is_master_level_not_full = info.get("master_level", False)
             else:
-                is_pick = role_name in condition.get("pick", [])
+                is_pick = role_name.replace("[试用]", "") in condition.get("pick", [])
                 is_master_level_not_full = False
 
             # 精通等级是否未满
