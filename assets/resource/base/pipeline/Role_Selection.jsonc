@@ -10,6 +10,7 @@
                     560
                 ],
                 "order_by": "Vertical",
+                "green_mask": true,
                 "template": []
             }
         }
