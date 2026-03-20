@@ -177,6 +177,9 @@
                 ]
             }
         },
+        "post_delay": 0,
+        "pre_delay": 0,
+        "rate_limit": 0,
         "next": [
             "指数确认_寒境曙光",
             "寒境曙光主界面",
