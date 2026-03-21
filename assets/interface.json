@@ -55,7 +55,8 @@
         "自动QTE",
         "自动切换角色",
         "同时选择多名角色",
-        "跳过分辨率警告"
+        "跳过分辨率警告",
+        "自定义键位"
     ],
     "resource": [
         {
@@ -533,6 +534,9 @@
             "description": "打开后可以自定义游戏中的按键设置",
             "type": "switch",
             "default_case": "No",
+            "controller": [
+                "桌面端"
+            ],
             "cases": [
                 {
                     "name": "Yes",
