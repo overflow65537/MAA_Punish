@@ -96,6 +96,16 @@
                 ]
             }
         },
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 5000,
+            "target": [
+                24,
+                208,
+                517,
+                451
+            ]
+        },
         "next": [
             "[JumpBack]破纪录",
             "[JumpBack]首通未完成",
