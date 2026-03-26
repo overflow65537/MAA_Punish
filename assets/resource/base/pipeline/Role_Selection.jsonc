@@ -810,8 +810,39 @@
             "type": "Click"
         },
         "next": [
+            "[JumpBack]更换辅助机",
             "作战开始"
         ]
+    },
+    "更换辅助机": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    105,
+                                    56,
+                                    944,
+                                    230
+                                ],
+                                "expected": [
+                                    "已被携带或技能有变更"
+                                ]
+                            }
+                        }
+                    },
+                    "确定"
+                ],
+                "box_index": 1
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "滑动预设": {
         "recognition": {
