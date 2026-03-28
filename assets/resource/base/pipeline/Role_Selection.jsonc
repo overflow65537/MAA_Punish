@@ -657,7 +657,7 @@
                 "custom_action": "RoleSelection",
                 "custom_action_param": {
                     "cage": true,
-                    "max_try": 10
+                    "max_try": 1
                 }
             }
         }
@@ -992,6 +992,126 @@
                             }
                         }
                     }
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "打开物理属性": {
+        "post_delay": 500,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    59,
+                    195,
+                    661
+                ],
+                "template": [
+                    "选择角色类型/物理.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "打开火属性": {
+        "post_delay": 500,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    59,
+                    195,
+                    661
+                ],
+                "template": [
+                    "选择角色类型/火.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "打开冰属性": {
+        "post_delay": 500,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    59,
+                    195,
+                    661
+                ],
+                "template": [
+                    "选择角色类型/冰.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "打开雷属性": {
+        "post_delay": 500,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    59,
+                    195,
+                    661
+                ],
+                "template": [
+                    "选择角色类型/雷.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "打开暗属性": {
+        "post_delay": 500,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    59,
+                    195,
+                    661
+                ],
+                "template": [
+                    "选择角色类型/暗.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "打开空属性": {
+        "post_delay": 500,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    59,
+                    195,
+                    661
+                ],
+                "template": [
+                    "选择角色类型/空.png"
                 ]
             }
         },

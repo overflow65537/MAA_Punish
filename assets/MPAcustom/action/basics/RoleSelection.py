@@ -85,6 +85,32 @@ class RoleSelection(CustomAction):
             return None
         return focus
 
+    def _get_role_element_task(self, role_dict: dict, role_name: str) -> str | None:
+        base_role_name = role_name.replace("[试用]", "")
+        role_action = role_dict.get(base_role_name, {})
+        metadata = role_action.get("metadata", {})
+        if not isinstance(metadata, dict):
+            return None
+
+        element_task_map = {
+            "physical": "打开物理属性",
+            "fire": "打开火属性",
+            "ice": "打开冰属性",
+            "lightning": "打开雷属性",
+            "dark": "打开暗属性",
+            "nihil": "打开空属性",
+        }
+
+        matched_task = None
+        matched_score = float("-inf")
+        for element_key, task_name in element_task_map.items():
+            score = metadata.get(element_key)
+            if isinstance(score, (int, float)) and score > matched_score:
+                matched_task = task_name
+                matched_score = score
+
+        return matched_task
+
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
@@ -251,9 +277,16 @@ class RoleSelection(CustomAction):
         return CustomAction.RunResult(success=True)
 
     def find_role(
-        self, context: Context, role_dict: dict, role_name: str, max_try: int = 16
+        self,
+        context: Context,
+        role_dict: dict,
+        role_name: str,
+        max_try: int = 16,
+        role_element: str | None = None,
     ) -> bool:
         _image_cache = []
+        if role_element is None:
+            role_element = self._get_role_element_task(role_dict, role_name)
         if "[试用]" in role_name:
             role_name = role_name.replace("[试用]", "")
             trial = True
@@ -262,6 +295,9 @@ class RoleSelection(CustomAction):
         self.logger.info(
             f"开始查找角色: {role_name}, max_try={max_try}, trial角色={trial}"
         )
+        if role_element:
+            self.logger.info(f"角色元素要求: {role_element}")
+            context.run_task(role_element)
 
         for _ in range(max_try):
             image = context.tasker.controller.post_screencap().wait().get()
