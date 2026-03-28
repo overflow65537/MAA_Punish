@@ -272,8 +272,17 @@
                 ]
             }
         },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    618,
+                    16
+                ]
+            }
+        },
         "next": [
-            "返回主菜单_err"
+            "返回_重新选人"
         ]
     },
     "卸下队伍": {
@@ -294,6 +303,27 @@
         "action": {
             "type": "Click"
         }
+    },
+    "返回_重新选人": {
+        "post_delay": 1500,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    76,
+                    18,
+                    62,
+                    34
+                ],
+                "expected": "返回"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "选择首发_重新选人"
+        ]
     },
     "清空红色位": {
         "recognition": {
@@ -552,6 +582,31 @@
             "选择首发"
         ]
     },
+    "选择首发_重新选人": {
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    140,
+                    301,
+                    979,
+                    182
+                ],
+                "expected": "首发"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "选择角色程序_onlyNode",
+            "选择首发_重新选人"
+        ]
+    },
     "选择角色程序": {
         "recognition": {
             "type": "OCR",
@@ -574,6 +629,26 @@
         "next": [
             "作战开始"
         ]
+    },
+    "选择角色程序_onlyNode": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    983,
+                    464,
+                    276,
+                    244
+                ],
+                "expected": "队伍"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "RoleSelection"
+            }
+        }
     },
     "选人测试": {
         "action": {
