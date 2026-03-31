@@ -29,7 +29,7 @@
         "自行选择编队_战区": {
             "label": "自行选择编队",
             "type": "switch",
-            "default": false,
+            "default_case": "No",
             "description": "<p>开启后将自行选择编队，关闭后将使用自动编队。</p>",
             "cases": [
                 {
