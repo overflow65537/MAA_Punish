@@ -22,17 +22,17 @@
         "post_delay": 1000,
         "next": [
             "开始自动战斗",
-            "[JumpBack]手动作战_custom",
+            //"[JumpBack]手动作战_custom",
             "[JumpBack]返回_拟战场域",
-            "[JumpBack]作战开始",
-            "[JumpBack]自动作战程序",
+            //"[JumpBack]作战开始",
+            //"[JumpBack]自动作战程序",
             "[JumpBack]选择战斗_拟战场域",
             "[JumpBack]打开拟战场域",
             "[JumpBack]打开资源",
             "[JumpBack]打开战斗",
             "[JumpBack]意外点击_主界面",
             "[JumpBack]意外点击_限定活动",
-            "[JumpBack]作战失败",
+            //"[JumpBack]作战失败",
             "[JumpBack]等级提升"
         ]
     },
