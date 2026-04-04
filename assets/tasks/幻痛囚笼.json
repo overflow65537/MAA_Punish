@@ -43,21 +43,22 @@
                                 }
                             }
                         }
-                    },
-                    "option": [
-                        "选择终极区战斗角色"
-                    ]
+                    }
                 }
             ]
         },
         "自行选择编队_囚笼": {
-            "label": "自行选择编队",
-            "type": "switch",
-            "default_case": "No",
-            "description": "<p>开启后将自行选择编队，关闭后将使用自动编队。</p>",
+            "label": "选择作战方式",
+            "type": "select",
+            "default_case": "自动选择",
+            "description": "<p>可选择自动选择、手动指定编队，或手动指定出战人物。</p>",
             "cases": [
                 {
-                    "name": "Yes",
+                    "name": "自动选择",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "选择编队",
                     "pipeline_override": {},
                     "option": [
                         "选择火队_囚笼",
@@ -68,8 +69,11 @@
                     ]
                 },
                 {
-                    "name": "No",
-                    "pipeline_override": {}
+                    "name": "选择人物",
+                    "pipeline_override": {},
+                    "option": [
+                        "选择战斗角色"
+                    ]
                 }
             ]
         },
@@ -240,6 +244,290 @@
                     "next": [
                         "切换预设"
                     ]
+                }
+            }
+        },
+        "选择战斗角色": {
+            "label": "请输入各队角色全名",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "火队角色名",
+                    "description": "<p>请输入火队角色全名，例如：露西亚·誓焰。</p>",
+                    "default": "露西亚·誓焰",
+                    "pipeline_type": "string",
+                    "verify": ".*·.*",
+                    "pattern_msg": "角色名应包含一个“·”符号(dian)，例如：露西亚·誓焰"
+                },
+                {
+                    "name": "雷队角色名",
+                    "description": "<p>请输入雷队角色全名，例如：露西亚·深红囚影。</p>",
+                    "default": "露西亚·深红囚影",
+                    "pipeline_type": "string",
+                    "verify": ".*·.*",
+                    "pattern_msg": "角色名应包含一个“·”符号(dian)，例如：露西亚·深红囚影"
+                },
+                {
+                    "name": "冰队角色名",
+                    "description": "<p>请输入冰队角色全名，例如：曲·启明。</p>",
+                    "default": "曲·启明",
+                    "pipeline_type": "string",
+                    "verify": ".*·.*",
+                    "pattern_msg": "角色名应包含一个“·”符号(dian)，例如：曲·启明"
+                },
+                {
+                    "name": "暗队角色名",
+                    "description": "<p>请输入暗队角色全名，例如：拉弥亚·深谣。</p>",
+                    "default": "拉弥亚·深谣",
+                    "pipeline_type": "string",
+                    "verify": ".*·.*",
+                    "pattern_msg": "角色名应包含一个“·”符号(dian)，例如：拉弥亚·深谣"
+                },
+                {
+                    "name": "物理队角色名",
+                    "description": "<p>请输入物理队角色全名，例如：比安卡·深痕。</p>",
+                    "default": "比安卡·深痕",
+                    "pipeline_type": "string",
+                    "verify": ".*·.*",
+                    "pattern_msg": "角色名应包含一个“·”符号(dian)，例如：比安卡·深痕"
+                }
+            ],
+            "pipeline_override": {
+                "查看Boss_火队": {
+                    "action": {
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择角色程序": {
+                                    "action": {
+                                        "param": {
+                                            "custom_action_param": {
+                                                "cage": true,
+                                                "need_element": "fire"
+                                            }
+                                        }
+                                    }
+                                },
+                                "选择角色程序_onlyNode": {
+                                    "action": {
+                                        "param": {
+                                            "custom_action_param": {
+                                                "cage": true,
+                                                "need_element": "fire"
+                                            }
+                                        }
+                                    }
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                },
+                                "选择人物_配置": {
+                                    "focus": {
+                                        "pick": [
+                                            "{火队角色名}"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "查看Boss_雷队": {
+                    "action": {
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择角色程序": {
+                                    "action": {
+                                        "param": {
+                                            "custom_action_param": {
+                                                "cage": true,
+                                                "need_element": "lightning"
+                                            }
+                                        }
+                                    }
+                                },
+                                "选择角色程序_onlyNode": {
+                                    "action": {
+                                        "param": {
+                                            "custom_action_param": {
+                                                "cage": true,
+                                                "need_element": "lightning"
+                                            }
+                                        }
+                                    }
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                },
+                                "选择人物_配置": {
+                                    "focus": {
+                                        "pick": [
+                                            "{雷队角色名}"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "查看Boss_冰队": {
+                    "action": {
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择角色程序": {
+                                    "action": {
+                                        "param": {
+                                            "custom_action_param": {
+                                                "cage": true,
+                                                "need_element": "ice"
+                                            }
+                                        }
+                                    }
+                                },
+                                "选择角色程序_onlyNode": {
+                                    "action": {
+                                        "param": {
+                                            "custom_action_param": {
+                                                "cage": true,
+                                                "need_element": "ice"
+                                            }
+                                        }
+                                    }
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                },
+                                "选择人物_配置": {
+                                    "focus": {
+                                        "pick": [
+                                            "{冰队角色名}"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "查看Boss_暗队": {
+                    "action": {
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择角色程序": {
+                                    "action": {
+                                        "param": {
+                                            "custom_action_param": {
+                                                "cage": true,
+                                                "need_element": "dark"
+                                            }
+                                        }
+                                    }
+                                },
+                                "选择角色程序_onlyNode": {
+                                    "action": {
+                                        "param": {
+                                            "custom_action_param": {
+                                                "cage": true,
+                                                "need_element": "dark"
+                                            }
+                                        }
+                                    }
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                },
+                                "选择人物_配置": {
+                                    "focus": {
+                                        "pick": [
+                                            "{暗队角色名}"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "查看Boss_物队": {
+                    "action": {
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择角色程序": {
+                                    "action": {
+                                        "param": {
+                                            "custom_action_param": {
+                                                "cage": true,
+                                                "need_element": "physical"
+                                            }
+                                        }
+                                    }
+                                },
+                                "选择角色程序_onlyNode": {
+                                    "action": {
+                                        "param": {
+                                            "custom_action_param": {
+                                                "cage": true,
+                                                "need_element": "physical"
+                                            }
+                                        }
+                                    }
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                },
+                                "选择人物_配置": {
+                                    "focus": {
+                                        "pick": [
+                                            "{物理队角色名}"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "查看终极区Boss": {
+                    "action": {
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择角色程序": {
+                                    "action": {
+                                        "param": {
+                                            "custom_action_param": {
+                                                "cage": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "选择角色程序_onlyNode": {
+                                    "action": {
+                                        "param": {
+                                            "custom_action_param": {
+                                                "cage": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                },
+                                "选择人物_配置": {
+                                    "focus": {
+                                        "pick": [
+                                            "{火队角色名}",
+                                            "{雷队角色名}",
+                                            "{冰队角色名}",
+                                            "{暗队角色名}",
+                                            "{物理队角色名}"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

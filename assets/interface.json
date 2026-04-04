@@ -839,68 +839,6 @@
                 }
             }
         },
-        "选择终极区战斗角色": {
-            "label": "请输入角色全名",
-            "type": "input",
-            "inputs": [
-                {
-                    "name": "角色名1",
-                    "description": "<p>请输入角色全名，例如：露西亚·深红囚影,。</p>",
-                    "default": "露西亚·深红囚影",
-                    "pipeline_type": "string",
-                    "verify": ".*·.*",
-                    "pattern_msg": "角色名应包含一个“·”符号(dian)，例如：露西亚·深红囚影"
-                },
-                {
-                    "name": "角色名2",
-                    "description": "<p>请输入角色全名，例如：露西亚·深红囚影,。</p>",
-                    "default": "比安卡·深痕",
-                    "pipeline_type": "string",
-                    "verify": ".*·.*",
-                    "pattern_msg": "角色名应包含一个“·”符号(dian)，例如：比安卡·深痕"
-                },
-                {
-                    "name": "角色名3",
-                    "description": "<p>请输入角色全名，例如：露西亚·深红囚影,。</p>",
-                    "default": "拉弥亚·深谣",
-                    "pipeline_type": "string",
-                    "verify": ".*·.*",
-                    "pattern_msg": "角色名应包含一个“·”符号(dian)，例如：拉弥亚·深谣"
-                }
-            ],
-            "pipeline_override": {
-                "查看终极区Boss": {
-                    "action": {
-                        "param": {
-                            "custom_action": "PPOverride",
-                            "custom_action_param": {
-                                "选择角色程序": {
-                                    "action": {
-                                        "param": {
-                                            "custom_action_param": {
-                                                "cage": true
-                                            }
-                                        }
-                                    }
-                                },
-                                "识别人物": {
-                                    "enabled": true
-                                },
-                                "选择人物_配置": {
-                                    "focus": {
-                                        "pick": [
-                                            "{角色名1}",
-                                            "{角色名2}",
-                                            "{角色名3}"
-                                        ]
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "自动QTE": {
             "description": "<p>是否允许在战斗中使用QTE功能</p>",
             "type": "switch",
