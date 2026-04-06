@@ -1726,15 +1726,40 @@
     },
     "肉鸽失败_厄愿潮声": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "Or",
             "param": {
-                "roi": [
-                    460,
-                    149,
-                    415,
-                    294
-                ],
-                "template": "厄愿潮声/结束.png"
+                "any_of": [
+                    {
+                        "recognition": {
+                            "type": "TemplateMatch",
+                            "param": {
+                                "roi": [
+                                    460,
+                                    149,
+                                    415,
+                                    294
+                                ],
+                                "template": "厄愿潮声/结束.png"
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    459,
+                                    261,
+                                    416,
+                                    183
+                                ],
+                                "expected": [
+                                    "潮噬"
+                                ]
+                            }
+                        }
+                    }
+                ]
             }
         },
         "action": {
