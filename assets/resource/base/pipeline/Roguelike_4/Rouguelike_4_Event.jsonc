@@ -1049,22 +1049,19 @@
                 ],
                 "method": 40,
                 "order_by": "Score",
-                "count": 1000,
+                "count": 4000,
                 "connected": true,
                 "upper": [
-                    44,
-                    196,
-                    205
+                    25,
+                    180,
+                    255
                 ],
                 "lower": [
-                    13,
-                    44,
-                    65
+                    10,
+                    50,
+                    100
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "纯色地块红_寒境曙光": {
@@ -1081,24 +1078,21 @@
                     979,
                     640
                 ],
-                "method": 4,
+                "method": 40,
                 "order_by": "Score",
-                "count": 1000,
+                "count": 4000,
                 "connected": true,
                 "upper": [
-                    200,
-                    100,
-                    100
+                    180,
+                    160,
+                    220
                 ],
                 "lower": [
-                    120,
-                    70,
-                    70
+                    170,
+                    100,
+                    100
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "纯色地块蓝_寒境曙光": {
@@ -1116,22 +1110,20 @@
                     640
                 ],
                 "order_by": "Score",
-                "count": 1500,
+                "count": 4000,
                 "connected": true,
+                "method": 40,
                 "upper": [
-                    95,
-                    140,
-                    190
+                    110,
+                    170,
+                    245
                 ],
                 "lower": [
+                    101,
                     60,
-                    80,
                     110
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     }
 }
