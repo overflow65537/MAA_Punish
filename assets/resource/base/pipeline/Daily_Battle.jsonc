@@ -144,7 +144,10 @@
                     60,
                     60
                 ],
-                "template": "战斗/吃体力药.png",
+                "template": [
+                    "战斗/吃体力药.png",
+                    "战斗/吃体力药2.png"
+                ],
                 "green_mask": true
             }
         },
