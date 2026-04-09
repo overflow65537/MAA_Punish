@@ -2058,8 +2058,26 @@
         "next": [
             "选择策略_厄愿潮声",
             "选择宝箱奖励_厄愿潮声",
-            "[JumpBack]滑动_厄愿潮声"
+            "[JumpBack]滑动_厄愿潮声",
+            "[JumpBack]反向滑动_厄愿潮声",
+            "[JumpBack]重置厄愿潮声滑动次数"
         ]
+    },
+    "重置厄愿潮声滑动次数": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "滑动_厄愿潮声": {
+                        "max_hit": 3
+                    },
+                    "反向滑动_厄愿潮声": {
+                        "max_hit": 1
+                    }
+                }
+            }
+        }
     },
     "选择策略_厄愿潮声": {
         "post_delay": 1000,
@@ -2083,6 +2101,7 @@
         ]
     },
     "滑动_厄愿潮声": {
+        "max_hit": 3,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2108,28 +2127,10 @@
                 ]
             }
         },
-        "post_delay": 1000,
-        "next": [
-            "厄愿肉鸽主界面滑动计数"
-        ]
-    },
-    "厄愿肉鸽主界面滑动计数": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "Count",
-                "custom_action_param": {
-                    "self": "厄愿肉鸽主界面滑动计数",
-                    "count": 0,
-                    "target_count": 3,
-                    "next_node": [
-                        "反向滑动_厄愿潮声"
-                    ]
-                }
-            }
-        }
+        "post_delay": 1000
     },
     "反向滑动_厄愿潮声": {
+        "max_hit": 1,
         "post_delay": 2000,
         "action": {
             "type": "Swipe",
