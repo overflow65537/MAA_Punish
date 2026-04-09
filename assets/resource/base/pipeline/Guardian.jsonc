@@ -11,22 +11,13 @@
     },
     "无需任务": {
         "recognition": {
-            "type": "Custom",
+            "type": "And",
             "param": {
-                "custom_recognition": "LOp",
-                "custom_recognition_param": {
-                    "prestep": [
-                        "战斗任务",
-                        "废弃仓库",
-                        "支援箱"
-                    ],
-                    "mode": "and",
-                    "nodes": [
-                        "识别战斗任务完成情况",
-                        "识别废弃仓库完成情况",
-                        "识别支援箱完成情况"
-                    ]
-                }
+                "all_of": [
+                    "战斗任务",
+                    "废弃仓库",
+                    "支援箱"
+                ]
             }
         },
         "next": [
@@ -35,100 +26,121 @@
     },
     "战斗任务": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    88,
-                    592,
-                    352,
-                    102
-                ],
-                "expected": "战斗任务"
+                "all_of": [
+                    {
+                        "sub_name": "_战斗任务识别",
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    88,
+                                    592,
+                                    352,
+                                    102
+                                ],
+                                "expected": "战斗任务"
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "only_rec": true,
+                                "roi": "_战斗任务识别",
+                                "roi_offset": [
+                                    85,
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "expected": "已完成"
+                            }
+                        }
+                    }
+                ]
             }
-        },
-        "next": [
-            "识别战斗任务完成情况"
-        ]
+        }
     },
     "废弃仓库": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    88,
-                    592,
-                    352,
-                    102
-                ],
-                "expected": "废弃仓库"
+                "all_of": [
+                    {
+                        "sub_name": "_废弃仓库识别",
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    88,
+                                    592,
+                                    352,
+                                    102
+                                ],
+                                "expected": "废弃仓库"
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "only_rec": true,
+                                "roi": "_废弃仓库识别",
+                                "roi_offset": [
+                                    85,
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "expected": "已完成"
+                            }
+                        }
+                    }
+                ]
             }
-        },
-        "next": [
-            "识别废弃仓库完成情况"
-        ]
+        }
     },
     "支援箱": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    88,
-                    592,
-                    352,
-                    102
-                ],
-                "expected": "支援箱"
-            }
-        },
-        "next": [
-            "识别支援箱完成情况"
-        ]
-    },
-    "识别战斗任务完成情况": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "only_rec": true,
-                "roi": "战斗任务",
-                "roi_offset": [
-                    85,
-                    0,
-                    0,
-                    0
-                ],
-                "expected": "已完成"
-            }
-        }
-    },
-    "识别废弃仓库完成情况": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "only_rec": true,
-                "roi": "废弃仓库",
-                "roi_offset": [
-                    85,
-                    0,
-                    0,
-                    0
-                ],
-                "expected": "已完成"
-            }
-        }
-    },
-    "识别支援箱完成情况": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "only_rec": true,
-                "roi": "支援箱",
-                "roi_offset": [
-                    85,
-                    0,
-                    0,
-                    0
-                ],
-                "expected": "已完成"
+                "all_of": [
+                    {
+                        "sub_name": "_支援箱识别",
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    88,
+                                    592,
+                                    352,
+                                    102
+                                ],
+                                "expected": "支援箱"
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "only_rec": true,
+                                "roi": "_支援箱识别",
+                                "roi_offset": [
+                                    85,
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "expected": "已完成"
+                            }
+                        }
+                    }
+                ]
             }
         }
     },

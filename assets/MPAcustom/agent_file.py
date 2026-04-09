@@ -29,7 +29,6 @@ from action.exclusives.Spectre import Spectre
 from recognition.exclusives.CalculateScore import CalculateScore
 from recognition.exclusives.IDFMembers import IDFMembers
 from recognition.exclusives.IDFscore import IDFscore
-from recognition.exclusives.LogicalOperators import LOp
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
 from recognition.exclusives.NextStageRecognition import NextStageRecognition
@@ -41,7 +40,6 @@ class Agent_CacheRole(CacheRole):
     pass
 
 
-
 @AgentServer.custom_action("CheckRedeemCode")
 class Agent_CheckRedeemCode(CheckRedeemCode):
     pass
@@ -50,7 +48,6 @@ class Agent_CheckRedeemCode(CheckRedeemCode):
 @AgentServer.custom_action("RedeemCode")
 class Agent_RedeemCode(RedeemCode):
     pass
-
 
 
 @AgentServer.custom_action("Notice")
@@ -123,11 +120,6 @@ class Agent_CheckResolution(CheckResolution):
     pass
 
 
-@AgentServer.custom_recognition("LOp")
-class Agent_LOp(LOp):
-    pass
-
-
 @AgentServer.custom_action("ChainLoopCircuit")
 class Agent_ChainLoopCircuit(ChainLoopCircuit):
     pass
@@ -143,12 +135,9 @@ class Agent_PPOverride(PPOverride):
     pass
 
 
-
 @AgentServer.custom_action("SetTower")
 class Agent_SetTower(SetTower):
     pass
-
-
 
 
 @AgentServer.custom_action("ScreenShot")
