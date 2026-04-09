@@ -1,6 +1,5 @@
 from maa.agent.agent_server import AgentServer
 from action.basics.ScreenShot import ScreenShot
-from action.basics.SetTower import SetTower
 from action.basics.PPOverride import PPOverride
 from action.basics.ChainLoopCircuit import ChainLoopCircuit
 from action.basics.RoleSelection import RoleSelection
@@ -27,7 +26,6 @@ from action.exclusives.Spectre import Spectre
 
 
 from recognition.exclusives.CalculateScore import CalculateScore
-from recognition.exclusives.IDFMembers import IDFMembers
 from recognition.exclusives.IDFscore import IDFscore
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
@@ -135,11 +133,6 @@ class Agent_PPOverride(PPOverride):
     pass
 
 
-@AgentServer.custom_action("SetTower")
-class Agent_SetTower(SetTower):
-    pass
-
-
 @AgentServer.custom_action("ScreenShot")
 class Agent_ScreenShot(ScreenShot):
     pass
@@ -147,11 +140,6 @@ class Agent_ScreenShot(ScreenShot):
 
 @AgentServer.custom_recognition("CalculateScore")
 class Agent_CalculateScore(CalculateScore):
-    pass
-
-
-@AgentServer.custom_recognition("IDFMembers")
-class Agent_IDFMembers(IDFMembers):
     pass
 
 
