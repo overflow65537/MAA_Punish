@@ -25,12 +25,11 @@ from action.exclusives.Pianissimo import Pianissimo
 from action.exclusives.Spectre import Spectre
 
 
-from recognition.exclusives.CalculateScore import CalculateScore
-from recognition.exclusives.IDFscore import IDFscore
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
 from recognition.exclusives.NextStageRecognition import NextStageRecognition
 from recognition.exclusives.CacheRole import CacheRole
+from recognition.exclusives.ExpressionRecognition import ExpressionRecognition
 
 
 @AgentServer.custom_recognition("CacheRole")
@@ -138,13 +137,8 @@ class Agent_ScreenShot(ScreenShot):
     pass
 
 
-@AgentServer.custom_recognition("CalculateScore")
-class Agent_CalculateScore(CalculateScore):
-    pass
-
-
-@AgentServer.custom_recognition("IDFscore")
-class Agent_IDFscore(IDFscore):
+@AgentServer.custom_recognition("ExpressionRecognition")
+class Agent_ExpressionRecognition(ExpressionRecognition):
     pass
 
 

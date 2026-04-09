@@ -315,7 +315,10 @@
         "recognition": {
             "type": "Custom",
             "param": {
-                "custom_recognition": "CalculateScore"
+                "custom_recognition": "ExpressionRecognition",
+                "custom_recognition_param": {
+                    "expression": "{检查军事分数}*{检查军事倍率}+{检查经济分数}*{检查经济倍率}+{检查科研分数}*{检查科研倍率}+{检查当前分数}>={检查目标分数}"
+                }
             }
         },
         "next": [
@@ -1069,7 +1072,10 @@
         "recognition": {
             "type": "Custom",
             "param": {
-                "custom_recognition": "IDFscore"
+                "custom_recognition": "ExpressionRecognition",
+                "custom_recognition_param": {
+                    "expression": "{检查当前分数}>={检查目标分数}"
+                }
             }
         },
         "next": [
@@ -2315,70 +2321,166 @@
     },
     "检查当前分数": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "only_rec": true,
-                "roi": "检查当前分数区域",
-                "roi_offset": [
-                    0,
-                    0,
-                    60,
-                    0
-                ],
-                "expected": "^\\d*$"
-            }
-        }
-    },
-    "检查当前分数区域": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    38,
-                    173,
-                    244,
-                    53
-                ],
-                "template": "寒境曙光/分数区域.png",
-                "green_mask": true
+                "all_of": [
+                    {
+                        "sub_name": "_当前分数区域",
+                        "recognition": {
+                            "type": "TemplateMatch",
+                            "param": {
+                                "roi": [
+                                    38,
+                                    173,
+                                    244,
+                                    53
+                                ],
+                                "template": "寒境曙光/分数区域.png",
+                                "green_mask": true
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "only_rec": true,
+                                "roi": "_当前分数区域",
+                                "roi_offset": [
+                                    0,
+                                    0,
+                                    60,
+                                    0
+                                ],
+                                "expected": "^\\d*$"
+                            }
+                        }
+                    }
+                ]
             }
         }
     },
     "检查目标分数": {
         "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    {
+                        "sub_name": "_目标分数区域",
+                        "recognition": {
+                            "type": "TemplateMatch",
+                            "param": {
+                                "roi": [
+                                    80,
+                                    67,
+                                    182,
+                                    55
+                                ],
+                                "template": "寒境曙光/目标分数区域.png",
+                                "green_mask": true
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "only_rec": true,
+                                "roi": "_目标分数区域",
+                                "roi_offset": [
+                                    0,
+                                    0,
+                                    70,
+                                    0
+                                ],
+                                "expected": "^\\d*$"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "检查军事分数": {
+        "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
-                "roi": "检查目标分数区域",
-                "roi_offset": [
-                    0,
-                    0,
-                    70,
-                    0
+                "roi": [
+                    90,
+                    238,
+                    105,
+                    44
                 ],
                 "expected": "^\\d*$"
             }
         }
     },
-    "检查目标分数区域": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    80,
-                    67,
-                    182,
-                    55
-                ],
-                "template": "寒境曙光/目标分数区域.png",
-                "green_mask": true
-            }
-        }
-    },
-    "检查分数": {
+    "检查军事倍率": {
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": [
+                    223,
+                    248,
+                    31,
+                    29
+                ],
+                "expected": "^\\d*$"
+            }
+        }
+    },
+    "检查经济分数": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    90,
+                    327,
+                    105,
+                    44
+                ],
+                "expected": "^\\d*$"
+            }
+        }
+    },
+    "检查经济倍率": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    223,
+                    336,
+                    31,
+                    27
+                ],
+                "expected": "^\\d*$"
+            }
+        }
+    },
+    "检查科研分数": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    90,
+                    412,
+                    107,
+                    46
+                ],
+                "expected": "^\\d*$"
+            }
+        }
+    },
+    "检查科研倍率": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    223,
+                    424,
+                    31,
+                    24
+                ],
                 "expected": "^\\d*$"
             }
         }
