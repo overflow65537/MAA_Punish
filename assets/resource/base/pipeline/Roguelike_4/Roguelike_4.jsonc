@@ -2323,6 +2323,7 @@
         "recognition": {
             "type": "And",
             "param": {
+                "box_index": 1,
                 "all_of": [
                     {
                         "sub_name": "_当前分数区域",
@@ -2364,6 +2365,7 @@
         "recognition": {
             "type": "And",
             "param": {
+                "box_index": 1,
                 "all_of": [
                     {
                         "sub_name": "_目标分数区域",
