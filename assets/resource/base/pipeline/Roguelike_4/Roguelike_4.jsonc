@@ -2413,7 +2413,8 @@
                     105,
                     44
                 ],
-                "expected": "^\\d*$"
+                "expected": "^\\d*$",
+                "only_rec": true
             }
         }
     },
@@ -2427,7 +2428,8 @@
                     31,
                     29
                 ],
-                "expected": "^\\d*$"
+                "expected": "^\\d*$",
+                "only_rec": true
             }
         }
     },
@@ -2441,7 +2443,8 @@
                     105,
                     44
                 ],
-                "expected": "^\\d*$"
+                "expected": "^\\d*$",
+                "only_rec": true
             }
         }
     },
@@ -2455,7 +2458,8 @@
                     31,
                     27
                 ],
-                "expected": "^\\d*$"
+                "expected": "^\\d*$",
+                "only_rec": true
             }
         }
     },
@@ -2469,7 +2473,8 @@
                     107,
                     46
                 ],
-                "expected": "^\\d*$"
+                "expected": "^\\d*$",
+                "only_rec": true
             }
         }
     },
@@ -2483,7 +2488,8 @@
                     31,
                     24
                 ],
-                "expected": "^\\d*$"
+                "expected": "^\\d*$",
+                "only_rec": true
             }
         }
     }

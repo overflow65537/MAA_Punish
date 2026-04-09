@@ -66,51 +66,59 @@ class ExpressionRecognition(CustomRecognition):
                 values_cache,
             )
         except (ValueError, SyntaxError, TypeError, ZeroDivisionError) as exc:
+            detail = {
+                "status": "invalid expression",
+                "reason": str(exc),
+                "expression": expression,
+                "resolved_expression": locals().get("python_expression", expression),
+                "resolved_values": values_cache,
+                "node_results": node_results,
+            }
+            detail["summary"] = self._format_summary(detail)
             return CustomRecognition.AnalyzeResult(
                 box=None,
-                detail={
-                    "status": "invalid expression",
-                    "reason": str(exc),
-                    "expression": expression,
-                    "resolved_expression": locals().get("python_expression", expression),
-                    "resolved_values": values_cache,
-                    "node_results": node_results,
-                },
+                detail=detail,
             )
 
         if type(result) is not bool:
-            return CustomRecognition.AnalyzeResult(
-                box=None,
-                detail={
-                    "status": "expression did not evaluate to boolean",
-                    "expression": expression,
-                    "resolved_expression": python_expression,
-                    "resolved_values": values_cache,
-                    "node_results": node_results,
-                },
-            )
-
-        if not result:
-            return CustomRecognition.AnalyzeResult(
-                box=None,
-                detail={
-                    "status": "expression evaluated to false",
-                    "expression": expression,
-                    "resolved_expression": python_expression,
-                    "resolved_values": values_cache,
-                    "node_results": node_results,
-                },
-            )
-
-        return CustomRecognition.AnalyzeResult(
-            box=(0, 0, 100, 100),
-            detail={
-                "status": "success",
+            detail = {
+                "status": "expression did not evaluate to boolean",
                 "expression": expression,
                 "resolved_expression": python_expression,
                 "resolved_values": values_cache,
                 "node_results": node_results,
-            },
+            }
+            detail["summary"] = self._format_summary(detail)
+            return CustomRecognition.AnalyzeResult(
+                box=None,
+                detail=detail,
+            )
+
+        if not result:
+            detail = {
+                "status": "expression evaluated to false",
+                "expression": expression,
+                "resolved_expression": python_expression,
+                "resolved_values": values_cache,
+                "node_results": node_results,
+            }
+            detail["summary"] = self._format_summary(detail)
+            return CustomRecognition.AnalyzeResult(
+                box=None,
+                detail=detail,
+            )
+
+        detail = {
+            "status": "success",
+            "expression": expression,
+            "resolved_expression": python_expression,
+            "resolved_values": values_cache,
+            "node_results": node_results,
+        }
+        detail["summary"] = self._format_summary(detail)
+        return CustomRecognition.AnalyzeResult(
+            box=(0, 0, 100, 100),
+            detail=detail,
         )
 
     def _parse_params(self, raw_params: Any) -> dict[str, Any]:
@@ -132,7 +140,7 @@ class ExpressionRecognition(CustomRecognition):
         payload = {
             "node_data": self._to_jsonable(node_data),
             "box_index": box_index,
-            "recognition": self._to_jsonable(recognition),
+            "recognition": self._summarize_recognition(recognition),
         }
         if not (recognition and recognition.hit):
             raise NodeResolutionError(f"node {node_name} has no OCR result", payload)
@@ -292,9 +300,59 @@ class ExpressionRecognition(CustomRecognition):
         except TypeError:
             return None
 
+    def _summarize_recognition(self, value: Any) -> Any:
+        summary = self._to_jsonable(value)
+        if isinstance(summary, dict):
+            summary.pop("node_data", None)
+        return summary
+
+    def _format_summary(self, detail: dict[str, Any]) -> str:
+        lines = [
+            f"status: {detail.get('status')}",
+            f"expression: {detail.get('expression')}",
+            f"resolved_expression: {detail.get('resolved_expression')}",
+        ]
+
+        reason = detail.get("reason")
+        if reason:
+            lines.append(f"reason: {reason}")
+
+        resolved_values = detail.get("resolved_values") or {}
+        lines.append("resolved_values:")
+        if resolved_values:
+            for key, value in resolved_values.items():
+                lines.append(f"  {key}: {value}")
+        else:
+            lines.append("  <empty>")
+
+        lines.append("node_results:")
+        node_results = detail.get("node_results") or {}
+        if node_results:
+            for node_name, node_result in node_results.items():
+                lines.append(f"  - {node_name}")
+                if isinstance(node_result, dict):
+                    lines.append(f"    box_index: {node_result.get('box_index')}")
+                    lines.append(f"    extracted_text: {node_result.get('extracted_text')}")
+                    if "value" in node_result:
+                        lines.append(f"    value: {node_result.get('value')}")
+
+                    recognition = node_result.get("recognition")
+                    if isinstance(recognition, dict):
+                        lines.append(f"    recognition_type: {recognition.get('type')}")
+                        lines.append(f"    recognition_name: {recognition.get('name')}")
+                        lines.append(f"    recognition_algorithm: {recognition.get('algorithm')}")
+                        lines.append(f"    recognition_hit: {recognition.get('hit')}")
+                        lines.append(f"    recognition_box: {recognition.get('box')}")
+                else:
+                    lines.append(f"    {node_result}")
+        else:
+            lines.append("  <empty>")
+
+        return "\n".join(lines)
+
     def _to_jsonable(self, value: Any, depth: int = 0) -> Any:
         if depth >= 6:
-            return repr(value)
+            return self._safe_repr(value)
 
         if value is None or isinstance(value, (str, int, float, bool)):
             return value
@@ -319,6 +377,7 @@ class ExpressionRecognition(CustomRecognition):
             "hit",
             "text",
             "box",
+            "score",
             "detail",
             "raw_detail",
             "best_result",
@@ -335,8 +394,14 @@ class ExpressionRecognition(CustomRecognition):
                     result[attr] = self._to_jsonable(attr_value, depth + 1)
 
         if len(result) == 1:
-            result["repr"] = repr(value)
+            result["repr"] = self._safe_repr(value)
         return result
+
+    def _safe_repr(self, value: Any, limit: int = 240) -> str:
+        text = repr(value)
+        if len(text) <= limit:
+            return text
+        return f"{text[:limit]}...<truncated>"
 
     def _normalize_expression(self, expression: str) -> str:
         normalized = expression.replace("&&", " and ").replace("||", " or ")
