@@ -1,7 +1,6 @@
 from maa.agent.agent_server import AgentServer
 from action.basics.ScreenShot import ScreenShot
 from action.basics.SetTower import SetTower
-from action.basics.Count import Count
 from action.basics.PPOverride import PPOverride
 from action.basics.ChainLoopCircuit import ChainLoopCircuit
 from action.basics.RoleSelection import RoleSelection
@@ -143,10 +142,6 @@ class Agent_Shukra(Shukra):
 class Agent_PPOverride(PPOverride):
     pass
 
-
-@AgentServer.custom_action("Count")
-class Agent_Count(Count):
-    pass
 
 
 @AgentServer.custom_action("SetTower")
