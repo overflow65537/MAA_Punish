@@ -23,7 +23,8 @@
         },
         "next": [
             "A级角色",
-            "[JumpBack]滑动角色碎片界面"
+            "[JumpBack]滑动角色碎片界面",
+            "返回主菜单"
         ]
     },
     "进入资源副本": {
@@ -45,6 +46,7 @@
         }
     },
     "滑动角色碎片界面": {
+        "max_hit": 25,
         "post_delay": 0,
         "recognition": {
             "type": "OCR",
@@ -66,43 +68,15 @@
                     506
                 ],
                 "end": [
-                    358,
-                    506
-                ]
-            }
-        },
-        "next": [
-            "A_滑动后点击"
-        ]
-    },
-    "A_滑动后点击": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    637,
-                    172
-                ]
-            }
-        },
-        "next": [
-            "A_滑动计数"
-        ]
-    },
-    "A_滑动计数": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "Count",
-                "custom_action_param": {
-                    "self": "A_滑动计数",
-                    "count": 0,
-                    "target_count": 25,
-                    "next_node": [
-                        "返回主菜单_err",
-                        "停止任务"
+                    [
+                        358,
+                        506
+                    ],
+                    [
+                        358,
+                        800
                     ]
-                }
+                ]
             }
         }
     },

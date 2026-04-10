@@ -250,6 +250,7 @@
         },
         "next": [
             "黑屏计数",
+            "重启游戏",
             "空任务"
         ],
         "on_error": [
@@ -264,32 +265,39 @@
             "启动"
         ]
     },
+    "黑屏时间过长重启游戏": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "黑屏计数": {
+                        "max_hit": 12
+                    }
+                }
+            }
+        },
+        "next": [
+            "重启游戏"
+        ]
+    },
     "黑屏计数": {
+        "max_hit": 12,
         "recognition": {
             "type": "ColorMatch",
             "param": {
                 "count": 90000,
                 "connected": true,
                 "upper": [
+                    0,
+                    0,
                     0
                 ],
                 "lower": [
+                    0,
+                    0,
                     0
                 ]
-            }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "Count",
-                "custom_action_param": {
-                    "self": "黑屏计数",
-                    "count": 0,
-                    "target_count": 12,
-                    "next_node": [
-                        "重启游戏"
-                    ]
-                }
             }
         }
     },

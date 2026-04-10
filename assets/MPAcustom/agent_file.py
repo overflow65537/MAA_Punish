@@ -1,7 +1,5 @@
 from maa.agent.agent_server import AgentServer
 from action.basics.ScreenShot import ScreenShot
-from action.basics.SetTower import SetTower
-from action.basics.Count import Count
 from action.basics.PPOverride import PPOverride
 from action.basics.ChainLoopCircuit import ChainLoopCircuit
 from action.basics.RoleSelection import RoleSelection
@@ -27,20 +25,16 @@ from action.exclusives.Pianissimo import Pianissimo
 from action.exclusives.Spectre import Spectre
 
 
-from recognition.exclusives.CalculateScore import CalculateScore
-from recognition.exclusives.IDFMembers import IDFMembers
-from recognition.exclusives.IDFscore import IDFscore
-from recognition.exclusives.LogicalOperators import LOp
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
 from recognition.exclusives.NextStageRecognition import NextStageRecognition
 from recognition.exclusives.CacheRole import CacheRole
+from recognition.exclusives.ExpressionRecognition import ExpressionRecognition
 
 
 @AgentServer.custom_recognition("CacheRole")
 class Agent_CacheRole(CacheRole):
     pass
-
 
 
 @AgentServer.custom_action("CheckRedeemCode")
@@ -51,7 +45,6 @@ class Agent_CheckRedeemCode(CheckRedeemCode):
 @AgentServer.custom_action("RedeemCode")
 class Agent_RedeemCode(RedeemCode):
     pass
-
 
 
 @AgentServer.custom_action("Notice")
@@ -124,11 +117,6 @@ class Agent_CheckResolution(CheckResolution):
     pass
 
 
-@AgentServer.custom_recognition("LOp")
-class Agent_LOp(LOp):
-    pass
-
-
 @AgentServer.custom_action("ChainLoopCircuit")
 class Agent_ChainLoopCircuit(ChainLoopCircuit):
     pass
@@ -144,35 +132,13 @@ class Agent_PPOverride(PPOverride):
     pass
 
 
-@AgentServer.custom_action("Count")
-class Agent_Count(Count):
-    pass
-
-
-@AgentServer.custom_action("SetTower")
-class Agent_SetTower(SetTower):
-    pass
-
-
-
-
 @AgentServer.custom_action("ScreenShot")
 class Agent_ScreenShot(ScreenShot):
     pass
 
 
-@AgentServer.custom_recognition("CalculateScore")
-class Agent_CalculateScore(CalculateScore):
-    pass
-
-
-@AgentServer.custom_recognition("IDFMembers")
-class Agent_IDFMembers(IDFMembers):
-    pass
-
-
-@AgentServer.custom_recognition("IDFscore")
-class Agent_IDFscore(IDFscore):
+@AgentServer.custom_recognition("ExpressionRecognition")
+class Agent_ExpressionRecognition(ExpressionRecognition):
     pass
 
 
