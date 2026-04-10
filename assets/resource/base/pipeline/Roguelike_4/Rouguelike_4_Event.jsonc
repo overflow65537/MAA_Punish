@@ -1053,7 +1053,7 @@
                 "connected": true,
                 "upper": [
                     25,
-                    180,
+                    210,
                     255
                 ],
                 "lower": [
