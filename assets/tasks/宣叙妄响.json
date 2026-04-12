@@ -41,7 +41,22 @@
             "cases": [
                 {
                     "name": "入门",
-                    "pipeline_override": {}
+                    "pipeline_override": {
+                        "选择难度_宣叙妄响": {
+                            "recognition": {
+                                "param": {
+                                    "roi": [
+                                        48,
+                                        206,
+                                        67,
+                                        39
+                                    ],
+                                    "only_rec": true,
+                                    "expected": "入门"
+                                }
+                            }
+                        }
+                    }
                 },
                 {
                     "name": "通俗",
