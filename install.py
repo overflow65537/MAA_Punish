@@ -34,8 +34,6 @@ def install_resource():
         interface = jsonc.load(f)
 
     interface["version"] = version
-    interface["title"] = "法奥斯之矛 | " + version
-
     with open(install_path / "interface.json", "w", encoding="utf-8") as f:
         jsonc.dump(interface, f, ensure_ascii=False, indent=4)
 
@@ -56,6 +54,10 @@ def install_chores():
     shutil.copy2(
         working_dir / "CONTACT.md",
         install_path,
+    )
+    shutil.copy2(
+       install_path / "logo.png",
+        install_path / "dashboard.png",
     )
 
 
