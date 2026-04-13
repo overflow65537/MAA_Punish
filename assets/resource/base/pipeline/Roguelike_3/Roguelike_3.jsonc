@@ -191,18 +191,72 @@
     },
     "点击精通等级低于3的人物": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    289,
-                    86,
-                    26,
-                    539
-                ],
-                "expected": [
-                    "^0$",
-                    "^1$",
-                    "^2$"
+                "all_of": [
+                    {
+                        "sub_name": "_精通等级",
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    68,
+                                    71,
+                                    267,
+                                    574
+                                ],
+                                "expected": [
+                                    "精通等级"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "sub_name": "_等级颜色",
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": "_精通等级",
+                                "roi_offset": [
+                                    88,
+                                    -2,
+                                    -32,
+                                    3
+                                ],
+                                "method": 40,
+                                "lower": [
+                                    103,
+                                    108,
+                                    187
+                                ],
+                                "upper": [
+                                    108,
+                                    255,
+                                    199
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": "_等级颜色",
+                                "roi_offset": [
+                                    -2,
+                                    -2,
+                                    4,
+                                    4
+                                ],
+                                "only_rec": true,
+                                "expected": [
+                                    "^0$",
+                                    "^1$",
+                                    "^2$"
+                                ]
+                            }
+                        }
+                    }
                 ]
             }
         },
