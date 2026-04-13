@@ -327,7 +327,7 @@ class RoleSelection(CustomAction):
                 self.logger.info(f"找到角色 {role_name}, 开始尝试编入队伍")
                 for _ in range(4):
                     context.tasker.controller.post_click(
-                        role_reco.best_result.box[0] + role_reco.best_result.box[2] // 2, role_reco.best_result.box[1] + role_reco.best_result.box[3] // 2  # type: ignore
+                        role_reco.box[0] + role_reco.box[2] // 2, role_reco.box[1] + role_reco.box[3] // 2  # type: ignore
                     ).wait()
                     image = context.tasker.controller.post_screencap().wait().get()
                     reco = context.run_recognition("编入队伍", image)
