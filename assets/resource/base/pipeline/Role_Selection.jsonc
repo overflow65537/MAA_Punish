@@ -11,7 +11,9 @@
                 ],
                 "order_by": "Vertical",
                 "green_mask": true,
-                "template": []
+                "template": [
+                    "人物索引/露西亚/誓焰/矩阵_誓焰.png"
+                ]
             }
         }
     },
@@ -1117,6 +1119,17 @@
         },
         "action": {
             "type": "Click"
+        }
+    },
+    "找到角色": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "识别角色",
+                    "识别试用角色"
+                ]
+            }
         }
     }
 }

@@ -309,55 +309,33 @@ class RoleSelection(CustomAction):
                     },
                 }
             }
+            if not trial:  # 非试用角色不识别试用标识
+                pipeline_override["识别试用角色"] = {
+                    "recognition": {
+                        "param": {
+                            "lower": [0, 0, 0],
+                            "upper": [255, 255, 255],
+                        },
+                    }
+                }
             role_reco = context.run_recognition(
-                entry="识别角色",
+                entry="找到角色",
                 image=image,
                 pipeline_override=pipeline_override,
             )
             if role_reco and role_reco.hit:
-                if trial:
-                    for role in role_reco.filtered_results:
-                        trial_pipeline_override = {
-                            "识别试用角色": {
-                                "recognition": {
-                                    "param": {"roi": role.box},  # type: ignore
-                                },
-                            }
-                        }
-                        trial_reco = context.run_recognition(
-                            "识别试用角色",
-                            image=image,
-                            pipeline_override=trial_pipeline_override,
-                        )
-                        if trial_reco and trial_reco.hit:
-
-                            for _ in range(4):
-                                context.tasker.controller.post_click(
-                                    role.box[0] + role.box[2], role.box[1] + role.box[3]  # type: ignore
-                                ).wait()
-                                image = (
-                                    context.tasker.controller.post_screencap()
-                                    .wait()
-                                    .get()
-                                )
-                                reco = context.run_recognition("编入队伍", image)
-                                if reco and reco.hit:
-                                    break
-                                time.sleep(0.5)
-                            return True
-                else:
-                    self.logger.info(f"找到角色 {role_name}, 开始尝试编入队伍")
-                    for _ in range(4):
-                        context.tasker.controller.post_click(
-                            role_reco.best_result.box[0] + role_reco.best_result.box[2] // 2, role_reco.best_result.box[1] + role_reco.best_result.box[3] // 2  # type: ignore
-                        ).wait()
-                        image = context.tasker.controller.post_screencap().wait().get()
-                        reco = context.run_recognition("编入队伍", image)
-                        if reco and reco.hit:
-                            self.logger.info(f"角色 {role_name} 编入队伍识别成功")
-                            break
-                        time.sleep(0.5)
-                    return True
+                self.logger.info(f"找到角色 {role_name}, 开始尝试编入队伍")
+                for _ in range(4):
+                    context.tasker.controller.post_click(
+                        role_reco.best_result.box[0] + role_reco.best_result.box[2] // 2, role_reco.best_result.box[1] + role_reco.best_result.box[3] // 2  # type: ignore
+                    ).wait()
+                    image = context.tasker.controller.post_screencap().wait().get()
+                    reco = context.run_recognition("编入队伍", image)
+                    if reco and reco.hit:
+                        self.logger.info(f"角色 {role_name} 编入队伍识别成功")
+                        break
+                    time.sleep(0.5)
+                return True
             context.run_action("滑动_选人")
         print(f"未识别到角色")
         self.logger.info(f"未识别到角色{role_name}")
