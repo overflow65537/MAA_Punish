@@ -210,9 +210,12 @@
             "[JumpBack]纯色地块黄_寒境曙光",
             "[JumpBack]纯色地块红_寒境曙光",
             "[JumpBack]纯色地块蓝_寒境曙光",
-            "[JumpBack]分数计算",
-            "[JumpBack]重新进入_寒境曙光"
-        ]
+            "[JumpBack]分数计算"
+        ],
+        "on_error": [
+            "重新进入_寒境曙光"
+        ],
+        "timeout": 10000
     },
     "物资_寒境曙光": {
         "focus": {
@@ -2033,6 +2036,18 @@
     "强制失败": {
         "focus": {
             "Node.Recognition.Succeeded": "[color:tomato]未检测到目标,结束当前游戏[/color]"
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1131,
+                    651,
+                    111,
+                    44
+                ],
+                "expected": "下一天"
+            }
         },
         "action": {
             "type": "Custom",
