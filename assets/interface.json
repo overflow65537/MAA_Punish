@@ -52,6 +52,7 @@
     },
     "global_option": [
         "切换服务器",
+        "角色缓存更新时间",
         "自动QTE",
         "自动切换角色",
         "同时选择多名角色",
@@ -104,6 +105,55 @@
         "./tasks/神寂启示录.json"
     ],
     "option": {
+        "角色缓存更新频率": {
+            "label": "角色缓存更新频率",
+            "description": "角色信息缓存的更新频率，过期后将自动更新角色信息",
+            "type": "select",
+            "cases": [
+                {
+                    "name": "每周",
+                    "pipeline_override": {
+                        "是否需要缓存": {
+                            "recognition": {
+                                "param": {
+                                    "custom_recognition_param": {
+                                        "update_frequency": "weekly"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "每月",
+                    "pipeline_override": {
+                        "是否需要缓存": {
+                            "recognition": {
+                                "param": {
+                                    "custom_recognition_param": {
+                                        "update_frequency": "monthly"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "永不过期",
+                    "pipeline_override": {
+                        "是否需要缓存": {
+                            "recognition": {
+                                "param": {
+                                    "custom_recognition_param": {
+                                        "update_frequency": "never"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         "切换服务器": {
             "label": "切换服务器",
             "description": "切换服务器",
