@@ -408,6 +408,7 @@
             "[JumpBack]查看Boss_雷队",
             "[JumpBack]查看Boss_物队",
             "[JumpBack]查看Boss_冰队",
+            "[JumpBack]查看Boss_无分类队",
             "[JumpBack]查看终极区Boss",
             "[JumpBack]没打过",
             "意外处理_没识别到返回"
@@ -814,9 +815,6 @@
                     93
                 ],
                 "expected": [
-                    "武藏玖型",
-                    "不明构造体",
-                    "罗塞塔",
                     "罗兰"
                 ],
                 "order_by": "Vertical"
@@ -900,6 +898,61 @@
                                 "custom_action_param": {
                                     "cage": true,
                                     "need_element": "lightning"
+                                }
+                            }
+                        }
+                    },
+                    "识别人物": {
+                        "enabled": true
+                    }
+                }
+            }
+        },
+        "next": [
+            "清除队伍"
+        ]
+    },
+    "查看Boss_无分类队": {
+        "max_hit": 3,
+        "on_error": [
+            "未命中BOSS名"
+        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    53,
+                    193,
+                    93
+                ],
+                "expected": [
+                    "武藏玖型",
+                    "不明构造体",
+                    "罗塞塔"
+                ],
+                "order_by": "Vertical"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "选择角色程序": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "cage": true
+                                }
+                            }
+                        }
+                    },
+                    "选择角色程序_onlyNode": {
+                        "action": {
+                            "param": {
+                                "custom_action_param": {
+                                    "cage": true
                                 }
                             }
                         }
