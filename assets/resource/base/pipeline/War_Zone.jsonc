@@ -163,24 +163,6 @@
         ]
     },
     "首通已完成": {
-        "inverse": true,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    544,
-                    45,
-                    722,
-                    666
-                ],
-                "expected": "未挑战"
-            }
-        },
-        "next": [
-            "进入战区奖励"
-        ]
-    },
-    "进入战区奖励": {
         "recognition": {
             "type": "OCR",
             "param": {
