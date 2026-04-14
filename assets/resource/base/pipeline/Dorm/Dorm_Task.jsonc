@@ -50,7 +50,6 @@
         "next": [
             "[JumpBack]宿舍任务_领取执勤",
             "[JumpBack]意外点击_退出代工",
-            "[JumpBack]关闭奖励",
             "二次进入执勤",
             "选择执勤伙伴",
             "[JumpBack]开始执勤",
@@ -164,7 +163,9 @@
         }
     },
     "宿舍任务_领取执勤": {
-        "post_delay": 1000,
+        "post_delay": 0,
+        "pre_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -173,7 +174,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "关闭奖励"
+        ]
     },
     "打开宿舍任务": {
         "post_delay": 1000,
