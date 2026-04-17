@@ -52,6 +52,14 @@ class CacheRole(CustomRecognition):
         )
         return now >= threshold
 
+    def _effective_week_key(self, now: datetime.datetime) -> int:
+        if self._past_weekly_threshold():
+            iso = now.isocalendar()
+        else:
+            iso = (now - datetime.timedelta(days=7)).isocalendar()
+        year, week = int(iso[0]), int(iso[1])
+        return year * 100 + week
+
     def _past_monthly_threshold(self) -> bool:
         now = datetime.datetime.now()
         threshold = datetime.datetime.combine(
@@ -64,6 +72,20 @@ class CacheRole(CustomRecognition):
 
     def _same_month(self, last_update: datetime.datetime, now: datetime.datetime) -> bool:
         return last_update.year == now.year and last_update.month == now.month
+
+    def _parse_main_update_at(self, raw: Any) -> float | None:
+        if isinstance(raw, (int, float)):
+            return float(raw)
+        if isinstance(raw, str):
+            s = raw.strip()
+            if s.isdigit():
+                return float(s)
+            try:
+                dt = datetime.datetime.fromisoformat(s)
+                return dt.timestamp()
+            except ValueError:
+                return None
+        return None
 
     def analyze(
         self,
@@ -86,11 +108,46 @@ class CacheRole(CustomRecognition):
             return CustomRecognition.AnalyzeResult(
                 box=(0, 0, 100, 100), detail={"status": "success"}
             )
+
+        now = datetime.datetime.now()
+        # 额外的周更键：只更新缓存值（不触发完整更新）
+        try:
+            week_key_name = "cage_update_week"
+            current_week = self._effective_week_key(now)
+            stored_week_raw = cache_data.get(week_key_name)
+            stored_week = int(stored_week_raw) if isinstance(stored_week_raw, int) else None
+
+            if stored_week != current_week:
+                focus = cache_data.get("focus")
+                if isinstance(focus, dict):
+                    for _, role_info in focus.items():
+                        if isinstance(role_info, dict):
+                            role_info["cage"] = 3
+                cache_data[week_key_name] = current_week
+                with open(cache_path, "w", encoding="utf-8") as f:
+                    json.dump(cache_data, f, ensure_ascii=False, indent=2)
+        except OSError:
+            pass
+
         if update_frequency == "never":
             return None
 
-        now = datetime.datetime.now()
-        last_update = datetime.datetime.fromtimestamp(cache_path.stat().st_mtime)
+        # 主更新记录保存到 config（role_cache.json）中：main_update_at
+        # - 只使用 main_update_at，不再依赖/回退到文件 mtime
+        try:
+            main_key_name = "main_update_at"
+            stored_main_ts = self._parse_main_update_at(cache_data.get(main_key_name))
+
+            if stored_main_ts is None:
+                stored_main_ts = 0.0
+                cache_data[main_key_name] = stored_main_ts
+                with open(cache_path, "w", encoding="utf-8") as f:
+                    json.dump(cache_data, f, ensure_ascii=False, indent=2)
+
+            last_update = datetime.datetime.fromtimestamp(stored_main_ts)
+        except OSError:
+            last_update = datetime.datetime.fromtimestamp(0)
+
         if update_frequency == "monthly":
             needs_update = (not self._same_month(last_update, now)) and self._past_monthly_threshold()
         else:
