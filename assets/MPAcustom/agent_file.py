@@ -30,8 +30,12 @@ from recognition.exclusives.AutoCounter import AutoCounter
 from recognition.exclusives.NextStageRecognition import NextStageRecognition
 from recognition.exclusives.CacheRole import CacheRole
 from recognition.exclusives.ExpressionRecognition import ExpressionRecognition
+from recognition.exclusives.CheckBlueZone import CheckBlueZone
 
 
+@AgentServer.custom_recognition("CheckBlueZone")
+class Agent_CheckBlueZone(CheckBlueZone):
+    pass
 @AgentServer.custom_recognition("CacheRole")
 class Agent_CacheRole(CacheRole):
     pass

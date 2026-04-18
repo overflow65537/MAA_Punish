@@ -1107,6 +1107,17 @@
         },
         "post_delay": 1000,
         "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CheckBlueZone"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "寒境蓝色地块检查": {
+        "recognition": {
             "type": "ColorMatch",
             "param": {
                 "roi": [
@@ -1130,9 +1141,26 @@
                     110
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
+        }
+    },
+    "确认不是出生点": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": "寒境蓝色地块检查",
+                "upper": [
+                    255,
+                    255,
+                    255
+                ],
+                "lower": [
+                    247,
+                    247,
+                    248
+                ],
+                "count": 1500,
+                "connected": true
+            }
         }
     }
 }
