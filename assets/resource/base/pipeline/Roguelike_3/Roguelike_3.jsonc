@@ -1093,14 +1093,17 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
                 "roi": [
-                    407,
-                    518,
-                    63,
-                    41
+                    335,
+                    448,
+                    214,
+                    184
                 ],
-                "expected": "放弃"
+                "expected": "放弃",
+                "replace": [
+                    "棄",
+                    "弃"
+                ]
             }
         },
         "action": {
