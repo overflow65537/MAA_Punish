@@ -1083,7 +1083,7 @@
                 ],
                 "method": 40,
                 "order_by": "Score",
-                "count": 4000,
+                "count": 3000,
                 "connected": true,
                 "upper": [
                     180,
@@ -1091,7 +1091,7 @@
                     220
                 ],
                 "lower": [
-                    170,
+                    160,
                     100,
                     100
                 ]
