@@ -331,10 +331,10 @@ class RoleSelection(CustomAction):
                     ).wait()
                     image = context.tasker.controller.post_screencap().wait().get()
                     reco = context.run_recognition("编入队伍", image)
+                    time.sleep(0.2)
                     if reco and reco.hit:
                         self.logger.info(f"角色 {role_name} 编入队伍识别成功")
                         break
-                    time.sleep(0.5)
                 return True
             context.run_action("滑动_选人")
         print(f"未识别到角色")
