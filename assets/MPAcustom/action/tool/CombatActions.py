@@ -473,14 +473,15 @@ class CombatActions:
         """
         image = self.context.tasker.controller.post_screencap().wait().get()
         result = self.context.run_recognition("统计信号球数量", image)
-        from maa.define import OCRResult
+        from maa.define import OCRResult,AndRecognitionResult
 
-        if result and result.hit and isinstance(result.best_result, OCRResult):
-            num = re.search(r"\d+", result.best_result.text)
+        if result and result.hit and isinstance(result, AndRecognitionResult) and isinstance(result.sub_results[1], OCRResult):
+            num = re.search(r"(\d+)\s*/", result.sub_results[1].text)
             if num:
-                self.logger.info(f"识别到信号球数量: {int(num.group())}")
-                return int(num.group())
-
+                self.logger.info(f"识别到信号球数量: {int(num.group(1))}")
+                return int(num.group(1))
+        
+        self.logger.info("未识别到信号球数量")
         return 0
 
     def get_hp_percent(self) -> int:

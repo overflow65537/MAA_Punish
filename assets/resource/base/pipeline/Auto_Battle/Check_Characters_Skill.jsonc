@@ -49,16 +49,43 @@
         "post_delay": 0,
         "pre_delay": 0,
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "only_rec": true,
-                "roi": [
-                    1188,
-                    555,
-                    20,
-                    18
-                ],
-                "expected": "\\d+"
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    1161,
+                                    521,
+                                    116,
+                                    79
+                                ],
+                                "lower": [
+                                    250,
+                                    250,
+                                    250
+                                ],
+                                "upper": [
+                                    255,
+                                    255,
+                                    255
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "only_rec": true,
+                                "roi": "统计信号球数量",
+                                "expected": "\\d+/\\d+"
+                            }
+                        }
+                    }
+                ]
             }
         }
     },
