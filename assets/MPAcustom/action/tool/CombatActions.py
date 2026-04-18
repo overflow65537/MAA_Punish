@@ -473,10 +473,18 @@ class CombatActions:
         """
         image = self.context.tasker.controller.post_screencap().wait().get()
         result = self.context.run_recognition("统计信号球数量", image)
-        from maa.define import OCRResult,AndRecognitionResult
+        from maa.define import OCRResult, AndRecognitionResult
 
-        if result and result.hit and isinstance(result, AndRecognitionResult) and isinstance(result.sub_results[1], OCRResult):
-            num = re.search(r"(\d+)\s*/", result.sub_results[1].text)
+        if (
+            result
+            and result.hit
+            and isinstance(result.best_result, AndRecognitionResult)
+            and len(result.best_result.sub_results) > 1
+            and result.best_result.sub_results[1].hit
+            and isinstance(result.best_result.sub_results[1].best_result, OCRResult)
+        ):
+            text = result.best_result.sub_results[1].best_result.text
+            num = re.search(r"(\d+)\s*/", text)
             if num:
                 self.logger.info(f"识别到信号球数量: {int(num.group(1))}")
                 return int(num.group(1))
@@ -581,4 +589,4 @@ class CombatActions:
         else:
             return
 
-        self.context.override_pipeline({"识别人物": {"enabled": True}})
+        self.context.override_pipeline({"识别人物": {"max_hit": 1}})

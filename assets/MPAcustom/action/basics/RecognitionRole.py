@@ -14,7 +14,8 @@ class RecognitionRole(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        logger = LoggerComponent("RecognitionRole").logger
+        logger_component = LoggerComponent(__name__)
+        logger = logger_component.logger
         logger.info("开始识别角色")
         image = context.tasker.controller.post_screencap().wait().get()
         for role_name, role_info in ROLE_ACTIONS.items():
