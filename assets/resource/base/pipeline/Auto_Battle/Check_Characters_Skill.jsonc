@@ -52,39 +52,47 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    1161,
-                                    521,
-                                    116,
-                                    79
-                                ],
-                                "lower": [
-                                    250,
-                                    250,
-                                    250
-                                ],
-                                "upper": [
-                                    255,
-                                    255,
-                                    255
-                                ]
-                            }
-                        }
-                    },
+                    "_信号球数量",
                     {
                         "recognition": {
                             "type": "OCR",
                             "param": {
                                 "only_rec": true,
-                                "roi": "统计信号球数量",
-                                "expected": "\\d+/\\d+"
+                                "roi": "_信号球数量",
+                                "roi_offset": [
+                                    -2,
+                                    -2,
+                                    4,
+                                    4
+                                ],
+                                "expected": "\\d+/\\d+",
+                                "color_filter": "_信号球数量"
                             }
                         }
                     }
+                ]
+            }
+        }
+    },
+    "_信号球数量": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1161,
+                    521,
+                    116,
+                    79
+                ],
+                "lower": [
+                    250,
+                    250,
+                    250
+                ],
+                "upper": [
+                    255,
+                    255,
+                    255
                 ]
             }
         }
