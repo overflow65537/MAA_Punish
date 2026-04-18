@@ -326,9 +326,14 @@ class RoleSelection(CustomAction):
             if role_reco and role_reco.hit:
                 self.logger.info(f"找到角色 {role_name}, 开始尝试编入队伍")
                 for _ in range(4):
-                    context.tasker.controller.post_click(
-                        role_reco.box[0] + role_reco.box[2] // 2, role_reco.box[1] + role_reco.box[3] // 2  # type: ignore
-                    ).wait()
+                    if trial:
+                        context.tasker.controller.post_click(
+                            role_reco.box[0] + 34, role_reco.box[1] + 41  # type: ignore 魔法数字,为了正确点击到试用角色的正中心
+                        ).wait()
+                    else:
+                        context.tasker.controller.post_click(
+                            role_reco.box[0] + role_reco.box[2] // 2, role_reco.box[1] + role_reco.box[3] // 2  # type: ignore
+                        ).wait()
                     image = context.tasker.controller.post_screencap().wait().get()
                     reco = context.run_recognition("编入队伍", image)
                     time.sleep(0.2)
