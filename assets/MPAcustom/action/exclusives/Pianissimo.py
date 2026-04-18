@@ -39,6 +39,7 @@ class Pianissimo(CustomAction):
                 action.attack()
                 time.sleep(0.05)
                 action.ball_elimination_target(1)
+                action.ball_elimination_target(2)
                 time.sleep(0.05)
             print("希声2阶段核心结束")
 
