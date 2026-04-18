@@ -1,8 +1,5 @@
 {
     "寒境曙光": {
-        "on_error": [
-            "返回主菜单_err"
-        ],
         "next": [
             "重开游戏_寒境曙光",
             "标准进入方式_寒境曙光",
@@ -705,20 +702,14 @@
             "type": "Click"
         },
         "next": [
-            "强制失败_成功",
-            "[JumpBack]点击空白处关闭",
-            "[JumpBack]驻扎点报警_寒境曙光",
-            "[JumpBack]支援等级提升_寒境曙光",
-            "[JumpBack]选择军事支援_寒境曙光",
-            "[JumpBack]选择经济支援_寒境曙光",
-            "[JumpBack]选择基建支援_寒境曙光",
-            "[JumpBack]关闭奖励_寒境曙光",
-            "[JumpBack]确认下一天_强制失败",
-            "[JumpBack]局内招募_寒境曙光",
-            "[JumpBack]继续对话_寒境曙光",
-            "[JumpBack]领取战斗奖励",
-            "[JumpBack]下一天_强制失败",
-            "[JumpBack]意外点击_背包"
+            "寒境曙光主界面",
+            "[JumpBack]返回",
+            "[JumpBack]打开寒境曙光",
+            "[JumpBack]打开多维演绎",
+            "[JumpBack]打开时宇漫纪",
+            "[JumpBack]打开挑战",
+            "[JumpBack]打开战斗",
+            "[JumpBack]意外点击_限定活动"
         ]
     },
     "重启_寒境曙光": {
@@ -2065,19 +2056,14 @@
             }
         },
         "next": [
-            "强制失败_成功",
-            "[JumpBack]确认下一天_强制失败",
-            "[JumpBack]局内招募_寒境曙光",
-            "[JumpBack]继续对话_寒境曙光",
-            "[JumpBack]点击空白处关闭",
-            "[JumpBack]领取战斗奖励",
-            "[JumpBack]驻扎点报警_寒境曙光",
-            "[JumpBack]支援等级提升_寒境曙光",
-            "[JumpBack]选择军事支援_寒境曙光",
-            "[JumpBack]选择经济支援_寒境曙光",
-            "[JumpBack]选择基建支援_寒境曙光",
-            "[JumpBack]关闭奖励_寒境曙光",
-            "[JumpBack]下一天_强制失败"
+            "寒境曙光主界面",
+            "[JumpBack]返回",
+            "[JumpBack]打开寒境曙光",
+            "[JumpBack]打开多维演绎",
+            "[JumpBack]打开时宇漫纪",
+            "[JumpBack]打开挑战",
+            "[JumpBack]打开战斗",
+            "[JumpBack]意外点击_限定活动"
         ]
     },
     "强制失败_成功": {
