@@ -516,6 +516,7 @@
             "[JumpBack]关闭委托完成通知",
             "[JumpBack]打开委托界面",
             "[JumpBack]打开宿舍",
+            "[JumpBack]切换主界面状态",
             "[JumpBack]意外点击_主界面"
         ]
     },

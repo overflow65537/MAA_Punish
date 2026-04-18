@@ -26,7 +26,8 @@
                                 "[JumpBack]关闭奖励",
                                 "[JumpBack]选择宿舍币商店",
                                 "[JumpBack]打开宿舍商店",
-                                "[JumpBack]打开宿舍"
+                                "[JumpBack]打开宿舍",
+                                "[JumpBack]切换主界面状态"
                             ]
                         }
                     }
@@ -41,7 +42,8 @@
                                 "[JumpBack]关闭奖励",
                                 "[JumpBack]打开遣测商店",
                                 "[JumpBack]打开宿舍商店",
-                                "[JumpBack]打开宿舍"
+                                "[JumpBack]打开宿舍",
+                                "[JumpBack]切换主界面状态"
                             ]
                         },
                         "推荐物品": {

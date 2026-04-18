@@ -6,6 +6,7 @@
             "[JumpBack]选择宿舍币商店",
             "[JumpBack]打开宿舍商店",
             "[JumpBack]打开宿舍",
+            "[JumpBack]切换主界面状态",
             "[JumpBack]意外点击_商店物品"
         ]
     },
@@ -16,6 +17,7 @@
             "[JumpBack]打开遣测商店",
             "[JumpBack]打开宿舍商店",
             "[JumpBack]打开宿舍",
+            "[JumpBack]切换主界面状态",
             "[JumpBack]意外点击_商店物品"
         ]
     },

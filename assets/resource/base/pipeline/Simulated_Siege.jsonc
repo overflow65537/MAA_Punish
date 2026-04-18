@@ -6,6 +6,7 @@
             "[JumpBack]进入拟真围剿",
             "[JumpBack]准备作战_拟真围剿",
             "[JumpBack]打开指挥局",
+            "[JumpBack]切换主界面状态",
             "[JumpBack]意外点击_玩家详情"
         ]
     },
@@ -361,7 +362,8 @@
         "next": [
             "返回指挥局主界面",
             "[JumpBack]返回主菜单",
-            "[JumpBack]打开指挥局"
+            "[JumpBack]打开指挥局",
+            "[JumpBack]切换主界面状态"
         ]
     },
     "点击BOSS区": {
@@ -628,7 +630,8 @@
         },
         "next": [
             "领取本周贡献",
-            "[JumpBack]打开指挥局"
+            "[JumpBack]打开指挥局",
+            "[JumpBack]切换主界面状态"
         ]
     },
     "领取本周贡献": {
