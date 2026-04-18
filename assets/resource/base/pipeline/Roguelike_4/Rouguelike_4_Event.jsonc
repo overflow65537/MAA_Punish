@@ -1127,7 +1127,7 @@
                     640
                 ],
                 "order_by": "Score",
-                "count": 4000,
+                "count": 2000,
                 "connected": true,
                 "method": 40,
                 "upper": [
