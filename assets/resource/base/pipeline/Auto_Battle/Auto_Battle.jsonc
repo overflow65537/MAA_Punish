@@ -516,7 +516,7 @@
                 "custom_action": "PPOverride",
                 "custom_action_param": {
                     "识别人物": {
-                        "enabled": true
+                        "max_hit": 1
                     }
                 }
             }
@@ -548,6 +548,7 @@
         "inverse": true
     },
     "识别人物": {
+        "max_hit": 1,
         "post_delay": 0,
         "pre_delay": 0,
         "rate_limit": 0,
