@@ -183,7 +183,8 @@
         "next": [
             "战区奖励已领取",
             "[JumpBack]领取战区奖励",
-            "[JumpBack]关闭奖励"
+            "[JumpBack]关闭奖励",
+            "[JumpBack]破纪录"
         ]
     },
     "战区奖励已领取": {
