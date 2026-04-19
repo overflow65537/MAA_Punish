@@ -57,7 +57,10 @@ class Crepuscule(CustomAction):
             action.logger.info("核心技能未就绪")
             item = 0
             while action.count_signal_balls() < 9 and item < 100:
-                action.attack()
-                item += 1
+                if action.attack():
+                    item += 1
+                else:
+                    return CustomAction.RunResult(success=True)
+                
         action.attack()
         return CustomAction.RunResult(success=True)
