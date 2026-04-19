@@ -43,10 +43,12 @@ class LostLullaby(CustomAction):
         if action.check_status("检查阶段p1_深谣"):
             action.logger.info("p1阶段")
             if action.check_Skill_energy_bar():
+                action.attack()
                 action.use_skill()  # 像泡沫一样,消散吧
                 action.auxiliary_machine()
 
             elif action.check_status("检查核心被动1_深谣"):
+                action.attack()
                 action.logger.info("p1核心被动1")  # 海啸球
                 action.ball_elimination_target(1)
                 action.auto_qte("a")
@@ -55,6 +57,7 @@ class LostLullaby(CustomAction):
 
             elif action.check_status("检查核心被动2_深谣"):
                 action.logger.info("p1核心被动2")
+                action.attack()
                 action.ball_elimination_target(1)
 
             else:
@@ -70,10 +73,12 @@ class LostLullaby(CustomAction):
                 for _ in range(10):
                     time.sleep(0.1)
                     action.ball_elimination_target(1)  # 滚出这里
+                    action.attack()
                 time.sleep(1)
                 action.long_press_attack()  # 毁灭吧
                 for _ in range(10):
                     time.sleep(0.1)
+                    action.attack()
                     action.use_skill()  # 沉没在,这片海底
                     action.auxiliary_machine()
                     action.auto_qte("a")
