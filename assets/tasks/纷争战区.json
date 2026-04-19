@@ -74,7 +74,7 @@
                                     "expected": "{编队名}"
                                 },
                                 "识别人物": {
-                                    "max_hit": 1
+                                    "enabled": true
                                 }
                             }
                         }
@@ -108,7 +108,7 @@
                                     "expected": "{编队名}"
                                 },
                                 "识别人物": {
-                                    "max_hit": 1
+                                    "enabled": true
                                 }
                             }
                         }
@@ -142,7 +142,7 @@
                                     "expected": "{编队名}"
                                 },
                                 "识别人物": {
-                                    "max_hit": 1
+                                    "enabled": true
                                 }
                             }
                         }
@@ -176,7 +176,7 @@
                                     "expected": "{编队名}"
                                 },
                                 "识别人物": {
-                                    "max_hit": 1
+                                    "enabled": true
                                 }
                             }
                         }
@@ -210,7 +210,7 @@
                                     "expected": "{编队名}"
                                 },
                                 "识别人物": {
-                                    "max_hit": 1
+                                    "enabled": true
                                 }
                             }
                         }
@@ -244,7 +244,7 @@
                                     "expected": "{编队名}"
                                 },
                                 "识别人物": {
-                                    "max_hit": 1
+                                    "enabled": true
                                 }
                             }
                         }
@@ -278,7 +278,7 @@
                                     "expected": "{编队名}"
                                 },
                                 "识别人物": {
-                                    "max_hit": 1
+                                    "enabled": true
                                 }
                             }
                         }

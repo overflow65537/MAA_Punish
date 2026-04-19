@@ -1154,7 +1154,7 @@
                 "custom_action": "PPOverride",
                 "custom_action_param": {
                     "识别人物": {
-                        "max_hit": 1
+                        "enabled": true
                     }
                 }
             }
@@ -1197,7 +1197,7 @@
                 "custom_action": "PPOverride",
                 "custom_action_param": {
                     "识别人物": {
-                        "max_hit": 1
+                        "enabled": true
                     }
                 }
             }

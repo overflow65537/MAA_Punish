@@ -30,7 +30,7 @@
                 "custom_action": "PPOverride",
                 "custom_action_param": {
                     "识别人物": {
-                        "max_hit": 1
+                        "enabled": true
                     },
                     "编入队伍": {
                         "max_hit": 30

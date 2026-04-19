@@ -9,7 +9,6 @@ from maa.custom_action import CustomAction
 from MPAcustom.action.tool.LoadSetting import ROLE_ACTIONS
 from MPAcustom.logger_component import LoggerComponent
 
-
 class RecognitionRole(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
@@ -28,6 +27,7 @@ class RecognitionRole(CustomAction):
                         "recognition": {
                             "param": {
                                 "template": role_info["attack_template"],
+                                "threshold": 0.8,
                             },
                         }
                     }
@@ -37,6 +37,7 @@ class RecognitionRole(CustomAction):
             if result and result.hit:
                 context.override_pipeline(
                     {
+                        "识别人物": {"enabled": False},
                         "战斗中": {
                             "action": "Custom",
                             "custom_action": role_info["cls_name"],
@@ -45,9 +46,10 @@ class RecognitionRole(CustomAction):
                 )
                 logger.info(f"识别到角色: {role_name}")
                 return CustomAction.RunResult(success=True)
-        logger.info("未识别到角色，使用默认战斗流程")
+        logger.info("未识别到角色，继续战斗")
         context.override_pipeline(
             {
+                "识别人物": {"enabled": False},
                 "战斗中": {
                     "action": "Custom",
                     "custom_action": "GeneralFight",
