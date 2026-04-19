@@ -703,13 +703,15 @@
         },
         "next": [
             "寒境曙光主界面",
-            "[JumpBack]返回",
+            "[JumpBack]退出_寒境曙光",
             "[JumpBack]打开寒境曙光",
             "[JumpBack]打开多维演绎",
             "[JumpBack]打开时宇漫纪",
             "[JumpBack]打开挑战",
             "[JumpBack]打开战斗",
-            "[JumpBack]意外点击_限定活动"
+            "[JumpBack]意外点击_限定活动",
+            "[JumpBack]关闭奖励_寒境曙光",
+            "挑战失败_寒境曙光"
         ]
     },
     "重启_寒境曙光": {
@@ -2057,28 +2059,16 @@
         },
         "next": [
             "寒境曙光主界面",
-            "[JumpBack]返回",
+            "[JumpBack]退出_寒境曙光",
             "[JumpBack]打开寒境曙光",
             "[JumpBack]打开多维演绎",
             "[JumpBack]打开时宇漫纪",
             "[JumpBack]打开挑战",
             "[JumpBack]打开战斗",
-            "[JumpBack]意外点击_限定活动"
+            "[JumpBack]意外点击_限定活动",
+            "[JumpBack]关闭奖励_寒境曙光",
+            "挑战失败_寒境曙光"
         ]
-    },
-    "强制失败_成功": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    540,
-                    424,
-                    146,
-                    74
-                ],
-                "expected": "退出挑战"
-            }
-        }
     },
     "下一天_强制失败": {
         "post_wait_freezes": {
