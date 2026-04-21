@@ -212,6 +212,28 @@
         },
         "next": [
             "一键领取_定期",
+            "勤务任务"
+        ]
+    },
+    "勤务任务": {
+        "post_delay": 1000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    9,
+                    184,
+                    237,
+                    355
+                ],
+                "expected": "勤务"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "一键领取_勤务",
             "每日任务"
         ]
     },
@@ -268,6 +290,29 @@
             "关闭奖励_每周"
         ]
     },
+    "一键领取_勤务": {
+        "post_delay": 1000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1071,
+                    103,
+                    113,
+                    65
+                ],
+                "expected": [
+                    "键领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "关闭奖励_勤务"
+        ]
+    },
     "一键领取_任务": {
         "post_delay": 1000,
         "recognition": {
@@ -292,6 +337,36 @@
         ]
     },
     "关闭奖励_每周": {
+        "post_delay": 1000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    409,
+                    176,
+                    491,
+                    150
+                ],
+                "expected": [
+                    "^(获得)?奖励$"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    446,
+                    30
+                ]
+            }
+        },
+        "next": [
+            "勤务任务",
+            "[JumpBack]关闭奖励"
+        ]
+    },
+    "关闭奖励_勤务": {
         "post_delay": 1000,
         "recognition": {
             "type": "OCR",
