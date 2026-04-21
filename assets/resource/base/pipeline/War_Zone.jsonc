@@ -300,6 +300,7 @@
             "time": 1500,
             "timeout": 5000
         },
+        "pre_delay": 500,
         "recognition": {
             "type": "OCR",
             "param": {
