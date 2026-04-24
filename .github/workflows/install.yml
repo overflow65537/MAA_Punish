@@ -153,11 +153,11 @@ jobs:
           latest: true
           #tag: "v4.0.0-beta.1"
 
-      - name: Install MFW
-        shell: bash
-        run: |
-          rm install/MFW-PyQt6-${{ matrix.platform }}-${{ matrix.arch }}*
-
+#      - name: Install MFW
+#        shell: bash
+#        run: |
+#          rm install/MFW-PyQt6-${{ matrix.platform }}-${{ matrix.arch }}*
+#
 #      - uses: actions/download-artifact@v4
 #        with:
 #          name: background
