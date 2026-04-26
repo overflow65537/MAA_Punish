@@ -12,10 +12,10 @@
             "[JumpBack]意外点击_物品",
             "[JumpBack]滑动_诺曼复兴战内部",
             "[JumpBack]意外点击_限定活动",
-            "[JumpBack]意外进入矿区作战"
+            "[JumpBack]意外点击_矿区作战"
         ]
     },
-    "意外进入矿区作战": {
+    "意外点击_矿区作战": {
         "recognition": {
             "type": "And",
             "param": {
