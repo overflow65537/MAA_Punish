@@ -11,8 +11,23 @@
             "[JumpBack]打开挑战_诺曼复兴战",
             "[JumpBack]意外点击_物品",
             "[JumpBack]滑动_诺曼复兴战内部",
-            "[JumpBack]意外点击_限定活动"
+            "[JumpBack]意外点击_限定活动",
+            "[JumpBack]意外进入矿区作战"
         ]
+    },
+    "意外进入矿区作战": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "返回",
+                    "直达深巢"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "打通诺曼复兴战条件2": {
         "recognition": {
