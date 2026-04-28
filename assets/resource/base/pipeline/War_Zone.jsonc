@@ -109,7 +109,8 @@
         "next": [
             "[JumpBack]破纪录",
             "[JumpBack]首通未完成",
-            "首通已完成"
+            "首通已完成",
+            "[JumpBack]战斗结束"
         ]
     },
     "破纪录": {
@@ -300,7 +301,7 @@
             "time": 1500,
             "timeout": 5000
         },
-        "pre_delay": 500,
+        "pre_wait_freezes": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
