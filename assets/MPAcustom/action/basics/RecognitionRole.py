@@ -9,6 +9,7 @@ from maa.custom_action import CustomAction
 from MPAcustom.action.tool.LoadSetting import ROLE_ACTIONS
 from MPAcustom.logger_component import LoggerComponent
 
+
 class RecognitionRole(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
@@ -42,9 +43,18 @@ class RecognitionRole(CustomAction):
                             "action": "Custom",
                             "custom_action": role_info["cls_name"],
                         },
+                        "发送消息_这是程序自动生成的node所以故意写的很长来防止某一天想不开用了这个名字导致报错": {
+                            "focus": {
+                                "Node.Recognition.Succeeded": f"识别到角色: {role_name}"
+                            }
+                        },
                     }
                 )
+
                 logger.info(f"识别到角色: {role_name}")
+                context.run_task(
+                    "发送消息_这是程序自动生成的node所以故意写的很长来防止某一天想不开用了这个名字导致报错",
+                )
                 return CustomAction.RunResult(success=True)
         logger.info("未识别到角色，继续战斗")
         context.override_pipeline(
@@ -54,7 +64,13 @@ class RecognitionRole(CustomAction):
                     "action": "Custom",
                     "custom_action": "GeneralFight",
                 },
+                "发送消息_这是程序自动生成的node所以故意写的很长来防止某一天想不开用了这个名字导致报错": {
+                    "focus": {"Node.Recognition.Succeeded": "未识别到角色，继续战斗"}
+                },
             }
+        )
+        context.run_task(
+            "发送消息_这是程序自动生成的node所以故意写的很长来防止某一天想不开用了这个名字导致报错",
         )
 
         return CustomAction.RunResult(success=True)
