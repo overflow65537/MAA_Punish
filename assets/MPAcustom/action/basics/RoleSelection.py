@@ -735,10 +735,22 @@ class RoleSelection(CustomAction):
         cache_path = self._cache_path()
         self.logger.info(f"正在保存缓存到 {cache_path}, 数据: {role}")
         cache_path.parent.mkdir(parents=True, exist_ok=True)
-        cache_data = {
-            "last_time": self._current_week(),
-            "focus": role,
-        }
+        # 保留 CacheRole 使用的字段（main_update_at / cage_update_week 等），避免被覆盖丢失。
+        existing: dict = {}
+        try:
+            if cache_path.exists():
+                with open(cache_path, "r", encoding="utf-8") as rf:
+                    loaded = json.load(rf)
+                if isinstance(loaded, dict):
+                    existing = loaded
+        except Exception:
+            existing = {}
+
+        now = datetime.datetime.now()
+        cache_data = dict(existing)
+        cache_data["last_time"] = self._current_week()
+        cache_data["focus"] = role
+        cache_data["main_update_at"] = now.timestamp()
         with open(cache_path, "w", encoding="utf-8") as f:
             json.dump(cache_data, f, ensure_ascii=False, indent=2)
         self.logger.info("缓存保存成功")
