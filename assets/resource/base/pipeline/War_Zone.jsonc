@@ -653,6 +653,7 @@
         }
     },
     "点击作战开始": {
+        "post_delay": 5000,
         "action": {
             "type": "Click",
             "param": {
