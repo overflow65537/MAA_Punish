@@ -10,6 +10,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from MPAcustom.logger_component import LoggerComponent
+
 
 class CacheRole(CustomRecognition):
     def _parse_params(self, raw_params: Any) -> dict[str, Any]:
@@ -92,10 +94,14 @@ class CacheRole(CustomRecognition):
         context,
         argv: CustomRecognition.AnalyzeArg,
     ) -> CustomRecognition.AnalyzeResult | None:
+        logger_component = LoggerComponent(__name__)
+        logger = logger_component.logger
         params = self._parse_params(argv.custom_recognition_param)
         update_frequency = self._normalize_frequency(params.get("update_frequency"))
         cache_path = Path(__file__).resolve().parents[3] / "role_cache.json"
+        logger.info(f"[CacheRole] 启动检查, update_frequency={update_frequency}, cache_path={cache_path}")
         if not cache_path.exists():
+            logger.info("[CacheRole] 缓存文件不存在, 返回 success 触发更新")
             return CustomRecognition.AnalyzeResult(
                 box=(0, 0, 100, 100), detail={"status": "success"}
             )
@@ -105,11 +111,13 @@ class CacheRole(CustomRecognition):
         except (OSError, json.JSONDecodeError):
             cache_data = None
         if not cache_data:
+            logger.info("[CacheRole] 缓存文件为空或解析失败, 返回 success 触发更新")
             return CustomRecognition.AnalyzeResult(
                 box=(0, 0, 100, 100), detail={"status": "success"}
             )
 
         now = datetime.datetime.now()
+        logger.debug(f"[CacheRole] 当前时间: {now}")
         # 额外的周更键：只更新缓存值（不触发完整更新）
         try:
             week_key_name = "cage_update_week"
@@ -118,6 +126,10 @@ class CacheRole(CustomRecognition):
             stored_week = int(stored_week_raw) if isinstance(stored_week_raw, int) else None
 
             if stored_week != current_week:
+                logger.info(
+                    f"[CacheRole] cage周更触发: stored_week={stored_week}, current_week={current_week}, "
+                    "原因: 当前周key与缓存不同, 重置cage值为3"
+                )
                 focus = cache_data.get("focus")
                 if isinstance(focus, dict):
                     for _, role_info in focus.items():
@@ -126,10 +138,16 @@ class CacheRole(CustomRecognition):
                 cache_data[week_key_name] = current_week
                 with open(cache_path, "w", encoding="utf-8") as f:
                     json.dump(cache_data, f, ensure_ascii=False, indent=2)
-        except OSError:
-            pass
+            else:
+                logger.debug(
+                    f"[CacheRole] cage周更跳过: stored_week={stored_week}, current_week={current_week}, "
+                    "原因: 已在本周更新过cage值"
+                )
+        except OSError as e:
+            logger.warning(f"[CacheRole] cage周更写入失败: {e}")
 
         if update_frequency == "never":
+            logger.info("[CacheRole] update_frequency=never, 不触发完整更新, 返回 None")
             return None
 
         # 主更新记录保存到 config（role_cache.json）中：main_update_at
@@ -145,15 +163,42 @@ class CacheRole(CustomRecognition):
                     json.dump(cache_data, f, ensure_ascii=False, indent=2)
 
             last_update = datetime.datetime.fromtimestamp(stored_main_ts)
-        except OSError:
+            logger.debug(f"[CacheRole] 上次完整更新时间: {last_update} (timestamp={stored_main_ts})")
+        except OSError as e:
+            logger.warning(f"[CacheRole] 读取main_update_at失败, 回退到epoch: {e}")
             last_update = datetime.datetime.fromtimestamp(0)
 
         if update_frequency == "monthly":
-            needs_update = (not self._same_month(last_update, now)) and self._past_monthly_threshold()
+            same_month = self._same_month(last_update, now)
+            past_threshold = self._past_monthly_threshold()
+            needs_update = (not same_month) and past_threshold
+            logger.info(
+                f"[CacheRole] 月更检查: last_update={last_update}, same_month={same_month}, "
+                f"past_threshold={past_threshold}, needs_update={needs_update}"
+            )
+            if not needs_update:
+                if same_month:
+                    logger.info("[CacheRole] 不更新: 已在本月更新过")
+                elif not past_threshold:
+                    logger.info("[CacheRole] 不更新: 未到达本月阈值(每月1号5:00后才触发)")
         else:
-            needs_update = (not self._same_week(last_update, now)) and self._past_weekly_threshold()
+            same_week = self._same_week(last_update, now)
+            past_threshold = self._past_weekly_threshold()
+            needs_update = (not same_week) and past_threshold
+            logger.info(
+                f"[CacheRole] 周更检查: last_update={last_update}, same_week={same_week}, "
+                f"past_threshold={past_threshold}, needs_update={needs_update}"
+            )
+            if not needs_update:
+                if same_week:
+                    logger.info("[CacheRole] 不更新: 已在本周更新过")
+                elif not past_threshold:
+                    logger.info("[CacheRole] 不更新: 未到达本周阈值(本周一5:00后才触发)")
+
         if needs_update:
+            logger.info("[CacheRole] 返回 success 触发完整更新")
             return CustomRecognition.AnalyzeResult(
                 box=(0, 0, 100, 100), detail={"status": "success"}
             )
+        logger.info("[CacheRole] 无需更新, 返回 None")
         return None
