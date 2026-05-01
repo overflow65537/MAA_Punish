@@ -494,64 +494,6 @@
             "返回主菜单"
         ]
     },
-    "查看终极区Boss_A区": {
-        "max_hit": 1,
-        "on_error": [
-            "未命中BOSS名"
-        ],
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    0,
-                    53,
-                    193,
-                    93
-                ],
-                "expected": [
-                    "特异型机械体·马德拉",
-                    "光辉行进者",
-                    "国王",
-                    "斯凯奇",
-                    "修特罗尔",
-                    "柯蕾多尔",
-                    "蒙扎诺夫人",
-                    "维罗妮卡",
-                    "格温普兰",
-                    "坠星·帕瓦特",
-                    "埃比阿提斯",
-                    "千子",
-                    "监管者",
-                    "墨利诺厄"
-                ],
-                "order_by": "Vertical"
-            }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择角色程序": {
-                        "attach": {
-                            "cage": true
-                        }
-                    },
-                    "选择角色程序_onlyNode": {
-                        "attach": {
-                            "cage": true
-                        }
-                    },
-                    "识别人物": {
-                        "enabled": true
-                    }
-                }
-            }
-        },
-        "next": [
-            "清除队伍"
-        ]
-    },
     "查看终极区Boss": {
         "focus": {
             "Node.Recognition.Succeeded": "已选择终极区"
@@ -614,6 +556,9 @@
         ]
     },
     "查看Boss_冰队": {
+        "focus": {
+            "Node.Recognition.Succeeded": "已选择冰队"
+        },
         "max_hit": 1,
         "on_error": [
             "未命中BOSS名"
@@ -663,6 +608,9 @@
         ]
     },
     "查看Boss_暗队": {
+        "focus": {
+            "Node.Recognition.Succeeded": "已选择暗队"
+        },
         "max_hit": 1,
         "on_error": [
             "未命中BOSS名"
@@ -714,6 +662,9 @@
         ]
     },
     "查看Boss_火队": {
+        "focus": {
+            "Node.Recognition.Succeeded": "已选择火队"
+        },
         "max_hit": 1,
         "on_error": [
             "未命中BOSS名"
@@ -763,6 +714,9 @@
         ]
     },
     "查看Boss_物队": {
+        "focus": {
+            "Node.Recognition.Succeeded": "已选择物理队"
+        },
         "max_hit": 1,
         "on_error": [
             "未命中BOSS名"
@@ -810,6 +764,9 @@
         ]
     },
     "查看Boss_雷队": {
+        "focus": {
+            "Node.Recognition.Succeeded": "已选择雷队"
+        },
         "max_hit": 1,
         "on_error": [
             "未命中BOSS名"
@@ -859,6 +816,9 @@
         ]
     },
     "查看Boss_武藏玖型": {
+        "focus": {
+            "Node.Recognition.Succeeded": "武藏玖型"
+        },
         "max_hit": 1,
         "on_error": [
             "未命中BOSS名"
@@ -904,6 +864,9 @@
         ]
     },
     "查看Boss_不明构造体": {
+        "focus": {
+            "Node.Recognition.Succeeded": "不明构造体α"
+        },
         "max_hit": 1,
         "on_error": [
             "未命中BOSS名"
@@ -949,6 +912,9 @@
         ]
     },
     "查看Boss_罗塞塔": {
+        "focus": {
+            "Node.Recognition.Succeeded": "罗塞塔"
+        },
         "max_hit": 1,
         "on_error": [
             "未命中BOSS名"
