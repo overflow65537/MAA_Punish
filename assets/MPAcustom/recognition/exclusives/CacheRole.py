@@ -46,8 +46,7 @@ class CacheRole(CustomRecognition):
         }
         return alias.get(key, "weekly")
 
-    def _past_weekly_threshold(self) -> bool:
-        now = datetime.datetime.now()
+    def _past_weekly_threshold(self, now: datetime.datetime) -> bool:
         start_of_week = now - datetime.timedelta(days=now.weekday())
         threshold = datetime.datetime.combine(
             start_of_week.date(), datetime.time(hour=5)
@@ -55,15 +54,14 @@ class CacheRole(CustomRecognition):
         return now >= threshold
 
     def _effective_week_key(self, now: datetime.datetime) -> int:
-        if self._past_weekly_threshold():
+        if self._past_weekly_threshold(now):
             iso = now.isocalendar()
         else:
             iso = (now - datetime.timedelta(days=7)).isocalendar()
         year, week = int(iso[0]), int(iso[1])
         return year * 100 + week
 
-    def _past_monthly_threshold(self) -> bool:
-        now = datetime.datetime.now()
+    def _past_monthly_threshold(self, now: datetime.datetime) -> bool:
         threshold = datetime.datetime.combine(
             datetime.date(now.year, now.month, 1), datetime.time(hour=5)
         )
@@ -100,8 +98,17 @@ class CacheRole(CustomRecognition):
         update_frequency = self._normalize_frequency(params.get("update_frequency"))
         cache_path = Path(__file__).resolve().parents[3] / "role_cache.json"
         logger.info(f"[CacheRole] 启动检查, update_frequency={update_frequency}, cache_path={cache_path}")
+        now = datetime.datetime.now()
         if not cache_path.exists():
             logger.info("[CacheRole] 缓存文件不存在, 返回 success 触发更新")
+            try:
+                cache_path.parent.mkdir(parents=True, exist_ok=True)
+                init_data = {"main_update_at": now.timestamp()}
+                with open(cache_path, "w", encoding="utf-8") as f:
+                    json.dump(init_data, f, ensure_ascii=False, indent=2)
+                logger.info(f"[CacheRole] 已初始化缓存文件并记录 main_update_at={now}")
+            except OSError as e:
+                logger.warning(f"[CacheRole] 初始化缓存文件失败: {e}")
             return CustomRecognition.AnalyzeResult(
                 box=(0, 0, 100, 100), detail={"status": "success"}
             )
@@ -112,12 +119,17 @@ class CacheRole(CustomRecognition):
             cache_data = None
         if not cache_data:
             logger.info("[CacheRole] 缓存文件为空或解析失败, 返回 success 触发更新")
+            try:
+                init_data = {"main_update_at": now.timestamp()}
+                with open(cache_path, "w", encoding="utf-8") as f:
+                    json.dump(init_data, f, ensure_ascii=False, indent=2)
+                logger.info(f"[CacheRole] 已重置缓存文件并记录 main_update_at={now}")
+            except OSError as e:
+                logger.warning(f"[CacheRole] 重置缓存文件失败: {e}")
             return CustomRecognition.AnalyzeResult(
                 box=(0, 0, 100, 100), detail={"status": "success"}
             )
 
-        now = datetime.datetime.now()
-        logger.debug(f"[CacheRole] 当前时间: {now}")
         # 额外的周更键：只更新缓存值（不触发完整更新）
         try:
             week_key_name = "cage_update_week"
@@ -170,7 +182,7 @@ class CacheRole(CustomRecognition):
 
         if update_frequency == "monthly":
             same_month = self._same_month(last_update, now)
-            past_threshold = self._past_monthly_threshold()
+            past_threshold = self._past_monthly_threshold(now)
             needs_update = (not same_month) and past_threshold
             logger.info(
                 f"[CacheRole] 月更检查: last_update={last_update}, same_month={same_month}, "
@@ -183,7 +195,7 @@ class CacheRole(CustomRecognition):
                     logger.info("[CacheRole] 不更新: 未到达本月阈值(每月1号5:00后才触发)")
         else:
             same_week = self._same_week(last_update, now)
-            past_threshold = self._past_weekly_threshold()
+            past_threshold = self._past_weekly_threshold(now)
             needs_update = (not same_week) and past_threshold
             logger.info(
                 f"[CacheRole] 周更检查: last_update={last_update}, same_week={same_week}, "
