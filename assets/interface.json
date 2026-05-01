@@ -941,23 +941,15 @@
                     "name": "Yes",
                     "pipeline_override": {
                         "选择角色程序": {
-                            "action": {
-                                "param": {
-                                    "custom_action_param": {
-                                        "selection_mode": "standard",
-                                        "need_multi": true
-                                    }
-                                }
+                            "attach": {
+                                "selection_mode": "standard",
+                                "need_multi": true
                             }
                         },
                         "选择角色程序_onlyNode": {
-                            "action": {
-                                "param": {
-                                    "custom_action_param": {
-                                        "selection_mode": "standard",
-                                        "need_multi": true
-                                    }
-                                }
+                            "attach": {
+                                "selection_mode": "standard",
+                                "need_multi": true
                             }
                         }
                     }
