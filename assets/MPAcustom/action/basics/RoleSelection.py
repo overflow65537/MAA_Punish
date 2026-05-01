@@ -143,15 +143,23 @@ class RoleSelection(CustomAction):
         if param is None:
             param = {}
 
-        selection_mode: str = param.get("selection_mode", "standard")
-        need_multi: bool = bool(param.get("need_multi", False))
+        node_data = context.get_node_data(argv.node_name) or {}
+        attach: dict = node_data.get("attach", {}) or {}
+
+        selection_mode: str = (
+            attach["selection_mode"]
+            if "selection_mode" in attach
+            else param.get("selection_mode", "standard")
+        )
+        need_multi: bool = (
+            bool(attach["need_multi"])
+            if "need_multi" in attach
+            else bool(param.get("need_multi", False))
+        )
 
         mode_cfg = _SELECTION_MODE_TABLE.get(selection_mode, _SELECTION_MODE_TABLE["standard"])
         roguelike_equivalent: int | None = mode_cfg["roguelike_equivalent"]
         scan_then_return: bool = mode_cfg["scan_then_return"]
-
-        node_data = context.get_node_data(argv.node_name) or {}
-        attach: dict = node_data.get("attach", {}) or {}
 
         pick: list = attach.get("pick", [])
         cage: bool = bool(attach.get("cage", False))
