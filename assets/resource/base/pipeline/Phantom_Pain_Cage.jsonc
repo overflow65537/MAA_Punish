@@ -533,21 +533,13 @@
                 "custom_action": "PPOverride",
                 "custom_action_param": {
                     "选择角色程序": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true
-                                }
-                            }
+                        "attach": {
+                            "cage": true
                         }
                     },
                     "选择角色程序_onlyNode": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true
-                                }
-                            }
+                        "attach": {
+                            "cage": true
                         }
                     },
                     "识别人物": {
@@ -602,21 +594,13 @@
                 "custom_action": "PPOverride",
                 "custom_action_param": {
                     "选择角色程序": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true
-                                }
-                            }
+                        "attach": {
+                            "cage": true
                         }
                     },
                     "选择角色程序_onlyNode": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true
-                                }
-                            }
+                        "attach": {
+                            "cage": true
                         }
                     },
                     "识别人物": {
@@ -657,23 +641,15 @@
                 "custom_action": "PPOverride",
                 "custom_action_param": {
                     "选择角色程序": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true,
-                                    "need_element": "ice"
-                                }
-                            }
+                        "attach": {
+                            "cage": true,
+                            "need_element": "ice"
                         }
                     },
                     "选择角色程序_onlyNode": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true,
-                                    "need_element": "ice"
-                                }
-                            }
+                        "attach": {
+                            "cage": true,
+                            "need_element": "ice"
                         }
                     },
                     "识别人物": {
@@ -716,23 +692,15 @@
                 "custom_action": "PPOverride",
                 "custom_action_param": {
                     "选择角色程序": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true,
-                                    "need_element": "dark"
-                                }
-                            }
+                        "attach": {
+                            "cage": true,
+                            "need_element": "dark"
                         }
                     },
                     "选择角色程序_onlyNode": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true,
-                                    "need_element": "dark"
-                                }
-                            }
+                        "attach": {
+                            "cage": true,
+                            "need_element": "dark"
                         }
                     },
                     "识别人物": {
@@ -773,23 +741,15 @@
                 "custom_action": "PPOverride",
                 "custom_action_param": {
                     "选择角色程序": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true,
-                                    "need_element": "fire"
-                                }
-                            }
+                        "attach": {
+                            "cage": true,
+                            "need_element": "fire"
                         }
                     },
                     "选择角色程序_onlyNode": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true,
-                                    "need_element": "fire"
-                                }
-                            }
+                        "attach": {
+                            "cage": true,
+                            "need_element": "fire"
                         }
                     },
                     "识别人物": {
@@ -828,23 +788,15 @@
                 "custom_action": "PPOverride",
                 "custom_action_param": {
                     "选择角色程序": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true,
-                                    "need_element": "physical"
-                                }
-                            }
+                        "attach": {
+                            "cage": true,
+                            "need_element": "physical"
                         }
                     },
                     "选择角色程序_onlyNode": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true,
-                                    "need_element": "physical"
-                                }
-                            }
+                        "attach": {
+                            "cage": true,
+                            "need_element": "physical"
                         }
                     },
                     "识别人物": {
@@ -885,23 +837,15 @@
                 "custom_action": "PPOverride",
                 "custom_action_param": {
                     "选择角色程序": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true,
-                                    "need_element": "lightning"
-                                }
-                            }
+                        "attach": {
+                            "cage": true,
+                            "need_element": "lightning"
                         }
                     },
                     "选择角色程序_onlyNode": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true,
-                                    "need_element": "lightning"
-                                }
-                            }
+                        "attach": {
+                            "cage": true,
+                            "need_element": "lightning"
                         }
                     },
                     "识别人物": {
@@ -940,21 +884,13 @@
                 "custom_action": "PPOverride",
                 "custom_action_param": {
                     "选择角色程序": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true
-                                }
-                            }
+                        "attach": {
+                            "cage": true
                         }
                     },
                     "选择角色程序_onlyNode": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true
-                                }
-                            }
+                        "attach": {
+                            "cage": true
                         }
                     },
                     "识别人物": {
@@ -993,21 +929,13 @@
                 "custom_action": "PPOverride",
                 "custom_action_param": {
                     "选择角色程序": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true
-                                }
-                            }
+                        "attach": {
+                            "cage": true
                         }
                     },
                     "选择角色程序_onlyNode": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true
-                                }
-                            }
+                        "attach": {
+                            "cage": true
                         }
                     },
                     "识别人物": {
@@ -1046,21 +974,13 @@
                 "custom_action": "PPOverride",
                 "custom_action_param": {
                     "选择角色程序": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true
-                                }
-                            }
+                        "attach": {
+                            "cage": true
                         }
                     },
                     "选择角色程序_onlyNode": {
-                        "action": {
-                            "param": {
-                                "custom_action_param": {
-                                    "cage": true
-                                }
-                            }
+                        "attach": {
+                            "cage": true
                         }
                     },
                     "识别人物": {
@@ -1133,8 +1053,8 @@
                     ]
                 ],
                 "expected": [
-                    "^0(?:\/|1)3$",
-                    "^0(?:\/|1)6$"
+                    "^0(?:/|1)3$",
+                    "^0(?:/|1)6$"
                 ]
             }
         },

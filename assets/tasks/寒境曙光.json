@@ -14,13 +14,14 @@
                     "action": {
                         "param": {
                             "custom_action_param": {
-                                "max_try": 1
+                                "selection_mode": "roguelike_4",
+                                "need_multi": false
                             }
                         }
+                    },
+                    "attach": {
+                        "max_try": 1
                     }
-                },
-                "肉鸽模式_配置": {
-                    "focus": 4
                 },
                 "自动切换": {
                     "enabled": false

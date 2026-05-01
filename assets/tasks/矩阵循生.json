@@ -17,14 +17,15 @@
                     "action": {
                         "param": {
                             "custom_action_param": {
-                                "max_try": 3
+                                "selection_mode": "roguelike_3",
+                                "need_multi": false
                             }
                         }
                     },
-                    "next": []
-                },
-                "肉鸽模式_配置": {
-                    "focus": 3
+                    "next": [],
+                    "attach": {
+                        "max_try": 3
+                    }
                 },
                 "自动切换": {
                     "enabled": false
@@ -98,90 +99,114 @@
                 {
                     "name": "誓焰",
                     "pipeline_override": {
-                        "选择人物_配置": {
-                            "focus": {
+                        "选择角色程序_矩阵循生": {
+                            "attach": {
                                 "pick": [
                                     "露西亚·誓焰"
                                 ]
                             }
                         },
-                        "肉鸽模式_配置": {
-                            "focus": 3
+                        "点击精通等级低于12的人物": {
+                            "attach": {
+                                "pick": [
+                                    "露西亚·誓焰"
+                                ]
+                            }
                         }
                     }
                 },
                 {
                     "name": "深红囚影",
                     "pipeline_override": {
-                        "选择人物_配置": {
-                            "focus": {
+                        "选择角色程序_矩阵循生": {
+                            "attach": {
                                 "pick": [
                                     "露西亚·深红囚影"
                                 ]
                             }
                         },
-                        "肉鸽模式_配置": {
-                            "focus": 3
+                        "点击精通等级低于12的人物": {
+                            "attach": {
+                                "pick": [
+                                    "露西亚·深红囚影"
+                                ]
+                            }
                         }
                     }
                 },
                 {
                     "name": "深谣",
                     "pipeline_override": {
-                        "选择人物_配置": {
-                            "focus": {
+                        "选择角色程序_矩阵循生": {
+                            "attach": {
                                 "pick": [
                                     "拉弥亚·深谣"
                                 ]
                             }
                         },
-                        "肉鸽模式_配置": {
-                            "focus": 3
+                        "点击精通等级低于12的人物": {
+                            "attach": {
+                                "pick": [
+                                    "拉弥亚·深谣"
+                                ]
+                            }
                         }
                     }
                 },
                 {
                     "name": "终焉",
                     "pipeline_override": {
-                        "选择人物_配置": {
-                            "focus": {
+                        "选择角色程序_矩阵循生": {
+                            "attach": {
                                 "pick": [
                                     "露娜·终焉"
                                 ]
                             }
                         },
-                        "肉鸽模式_配置": {
-                            "focus": 3
+                        "点击精通等级低于12的人物": {
+                            "attach": {
+                                "pick": [
+                                    "露娜·终焉"
+                                ]
+                            }
                         }
                     }
                 },
                 {
                     "name": "深痕",
                     "pipeline_override": {
-                        "选择人物_配置": {
-                            "focus": {
+                        "选择角色程序_矩阵循生": {
+                            "attach": {
                                 "pick": [
                                     "比安卡·深痕"
                                 ]
                             }
                         },
-                        "肉鸽模式_配置": {
-                            "focus": 3
+                        "点击精通等级低于12的人物": {
+                            "attach": {
+                                "pick": [
+                                    "比安卡·深痕"
+                                ]
+                            }
                         }
                     }
                 },
                 {
                     "name": "启明",
                     "pipeline_override": {
-                        "选择人物_配置": {
-                            "focus": {
+                        "选择角色程序_矩阵循生": {
+                            "attach": {
                                 "pick": [
                                     "曲·启明"
                                 ]
                             }
                         },
-                        "肉鸽模式_配置": {
-                            "focus": 3
+                        "点击精通等级低于12的人物": {
+                            "attach": {
+                                "pick": [
+                                    "曲·启明"
+                                ]
+                            }
                         }
                     },
                     "自动切换": {
@@ -194,15 +219,19 @@
                 {
                     "name": "超刻",
                     "pipeline_override": {
-                        "选择人物_配置": {
-                            "focus": {
+                        "选择角色程序_矩阵循生": {
+                            "attach": {
                                 "pick": [
                                     "里·超刻"
                                 ]
                             }
                         },
-                        "肉鸽模式_配置": {
-                            "focus": 3
+                        "点击精通等级低于12的人物": {
+                            "attach": {
+                                "pick": [
+                                    "里·超刻"
+                                ]
+                            }
                         }
                     }
                 }

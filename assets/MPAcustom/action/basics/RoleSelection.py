@@ -39,6 +39,40 @@ from MPAcustom.action.tool.LoadSetting import ROLE_ACTIONS
 from MPAcustom.logger_component import LoggerComponent
 
 
+_SELECTION_MODE_TABLE: dict[str, dict] = {
+    "standard": {
+        "roguelike_equivalent": None,
+        "scan_then_return": False,
+        "default_max_try": 15,
+    },
+    "cache_refresh": {
+        "roguelike_equivalent": None,
+        "scan_then_return": True,
+        "default_max_try": 15,
+    },
+    "roguelike_1": {
+        "roguelike_equivalent": 1,
+        "scan_then_return": False,
+        "default_max_try": 1,
+    },
+    "roguelike_2": {
+        "roguelike_equivalent": 2,
+        "scan_then_return": False,
+        "default_max_try": 1,
+    },
+    "roguelike_3": {
+        "roguelike_equivalent": 3,
+        "scan_then_return": False,
+        "default_max_try": 5,
+    },
+    "roguelike_4": {
+        "roguelike_equivalent": 4,
+        "scan_then_return": False,
+        "default_max_try": 1,
+    },
+}
+
+
 class RoleSelection(CustomAction):
     def __init__(self):
         super().__init__()
@@ -50,15 +84,6 @@ class RoleSelection(CustomAction):
 
     def _current_week(self) -> int:
         return datetime.date.today().isocalendar().week
-
-    def _default_slide_count(self, roguelike_mode: int | None) -> int:
-        if roguelike_mode is None:
-            return 15
-        if roguelike_mode in (1, 2, 4):
-            return 1
-        if roguelike_mode == 3:
-            return 5
-        return 5
 
     def _load_cache(self) -> dict | None:
         cache_path = self._cache_path()
@@ -114,45 +139,41 @@ class RoleSelection(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        condition = json.loads(argv.custom_action_param)
-        need_cache = False
-        if condition is None:
-            condition = {}
-        elif condition.get("cache"):
-            need_cache = True
-        roguelike_mode = context.get_node_data("肉鸽模式_配置")
-        if roguelike_mode:
-            roguelike_mode = roguelike_mode.get("focus")
-        else:
-            roguelike_mode = None
+        param = json.loads(argv.custom_action_param) if argv.custom_action_param else {}
+        if param is None:
+            param = {}
 
-        need_multi_node = context.get_node_data("多人选择")
-        if need_multi_node:
-            need_multi = need_multi_node.get("focus")
-        else:
-            need_multi = None
+        selection_mode: str = param.get("selection_mode", "standard")
+        need_multi: bool = bool(param.get("need_multi", False))
+
+        mode_cfg = _SELECTION_MODE_TABLE.get(selection_mode, _SELECTION_MODE_TABLE["standard"])
+        roguelike_equivalent: int | None = mode_cfg["roguelike_equivalent"]
+        scan_then_return: bool = mode_cfg["scan_then_return"]
+
+        node_data = context.get_node_data(argv.node_name) or {}
+        attach: dict = node_data.get("attach", {}) or {}
+
+        pick: list = attach.get("pick", [])
+        cage: bool = bool(attach.get("cage", False))
+        need_element: str = attach.get("need_element", "") or ""
+        max_try: int = int(attach.get("max_try", mode_cfg["default_max_try"]))
 
         self.logger.info(
-            f"开始执行配队: condition={condition}, need_cache={need_cache}, "
-            f"roguelike_mode={roguelike_mode}, need_multi={need_multi}"
+            f"开始执行配队: selection_mode={selection_mode}, roguelike_equivalent={roguelike_equivalent}, "
+            f"scan_then_return={scan_then_return}, need_multi={need_multi}, "
+            f"cage={cage}, need_element={need_element!r}, pick={pick}, max_try={max_try}"
         )
 
-        pick = context.get_node_data("选择人物_配置")
-        if pick and pick.get("focus", None):
-            pick = pick.get("focus", {}).get("pick", [])
-        else:
-            pick = []
-
-        condition.update(
-            {
-                "roguelike_mode": roguelike_mode,
-                "pick": pick,
-            }
-        )
+        condition = {
+            "roguelike_mode": roguelike_equivalent,
+            "pick": pick,
+            "cage": cage,
+            "need_element": need_element,
+        }
         role_dict = ROLE_ACTIONS.copy()
 
         role = None
-        if roguelike_mode is None and not need_cache:
+        if roguelike_equivalent is None and not scan_then_return:
             role = self._load_cache()
             if role:
                 self.logger.info("读取文件缓存成功")
@@ -160,13 +181,11 @@ class RoleSelection(CustomAction):
         if not role:
             self.logger.info("未读取到缓存, 开始识别")
             role = {}
-            scan_count = int(
-                condition.get("max_try", self._default_slide_count(roguelike_mode))
-            )
+            scan_count = max_try
             performed_slide_count = 0
 
             self.logger.info(
-                f"角色识别计划滑动次数: scan_count={scan_count}, roguelike_mode={roguelike_mode}"
+                f"角色识别计划滑动次数: scan_count={scan_count}, roguelike_equivalent={roguelike_equivalent}"
             )
 
             for _ in range(scan_count):
@@ -176,8 +195,8 @@ class RoleSelection(CustomAction):
                     self.recognize_role(
                         context,
                         role_dict,
-                        condition.get("cage", False),
-                        condition.get("roguelike_mode", 0),
+                        cage,
+                        roguelike_equivalent or 0,
                     )
                 )
                 image = context.tasker.controller.post_screencap().wait().get()
@@ -187,12 +206,14 @@ class RoleSelection(CustomAction):
                     break
                 context.run_action("滑动_选人")
                 performed_slide_count += 1
-            if need_cache:
+
+            if scan_then_return:
                 for r in role.values():
                     r["cage"] = 3  # 强制设置为有次数
                 self.save_cache(role)
                 self.logger.info(f"识别完成并写入缓存, 共识别到角色数量: {len(role)}")
                 return CustomAction.RunResult(success=True)
+
             reset_count = performed_slide_count + 1
             self.logger.info(
                 f"角色识别实际滑动次数: performed_slide_count={performed_slide_count}, "
@@ -213,16 +234,8 @@ class RoleSelection(CustomAction):
         support_name = best_team.get("support", {}).get("name")
 
         # 仅在 need_multi 为 True 且 roguelike_mode 为空(None) 时显示名称，否则显示“无”
-        display_tank_name = (
-            tank_name
-            if need_multi is True and condition.get("roguelike_mode") is None
-            else None
-        )
-        display_support_name = (
-            support_name
-            if need_multi is True and condition.get("roguelike_mode") is None
-            else None
-        )
+        display_tank_name = tank_name if need_multi and roguelike_equivalent is None else None
+        display_support_name = support_name if need_multi and roguelike_equivalent is None else None
 
         self.logger.info(
             f"队伍构成: {display_support_name or '无'} {attacker_name or '无'} {display_tank_name or '无'}"
@@ -231,13 +244,11 @@ class RoleSelection(CustomAction):
             context,
             f"队伍构成: {display_support_name or '无'} {attacker_name or '无'} {display_tank_name or '无'}",
         )
-        # 缓存数据
-        if roguelike_mode is None and condition.get("cage"):
-            # 只有非肉鸽模式并且是囚笼模式才会保存缓存
+        if roguelike_equivalent is None and cage:
             for selected_name in (attacker_name, tank_name, support_name):
                 if not selected_name:
                     continue
-                if need_multi is False and selected_name != attacker_name:
+                if not need_multi and selected_name != attacker_name:
                     continue
                 role_key = selected_name
                 self.logger.info(f"{role_key} 选中, 清除次数")
@@ -247,8 +258,9 @@ class RoleSelection(CustomAction):
                     role[role_key]["cage"] = 0
             self.logger.info(f"缓存数据: {role}")
             self.save_cache(role)
+
         if attacker_name and self.find_role(
-            context, role_dict, attacker_name, 16 if roguelike_mode is None else 5
+            context, role_dict, attacker_name, 16 if roguelike_equivalent is None else 5
         ):
             context.run_task("编入队伍")
         else:
@@ -257,7 +269,7 @@ class RoleSelection(CustomAction):
             context.run_task("返回主菜单")
             context.run_action("停止任务")
 
-        if need_multi is True and condition.get("roguelike_mode") is None:
+        if need_multi and roguelike_equivalent is None:
             if tank_name:
                 context.run_task("打开黄色位置")
                 if self.find_role(context, role_dict, tank_name):

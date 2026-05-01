@@ -626,12 +626,21 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "RoleSelection"
+                "custom_action": "RoleSelection",
+                "custom_action_param": {
+                    "selection_mode": "standard",
+                    "need_multi": false
+                }
             }
         },
         "next": [
             "作战开始"
-        ]
+        ],
+        "attach": {
+            "cage": false,
+            "need_element": "",
+            "pick": []
+        }
     },
     "选择角色程序_onlyNode": {
         "recognition": {
@@ -649,8 +658,17 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "RoleSelection"
+                "custom_action": "RoleSelection",
+                "custom_action_param": {
+                    "selection_mode": "standard",
+                    "need_multi": false
+                }
             }
+        },
+        "attach": {
+            "cage": false,
+            "need_element": "",
+            "pick": []
         }
     },
     "选人测试": {
@@ -659,10 +677,14 @@
             "param": {
                 "custom_action": "RoleSelection",
                 "custom_action_param": {
-                    "cage": true,
-                    "max_try": 1
+                    "selection_mode": "standard",
+                    "need_multi": false
                 }
             }
+        },
+        "attach": {
+            "cage": true,
+            "max_try": 1
         }
     },
     "缓存角色": {
@@ -695,8 +717,8 @@
             "param": {
                 "custom_action": "RoleSelection",
                 "custom_action_param": {
-                    "max_try": 15,
-                    "cache": true
+                    "selection_mode": "cache_refresh",
+                    "need_multi": false
                 }
             }
         },

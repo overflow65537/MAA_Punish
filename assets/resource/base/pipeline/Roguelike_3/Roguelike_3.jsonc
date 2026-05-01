@@ -157,9 +157,6 @@
                     },
                     "选择首发2_矩阵循生": {
                         "enabled": true
-                    },
-                    "肉鸽模式_配置": {
-                        "focus": 3
                     }
                 }
             }
@@ -578,7 +575,11 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "RoleSelection"
+                "custom_action": "RoleSelection",
+                "custom_action_param": {
+                    "selection_mode": "roguelike_3",
+                    "need_multi": false
+                }
             }
         },
         "next": [
@@ -1670,9 +1671,13 @@
             "param": {
                 "custom_action": "RoleSelection",
                 "custom_action_param": {
-                    "max_try": 5
+                    "selection_mode": "roguelike_3",
+                    "need_multi": false
                 }
             }
+        },
+        "attach": {
+            "max_try": 5
         }
     },
     "链路崩溃_reco": {
