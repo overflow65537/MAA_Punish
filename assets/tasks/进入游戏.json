@@ -2,6 +2,7 @@
     "task": [
         {
             "name": "进入游戏",
+            "group": ["daily"],
             "default_check": true,
             "entry": "启动",
             "pipeline_override": {

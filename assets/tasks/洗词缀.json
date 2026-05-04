@@ -2,12 +2,12 @@
     "task": [
         {
             "name": "洗词缀",
+            "group": ["tools"],
             "entry": "洗词缀",
             "option": [
                 "选择目标词缀"
             ],
-            "description": "<p>见证，拟战绩分的消失！</p>",
-            "spt": true
+            "description": "<p>见证，拟战绩分的消失！</p>"
         }
     ],
     "option": {

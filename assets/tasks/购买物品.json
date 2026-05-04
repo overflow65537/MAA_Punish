@@ -2,6 +2,7 @@
     "task": [
         {
             "name": "购买物品",
+            "group": ["daily"],
             "entry": "购买物品",
             "description": "<p>自动购买指定物品。</p><ul><li><b>角色碎片</b>：完成每日任务。</li><li><b>涂装碎片</b>：每日限购。</li><li><b>武器涂装</b>：每月限购。</li></ul>",
             "option": [

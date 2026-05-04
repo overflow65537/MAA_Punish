@@ -2,6 +2,7 @@
     "task": [
         {
             "name": "寒境曙光",
+            "group": ["roguelike"],
             "entry": "寒境曙光",
             "pipeline_override": {
                 "检查主界面2": {
@@ -28,8 +29,7 @@
                 "选择温度",
                 "选择效果"
             ],
-            "description": "<p>推荐使用严霜和启动资金。</p>",
-            "spt": true
+            "description": "<p>推荐使用严霜和启动资金。</p>"
         }
     ],
     "option": {

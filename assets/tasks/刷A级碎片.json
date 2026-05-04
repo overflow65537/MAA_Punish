@@ -2,6 +2,7 @@
     "task": [
         {
             "name": "刷A级碎片",
+            "group": ["daily"],
             "entry": "刷A级碎片",
             "description": "<p>自动扫荡A级碎片，不会自动战斗。</p>",
             "option": [

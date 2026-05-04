@@ -2,6 +2,7 @@
     "task": [
         {
             "name": "纷争战区",
+            "group": ["daily"],
             "default_check": true,
             "entry": "纷争战区",
             "option": [

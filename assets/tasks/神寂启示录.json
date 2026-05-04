@@ -2,6 +2,7 @@
     "task": [
         {
             "name": "神寂启示录",
+            "group": ["roguelike"],
             "entry": "神寂启示录",
             "option": [
                 "选择角色"
@@ -14,8 +15,7 @@
                     ]
                 }
             },
-            "description": "<p>自动执行神寂启示录，可结合所选角色与策略进行刷本。</p>",
-            "spt": true
+            "description": "<p>自动执行神寂启示录，可结合所选角色与策略进行刷本。</p>"
         }
     ],
     "option": {

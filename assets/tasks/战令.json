@@ -2,6 +2,7 @@
     "task": [
         {
             "name": "战令",
+            "group": ["daily"],
             "default_check": true,
             "description": "<p>自动领取战令奖励。</p>",
             "entry": "通行证"

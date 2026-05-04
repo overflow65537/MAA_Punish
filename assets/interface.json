@@ -75,6 +75,76 @@
         }
     ],
     "task": [],
+    "group": [
+        {
+            "name": "daily",
+            "label": "日常",
+            "description": "周常、资源本、领取类与常规玩法任务",
+            "default_expand": true
+        },
+        {
+            "name": "roguelike",
+            "label": "肉鸽",
+            "description": "宣叙妄响、厄愿潮声、矩阵循生、寒境曙光、神寂启示录等肉鸽玩法",
+            "default_expand": true
+        },
+        {
+            "name": "tools",
+            "label": "工具",
+            "description": "缓存更新、洗词缀、链合回路、战斗辅助等辅助工具",
+            "default_expand": true
+        }
+    ],
+    "preset": [
+        {
+            "name": "preset_daily",
+            "label": "日常",
+            "task": [
+                { "name": "进入游戏", "enabled": true },
+                { "name": "兑换码", "enabled": true },
+                { "name": "指挥局", "enabled": true },
+                { "name": "拟真围剿", "enabled": true },
+                { "name": "诺曼复兴战", "enabled": true },
+                { "name": "幻痛囚笼", "enabled": true },
+                { "name": "纷争战区", "enabled": true },
+                { "name": "历战映射", "enabled": true },
+                { "name": "刷A级碎片", "enabled": false },
+                { "name": "领取体力", "enabled": true },
+                { "name": "领取邮件", "enabled": true },
+                { "name": "购买物品", "enabled": true },
+                { "name": "宿舍任务", "enabled": true },
+                { "name": "拟战场域", "enabled": true },
+                { "name": "维系者行动", "enabled": true },
+                { "name": "领取任务", "enabled": true },
+                { "name": "战令", "enabled": true },
+                { "name": "结束游戏", "enabled": true }
+            ]
+        },
+        {
+            "name": "preset_roguelike",
+            "label": "肉鸽",
+            "description": "宣叙妄响、厄愿潮声、矩阵循生、寒境曙光、神寂启示录",
+            "task": [
+                { "name": "宣叙妄响", "enabled": false },
+                { "name": "厄愿潮声", "enabled": false },
+                { "name": "矩阵循生", "enabled": false },
+                { "name": "寒境曙光", "enabled": false },
+                { "name": "神寂启示录", "enabled": false }
+            ]
+        },
+        {
+            "name": "preset_tools",
+            "label": "工具",
+            "description": "手动更新角色缓存、洗词缀、链合回路、战斗辅助",
+            "task": [
+              
+                { "name": "手动更新角色缓存", "enabled": false },
+                { "name": "洗词缀", "enabled": false },
+                { "name": "链合回路", "enabled": false },
+                { "name": "战斗辅助", "enabled": false }
+            ]
+        }
+    ],
     "import": [
         "./tasks/进入游戏.json",
         "./tasks/兑换码.json",
