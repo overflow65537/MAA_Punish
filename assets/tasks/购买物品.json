@@ -12,6 +12,8 @@
     ],
     "option": {
         "选择物品": {
+            "type": "select",
+            "label": "选择物品",
             "cases": [
                 {
                     "name": "逆元碎片-普通商店",
