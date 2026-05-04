@@ -26,7 +26,12 @@ MAA_Punish 通用战斗对象
 
 
 from maa.context import Context
-from maa.define import ColorMatchResult, TemplateMatchResult
+from maa.define import (
+    AndRecognitionResult,
+    ColorMatchResult,
+    OCRResult,
+    TemplateMatchResult,
+)
 import time
 import re
 from MPAcustom.action.tool.LoadSetting import ROLE_ACTIONS
@@ -471,9 +476,60 @@ class CombatActions:
         识别当前场景信号球数量。
         :return: int，信号球数量
         """
+        _signal_ball_max = 16
+
+        def _parse_from_ocr(text: str) -> int | None:
+            """
+            从 OCR 文本解析当前信号球数量（0～16）。
+            预期形态接近「当前/16」；分隔符常被误识，总分也可能被拆成 1 与 6。
+            """
+            if not text or not str(text).strip():
+                return None
+            s = re.sub(r"\s+", "", str(text).strip())
+
+            def _from_group(m: re.Match[str]) -> int | None:
+                try:
+                    n = int(m.group(1))
+                except (ValueError, IndexError):
+                    return None
+                return n if 0 <= n <= _signal_ball_max else None
+
+            m = re.search(
+                r"(\d{1,2})[/|\\:：.、·∕／\-_]+16(?:\D|$)", s
+            )
+            if m:
+                v = _from_group(m)
+                if v is not None:
+                    return v
+
+            m = re.search(r"(\d{1,2})1(16)(?:\D|$)", s)
+            if m:
+                v = _from_group(m)
+                if v is not None:
+                    return v
+
+            m = re.search(r"(\d{1,2})16(?:\D|$)", s)
+            if m:
+                v = _from_group(m)
+                if v is not None:
+                    return v
+
+            m = re.search(r"(\d{1,2})\D{1,3}16(?:\D|$)", s)
+            if m:
+                v = _from_group(m)
+                if v is not None:
+                    return v
+
+            m = re.search(r"(\d{1,2})\D{1,3}1\s*6(?:\D|$)", s)
+            if m:
+                v = _from_group(m)
+                if v is not None:
+                    return v
+
+            return None
+
         image = self.context.tasker.controller.post_screencap().wait().get()
         result = self.context.run_recognition("统计信号球数量", image)
-        from maa.define import OCRResult, AndRecognitionResult
 
         if (
             result
@@ -484,11 +540,12 @@ class CombatActions:
             and isinstance(result.best_result.sub_results[1].best_result, OCRResult)
         ):
             text = result.best_result.sub_results[1].best_result.text
-            num = re.search(r"(\d+)\s*/", text)
-            if num:
-                self.logger.info(f"识别到信号球数量: {int(num.group(1))}")
-                return int(num.group(1))
-        
+            parsed = _parse_from_ocr(text)
+            if parsed is not None:
+                self.logger.info(f"识别到信号球数量: {parsed}（OCR 原文: {text!r}）")
+                return parsed
+            self.logger.info(f"信号球 OCR 无法解析为 0～16: {text!r}")
+
         self.logger.info("未识别到信号球数量")
         return 0
 

@@ -65,8 +65,7 @@
                                     4,
                                     4
                                 ],
-                                "expected": "\\d+/\\d+",
-                                "color_filter": "_信号球数量"
+                                "expected": "\\d+"
                             }
                         }
                     }
