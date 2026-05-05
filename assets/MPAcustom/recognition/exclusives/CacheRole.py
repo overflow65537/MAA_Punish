@@ -162,6 +162,14 @@ class CacheRole(CustomRecognition):
             logger.info("[CacheRole] update_frequency=never, 不触发完整更新, 返回 None")
             return None
 
+        # 检查必要键是否缺失
+        focus = cache_data.get("focus")
+        if not isinstance(focus, dict) or focus is None:
+            logger.info("[CacheRole] focus 缺失或无效, 直接触发更新")
+            return CustomRecognition.AnalyzeResult(
+                box=(0, 0, 100, 100), detail={"status": "success"}
+            )
+
         # 主更新记录保存到 config（role_cache.json）中：main_update_at
         # - 只使用 main_update_at，不再依赖/回退到文件 mtime
         try:
@@ -169,10 +177,16 @@ class CacheRole(CustomRecognition):
             stored_main_ts = self._parse_main_update_at(cache_data.get(main_key_name))
 
             if stored_main_ts is None:
-                stored_main_ts = 0.0
-                cache_data[main_key_name] = stored_main_ts
-                with open(cache_path, "w", encoding="utf-8") as f:
-                    json.dump(cache_data, f, ensure_ascii=False, indent=2)
+                logger.info("[CacheRole] main_update_at 缺失或无法解析, 直接触发更新")
+                cache_data[main_key_name] = now.timestamp()
+                try:
+                    with open(cache_path, "w", encoding="utf-8") as f:
+                        json.dump(cache_data, f, ensure_ascii=False, indent=2)
+                except OSError as e:
+                    logger.warning(f"[CacheRole] 写入main_update_at失败: {e}")
+                return CustomRecognition.AnalyzeResult(
+                    box=(0, 0, 100, 100), detail={"status": "success"}
+                )
 
             last_update = datetime.datetime.fromtimestamp(stored_main_ts)
             logger.debug(f"[CacheRole] 上次完整更新时间: {last_update} (timestamp={stored_main_ts})")
