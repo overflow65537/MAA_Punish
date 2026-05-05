@@ -385,7 +385,13 @@ class RoleSelection(CustomAction):
         )
         role = {}
         image = context.tasker.controller.post_screencap().wait().get()
+        checked_count = 0
         for role_name, role_action in role_actions.items():
+            checked_count += 1
+            if checked_count % 10 == 0:
+                self.logger.info(f"角色识别进度:  已识别到 {len(role)} 个角色")
+            if context.tasker.stopping:
+                return role
 
             pipeline_override = {
                 "识别角色": {
