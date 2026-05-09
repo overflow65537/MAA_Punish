@@ -486,6 +486,8 @@ class CombatActions:
             if not text or not str(text).strip():
                 return None
             s = re.sub(r"\s+", "", str(text).strip())
+            s = s.replace("丨", "|").replace("∣", "|")
+            s_norm = s.replace("|", "1").replace("7", "1")
 
             def _from_group(m: re.Match[str]) -> int | None:
                 try:
@@ -495,20 +497,20 @@ class CombatActions:
                 return n if 0 <= n <= _signal_ball_max else None
 
             m = re.search(
-                r"(\d{1,2})[/|\\:：.、·∕／\-_]+16(?:\D|$)", s
+                r"(\d{1,2})[/|\\:：.、·∕／\-_７7]+16(?:\D|$)", s
             )
             if m:
                 v = _from_group(m)
                 if v is not None:
                     return v
 
-            m = re.search(r"(\d{1,2})1(16)(?:\D|$)", s)
+            m = re.search(r"(\d{1,2})[17](16)(?:\D|$)", s)
             if m:
                 v = _from_group(m)
                 if v is not None:
                     return v
 
-            m = re.search(r"(\d{1,2})16(?:\D|$)", s)
+            m = re.search(r"(\d{1,2})[17]6(?:\D|$)", s)
             if m:
                 v = _from_group(m)
                 if v is not None:
@@ -521,6 +523,12 @@ class CombatActions:
                     return v
 
             m = re.search(r"(\d{1,2})\D{1,3}1\s*6(?:\D|$)", s)
+            if m:
+                v = _from_group(m)
+                if v is not None:
+                    return v
+
+            m = re.search(r"(\d{1,2})[/|\\:：.、·∕／\-_]+16(?:\D|$)", s_norm)
             if m:
                 v = _from_group(m)
                 if v is not None:
