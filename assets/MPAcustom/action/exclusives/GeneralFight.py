@@ -38,23 +38,16 @@ class GeneralFight(CustomAction):
         print("开始战斗")
         action.lens_lock()
         action.attack()
-        item = 0
-        while action.count_signal_balls() and item < 5:
+        for _ in range(10):
             if context.tasker.stopping:
                 return CustomAction.RunResult(success=True)
-            action.ball_elimination_target()
-            item += 1
             action.attack()
-            action.auto_qte("a")
-
-        for _ in range(30):
-            if context.tasker.stopping:
-                return CustomAction.RunResult(success=True)
+            action.ball_elimination_target()
             action.use_skill()
             action.auxiliary_machine()
-            action.auto_qte("a")
-            action.attack()
-        action.auxiliary_machine()
+        action.attack()
+        action.auto_qte("a")
+
         action.switch()
         print("切换完成")
         return CustomAction.RunResult(success=True)
