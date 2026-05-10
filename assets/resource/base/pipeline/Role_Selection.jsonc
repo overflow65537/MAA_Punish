@@ -9,10 +9,10 @@
                     132,
                     560
                 ],
-                "order_by": "Vertical",
+                "order_by": "Score",
                 "green_mask": true,
                 "template": [
-                    "人物索引/露西亚/誓焰/矩阵_誓焰.png"
+                    "人物索引/露西亚/深红囚影/矩阵_深红囚影.png"
                 ]
             }
         }
