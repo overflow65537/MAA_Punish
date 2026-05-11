@@ -7,8 +7,7 @@
             "entry": "幻痛囚笼",
             "description": "<p>自动战斗幻痛囚笼，并自动选择人物作战；请注意角色锁定状态。</p><p>终级区需要自行选择非在岗角色,防止占用在岗角色</p><p><b>速通</b>：每周二5点后可运行2次，首次运行后需等待24小时。</p>",
             "option": [
-                "选择区域",
-                "自行选择编队_囚笼"
+                "选择区域"
             ],
             "speedrun": {
                 "mode": "weekly",
@@ -32,7 +31,10 @@
             "cases": [
                 {
                     "name": "高级区",
-                    "pipeline_override": {}
+                    "pipeline_override": {},
+                    "option": [
+                        "自行选择编队_囚笼_高级区"
+                    ]
                 },
                 {
                     "name": "终级区",
@@ -44,14 +46,17 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "option": [
+                        "自行选择编队_囚笼_终级区"
+                    ]
                 }
             ]
         },
-        "自行选择编队_囚笼": {
-            "label": "选择作战方式",
+        "自行选择编队_囚笼_高级区": {
+            "label": "选择作战方式（高级区）",
             "type": "select",
-            "default": "自动选择",
+            "default_case": "自动选择",
             "description": "<p>可选择自动选择、手动指定编队，或手动指定出战人物。</p>",
             "cases": [
                 {
@@ -83,6 +88,330 @@
                     ]
                 }
             ]
+        },
+        "自行选择编队_囚笼_终级区": {
+            "label": "选择作战方式（终级区）",
+            "type": "select",
+            "default_case": "自动选择",
+            "description": "<p>终级区按 A/B/C 分区配置；自动选择为程序配队；选择编队或人物时请在对应分区填写与游戏内一致的预设名或角色名。</p>",
+            "cases": [
+                {
+                    "name": "自动选择",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "选择编队",
+                    "pipeline_override": {},
+                    "option": [
+                        "选择A区编队_囚笼",
+                        "选择B区编队_囚笼",
+                        "选择C区编队_囚笼"
+                    ]
+                },
+                {
+                    "name": "选择人物",
+                    "pipeline_override": {},
+                    "option": [
+                        "选择A区角色_囚笼",
+                        "选择B区角色_囚笼",
+                        "选择C区角色_囚笼"
+                    ]
+                }
+            ]
+        },
+        "选择A区编队_囚笼": {
+            "label": "A 区编队预设名",
+            "description": "<p>输入 A 区使用的编队预设名称，须与游戏内完全一致。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "需要输入编队名"
+                }
+            ],
+            "pipeline_override": {
+                "检查A区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "查看终极区Boss": {
+                                    "action": {
+                                        "type": "Custom",
+                                        "param": {
+                                            "custom_action": "PPOverride",
+                                            "custom_action_param": {
+                                                "选择预设": {
+                                                    "expected": "{编队名}"
+                                                },
+                                                "识别人物": {
+                                                    "enabled": true
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "next": [
+                                        "切换预设"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "选择B区编队_囚笼": {
+            "label": "B 区编队预设名",
+            "description": "<p>输入 B 区使用的编队预设名称，须与游戏内完全一致。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "需要输入编队名"
+                }
+            ],
+            "pipeline_override": {
+                "检查B区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "查看终极区Boss": {
+                                    "action": {
+                                        "type": "Custom",
+                                        "param": {
+                                            "custom_action": "PPOverride",
+                                            "custom_action_param": {
+                                                "选择预设": {
+                                                    "expected": "{编队名}"
+                                                },
+                                                "识别人物": {
+                                                    "enabled": true
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "next": [
+                                        "切换预设"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "选择C区编队_囚笼": {
+            "label": "C 区编队预设名",
+            "description": "<p>输入 C 区使用的编队预设名称，须与游戏内完全一致。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "需要输入编队名"
+                }
+            ],
+            "pipeline_override": {
+                "检查C区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "查看终极区Boss": {
+                                    "action": {
+                                        "type": "Custom",
+                                        "param": {
+                                            "custom_action": "PPOverride",
+                                            "custom_action_param": {
+                                                "选择预设": {
+                                                    "expected": "{编队名}"
+                                                },
+                                                "识别人物": {
+                                                    "enabled": true
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "next": [
+                                        "切换预设"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "选择A区角色_囚笼": {
+            "label": "A 区出战角色名",
+            "description": "<p>输入 A 区锁定出战角色名称，须与游戏内列表一致（含试用前缀时一并输入）。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "角色名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "需要输入角色名"
+                }
+            ],
+            "pipeline_override": {
+                "检查A区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "查看终极区Boss": {
+                                    "action": {
+                                        "type": "Custom",
+                                        "param": {
+                                            "custom_action": "PPOverride",
+                                            "custom_action_param": {
+                                                "选择角色程序": {
+                                                    "attach": {
+                                                        "cage": true,
+                                                        "pick": [
+                                                            "{角色名}"
+                                                        ]
+                                                    }
+                                                },
+                                                "选择角色程序_onlyNode": {
+                                                    "attach": {
+                                                        "cage": true,
+                                                        "pick": [
+                                                            "{角色名}"
+                                                        ]
+                                                    }
+                                                },
+                                                "识别人物": {
+                                                    "enabled": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "选择B区角色_囚笼": {
+            "label": "B 区出战角色名",
+            "description": "<p>输入 B 区锁定出战角色名称，须与游戏内列表一致（含试用前缀时一并输入）。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "角色名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "需要输入角色名"
+                }
+            ],
+            "pipeline_override": {
+                "检查B区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "查看终极区Boss": {
+                                    "action": {
+                                        "type": "Custom",
+                                        "param": {
+                                            "custom_action": "PPOverride",
+                                            "custom_action_param": {
+                                                "选择角色程序": {
+                                                    "attach": {
+                                                        "cage": true,
+                                                        "pick": [
+                                                            "{角色名}"
+                                                        ]
+                                                    }
+                                                },
+                                                "选择角色程序_onlyNode": {
+                                                    "attach": {
+                                                        "cage": true,
+                                                        "pick": [
+                                                            "{角色名}"
+                                                        ]
+                                                    }
+                                                },
+                                                "识别人物": {
+                                                    "enabled": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "选择C区角色_囚笼": {
+            "label": "C 区出战角色名",
+            "description": "<p>输入 C 区锁定出战角色名称，须与游戏内列表一致（含试用前缀时一并输入）。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "角色名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "需要输入角色名"
+                }
+            ],
+            "pipeline_override": {
+                "检查C区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "查看终极区Boss": {
+                                    "action": {
+                                        "type": "Custom",
+                                        "param": {
+                                            "custom_action": "PPOverride",
+                                            "custom_action_param": {
+                                                "选择角色程序": {
+                                                    "attach": {
+                                                        "cage": true,
+                                                        "pick": [
+                                                            "{角色名}"
+                                                        ]
+                                                    }
+                                                },
+                                                "选择角色程序_onlyNode": {
+                                                    "attach": {
+                                                        "cage": true,
+                                                        "pick": [
+                                                            "{角色名}"
+                                                        ]
+                                                    }
+                                                },
+                                                "识别人物": {
+                                                    "enabled": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         },
         "选择火队_囚笼": {
             "label": "选择火队",

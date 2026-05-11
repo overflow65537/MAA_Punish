@@ -76,7 +76,7 @@
             }
         }
     },
-    "检查A区": {
+    "执行A区": {
         "post_delay": 2000,
         "recognition": {
             "type": "OCR",
@@ -104,7 +104,26 @@
             "[JumpBack]战斗结束"
         ]
     },
-    "检查B区": {
+    "检查A区": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    462,
+                    484,
+                    143,
+                    195
+                ],
+                "expected": [
+                    "讨伐"
+                ]
+            }
+        },
+        "next": [
+            "执行A区"
+        ]
+    },
+    "执行B区": {
         "post_delay": 2000,
         "recognition": {
             "type": "OCR",
@@ -133,7 +152,27 @@
             "[JumpBack]战斗结束"
         ]
     },
-    "检查C区": {
+    "检查B区": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    725,
+                    483,
+                    188,
+                    173
+                ],
+                "order_by": "Vertical",
+                "expected": [
+                    "讨伐"
+                ]
+            }
+        },
+        "next": [
+            "执行B区"
+        ]
+    },
+    "执行C区": {
         "post_delay": 2000,
         "recognition": {
             "type": "OCR",
@@ -159,6 +198,25 @@
             "[JumpBack]关闭难度说明",
             "[JumpBack]没打满",
             "[JumpBack]战斗结束"
+        ]
+    },
+    "检查C区": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1034,
+                    496,
+                    192,
+                    191
+                ],
+                "expected": [
+                    "讨伐"
+                ]
+            }
+        },
+        "next": [
+            "执行C区"
         ]
     },
     "A区退出": {
@@ -498,7 +556,7 @@
         "focus": {
             "Node.Recognition.Succeeded": "已选择终极区"
         },
-        "max_hit": 1,
+        "max_hit": 3,
         "on_error": [
             "未命中BOSS名"
         ],
