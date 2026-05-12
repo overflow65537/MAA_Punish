@@ -300,9 +300,24 @@
     "战斗结束": {
         "post_wait_freezes": {
             "time": 1500,
-            "timeout": 5000
+            "timeout": 5000,
+            "target": [
+                0,
+                0,
+                1280,
+                720
+            ]
         },
-        "pre_wait_freezes": 1000,
+        "pre_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000,
+            "target": [
+                0,
+                0,
+                1280,
+                720
+            ]
+        },
         "recognition": {
             "type": "OCR",
             "param": {
