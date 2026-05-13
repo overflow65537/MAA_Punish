@@ -716,7 +716,7 @@
                     131,
                     131
                 ],
-                "template": "战斗/战斗中.png",
+                "template": "战斗/闪避.png",
                 "green_mask": true,
                 "threshold": 0.6
             }
