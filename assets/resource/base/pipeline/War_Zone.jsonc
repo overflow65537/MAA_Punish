@@ -716,11 +716,15 @@
                     131,
                     131
                 ],
-                "template": "战斗/闪避.png",
+                "template": "战斗/战斗中.png",
                 "green_mask": true,
                 "threshold": 0.6
             }
-        }
+        },
+        "next": [
+            "战斗界面检查",
+            "空任务"
+        ]
     },
     "载入中": {
         "recognition": {
