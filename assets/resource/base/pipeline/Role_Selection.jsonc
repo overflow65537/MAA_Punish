@@ -1025,15 +1025,9 @@
         }
     },
     "打开物理属性": {
-        "post_wait_freezes": {
-            "time": 500,
-            "target": [
-                73,
-                65,
-                117,
-                565
-            ]
-        },
+        "post_delay": 0,
+        "pre_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -1050,6 +1044,36 @@
         },
         "action": {
             "type": "Click"
+        },
+        "next": [
+            "确认进入物理属性"
+        ]
+    },
+    "确认进入物理属性": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": "打开物理属性",
+                "roi_offset": [
+                    -10,
+                    0,
+                    20,
+                    0
+                ],
+                "method": 40,
+                "lower": [
+                    100,
+                    20,
+                    190
+                ],
+                "upper": [
+                    115,
+                    55,
+                    205
+                ],
+                "count": 100,
+                "connected": true
+            }
         }
     },
     "打开火属性": {
@@ -1078,6 +1102,36 @@
         },
         "action": {
             "type": "Click"
+        },
+        "next": [
+            "确认进入火属性"
+        ]
+    },
+    "确认进入火属性": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": "打开火属性",
+                "roi_offset": [
+                    -10,
+                    0,
+                    20,
+                    0
+                ],
+                "method": 40,
+                "lower": [
+                    100,
+                    20,
+                    190
+                ],
+                "upper": [
+                    115,
+                    55,
+                    205
+                ],
+                "count": 100,
+                "connected": true
+            }
         }
     },
     "打开冰属性": {
@@ -1106,6 +1160,36 @@
         },
         "action": {
             "type": "Click"
+        },
+        "next": [
+            "确认进入冰属性"
+        ]
+    },
+    "确认进入冰属性": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": "打开冰属性",
+                "roi_offset": [
+                    -10,
+                    0,
+                    20,
+                    0
+                ],
+                "method": 40,
+                "lower": [
+                    100,
+                    20,
+                    190
+                ],
+                "upper": [
+                    115,
+                    55,
+                    205
+                ],
+                "count": 100,
+                "connected": true
+            }
         }
     },
     "打开雷属性": {
@@ -1134,6 +1218,36 @@
         },
         "action": {
             "type": "Click"
+        },
+        "next": [
+            "确认进入雷属性"
+        ]
+    },
+    "确认进入雷属性": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": "打开雷属性",
+                "roi_offset": [
+                    -10,
+                    0,
+                    20,
+                    0
+                ],
+                "method": 40,
+                "lower": [
+                    100,
+                    20,
+                    190
+                ],
+                "upper": [
+                    115,
+                    55,
+                    205
+                ],
+                "count": 100,
+                "connected": true
+            }
         }
     },
     "打开暗属性": {
@@ -1162,6 +1276,36 @@
         },
         "action": {
             "type": "Click"
+        },
+        "next": [
+            "确认进入暗属性"
+        ]
+    },
+    "确认进入暗属性": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": "打开暗属性",
+                "roi_offset": [
+                    -10,
+                    0,
+                    20,
+                    0
+                ],
+                "method": 40,
+                "lower": [
+                    100,
+                    20,
+                    190
+                ],
+                "upper": [
+                    115,
+                    55,
+                    205
+                ],
+                "count": 100,
+                "connected": true
+            }
         }
     },
     "打开空属性": {
@@ -1190,6 +1334,36 @@
         },
         "action": {
             "type": "Click"
+        },
+        "next": [
+            "确认进入空属性"
+        ]
+    },
+    "确认进入空属性": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": "打开空属性",
+                "roi_offset": [
+                    -10,
+                    0,
+                    20,
+                    0
+                ],
+                "method": 40,
+                "lower": [
+                    100,
+                    20,
+                    190
+                ],
+                "upper": [
+                    115,
+                    55,
+                    205
+                ],
+                "count": 100,
+                "connected": true
+            }
         }
     },
     "找到角色": {
