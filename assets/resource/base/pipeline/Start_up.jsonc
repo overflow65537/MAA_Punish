@@ -13,6 +13,7 @@
             "[JumpBack]关闭低内存提示",
             "[JumpBack]更新中",
             "[JumpBack]返回主菜单",
+            "[JumpBack]用户账号登录失败",
             "[JumpBack]打开应用"
         ]
     },
@@ -28,6 +29,37 @@
                     40
                 ],
                 "expected": "预计时间"
+            }
+        }
+    },
+    "用户账号登录失败": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "用户账号登录失败文本",
+                    "确定"
+                ],
+                "box_index": 1
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "用户账号登录失败文本": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    107,
+                    65,
+                    707,
+                    337
+                ],
+                "expected": [
+                    "用户账号登录失败"
+                ]
             }
         }
     },
