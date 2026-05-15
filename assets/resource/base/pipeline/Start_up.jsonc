@@ -298,14 +298,6 @@
             "type": "StopTask"
         }
     },
-    "OCR": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": ""
-            }
-        }
-    },
     "MAS联动处理-检查到维护公告_将发送假通知": {
         "enabled": false,
         //通过发送假通知让MAS以为所有任务已经完成,不然队列整个都会卡主()
