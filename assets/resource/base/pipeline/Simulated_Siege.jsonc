@@ -142,8 +142,21 @@
             "timeout": 1000
         },
         "next": [
-            "常序区作战完成",
-            "[JumpBack]返回"
+            "常序区返回"
+        ]
+    },
+    "常序区返回": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "返回"
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "常序区作战完成"
         ]
     },
     "检查常序区次数未满": {
@@ -223,8 +236,21 @@
             }
         },
         "next": [
-            "特遣区作战完成",
-            "[JumpBack]返回"
+            "特遣区返回"
+        ]
+    },
+    "特遣区返回": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "返回"
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "特遣区作战完成"
         ]
     },
     "检查特遣区次数未满": {
@@ -307,8 +333,21 @@
             }
         },
         "next": [
-            "BOSS区作战完成",
-            "[JumpBack]返回"
+            "BOSS区返回"
+        ]
+    },
+    "BOSS区返回": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "返回"
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "BOSS区作战完成"
         ]
     },
     "检查BOSS区次数未满": {
