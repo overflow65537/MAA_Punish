@@ -16,17 +16,52 @@
             "description": "<p>仅支持安卓模拟器，不支持官方模拟器。</p><p>请在游戏设置中关闭异形屏适配。</p>"
         },
         {
-            "name": "桌面端",
+            "name": "Win32-Window",
+            "label": "Win32控制器-通用",
+            "description": "<p>通用Win32控制器，兼容性更好，偶尔会占用鼠标</p><p>需要管理员权限</p><p>请正确填写程序路径为游戏入口PGR.exe而非启动器的launcher.exe</p>",
             "type": "Win32",
+            "win32": {
+                "class_regex": "UnityWndClass",
+                "window_regex": "^(战双帕弥什|戰雙帕彌什)$",
+                "screencap": "Background",
+                "mouse": "SendMessageWithCursorPos",
+                "keyboard": "PostMessage"
+            },
             "permission_required": true,
-            "description": "<p>请正确填写程序路径为游戏入口PGR.exe而非启动器的launcher.exe</p><p>填写后可以使用自动启动游戏功能</p><p>桌面端目前不是很稳定,如果出现过多错误,请尝试使用安卓端</p><p>控制方式推荐使用SendMessageWithCursorPos(全屏)或者SendMessageWithWindowPos(窗口)</p>",
+            "attach_resource_path": [
+                "./resource/pgr_win32"
+            ]
+        },
+        {
+            "name": "Win32-Window-Background",
+            "label": "Win32控制器-后台",
+            "description": "<p>Win32控制器-后台，完全不占用鼠标，需要游戏处于窗口模式生效</p><p>需要管理员权限</p><p>请正确填写程序路径为游戏入口PGR.exe而非启动器的launcher.exe</p>",
+            "type": "Win32",
             "win32": {
                 "class_regex": "UnityWndClass",
                 "window_regex": "^(战双帕弥什|戰雙帕彌什)$",
                 "screencap": "PrintWindow",
-                "mouse": "SendMessageWithCursorPos",
-                "keyboard": "SendMessageWithCursorPos"
+                "mouse": "SendMessageWithWindowPos",
+                "keyboard": "PostMessage"
             },
+            "permission_required": true,
+            "attach_resource_path": [
+                "./resource/pgr_win32"
+            ]
+        },
+        {
+            "name": "Win32-Window-Front",
+            "label": "Win32控制器-前台",
+            "description": "<p>Win32控制器-前台，占用鼠标，最强的兼容性</p><p>需要管理员权限</p><p>请正确填写程序路径为游戏入口PGR.exe而非启动器的launcher.exe</p>",
+            "type": "Win32",
+            "win32": {
+                "class_regex": "UnityWndClass",
+                "window_regex": "^(战双帕弥什|戰雙帕彌什)$",
+                "screencap": "ScreenDC",
+                "mouse": "Seize",
+                "keyboard": "Seize"
+            },
+            "permission_required": true,
             "attach_resource_path": [
                 "./resource/pgr_win32"
             ]
@@ -100,17 +135,50 @@
             "name": "preset_daily",
             "label": "日常",
             "task": [
-                { "name": "进入游戏", "enabled": true },
-                { "name": "兑换码", "enabled": true },
-                { "name": "指挥局", "enabled": true },
-                { "name": "拟真围剿", "enabled": true },
-                { "name": "诺曼复兴战", "enabled": true },
-                { "name": "幻痛囚笼", "enabled": true },
-                { "name": "纷争战区", "enabled": true },
-                { "name": "历战映射", "enabled": true },
-                { "name": "刷A级碎片", "enabled": false },
-                { "name": "领取体力", "enabled": true },
-                { "name": "领取邮件", "enabled": true },
+                {
+                    "name": "进入游戏",
+                    "enabled": true
+                },
+                {
+                    "name": "兑换码",
+                    "enabled": true
+                },
+                {
+                    "name": "指挥局",
+                    "enabled": true
+                },
+                {
+                    "name": "拟真围剿",
+                    "enabled": true
+                },
+                {
+                    "name": "诺曼复兴战",
+                    "enabled": true
+                },
+                {
+                    "name": "幻痛囚笼",
+                    "enabled": true
+                },
+                {
+                    "name": "纷争战区",
+                    "enabled": true
+                },
+                {
+                    "name": "历战映射",
+                    "enabled": true
+                },
+                {
+                    "name": "刷A级碎片",
+                    "enabled": false
+                },
+                {
+                    "name": "领取体力",
+                    "enabled": true
+                },
+                {
+                    "name": "领取邮件",
+                    "enabled": true
+                },
                 {
                     "name": "购买物品",
                     "enabled": true,
@@ -132,12 +200,30 @@
                         "选择物品": "武器设计草稿-宿舍商店"
                     }
                 },
-                { "name": "宿舍任务", "enabled": true },
-                { "name": "拟战场域", "enabled": true },
-                { "name": "维系者行动", "enabled": true },
-                { "name": "领取任务", "enabled": true },
-                { "name": "战令", "enabled": true },
-                { "name": "结束游戏", "enabled": true }
+                {
+                    "name": "宿舍任务",
+                    "enabled": true
+                },
+                {
+                    "name": "拟战场域",
+                    "enabled": true
+                },
+                {
+                    "name": "维系者行动",
+                    "enabled": true
+                },
+                {
+                    "name": "领取任务",
+                    "enabled": true
+                },
+                {
+                    "name": "战令",
+                    "enabled": true
+                },
+                {
+                    "name": "结束游戏",
+                    "enabled": true
+                }
             ]
         },
         {
@@ -145,11 +231,26 @@
             "label": "肉鸽",
             "description": "宣叙妄响、厄愿潮声、矩阵循生、寒境曙光、神寂启示录",
             "task": [
-                { "name": "宣叙妄响", "enabled": false },
-                { "name": "厄愿潮声", "enabled": false },
-                { "name": "矩阵循生", "enabled": false },
-                { "name": "寒境曙光", "enabled": false },
-                { "name": "神寂启示录", "enabled": false }
+                {
+                    "name": "宣叙妄响",
+                    "enabled": false
+                },
+                {
+                    "name": "厄愿潮声",
+                    "enabled": false
+                },
+                {
+                    "name": "矩阵循生",
+                    "enabled": false
+                },
+                {
+                    "name": "寒境曙光",
+                    "enabled": false
+                },
+                {
+                    "name": "神寂启示录",
+                    "enabled": false
+                }
             ]
         },
         {
@@ -157,10 +258,22 @@
             "label": "工具",
             "description": "手动更新角色缓存、洗词缀、链合回路、战斗辅助",
             "task": [
-                { "name": "手动更新角色缓存", "enabled": false },
-                { "name": "洗词缀", "enabled": false },
-                { "name": "链合回路", "enabled": false },
-                { "name": "战斗辅助", "enabled": false }
+                {
+                    "name": "手动更新角色缓存",
+                    "enabled": false
+                },
+                {
+                    "name": "洗词缀",
+                    "enabled": false
+                },
+                {
+                    "name": "链合回路",
+                    "enabled": false
+                },
+                {
+                    "name": "战斗辅助",
+                    "enabled": false
+                }
             ]
         }
     ],
@@ -674,7 +787,9 @@
             "type": "switch",
             "default_case": "No",
             "controller": [
-                "桌面端"
+                "Win32-Window",
+                "Win32-Window-Background",
+                "Win32-Window-Front"
             ],
             "cases": [
                 {
