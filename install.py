@@ -4,7 +4,6 @@ import sys
 import jsonc
 from configure import configure_ocr_model
 
-
 working_dir = Path(__file__).parent
 install_path = working_dir / Path("install")
 version = len(sys.argv) > 1 and sys.argv[1] or "v0.0.1"
@@ -20,6 +19,9 @@ def install_resource():
         dirs_exist_ok=True,
     )
     shutil.rmtree(install_path / "MaaCommonAssets")
+
+    # 删除logo.png
+    (install_path / "logo.png").unlink(missing_ok=True)
 
     shutil.copy2(
         working_dir / "logo.png",
@@ -56,7 +58,7 @@ def install_chores():
         install_path,
     )
     shutil.copy2(
-       install_path / "logo.png",
+        install_path / "logo.png",
         install_path / "dashboard.png",
     )
 
