@@ -25,7 +25,7 @@
                 "window_regex": "^(战双帕弥什|戰雙帕彌什)$",
                 "screencap": "Background",
                 "mouse": "SendMessageWithCursorPos",
-                "keyboard": "PostMessage"
+                "keyboard": "SendMessageWithCursorPos"
             },
             "permission_required": true,
             "attach_resource_path": [
@@ -42,7 +42,7 @@
                 "window_regex": "^(战双帕弥什|戰雙帕彌什)$",
                 "screencap": "PrintWindow",
                 "mouse": "SendMessageWithWindowPos",
-                "keyboard": "PostMessage"
+                "keyboard": "SendMessageWithWindowPos"
             },
             "permission_required": true,
             "attach_resource_path": [
@@ -57,7 +57,7 @@
             "win32": {
                 "class_regex": "UnityWndClass",
                 "window_regex": "^(战双帕弥什|戰雙帕彌什)$",
-                "screencap": "ScreenDC",
+                "screencap": "PrintWindow",
                 "mouse": "Seize",
                 "keyboard": "Seize"
             },
