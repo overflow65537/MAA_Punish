@@ -323,6 +323,21 @@
                                     }
                                 }
                             }
+                        },
+                        "选择角色程序": {
+                            "attach": {
+                                "update_frequency": "weekly"
+                            }
+                        },
+                        "选择角色程序_onlyNode": {
+                            "attach": {
+                                "update_frequency": "weekly"
+                            }
+                        },
+                        "选择角色程序_矩阵循生": {
+                            "attach": {
+                                "update_frequency": "weekly"
+                            }
                         }
                     }
                 },
@@ -337,6 +352,21 @@
                                     }
                                 }
                             }
+                        },
+                        "选择角色程序": {
+                            "attach": {
+                                "update_frequency": "monthly"
+                            }
+                        },
+                        "选择角色程序_onlyNode": {
+                            "attach": {
+                                "update_frequency": "monthly"
+                            }
+                        },
+                        "选择角色程序_矩阵循生": {
+                            "attach": {
+                                "update_frequency": "monthly"
+                            }
                         }
                     }
                 },
@@ -350,6 +380,21 @@
                                         "update_frequency": "never"
                                     }
                                 }
+                            }
+                        },
+                        "选择角色程序": {
+                            "attach": {
+                                "update_frequency": "never"
+                            }
+                        },
+                        "选择角色程序_onlyNode": {
+                            "attach": {
+                                "update_frequency": "never"
+                            }
+                        },
+                        "选择角色程序_矩阵循生": {
+                            "attach": {
+                                "update_frequency": "never"
                             }
                         }
                     }

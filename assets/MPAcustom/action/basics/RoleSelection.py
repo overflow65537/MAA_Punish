@@ -36,6 +36,7 @@ import numpy
 
 
 from MPAcustom.action.tool.LoadSetting import ROLE_ACTIONS
+from MPAcustom.action.tool import role_cache_policy as cache_policy
 from MPAcustom.logger_component import LoggerComponent
 
 
@@ -80,35 +81,26 @@ class RoleSelection(CustomAction):
         self.logger = self._logger_component.logger
 
     def _cache_path(self) -> Path:
-        return Path(__file__).resolve().parents[3] / "role_cache.json"
+        return cache_policy.cache_path()
 
     def _current_week(self) -> int:
         return datetime.date.today().isocalendar().week
 
-    def _load_cache(self) -> dict | None:
+    def _load_cache(self, update_frequency: str) -> dict | None:
         cache_path = self._cache_path()
-        if not cache_path.exists():
+        cache_data = cache_policy.read_cache_data(cache_path)
+        freq = cache_policy.normalize_frequency(update_frequency)
+        if not cache_policy.is_focus_usable(cache_data, freq):
+            if cache_data is None:
+                self.logger.info("角色缓存文件不存在或无法解析")
+            elif cache_policy.get_focus(cache_data) is None:
+                self.logger.info("角色缓存 focus 缺失或为空")
+            else:
+                self.logger.info(
+                    f"角色缓存未在有效期内, update_frequency={freq!r}"
+                )
             return None
-        try:
-            with open(cache_path, "r", encoding="utf-8") as f:
-                cache_data = json.load(f)
-        except (OSError, json.JSONDecodeError):
-            return None
-        if not isinstance(cache_data, dict):
-            return None
-        last_time = cache_data.get("last_time")
-        if last_time is None:
-            return None
-        try:
-            last_week = int(last_time)
-        except (TypeError, ValueError):
-            return None
-        if last_week != self._current_week():
-            return None
-        focus = cache_data.get("focus")
-        if not isinstance(focus, dict) or not focus:
-            return None
-        return focus
+        return cache_policy.get_focus(cache_data)
 
     def _get_role_element_task(self, role_dict: dict, role_name: str) -> str | None:
         base_role_name = role_name.replace("[试用]", "")
@@ -165,11 +157,16 @@ class RoleSelection(CustomAction):
         cage: bool = bool(attach.get("cage", False))
         need_element: str = attach.get("need_element", "") or ""
         max_try: int = int(attach.get("max_try", mode_cfg["default_max_try"]))
+        cache_data_for_freq = cache_policy.read_cache_data(self._cache_path())
+        update_frequency = cache_policy.resolve_update_frequency(
+            attach, param, cache_data_for_freq
+        )
 
         self.logger.info(
             f"开始执行配队: selection_mode={selection_mode}, roguelike_equivalent={roguelike_equivalent}, "
             f"scan_then_return={scan_then_return}, need_multi={need_multi}, "
-            f"cage={cage}, need_element={need_element!r}, pick={pick}, max_try={max_try}"
+            f"cage={cage}, need_element={need_element!r}, pick={pick}, max_try={max_try}, "
+            f"update_frequency={update_frequency}"
         )
 
         condition = {
@@ -182,9 +179,11 @@ class RoleSelection(CustomAction):
 
         role = None
         if roguelike_equivalent is None and not scan_then_return:
-            role = self._load_cache()
+            role = self._load_cache(update_frequency)
             if role:
-                self.logger.info("读取文件缓存成功")
+                self.logger.info(
+                    f"读取文件缓存成功 (update_frequency={update_frequency})"
+                )
 
         if not role:
             self.logger.info("未读取到缓存, 开始识别")
@@ -218,7 +217,7 @@ class RoleSelection(CustomAction):
             if scan_then_return:
                 for r in role.values():
                     r["cage"] = 3  # 强制设置为有次数
-                self.save_cache(role)
+                self.save_cache(role, update_frequency)
                 self.logger.info(f"识别完成并写入缓存, 共识别到角色数量: {len(role)}")
                 return CustomAction.RunResult(success=True)
 
@@ -265,7 +264,7 @@ class RoleSelection(CustomAction):
                 if role_key in role:
                     role[role_key]["cage"] = 0
             self.logger.info(f"缓存数据: {role}")
-            self.save_cache(role)
+            self.save_cache(role, update_frequency)
 
         if attacker_name and self.find_role(
             context, role_dict, attacker_name, 16 if roguelike_equivalent is None else 5
@@ -757,26 +756,20 @@ class RoleSelection(CustomAction):
             pipeline_override=msg_node,
         )
 
-    def save_cache(self, role: dict):
+    def save_cache(self, role: dict, update_frequency: str = "weekly"):
         cache_path = self._cache_path()
         self.logger.info(f"正在保存缓存到 {cache_path}, 数据: {role}")
         cache_path.parent.mkdir(parents=True, exist_ok=True)
         # 保留 CacheRole 使用的字段（main_update_at / cage_update_week 等），避免被覆盖丢失。
-        existing: dict = {}
-        try:
-            if cache_path.exists():
-                with open(cache_path, "r", encoding="utf-8") as rf:
-                    loaded = json.load(rf)
-                if isinstance(loaded, dict):
-                    existing = loaded
-        except Exception:
-            existing = {}
+        existing: dict = cache_policy.read_cache_data(cache_path) or {}
 
         now = datetime.datetime.now()
         cache_data = dict(existing)
         cache_data["last_time"] = self._current_week()
         cache_data["focus"] = role
         cache_data["main_update_at"] = now.timestamp()
-        with open(cache_path, "w", encoding="utf-8") as f:
-            json.dump(cache_data, f, ensure_ascii=False, indent=2)
+        cache_data["update_frequency"] = cache_policy.normalize_frequency(
+            update_frequency
+        )
+        cache_policy.write_cache_data(cache_data, cache_path)
         self.logger.info("缓存保存成功")
