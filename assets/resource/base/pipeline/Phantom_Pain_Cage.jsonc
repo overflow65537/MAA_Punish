@@ -304,14 +304,11 @@
                 ],
                 "count": 2000,
                 "connected": true,
+                "method": 6,
                 "upper": [
-                    8,
-                    8,
-                    8
+                    90
                 ],
                 "lower": [
-                    0,
-                    0,
                     0
                 ]
             }
@@ -374,15 +371,12 @@
                 ],
                 "count": 2000,
                 "connected": true,
+                "method": 6,
                 "upper": [
-                    214,
-                    220,
-                    226
+                    255
                 ],
                 "lower": [
-                    0,
-                    0,
-                    0
+                    240
                 ]
             }
         }
