@@ -2,7 +2,9 @@
     "task": [
         {
             "name": "幻痛囚笼",
-            "group": ["daily"],
+            "group": [
+                "daily"
+            ],
             "default_check": true,
             "entry": "幻痛囚笼",
             "description": "<p>自动战斗幻痛囚笼，并自动选择人物作战；请注意角色锁定状态。</p><p>终级区需要自行选择非在岗角色,防止占用在岗角色</p><p><b>速通</b>：每周二5点后可运行2次，首次运行后需等待24小时。</p>",
@@ -128,7 +130,8 @@
                     "name": "编队名",
                     "pipeline_type": "string",
                     "verify": "^\\s*\\S.*$",
-                    "pattern_msg": "需要输入编队名"
+                    "pattern_msg": "需要输入编队名",
+                    "default": "编队1"
                 }
             ],
             "pipeline_override": {
@@ -172,7 +175,8 @@
                     "name": "编队名",
                     "pipeline_type": "string",
                     "verify": "^\\s*\\S.*$",
-                    "pattern_msg": "需要输入编队名"
+                    "pattern_msg": "需要输入编队名",
+                    "default": "编队1"
                 }
             ],
             "pipeline_override": {
@@ -216,7 +220,8 @@
                     "name": "编队名",
                     "pipeline_type": "string",
                     "verify": "^\\s*\\S.*$",
-                    "pattern_msg": "需要输入编队名"
+                    "pattern_msg": "需要输入编队名",
+                    "default": "编队1"
                 }
             ],
             "pipeline_override": {
@@ -422,7 +427,8 @@
                     "name": "编队名",
                     "pipeline_type": "string",
                     "verify": "^\\s*\\S.*$",
-                    "pattern_msg": "需要输入编队名"
+                    "pattern_msg": "需要输入编队名",
+                    "default": "编队1"
                 }
             ],
             "pipeline_override": {
@@ -456,7 +462,8 @@
                     "name": "编队名",
                     "pipeline_type": "string",
                     "verify": "^\\s*\\S.*$",
-                    "pattern_msg": "需要输入编队名"
+                    "pattern_msg": "需要输入编队名",
+                    "default": "编队1"
                 }
             ],
             "pipeline_override": {
@@ -490,7 +497,8 @@
                     "name": "编队名",
                     "pipeline_type": "string",
                     "verify": "^\\s*\\S.*$",
-                    "pattern_msg": "需要输入编队名"
+                    "pattern_msg": "需要输入编队名",
+                    "default": "编队1"
                 }
             ],
             "pipeline_override": {
@@ -524,7 +532,8 @@
                     "name": "编队名",
                     "pipeline_type": "string",
                     "verify": "^\\s*\\S.*$",
-                    "pattern_msg": "需要输入编队名"
+                    "pattern_msg": "需要输入编队名",
+                    "default": "编队1"
                 }
             ],
             "pipeline_override": {
@@ -558,7 +567,8 @@
                     "name": "编队名",
                     "pipeline_type": "string",
                     "verify": "^\\s*\\S.*$",
-                    "pattern_msg": "需要输入编队名"
+                    "pattern_msg": "需要输入编队名",
+                    "default": "编队1"
                 }
             ],
             "pipeline_override": {
@@ -592,7 +602,8 @@
                     "name": "编队名",
                     "pipeline_type": "string",
                     "verify": "^\\s*\\S.*$",
-                    "pattern_msg": "需要输入编队名"
+                    "pattern_msg": "需要输入编队名",
+                    "default": "编队1"
                 }
             ],
             "pipeline_override": {
