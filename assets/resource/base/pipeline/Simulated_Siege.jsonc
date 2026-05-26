@@ -408,29 +408,36 @@
     "点击BOSS区": {
         "post_delay": 1000,
         "recognition": {
-            "type": "ColorMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    605,
-                    446,
-                    60,
-                    31
+                    450,
+                    360,
+                    147,
+                    165
                 ],
-                "connected": true,
-                "upper": [
-                    254,
-                    197,
-                    93
+                "expected": [
+                    "目标",
+                    "血量"
                 ],
-                "lower": [
-                    16,
-                    0,
-                    0
+                "replace": [
+                    [
+                        "自",
+                        "目"
+                    ]
                 ]
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    130,
+                    -80,
+                    0,
+                    0
+                ]
+            }
         },
         "next": [
             "检查BOSS区次数MAX",
@@ -440,25 +447,18 @@
     "点击特遣区": {
         "post_delay": 1000,
         "recognition": {
-            "type": "ColorMatch",
+            "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    781,
-                    133,
-                    39,
-                    42
+                    769,
+                    151,
+                    153,
+                    145
                 ],
-                "connected": true,
-                "upper": [
-                    200,
-                    56,
-                    64
+                "template": [
+                    "拟真围剿/特遣区.png"
                 ],
-                "lower": [
-                    41,
-                    4,
-                    4
-                ]
+                "green_mask": true
             }
         },
         "action": {
@@ -590,25 +590,18 @@
     "点击常序区": {
         "post_delay": 1000,
         "recognition": {
-            "type": "ColorMatch",
+            "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    495,
-                    90,
-                    22,
-                    66
+                    435,
+                    21,
+                    207,
+                    185
                 ],
-                "connected": true,
-                "upper": [
-                    48,
-                    102,
-                    210
+                "template": [
+                    "拟真围剿/常序区.png"
                 ],
-                "lower": [
-                    36,
-                    58,
-                    199
-                ]
+                "green_mask": true
             }
         },
         "action": {
