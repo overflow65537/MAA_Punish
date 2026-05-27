@@ -57,7 +57,7 @@
             "win32": {
                 "class_regex": "UnityWndClass",
                 "window_regex": "^(战双帕弥什|戰雙帕彌什)$",
-                "screencap": "PrintWindow",
+                "screencap": "ScreenDC",
                 "mouse": "Seize",
                 "keyboard": "Seize"
             },
