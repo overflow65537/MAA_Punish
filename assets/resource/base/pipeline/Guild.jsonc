@@ -31,6 +31,30 @@
             "[JumpBack]移动_经典舱室"
         ]
     },
+    "识别文字颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    990,
+                    18,
+                    223,
+                    34
+                ],
+                "lower": [
+                    180,
+                    180,
+                    180
+                ],
+                "upper": [
+                    255,
+                    255,
+                    255
+                ],
+                "count": 20
+            }
+        }
+    },
     "检查指定按钮": {
         "post_wait_freezes": {
             "time": 1000,
@@ -61,18 +85,31 @@
             "[JumpBack]返回_图标"
         ]
     },
-    "移动_鲸律星屿": {
-        "max_hit": 20,
+    "识别_鲸律星屿": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    998,
-                    0,
-                    234,
-                    84
-                ],
-                "expected": "鲸律星屿"
+                "roi": "识别文字颜色",
+                "expected": "鲸律星屿",
+                "only_rec": true,
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ]
+            }
+        }
+    },
+    "移动_鲸律星屿": {
+        "max_hit": 20,
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "识别文字颜色",
+                    "识别_鲸律星屿"
+                ]
             }
         },
         "action": {
@@ -85,6 +122,22 @@
                 "end": [
                     281,
                     451
+                ]
+            }
+        }
+    },
+    "识别_经典舱室": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "识别文字颜色",
+                "expected": "经典舱室",
+                "only_rec": true,
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ]
             }
         }
@@ -92,15 +145,12 @@
     "移动_经典舱室": {
         "max_hit": 20,
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    998,
-                    0,
-                    234,
-                    84
-                ],
-                "expected": "经典舱室"
+                "all_of": [
+                    "识别文字颜色",
+                    "识别_经典舱室"
+                ]
             }
         },
         "action": {
@@ -113,6 +163,22 @@
                 "end": [
                     279,
                     542
+                ]
+            }
+        }
+    },
+    "识别_庭梨栖雪": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "识别文字颜色",
+                "expected": "庭梨栖雪",
+                "only_rec": true,
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ]
             }
         }
@@ -120,15 +186,12 @@
     "移动_庭梨栖雪": {
         "max_hit": 20,
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    998,
-                    0,
-                    234,
-                    84
-                ],
-                "expected": "庭梨栖雪"
+                "all_of": [
+                    "识别文字颜色",
+                    "识别_庭梨栖雪"
+                ]
             }
         },
         "action": {
@@ -141,6 +204,22 @@
                 "end": [
                     265,
                     470
+                ]
+            }
+        }
+    },
+    "识别_岁雪新宵": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "识别文字颜色",
+                "expected": "岁雪新宵",
+                "only_rec": true,
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ]
             }
         }
@@ -148,15 +227,12 @@
     "移动_岁雪新宵": {
         "max_hit": 20,
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    998,
-                    0,
-                    234,
-                    84
-                ],
-                "expected": "岁雪新宵"
+                "all_of": [
+                    "识别文字颜色",
+                    "识别_岁雪新宵"
+                ]
             }
         },
         "action": {
@@ -169,6 +245,32 @@
                 "end": [
                     300,
                     540
+                ]
+            }
+        }
+    },
+    "识别_蔚蓝之夏": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "识别文字颜色",
+                "expected": "蔚蓝之",
+                "only_rec": true,
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
+                "replace": [
+                    [
+                        "尉",
+                        "蔚"
+                    ],
+                    [
+                        "南",
+                        "蔚"
+                    ]
                 ]
             }
         }
@@ -176,27 +278,40 @@
     "移动_蔚蓝之夏": {
         "max_hit": 20,
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    998,
-                    0,
-                    234,
-                    84
-                ],
-                "expected": "蔚蓝之夏"
+                "all_of": [
+                    "识别文字颜色",
+                    "识别_蔚蓝之夏"
+                ]
             }
         },
         "action": {
             "type": "Swipe",
             "param": {
                 "begin": [
-                    110,
-                    476
+                    100,
+                    480
                 ],
                 "end": [
-                    110,
-                    476
+                    100,
+                    480
+                ]
+            }
+        }
+    },
+    "识别_云海空岛": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "识别文字颜色",
+                "expected": "云海空岛",
+                "only_rec": true,
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ]
             }
         }
@@ -204,15 +319,12 @@
     "移动_云海空岛": {
         "max_hit": 20,
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    998,
-                    0,
-                    234,
-                    84
-                ],
-                "expected": "云海空岛"
+                "all_of": [
+                    "识别文字颜色",
+                    "识别_云海空岛"
+                ]
             }
         },
         "action": {
@@ -229,18 +341,31 @@
             }
         }
     },
-    "移动_漫花清夏": {
-        "max_hit": 20,
+    "识别_漫花清夏": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    998,
-                    0,
-                    234,
-                    84
-                ],
-                "expected": "漫花清夏"
+                "roi": "识别文字颜色",
+                "expected": "漫花清夏",
+                "only_rec": true,
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ]
+            }
+        }
+    },
+    "移动_漫花清夏": {
+        "max_hit": 20,
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "识别文字颜色",
+                    "识别_漫花清夏"
+                ]
             }
         },
         "action": {
