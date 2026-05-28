@@ -1,0 +1,48 @@
+{
+    "打开战斗": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 5000
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    999,
+                    231,
+                    281,
+                    187
+                ],
+                "expected": "战斗"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        }
+    },
+    "意外点击_限定活动": {
+        "post_delay": 3000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    47,
+                    116,
+                    113,
+                    42
+                ],
+                "expected": "限定开放"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    78,
+                    36
+                ]
+            }
+        }
+    }
+}
