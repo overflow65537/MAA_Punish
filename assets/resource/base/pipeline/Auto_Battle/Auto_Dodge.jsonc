@@ -1,0 +1,16 @@
+{
+    "自动闪避": {
+        "post_delay": 0,
+        "pre_delay": 150,
+        "rate_limit": 0,
+        "recognition": {
+            "type": "NeuralNetworkDetect",
+            "param": {
+                "model": "Dodge.onnx"
+            }
+        },
+        "next": [
+            "闪避"
+        ]
+    }
+}

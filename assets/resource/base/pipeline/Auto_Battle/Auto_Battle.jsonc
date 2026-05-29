@@ -4,6 +4,7 @@
         "pre_delay": 0,
         "rate_limit": 0,
         "next": [
+            "[JumpBack]自动闪避",
             "[JumpBack]战斗重启1",
             "[JumpBack]播放剧情",
             "[JumpBack]主线跳过",
@@ -11,8 +12,7 @@
             "[JumpBack]确认跳过",
             "[JumpBack]跳过战斗对话_主线",
             "[JumpBack]进入战斗",
-            "[JumpBack]进入战斗_条件2",
-            "[JumpBack]自动反击",
+            // "[JumpBack]自动反击",
             "[JumpBack]识别人物",
             "[JumpBack]战斗中",
             "[JumpBack]点击对话",
@@ -431,75 +431,76 @@
             "param": {}
         }
     },
-    "进入战斗_条件2": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    14,
-                    82,
-                    214,
-                    67
-                ],
-                "expected": [
-                    "^击败.*",
-                    "^消灭.*",
-                    "^清理.*",
-                    "生物",
-                    "异合",
-                    "消灭",
-                    "感染体",
-                    "抵御",
-                    "清除"
-                ]
-            }
-        },
-        "next": [
-            "识别人物",
-            "[JumpBack]战斗中",
-            "空任务"
-        ]
-    },
     "进入战斗": {
         "post_delay": 0,
         "pre_delay": 0,
         "rate_limit": 0,
         "recognition": {
-            "type": "ColorMatch",
+            "type": "Or",
             "param": {
-                "roi": [
-                    403,
-                    51,
-                    20,
-                    7
-                ],
-                "connected": true,
-                "upper": [
-                    [
-                        255,
-                        255,
-                        255
-                    ],
-                    [
-                        127,
-                        225,
-                        255
-                    ]
-                ],
-                "lower": [
-                    [
-                        255,
-                        255,
-                        255
-                    ],
-                    [
-                        127,
-                        225,
-                        255
-                    ]
+                "any_of": [
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    403,
+                                    51,
+                                    20,
+                                    7
+                                ],
+                                "connected": true,
+                                "upper": [
+                                    [
+                                        255,
+                                        255,
+                                        255
+                                    ],
+                                    [
+                                        127,
+                                        225,
+                                        255
+                                    ]
+                                ],
+                                "lower": [
+                                    [
+                                        255,
+                                        255,
+                                        255
+                                    ],
+                                    [
+                                        127,
+                                        225,
+                                        255
+                                    ]
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    14,
+                                    82,
+                                    214,
+                                    67
+                                ],
+                                "expected": [
+                                    "^击败.*",
+                                    "^消灭.*",
+                                    "^清理.*",
+                                    "生物",
+                                    "异合",
+                                    "消灭",
+                                    "感染体",
+                                    "抵御",
+                                    "清除"
+                                ]
+                            }
+                        }
+                    }
                 ]
             }
         },

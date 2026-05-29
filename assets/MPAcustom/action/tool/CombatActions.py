@@ -24,7 +24,6 @@ MAA_Punish 通用战斗对象
 作者:HCX0426,overflow
 """
 
-
 from maa.context import Context
 from maa.define import (
     AndRecognitionResult,
@@ -60,6 +59,21 @@ class CombatActions:
         self.auto_qte_config = auto_qte_config.get("enabled", False)
         self.switch_config = switch_config.get("enabled", False)
 
+    def _auto_dodge(self, image=None):
+        """
+        自动闪避
+        检测到敌方攻击预警时执行闪避操作。
+        :param image: 可选，调用方已截屏时传入以避免重复截图
+        """
+        if image is None:
+            image = self.context.tasker.controller.post_screencap().wait().get()
+        need_dodge = self.context.run_recognition("自动闪避", image)
+        if need_dodge and need_dodge.hit:
+            self.context.run_action("闪避")
+            self.logger.info("自动闪避")
+            return True
+        return False
+
     def attack(self):
         """
         攻击
@@ -68,6 +82,7 @@ class CombatActions:
         image = self.context.tasker.controller.post_screencap().wait().get()
         result = self.context.run_recognition("战斗中", image)
         if result and result.hit:
+            self._auto_dodge(image)
             return self.context.run_action("攻击")
         else:
             return False
@@ -126,7 +141,6 @@ class CombatActions:
         执行一次技能释放操作。
         :param duration: 技能释放后等待时间（毫秒），默认0
         """
-
         self.context.run_action("技能")
         time.sleep(duration / 1000)
         return True
@@ -176,6 +190,7 @@ class CombatActions:
             target = 2
         elif target < 1 or target > 8:
             return False
+        self._auto_dodge()
         print(f"消球{target}")
         return self.context.run_action(f"消球{target}")
 
@@ -188,6 +203,7 @@ class CombatActions:
         """
         if target not in (1, 2):
             raise ValueError("target 参数必须为 1 或 2")
+        self._auto_dodge()
         return self.context.run_action(f"qte{target}")
 
     def _try_qte_by_color(self, color: str):
@@ -216,6 +232,7 @@ class CombatActions:
             and target_color_reco.hit
             and isinstance(target_color_reco.best_result, ColorMatchResult)
         ):
+            self._auto_dodge(image)
             print(target_color_reco.best_result)
             return self.context.tasker.controller.post_click(
                 target_color_reco.best_result.box[0],
@@ -232,6 +249,8 @@ class CombatActions:
         if not self.auto_qte_config:
             self.logger.info("未开启自动QTE功能")
             return False
+
+        self._auto_dodge()
 
         # 处理自动模式：依次检查r、b、y
         if target == "a":
@@ -251,6 +270,7 @@ class CombatActions:
         镜头锁定
         执行镜头锁定操作。
         """
+        self._auto_dodge()
         return self.context.run_action("锁定视角")
 
     def auxiliary_machine(self):
@@ -258,6 +278,7 @@ class CombatActions:
         辅助机
         执行辅助机操作。
         """
+        self._auto_dodge()
         return self.context.run_action("辅助机")
 
     def check_status(self, node: str, pipeline_override: dict = {}):
@@ -496,9 +517,7 @@ class CombatActions:
                     return None
                 return n if 0 <= n <= _signal_ball_max else None
 
-            m = re.search(
-                r"(\d{1,2})[/|\\:：.、·∕／\-_７7]+16(?:\D|$)", s
-            )
+            m = re.search(r"(\d{1,2})[/|\\:：.、·∕／\-_７7]+16(?:\D|$)", s)
             if m:
                 v = _from_group(m)
                 if v is not None:
