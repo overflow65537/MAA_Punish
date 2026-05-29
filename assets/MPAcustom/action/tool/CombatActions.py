@@ -69,6 +69,7 @@ class CombatActions:
             image = self.context.tasker.controller.post_screencap().wait().get()
         need_dodge = self.context.run_recognition("自动闪避", image)
         if need_dodge and need_dodge.hit:
+            time.sleep(0.1)
             self.context.run_action("闪避")
             self.logger.info("自动闪避")
             return True
