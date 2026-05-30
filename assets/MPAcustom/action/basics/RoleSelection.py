@@ -22,6 +22,11 @@
 MAA_Punish
 MAA_Punish 选择角色
 作者:overflow65537
+
+attach / custom_action_param 可选 weight_mode：
+- standard：滑动识别角色后按战力、属性、代数等计算权重并配队。
+- exclusive（自行选择角色 / 排他）：跳过识别与权重，直接按 pick 名单查找并编入；不含试用角色。
+  须在任务 JSON 的 attach 中显式设置，不会自动启用。
 """
 
 import time
@@ -128,6 +133,135 @@ class RoleSelection(CustomAction):
 
         return matched_task
 
+    @staticmethod
+    def _normalize_exclusive_name(name: str) -> str:
+        """排他模式仅使用正式角色名，去掉可能误配的试用后缀。"""
+        return name.replace("[试用]", "").strip()
+
+    def _team_from_exclusive_pick(
+        self, pick: list, need_multi: bool
+    ) -> dict[str, str | None]:
+        names = [
+            self._normalize_exclusive_name(p)
+            for p in pick
+            if isinstance(p, str) and p.strip()
+        ]
+        if not names:
+            return {"attacker": None, "tank": None, "support": None}
+        if not need_multi:
+            return {"attacker": names[0], "tank": None, "support": None}
+
+        team: dict[str, str | None] = {
+            "attacker": None,
+            "tank": None,
+            "support": None,
+        }
+        for name in names:
+            role_type = str(ROLE_ACTIONS.get(name, {}).get("type", "")).lower()
+            if role_type in team and team[role_type] is None:
+                team[role_type] = name
+        if team["attacker"] is None:
+            team["attacker"] = names[0]
+        return team
+
+    def _consume_cage_for_role(
+        self, role_name: str, update_frequency: str
+    ) -> None:
+        role = self._load_cache(update_frequency) or {}
+        role_key = role_name if role_name in role else role_name.replace("[试用]", "")
+        if role_key not in role:
+            role[role_key] = {}
+        role[role_key]["cage"] = 0
+        self.logger.info(f"{role_key} 编入成功, 清除囚笼次数")
+        self.save_cache(role, update_frequency)
+
+    def _abort_pick_not_found(
+        self,
+        context: Context,
+        role_name: str | None,
+        *,
+        notified: bool = False,
+    ) -> None:
+        time.sleep(0.5)
+        if not notified:
+            msg = f"未找到{role_name}" if role_name else "未指定出战角色"
+            self.send_msg(context, msg)
+        context.run_task("返回主菜单")
+        context.run_action("停止任务")
+
+    def _run_exclusive_pick(
+        self,
+        context: Context,
+        *,
+        pick: list,
+        need_multi: bool,
+        cage: bool,
+        roguelike_equivalent: int | None,
+        update_frequency: str,
+    ) -> CustomAction.RunResult:
+        """排他模式：不扫描、不算权重，直接按 pick 查找角色。"""
+        role_dict = ROLE_ACTIONS.copy()
+        find_max_try = 16 if roguelike_equivalent is None else 5
+        team = self._team_from_exclusive_pick(pick, need_multi)
+        attacker_name = team["attacker"]
+        tank_name = team["tank"]
+        support_name = team["support"]
+
+        display_tank = tank_name if need_multi and roguelike_equivalent is None else None
+        display_support = (
+            support_name if need_multi and roguelike_equivalent is None else None
+        )
+        self.logger.info(
+            f"排他模式直接选人: pick={pick}, "
+            f"队伍构成: {display_support or '无'} {attacker_name or '无'} {display_tank or '无'}"
+        )
+        self.send_msg(
+            context,
+            f"排他选人: {display_support or '无'} {attacker_name or '无'} {display_tank or '无'}",
+        )
+
+        if not attacker_name:
+            self.logger.warning("排他模式 pick 为空或未解析出首发角色")
+            self._abort_pick_not_found(context, None)
+            return CustomAction.RunResult(success=True)
+
+        if not self.find_role(
+            context, role_dict, attacker_name, find_max_try, allow_trial=False
+        ):
+            self._abort_pick_not_found(context, attacker_name, notified=True)
+            return CustomAction.RunResult(success=True)
+
+        if roguelike_equivalent is None and cage:
+            self._consume_cage_for_role(attacker_name, update_frequency)
+        context.run_task("编入队伍")
+
+        if need_multi and roguelike_equivalent is None:
+            if tank_name:
+                context.run_task("打开黄色位置")
+                if self.find_role(
+                    context, role_dict, tank_name, allow_trial=False
+                ):
+                    if cage:
+                        self._consume_cage_for_role(tank_name, update_frequency)
+                    context.run_task("编入队伍")
+                else:
+                    time.sleep(0.5)
+                    context.run_task("返回")
+
+            if support_name:
+                context.run_task("打开蓝色位置")
+                if self.find_role(
+                    context, role_dict, support_name, allow_trial=False
+                ):
+                    if cage:
+                        self._consume_cage_for_role(support_name, update_frequency)
+                    context.run_task("编入队伍")
+                else:
+                    time.sleep(0.5)
+                    context.run_task("返回")
+
+        return CustomAction.RunResult(success=True)
+
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
@@ -153,10 +287,15 @@ class RoleSelection(CustomAction):
         roguelike_equivalent: int | None = mode_cfg["roguelike_equivalent"]
         scan_then_return: bool = mode_cfg["scan_then_return"]
 
-        pick: list = attach.get("pick", [])
+        pick: list = attach.get("pick", []) or param.get("pick", []) or []
         cage: bool = bool(attach.get("cage", False))
         need_element: str = attach.get("need_element", "") or ""
         max_try: int = int(attach.get("max_try", mode_cfg["default_max_try"]))
+        weight_mode: str = (
+            attach["weight_mode"]
+            if "weight_mode" in attach
+            else param.get("weight_mode", "standard")
+        )
         cache_data_for_freq = cache_policy.read_cache_data(self._cache_path())
         update_frequency = cache_policy.resolve_update_frequency(
             attach, param, cache_data_for_freq
@@ -165,9 +304,20 @@ class RoleSelection(CustomAction):
         self.logger.info(
             f"开始执行配队: selection_mode={selection_mode}, roguelike_equivalent={roguelike_equivalent}, "
             f"scan_then_return={scan_then_return}, need_multi={need_multi}, "
-            f"cage={cage}, need_element={need_element!r}, pick={pick}, max_try={max_try}, "
-            f"update_frequency={update_frequency}"
+            f"cage={cage}, need_element={need_element!r}, pick={pick}, weight_mode={weight_mode}, "
+            f"max_try={max_try}, update_frequency={update_frequency}"
         )
+
+        if weight_mode == "exclusive" and pick and not scan_then_return:
+            self.logger.info("排他模式: 跳过角色扫描与权重计算")
+            return self._run_exclusive_pick(
+                context,
+                pick=pick,
+                need_multi=need_multi,
+                cage=cage,
+                roguelike_equivalent=roguelike_equivalent,
+                update_frequency=update_frequency,
+            )
 
         condition = {
             "roguelike_mode": roguelike_equivalent,
@@ -251,35 +401,22 @@ class RoleSelection(CustomAction):
             context,
             f"队伍构成: {display_support_name or '无'} {attacker_name or '无'} {display_tank_name or '无'}",
         )
-        if roguelike_equivalent is None and cage:
-            for selected_name in (attacker_name, tank_name, support_name):
-                if not selected_name:
-                    continue
-                if not need_multi and selected_name != attacker_name:
-                    continue
-                role_key = selected_name
-                self.logger.info(f"{role_key} 选中, 清除次数")
-                if role_key not in role:
-                    role_key = selected_name.replace("[试用]", "")
-                if role_key in role:
-                    role[role_key]["cage"] = 0
-            self.logger.info(f"缓存数据: {role}")
-            self.save_cache(role, update_frequency)
-
         if attacker_name and self.find_role(
             context, role_dict, attacker_name, 16 if roguelike_equivalent is None else 5
         ):
+            if roguelike_equivalent is None and cage:
+                self._consume_cage_for_role(attacker_name, update_frequency)
             context.run_task("编入队伍")
         else:
-            time.sleep(0.5)
-            self.send_msg(context, f"未找到{attacker_name}")
-            context.run_task("返回主菜单")
-            context.run_action("停止任务")
+            self._abort_pick_not_found(context, attacker_name, notified=True)
+            return CustomAction.RunResult(success=True)
 
         if need_multi and roguelike_equivalent is None:
             if tank_name:
                 context.run_task("打开黄色位置")
                 if self.find_role(context, role_dict, tank_name):
+                    if roguelike_equivalent is None and cage:
+                        self._consume_cage_for_role(tank_name, update_frequency)
                     context.run_task("编入队伍")
                 else:
                     time.sleep(0.5)
@@ -288,6 +425,8 @@ class RoleSelection(CustomAction):
             if support_name:
                 context.run_task("打开蓝色位置")
                 if self.find_role(context, role_dict, support_name):
+                    if roguelike_equivalent is None and cage:
+                        self._consume_cage_for_role(support_name, update_frequency)
                     context.run_task("编入队伍")
                 else:
                     time.sleep(0.5)
@@ -302,15 +441,20 @@ class RoleSelection(CustomAction):
         role_name: str,
         max_try: int = 16,
         role_element: str | None = None,
+        *,
+        allow_trial: bool = True,
     ) -> bool:
         _image_cache = []
-        if role_element is None:
-            role_element = self._get_role_element_task(role_dict, role_name)
-        if "[试用]" in role_name:
+        if not allow_trial:
+            role_name = role_name.replace("[试用]", "")
+            trial = False
+        elif "[试用]" in role_name:
             role_name = role_name.replace("[试用]", "")
             trial = True
         else:
             trial = False
+        if role_element is None:
+            role_element = self._get_role_element_task(role_dict, role_name)
         self.logger.info(
             f"开始查找角色: {role_name}, max_try={max_try}, trial角色={trial}"
         )
@@ -363,9 +507,8 @@ class RoleSelection(CustomAction):
                         break
                 return True
             context.run_action("滑动_选人")
-        print(f"未识别到角色")
-        self.logger.info(f"未识别到角色{role_name}")
-        self.send_msg(context, f"未识别到角色{role_name}")
+        self.logger.info(f"未找到{role_name}")
+        self.send_msg(context, f"未找到{role_name}")
         for idx, error_image in enumerate(_image_cache):
             self.save_screenshot(error_image, f"{role_name}_{idx+1}")
         return False
@@ -555,11 +698,8 @@ class RoleSelection(CustomAction):
         return role
 
     # 计算权重
-    def calculate_weight(self, role_info: dict, condition: dict[str, dict]) -> dict:
-        """
-        公式
-        权重 = ( 战力 * 0.3 + ( 属性分数 * 60) + (代数分数 * 2300) + (是否被选中 * 20000) + (是否精通等级没满 * 10000)) * 是否有次数
-        """
+    def calculate_weight(self, role_info: dict, condition: dict) -> dict:
+        """standard 模式：按战力、属性、代数、pick 加成与囚笼次数计算权重。"""
         weight = {}
 
         for role_name, info in role_info.items():
