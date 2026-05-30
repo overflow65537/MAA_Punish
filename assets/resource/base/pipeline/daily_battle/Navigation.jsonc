@@ -68,8 +68,36 @@
             "type": "Click"
         },
         "next": [
-            "打开拟战场域"
+            "打开拟战场域",
+            "[JumpBack]检查_打开资源"
         ]
+    },
+    "检查_打开资源": {
+        "post_delay": 0,
+        "pre_delay": 0,
+        "rate_limit": 0,
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    852,
+                    716,
+                    214,
+                    4
+                ],
+                "lower": [245, 245, 245],
+                "upper": [255, 255, 255],
+                "connected": true,
+                "count": 400
+            }
+        },
+        "inverse": true,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "打开资源"
+            }
+        }
     },
     "打开拟战场域": {
         "post_delay": 0,
