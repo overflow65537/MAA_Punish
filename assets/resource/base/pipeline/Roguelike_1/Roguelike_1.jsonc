@@ -3,6 +3,12 @@
         "focus": {
             "Node.Recognition.Succeeded": "[color:ForestGreen]开始演绎[/color]"
         },
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CheckRoiZoneOffset"
+            }
+        },
         "action": {
             "type": "Custom",
             "param": {
@@ -67,6 +73,12 @@
                     "全员等级",
                     "平均战力"
                 ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "LoadROIZone"
             }
         },
         "next": [

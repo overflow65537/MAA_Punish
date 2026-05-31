@@ -3,6 +3,12 @@
         "focus": {
             "Node.Recognition.Succeeded": "[color:ForestGreen]开始冒险[/color]"
         },
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CheckRoiZoneOffset"
+            }
+        },
         "next": [
             "肉鸽内部_厄愿潮声",
             "[JumpBack]不可重复获得该秘藏品",
@@ -122,6 +128,12 @@
                     83
                 ],
                 "expected": "第.章"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "LoadROIZone"
             }
         },
         "next": [

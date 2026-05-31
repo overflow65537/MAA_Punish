@@ -31,6 +31,7 @@ class LoadRoiZone(CustomAction):
         "按下闪避",
         "检查闪避",
         "战斗中",
+        "识别人物",
         "检查希声长闪",
         "检查核心被动_深痕",
         "检查核心被动_晖暮",
@@ -99,9 +100,10 @@ class LoadRoiZone(CustomAction):
     }
 
     _SKIP_ACTION_TYPES = {"ClickKey", "KeyDown", "LongPressKey"}
-    _POINT_ACTION_TYPES = {"Click", "TouchDown"}
+    _DEFAULT_ROI = [0, 0, 0, 0]
 
     def __init__(self):
+        super().__init__()
         self._logger_component = LoggerComponent(__name__)
         self.logger = self._logger_component.logger
 
@@ -122,11 +124,9 @@ class LoadRoiZone(CustomAction):
                 if not node_data:
                     continue
 
-                node_override = self._build_node_override(
-                    node_name, node_data, zone_offset
-                )
+                node_override = self._build_node_override(node_data, zone_offset)
                 if node_override:
-                    overrides.update(node_override)
+                    overrides[node_name] = node_override
 
         if overrides:
             context.override_pipeline(overrides)
@@ -157,37 +157,33 @@ class LoadRoiZone(CustomAction):
         return [int(v) for v in offset]
 
     @staticmethod
-    def _is_numeric_roi(roi: Any) -> bool:
+    def _is_numeric_list(values: Any, size: int) -> bool:
         return (
-            isinstance(roi, list)
-            and len(roi) == 4
-            and all(isinstance(v, (int, float)) for v in roi)
+            isinstance(values, list)
+            and len(values) == size
+            and all(isinstance(v, (int, float)) for v in values)
         )
 
+    @classmethod
+    def _is_default_roi(cls, roi: Any) -> bool:
+        return cls._is_numeric_list(roi, 4) and all(int(v) == 0 for v in roi)
+
     @staticmethod
-    def _is_point(value: Any) -> bool:
-        return (
-            isinstance(value, list)
-            and len(value) >= 2
-            and all(isinstance(v, (int, float)) for v in value[:2])
-        )
+    def _apply_offset(values: list[Any], zone_offset: list[int]) -> list[int]:
+        count = min(len(values), len(zone_offset))
+        return [int(values[i]) + zone_offset[i] for i in range(count)]
 
     @classmethod
     def _build_node_override(
         cls,
-        node_name: str,
         node_data: dict[str, Any],
         zone_offset: list[int],
     ) -> dict[str, Any] | None:
         recognition_override = cls._build_recognition_override(node_data, zone_offset)
         if recognition_override is not None:
-            return {node_name: recognition_override}
+            return recognition_override
 
-        action_override = cls._build_action_override(node_data, zone_offset)
-        if action_override is not None:
-            return {node_name: action_override}
-
-        return None
+        return cls._build_action_override(node_data, zone_offset)
 
     @classmethod
     def _build_recognition_override(
@@ -198,21 +194,22 @@ class LoadRoiZone(CustomAction):
         recognition = node_data.get("recognition")
         if not isinstance(recognition, dict):
             return None
+        if recognition.get("type", "DirectHit") == "DoNothing":
+            return None
 
         param = recognition.get("param")
         if not isinstance(param, dict):
             return None
 
         roi = param.get("roi")
-        if not cls._is_numeric_roi(roi):
+        if not cls._is_numeric_list(roi, 4) or cls._is_default_roi(roi):
             return None
 
-        roi_offset = param.get("roi_offset")
-        if roi_offset is None:
-            return {"recognition": {"param": {"roi_offset": zone_offset}}}
-
-        new_roi = [int(roi[i]) + zone_offset[i] for i in range(4)]
-        return {"recognition": {"param": {"roi": new_roi}}}
+        return {
+            "recognition": {
+                "param": {"roi": cls._apply_offset(roi, zone_offset)}
+            }
+        }
 
     @classmethod
     def _build_action_override(
@@ -230,62 +227,19 @@ class LoadRoiZone(CustomAction):
 
         param = action.get("param")
         if not isinstance(param, dict):
-            param = {}
-
-        if action_type in cls._POINT_ACTION_TYPES:
-            return cls._build_point_override(
-                param, "target", "target_offset", zone_offset
-            )
-
-        if action_type == "Swipe":
-            override_param: dict[str, Any] = {}
-            for point_key, offset_key in (
-                ("begin", "begin_offset"),
-                ("end", "end_offset"),
-            ):
-                point_override = cls._build_point_param_override(
-                    param, point_key, offset_key, zone_offset
-                )
-                if point_override:
-                    override_param.update(point_override)
-            if override_param:
-                return {"action": {"param": override_param}}
             return None
 
+        override_param: dict[str, Any] = {}
+        if action_type in {"Click", "TouchDown", "LongPress"}:
+            target = param.get("target")
+            if isinstance(target, list) and len(target) in (2, 4):
+                override_param["target"] = cls._apply_offset(target, zone_offset)
+        elif action_type == "Swipe":
+            for key in ("begin", "end"):
+                point = param.get(key)
+                if isinstance(point, list) and len(point) in (2, 4):
+                    override_param[key] = cls._apply_offset(point, zone_offset)
+
+        if override_param:
+            return {"action": {"param": override_param}}
         return None
-
-    @classmethod
-    def _build_point_override(
-        cls,
-        param: dict[str, Any],
-        point_key: str,
-        offset_key: str,
-        zone_offset: list[int],
-    ) -> dict[str, Any] | None:
-        point_override = cls._build_point_param_override(
-            param, point_key, offset_key, zone_offset
-        )
-        if point_override:
-            return {"action": {"param": point_override}}
-        return None
-
-    @classmethod
-    def _build_point_param_override(
-        cls,
-        param: dict[str, Any],
-        point_key: str,
-        offset_key: str,
-        zone_offset: list[int],
-    ) -> dict[str, Any] | None:
-        point = param.get(point_key)
-        if not cls._is_point(point):
-            return None
-
-        point_offset = param.get(offset_key)
-        if point_offset is None:
-            return {offset_key: zone_offset}
-
-        new_point = list(point)
-        new_point[0] = int(new_point[0]) + zone_offset[0]
-        new_point[1] = int(new_point[1]) + zone_offset[1]
-        return {point_key: new_point}

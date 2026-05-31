@@ -79,13 +79,5 @@
                 ]
             }
         }
-    },
-    "识别区域": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "ReadROIZone"
-            }
-        }
     }
 }

@@ -1,5 +1,17 @@
 {
     "纷争战区": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CheckRoiZoneOffset"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "LoadROIZone"
+            }
+        },
         "next": [
             "[JumpBack]是否需要缓存",
             "结算期",
@@ -721,11 +733,7 @@
                 "green_mask": true,
                 "threshold": 0.6
             }
-        },
-        "next": [
-            "战斗界面检查",
-            "空任务"
-        ]
+        }
     },
     "载入中": {
         "recognition": {

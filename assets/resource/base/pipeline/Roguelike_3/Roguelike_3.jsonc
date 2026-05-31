@@ -27,6 +27,12 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]意外点击_限定活动"
         ],
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CheckRoiZoneOffset"
+            }
+        },
         "action": {
             "type": "Custom",
             "param": {
@@ -434,6 +440,12 @@
                 "expected": [
                     "藏品"
                 ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "LoadROIZone"
             }
         },
         "next": [

@@ -1,5 +1,17 @@
 {
     "拟真围剿": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CheckRoiZoneOffset"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "LoadROIZone"
+            }
+        },
         "next": [
             "拟真围剿内部",
             "拟真围剿无法进入",
