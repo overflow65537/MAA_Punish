@@ -522,8 +522,10 @@ class RoleSelection(CustomAction):
     ) -> dict:
 
         # 对每个角色进行识别
+        total_roles = len(role_actions)
         self.logger.info(
-            f"开始整页角色识别, cage={cage}, roguelike_mode={roguelike_mode}"
+            f"开始整页角色识别, 待匹配模板数={total_roles}, "
+            f"cage={cage}, roguelike_mode={roguelike_mode}"
         )
         role = {}
         image = context.tasker.controller.post_screencap().wait().get()
@@ -531,8 +533,15 @@ class RoleSelection(CustomAction):
         for role_name, role_action in role_actions.items():
             checked_count += 1
             if checked_count % 10 == 0:
-                self.logger.info(f"角色识别进度:  已识别到 {len(role)} 个角色")
+                self.logger.info(
+                    f"角色识别进度: {checked_count}/{total_roles}, "
+                    f"当前={role_name}, 本页已识别={len(role)}"
+                )
             if context.tasker.stopping:
+                self.logger.info(
+                    f"收到停止信号, 中断整页识别 "
+                    f"(进度 {checked_count}/{total_roles}, 本页已识别={len(role)})"
+                )
                 return role
 
             pipeline_override = {
@@ -549,24 +558,44 @@ class RoleSelection(CustomAction):
                 pipeline_override=pipeline_override,
             )
 
-            if (
-                result
-                and result.hit
-                and isinstance(result.best_result, TemplateMatchResult)
-            ):
-                is_have_role = context.run_recognition(
-                    entry="检查人物是否拥有",
-                    image=image,
+            if not (result and result.hit):
+                self.logger.debug(f"模板未命中: {role_name}")
+                continue
+
+            if not isinstance(result.best_result, TemplateMatchResult):
+                self.logger.warning(
+                    f"角色 {role_name} 识别命中但结果类型异常: "
+                    f"{type(result.best_result).__name__}"
                 )
-                if is_have_role and is_have_role.hit:
-                    self.logger.info(f"角色 {role_name} 未拥有")
-                    return role
-                for role_reco in result.filtered_results:
+                continue
+
+            is_have_role = context.run_recognition(
+                entry="检查人物是否拥有",
+                image=image,
+            )
+            if is_have_role and is_have_role.hit:
+                self.logger.info(
+                    f"检测到未拥有角色 {role_name}, 停止本页识别 "
+                    f"(进度 {checked_count}/{total_roles}, 本页已识别={len(role)})"
+                )
+                return role
+
+            match_count = len(result.filtered_results)
+            if match_count > 1:
+                self.logger.info(
+                    f"角色 {role_name} 在本页匹配到 {match_count} 个位置"
+                )
+
+            for role_reco in result.filtered_results:
                     # 检查识别结果并提取box信息
                     if not isinstance(role_reco, TemplateMatchResult):
+                        self.logger.warning(
+                            f"角色 {role_name} filtered_results 含非模板结果, 跳过"
+                        )
                         self.send_msg(context, f"未检测到对应人物: {role_name}")
                         return {}
-                    print(role_reco.box)
+
+                    self.logger.debug(f"角色 {role_name} box={role_reco.box}")
 
                     trial_reco = context.run_recognition(
                         entry="识别试用角色",
@@ -579,12 +608,7 @@ class RoleSelection(CustomAction):
                             }
                         },
                     )
-                    trial = False
-                    if trial_reco and trial_reco.hit:
-                        trial = True
-
-                    trial_label = " 试用" if trial and "[试用]" not in role_name else ""
-                    self.logger.info(f"识别到角色: {role_name}{trial_label}")
+                    trial = bool(trial_reco and trial_reco.hit)
 
                     display_name = (
                         role_name + "[试用]"
@@ -596,7 +620,7 @@ class RoleSelection(CustomAction):
                         metadata.copy() if isinstance(metadata, dict) else {}
                     )
 
-                    context.run_recognition(
+                    power_pre_reco = context.run_recognition(
                         entry="识别战斗参数",
                         image=image,
                         pipeline_override={
@@ -612,19 +636,24 @@ class RoleSelection(CustomAction):
                         image=image,
                     )
 
+                    power_text = None
                     if (
                         power_reco
                         and power_reco.hit
                         and isinstance(power_reco.best_result, OCRResult)
                     ):
-                        if power_reco.best_result.text.isdigit():
-                            role[display_name]["power"] = int(
-                                power_reco.best_result.text
-                            )
+                        power_text = power_reco.best_result.text
+                        if power_text.isdigit():
+                            role[display_name]["power"] = int(power_text)
                         else:
+                            self.logger.warning(
+                                f"角色 {display_name} 战力 OCR 非数字: {power_text!r}, 置为 0"
+                            )
                             role[display_name]["power"] = 0
-                        print(
-                            f"识别到角色: {display_name} 战力: {role[display_name]['power']}"
+                    else:
+                        self.logger.warning(
+                            f"角色 {display_name} 战力识别失败 "
+                            f"(hit={power_reco.hit if power_reco else None})"
                         )
 
                     if cage:
@@ -694,7 +723,45 @@ class RoleSelection(CustomAction):
                         role[display_name]["master_level"] = bool(
                             mastery_result and mastery_result.hit
                         )
-        self.logger.info(f"整页角色识别结束, 共识别到角色数量: {len(role)}")
+
+                    detail_parts = [
+                        f"box={role_reco.box}",
+                        f"trial={trial}",
+                        f"power={role[display_name].get('power', 'N/A')}",
+                        f"战斗参数={power_pre_reco.best_result if power_pre_reco and power_pre_reco.hit else 'None'}",
+                    ]
+                    if cage:
+                        detail_parts.append(
+                            f"cage={role[display_name].get('cage', 'N/A')}"
+                        )
+                    if roguelike_mode == 1:
+                        detail_parts.append(
+                            f"master_level={role[display_name].get('master_level', 'N/A')}"
+                        )
+                    self.logger.info(
+                        f"识别到角色: {display_name}, {', '.join(detail_parts)}"
+                    )
+
+        if role:
+            summary = ", ".join(
+                f"{name}(power={info.get('power', '?')}"
+                + (f", cage={info.get('cage', '?')}" if cage else "")
+                + (
+                    f", master={info.get('master_level', '?')}"
+                    if roguelike_mode == 1
+                    else ""
+                )
+                + ")"
+                for name, info in role.items()
+            )
+            self.logger.info(
+                f"整页角色识别结束, 共 {len(role)} 个: {summary}"
+            )
+        else:
+            self.logger.info(
+                f"整页角色识别结束, 本页未识别到任何角色 "
+                f"(已遍历 {checked_count}/{total_roles} 个模板)"
+            )
         return role
 
     # 计算权重
