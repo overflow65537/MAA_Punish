@@ -309,7 +309,8 @@
             }
         },
         "next": [
-            "点击BOSS区"
+            "点击BOSS区_常态",
+            "点击BOSS区_已击杀"
         ]
     },
     "检查BOSS区次数MAX": {
@@ -405,7 +406,7 @@
             "[JumpBack]切换主界面状态"
         ]
     },
-    "点击BOSS区": {
+    "点击BOSS区_常态": {
         "post_delay": 1000,
         "recognition": {
             "type": "OCR",
@@ -438,6 +439,29 @@
                     0
                 ]
             }
+        },
+        "next": [
+            "检查BOSS区次数MAX",
+            "检查BOSS区次数未满"
+        ]
+    },
+    "点击BOSS区_已击杀": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "expected": [
+                    "已击杀"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
         },
         "next": [
             "检查BOSS区次数MAX",
