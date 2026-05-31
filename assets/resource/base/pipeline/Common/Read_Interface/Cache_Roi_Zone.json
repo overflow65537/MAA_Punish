@@ -26,9 +26,29 @@
         "next": [
             "收起布局菜单",
             "[JumpBack]前往布局设置",
+            "[JumpBack]打开界面布局",
             "[JumpBack]打开键位",
             "[JumpBack]打开设置"
         ]
+    },
+    "打开界面布局": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    275,
+                    57,
+                    752,
+                    132
+                ],
+                "expected": [
+                    "界面布局"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "打开设置": {
         "recognition": {
