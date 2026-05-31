@@ -8,6 +8,7 @@ from action.basics.Post_Stop import PostStop
 from action.basics.Notice import Notice
 from action.basics.RedmeeCode import RedeemCode
 from action.basics.RedmeeCode import CheckRedeemCode
+from action.basics.ReadRoiZone import ReadROIZone
 
 
 from action.exclusives.CrimsonWeave import CrimsonWeave
@@ -33,9 +34,16 @@ from recognition.exclusives.ExpressionRecognition import ExpressionRecognition
 from recognition.exclusives.CheckBlueZone import CheckBlueZone
 
 
+@AgentServer.custom_action("ReadROIZone")
+class Agent_ReadROIZone(ReadROIZone):
+    pass
+
+
 @AgentServer.custom_recognition("CheckBlueZone")
 class Agent_CheckBlueZone(CheckBlueZone):
     pass
+
+
 @AgentServer.custom_recognition("CacheRole")
 class Agent_CacheRole(CacheRole):
     pass
