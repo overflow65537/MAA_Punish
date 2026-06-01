@@ -1,0 +1,11 @@
+{
+    "幻痛囚笼": {
+        "recognition": {
+            "param": {
+                "custom_recognition_param": {
+                    "controller": "win32"
+                }
+            }
+        }
+    }
+}

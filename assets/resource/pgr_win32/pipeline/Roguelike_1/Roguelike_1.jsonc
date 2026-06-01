@@ -1,4 +1,13 @@
 {
+    "宣叙妄响": {
+        "recognition": {
+            "param": {
+                "custom_recognition_param": {
+                    "controller": "win32"
+                }
+            }
+        }
+    },
     "失败2_宣叙妄响": {
         "action": {
             "type": "ClickKey",

@@ -1,0 +1,11 @@
+{
+    "寒境曙光": {
+        "recognition": {
+            "param": {
+                "custom_recognition_param": {
+                    "controller": "win32"
+                }
+            }
+        }
+    }
+}

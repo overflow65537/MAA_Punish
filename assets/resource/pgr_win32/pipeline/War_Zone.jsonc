@@ -1,0 +1,11 @@
+{
+    "纷争战区": {
+        "recognition": {
+            "param": {
+                "custom_recognition_param": {
+                    "controller": "win32"
+                }
+            }
+        }
+    }
+}
