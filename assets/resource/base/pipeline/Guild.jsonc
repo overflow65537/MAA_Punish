@@ -91,6 +91,12 @@
             "param": {
                 "roi": "识别文字颜色",
                 "expected": "鲸律星屿",
+                "replace": [
+                    [
+                        "鯨",
+                        "鲸"
+                    ]
+                ],
                 "only_rec": true,
                 "roi_offset": [
                     -2,
