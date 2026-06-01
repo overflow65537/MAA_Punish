@@ -85,7 +85,10 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "LoadROIZone"
+                "custom_action": "LoadROIZone",
+                "custom_action_param": {
+                    "controller": "adb"
+                }
             }
         }
     }

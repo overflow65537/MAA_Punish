@@ -4,13 +4,18 @@ MAA_Punish 载入识别区
 作者:overflow65537
 """
 
-from pathlib import Path
 from typing import Any
 
 from maa.context import Context
 from maa.custom_action import CustomAction
 from MPAcustom.logger_component import LoggerComponent
 import json
+
+from action.basics.InterfaceZone.roi_zone_controller import (
+    offset_path,
+    parse_controller,
+    parse_param,
+)
 
 
 class LoadRoiZone(CustomAction):
@@ -110,7 +115,9 @@ class LoadRoiZone(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        with open(Path("roi_zone_offset.json"), "r", encoding="utf-8") as f:
+        controller = parse_controller(parse_param(argv.custom_action_param))
+        offset_file = offset_path(controller)
+        with open(offset_file, "r", encoding="utf-8") as f:
             offset_data = json.load(f)
 
         overrides: dict[str, Any] = {}
@@ -131,8 +138,10 @@ class LoadRoiZone(CustomAction):
         if overrides:
             context.override_pipeline(overrides)
             self.logger.info(
-                "LoadRoiZone 本次覆盖 %d 个节点:\n%s",
+                "LoadRoiZone controller=%s 本次覆盖 %d 个节点 (%s):\n%s",
+                controller,
                 len(overrides),
+                offset_file,
                 json.dumps(overrides, ensure_ascii=False, indent=2),
             )
         else:

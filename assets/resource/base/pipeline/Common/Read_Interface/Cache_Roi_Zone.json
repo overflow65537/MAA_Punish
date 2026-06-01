@@ -144,7 +144,10 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "ReadROIZone"
+                "custom_action": "ReadROIZone",
+                "custom_action_param": {
+                    "controller": "adb"
+                }
             }
         },
         "next": [

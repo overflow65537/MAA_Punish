@@ -3,7 +3,10 @@
         "recognition": {
             "type": "Custom",
             "param": {
-                "custom_recognition": "CheckRoiZoneOffset"
+                "custom_recognition": "CheckRoiZoneOffset",
+                "custom_recognition_param": {
+                    "controller": "adb"
+                }
             }
         },
         "next": [
