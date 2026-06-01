@@ -1,5 +1,8 @@
 {
     "缓存ROI偏移配置": {
+        "focus": {
+            "Node.Recognition.Succeeded": "正在缓存战斗界面配置,请勿操作游戏"
+        },
         "next": [
             "打开界面设置",
             "[JumpBack]返回主菜单"
@@ -173,6 +176,7 @@
         "action": {
             "type": "Click"
         },
+        "pre_wait_freezes": 100,
         "next": [
             "退出布局菜单"
         ]
