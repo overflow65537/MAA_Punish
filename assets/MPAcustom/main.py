@@ -16,7 +16,7 @@ def main():
     if len(sys.argv) > 1:
         socket_id = sys.argv[-1]
     else:
-        socket_id = "MAA_AGENT_SOCKET"
+        socket_id = "AAAA"
     AgentServer.start_up(socket_id)
     AgentServer.join()
     AgentServer.shut_down()

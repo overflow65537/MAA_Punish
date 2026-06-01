@@ -3,6 +3,15 @@
         "focus": {
             "Node.Recognition.Succeeded": "[color:ForestGreen]开始演绎[/color]"
         },
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CheckRoiZoneOffset",
+                "custom_recognition_param": {
+                    "controller": "adb"
+                }
+            }
+        },
         "action": {
             "type": "Custom",
             "param": {
@@ -18,6 +27,7 @@
             }
         },
         "next": [
+            "[JumpBack]覆盖布局菜单",
             "宣叙妄响内部",
             "[JumpBack]选择人物_宣叙妄响",
             "[JumpBack]确认跳过",

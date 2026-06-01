@@ -4,6 +4,7 @@
             "Node.Recognition.Succeeded": "[color:ForestGreen]开始演算[/color]"
         },
         "next": [
+            "[JumpBack]覆盖布局菜单",
             "肉鸽内部",
             "迭变投影_矩阵循生",
             "[JumpBack]转场_矩阵循生",
@@ -27,6 +28,15 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]意外点击_限定活动"
         ],
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CheckRoiZoneOffset",
+                "custom_recognition_param": {
+                    "controller": "adb"
+                }
+            }
+        },
         "action": {
             "type": "Custom",
             "param": {

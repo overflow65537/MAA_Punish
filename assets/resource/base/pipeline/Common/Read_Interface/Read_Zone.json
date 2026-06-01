@@ -1,0 +1,95 @@
+{
+    "识别攻击区": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "界面/攻击区.png"
+                ]
+            }
+        }
+    },
+    "识别闪避区": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "界面/闪避区.png"
+                ]
+            }
+        }
+    },
+    "识别信号球区": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "界面/信号球区.png"
+                ]
+            }
+        }
+    },
+    "识别大招区": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "界面/大招区.png"
+                ]
+            }
+        }
+    },
+    "识别换人区": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "界面/换人区.png"
+                ],
+                "green_mask": true
+            }
+        }
+    },
+    "识别核心被动区": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "界面/核心被动区.png"
+                ]
+            }
+        }
+    },
+    "识别辅助机区": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "界面/辅助机区.png"
+                ]
+            }
+        }
+    },
+    "识别锁定区": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "界面/锁定区.png"
+                ]
+            }
+        }
+    },
+    "覆盖布局菜单": {
+        "max_hit": 1,
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "LoadROIZone",
+                "custom_action_param": {
+                    "controller": "adb"
+                }
+            }
+        }
+    }
+}

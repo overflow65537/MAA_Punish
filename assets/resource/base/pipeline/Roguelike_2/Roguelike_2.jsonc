@@ -3,7 +3,17 @@
         "focus": {
             "Node.Recognition.Succeeded": "[color:ForestGreen]开始冒险[/color]"
         },
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CheckRoiZoneOffset",
+                "custom_recognition_param": {
+                    "controller": "adb"
+                }
+            }
+        },
         "next": [
+            "[JumpBack]覆盖布局菜单",
             "肉鸽内部_厄愿潮声",
             "[JumpBack]不可重复获得该秘藏品",
             "[JumpBack]选择宝箱奖励_厄愿潮声",

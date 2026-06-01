@@ -1,6 +1,16 @@
 {
     "纷争战区": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CheckRoiZoneOffset",
+                "custom_recognition_param": {
+                    "controller": "adb"
+                }
+            }
+        },
         "next": [
+            "[JumpBack]覆盖布局菜单",
             "[JumpBack]是否需要缓存",
             "结算期",
             "纷争战区内部",
@@ -721,11 +731,7 @@
                 "green_mask": true,
                 "threshold": 0.6
             }
-        },
-        "next": [
-            "战斗界面检查",
-            "空任务"
-        ]
+        }
     },
     "载入中": {
         "recognition": {
