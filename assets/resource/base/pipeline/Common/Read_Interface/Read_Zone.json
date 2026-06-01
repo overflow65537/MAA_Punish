@@ -79,5 +79,14 @@
                 ]
             }
         }
+    },
+    "覆盖布局菜单": {
+        "max_hit": 1,
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "LoadROIZone"
+            }
+        }
     }
 }
