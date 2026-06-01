@@ -442,12 +442,6 @@
                 ]
             }
         },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "LoadROIZone"
-            }
-        },
         "next": [
             "链路崩溃",
             "[JumpBack]进入物归新主_矩阵循生",

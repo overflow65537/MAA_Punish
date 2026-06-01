@@ -6,12 +6,6 @@
                 "custom_recognition": "CheckRoiZoneOffset"
             }
         },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "LoadROIZone"
-            }
-        },
         "next": [
             "[JumpBack]是否需要缓存",
             "结算期",

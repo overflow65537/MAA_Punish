@@ -9,12 +9,6 @@
                 "custom_recognition": "CheckRoiZoneOffset"
             }
         },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "LoadROIZone"
-            }
-        },
         "next": [
             "[JumpBack]自动闪避",
             "[JumpBack]战斗重启1",

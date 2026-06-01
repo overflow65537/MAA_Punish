@@ -6,12 +6,6 @@
                 "custom_recognition": "CheckRoiZoneOffset"
             }
         },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "LoadROIZone"
-            }
-        },
         "next": [
             "成员整备",
             "识别历战分数",

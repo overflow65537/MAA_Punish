@@ -130,12 +130,6 @@
                 "expected": "第.章"
             }
         },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "LoadROIZone"
-            }
-        },
         "next": [
             "肉鸽失败_厄愿潮声",
             "[JumpBack]点击继续",

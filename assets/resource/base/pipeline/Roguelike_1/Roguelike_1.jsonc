@@ -75,12 +75,6 @@
                 ]
             }
         },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "LoadROIZone"
-            }
-        },
         "next": [
             "失败_宣叙妄响",
             "boss_宣叙妄响",

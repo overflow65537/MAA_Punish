@@ -9,12 +9,6 @@
                 "custom_recognition": "CheckRoiZoneOffset"
             }
         },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "LoadROIZone"
-            }
-        },
         "next": [
             "吃体力药",
             "[JumpBack]返回主菜单",
