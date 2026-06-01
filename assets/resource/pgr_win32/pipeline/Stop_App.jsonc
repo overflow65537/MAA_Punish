@@ -1,0 +1,43 @@
+{
+    "停止": {
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "确认退出",
+            "[JumpBack]esc键"
+        ]
+    },
+    "确认退出": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    735,
+                    488,
+                    104,
+                    59
+                ],
+                "expected": [
+                    "确定"
+                ]
+            }
+        },
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 74
+            }
+        }
+    },
+    "esc键": {
+        "post_delay": 1000,
+        "max_hit": 30,
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 27
+            }
+        }
+    }
+}
