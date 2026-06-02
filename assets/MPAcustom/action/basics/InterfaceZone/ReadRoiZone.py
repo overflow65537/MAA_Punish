@@ -26,6 +26,7 @@ class ReadROIZone(CustomAction):
 
         image = context.tasker.controller.post_screencap().wait().get()
         result: dict = {}
+        failed = False
 
         for key, entry, default in zones:
             reco = context.run_recognition(entry, image)
@@ -46,11 +47,25 @@ class ReadROIZone(CustomAction):
                     "offset": None,
                     "hit": False,
                 }
-                print(f"{key} recognition failed")
+                self.send_msg(context, f"{key} 读取失败")
+                failed = True
 
+        if failed:
+            self.send_msg(context, "读取ROI偏移配置失败,请切换键位为新界面")
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(result, f, indent=4, ensure_ascii=False)
 
         print(f"ReadROIZone controller={controller} saved to {output_path}")
         return CustomAction.RunResult(success=True)
+
+    def send_msg(self, context: Context, msg: str):
+        msg_node = {
+            "发送消息_这是程序自动生成的node所以故意写的很长来防止某一天想不开用了这个名字导致报错": {
+                "focus": {"Node.Recognition.Succeeded": msg}
+            }
+        }
+        context.run_task(
+            "发送消息_这是程序自动生成的node所以故意写的很长来防止某一天想不开用了这个名字导致报错",
+            pipeline_override=msg_node,
+        )
