@@ -301,6 +301,7 @@
         "./tasks/战令.json",
         "./tasks/结束游戏.json",
         "./tasks/手动更新角色缓存.json",
+        "./tasks/手动更新组件区域.json",
         "./tasks/洗词缀.json",
         "./tasks/链合回路.json",
         "./tasks/战斗辅助.json",
