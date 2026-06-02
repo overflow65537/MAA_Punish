@@ -31,7 +31,6 @@ from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
 from recognition.exclusives.NextStageRecognition import NextStageRecognition
 from recognition.exclusives.CacheRole import CacheRole
-from recognition.exclusives.CheckRoiZoneOffset import CheckRoiZoneOffset
 from recognition.exclusives.ExpressionRecognition import ExpressionRecognition
 from recognition.exclusives.CheckBlueZone import CheckBlueZone
 
@@ -50,11 +49,6 @@ class Agent_CheckBlueZone(CheckBlueZone):
 
 @AgentServer.custom_recognition("CacheRole")
 class Agent_CacheRole(CacheRole):
-    pass
-
-
-@AgentServer.custom_recognition("CheckRoiZoneOffset")
-class Agent_CheckRoiZoneOffset(CheckRoiZoneOffset):
     pass
 
 

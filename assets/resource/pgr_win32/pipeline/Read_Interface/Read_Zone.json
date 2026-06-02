@@ -1,9 +1,8 @@
 {
     "覆盖布局菜单": {
-        "recognition": {
+        "action": {
             "param": {
-                "custom_recognition": "CheckRoiZoneOffset",
-                "custom_recognition_param": {
+                "custom_action_param": {
                     "controller": "win32"
                 }
             }

@@ -4,9 +4,15 @@
         "pre_delay": 0,
         "rate_limit": 0,
         "recognition": {
+            "type": "DirectHit"
+        },
+        "action": {
             "type": "Custom",
             "param": {
-                "custom_recognition": "CheckRoiZoneOffset"
+                "custom_action": "LoadROIZone",
+                "custom_action_param": {
+                    "controller": "adb"
+                }
             }
         },
         "next": [
