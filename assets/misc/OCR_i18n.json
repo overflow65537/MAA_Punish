@@ -1144,7 +1144,7 @@
         "zh_CN": "快速离开这里",
         "zh_TW": "快速離開這里"
     },
-    "下一步_宣叙妄响": {
+    "下一步": {
         "path": "assets/resource/base/pipeline/Roguelike_1/Roguelike_1.jsonc",
         "zh_CN": "下一步",
         "zh_TW": "下一步"
@@ -1439,11 +1439,6 @@
         "zh_CN": "之邀约LV2",
         "zh_TW": "之邀約LV2"
     },
-    "邀约下一步_厄愿潮声": {
-        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
-        "zh_CN": "下一步",
-        "zh_TW": "下一步"
-    },
     "厄愿潮声主界面": {
         "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
         "zh_CN": "失落外典",
@@ -1508,11 +1503,6 @@
         "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
         "zh_CN": "退出",
         "zh_TW": "退出"
-    },
-    "下一步_厄愿潮声": {
-        "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
-        "zh_CN": "下一步",
-        "zh_TW": "下一步"
     },
     "终止_厄愿潮声": {
         "path": "assets/resource/base/pipeline/Roguelike_2/Roguelike_2.jsonc",
@@ -2283,11 +2273,6 @@
         "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
         "zh_CN": "外层",
         "zh_TW": "外層"
-    },
-    "下一步_矩阵循生": {
-        "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
-        "zh_CN": "下一步",
-        "zh_TW": "下一步"
     },
     "选择首发_矩阵循生": {
         "path": "assets/resource/base/pipeline/Roguelike_3/Roguelike_3.jsonc",
@@ -3388,11 +3373,6 @@
         "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
         "zh_CN": "考核等级提升",
         "zh_TW": "考核等級提升"
-    },
-    "下一步_寒境曙光": {
-        "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",
-        "zh_CN": "下一步",
-        "zh_TW": "下一步"
     },
     "确定终止_寒境曙光": {
         "path": "assets/resource/base/pipeline/Roguelike_4/Roguelike_4.jsonc",

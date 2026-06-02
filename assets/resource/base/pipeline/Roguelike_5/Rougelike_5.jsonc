@@ -17,11 +17,41 @@
             "[JumpBack]选择成员",
             "[JumpBack]打开启示之路",
             "[JumpBack]打开神寂启示录",
+            "[JumpBack]时宇漫纪_滑动",
             "[JumpBack]打开时宇漫纪",
             "[JumpBack]打开挑战",
             "[JumpBack]打开战斗",
             "[JumpBack]继续_神寂启示录"
         ]
+    },
+    "时宇漫纪_滑动": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    201,
+                    439,
+                    345,
+                    211
+                ],
+                "expected": [
+                    "雾夜镇魂曲"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    1100,
+                    400
+                ],
+                "end": [
+                    400,
+                    400
+                ]
+            }
+        }
     },
     "废弃刻印": {
         "recognition": {

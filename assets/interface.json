@@ -250,6 +250,10 @@
                 {
                     "name": "神寂启示录",
                     "enabled": false
+                },
+                {
+                    "name": "雾夜镇魂曲",
+                    "enabled": false
                 }
             ]
         },
@@ -304,7 +308,8 @@
         "./tasks/厄愿潮声.json",
         "./tasks/矩阵循生.json",
         "./tasks/寒境曙光.json",
-        "./tasks/神寂启示录.json"
+        "./tasks/神寂启示录.json",
+        "./tasks/雾夜镇魂曲.json"
     ],
     "option": {
         "角色缓存更新频率": {
