@@ -1,7 +1,8 @@
 {
-    "矩阵循生": {
+    "覆盖布局菜单": {
         "recognition": {
             "param": {
+                "custom_recognition": "CheckRoiZoneOffset",
                 "custom_recognition_param": {
                     "controller": "win32"
                 }

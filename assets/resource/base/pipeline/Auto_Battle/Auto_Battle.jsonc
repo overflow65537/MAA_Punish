@@ -3,15 +3,6 @@
         "post_delay": 0,
         "pre_delay": 0,
         "rate_limit": 0,
-        "recognition": {
-            "type": "Custom",
-            "param": {
-                "custom_recognition": "CheckRoiZoneOffset",
-                "custom_recognition_param": {
-                    "controller": "adb"
-                }
-            }
-        },
         "next": [
             "[JumpBack]覆盖布局菜单",
             "[JumpBack]自动闪避",

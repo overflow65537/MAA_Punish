@@ -1,14 +1,5 @@
 {
     "幻痛囚笼": {
-        "recognition": {
-            "type": "Custom",
-            "param": {
-                "custom_recognition": "CheckRoiZoneOffset",
-                "custom_recognition_param": {
-                    "controller": "adb"
-                }
-            }
-        },
         "next": [
             "[JumpBack]覆盖布局菜单",
             "[JumpBack]是否需要缓存",

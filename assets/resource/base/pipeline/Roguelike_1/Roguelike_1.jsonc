@@ -3,15 +3,6 @@
         "focus": {
             "Node.Recognition.Succeeded": "[color:ForestGreen]开始演绎[/color]"
         },
-        "recognition": {
-            "type": "Custom",
-            "param": {
-                "custom_recognition": "CheckRoiZoneOffset",
-                "custom_recognition_param": {
-                    "controller": "adb"
-                }
-            }
-        },
         "action": {
             "type": "Custom",
             "param": {
