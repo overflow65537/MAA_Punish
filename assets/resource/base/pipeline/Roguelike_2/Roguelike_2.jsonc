@@ -22,7 +22,7 @@
             "[JumpBack]选择难度_厄愿潮声",
             "[JumpBack]开始旅途_厄愿潮声",
             "[JumpBack]退出_厄愿潮声",
-            "[JumpBack]下一步",
+            "[JumpBack]下一步_厄愿潮声",
             "[JumpBack]点击继续",
             "[JumpBack]确定",
             "[JumpBack]终止_厄愿潮声",
@@ -47,6 +47,26 @@
                     }
                 }
             }
+        }
+    },
+    "下一步_厄愿潮声": {
+        "desc": "only_rec的下一步,跳过OCR缓存",
+        "post_delay": 1000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1101,
+                    631,
+                    99,
+                    44
+                ],
+                "expected": "下一步",
+                "only_rec": true
+            }
+        },
+        "action": {
+            "type": "Click"
         }
     },
     "不可重复获得该秘藏品": {
