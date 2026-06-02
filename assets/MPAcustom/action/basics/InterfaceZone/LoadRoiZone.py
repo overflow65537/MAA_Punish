@@ -12,6 +12,7 @@ from MPAcustom.logger_component import LoggerComponent
 import json
 
 from action.basics.InterfaceZone.roi_zone_controller import (
+    is_adaptive_layout_enabled,
     offset_path,
     parse_controller,
     parse_param,
@@ -116,6 +117,14 @@ class LoadRoiZone(CustomAction):
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
         controller = parse_controller(parse_param(argv.custom_action_param))
+
+        if not is_adaptive_layout_enabled(context):
+            self.logger.info(
+                "LoadRoiZone controller=%s 自适应布局已关闭, 跳过 ROI 覆盖",
+                controller,
+            )
+            return CustomAction.RunResult(success=True)
+
         offset_file = offset_path(controller)
         with open(offset_file, "r", encoding="utf-8") as f:
             offset_data = json.load(f)

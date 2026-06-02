@@ -5,6 +5,9 @@
     "自动切换": {
         "enabled": true
     },
+    "自适应布局": {
+        "enabled": true
+    },
     "关闭奖励": {
         "post_delay": 1000,
         "recognition": {

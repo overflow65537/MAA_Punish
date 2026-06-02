@@ -87,6 +87,7 @@
     },
     "global_option": [
         "切换服务器",
+        "自适应布局",
         "角色缓存更新频率",
         "自动QTE",
         "自动切换角色",
@@ -1234,6 +1235,30 @@
                     }
                 }
             }
+        },
+        "自适应布局": {
+            "label": "自适应战斗界面",
+            "description": "自动适配不同分辨率的战斗界面布局，目前仅支持新界面",
+            "type": "switch",
+            "default_case": "No",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "自适应布局": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "自适应布局": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
         }
     }
 }
