@@ -9,7 +9,6 @@ from maa.custom_recognition import CustomRecognition
 
 from MPAcustom.logger_component import LoggerComponent
 from action.basics.InterfaceZone.roi_zone_controller import (
-    is_adaptive_layout_enabled,
     offset_path,
     parse_controller,
     parse_param,
@@ -59,21 +58,6 @@ class CheckRoiZoneOffset(CustomRecognition):
     ) -> CustomRecognition.AnalyzeResult | None:
         logger = LoggerComponent(__name__).logger
         controller = parse_controller(parse_param(argv.custom_recognition_param))
-
-        if not is_adaptive_layout_enabled(context):
-            logger.info(
-                "[CheckRoiZoneOffset] controller=%s 自适应布局已关闭, 跳过 ROI 偏移流程",
-                controller,
-            )
-            return CustomRecognition.AnalyzeResult(
-                box=(0, 0, 100, 100),
-                detail={
-                    "status": "skipped",
-                    "message": "自适应布局已关闭",
-                    "controller": controller,
-                },
-            )
-
         offset_file = offset_path(controller)
 
         if offset_file.exists():

@@ -7,10 +7,6 @@ from pathlib import Path
 import json
 from typing import Any
 
-from maa.context import Context
-
-ADAPTIVE_LAYOUT_NODE = "自适应布局"
-
 # 魔法变量：两套默认 zones（adb 为模拟器布局，win32 为 PC 客户端实测 recognized）
 _ADB_ZONES: tuple[tuple[str, str, list[int]], ...] = (
     ("atk_zone", "识别攻击区", [1132, 572, 124, 123]),
@@ -82,8 +78,3 @@ def parse_param(raw_param: Any) -> dict[str, Any]:
         if isinstance(parsed, dict):
             return parsed
     return {}
-
-
-def is_adaptive_layout_enabled(context: Context) -> bool:
-    node_data = context.get_node_data(ADAPTIVE_LAYOUT_NODE) or {}
-    return bool(node_data.get("enabled", False))

@@ -1,7 +1,7 @@
 {
     "缓存ROI偏移配置": {
         "focus": {
-            "Node.Recognition.Succeeded": "正在缓存战斗界面配置,请勿操作游戏,目前仅支持新界面"
+            "Node.Recognition.Succeeded": "正在缓存战斗界面配置,请勿操作游戏"
         },
         "next": [
             "打开界面设置",
