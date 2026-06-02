@@ -6,7 +6,10 @@
         "enabled": true
     },
     "关闭奖励": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {

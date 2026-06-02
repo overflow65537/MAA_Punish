@@ -2,11 +2,85 @@
     "通行证": {
         "next": [
             "[JumpBack]通行证-意外处理-点击确认",
-            "评定任务",
+            "通行证内部",
             "[JumpBack]关闭奖励",
             "[JumpBack]打开通行证",
             "[JumpBack]打开通行证_图片",
             "[JumpBack]意外点击_主界面"
+        ]
+    },
+    "通行证内部": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    915,
+                    130,
+                    222,
+                    109
+                ],
+                "expected": [
+                    "获取情报值"
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]点击蓝点",
+            "返回主菜单"
+        ]
+    },
+    "点击蓝点": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    185,
+                    409
+                ],
+                "method": 40,
+                "lower": [
+                    107,
+                    140,
+                    190
+                ],
+                "upper": [
+                    107,
+                    150,
+                    200
+                ],
+                "count": 10,
+                "connected": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "一键领取_通行证"
+        ]
+    },
+    "一键领取_通行证": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    702,
+                    564,
+                    321,
+                    156
+                ],
+                "expected": [
+                    "键领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "关闭奖励"
         ]
     },
     "通行证-意外处理-点击确认": {
