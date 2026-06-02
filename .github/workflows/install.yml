@@ -27,7 +27,7 @@ jobs:
       release_body: ${{ steps.git-cliff.outputs.content }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -44,7 +44,7 @@ jobs:
   meta:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - id: set_tag
@@ -93,7 +93,7 @@ jobs:
 #        run: |
 #          curl -L -o background.png "https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/images/1764000000000/skoi7dbbzdwogxvnin-176404371364016.png"
 #
-#      - uses: actions/upload-artifact@v4
+#      - uses: actions/upload-artifact@v6
 #        with:
 #          name: background
 #          path: background.png
@@ -126,12 +126,12 @@ jobs:
             arch: x86_64
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           submodules: true
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
 
@@ -163,7 +163,7 @@ jobs:
 #          name: background
 #          path: install/
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: MPA-${{ matrix.platform }}-${{ matrix.arch }}
           path: "install"
@@ -173,7 +173,7 @@ jobs:
     needs: [meta, build, changelog]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v6
         with:
           path: assets
 

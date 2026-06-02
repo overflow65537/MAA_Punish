@@ -15,7 +15,6 @@ def install_resource():
         install_path,
         dirs_exist_ok=True,
     )
-    shutil.rmtree(install_path / "MaaCommonAssets")
 
     # 删除logo.png
     (install_path / "logo.png").unlink(missing_ok=True)
