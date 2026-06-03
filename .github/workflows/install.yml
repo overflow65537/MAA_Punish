@@ -198,6 +198,27 @@ jobs:
             echo "⚠️ No MFW.exe under install/; icon step had nothing to patch."
           fi
 
+      - name: Rename Windows MFW.exe
+        if: matrix.platform == 'win'
+        shell: bash
+        run: |
+          set -euo pipefail
+          n=0
+          while IFS= read -r -d '' exe; do
+            dir="$(dirname "$exe")"
+            target="$dir/法奥斯之矛.exe"
+            if [ -e "$target" ]; then
+              echo "⚠️ Skip (already exists): $target"
+            else
+              mv "$exe" "$target"
+              echo "Renamed: $exe -> $target"
+            fi
+            n=$((n + 1))
+          done < <(find install -type f \( -iname 'MFW.exe' \) -print0 2>/dev/null)
+          if [ "$n" -eq 0 ]; then
+            echo "⚠️ No MFW.exe under install/; nothing to rename."
+          fi
+
       #      - name: Install MFW
       #        shell: bash
       #        run: |
