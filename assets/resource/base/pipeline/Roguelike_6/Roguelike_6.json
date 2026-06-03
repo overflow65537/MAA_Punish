@@ -277,7 +277,6 @@
             "param": {
                 "all_of": [
                     {
-                        "sub_name": "确认文本",
                         "recognition": {
                             "type": "OCR",
                             "param": {
@@ -287,22 +286,11 @@
                                     279,
                                     138
                                 ],
-                                "expected": [
-                                    "确定"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": "确认文本",
                                 "roi_offset": [
-                                    0,
-                                    -34,
-                                    133,
-                                    52
+                                    1001,
+                                    582,
+                                    279,
+                                    138
                                 ],
                                 "expected": [
                                     "2/2"
