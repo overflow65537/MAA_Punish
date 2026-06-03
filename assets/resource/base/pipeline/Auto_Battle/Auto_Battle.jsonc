@@ -69,6 +69,9 @@
                 "green_mask": true,
                 "template": [
                     "战斗/点击事件.png"
+                ],
+                "threshold": [
+                    0.8
                 ]
             }
         },
