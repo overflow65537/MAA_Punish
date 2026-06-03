@@ -458,3 +458,4 @@ config
 .nicegui/storage-general.json
 assets/MPAcustom/recognition/exclusives/role_cache.json
 assets/role_cache.json
+assets/*_role_cache.json

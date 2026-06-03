@@ -88,6 +88,7 @@
     "global_option": [
         "切换服务器",
         "角色缓存更新频率",
+        "多账号缓存",
         "自动QTE",
         "自动切换角色",
         "同时选择多名角色",
@@ -406,6 +407,70 @@
                     }
                 }
             ]
+        },
+        "多账号缓存": {
+            "label": "多账号缓存",
+            "description": "为不同账号使用独立的角色缓存文件；开启后需填写前缀，文件名为「前缀_role_cache.json」",
+            "type": "switch",
+            "default_case": "No",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "option": [
+                        "角色缓存账号前缀"
+                    ]
+                },
+                {
+                    "name": "No"
+                }
+            ]
+        },
+        "角色缓存账号前缀": {
+            "label": "角色缓存账号前缀",
+            "description": "用于区分多账号缓存，仅允许字母、数字、中文、下划线与连字符",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "账号前缀",
+                    "label": "账号前缀",
+                    "description": "例如 main、小号1；对应 assets/前缀_role_cache.json",
+                    "default": "main",
+                    "pipeline_type": "string",
+                    "verify": "^[\\w\\u4e00-\\u9fff\\-]{1,32}$",
+                    "pattern_msg": "请输入 1–32 位有效前缀（字母、数字、中文、_、-）"
+                }
+            ],
+            "pipeline_override": {
+                "是否需要缓存": {
+                    "recognition": {
+                        "param": {
+                            "custom_recognition_param": {
+                                "cache_prefix": "{账号前缀}"
+                            }
+                        }
+                    }
+                },
+                "选择角色程序": {
+                    "attach": {
+                        "cache_prefix": "{账号前缀}"
+                    }
+                },
+                "选择角色程序_onlyNode": {
+                    "attach": {
+                        "cache_prefix": "{账号前缀}"
+                    }
+                },
+                "选择角色程序_矩阵循生": {
+                    "attach": {
+                        "cache_prefix": "{账号前缀}"
+                    }
+                },
+                "缓存角色程序": {
+                    "attach": {
+                        "cache_prefix": "{账号前缀}"
+                    }
+                }
+            }
         },
         "切换服务器": {
             "label": "切换服务器",

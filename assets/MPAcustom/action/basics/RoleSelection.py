@@ -84,9 +84,10 @@ class RoleSelection(CustomAction):
         super().__init__()
         self._logger_component = LoggerComponent(__name__)
         self.logger = self._logger_component.logger
+        self._cache_prefix = ""
 
     def _cache_path(self) -> Path:
-        return cache_policy.cache_path()
+        return cache_policy.cache_path(self._cache_prefix)
 
     def _current_week(self) -> int:
         return datetime.date.today().isocalendar().week
@@ -271,6 +272,9 @@ class RoleSelection(CustomAction):
 
         node_data = context.get_node_data(argv.node_name) or {}
         attach: dict = node_data.get("attach", {}) or {}
+        self._cache_prefix = cache_policy.resolve_cache_prefix(attach, param)
+        if self._cache_prefix:
+            self.logger.info(f"多账号缓存前缀: {self._cache_prefix!r}")
 
         selection_mode: str = (
             attach["selection_mode"]
@@ -300,6 +304,10 @@ class RoleSelection(CustomAction):
         update_frequency = cache_policy.resolve_update_frequency(
             attach, param, cache_data_for_freq
         )
+        if not self._cache_prefix:
+            self._cache_prefix = cache_policy.resolve_cache_prefix(
+                cache_data=cache_data_for_freq
+            )
 
         self.logger.info(
             f"开始执行配队: selection_mode={selection_mode}, roguelike_equivalent={roguelike_equivalent}, "

@@ -6,12 +6,42 @@ from __future__ import annotations
 
 import datetime
 import json
+import re
 from pathlib import Path
 from typing import Any
 
+_INVALID_PREFIX_CHARS = re.compile(r'[<>:"/\\|?*\x00-\x1f]')
 
-def cache_path() -> Path:
-    return Path(__file__).resolve().parents[3] / "role_cache.json"
+
+def normalize_cache_prefix(value: Any) -> str:
+    if not isinstance(value, str):
+        return ""
+    prefix = _INVALID_PREFIX_CHARS.sub("_", value.strip())
+    return prefix
+
+
+def cache_path(prefix: str | None = None) -> Path:
+    base_dir = Path(__file__).resolve().parents[3]
+    norm = normalize_cache_prefix(prefix) if prefix is not None else ""
+    if norm:
+        return base_dir / f"{norm}_role_cache.json"
+    return base_dir / "role_cache.json"
+
+
+def resolve_cache_prefix(
+    attach: dict | None = None,
+    param: dict | None = None,
+    cache_data: dict | None = None,
+) -> str:
+    attach = attach or {}
+    param = param or {}
+    if "cache_prefix" in attach:
+        return normalize_cache_prefix(attach["cache_prefix"])
+    if "cache_prefix" in param:
+        return normalize_cache_prefix(param["cache_prefix"])
+    if cache_data and "cache_prefix" in cache_data:
+        return normalize_cache_prefix(cache_data["cache_prefix"])
+    return ""
 
 
 def normalize_frequency(value: Any) -> str:

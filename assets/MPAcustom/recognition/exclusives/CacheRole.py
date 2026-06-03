@@ -38,9 +38,11 @@ class CacheRole(CustomRecognition):
         update_frequency = cache_policy.normalize_frequency(
             params.get("update_frequency")
         )
-        cache_path = cache_policy.cache_path()
+        cache_prefix = cache_policy.resolve_cache_prefix(param=params)
+        cache_path = cache_policy.cache_path(cache_prefix)
         logger.info(
-            f"[CacheRole] 启动检查, update_frequency={update_frequency}, cache_path={cache_path}"
+            f"[CacheRole] 启动检查, update_frequency={update_frequency}, "
+            f"cache_prefix={cache_prefix!r}, cache_path={cache_path}"
         )
         now = datetime.datetime.now()
         if not cache_path.exists():
