@@ -153,13 +153,32 @@ jobs:
           latest: true
           #tag: "v4.0.0-beta.1"
 
+      - name: Convert PNG to ICO
+        if: matrix.platform == 'win' && matrix.arch == 'x86_64'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f "./logo.png" ]; then
+            echo "❌ ERROR: ./logo.png missing"
+            exit 1
+          fi
+          python -m pip install pillow -q
+          python - <<'PY'
+          from PIL import Image
+
+          im = Image.open("logo.png").convert("RGBA")
+          sizes = [(256, 256), (128, 128), (64, 64), (48, 48), (32, 32), (16, 16)]
+          im.save("logo.ico", format="ICO", sizes=sizes)
+          PY
+          ls -la logo.ico
+
       - name: Modify Windows exe icons
-        if: matrix.os == 'win' && matrix.arch == 'x86_64'
+        if: matrix.platform == 'win' && matrix.arch == 'x86_64'
         shell: bash
         run: |
           set -euo pipefail
           if [ ! -f "./logo.ico" ]; then
-            echo "❌ ERROR: ./logo.ico missing (run Convert PNG to ICO first)"
+            echo "❌ ERROR: ./logo.ico missing (Convert PNG to ICO step failed?)"
             exit 1
           fi
           if [ ! -d "install" ]; then
