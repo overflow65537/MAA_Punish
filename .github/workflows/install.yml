@@ -85,18 +85,18 @@ jobs:
       tag: ${{ steps.set_tag.outputs.tag }}
       is_release: ${{ steps.set_tag.outputs.is_release }}
       is_prerelease: ${{ steps.set_tag.outputs.is_prerelease }}
-#  background:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Download background image
-#        shell: bash
-#        run: |
-#          curl -L -o background.png "https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/images/1764000000000/skoi7dbbzdwogxvnin-176404371364016.png"
-#
-#      - uses: actions/upload-artifact@v6
-#        with:
-#          name: background
-#          path: background.png
+  #  background:
+  #    runs-on: ubuntu-latest
+  #    steps:
+  #      - name: Download background image
+  #        shell: bash
+  #        run: |
+  #          curl -L -o background.png "https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/images/1764000000000/skoi7dbbzdwogxvnin-176404371364016.png"
+  #
+  #      - uses: actions/upload-artifact@v6
+  #        with:
+  #          name: background
+  #          path: background.png
 
   build:
     needs: [meta]
@@ -133,7 +133,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Install
         shell: bash
@@ -153,15 +153,41 @@ jobs:
           latest: true
           #tag: "v4.0.0-beta.1"
 
-#      - name: Install MFW
-#        shell: bash
-#        run: |
-#          rm install/MFW-PyQt6-${{ matrix.platform }}-${{ matrix.arch }}*
-#
-#      - uses: actions/download-artifact@v4
-#        with:
-#          name: background
-#          path: install/
+      - name: Modify Windows exe icons
+        if: matrix.os == 'win' && matrix.arch == 'x86_64'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f "./logo.ico" ]; then
+            echo "❌ ERROR: ./logo.ico missing (run Convert PNG to ICO first)"
+            exit 1
+          fi
+          if [ ! -d "install" ]; then
+            echo "❌ ERROR: install/ missing after Install step"
+            exit 1
+          fi
+          curl -fsSL https://github.com/electron/rcedit/releases/download/v2.0.0/rcedit-x64.exe -o rcedit.exe
+          ICO_W="$(cygpath -w "$(pwd)/logo.ico")"
+          n=0
+          while IFS= read -r -d '' exe; do
+            _abs="$(cd "$(dirname "$exe")" && pwd)/$(basename "$exe")"
+            ./rcedit.exe "$(cygpath -w "$_abs")" --set-icon "$ICO_W"
+            echo "MFW.exe icon updated: $exe"
+            n=$((n + 1))
+          done < <(find install -type f \( -iname 'MFW.exe' \) -print0 2>/dev/null)
+          if [ "$n" -eq 0 ]; then
+            echo "⚠️ No MFW.exe under install/; icon step had nothing to patch."
+          fi
+
+      #      - name: Install MFW
+      #        shell: bash
+      #        run: |
+      #          rm install/MFW-PyQt6-${{ matrix.platform }}-${{ matrix.arch }}*
+      #
+      #      - uses: actions/download-artifact@v4
+      #        with:
+      #          name: background
+      #          path: install/
 
       - uses: actions/upload-artifact@v6
         with:
