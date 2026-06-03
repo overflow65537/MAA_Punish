@@ -286,7 +286,7 @@
     },
     "服务器错误提示": {
         "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]服务器错误,请选择所在服务器[/color]"
+            "Node.Recognition.Succeeded": "[color:Tomato]服务器错误,请选择所在服务器(比如b服)[/color]"
         },
         "next": [
             "启动"
