@@ -30,8 +30,8 @@ class ReadROIZone(CustomAction):
 
         for key, entry, default in zones:
             reco = context.run_recognition(entry, image)
-            if reco and reco.hit and reco.best_result:
-                recognized = list(reco.best_result.box)
+            if reco and reco.hit and reco.box:
+                recognized = list(reco.box)
                 offset = [recognized[i] - default[i] for i in range(4)]
                 result[key] = {
                     "default": default,
