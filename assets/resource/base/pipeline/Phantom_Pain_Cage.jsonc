@@ -79,22 +79,11 @@
     },
     "执行A区": {
         "post_delay": 2000,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    462,
-                    384,
-                    143,
-                    295
-                ],
-                "expected": [
-                    "讨伐"
-                ]
-            }
-        },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target": "检查A区"
+            }
         },
         "next": [
             "检查A区",
@@ -120,6 +109,12 @@
                 ],
                 "expected": [
                     "讨伐"
+                ],
+                "replace": [
+                    [
+                        "代",
+                        "伐"
+                    ]
                 ]
             }
         },
@@ -129,23 +124,11 @@
     },
     "执行B区": {
         "post_delay": 2000,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    725,
-                    383,
-                    188,
-                    273
-                ],
-                "order_by": "Vertical",
-                "expected": [
-                    "讨伐"
-                ]
-            }
-        },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target": "检查B区"
+            }
         },
         "next": [
             "检查B区",
@@ -172,6 +155,12 @@
                 "order_by": "Vertical",
                 "expected": [
                     "讨伐"
+                ],
+                "replace": [
+                    [
+                        "代",
+                        "伐"
+                    ]
                 ]
             }
         },
@@ -181,22 +170,11 @@
     },
     "执行C区": {
         "post_delay": 2000,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1034,
-                    396,
-                    192,
-                    291
-                ],
-                "expected": [
-                    "讨伐"
-                ]
-            }
-        },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target": "检查C区"
+            }
         },
         "next": [
             "检查C区",
@@ -222,6 +200,12 @@
                 ],
                 "expected": [
                     "讨伐"
+                ],
+                "replace": [
+                    [
+                        "代",
+                        "伐"
+                    ]
                 ]
             }
         },
