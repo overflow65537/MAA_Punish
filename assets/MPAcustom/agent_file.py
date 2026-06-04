@@ -34,6 +34,12 @@ from recognition.exclusives.CacheRole import CacheRole
 from recognition.exclusives.ExpressionRecognition import ExpressionRecognition
 from recognition.exclusives.CheckBlueZone import CheckBlueZone
 
+from sink.resolution_check import AspectRatioChecker
+
+@AgentServer.tasker_sink()
+class Tasker_AspectRatioChecker(AspectRatioChecker):
+    pass
+
 @AgentServer.custom_action("LoadROIZone")
 class Agent_LoadROIZone(LoadRoiZone):
     pass
