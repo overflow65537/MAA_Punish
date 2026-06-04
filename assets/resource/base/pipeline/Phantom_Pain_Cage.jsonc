@@ -82,7 +82,13 @@
         "action": {
             "type": "Click",
             "param": {
-                "target": "检查A区"
+                "target": "检查A区",
+                "target_offset": [
+                    -50,
+                    0,
+                    0,
+                    0
+                ]
             }
         },
         "next": [
@@ -96,7 +102,7 @@
     "检查A区": {
         "post_delay": 1000,
         "recognition": {
-            "type": "OCR",
+            "type": "ColorMatch",
             "param": {
                 "roi": [
                     462,
@@ -104,15 +110,18 @@
                     143,
                     295
                 ],
-                "expected": [
-                    "讨伐"
+                "lower": [
+                    103,
+                    235,
+                    188
                 ],
-                "replace": [
-                    [
-                        "代",
-                        "伐"
-                    ]
-                ]
+                "upper": [
+                    103,
+                    235,
+                    188
+                ],
+                "count": 100,
+                "connected": true
             }
         },
         "next": [
@@ -138,7 +147,7 @@
     "检查B区": {
         "post_delay": 1000,
         "recognition": {
-            "type": "OCR",
+            "type": "ColorMatch",
             "param": {
                 "roi": [
                     725,
@@ -146,16 +155,18 @@
                     188,
                     273
                 ],
-                "order_by": "Vertical",
-                "expected": [
-                    "讨伐"
+                "lower": [
+                    103,
+                    235,
+                    188
                 ],
-                "replace": [
-                    [
-                        "代",
-                        "伐"
-                    ]
-                ]
+                "upper": [
+                    103,
+                    235,
+                    188
+                ],
+                "count": 100,
+                "connected": true
             }
         },
         "next": [
@@ -181,7 +192,7 @@
     "检查C区": {
         "post_delay": 1000,
         "recognition": {
-            "type": "OCR",
+            "type": "ColorMatch",
             "param": {
                 "roi": [
                     1034,
@@ -189,15 +200,18 @@
                     192,
                     291
                 ],
-                "expected": [
-                    "讨伐"
+                "lower": [
+                    103,
+                    235,
+                    188
                 ],
-                "replace": [
-                    [
-                        "代",
-                        "伐"
-                    ]
-                ]
+                "upper": [
+                    103,
+                    235,
+                    188
+                ],
+                "count": 100,
+                "connected": true
             }
         },
         "next": [
