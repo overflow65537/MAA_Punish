@@ -1,4 +1,23 @@
 {
+    "未命中选项": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    472,
+                    256,
+                    333,
+                    217
+                ],
+                "expected": [
+                    "请先选择选项"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
     "商店_矩阵循生": {
         "recognition": {
             "type": "OCR",
@@ -130,6 +149,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]在途存货_对话1",
             "[JumpBack]在途存货_对话"
         ]
@@ -197,6 +217,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]亚人少女_对话2",
             "[JumpBack]亚人少女_对话"
         ]
@@ -270,6 +291,7 @@
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
             "[JumpBack]出发_矩阵循生",
+            "[JumpBack]未命中选项",
             "[JumpBack]贴心搭档_对话"
         ]
     },
@@ -319,6 +341,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]逃出生天_对话2",
             "[JumpBack]逃出生天_对话"
         ]
@@ -389,6 +412,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]隐秘工坊_对话2",
             "[JumpBack]隐秘工坊_对话",
             "[JumpBack]转场_矩阵循生"
@@ -460,6 +484,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]洁塔薇的游戏_对话2",
             "[JumpBack]洁塔薇的游戏_对话"
         ]
@@ -531,6 +556,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]禁忌验证_对话2",
             "[JumpBack]禁忌验证_对话"
         ]
@@ -608,6 +634,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]头号玩家_对话2",
             "[JumpBack]头号玩家_对话"
         ]
@@ -677,6 +704,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]致命失误_对话2",
             "[JumpBack]致命失误_对话"
         ]
@@ -747,6 +775,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]工业怪谈_对话2",
             "[JumpBack]工业怪谈_对话"
         ]
@@ -818,6 +847,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]动物坟场_对话2",
             "[JumpBack]动物坟场_对话"
         ]
@@ -898,6 +928,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]观星真相_对话2",
             "[JumpBack]观星真相_对话"
         ]
@@ -972,6 +1003,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]异界通讯I_对话2",
             "[JumpBack]异界通讯I_对话"
         ]
@@ -1053,6 +1085,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]步履蹒跚_对话2",
             "[JumpBack]步履蹒跚_对话"
         ]
@@ -1105,6 +1138,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]举手之劳_对话2",
             "[JumpBack]举手之劳_对话"
         ]
@@ -1202,6 +1236,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]无效救援_对话2",
             "[JumpBack]无效救援_对话",
             "[JumpBack]转场_矩阵循生"
@@ -1277,6 +1312,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]盛典纪行_对话2",
             "[JumpBack]盛典纪行_对话"
         ]
@@ -1355,6 +1391,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]火灾现场_对话2",
             "[JumpBack]火灾现场_对话"
         ]
@@ -1428,6 +1465,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]棋盘难题_对话2",
             "[JumpBack]棋盘难题_对话"
         ]
@@ -1503,6 +1541,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]皇后游戏_对话2",
             "[JumpBack]皇后游戏_对话"
         ]
@@ -1594,6 +1633,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]瑕疵造物_对话2",
             "[JumpBack]瑕疵造物_对话"
         ]
@@ -1666,6 +1706,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]迷失之馆_对话2",
             "[JumpBack]迷失之馆_对话"
         ]
@@ -1738,6 +1779,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]圣殿战役_对话2",
             "[JumpBack]圣殿战役_对话"
         ]
@@ -1813,6 +1855,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]西西弗斯_对话2",
             "[JumpBack]西西弗斯_对话"
         ]
@@ -1884,6 +1927,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]野性之森_对话2",
             "[JumpBack]野性之森_对话"
         ]
@@ -1958,6 +2002,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]蓝色裂痕_对话2",
             "[JumpBack]蓝色裂痕_对话"
         ]
@@ -2033,6 +2078,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]铁石心肠_对话2",
             "[JumpBack]铁石心肠_对话"
         ]
@@ -2107,6 +2153,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]栩栩如生_对话2",
             "[JumpBack]栩栩如生_对话"
         ]
@@ -2181,6 +2228,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]荒废古卷_对话2",
             "[JumpBack]荒废古卷_对话"
         ]
@@ -2272,6 +2320,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]洁塔薇的食材_对话2",
             "[JumpBack]洁塔薇的食材_对话"
         ]
@@ -2346,6 +2395,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]荒废古堡_对话2",
             "[JumpBack]荒废古堡_对话"
         ]
@@ -2418,6 +2468,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]天台扭蛋机_对话2",
             "[JumpBack]天台扭蛋机_对话"
         ]
@@ -2488,6 +2539,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]莫比乌斯_对话2",
             "[JumpBack]莫比乌斯_对话"
         ]
@@ -2562,6 +2614,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]赝品工匠_对话2",
             "[JumpBack]赝品工匠_对话"
         ]
@@ -2633,6 +2686,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]继承之物_对话2",
             "[JumpBack]继承之物_对话"
         ]
@@ -2706,6 +2760,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]异界通讯II_对话2",
             "[JumpBack]异界通讯II_对话"
         ]
@@ -2779,6 +2834,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]禁忌实验_对话2",
             "[JumpBack]禁忌实验_对话"
         ]
@@ -2852,6 +2908,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]失败造物_对话2",
             "[JumpBack]失败造物_对话"
         ]
@@ -2962,6 +3019,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]旧日情谊_对话2",
             "[JumpBack]旧日情谊_对话"
         ]
@@ -3033,6 +3091,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]贫困收藏家_对话2",
             "[JumpBack]贫困收藏家_对话"
         ]
@@ -3103,6 +3162,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]英雄真相_对话2",
             "[JumpBack]英雄真相_对话"
         ]
@@ -3176,6 +3236,7 @@
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
             "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
             "[JumpBack]记忆真相_对话2",
             "[JumpBack]记忆真相_对话"
         ]
@@ -3248,6 +3309,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]天选者的故事_对话2",
             "[JumpBack]天选者的故事_对话"
         ]
@@ -3341,6 +3403,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]树神之女_对话2",
             "[JumpBack]树神之女_对话"
         ]
@@ -3411,6 +3474,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]物归新主_对话2",
             "[JumpBack]物归新主_对话",
             "[JumpBack]转场_矩阵循生"
@@ -3483,6 +3547,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]无尽长廊_对话2",
             "[JumpBack]无尽长廊_对话"
         ]
@@ -3557,6 +3622,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]万两黄金_对话2",
             "[JumpBack]万两黄金_对话"
         ]
@@ -3628,6 +3694,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]工业幽灵_对话2",
             "[JumpBack]工业幽灵_对话"
         ]
@@ -3700,6 +3767,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]自投罗网_对话2",
             "[JumpBack]自投罗网_对话"
         ]
@@ -3771,6 +3839,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]武器技师_对话2",
             "[JumpBack]武器技师_对话"
         ]
@@ -3841,6 +3910,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]致命隐患_对话2",
             "[JumpBack]致命隐患_对话"
         ]
@@ -3914,6 +3984,7 @@
             "[JumpBack]意外点击藏品_矩阵循生",
             "[JumpBack]选择装备_矩阵循生",
             "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
             "[JumpBack]物归新主非兼容_对话2",
             "[JumpBack]物归新主非兼容_对话",
             "[JumpBack]转场_矩阵循生"
