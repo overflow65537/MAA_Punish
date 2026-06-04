@@ -50,7 +50,12 @@ class Crepuscule(CustomAction):
 
         elif action.check_status("检查核心被动_晖暮"):
             action.long_press_dodge(3000)
-            context.run_action("长按1号球")
+            s1 = time.time()
+            context.run_action(
+                "长按1号球", pipeline_override={"长按1号球": {"duration": 3500}}
+            )
+            print("长按完成")
+            print("长按耗时:", time.time() - s1)
             action.auto_qte("a")
             action.auxiliary_machine()
         else:
@@ -61,6 +66,6 @@ class Crepuscule(CustomAction):
                     item += 1
                 else:
                     return CustomAction.RunResult(success=True)
-                
+
         action.attack()
         return CustomAction.RunResult(success=True)
