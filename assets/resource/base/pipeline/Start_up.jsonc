@@ -3,7 +3,6 @@
         "next": [
             "[JumpBack]MAS联动处理-检查到维护公告_将发送假通知",
             "[JumpBack]关闭公告",
-            "检查分辨率",
             "[JumpBack]关闭纷争战区通知",
             "[JumpBack]关闭拟真围剿通知",
             "检查主界面",
@@ -62,26 +61,6 @@
                 ]
             }
         }
-    },
-    "检查分辨率": {
-        "recognition": {
-            "type": "Custom",
-            "param": {
-                "custom_recognition": "CheckResolution"
-            }
-        },
-        "next": [
-            "提示分辨率错误"
-        ]
-    },
-    "提示分辨率错误": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]分辨率错误,请设置为任意16:9分辨率(比如1280*720)[/color]"
-        },
-        "post_delay": 5000,
-        "next": [
-            "提示分辨率错误"
-        ]
     },
     "关闭低内存提示": {
         "recognition": {
