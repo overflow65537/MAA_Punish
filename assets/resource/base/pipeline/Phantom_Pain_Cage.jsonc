@@ -94,9 +94,7 @@
         ]
     },
     "检查A区": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -138,9 +136,7 @@
         ]
     },
     "检查B区": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -183,9 +179,7 @@
         ]
     },
     "检查C区": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
