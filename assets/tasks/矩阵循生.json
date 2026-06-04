@@ -2,7 +2,9 @@
     "task": [
         {
             "name": "矩阵循生",
-            "group": ["roguelike"],
+            "group": [
+                "roguelike"
+            ],
             "entry": "矩阵循生",
             "pipeline_override": {
                 "检查主界面2": {
@@ -74,12 +76,8 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "噩梦",
-                                        "墨梦",
-                                        "恶梦",
-                                        "王梦",
-                                        "聚梦",
-                                        "梦"
+                                        "梦",
+                                        "漏洞爆发"
                                     ]
                                 }
                             }
