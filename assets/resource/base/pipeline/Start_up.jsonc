@@ -2,19 +2,33 @@
     "启动": {
         "next": [
             "[JumpBack]MAS联动处理-检查到维护公告_将发送假通知",
-            "[JumpBack]关闭公告",
+            "[JumpBack]关闭点击空白弹窗",
             "[JumpBack]关闭纷争战区通知",
-            "[JumpBack]关闭拟真围剿通知",
             "检查主界面",
             "[JumpBack]关闭奖励",
             "[JumpBack]进入游戏",
-            "[JumpBack]更新",
-            "[JumpBack]关闭低内存提示",
+            "[JumpBack]启动_点击确定弹窗",
             "[JumpBack]更新中",
             "[JumpBack]返回主菜单",
             "[JumpBack]用户账号登录失败",
             "[JumpBack]打开应用"
         ]
+    },
+    "月卡续期": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    775,
+                    129,
+                    388,
+                    299
+                ],
+                "expected": [
+                    "每月福利"
+                ]
+            }
+        }
     },
     "更新中": {
         "post_delay": 5000,
@@ -78,11 +92,28 @@
                     "低于"
                 ]
             }
+        }
+    },
+    "关闭点击空白弹窗": {
+        "recognition": {
+            "type": "Or",
+            "param": {
+                "any_of": [
+                    "关闭公告",
+                    "关闭拟真围剿通知",
+                    "月卡续期"
+                ]
+            }
         },
-        "next": [
-            "确定",
-            "空任务"
-        ]
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    10,
+                    10
+                ]
+            }
+        }
     },
     "关闭拟真围剿通知": {
         "recognition": {
@@ -98,15 +129,6 @@
                     "拟真围剿",
                     "行动",
                     "完美达成"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    10,
-                    10
                 ]
             }
         }
@@ -157,6 +179,17 @@
                     ]
                 ]
             }
+        }
+    },
+    "启动_点击确定弹窗": {
+        "recognition": {
+            "type": "Or",
+            "param": {
+                "any_of": [
+                    "更新",
+                    "关闭低内存提示"
+                ]
+            }
         },
         "next": [
             "确定",
@@ -205,7 +238,7 @@
         },
         "next": [
             "[JumpBack]关闭纷争战区通知",
-            "[JumpBack]关闭拟真围剿通知",
+            "[JumpBack]关闭点击空白弹窗",
             "检查主界面2",
             "启动"
         ]
@@ -221,15 +254,6 @@
                     125
                 ],
                 "expected": "点击空白处关闭"
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    10,
-                    10
-                ]
             }
         }
     },
