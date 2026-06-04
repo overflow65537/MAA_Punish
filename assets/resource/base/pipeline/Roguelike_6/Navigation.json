@@ -35,7 +35,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "选择角色"
+        ]
     },
     "选择角色": {
         "recognition": {
@@ -100,7 +103,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "选择难度"
+        ]
     },
     "选择难度": {
         "recognition": {
