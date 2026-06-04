@@ -2,7 +2,9 @@
     "task": [
         {
             "name": "领取任务",
-            "group": ["daily"],
+            "group": [
+                "daily"
+            ],
             "default_check": true,
             "description": "<p>自动领取任务。</p>",
             "entry": "任务"

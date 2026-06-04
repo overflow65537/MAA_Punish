@@ -1,9 +1,106 @@
 {
     "任务": {
         "next": [
+            "[JumpBack]逐浪拾光",
             "每周任务",
             "[JumpBack]打开任务",
             "[JumpBack]意外点击_主界面"
+        ]
+    },
+    "逐浪拾光": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    33,
+                    215,
+                    342
+                ],
+                "expected": [
+                    "逐浪拾光"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "target": [
+                1019,
+                153,
+                143,
+                120
+            ]
+        },
+        "next": [
+            "前往任务"
+        ]
+    },
+    "前往任务": {
+        "pre_wait_freezes": {
+            "time": 500,
+            "target": [
+                1019,
+                153,
+                143,
+                120
+            ]
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1083,
+                    528,
+                    197,
+                    192
+                ],
+                "expected": [
+                    "前往",
+                    "任务"
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "target": [
+                448,
+                170,
+                448,
+                111
+            ]
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]领取_逐浪拾光",
+            "返回主菜单"
+        ]
+    },
+    "领取_逐浪拾光": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    940,
+                    122,
+                    340,
+                    483
+                ],
+                "expected": [
+                    "^领取$"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "关闭奖励"
         ]
     },
     "每日任务": {
