@@ -233,45 +233,33 @@
             "param": {
                 "all_of": [
                     {
-                        "sub_name": "选择文本",
+                        "sub_name": "文本颜色",
                         "recognition": {
-                            "type": "OCR",
+                            "type": "ColorMatch",
                             "param": {
+                                "method": 40,
                                 "roi": [
                                     97,
                                     447,
                                     713,
                                     150
                                 ],
-                                "expected": [
-                                    "选择"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": "选择文本",
-                                "method": 40,
                                 "lower": [
-                                    92,
+                                    90,
                                     140,
                                     70
                                 ],
                                 "upper": [
                                     96,
-                                    176,
-                                    114
+                                    210,
+                                    140
                                 ],
                                 "count": 10,
                                 "connected": true
                             }
                         }
                     }
-                ],
-                "box_index": 1
+                ]
             }
         },
         "action": {
@@ -300,12 +288,36 @@
                                     26
                                 ],
                                 "upper": [
-                                    178,
-                                    138,
-                                    40
+                                    180,
+                                    160,
+                                    60
                                 ],
-                                "count": 10,
-                                "connected": true
+                                "count": 10
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    174,
+                                    492,
+                                    178,
+                                    73
+                                ],
+                                "method": 40,
+                                "lower": [
+                                    170,
+                                    70,
+                                    26
+                                ],
+                                "upper": [
+                                    180,
+                                    160,
+                                    60
+                                ],
+                                "count": 10
                             }
                         }
                     },
@@ -326,7 +338,7 @@
                         }
                     }
                 ],
-                "box_index": 1
+                "box_index": 2
             }
         },
         "action": {
