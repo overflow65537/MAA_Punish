@@ -48,26 +48,11 @@ class Crepuscule(CustomAction):
             print("切换完成")
             return CustomAction.RunResult(success=True)
 
-        # elif action.count_signal_balls() >= 16:
-        #    # 消球循环,消3次三消,然后持续点击蓝球攒满蓝球
-        #    for _ in range(3):
-        #        action.ball_elimination_target(2)
-        #        time.sleep(0.4)
-        #    for _ in range(30):
-        #        action.ball_elimination_target(1)
-        #        time.sleep(0.1)
-        #    action.auto_qte("a")
-        #    action.auxiliary_machine()
-
         elif action.check_status("检查核心被动_晖暮"):
-            # 正常循环,长闪3秒.然后持续点击蓝球攒满蓝球
             action.long_press_dodge(3000)
-            for _ in range(30):
-                action.ball_elimination_target(1)
-                time.sleep(0.1)
+            context.run_action("长按1号球")
             action.auto_qte("a")
             action.auxiliary_machine()
-
         else:
             action.logger.info("核心技能未就绪")
             item = 0
@@ -76,6 +61,6 @@ class Crepuscule(CustomAction):
                     item += 1
                 else:
                     return CustomAction.RunResult(success=True)
-
+                
         action.attack()
         return CustomAction.RunResult(success=True)
