@@ -472,13 +472,71 @@
             "宣叙妄响内部_reco",
             "[JumpBack]事件处理_宣叙妄响",
             "[JumpBack]离开_宣叙妄响",
-            "[JumpBack]下一步",
+            "[JumpBack]下一步_厄愿潮声剧情",
             "[JumpBack]对话按钮_宣叙妄响",
             "[JumpBack]跳过剧情",
             "[JumpBack]确认跳过",
             "[JumpBack]招募奖励事件_宣叙妄响",
             "[JumpBack]关闭奖励"
         ]
+    },
+    "下一步_厄愿潮声剧情": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    {
+                        "sub_name": "颜色",
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    891,
+                                    510,
+                                    389,
+                                    210
+                                ],
+                                "method": 40,
+                                "lower": [
+                                    102,
+                                    171,
+                                    180
+                                ],
+                                "upper": [
+                                    105,
+                                    240,
+                                    200
+                                ],
+                                "count": 100,
+                                "connected": true
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": "颜色",
+                                "roi_offset": [
+                                    -2,
+                                    -2,
+                                    4,
+                                    4
+                                ],
+                                "only_rec": true,
+                                "expected": [
+                                    "下一步"
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "box_index": 1
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "对话按钮_宣叙妄响": {
         "recognition": {

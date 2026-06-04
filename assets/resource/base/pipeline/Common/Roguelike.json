@@ -3,8 +3,15 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [891, 510, 389, 210],
-                "expected": "下一步"
+                "roi": [
+                    891,
+                    510,
+                    389,
+                    210
+                ],
+                "expected": [
+                    "下一步"
+                ]
             }
         },
         "action": {
