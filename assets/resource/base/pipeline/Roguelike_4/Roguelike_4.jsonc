@@ -40,7 +40,6 @@
         ]
     },
     "完成所有任务_重开": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -56,6 +55,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "寒境曙光主界面_重开",
             "[JumpBack]关闭升级提示",
@@ -63,7 +63,6 @@
         ]
     },
     "寒境曙光主界面_重开": {
-        "post_delay": 1500,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -87,6 +86,7 @@
                 }
             }
         },
+        "post_delay": 1500,
         "next": [
             "寒境曙光"
         ]
@@ -109,7 +109,6 @@
         }
     },
     "标准进入方式_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -125,6 +124,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "寒境曙光",
             "[JumpBack]选择难度_寒境曙光",
@@ -180,8 +180,9 @@
                 ]
             }
         },
-        "post_delay": 0,
         "pre_delay": 0,
+        "post_delay": 0,
+        "timeout": 10000,
         "rate_limit": 0,
         "next": [
             "指数确认_寒境曙光",
@@ -212,13 +213,9 @@
         ],
         "on_error": [
             "重新进入_寒境曙光"
-        ],
-        "timeout": 10000
+        ]
     },
     "物资_寒境曙光": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]物资地块[/color]"
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -237,10 +234,12 @@
         "next": [
             "物资事件结束_寒境曙光",
             "[JumpBack]开始探索_寒境曙光"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]物资地块[/color]"
+        }
     },
     "物资事件结束_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -262,15 +261,12 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "事件完成_寒境曙光"
         ]
     },
     "重新进入_寒境曙光": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:LightSalmon]未搜索到目标,重新进入[/color]"
-        },
-        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -292,27 +288,28 @@
                 }
             }
         },
+        "post_delay": 2000,
         "next": [
             "暂离_寒境曙光"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:LightSalmon]未搜索到目标,重新进入[/color]"
+        }
     },
     "暂离_寒境曙光": {
-        "post_delay": 1000,
         "action": {
             "type": "Click",
             "param": {
                 "target": "重新进入_寒境曙光"
             }
         },
+        "post_delay": 1000,
         "next": [
             "启程_寒境曙光",
             "重新进入_寒境曙光"
         ]
     },
     "分数计算": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]分数确认,强制结算[/color]"
-        },
         "recognition": {
             "type": "Custom",
             "param": {
@@ -324,7 +321,10 @@
         },
         "next": [
             "下一天_寒境曙光"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]分数确认,强制结算[/color]"
+        }
     },
     "下一天_寒境曙光": {
         "recognition": {
@@ -448,7 +448,6 @@
         }
     },
     "行动点不足2_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -466,6 +465,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "事件完成_寒境曙光",
             "挑战失败_寒境曙光_reco",
@@ -479,7 +479,6 @@
         ]
     },
     "驻扎点报警_寒境曙光": {
-        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -500,10 +499,10 @@
                     100
                 ]
             }
-        }
+        },
+        "post_delay": 1500
     },
     "选择军事支援_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -524,10 +523,10 @@
                     538
                 ]
             }
-        }
+        },
+        "post_delay": 1000
     },
     "选择经济支援_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -548,10 +547,10 @@
                     538
                 ]
             }
-        }
+        },
+        "post_delay": 1000
     },
     "选择基建支援_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -572,10 +571,10 @@
                     534
                 ]
             }
-        }
+        },
+        "post_delay": 1000
     },
     "文字地块_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -609,7 +608,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "开始探索_寒境曙光": {
         "recognition": {
@@ -629,8 +629,6 @@
         }
     },
     "肉鸽战斗_寒境曙光": {
-        "timeout": 300000,
-        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -643,6 +641,8 @@
                 "expected": "首发"
             }
         },
+        "timeout": 300000,
+        "rate_limit": 0,
         "next": [
             "战斗完成_寒境曙光",
             "战斗中_货币不足",
@@ -656,7 +656,6 @@
         ]
     },
     "战斗中_货币不足": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -678,6 +677,7 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "放弃战斗_寒境曙光"
         ]
@@ -716,7 +716,6 @@
         ]
     },
     "重启_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -731,7 +730,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "跳过战斗对话": {
         "recognition": {
@@ -801,7 +801,6 @@
         ]
     },
     "事件完成_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -820,6 +819,7 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "事件完成_二次确认_寒境曙光",
             "[JumpBack]局内招募_寒境曙光",
@@ -855,7 +855,6 @@
         }
     },
     "未选人_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -868,13 +867,13 @@
                 "expected": "未选择队长"
             }
         },
+        "post_delay": 1000,
         "next": [
             "选择角色程序",
             "[JumpBack]选择首发_寒境曙光"
         ]
     },
     "关闭未拥有人物提示": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -898,7 +897,8 @@
                     536
                 ]
             }
-        }
+        },
+        "post_delay": 1000
     },
     "选择对应人物头像_寒境曙光": {
         "recognition": {
@@ -951,10 +951,6 @@
         }
     },
     "选人完成_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 15000
-        },
         "recognition": {
             "type": "And",
             "param": {
@@ -963,10 +959,13 @@
                     "作战开始背景颜色识别"
                 ]
             }
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 15000
         }
     },
     "选择对应人物_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -975,10 +974,6 @@
                     151,
                     154,
                     62
-                ],
-                "replace": [
-                    "内",
-                    "囚"
                 ],
                 "expected": [
                     "深红囚影",
@@ -991,6 +986,10 @@
                     "启明",
                     "晖暮",
                     "超刻"
+                ],
+                "replace": [
+                    "内",
+                    "囚"
                 ]
             }
         },
@@ -1002,10 +1001,10 @@
                     488
                 ]
             }
-        }
+        },
+        "post_delay": 1000
     },
     "选择首发_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1020,10 +1019,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "支援等级提升_寒境曙光": {
-        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1044,10 +1043,10 @@
                     100
                 ]
             }
-        }
+        },
+        "post_delay": 1500
     },
     "局内招募_寒境曙光": {
-        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1067,7 +1066,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 2000
     },
     "指数确认_寒境曙光": {
         "recognition": {
@@ -1101,7 +1101,6 @@
         "post_delay": 1000
     },
     "退出_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1116,7 +1115,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "港口异常点end_寒境曙光": {
         "recognition": {
@@ -1131,10 +1131,10 @@
                 "expected": "已达标"
             }
         },
-        "post_delay": 1000,
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "到达下一目标",
             "挑战失败_寒境曙光",
@@ -1181,7 +1181,6 @@
                 ]
             }
         },
-        "post_delay": 1000,
         "action": {
             "type": "Click",
             "param": {
@@ -1190,7 +1189,8 @@
                     555
                 ]
             }
-        }
+        },
+        "post_delay": 1000
     },
     "返回boss页面_寒境曙光": {
         "recognition": {
@@ -1205,10 +1205,10 @@
                 "expected": "已达标"
             }
         },
-        "post_delay": 1000,
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "货币不足_寒境曙光": {
         "recognition": {
@@ -1220,14 +1220,14 @@
                     206,
                     40
                 ],
-                "replace": [
-                    "市",
-                    "币"
-                ],
                 "expected": [
                     "新苏菲亚币",
                     "资产",
                     "不足"
+                ],
+                "replace": [
+                    "市",
+                    "币"
                 ]
             }
         },
@@ -1248,13 +1248,6 @@
         ]
     },
     "区域未连通": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
-        "post_wait_freezes": {
-            "time": 200,
-            "timeout": 1000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1267,6 +1260,7 @@
                 "expected": "区域未连通"
             }
         },
+        "pre_delay": 0,
         "action": {
             "type": "Click",
             "param": {
@@ -1276,6 +1270,12 @@
                 ]
             }
         },
+        "post_wait_freezes": {
+            "time": 200,
+            "timeout": 1000
+        },
+        "post_delay": 0,
+        "rate_limit": 0,
         "next": [
             "行动点不足2_寒境曙光",
             "战斗地块_寒境曙光",
@@ -1400,7 +1400,6 @@
         }
     },
     "完成所有任务": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1416,6 +1415,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "寒境曙光主界面",
             "[JumpBack]关闭升级提示",
@@ -1423,7 +1423,6 @@
         ]
     },
     "刷新次数用尽失败_寒镜曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1442,6 +1441,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "完成所有任务",
             "[JumpBack]下一步",
@@ -1451,7 +1451,6 @@
         ]
     },
     "寒境曙光主界面": {
-        "post_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -1477,7 +1476,8 @@
                     }
                 }
             }
-        }
+        },
+        "post_delay": 1000
     },
     "关闭升级提示": {
         "recognition": {
@@ -1526,7 +1526,6 @@
         }
     },
     "终止_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1541,7 +1540,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "凛风山谷_寒境曙光": {
         "recognition": {
@@ -1627,7 +1627,6 @@
         ]
     },
     "选择代理_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1642,7 +1641,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "到达下一目标": {
         "recognition": {
@@ -1701,7 +1701,6 @@
         }
     },
     "领取战斗奖励": {
-        "post_delay": 1500,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1711,23 +1710,24 @@
                     1164,
                     134
                 ],
-                "count": 1000,
-                "connected": true,
+                "lower": [
+                    27,
+                    55,
+                    79
+                ],
                 "upper": [
                     62,
                     80,
                     100
                 ],
-                "lower": [
-                    27,
-                    55,
-                    79
-                ]
+                "connected": true,
+                "count": 1000
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1500
     },
     "进入战斗_寒境曙光": {
         "recognition": {
@@ -1747,7 +1747,6 @@
         }
     },
     "关闭奖励_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1768,10 +1767,10 @@
                     100
                 ]
             }
-        }
+        },
+        "post_delay": 1000
     },
     "继续对话_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1796,10 +1795,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "行动点不足_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1821,6 +1820,7 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "事件完成_寒境曙光",
             "[JumpBack]点击空白处关闭",
@@ -1833,7 +1833,6 @@
         ]
     },
     "休息完成_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1845,10 +1844,10 @@
                 ],
                 "expected": "下一天"
             }
-        }
+        },
+        "post_delay": 1000
     },
     "点击空白处关闭": {
-        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1869,7 +1868,8 @@
                     100
                 ]
             }
-        }
+        },
+        "post_delay": 1500
     },
     "选择人物_寒境曙光": {
         "recognition": {
@@ -1894,14 +1894,14 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
                 "roi": [
                     1137,
                     640,
                     38,
                     26
                 ],
-                "expected": "0/1"
+                "expected": "0/1",
+                "only_rec": true
             }
         },
         "action": {
@@ -1915,14 +1915,14 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
                 "roi": [
                     1137,
                     640,
                     38,
                     26
                 ],
-                "expected": "1/1"
+                "expected": "1/1",
+                "only_rec": true
             }
         },
         "action": {
@@ -1930,7 +1930,6 @@
         }
     },
     "选择已有战斗逻辑的人物": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1949,13 +1948,13 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "关闭提示北部港口_寒境曙光",
             "[JumpBack]招募人物_寒境曙光"
         ]
     },
     "招募人物_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1971,13 +1970,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "启程_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 6000
-        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -1993,6 +1989,10 @@
         "action": {
             "type": "Click"
         },
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 6000
+        },
         "next": [
             "确认进入场景_寒境曙光",
             "强制失败"
@@ -2000,7 +2000,6 @@
     },
     "确认进入场景_寒境曙光": {
         "max_hit": 3,
-        "post_delay": 5000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2012,12 +2011,10 @@
                 ],
                 "expected": "下一天"
             }
-        }
+        },
+        "post_delay": 5000
     },
     "强制失败": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:tomato]未检测到目标,结束当前游戏[/color]"
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2052,13 +2049,12 @@
             "[JumpBack]意外点击_限定活动",
             "[JumpBack]关闭奖励_寒境曙光",
             "挑战失败_寒境曙光"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:tomato]未检测到目标,结束当前游戏[/color]"
+        }
     },
     "下一天_强制失败": {
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2073,6 +2069,10 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
         }
     },
     "确认下一天_强制失败": {
@@ -2130,7 +2130,6 @@
         ]
     },
     "选择具体难度_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2146,13 +2145,13 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "选择难度完成_寒境曙光",
             "[JumpBack]下一步"
         ]
     },
     "难度切换_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2173,7 +2172,8 @@
                     459
                 ]
             }
-        }
+        },
+        "post_delay": 1000
     },
     "选择难度完成_寒境曙光": {
         "recognition": {
@@ -2210,9 +2210,6 @@
         ]
     },
     "未解锁开局": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]未解锁对应开局[/color]"
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2227,10 +2224,12 @@
         },
         "action": {
             "type": "StopTask"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:Tomato]未解锁对应开局[/color]"
         }
     },
     "选择具体开局_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2246,13 +2245,13 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "选择开局完成_寒境曙光",
             "选择人物_寒境曙光"
         ]
     },
     "开局切换_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2277,10 +2276,10 @@
                     600
                 ]
             }
-        }
+        },
+        "post_delay": 1000
     },
     "选择开局完成_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2296,13 +2295,13 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "检查当前分数": {
         "recognition": {
             "type": "And",
             "param": {
-                "box_index": 1,
                 "all_of": [
                     {
                         "sub_name": "_当前分数区域",
@@ -2324,7 +2323,6 @@
                         "recognition": {
                             "type": "OCR",
                             "param": {
-                                "only_rec": true,
                                 "roi": "_当前分数区域",
                                 "roi_offset": [
                                     0,
@@ -2332,11 +2330,13 @@
                                     60,
                                     0
                                 ],
-                                "expected": "^\\d*$"
+                                "expected": "^\\d*$",
+                                "only_rec": true
                             }
                         }
                     }
-                ]
+                ],
+                "box_index": 1
             }
         }
     },
@@ -2344,7 +2344,6 @@
         "recognition": {
             "type": "And",
             "param": {
-                "box_index": 1,
                 "all_of": [
                     {
                         "sub_name": "_目标分数区域",
@@ -2366,7 +2365,6 @@
                         "recognition": {
                             "type": "OCR",
                             "param": {
-                                "only_rec": true,
                                 "roi": "_目标分数区域",
                                 "roi_offset": [
                                     0,
@@ -2374,11 +2372,13 @@
                                     70,
                                     0
                                 ],
-                                "expected": "^\\d*$"
+                                "expected": "^\\d*$",
+                                "only_rec": true
                             }
                         }
                     }
-                ]
+                ],
+                "box_index": 1
             }
         }
     },

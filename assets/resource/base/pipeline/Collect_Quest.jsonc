@@ -7,7 +7,6 @@
         ]
     },
     "每日任务": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -23,6 +22,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "一键领取_任务",
             "领取活跃0-19",
@@ -35,7 +35,6 @@
         ]
     },
     "领取活跃0-19": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -48,13 +47,13 @@
                 "expected": "^(0?[0-9]|1[0-9])$"
             }
         },
+        "post_delay": 1000,
         "next": [
             "返回主菜单",
             "[JumpBack]关闭奖励"
         ]
     },
     "领取活跃20-39": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -76,13 +75,13 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "返回主菜单",
             "[JumpBack]关闭奖励"
         ]
     },
     "领取活跃40-59": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -104,13 +103,13 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "返回主菜单",
             "[JumpBack]关闭奖励"
         ]
     },
     "领取活跃60-79": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -132,13 +131,13 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "返回主菜单",
             "[JumpBack]关闭奖励"
         ]
     },
     "领取活跃80-99": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -160,13 +159,13 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "返回主菜单",
             "[JumpBack]关闭奖励"
         ]
     },
     "领取活跃100": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -188,13 +187,13 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "返回主菜单",
             "[JumpBack]关闭奖励"
         ]
     },
     "每周任务": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -210,13 +209,13 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "一键领取_定期",
             "勤务任务"
         ]
     },
     "勤务任务": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -232,13 +231,13 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "一键领取_勤务",
             "每日任务"
         ]
     },
     "打开任务": {
-        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -265,10 +264,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 2000
     },
     "一键领取_定期": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -286,12 +285,12 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "关闭奖励_每周"
         ]
     },
     "一键领取_勤务": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -309,12 +308,12 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "关闭奖励_勤务"
         ]
     },
     "一键领取_任务": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -332,12 +331,12 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "关闭奖励_任务"
         ]
     },
     "关闭奖励_每周": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -361,13 +360,13 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "勤务任务",
             "[JumpBack]关闭奖励"
         ]
     },
     "关闭奖励_勤务": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -391,13 +390,13 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "每日任务",
             "[JumpBack]关闭奖励"
         ]
     },
     "关闭奖励_任务": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -421,6 +420,7 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "每日任务",
             "[JumpBack]关闭奖励"

@@ -9,11 +9,11 @@
                     132,
                     560
                 ],
-                "order_by": "Score",
-                "green_mask": true,
                 "template": [
                     "人物索引/露西亚/深红囚影/矩阵_深红囚影.png"
-                ]
+                ],
+                "green_mask": true,
+                "order_by": "Score"
             }
         }
     },
@@ -78,12 +78,12 @@
                     -73,
                     -20
                 ],
-                "upper": [
+                "lower": [
                     53,
                     175,
                     248
                 ],
-                "lower": [
+                "upper": [
                     53,
                     175,
                     248
@@ -104,12 +104,12 @@
                     -71,
                     -20
                 ],
-                "upper": [
+                "lower": [
                     53,
                     175,
                     248
                 ],
-                "lower": [
+                "upper": [
                     53,
                     175,
                     248
@@ -130,12 +130,12 @@
                     -71,
                     -26
                 ],
-                "upper": [
+                "lower": [
                     53,
                     175,
                     248
                 ],
-                "lower": [
+                "upper": [
                     53,
                     175,
                     248
@@ -156,12 +156,12 @@
                     30,
                     10
                 ],
-                "upper": [
+                "lower": [
                     53,
                     175,
                     248
                 ],
-                "lower": [
+                "upper": [
                     53,
                     175,
                     248
@@ -172,7 +172,6 @@
         }
     },
     "滑动_选人": {
-        "post_delay": 1000,
         "action": {
             "type": "Swipe",
             "param": {
@@ -192,10 +191,10 @@
                 ],
                 "end_hold": 200
             }
-        }
+        },
+        "post_delay": 1000
     },
     "反向滑动_选人": {
-        "post_delay": 1000,
         "action": {
             "type": "Swipe",
             "param": {
@@ -208,7 +207,8 @@
                     580
                 ]
             }
-        }
+        },
+        "post_delay": 1000
     },
     "选择人物": {
         "recognition": {
@@ -229,10 +229,6 @@
     },
     "编入队伍": {
         "max_hit": 30,
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -248,6 +244,10 @@
         "action": {
             "type": "Click"
         },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
         "next": [
             "角色耐力不足",
             "[JumpBack]关闭未拥有人物提示",
@@ -255,10 +255,6 @@
         ]
     },
     "角色耐力不足": {
-        "focus": {
-            "Node.Recognition.Succeeded": "角色耐力不足"
-        },
-        "on_error": [],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -284,11 +280,13 @@
         },
         "next": [
             "返回_重新选人"
-        ]
+        ],
+        "on_error": [],
+        "focus": {
+            "Node.Recognition.Succeeded": "角色耐力不足"
+        }
     },
     "卸下队伍": {
-        "post_delay": 1000,
-        "pre_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -301,12 +299,13 @@
                 "expected": "卸下队伍"
             }
         },
+        "pre_delay": 1000,
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "返回_重新选人": {
-        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -322,6 +321,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1500,
         "next": [
             "选择首发_重新选人"
         ]
@@ -449,10 +449,6 @@
         ]
     },
     "队伍净空_黄": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -465,16 +461,16 @@
                 "template": "幻痛囚笼/队伍净空_蓝黄.png"
             }
         },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
         "next": [
             "队伍净空",
             "[JumpBack]清空黄色位"
         ]
     },
     "队伍净空": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -487,16 +483,16 @@
                 "template": "幻痛囚笼/队伍净空_蓝黄.png"
             }
         },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
         "next": [
             "选择首发",
             "队伍净空"
         ]
     },
     "打开蓝色位置": {
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000
-        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -511,6 +507,10 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
         },
         "next": [
             "确认进入选人界面",
@@ -534,10 +534,6 @@
         }
     },
     "打开黄色位置": {
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000
-        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -553,16 +549,16 @@
         "action": {
             "type": "Click"
         },
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "next": [
             "确认进入选人界面",
             "打开黄色位置"
         ]
     },
     "选择首发": {
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -577,6 +573,10 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
         },
         "next": [
             "选择角色程序",
@@ -584,10 +584,6 @@
         ]
     },
     "选择首发_重新选人": {
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -602,6 +598,10 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
         },
         "next": [
             "选择角色程序_onlyNode",
@@ -686,14 +686,14 @@
         }
     },
     "缓存角色": {
-        "focus": {
-            "Node.Recognition.Succeeded": "正在更新角色缓存"
-        },
         "next": [
             "缓存角色程序",
             "打开成员列表",
             "[JumpBack]返回主菜单"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "正在更新角色缓存"
+        }
     },
     "缓存角色程序": {
         "recognition": {
@@ -739,20 +739,19 @@
                 ]
             }
         },
+        "action": {
+            "type": "Click"
+        },
         "post_wait_freezes": {
             "time": 100,
             "timeout": 2000
         },
         "post_delay": 1000,
-        "action": {
-            "type": "Click"
-        },
         "next": [
             "缓存角色程序"
         ]
     },
     "点击首发": {
-        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -767,10 +766,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 2000
     },
     "点击A区": {
-        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -789,13 +788,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 2000
     },
     "作战准备": {
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 2000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -810,6 +806,10 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 2000
         }
     },
     "是否需要缓存": {
@@ -1024,9 +1024,6 @@
         }
     },
     "打开物理属性": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -1041,9 +1038,12 @@
                 ]
             }
         },
+        "pre_delay": 0,
         "action": {
             "type": "Click"
         },
+        "post_delay": 0,
+        "rate_limit": 0,
         "next": [
             "确认进入物理属性"
         ]
@@ -1075,15 +1075,6 @@
         }
     },
     "打开火属性": {
-        "post_wait_freezes": {
-            "time": 500,
-            "target": [
-                73,
-                65,
-                117,
-                565
-            ]
-        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -1100,6 +1091,15 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "target": [
+                73,
+                65,
+                117,
+                565
+            ]
         },
         "next": [
             "确认进入火属性"
@@ -1132,15 +1132,6 @@
         }
     },
     "打开冰属性": {
-        "post_wait_freezes": {
-            "time": 500,
-            "target": [
-                73,
-                65,
-                117,
-                565
-            ]
-        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -1157,6 +1148,15 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "target": [
+                73,
+                65,
+                117,
+                565
+            ]
         },
         "next": [
             "确认进入冰属性"
@@ -1189,15 +1189,6 @@
         }
     },
     "打开雷属性": {
-        "post_wait_freezes": {
-            "time": 500,
-            "target": [
-                73,
-                65,
-                117,
-                565
-            ]
-        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -1214,6 +1205,15 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "target": [
+                73,
+                65,
+                117,
+                565
+            ]
         },
         "next": [
             "确认进入雷属性"
@@ -1246,15 +1246,6 @@
         }
     },
     "打开暗属性": {
-        "post_wait_freezes": {
-            "time": 500,
-            "target": [
-                73,
-                65,
-                117,
-                565
-            ]
-        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -1271,6 +1262,15 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "target": [
+                73,
+                65,
+                117,
+                565
+            ]
         },
         "next": [
             "确认进入暗属性"
@@ -1303,15 +1303,6 @@
         }
     },
     "打开空属性": {
-        "post_wait_freezes": {
-            "time": 500,
-            "target": [
-                73,
-                65,
-                117,
-                565
-            ]
-        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -1328,6 +1319,15 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "target": [
+                73,
+                65,
+                117,
+                565
+            ]
         },
         "next": [
             "确认进入空属性"

@@ -1,11 +1,9 @@
 {
     "拟战场域": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
         "recognition": {
             "type": "DirectHit"
         },
+        "pre_delay": 0,
         "action": {
             "type": "Custom",
             "param": {
@@ -15,6 +13,8 @@
                 }
             }
         },
+        "post_delay": 0,
+        "rate_limit": 0,
         "next": [
             "吃体力药",
             "[JumpBack]返回主菜单",
@@ -22,9 +22,6 @@
         ]
     },
     "拟战场域_作战任务": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -37,14 +34,14 @@
                 "expected": "^战斗$"
             }
         },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "next": [
             "打开战斗_拟战场域"
         ]
     },
     "打开战斗_拟战场域": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
         "recognition": {
             "type": "And",
             "param": {
@@ -53,17 +50,17 @@
                 ]
             }
         },
+        "pre_delay": 0,
         "action": {
             "type": "Click"
         },
+        "post_delay": 0,
+        "rate_limit": 0,
         "next": [
             "打开资源"
         ]
     },
     "打开资源": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -76,18 +73,18 @@
                 "expected": "资源"
             }
         },
+        "pre_delay": 0,
         "action": {
             "type": "Click"
         },
+        "post_delay": 0,
+        "rate_limit": 0,
         "next": [
             "打开拟战场域",
             "[JumpBack]检查_打开资源"
         ]
     },
     "检查_打开资源": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -112,17 +109,17 @@
             }
         },
         "inverse": true,
+        "pre_delay": 0,
         "action": {
             "type": "Click",
             "param": {
                 "target": "打开资源"
             }
-        }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "打开拟战场域": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -135,17 +132,17 @@
                 "expected": "拟战场域"
             }
         },
+        "pre_delay": 0,
         "action": {
             "type": "Click"
         },
+        "post_delay": 0,
+        "rate_limit": 0,
         "next": [
             "确认进入拟战场域"
         ]
     },
     "确认进入拟战场域": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -160,6 +157,9 @@
                 ]
             }
         },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "next": [
             "开始自动战斗",
             "开始手动战斗"

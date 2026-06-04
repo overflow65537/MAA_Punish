@@ -7,9 +7,6 @@
         ]
     },
     "确认目标词缀": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]完成[/color]"
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -23,13 +20,12 @@
                     "目标词缀"
                 ]
             }
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]完成[/color]"
         }
     },
     "结果检查左侧_不可信": {
-        "inverse": true,
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -54,15 +50,15 @@
                 ]
             }
         },
+        "inverse": true,
         "action": {
             "type": "StopTask"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
         }
     },
     "结果检查_不可信": {
-        "inverse": true,
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -88,14 +84,15 @@
                 ]
             }
         },
+        "inverse": true,
         "action": {
             "type": "StopTask"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
         }
     },
     "结果检查_可信": {
-        "post_wait_freezes": {
-            "time": 200
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -110,6 +107,9 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 200
         }
     }
 }

@@ -43,7 +43,6 @@
         ]
     },
     "手动战斗_作战失败": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -60,6 +59,7 @@
             "type": "Click",
             "param": {}
         },
+        "post_delay": 1000,
         "next": [
             "返回主菜单"
         ]
@@ -88,7 +88,6 @@
         ]
     },
     "手动战斗_体力不足": {
-        "post_delay": 3500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -101,6 +100,7 @@
                 "expected": "是否使用"
             }
         },
+        "post_delay": 3500,
         "next": [
             "返回主菜单"
         ]

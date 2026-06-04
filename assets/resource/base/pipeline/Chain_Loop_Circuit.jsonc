@@ -45,7 +45,6 @@
         ]
     },
     "任务过程": {
-        "post_wait_freezes": 200,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -55,12 +54,12 @@
                     321,
                     159
                 ],
+                "expected": [
+                    "道具说明"
+                ],
                 "replace": [
                     "真",
                     "具"
-                ],
-                "expected": [
-                    "道具说明"
                 ]
             }
         },
@@ -70,6 +69,7 @@
                 "custom_action": "ChainLoopCircuit"
             }
         },
+        "post_wait_freezes": 200,
         "next": []
     },
     "识别蓝球_链合回路": {
@@ -82,18 +82,18 @@
                     627,
                     632
                 ],
-                "count": 100,
-                "connected": true,
+                "lower": [
+                    0,
+                    120,
+                    180
+                ],
                 "upper": [
                     50,
                     170,
                     230
                 ],
-                "lower": [
-                    0,
-                    120,
-                    180
-                ]
+                "connected": true,
+                "count": 100
             }
         }
     },
@@ -107,18 +107,18 @@
                     627,
                     632
                 ],
-                "count": 100,
-                "connected": true,
+                "lower": [
+                    130,
+                    95,
+                    20
+                ],
                 "upper": [
                     230,
                     170,
                     40
                 ],
-                "lower": [
-                    130,
-                    95,
-                    20
-                ]
+                "connected": true,
+                "count": 100
             }
         }
     },
@@ -132,18 +132,18 @@
                     627,
                     632
                 ],
-                "count": 100,
-                "connected": true,
+                "lower": [
+                    90,
+                    15,
+                    15
+                ],
                 "upper": [
                     180,
                     40,
                     40
                 ],
-                "lower": [
-                    90,
-                    15,
-                    15
-                ]
+                "connected": true,
+                "count": 100
             }
         }
     },
@@ -157,18 +157,18 @@
                     627,
                     632
                 ],
-                "count": 200,
-                "connected": true,
+                "lower": [
+                    200,
+                    200,
+                    200
+                ],
                 "upper": [
                     230,
                     230,
                     230
                 ],
-                "lower": [
-                    200,
-                    200,
-                    200
-                ]
+                "connected": true,
+                "count": 200
             }
         }
     },

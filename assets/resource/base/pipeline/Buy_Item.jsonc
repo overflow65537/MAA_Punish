@@ -11,7 +11,6 @@
         ]
     },
     "错误点击_商品": {
-        "post_wait_freezes": 500,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -26,10 +25,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_wait_freezes": 500
     },
     "检查碎片": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -52,10 +51,10 @@
                     0
                 ]
             }
-        }
+        },
+        "post_delay": 1000
     },
     "滑动": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -80,7 +79,8 @@
                     350
                 ]
             }
-        }
+        },
+        "post_delay": 1000
     },
     "打开商店": {
         "recognition": {
@@ -153,7 +153,6 @@
         ]
     },
     "购买碎片失败": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -162,6 +161,10 @@
                     338,
                     240,
                     37
+                ],
+                "expected": [
+                    "超过商店可购买的数量",
+                    "购买所需材料不足"
                 ],
                 "replace": [
                     [
@@ -176,10 +179,6 @@
                         "可可",
                         "可"
                     ]
-                ],
-                "expected": [
-                    "超过商店可购买的数量",
-                    "购买所需材料不足"
                 ]
             }
         },
@@ -192,12 +191,12 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "关闭界面"
         ]
     },
     "关闭界面": {
-        "post_wait_freezes": 500,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -213,6 +212,7 @@
         "action": {
             "type": "Click"
         },
+        "post_wait_freezes": 500,
         "next": [
             "关闭界面",
             "返回主菜单"

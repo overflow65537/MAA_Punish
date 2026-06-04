@@ -33,18 +33,17 @@
                 ]
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]商店[/color]"
-        },
         "action": {
             "type": "Click"
         },
         "next": [
             "进入商店_矩阵循生"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]商店[/color]"
+        }
     },
     "意外点击藏品_矩阵循生": {
-        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -57,12 +56,12 @@
                 "expected": "^.品$"
             }
         },
+        "post_delay": 2000,
         "next": [
             "返回"
         ]
     },
     "进入商店_矩阵循生": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -78,6 +77,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -108,7 +108,6 @@
         }
     },
     "结束购物_矩阵循生": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -123,7 +122,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "在途存货_矩阵循生": {
         "recognition": {
@@ -138,9 +138,6 @@
                 "expected": "在途存货"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]在途存货[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -152,10 +149,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]在途存货_对话1",
             "[JumpBack]在途存货_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]在途存货[/color]"
+        }
     },
     "在途存货_对话1": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -170,10 +169,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "在途存货_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -189,6 +188,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -206,9 +206,6 @@
                 "expected": "亚人少女"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]亚人少女[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -220,10 +217,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]亚人少女_对话2",
             "[JumpBack]亚人少女_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]亚人少女[/color]"
+        }
     },
     "亚人少女_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -239,12 +238,12 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
     },
     "亚人少女_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -262,7 +261,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "贴心搭档_矩阵循生": {
         "recognition": {
@@ -279,9 +279,6 @@
                 ]
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]贴心搭档[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -293,10 +290,12 @@
             "[JumpBack]出发_矩阵循生",
             "[JumpBack]未命中选项",
             "[JumpBack]贴心搭档_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]贴心搭档[/color]"
+        }
     },
     "贴心搭档_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -312,6 +311,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生",
             "出发_矩阵循生"
@@ -330,9 +330,6 @@
                 "expected": "逃出生天"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]逃出生天[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -344,10 +341,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]逃出生天_对话2",
             "[JumpBack]逃出生天_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]逃出生天[/color]"
+        }
     },
     "逃出生天_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -365,10 +364,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "逃出生天_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -384,6 +383,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -401,9 +401,6 @@
                 "expected": "隐秘工坊"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]隐秘工坊[/color]"
-        },
         "next": [
             "事件完成_结束_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -416,10 +413,12 @@
             "[JumpBack]隐秘工坊_对话2",
             "[JumpBack]隐秘工坊_对话",
             "[JumpBack]转场_矩阵循生"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]隐秘工坊[/color]"
+        }
     },
     "隐秘工坊_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -435,12 +434,12 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
     },
     "隐秘工坊_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -458,7 +457,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "洁塔薇的游戏_矩阵循生": {
         "recognition": {
@@ -473,9 +473,6 @@
                 "expected": "洁塔薇的游戏"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]洁塔薇的游戏[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -487,10 +484,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]洁塔薇的游戏_对话2",
             "[JumpBack]洁塔薇的游戏_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]洁塔薇的游戏[/color]"
+        }
     },
     "洁塔薇的游戏_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -506,12 +505,12 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
     },
     "洁塔薇的游戏_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -530,7 +529,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "禁忌验证_矩阵循生": {
         "recognition": {
@@ -545,9 +545,6 @@
                 "expected": "禁忌验证"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]禁忌验证[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -559,10 +556,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]禁忌验证_对话2",
             "[JumpBack]禁忌验证_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]禁忌验证[/color]"
+        }
     },
     "禁忌验证_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -581,10 +580,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "禁忌验证_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -603,6 +602,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -623,9 +623,6 @@
                 ]
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]头号玩家[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -637,10 +634,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]头号玩家_对话2",
             "[JumpBack]头号玩家_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]头号玩家[/color]"
+        }
     },
     "头号玩家_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -657,10 +656,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "头号玩家_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -676,6 +675,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -693,9 +693,6 @@
                 "expected": "致命失误"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]致命失误[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -707,10 +704,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]致命失误_对话2",
             "[JumpBack]致命失误_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]致命失误[/color]"
+        }
     },
     "致命失误_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -728,10 +727,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "致命失误_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -747,6 +746,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -764,9 +764,6 @@
                 "expected": "工业怪谈"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]工业怪谈[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -778,10 +775,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]工业怪谈_对话2",
             "[JumpBack]工业怪谈_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]工业怪谈[/color]"
+        }
     },
     "工业怪谈_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -798,10 +797,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "工业怪谈_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -819,6 +818,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -836,9 +836,6 @@
                 "expected": "动物坟场"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]动物坟场[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -850,10 +847,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]动物坟场_对话2",
             "[JumpBack]动物坟场_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]动物坟场[/color]"
+        }
     },
     "动物坟场_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -872,10 +871,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "动物坟场_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -885,21 +884,22 @@
                     554,
                     339
                 ],
-                "replace": [
-                    "該",
-                    "骸"
-                ],
                 "expected": [
                     "挖掘",
                     "周边",
                     "安葬",
                     "骸骨"
+                ],
+                "replace": [
+                    "該",
+                    "骸"
                 ]
             }
         },
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -917,9 +917,6 @@
                 "expected": "观星真相"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]观星真相[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -931,10 +928,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]观星真相_对话2",
             "[JumpBack]观星真相_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]观星真相[/color]"
+        }
     },
     "观星真相_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -953,10 +952,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "观星真相_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -975,6 +974,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -992,9 +992,6 @@
                 "expected": "机械性故障"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]机械性故障[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -1006,10 +1003,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]异界通讯I_对话2",
             "[JumpBack]异界通讯I_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]机械性故障[/color]"
+        }
     },
     "异界通讯I_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1030,10 +1029,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "异界通讯I_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1053,6 +1052,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -1074,9 +1074,6 @@
                 ]
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]步履蹒跚[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -1088,10 +1085,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]步履蹒跚_对话2",
             "[JumpBack]步履蹒跚_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]步履蹒跚[/color]"
+        }
     },
     "步履蹒跚_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1112,7 +1111,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "举手之劳_矩阵循生": {
         "recognition": {
@@ -1127,9 +1127,6 @@
                 "expected": "举手之劳"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]举手之劳[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -1141,10 +1138,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]举手之劳_对话2",
             "[JumpBack]举手之劳_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]举手之劳[/color]"
+        }
     },
     "举手之劳_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1164,10 +1163,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "举手之劳_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1185,12 +1184,12 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
     },
     "步履蹒跚_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1208,6 +1207,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -1225,9 +1225,6 @@
                 "expected": "无效救援"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]无效救援[/color]"
-        },
         "next": [
             "事件完成_结束_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -1240,10 +1237,12 @@
             "[JumpBack]无效救援_对话2",
             "[JumpBack]无效救援_对话",
             "[JumpBack]转场_矩阵循生"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]无效救援[/color]"
+        }
     },
     "无效救援_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1263,10 +1262,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "无效救援_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1284,6 +1283,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -1301,9 +1301,6 @@
                 "expected": "盛典纪行"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]盛典纪行[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -1315,10 +1312,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]盛典纪行_对话2",
             "[JumpBack]盛典纪行_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]盛典纪行[/color]"
+        }
     },
     "盛典纪行_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1337,10 +1336,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "盛典纪行_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1350,19 +1349,20 @@
                     554,
                     339
                 ],
-                "replace": [
-                    "教",
-                    "解"
-                ],
                 "expected": [
                     "解救",
                     "拿出武器"
+                ],
+                "replace": [
+                    "教",
+                    "解"
                 ]
             }
         },
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -1380,9 +1380,6 @@
                 "expected": "火灾现场"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]火灾现场[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -1394,10 +1391,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]火灾现场_对话2",
             "[JumpBack]火灾现场_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]火灾现场[/color]"
+        }
     },
     "火灾现场_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1416,10 +1415,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "火灾现场_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1437,6 +1436,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -1454,9 +1454,6 @@
                 "expected": "棋盘难题"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]棋盘难题[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -1468,10 +1465,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]棋盘难题_对话2",
             "[JumpBack]棋盘难题_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]棋盘难题[/color]"
+        }
     },
     "棋盘难题_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1490,10 +1489,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "棋盘难题_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1511,6 +1510,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -1530,9 +1530,6 @@
                 ]
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]皇后游戏[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -1544,10 +1541,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]皇后游戏_对话2",
             "[JumpBack]皇后游戏_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]皇后游戏[/color]"
+        }
     },
     "皇后游戏_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1569,10 +1568,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "皇后游戏_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1593,6 +1592,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -1622,9 +1622,6 @@
                 ]
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]瑕疵造物[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -1636,10 +1633,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]瑕疵造物_对话2",
             "[JumpBack]瑕疵造物_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]瑕疵造物[/color]"
+        }
     },
     "瑕疵造物_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1657,10 +1656,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "瑕疵造物_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1678,6 +1677,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -1695,9 +1695,6 @@
                 "expected": "迷失之馆"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]迷失之馆[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -1709,10 +1706,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]迷失之馆_对话2",
             "[JumpBack]迷失之馆_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]迷失之馆[/color]"
+        }
     },
     "迷失之馆_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1730,10 +1729,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "迷失之馆_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1751,6 +1750,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -1768,9 +1768,6 @@
                 "expected": "圣殿战役"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]圣殿战役[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -1782,10 +1779,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]圣殿战役_对话2",
             "[JumpBack]圣殿战役_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]圣殿战役[/color]"
+        }
     },
     "圣殿战役_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1805,10 +1804,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "圣殿战役_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1827,6 +1826,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -1844,9 +1844,6 @@
                 "expected": "西西弗斯"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]西西弗斯[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -1858,10 +1855,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]西西弗斯_对话2",
             "[JumpBack]西西弗斯_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]西西弗斯[/color]"
+        }
     },
     "西西弗斯_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1878,10 +1877,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "西西弗斯_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1899,6 +1898,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -1916,9 +1916,6 @@
                 "expected": "野性之森"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]野性之森[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -1930,10 +1927,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]野性之森_对话2",
             "[JumpBack]野性之森_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]野性之森[/color]"
+        }
     },
     "野性之森_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1953,10 +1952,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "野性之森_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1974,6 +1973,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -1991,9 +1991,6 @@
                 "expected": "蓝色裂痕"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]蓝色裂痕[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -2005,10 +2002,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]蓝色裂痕_对话2",
             "[JumpBack]蓝色裂痕_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]蓝色裂痕[/color]"
+        }
     },
     "蓝色裂痕_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2028,10 +2027,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "蓝色裂痕_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2050,6 +2049,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -2067,9 +2067,6 @@
                 "expected": "铁石心肠"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]铁石心肠[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -2081,10 +2078,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]铁石心肠_对话2",
             "[JumpBack]铁石心肠_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]铁石心肠[/color]"
+        }
     },
     "铁石心肠_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2101,10 +2100,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "铁石心肠_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2122,6 +2121,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -2142,9 +2142,6 @@
                 ]
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]栩栩如生[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -2156,10 +2153,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]栩栩如生_对话2",
             "[JumpBack]栩栩如生_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]栩栩如生[/color]"
+        }
     },
     "栩栩如生_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2178,10 +2177,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "栩栩如生_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2200,6 +2199,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -2217,9 +2217,6 @@
                 "expected": "荒废古卷"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]荒废古卷[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -2231,10 +2228,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]荒废古卷_对话2",
             "[JumpBack]荒废古卷_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]荒废古卷[/color]"
+        }
     },
     "荒废古卷_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2252,10 +2251,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "荒废古卷_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2273,13 +2272,13 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生",
             "回答_矩阵循生"
         ]
     },
     "回答_矩阵循生": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2294,7 +2293,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "洁塔薇的食材_矩阵循生": {
         "recognition": {
@@ -2309,9 +2309,6 @@
                 "expected": "洁塔薇的食材"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]洁塔薇的食材[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -2323,10 +2320,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]洁塔薇的食材_对话2",
             "[JumpBack]洁塔薇的食材_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]洁塔薇的食材[/color]"
+        }
     },
     "洁塔薇的食材_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2345,10 +2344,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "洁塔薇的食材_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2367,6 +2366,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -2384,9 +2384,6 @@
                 "expected": "荒废古堡"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]荒废古堡[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -2398,10 +2395,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]荒废古堡_对话2",
             "[JumpBack]荒废古堡_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]荒废古堡[/color]"
+        }
     },
     "荒废古堡_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2419,10 +2418,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "荒废古堡_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2440,6 +2439,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -2457,9 +2457,6 @@
                 "expected": "天台扭蛋机"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]天台扭蛋机[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -2471,10 +2468,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]天台扭蛋机_对话2",
             "[JumpBack]天台扭蛋机_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]天台扭蛋机[/color]"
+        }
     },
     "天台扭蛋机_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2491,10 +2490,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "天台扭蛋机_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2512,6 +2511,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -2529,9 +2529,6 @@
                 "expected": "莫比乌斯"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]莫比乌斯[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -2542,10 +2539,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]莫比乌斯_对话2",
             "[JumpBack]莫比乌斯_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]莫比乌斯[/color]"
+        }
     },
     "莫比乌斯_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2564,10 +2563,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "莫比乌斯_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2585,6 +2584,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -2604,9 +2604,6 @@
                 ]
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]赝品工匠[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -2617,10 +2614,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]赝品工匠_对话2",
             "[JumpBack]赝品工匠_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]赝品工匠[/color]"
+        }
     },
     "赝品工匠_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2638,10 +2637,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "赝品工匠_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2659,6 +2658,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -2676,9 +2676,6 @@
                 "expected": "继承之物"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]继承之物[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -2689,10 +2686,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]继承之物_对话2",
             "[JumpBack]继承之物_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]继承之物[/color]"
+        }
     },
     "继承之物_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2711,10 +2710,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "继承之物_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2733,6 +2732,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -2750,9 +2750,6 @@
                 "expected": "意外的请求"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]异界通讯II[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -2763,10 +2760,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]异界通讯II_对话2",
             "[JumpBack]异界通讯II_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]异界通讯II[/color]"
+        }
     },
     "异界通讯II_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2786,10 +2785,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "异界通讯II_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2807,6 +2806,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -2824,9 +2824,6 @@
                 "expected": "禁忌实验"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]禁忌实验[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -2837,10 +2834,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]禁忌实验_对话2",
             "[JumpBack]禁忌实验_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]禁忌实验[/color]"
+        }
     },
     "禁忌实验_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2860,10 +2859,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "禁忌实验_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2881,6 +2880,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -2898,9 +2898,6 @@
                 "expected": "失败造物"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]失败造物[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -2911,10 +2908,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]失败造物_对话2",
             "[JumpBack]失败造物_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]失败造物[/color]"
+        }
     },
     "失败造物_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2933,10 +2932,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "失败造物_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2954,6 +2953,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生",
             "调查_矩阵循生",
@@ -2961,7 +2961,6 @@
         ]
     },
     "继续_矩阵循生": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2976,10 +2975,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "调查_矩阵循生": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2994,7 +2993,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "旧日情谊_矩阵循生": {
         "recognition": {
@@ -3009,9 +3009,6 @@
                 "expected": "旧日情谊"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]旧日情谊[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -3022,10 +3019,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]旧日情谊_对话2",
             "[JumpBack]旧日情谊_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]旧日情谊[/color]"
+        }
     },
     "旧日情谊_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3043,10 +3042,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "旧日情谊_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3064,6 +3063,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -3081,9 +3081,6 @@
                 "expected": "贫困收藏家"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]贫困收藏家[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -3094,10 +3091,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]贫困收藏家_对话2",
             "[JumpBack]贫困收藏家_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]贫困收藏家[/color]"
+        }
     },
     "贫困收藏家_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3114,10 +3113,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "贫困收藏家_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3135,6 +3134,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -3152,9 +3152,6 @@
                 "expected": "英雄真相"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]英雄真相[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -3165,10 +3162,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]英雄真相_对话2",
             "[JumpBack]英雄真相_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]英雄真相[/color]"
+        }
     },
     "英雄真相_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3186,10 +3185,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "英雄真相_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3208,6 +3207,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -3225,9 +3225,6 @@
                 "expected": "记忆真相"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]记忆真相[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -3239,10 +3236,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]记忆真相_对话2",
             "[JumpBack]记忆真相_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]记忆真相[/color]"
+        }
     },
     "记忆真相_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3261,10 +3260,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "记忆真相_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3282,6 +3281,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -3299,9 +3299,6 @@
                 "expected": "天选者的故事"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]天选者的故事[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -3312,10 +3309,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]天选者的故事_对话2",
             "[JumpBack]天选者的故事_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]天选者的故事[/color]"
+        }
     },
     "天选者的故事_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3335,10 +3334,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "天选者的故事_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3356,13 +3355,13 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生",
             "翻阅_矩阵循生"
         ]
     },
     "翻阅_矩阵循生": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3377,10 +3376,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "树神之女_矩阵循生": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3393,9 +3392,7 @@
                 "expected": "树神之女"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]树神之女[/color]"
-        },
+        "post_delay": 1000,
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -3406,10 +3403,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]树神之女_对话2",
             "[JumpBack]树神之女_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]树神之女[/color]"
+        }
     },
     "树神之女_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3426,10 +3425,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "树神之女_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3447,6 +3446,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -3464,9 +3464,6 @@
                 "expected": "物归新主"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]物归新主[/color]"
-        },
         "next": [
             "物归新主完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -3478,10 +3475,12 @@
             "[JumpBack]物归新主_对话2",
             "[JumpBack]物归新主_对话",
             "[JumpBack]转场_矩阵循生"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]物归新主[/color]"
+        }
     },
     "物归新主_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3498,10 +3497,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "物归新主_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3519,12 +3518,12 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
     },
     "无尽长廊_矩阵循生": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3537,9 +3536,7 @@
                 "expected": "无尽长廊"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]无尽长廊[/color]"
-        },
+        "post_delay": 1000,
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -3550,10 +3547,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]无尽长廊_对话2",
             "[JumpBack]无尽长廊_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]无尽长廊[/color]"
+        }
     },
     "无尽长廊_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3571,10 +3570,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "无尽长廊_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3594,12 +3593,12 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
     },
     "万两黄金_矩阵循生": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3612,9 +3611,7 @@
                 "expected": "万两黄金"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]万两黄金[/color]"
-        },
+        "post_delay": 1000,
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -3625,10 +3622,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]万两黄金_对话2",
             "[JumpBack]万两黄金_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]万两黄金[/color]"
+        }
     },
     "万两黄金_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3646,10 +3645,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "万两黄金_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3667,6 +3666,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -3684,9 +3684,6 @@
                 "expected": "工业幽灵"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]工业幽灵[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -3697,10 +3694,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]工业幽灵_对话2",
             "[JumpBack]工业幽灵_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]工业幽灵[/color]"
+        }
     },
     "工业幽灵_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3717,10 +3716,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "工业幽灵_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3739,12 +3738,12 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
     },
     "自投罗网_矩阵循生": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3757,9 +3756,7 @@
                 "expected": "自投罗网"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]自投罗网[/color]"
-        },
+        "post_delay": 1000,
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -3770,10 +3767,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]自投罗网_对话2",
             "[JumpBack]自投罗网_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]自投罗网[/color]"
+        }
     },
     "自投罗网_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3791,10 +3790,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "自投罗网_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3812,6 +3811,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -3829,9 +3829,6 @@
                 "expected": "武器技师"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]武器技师[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -3842,10 +3839,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]武器技师_对话2",
             "[JumpBack]武器技师_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]武器技师[/color]"
+        }
     },
     "武器技师_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3862,10 +3861,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "武器技师_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3883,6 +3882,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -3900,9 +3900,6 @@
                 "expected": "致命隐患"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]致命隐患[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -3913,10 +3910,12 @@
             "[JumpBack]未命中选项",
             "[JumpBack]致命隐患_对话2",
             "[JumpBack]致命隐患_对话"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]致命隐患[/color]"
+        }
     },
     "致命隐患_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3936,10 +3935,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "致命隐患_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -3957,6 +3956,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
@@ -3974,9 +3974,6 @@
                 "expected": "物归新主"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]物归新主[/color]"
-        },
         "next": [
             "事件完成_矩阵循生",
             "[JumpBack]关闭奖励_矩阵循生",
@@ -3988,10 +3985,12 @@
             "[JumpBack]物归新主非兼容_对话2",
             "[JumpBack]物归新主非兼容_对话",
             "[JumpBack]转场_矩阵循生"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]物归新主[/color]"
+        }
     },
     "物归新主非兼容_对话": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -4008,10 +4007,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "物归新主非兼容_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -4029,12 +4028,12 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "决定_矩阵循生"
         ]
     },
     "未知事件_矩阵循生": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -4047,20 +4046,21 @@
                 "expected": ""
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]文本识别错误[/color]"
-        },
         "action": {
             "type": "Custom",
             "param": {
                 "custom_action": "PrintInfo"
             }
         },
+        "post_delay": 1000,
         "next": [
             "链路崩溃_reco",
             "[JumpBack]返回_矩阵循生",
             "[JumpBack]确认结束购物_矩阵循生",
             "[JumpBack]终止_矩阵循生"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:Tomato]文本识别错误[/color]"
+        }
     }
 }

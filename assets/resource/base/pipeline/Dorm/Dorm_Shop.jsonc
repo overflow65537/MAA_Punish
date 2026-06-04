@@ -49,7 +49,6 @@
         }
     },
     "错误购买": {
-        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -75,15 +74,12 @@
                 ]
             }
         },
+        "post_delay": 2000,
         "next": [
             "购买物品"
         ]
     },
     "打开遣测商店": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
         "recognition": {
             "type": "And",
             "param": {
@@ -118,8 +114,8 @@
                                     245,
                                     248
                                 ],
-                                "count": 500,
-                                "connected": true
+                                "connected": true,
+                                "count": 500
                             }
                         }
                     }
@@ -128,10 +124,13 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
         }
     },
     "购买碎片失败_宿舍": {
-        "post_wait_freezes": 500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -140,6 +139,10 @@
                     338,
                     240,
                     37
+                ],
+                "expected": [
+                    "超过商店可购买的数量",
+                    "购买所需材料不足"
                 ],
                 "replace": [
                     [
@@ -154,10 +157,6 @@
                         "可可",
                         "可"
                     ]
-                ],
-                "expected": [
-                    "超过商店可购买的数量",
-                    "购买所需材料不足"
                 ]
             }
         },
@@ -170,12 +169,12 @@
                 ]
             }
         },
+        "post_wait_freezes": 500,
         "next": [
             "关闭界面_宿舍"
         ]
     },
     "关闭界面_宿舍": {
-        "post_wait_freezes": 500,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -191,12 +190,12 @@
         "action": {
             "type": "Click"
         },
+        "post_wait_freezes": 500,
         "next": [
             "返回主菜单"
         ]
     },
     "遣测商店内部": {
-        "post_delay": 1000,
         "recognition": {
             "type": "And",
             "param": {
@@ -231,14 +230,15 @@
                                     47,
                                     47
                                 ],
-                                "count": 500,
-                                "connected": true
+                                "connected": true,
+                                "count": 500
                             }
                         }
                     }
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "推荐物品",
             "[JumpBack]意外点击_商店物品",
@@ -246,7 +246,6 @@
         ]
     },
     "在宿舍币商店中": {
-        "post_delay": 1500,
         "recognition": {
             "type": "And",
             "param": {
@@ -281,14 +280,15 @@
                                     47,
                                     47
                                 ],
-                                "count": 500,
-                                "connected": true
+                                "connected": true,
+                                "count": 500
                             }
                         }
                     }
                 ]
             }
         },
+        "post_delay": 1500,
         "next": [
             "推荐物品",
             "[JumpBack]意外点击_商店物品",
@@ -340,7 +340,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
                 "roi": [
                     551,
                     208,
@@ -349,7 +348,8 @@
                 ],
                 "expected": [
                     "涂装设计草稿"
-                ]
+                ],
+                "only_rec": true
             }
         },
         "post_delay": 1000,
@@ -359,7 +359,6 @@
         ]
     },
     "点击购买_宿舍": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -375,6 +374,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "购买碎片失败_宿舍",
             "购买成功"
@@ -426,10 +426,6 @@
         }
     },
     "选择宿舍币商店": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
         "recognition": {
             "type": "And",
             "param": {
@@ -464,8 +460,8 @@
                                     245,
                                     248
                                 ],
-                                "count": 500,
-                                "connected": true
+                                "connected": true,
+                                "count": 500
                             }
                         }
                     }
@@ -474,10 +470,13 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
         }
     },
     "推荐物品": {
-        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -493,6 +492,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1500,
         "next": [
             "错误购买",
             "购买_宿舍"

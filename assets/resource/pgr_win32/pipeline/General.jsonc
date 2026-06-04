@@ -1,8 +1,5 @@
 {
     "重启游戏": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]严重错误[/color]"
-        },
         "action": {
             "type": "DoNothing"
         },
@@ -10,6 +7,9 @@
             "检查主界面2",
             "[JumpBack]确定",
             "[JumpBack]esc键"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:Tomato]严重错误[/color]"
+        }
     }
 }

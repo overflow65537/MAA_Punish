@@ -3,7 +3,6 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "green_mask": true,
                 "roi": [
                     1156,
                     594,
@@ -12,14 +11,12 @@
                 ],
                 "template": [
                     "自定义战斗/希声.png"
-                ]
+                ],
+                "green_mask": true
             }
         }
     },
     "技能_能量条": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -29,25 +26,25 @@
                     243,
                     32
                 ],
-                "upper": [
-                    194,
-                    255,
-                    255
-                ],
                 "lower": [
                     90,
                     175,
                     225
                 ],
+                "upper": [
+                    194,
+                    255,
+                    255
+                ],
                 "connected": true,
                 "count": 30
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "统计信号球数量": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "And",
             "param": {
@@ -57,7 +54,6 @@
                         "recognition": {
                             "type": "OCR",
                             "param": {
-                                "only_rec": true,
                                 "roi": "_信号球数量",
                                 "roi_offset": [
                                     -2,
@@ -65,13 +61,17 @@
                                     4,
                                     4
                                 ],
-                                "expected": "16$"
+                                "expected": "16$",
+                                "only_rec": true
                             }
                         }
                     }
                 ]
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "_信号球数量": {
         "recognition": {
@@ -97,9 +97,6 @@
         }
     },
     "检查血量百分比": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -109,19 +106,22 @@
                     217,
                     9
                 ],
-                "connected": true,
+                "lower": [
+                    249,
+                    249,
+                    250
+                ],
                 "upper": [
                     255,
                     255,
                     255
                 ],
-                "lower": [
-                    249,
-                    249,
-                    250
-                ]
+                "connected": true
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查支援类型角色": {
         "recognition": {
@@ -167,8 +167,8 @@
                     90,
                     55
                 ],
-                "count": 200,
-                "connected": true
+                "connected": true,
+                "count": 200
             }
         }
     },
@@ -177,7 +177,6 @@
             "type": "OCR",
             "param": {
                 "roi": "检查支援类型角色",
-                "only_rec": true,
                 "roi_offset": [
                     -100,
                     60,
@@ -186,7 +185,8 @@
                 ],
                 "expected": [
                     "编队中"
-                ]
+                ],
+                "only_rec": true
             }
         },
         "next": [
@@ -213,15 +213,12 @@
                     233,
                     254
                 ],
-                "count": 10,
-                "connected": true
+                "connected": true,
+                "count": 10
             }
         }
     },
     "检查希声2阶段": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -244,12 +241,12 @@
                 "connected": true,
                 "count": 10
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查希声红球": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -259,18 +256,18 @@
                     657,
                     106
                 ],
-                "green_mask": true,
                 "template": [
                     "信号球/希声_红.png",
                     "信号球/希声_黄.png"
-                ]
+                ],
+                "green_mask": true
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查希声长闪": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -317,12 +314,12 @@
                 "connected": true,
                 "count": 10
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查骇影2阶段": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -345,12 +342,12 @@
                 "connected": true,
                 "count": 300
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查核心条2_霁梦": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -360,43 +357,43 @@
                     15,
                     3
                 ],
-                "connected": true,
-                "count": 10,
+                "lower": [
+                    90,
+                    180,
+                    210
+                ],
                 "upper": [
                     110,
                     210,
                     240
                 ],
-                "lower": [
-                    90,
-                    180,
-                    210
-                ]
+                "connected": true,
+                "count": 10
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查核心球_霁梦": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "green_mask": true,
-                "template": "自定义战斗/霁梦核心球.png",
                 "roi": [
                     852,
                     411,
                     86,
                     71
-                ]
+                ],
+                "template": "自定义战斗/霁梦核心球.png",
+                "green_mask": true
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查核心条_霁梦": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -406,61 +403,61 @@
                     50,
                     32
                 ],
-                "connected": true,
-                "count": 50,
+                "lower": [
+                    110,
+                    210,
+                    230
+                ],
                 "upper": [
                     150,
                     240,
                     255
                 ],
-                "lower": [
-                    110,
-                    210,
-                    230
-                ]
+                "connected": true,
+                "count": 50
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查普攻2_霁梦": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "green_mask": true,
-                "template": "自定义战斗/霁梦普攻2.png",
                 "roi": [
                     1133,
                     574,
                     120,
                     116
-                ]
+                ],
+                "template": "自定义战斗/霁梦普攻2.png",
+                "green_mask": true
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查普攻1_霁梦": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "green_mask": true,
-                "template": "自定义战斗/霁梦普攻1.png",
                 "roi": [
                     1133,
                     574,
                     120,
                     116
-                ]
+                ],
+                "template": "自定义战斗/霁梦普攻1.png",
+                "green_mask": true
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查核心条_铮骨": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -470,24 +467,24 @@
                     14,
                     15
                 ],
-                "connected": true,
+                "lower": [
+                    240,
+                    45,
+                    85
+                ],
                 "upper": [
                     255,
                     60,
                     90
                 ],
-                "lower": [
-                    240,
-                    45,
-                    85
-                ]
+                "connected": true
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查残月值_终焉": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -497,20 +494,23 @@
                     245,
                     100
                 ],
-                "connected": true,
-                "count": 1600,
+                "lower": [
+                    155,
+                    40,
+                    60
+                ],
                 "upper": [
                     237,
                     116,
                     130
                 ],
-                "lower": [
-                    155,
-                    40,
-                    60
-                ]
+                "connected": true,
+                "count": 1600
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查无光值_囚影": {
         "recognition": {
@@ -527,9 +527,6 @@
         }
     },
     "检查比安卡·深痕一阶段": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -544,12 +541,12 @@
                 ],
                 "green_mask": true
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查核心被动_深痕": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -559,23 +556,23 @@
                     122,
                     125
                 ],
-                "upper": [
-                    169,
-                    165,
-                    204
-                ],
                 "lower": [
                     68,
                     69,
                     89
+                ],
+                "upper": [
+                    169,
+                    165,
+                    204
                 ]
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查u1_誓焰": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -588,12 +585,12 @@
                 "template": "自定义战斗/誓焰_u1.png",
                 "green_mask": true
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查u2_誓焰": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -606,12 +603,12 @@
                 "template": "自定义战斗/誓焰_u2.png",
                 "green_mask": true
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查u3_誓焰": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -624,12 +621,12 @@
                 "template": "自定义战斗/誓焰_u3.png",
                 "threshold": 0.55
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查u3_max": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -649,15 +646,15 @@
                     235,
                     165
                 ],
-                "count": 100,
-                "connected": true
+                "connected": true,
+                "count": 100
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查p1动能条_誓焰": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -667,23 +664,23 @@
                     15,
                     16
                 ],
-                "upper": [
-                    247,
-                    243,
-                    174
-                ],
                 "lower": [
                     233,
                     224,
                     148
+                ],
+                "upper": [
+                    247,
+                    243,
+                    174
                 ]
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查阶段p1_深谣": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -696,12 +693,12 @@
                 "template": "自定义战斗/深谣_p1.png",
                 "green_mask": true
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查阶段p2_深谣": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -714,12 +711,12 @@
                 "template": "自定义战斗/深谣_p2.png",
                 "green_mask": true
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查核心被动1_深谣": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -732,12 +729,12 @@
                 "template": "自定义战斗/深谣_核心被动1.png",
                 "green_mask": true
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查核心被动2_深谣": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -750,12 +747,12 @@
                 "template": "自定义战斗/深谣_核心被动2.png",
                 "green_mask": true
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查p2动能条_深谣": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -765,23 +762,23 @@
                     15,
                     15
                 ],
-                "upper": [
-                    191,
-                    192,
-                    255
-                ],
                 "lower": [
                     184,
                     184,
                     253
+                ],
+                "upper": [
+                    191,
+                    192,
+                    255
                 ]
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查核心技能_超刻": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -791,25 +788,25 @@
                     45,
                     41
                 ],
-                "upper": [
-                    125,
-                    175,
-                    255
-                ],
                 "lower": [
                     110,
                     160,
                     245
                 ],
+                "upper": [
+                    125,
+                    175,
+                    255
+                ],
                 "connected": true,
                 "count": 10
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查核心技能结束_超刻": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -821,12 +818,12 @@
                 ],
                 "expected": "\\d+"
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查核心被动_晖暮": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -836,23 +833,23 @@
                     122,
                     125
                 ],
-                "upper": [
-                    170,
-                    160,
-                    230
-                ],
                 "lower": [
                     130,
                     130,
                     200
+                ],
+                "upper": [
+                    170,
+                    160,
+                    230
                 ]
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "识别信号球": {
-        "rate_limit": 0,
-        "post_delay": 0,
-        "pre_delay": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -865,6 +862,9 @@
                 "template": [],
                 "green_mask": true
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     }
 }

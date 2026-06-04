@@ -52,7 +52,8 @@
             "type": "Custom",
             "param": {
                 "custom_action": "RedeemCode",
-                "custom_action_param": { //兑换码放在这里
+                "custom_action_param": {
+                    //兑换码放在这里
                     "code": [
                         "FOSANNIVERSARY",
                         "NEWALPHA0602"
@@ -130,8 +131,8 @@
         "action": {
             "type": "LongPressKey",
             "param": {
-                "key": 67,
-                "duration": 1000
+                "duration": 1000,
+                "key": 67
             }
         }
     }

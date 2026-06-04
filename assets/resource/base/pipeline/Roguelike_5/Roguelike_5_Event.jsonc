@@ -1,6 +1,5 @@
 {
     "获得奖励_神寂启示录": {
-        "post_delay": 2500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -26,7 +25,8 @@
                     5
                 ]
             }
-        }
+        },
+        "post_delay": 2500
     },
     "选择奖励_神寂启示录": {
         "recognition": {
@@ -68,10 +68,6 @@
         }
     },
     "选择技能_神寂启示录": {
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -95,16 +91,16 @@
                 ]
             }
         },
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "next": [
             "装备技能_神寂启示录",
             "空任务"
         ]
     },
     "装备技能_神寂启示录": {
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -121,6 +117,10 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
         },
         "next": [
             "[JumpBack]背包已满_神寂启示录",
@@ -258,7 +258,6 @@
         }
     },
     "事件完成_神寂启示录": {
-        "post_delay": 2500,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -275,6 +274,7 @@
                 ]
             }
         },
+        "post_delay": 2500,
         "next": [
             "事件完成_二次确认_神寂启示录"
         ]
@@ -298,7 +298,6 @@
         }
     },
     "战斗中_神寂启示录": {
-        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -312,13 +311,10 @@
                     "退出"
                 ]
             }
-        }
+        },
+        "post_delay": 2000
     },
     "通用事件处理_神寂启示录": {
-        "timeout": 60000,
-        "on_error": [
-            "神寂启示录"
-        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -333,6 +329,7 @@
                 ]
             }
         },
+        "timeout": 60000,
         "next": [
             "事件完成_神寂启示录",
             "战斗失败_神寂启示录",
@@ -347,6 +344,9 @@
             "[JumpBack]领取委托_神寂启示录",
             "[JumpBack]通用事件处理_对话2",
             "[JumpBack]通用事件处理_对话1"
+        ],
+        "on_error": [
+            "神寂启示录"
         ]
     },
     "领取委托_神寂启示录": {
@@ -413,7 +413,6 @@
         }
     },
     "符纹宝箱_神寂启示录": {
-        "post_delay": 2500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -438,7 +437,8 @@
                     5
                 ]
             }
-        }
+        },
+        "post_delay": 2500
     },
     "战斗失败_神寂启示录": {
         "recognition": {
@@ -469,15 +469,15 @@
                                     182,
                                     55
                                 ],
-                                "upper": [
-                                    217,
-                                    33,
-                                    40
-                                ],
                                 "lower": [
                                     173,
                                     4,
                                     21
+                                ],
+                                "upper": [
+                                    217,
+                                    33,
+                                    40
                                 ],
                                 "connected": true,
                                 "count": 1000
@@ -494,15 +494,15 @@
                                     182,
                                     55
                                 ],
-                                "upper": [
-                                    224,
-                                    222,
-                                    222
-                                ],
                                 "lower": [
                                     170,
                                     170,
                                     170
+                                ],
+                                "upper": [
+                                    224,
+                                    222,
+                                    222
                                 ],
                                 "connected": true,
                                 "count": 100
@@ -517,7 +517,6 @@
         }
     },
     "通用事件处理_对话2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "And",
             "param": {
@@ -532,15 +531,15 @@
                                     476,
                                     249
                                 ],
-                                "upper": [
-                                    48,
-                                    56,
-                                    61
-                                ],
                                 "lower": [
                                     16,
                                     24,
                                     24
+                                ],
+                                "upper": [
+                                    48,
+                                    56,
+                                    61
                                 ],
                                 "connected": true,
                                 "count": 1500
@@ -557,15 +556,15 @@
                                     476,
                                     249
                                 ],
-                                "upper": [
-                                    214,
-                                    217,
-                                    218
-                                ],
                                 "lower": [
                                     194,
                                     198,
                                     199
+                                ],
+                                "upper": [
+                                    214,
+                                    217,
+                                    218
                                 ],
                                 "connected": true,
                                 "count": 100
@@ -578,6 +577,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "通用事件处理_对话1",
             "空任务"
@@ -788,7 +788,6 @@
         ]
     },
     "情报分析_答案1": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -808,12 +807,12 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "推演"
         ]
     },
     "情报分析_答案2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -833,12 +832,12 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "推演"
         ]
     },
     "情报分析_答案3": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -858,12 +857,12 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "推演"
         ]
     },
     "情报分析_答案4": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -883,6 +882,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "推演"
         ]

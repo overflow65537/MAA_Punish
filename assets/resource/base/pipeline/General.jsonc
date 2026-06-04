@@ -6,10 +6,6 @@
         "enabled": true
     },
     "关闭奖励": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -32,10 +28,13 @@
                     30
                 ]
             }
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
         }
     },
     "返回主菜单": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -51,6 +50,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "检查主界面2",
             "[JumpBack]关闭奖励",
@@ -59,7 +59,6 @@
         ]
     },
     "返回主菜单_reco": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -74,10 +73,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "返回主菜单_图标": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -98,6 +97,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "检查主界面2",
             "返回主菜单",
@@ -105,7 +105,6 @@
         ]
     },
     "意外点击_主界面": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -126,10 +125,10 @@
                     10
                 ]
             }
-        }
+        },
+        "post_delay": 1000
     },
     "返回": {
-        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -144,10 +143,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1500
     },
     "返回_图标": {
-        "post_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -162,17 +161,18 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "返回主菜单_err": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]识别错误，返回主菜单[/color]",
-            "aborted": true
-        },
         "next": [
             "点击频率过快",
             "错误处理流程"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:Tomato]识别错误，返回主菜单[/color]",
+            "aborted": true
+        }
     },
     "错误处理流程": {
         "next": [
@@ -191,9 +191,6 @@
         ]
     },
     "重启游戏": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]未知错误,重启游戏[/color]"
-        },
         "action": {
             "type": "StopApp",
             "param": {
@@ -202,7 +199,10 @@
         },
         "next": [
             "启动"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:Tomato]未知错误,重启游戏[/color]"
+        }
     },
     "意外点击_物品": {
         "recognition": {
@@ -222,7 +222,6 @@
         }
     },
     "跳过剧情": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -241,6 +240,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "确认跳过",
             "跳过剧情",
@@ -269,7 +269,6 @@
         ]
     },
     "点击频率过快": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -287,6 +286,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "点击频率过快_确认",
             "点击频率过快",
@@ -314,10 +314,6 @@
         ]
     },
     "确定": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 5000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -332,10 +328,13 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 5000
         }
     },
     "确定_sp": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -351,12 +350,12 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "返回主菜单"
         ]
     },
     "退出血清界面_err": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -372,6 +371,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "错误处理流程"
         ]

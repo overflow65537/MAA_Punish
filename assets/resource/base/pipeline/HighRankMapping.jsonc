@@ -70,10 +70,6 @@
         }
     },
     "意外点击_环境情报": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -96,14 +92,13 @@
                     66
                 ]
             }
-        }
-    },
-    "开始挑战": {
-        "rate_limit": 0,
+        },
         "post_wait_freezes": {
             "time": 500,
             "timeout": 2000
-        },
+        }
+    },
+    "开始挑战": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -121,6 +116,11 @@
         "action": {
             "type": "Click"
         },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
+        "rate_limit": 0,
         "next": [
             "[JumpBack]识别人物",
             "[JumpBack]战斗中",
@@ -163,10 +163,6 @@
         }
     },
     "继续挑战": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -183,13 +179,13 @@
         },
         "action": {
             "type": "Click"
-        }
-    },
-    "战斗失败_历战": {
+        },
         "post_wait_freezes": {
             "time": 500,
             "timeout": 2000
-        },
+        }
+    },
+    "战斗失败_历战": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -206,13 +202,13 @@
         },
         "action": {
             "type": "Click"
-        }
-    },
-    "结算": {
+        },
         "post_wait_freezes": {
             "time": 500,
             "timeout": 2000
-        },
+        }
+    },
+    "结算": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -230,6 +226,10 @@
         "action": {
             "type": "Click"
         },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
         "next": [
             "历战映射主界面",
             "[JumpBack]确定",
@@ -239,10 +239,6 @@
         ]
     },
     "结算_点击失效": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -265,13 +261,13 @@
                     141
                 ]
             }
-        }
-    },
-    "继续": {
+        },
         "post_wait_freezes": {
             "time": 500,
             "timeout": 2000
-        },
+        }
+    },
+    "继续": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -288,6 +284,10 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
         }
     },
     "历战映射主界面": {
@@ -307,9 +307,6 @@
         }
     },
     "成员整备": {
-        "focus": {
-            "Node.Recognition.Succeeded": "未选择配队"
-        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -326,13 +323,12 @@
         },
         "next": [
             "返回主菜单"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "未选择配队"
+        }
     },
     "前往作战": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -349,13 +345,13 @@
         },
         "action": {
             "type": "Click"
-        }
-    },
-    "打开历战映射": {
+        },
         "post_wait_freezes": {
             "time": 500,
             "timeout": 2000
-        },
+        }
+    },
+    "打开历战映射": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -372,12 +368,13 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
         }
     },
     "识别历战分数": {
-        "focus": {
-            "Node.Recognition.Succeeded": "历战分数达标"
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -400,7 +397,10 @@
             "[JumpBack]领取历战奖励",
             "[JumpBack]关闭奖励",
             "返回主菜单"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "历战分数达标"
+        }
     },
     "领取历战奖励": {
         "max_hit": 2,

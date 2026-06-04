@@ -1,7 +1,18 @@
 {
     "厄愿潮声": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]开始冒险[/color]"
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "识别人物": {
+                        "enabled": true
+                    },
+                    "编入队伍": {
+                        "max_hit": 30
+                    }
+                }
+            }
         },
         "next": [
             "[JumpBack]覆盖布局菜单",
@@ -25,24 +36,12 @@
             "[JumpBack]意外点击_溯渊歧想",
             "[JumpBack]意外点击_限定活动"
         ],
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "识别人物": {
-                        "enabled": true
-                    },
-                    "编入队伍": {
-                        "max_hit": 30
-                    }
-                }
-            }
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]开始冒险[/color]"
         }
     },
     "下一步_厄愿潮声": {
         "desc": "only_rec的下一步,跳过OCR缓存",
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -58,7 +57,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "不可重复获得该秘藏品": {
         "recognition": {
@@ -86,7 +86,6 @@
         ]
     },
     "意外点击_溯渊歧想": {
-        "post_delay": 3000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -107,10 +106,10 @@
                     36
                 ]
             }
-        }
+        },
+        "post_delay": 3000
     },
     "选择宝箱奖励_厄愿潮声": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -120,13 +119,14 @@
                     219,
                     33
                 ],
+                "expected": "宝箱奖励",
                 "replace": [
                     "厅",
                     "励"
-                ],
-                "expected": "宝箱奖励"
+                ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "领取藏品_厄愿潮声",
             "点击藏品_厄愿潮声"
@@ -201,7 +201,6 @@
         ]
     },
     "返回_厄愿潮声": {
-        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -217,6 +216,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1500,
         "next": [
             "确定",
             "[JumpBack]终止_厄愿潮声"
@@ -292,7 +292,6 @@
         ]
     },
     "事件确定": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -311,6 +310,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "布道者_厄愿潮声",
             "悠久之歌_厄愿潮声",
@@ -366,11 +366,6 @@
         ]
     },
     "战斗事件_厄愿潮声": {
-        "timeout": 300000,
-        "rate_limit": 0,
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]战斗事件[/color]"
-        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -391,6 +386,8 @@
         "action": {
             "type": "Click"
         },
+        "timeout": 300000,
+        "rate_limit": 0,
         "next": [
             "战斗完成_厄愿潮声",
             "战斗失败_厄愿潮声",
@@ -403,10 +400,12 @@
             "[JumpBack]进入战斗_厄愿潮声",
             "[JumpBack]载入中",
             "[JumpBack]意外点击_选择人物"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]战斗事件[/color]"
+        }
     },
     "意外点击_选择人物": {
-        "post_delay": 5000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -430,7 +429,8 @@
                     36
                 ]
             }
-        }
+        },
+        "post_delay": 5000
     },
     "进入战斗_厄愿潮声": {
         "recognition": {
@@ -493,10 +493,10 @@
                 ]
             }
         },
-        "post_delay": 1000,
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "选择其他秘藏品"
         ]
@@ -520,7 +520,6 @@
         }
     },
     "意外点击_羁绊选择": {
-        "post_delay": 3000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -541,7 +540,8 @@
                     36
                 ]
             }
-        }
+        },
+        "post_delay": 3000
     },
     "取消_厄愿潮声": {
         "recognition": {
@@ -561,7 +561,6 @@
         }
     },
     "领取藏品_厄愿潮声": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -576,10 +575,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "点击藏品_厄愿潮声": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -598,7 +597,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "已领取所有奖励_厄愿潮声": {
         "recognition": {
@@ -645,18 +645,18 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
                 "roi": [
                     611,
                     52,
                     57,
                     34
                 ],
-                "expected": "邀约"
+                "expected": "邀约",
+                "only_rec": true
             }
         },
-        "pre_delay": 1000,
         "pre_wait_freezes": 80,
+        "pre_delay": 1000,
         "next": [
             "确认招募",
             "[JumpBack]选择羁绊_金色1",
@@ -695,7 +695,6 @@
         ]
     },
     "确认招募完毕": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -711,6 +710,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "确认招募完毕",
             "空任务"
@@ -745,19 +745,19 @@
                                     46,
                                     134
                                 ],
-                                "order_by": "Score",
-                                "count": 100,
-                                "connected": true,
+                                "lower": [
+                                    66,
+                                    49,
+                                    27
+                                ],
                                 "upper": [
                                     169,
                                     128,
                                     62
                                 ],
-                                "lower": [
-                                    66,
-                                    49,
-                                    27
-                                ]
+                                "connected": true,
+                                "count": 100,
+                                "order_by": "Score"
                             }
                         }
                     },
@@ -772,7 +772,6 @@
         ]
     },
     "点击升星_金色1": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -782,28 +781,28 @@
                     0,
                     60,
                     250
-                ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
-                "upper": [
-                    215,
-                    172,
-                    106
                 ],
                 "lower": [
                     186,
                     131,
                     23
-                ]
+                ],
+                "upper": [
+                    215,
+                    172,
+                    106
+                ],
+                "connected": true,
+                "count": 100,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "点击招募_金色1": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -814,24 +813,25 @@
                     60,
                     250
                 ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
+                "lower": [
+                    26,
+                    101,
+                    160
+                ],
                 "upper": [
                     72,
                     135,
                     194
                 ],
-                "lower": [
-                    26,
-                    101,
-                    160
-                ]
+                "connected": true,
+                "count": 100,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "选择羁绊_金色2": {
         "recognition": {
@@ -848,19 +848,19 @@
                                     42,
                                     119
                                 ],
-                                "order_by": "Score",
-                                "count": 100,
-                                "connected": true,
+                                "lower": [
+                                    66,
+                                    49,
+                                    27
+                                ],
                                 "upper": [
                                     169,
                                     128,
                                     62
                                 ],
-                                "lower": [
-                                    66,
-                                    49,
-                                    27
-                                ]
+                                "connected": true,
+                                "count": 100,
+                                "order_by": "Score"
                             }
                         }
                     },
@@ -875,7 +875,6 @@
         ]
     },
     "点击升星_金色2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -885,28 +884,28 @@
                     0,
                     60,
                     250
-                ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
-                "upper": [
-                    215,
-                    172,
-                    106
                 ],
                 "lower": [
                     186,
                     131,
                     23
-                ]
+                ],
+                "upper": [
+                    215,
+                    172,
+                    106
+                ],
+                "connected": true,
+                "count": 100,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "点击招募_金色2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -917,24 +916,25 @@
                     60,
                     250
                 ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
+                "lower": [
+                    26,
+                    101,
+                    160
+                ],
                 "upper": [
                     72,
                     135,
                     194
                 ],
-                "lower": [
-                    26,
-                    101,
-                    160
-                ]
+                "connected": true,
+                "count": 100,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "选择羁绊_金色3": {
         "recognition": {
@@ -951,19 +951,19 @@
                                     45,
                                     127
                                 ],
-                                "order_by": "Score",
-                                "count": 100,
-                                "connected": true,
+                                "lower": [
+                                    66,
+                                    49,
+                                    27
+                                ],
                                 "upper": [
                                     169,
                                     128,
                                     62
                                 ],
-                                "lower": [
-                                    66,
-                                    49,
-                                    27
-                                ]
+                                "connected": true,
+                                "count": 100,
+                                "order_by": "Score"
                             }
                         }
                     },
@@ -978,7 +978,6 @@
         ]
     },
     "点击升星_金色3": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -988,28 +987,28 @@
                     0,
                     60,
                     250
-                ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
-                "upper": [
-                    215,
-                    172,
-                    106
                 ],
                 "lower": [
                     186,
                     131,
                     23
-                ]
+                ],
+                "upper": [
+                    215,
+                    172,
+                    106
+                ],
+                "connected": true,
+                "count": 100,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "点击招募_金色3": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1020,24 +1019,25 @@
                     60,
                     250
                 ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
+                "lower": [
+                    26,
+                    101,
+                    160
+                ],
                 "upper": [
                     72,
                     135,
                     194
                 ],
-                "lower": [
-                    26,
-                    101,
-                    160
-                ]
+                "connected": true,
+                "count": 100,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "选择羁绊_紫色1": {
         "recognition": {
@@ -1054,19 +1054,19 @@
                                     46,
                                     134
                                 ],
-                                "order_by": "Score",
-                                "count": 100,
-                                "connected": true,
+                                "lower": [
+                                    75,
+                                    49,
+                                    79
+                                ],
                                 "upper": [
                                     154,
                                     82,
                                     148
                                 ],
-                                "lower": [
-                                    75,
-                                    49,
-                                    79
-                                ]
+                                "connected": true,
+                                "count": 100,
+                                "order_by": "Score"
                             }
                         }
                     },
@@ -1081,7 +1081,6 @@
         ]
     },
     "点击升星_紫色1": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1091,28 +1090,28 @@
                     0,
                     60,
                     250
-                ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
-                "upper": [
-                    215,
-                    172,
-                    106
                 ],
                 "lower": [
                     186,
                     131,
                     23
-                ]
+                ],
+                "upper": [
+                    215,
+                    172,
+                    106
+                ],
+                "connected": true,
+                "count": 100,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "点击招募_紫色1": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1123,24 +1122,25 @@
                     60,
                     250
                 ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
+                "lower": [
+                    26,
+                    101,
+                    160
+                ],
                 "upper": [
                     72,
                     135,
                     194
                 ],
-                "lower": [
-                    26,
-                    101,
-                    160
-                ]
+                "connected": true,
+                "count": 100,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "选择羁绊_紫色2": {
         "recognition": {
@@ -1157,19 +1157,19 @@
                                     42,
                                     119
                                 ],
-                                "order_by": "Score",
-                                "count": 100,
-                                "connected": true,
+                                "lower": [
+                                    75,
+                                    49,
+                                    79
+                                ],
                                 "upper": [
                                     154,
                                     82,
                                     148
                                 ],
-                                "lower": [
-                                    75,
-                                    49,
-                                    79
-                                ]
+                                "connected": true,
+                                "count": 100,
+                                "order_by": "Score"
                             }
                         }
                     },
@@ -1184,7 +1184,6 @@
         ]
     },
     "点击升星_紫色2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1194,28 +1193,28 @@
                     0,
                     60,
                     250
-                ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
-                "upper": [
-                    215,
-                    172,
-                    106
                 ],
                 "lower": [
                     186,
                     131,
                     23
-                ]
+                ],
+                "upper": [
+                    215,
+                    172,
+                    106
+                ],
+                "connected": true,
+                "count": 100,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "点击招募_紫色2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1226,24 +1225,25 @@
                     60,
                     250
                 ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
+                "lower": [
+                    26,
+                    101,
+                    160
+                ],
                 "upper": [
                     72,
                     135,
                     194
                 ],
-                "lower": [
-                    26,
-                    101,
-                    160
-                ]
+                "connected": true,
+                "count": 100,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "选择羁绊_紫色3": {
         "recognition": {
@@ -1260,19 +1260,19 @@
                                     45,
                                     127
                                 ],
-                                "order_by": "Score",
-                                "count": 100,
-                                "connected": true,
+                                "lower": [
+                                    75,
+                                    49,
+                                    79
+                                ],
                                 "upper": [
                                     154,
                                     82,
                                     148
                                 ],
-                                "lower": [
-                                    75,
-                                    49,
-                                    79
-                                ]
+                                "connected": true,
+                                "count": 100,
+                                "order_by": "Score"
                             }
                         }
                     },
@@ -1287,7 +1287,6 @@
         ]
     },
     "点击升星_紫色3": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1297,28 +1296,28 @@
                     0,
                     60,
                     250
-                ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
-                "upper": [
-                    215,
-                    172,
-                    106
                 ],
                 "lower": [
                     186,
                     131,
                     23
-                ]
+                ],
+                "upper": [
+                    215,
+                    172,
+                    106
+                ],
+                "connected": true,
+                "count": 100,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "点击招募_紫色3": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1329,24 +1328,25 @@
                     60,
                     250
                 ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
+                "lower": [
+                    26,
+                    101,
+                    160
+                ],
                 "upper": [
                     72,
                     135,
                     194
                 ],
-                "lower": [
-                    26,
-                    101,
-                    160
-                ]
+                "connected": true,
+                "count": 100,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "选择羁绊_蓝色1": {
         "recognition": {
@@ -1363,19 +1363,19 @@
                                     46,
                                     134
                                 ],
-                                "order_by": "Score",
-                                "count": 100,
-                                "connected": true,
+                                "lower": [
+                                    43,
+                                    71,
+                                    113
+                                ],
                                 "upper": [
                                     60,
                                     97,
                                     152
                                 ],
-                                "lower": [
-                                    43,
-                                    71,
-                                    113
-                                ]
+                                "connected": true,
+                                "count": 100,
+                                "order_by": "Score"
                             }
                         }
                     },
@@ -1390,7 +1390,6 @@
         ]
     },
     "点击升星_蓝色1": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1400,28 +1399,28 @@
                     0,
                     60,
                     250
-                ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
-                "upper": [
-                    215,
-                    172,
-                    106
                 ],
                 "lower": [
                     186,
                     131,
                     23
-                ]
+                ],
+                "upper": [
+                    215,
+                    172,
+                    106
+                ],
+                "connected": true,
+                "count": 100,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "点击招募_蓝色1": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1432,24 +1431,25 @@
                     60,
                     250
                 ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
+                "lower": [
+                    26,
+                    101,
+                    160
+                ],
                 "upper": [
                     72,
                     135,
                     194
                 ],
-                "lower": [
-                    26,
-                    101,
-                    160
-                ]
+                "connected": true,
+                "count": 100,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "选择羁绊_蓝色2": {
         "recognition": {
@@ -1466,19 +1466,19 @@
                                     42,
                                     119
                                 ],
-                                "order_by": "Score",
-                                "count": 100,
-                                "connected": true,
+                                "lower": [
+                                    43,
+                                    71,
+                                    113
+                                ],
                                 "upper": [
                                     60,
                                     97,
                                     152
                                 ],
-                                "lower": [
-                                    43,
-                                    71,
-                                    113
-                                ]
+                                "connected": true,
+                                "count": 100,
+                                "order_by": "Score"
                             }
                         }
                     },
@@ -1493,7 +1493,6 @@
         ]
     },
     "点击升星_蓝色2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1503,28 +1502,28 @@
                     0,
                     60,
                     250
-                ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
-                "upper": [
-                    215,
-                    172,
-                    106
                 ],
                 "lower": [
                     186,
                     131,
                     23
-                ]
+                ],
+                "upper": [
+                    215,
+                    172,
+                    106
+                ],
+                "connected": true,
+                "count": 100,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "点击招募_蓝色2": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1535,24 +1534,25 @@
                     60,
                     250
                 ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
+                "lower": [
+                    26,
+                    101,
+                    160
+                ],
                 "upper": [
                     72,
                     135,
                     194
                 ],
-                "lower": [
-                    26,
-                    101,
-                    160
-                ]
+                "connected": true,
+                "count": 100,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "选择羁绊_蓝色3": {
         "recognition": {
@@ -1569,19 +1569,19 @@
                                     45,
                                     127
                                 ],
-                                "order_by": "Score",
-                                "count": 100,
-                                "connected": true,
+                                "lower": [
+                                    43,
+                                    71,
+                                    113
+                                ],
                                 "upper": [
                                     60,
                                     97,
                                     152
                                 ],
-                                "lower": [
-                                    43,
-                                    71,
-                                    113
-                                ]
+                                "connected": true,
+                                "count": 100,
+                                "order_by": "Score"
                             }
                         }
                     },
@@ -1596,7 +1596,6 @@
         ]
     },
     "点击升星_蓝色3": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1606,28 +1605,28 @@
                     0,
                     60,
                     250
-                ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
-                "upper": [
-                    215,
-                    172,
-                    106
                 ],
                 "lower": [
                     186,
                     131,
                     23
-                ]
+                ],
+                "upper": [
+                    215,
+                    172,
+                    106
+                ],
+                "connected": true,
+                "count": 100,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "点击招募_蓝色3": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1638,27 +1637,27 @@
                     60,
                     250
                 ],
-                "order_by": "Score",
-                "count": 100,
-                "connected": true,
+                "lower": [
+                    26,
+                    101,
+                    160
+                ],
                 "upper": [
                     72,
                     135,
                     194
                 ],
-                "lower": [
-                    26,
-                    101,
-                    160
-                ]
+                "connected": true,
+                "count": 100,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "没有羁绊": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1676,10 +1675,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "领取_厄愿潮声": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1694,7 +1693,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "战斗失败_厄愿潮声": {
         "recognition": {
@@ -1706,6 +1706,7 @@
                     163,
                     33
                 ],
+                "expected": "道具数量不足",
                 "replace": [
                     [
                         "直",
@@ -1715,8 +1716,7 @@
                         "真",
                         "具"
                     ]
-                ],
-                "expected": "道具数量不足"
+                ]
             }
         },
         "next": [
@@ -1724,7 +1724,6 @@
         ]
     },
     "放弃战斗_厄愿潮声": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1744,6 +1743,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "放弃战斗_厄愿潮声",
             "空任务"
@@ -1795,7 +1795,6 @@
         ]
     },
     "邀约选择_厄愿潮声": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1811,6 +1810,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "选择人物1_厄愿潮声",
             "选择人物2_厄愿潮声",
@@ -1824,7 +1824,6 @@
         ]
     },
     "邀约选择二次点击_厄愿潮声": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1840,6 +1839,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "下一步",
             "[JumpBack]意外点击_羁绊选择"
@@ -1864,10 +1864,6 @@
         ]
     },
     "刷新次数为0_厄愿潮声": {
-        "focus": {
-            "Node.Recognition.Succeeded": "未找到指定角色,即将重新进入"
-        },
-        "post_delay": 500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1881,6 +1877,7 @@
                 "only_rec": true
             }
         },
+        "post_delay": 500,
         "next": [
             "厄愿潮声主界面",
             "[JumpBack]打开厄愿潮声",
@@ -1889,7 +1886,10 @@
             "[JumpBack]打开战斗",
             "[JumpBack]确定",
             "[JumpBack]返回"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "未找到指定角色,即将重新进入"
+        }
     },
     "厄愿潮声主界面": {
         "recognition": {
@@ -1906,7 +1906,6 @@
         }
     },
     "刷新人物_厄愿潮声": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1921,14 +1920,13 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "选择人物1_厄愿潮声": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
                 "roi": [
                     242,
                     440,
@@ -1947,23 +1945,23 @@
                     "深痕",
                     "启明",
                     "超刻"
-                ]
+                ],
+                "only_rec": true
             }
         },
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "招募人物_厄愿潮声",
             "选择人物1_厄愿潮声"
         ]
     },
     "选择人物2_厄愿潮声": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
                 "roi": [
                     577,
                     440,
@@ -1983,23 +1981,23 @@
                     "深痕",
                     "启明",
                     "超刻"
-                ]
+                ],
+                "only_rec": true
             }
         },
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "招募人物_厄愿潮声",
             "选择人物2_厄愿潮声"
         ]
     },
     "选择人物3_厄愿潮声": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
                 "roi": [
                     903,
                     440,
@@ -2018,12 +2016,14 @@
                     "深痕",
                     "启明",
                     "超刻"
-                ]
+                ],
+                "only_rec": true
             }
         },
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "招募人物_厄愿潮声",
             "选择人物3_厄愿潮声"
@@ -2087,7 +2087,6 @@
         }
     },
     "选择策略_厄愿潮声": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2103,6 +2102,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "下一步"
         ]
@@ -2138,7 +2138,6 @@
     },
     "反向滑动_厄愿潮声": {
         "max_hit": 1,
-        "post_delay": 2000,
         "action": {
             "type": "Swipe",
             "param": {
@@ -2151,7 +2150,8 @@
                     150
                 ]
             }
-        }
+        },
+        "post_delay": 2000
     },
     "调查团组建reco_厄愿潮声": {
         "recognition": {
@@ -2224,7 +2224,6 @@
         }
     },
     "终止_厄愿潮声": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2239,10 +2238,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "打开厄愿潮声": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2257,6 +2256,7 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     }
 }

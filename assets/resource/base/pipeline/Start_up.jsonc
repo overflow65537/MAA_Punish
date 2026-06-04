@@ -31,7 +31,6 @@
         }
     },
     "更新中": {
-        "post_delay": 5000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -43,7 +42,8 @@
                 ],
                 "expected": "预计时间"
             }
-        }
+        },
+        "post_delay": 5000
     },
     "用户账号登录失败": {
         "recognition": {
@@ -223,7 +223,6 @@
         }
     },
     "检查主界面": {
-        "post_delay": 3000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -236,6 +235,7 @@
                 "expected": "^战斗$"
             }
         },
+        "post_delay": 3000,
         "next": [
             "[JumpBack]关闭纷争战区通知",
             "[JumpBack]关闭点击空白弹窗",
@@ -276,24 +276,24 @@
         ]
     },
     "打开应用": {
-        "post_delay": 5000,
         "action": {
             "type": "StartApp",
             "param": {
                 "package": "com.kurogame.haru.hero"
             }
         },
+        "post_delay": 5000,
         "on_error": [
             "服务器错误提示"
         ]
     },
     "服务器错误提示": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]服务器错误,请选择所在服务器(比如b服)[/color]"
-        },
         "next": [
             "启动"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:Tomato]服务器错误,请选择所在服务器(比如b服)[/color]"
+        }
     },
     "切换主界面状态": {
         "recognition": {
@@ -324,8 +324,8 @@
         }
     },
     "空任务": {
-        "post_delay": 0,
         "pre_delay": 0,
+        "post_delay": 0,
         "rate_limit": 0
     },
     "停止任务": {

@@ -50,8 +50,8 @@
                     150,
                     200
                 ],
-                "count": 10,
-                "connected": true
+                "connected": true,
+                "count": 10
             }
         },
         "action": {
@@ -104,7 +104,6 @@
         }
     },
     "打开通行证_图片": {
-        "post_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -133,7 +132,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "评定任务": {
         "recognition": {
@@ -175,7 +175,6 @@
         }
     },
     "一键领取_评定任务": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -194,6 +193,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "通行证-意外处理-点击确认",
             "战略补给",
@@ -242,7 +242,6 @@
         }
     },
     "一键领取_战略补给": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -261,6 +260,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "通行证-意外处理-点击确认",
             "返回主菜单",
@@ -268,7 +268,6 @@
         ]
     },
     "打开通行证": {
-        "post_delay": 4000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -283,6 +282,7 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 4000
     }
 }

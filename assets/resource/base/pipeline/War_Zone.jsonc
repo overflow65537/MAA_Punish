@@ -33,7 +33,6 @@
         ]
     },
     "打开挑战_纷争战区": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -49,13 +48,13 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "滑动_纷争战区",
             "打开纷争战区"
         ]
     },
     "滑动_纷争战区": {
-        "inverse": true,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -68,6 +67,7 @@
                 "expected": "纷争战区"
             }
         },
+        "inverse": true,
         "action": {
             "type": "Swipe",
             "param": {
@@ -246,7 +246,6 @@
         }
     },
     "战斗准备": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -262,13 +261,13 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "进入战区选人界面",
             "战斗准备"
         ]
     },
     "进入战区选人界面": {
-        "timeout": 60000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -284,6 +283,7 @@
                 ]
             }
         },
+        "timeout": 60000,
         "next": [
             "[JumpBack]识别人物",
             "[JumpBack]战斗中",
@@ -299,26 +299,6 @@
         ]
     },
     "战斗结束": {
-        "post_wait_freezes": {
-            "time": 1500,
-            "timeout": 5000,
-            "target": [
-                112,
-                56,
-                394,
-                461
-            ]
-        },
-        "pre_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000,
-            "target": [
-                0,
-                0,
-                1280,
-                720
-            ]
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -334,8 +314,28 @@
                 ]
             }
         },
+        "pre_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000,
+            "target": [
+                0,
+                0,
+                1280,
+                720
+            ]
+        },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 1500,
+            "timeout": 5000,
+            "target": [
+                112,
+                56,
+                394,
+                461
+            ]
         }
     },
     "查看地图_空区": {
@@ -581,7 +581,6 @@
         ]
     },
     "作战开始": {
-        "post_delay": 1500,
         "recognition": {
             "type": "And",
             "param": {
@@ -591,6 +590,7 @@
                 ]
             }
         },
+        "post_delay": 1500,
         "next": [
             "[JumpBack]未选择队长",
             "点击作战开始"
@@ -634,13 +634,13 @@
         }
     },
     "点击作战开始": {
-        "post_delay": 5000,
         "action": {
             "type": "Click",
             "param": {
                 "target": "作战开始"
             }
-        }
+        },
+        "post_delay": 5000
     },
     "未选择队长": {
         "recognition": {
@@ -697,18 +697,15 @@
                 ]
             }
         },
+        "action": {
+            "type": "Click"
+        },
         "post_wait_freezes": {
             "time": 200,
             "timeout": 5000
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "战斗中": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -722,7 +719,10 @@
                 "green_mask": true,
                 "threshold": 0.6
             }
-        }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "载入中": {
         "recognition": {
@@ -739,7 +739,6 @@
         }
     },
     "退出战斗": {
-        "post_wait_freezes": 500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -758,6 +757,7 @@
         "action": {
             "type": "Click"
         },
+        "post_wait_freezes": 500,
         "next": [
             "速通滑动",
             "空任务"

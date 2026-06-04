@@ -78,7 +78,6 @@
         }
     },
     "执行A区": {
-        "post_delay": 2000,
         "action": {
             "type": "Click",
             "param": {
@@ -91,6 +90,7 @@
                 ]
             }
         },
+        "post_delay": 2000,
         "next": [
             "A区退出",
             "检查主界面2",
@@ -100,7 +100,6 @@
         ]
     },
     "检查A区": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -120,22 +119,23 @@
                     235,
                     188
                 ],
-                "count": 100,
-                "connected": true
+                "connected": true,
+                "count": 100
             }
         },
+        "post_delay": 1000,
         "next": [
             "执行A区"
         ]
     },
     "执行B区": {
-        "post_delay": 2000,
         "action": {
             "type": "Click",
             "param": {
                 "target": "检查B区"
             }
         },
+        "post_delay": 2000,
         "next": [
             "B区退出",
             "检查主界面2",
@@ -145,7 +145,6 @@
         ]
     },
     "检查B区": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -165,22 +164,23 @@
                     235,
                     188
                 ],
-                "count": 100,
-                "connected": true
+                "connected": true,
+                "count": 100
             }
         },
+        "post_delay": 1000,
         "next": [
             "执行B区"
         ]
     },
     "执行C区": {
-        "post_delay": 2000,
         "action": {
             "type": "Click",
             "param": {
                 "target": "检查C区"
             }
         },
+        "post_delay": 2000,
         "next": [
             "C区退出",
             "检查主界面2",
@@ -190,7 +190,6 @@
         ]
     },
     "检查C区": {
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -210,10 +209,11 @@
                     235,
                     188
                 ],
-                "count": 100,
-                "connected": true
+                "connected": true,
+                "count": 100
             }
         },
+        "post_delay": 1000,
         "next": [
             "执行C区"
         ]
@@ -342,8 +342,8 @@
                             "type": "OCR",
                             "param": {
                                 "roi": "_白色文字",
-                                "only_rec": true,
-                                "expected": "^(?!^0$).+$"
+                                "expected": "^(?!^0$).+$",
+                                "only_rec": true
                             }
                         }
                     }
@@ -368,15 +368,6 @@
         }
     },
     "囚笼作战程序": {
-        "timeout": 40000,
-        "rate_limit": 0,
-        "on_error": [
-            "boss识别错误"
-        ],
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -389,6 +380,12 @@
                 "expected": "作战开始"
             }
         },
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
+        "timeout": 40000,
+        "rate_limit": 0,
         "next": [
             "[JumpBack]识别人物",
             "[JumpBack]战斗中",
@@ -407,6 +404,9 @@
             "[JumpBack]查看终极区Boss",
             "[JumpBack]没打过",
             "意外处理_没识别到返回"
+        ],
+        "on_error": [
+            "boss识别错误"
         ]
     },
     "耐力值不足": {
@@ -446,17 +446,14 @@
         }
     },
     "boss识别错误": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:tomato]未识别到已知BOSS,可能处于终极区[/color]"
-        },
         "next": [
             "返回主菜单"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:tomato]未识别到已知BOSS,可能处于终极区[/color]"
+        }
     },
     "挑战次数不足_弹窗": {
-        "focus": {
-            "Node.Recognition.Succeeded": "挑战次数不足"
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -477,24 +474,21 @@
             "关闭囚笼奖励界面",
             "[JumpBack]领取囚笼奖励",
             "[JumpBack]返回"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "挑战次数不足"
+        }
     },
     "未命中BOSS名": {
-        "focus": {
-            "Node.Recognition.Succeeded": "未知BOSS"
-        },
         "next": [
             "返回主菜单"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "未知BOSS"
+        }
     },
     "查看终极区Boss": {
-        "focus": {
-            "Node.Recognition.Succeeded": "已选择终极区"
-        },
         "max_hit": 3,
-        "on_error": [
-            "未命中BOSS名"
-        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -546,16 +540,16 @@
         },
         "next": [
             "清除队伍"
-        ]
-    },
-    "查看Boss_冰队": {
-        "focus": {
-            "Node.Recognition.Succeeded": "已选择冰队"
-        },
-        "max_hit": 1,
+        ],
         "on_error": [
             "未命中BOSS名"
         ],
+        "focus": {
+            "Node.Recognition.Succeeded": "已选择终极区"
+        }
+    },
+    "查看Boss_冰队": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -598,16 +592,16 @@
         },
         "next": [
             "清除队伍"
-        ]
-    },
-    "查看Boss_暗队": {
-        "focus": {
-            "Node.Recognition.Succeeded": "已选择暗队"
-        },
-        "max_hit": 1,
+        ],
         "on_error": [
             "未命中BOSS名"
         ],
+        "focus": {
+            "Node.Recognition.Succeeded": "已选择冰队"
+        }
+    },
+    "查看Boss_暗队": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -652,16 +646,16 @@
         },
         "next": [
             "清除队伍"
-        ]
-    },
-    "查看Boss_火队": {
-        "focus": {
-            "Node.Recognition.Succeeded": "已选择火队"
-        },
-        "max_hit": 1,
+        ],
         "on_error": [
             "未命中BOSS名"
         ],
+        "focus": {
+            "Node.Recognition.Succeeded": "已选择暗队"
+        }
+    },
+    "查看Boss_火队": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -704,16 +698,16 @@
         },
         "next": [
             "清除队伍"
-        ]
-    },
-    "查看Boss_物队": {
-        "focus": {
-            "Node.Recognition.Succeeded": "已选择物理队"
-        },
-        "max_hit": 1,
+        ],
         "on_error": [
             "未命中BOSS名"
         ],
+        "focus": {
+            "Node.Recognition.Succeeded": "已选择火队"
+        }
+    },
+    "查看Boss_物队": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -754,16 +748,16 @@
         },
         "next": [
             "清除队伍"
-        ]
-    },
-    "查看Boss_雷队": {
-        "focus": {
-            "Node.Recognition.Succeeded": "已选择雷队"
-        },
-        "max_hit": 1,
+        ],
         "on_error": [
             "未命中BOSS名"
         ],
+        "focus": {
+            "Node.Recognition.Succeeded": "已选择物理队"
+        }
+    },
+    "查看Boss_雷队": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -806,16 +800,16 @@
         },
         "next": [
             "清除队伍"
-        ]
-    },
-    "查看Boss_武藏玖型": {
-        "focus": {
-            "Node.Recognition.Succeeded": "武藏玖型"
-        },
-        "max_hit": 1,
+        ],
         "on_error": [
             "未命中BOSS名"
         ],
+        "focus": {
+            "Node.Recognition.Succeeded": "已选择雷队"
+        }
+    },
+    "查看Boss_武藏玖型": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -854,16 +848,16 @@
         },
         "next": [
             "清除队伍"
-        ]
-    },
-    "查看Boss_不明构造体": {
-        "focus": {
-            "Node.Recognition.Succeeded": "不明构造体α"
-        },
-        "max_hit": 1,
+        ],
         "on_error": [
             "未命中BOSS名"
         ],
+        "focus": {
+            "Node.Recognition.Succeeded": "武藏玖型"
+        }
+    },
+    "查看Boss_不明构造体": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -902,16 +896,16 @@
         },
         "next": [
             "清除队伍"
-        ]
-    },
-    "查看Boss_罗塞塔": {
-        "focus": {
-            "Node.Recognition.Succeeded": "罗塞塔"
-        },
-        "max_hit": 1,
+        ],
         "on_error": [
             "未命中BOSS名"
         ],
+        "focus": {
+            "Node.Recognition.Succeeded": "不明构造体α"
+        }
+    },
+    "查看Boss_罗塞塔": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -950,10 +944,15 @@
         },
         "next": [
             "清除队伍"
-        ]
+        ],
+        "on_error": [
+            "未命中BOSS名"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "罗塞塔"
+        }
     },
     "意外点击_保存分数": {
-        "post_delay": 3000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -967,10 +966,10 @@
                     "作战"
                 ]
             }
-        }
+        },
+        "post_delay": 3000
     },
     "检查是否在囚笼主界面": {
-        "post_delay": 200,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -983,6 +982,7 @@
                 "expected": "幻痛囚笼"
             }
         },
+        "post_delay": 200,
         "next": [
             "一键领取_囚笼",
             "关闭囚笼奖励界面",
@@ -995,7 +995,6 @@
         ]
     },
     "挑战次数不足": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1005,18 +1004,19 @@
                     89,
                     50
                 ],
+                "expected": [
+                    "^0(?:/|1)3$",
+                    "^0(?:/|1)6$"
+                ],
                 "replace": [
                     [
                         "M",
                         "0"
                     ]
-                ],
-                "expected": [
-                    "^0(?:/|1)3$",
-                    "^0(?:/|1)6$"
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "一键领取_囚笼",
             "关闭囚笼奖励界面",
@@ -1025,7 +1025,6 @@
         ]
     },
     "一键领取_囚笼": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1043,6 +1042,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "关闭囚笼奖励界面",
             "[JumpBack]关闭奖励"
@@ -1069,9 +1069,6 @@
         ]
     },
     "领取囚笼奖励": {
-        "post_wait_freezes": {
-            "time": 1000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1089,6 +1086,9 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 1000
         }
     },
     "确认目标": {
@@ -1109,7 +1109,6 @@
         ]
     },
     "查找目标": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1127,7 +1126,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "选择区域": {
         "recognition": {
@@ -1175,10 +1175,6 @@
         }
     },
     "打开幻痛囚笼": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1193,10 +1189,13 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
         }
     },
     "滑动_幻痛囚笼": {
-        "inverse": true,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1209,6 +1208,7 @@
                 "expected": "幻痛囚笼"
             }
         },
+        "inverse": true,
         "action": {
             "type": "Swipe",
             "param": {
@@ -1224,7 +1224,6 @@
         }
     },
     "打开挑战_幻痛囚笼": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1240,13 +1239,13 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "滑动_幻痛囚笼",
             "打开幻痛囚笼"
         ]
     },
     "手动作战": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1262,13 +1261,13 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "挑战次数不足_sub",
             "清除队伍"
         ]
     },
     "挑战次数不足_sub": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1290,6 +1289,7 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "返回"
         ]

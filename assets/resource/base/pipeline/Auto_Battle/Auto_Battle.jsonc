@@ -1,7 +1,7 @@
 {
     "战斗辅助": {
-        "post_delay": 0,
         "pre_delay": 0,
+        "post_delay": 0,
         "rate_limit": 0,
         "next": [
             "[JumpBack]覆盖布局菜单",
@@ -39,7 +39,6 @@
         ]
     },
     "点击空白处关闭_速通": {
-        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -54,7 +53,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1500
     },
     "点击对话": {
         "recognition": {
@@ -66,10 +66,10 @@
                     464,
                     484
                 ],
-                "green_mask": true,
                 "template": [
                     "战斗/点击事件.png"
                 ],
+                "green_mask": true,
                 "threshold": [
                     0.8
                 ]
@@ -97,10 +97,6 @@
         }
     },
     "点击下一关_剧情": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 5000
-        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -110,7 +106,6 @@
                     1269,
                     540
                 ],
-                "green_mask": true,
                 "template": [
                     "战斗/剧情_1.png",
                     "战斗/剧情_11.png",
@@ -120,8 +115,7 @@
                     "战斗/战斗_11.png",
                     "战斗/战斗_28.png"
                 ],
-                "order_by": "Horizontal",
-                "index": -1,
+                "green_mask": true,
                 "threshold": [
                     0.9,
                     0.9,
@@ -130,23 +124,29 @@
                     0.7,
                     0.7,
                     0.7
-                ]
+                ],
+                "order_by": "Horizontal",
+                "index": -1
             }
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 5000
         }
     },
     "识别文字": {
         "recognition": {
             "type": "ColorMatch",
             "param": {
-                "upper": [
+                "lower": [
                     255,
                     255,
                     255
                 ],
-                "lower": [
+                "upper": [
                     255,
                     255,
                     255
@@ -155,7 +155,6 @@
         }
     },
     "使用体力": {
-        "post_delay": 2000,
         "recognition": {
             "type": "And",
             "param": {
@@ -194,6 +193,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 2000,
         "next": [
             "体力取消",
             "[JumpBack]关闭奖励"
@@ -217,9 +217,6 @@
         }
     },
     "不使用体力": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]体力不足,任务结束[/color]"
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -234,17 +231,20 @@
         },
         "action": {
             "type": "StopTask"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]体力不足,任务结束[/color]"
         }
     },
     "点击下一关": {
-        "post_delay": 1000,
         "recognition": {
             "type": "Custom",
             "param": {
                 "custom_recognition": "NextStageRecognition"
             }
         },
-        "action": "Click"
+        "action": "Click",
+        "post_delay": 1000
     },
     "未选人": {
         "recognition": {
@@ -320,7 +320,6 @@
         }
     },
     "播放剧情": {
-        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -337,7 +336,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "rate_limit": 0
     },
     "跳过战斗对话_主线": {
         "recognition": {
@@ -361,8 +361,6 @@
         }
     },
     "自动反击": {
-        "post_delay": 0,
-        "pre_delay": 500,
         "recognition": {
             "type": "Custom",
             "param": {
@@ -372,6 +370,8 @@
                 }
             }
         },
+        "pre_delay": 500,
+        "post_delay": 0,
         "next": [
             "[JumpBack]识别人物",
             "战斗中"
@@ -394,7 +394,6 @@
         }
     },
     "战斗重启1": {
-        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -412,13 +411,13 @@
         "action": {
             "type": "Click",
             "param": {}
-        }
+        },
+        "rate_limit": 0
     },
     "对话跳过": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
                 "roi": [
                     787,
                     595,
@@ -427,7 +426,8 @@
                 ],
                 "expected": [
                     "跳过"
-                ]
+                ],
+                "only_rec": true
             }
         },
         "action": {
@@ -436,9 +436,6 @@
         }
     },
     "进入战斗": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
         "recognition": {
             "type": "Or",
             "param": {
@@ -453,7 +450,18 @@
                                     20,
                                     7
                                 ],
-                                "connected": true,
+                                "lower": [
+                                    [
+                                        255,
+                                        255,
+                                        255
+                                    ],
+                                    [
+                                        127,
+                                        225,
+                                        255
+                                    ]
+                                ],
                                 "upper": [
                                     [
                                         255,
@@ -466,18 +474,7 @@
                                         255
                                     ]
                                 ],
-                                "lower": [
-                                    [
-                                        255,
-                                        255,
-                                        255
-                                    ],
-                                    [
-                                        127,
-                                        225,
-                                        255
-                                    ]
-                                ]
+                                "connected": true
                             }
                         }
                     },
@@ -508,6 +505,9 @@
                 ]
             }
         },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "next": [
             "识别人物",
             "[JumpBack]战斗中",
@@ -528,9 +528,6 @@
         }
     },
     "主线跳过": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -545,17 +542,17 @@
                 ]
             }
         },
+        "pre_delay": 0,
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "循环执行器": {
         "inverse": true
     },
     "识别人物": {
-        "post_delay": 0,
-        "pre_delay": 0,
-        "rate_limit": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -569,12 +566,15 @@
                 "green_mask": true
             }
         },
+        "pre_delay": 0,
         "action": {
             "type": "Custom",
             "param": {
                 "custom_action": "RecognitionRole"
             }
-        }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
     },
     "检查角色": {
         "recognition": {
@@ -625,9 +625,9 @@
                     1269,
                     439
                 ],
+                "expected": "",
                 "order_by": "Horizontal",
-                "index": -1,
-                "expected": ""
+                "index": -1
             }
         }
     }

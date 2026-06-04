@@ -34,18 +34,18 @@
                     60,
                     158
                 ],
-                "connected": true,
-                "count": 50,
+                "lower": [
+                    200,
+                    60,
+                    60
+                ],
                 "upper": [
                     255,
                     85,
                     90
                 ],
-                "lower": [
-                    200,
-                    60,
-                    60
-                ]
+                "connected": true,
+                "count": 50
             }
         }
     },
@@ -59,15 +59,15 @@
                     60,
                     158
                 ],
-                "upper": [
-                    250,
-                    230,
-                    115
-                ],
                 "lower": [
                     186,
                     171,
                     80
+                ],
+                "upper": [
+                    250,
+                    230,
+                    115
                 ],
                 "connected": true,
                 "count": 50
@@ -84,18 +84,18 @@
                     41,
                     159
                 ],
-                "connected": true,
-                "count": 100,
+                "lower": [
+                    100,
+                    15,
+                    15
+                ],
                 "upper": [
                     140,
                     40,
                     40
                 ],
-                "lower": [
-                    100,
-                    15,
-                    15
-                ]
+                "connected": true,
+                "count": 100
             }
         }
     },
@@ -109,18 +109,18 @@
                     41,
                     159
                 ],
-                "connected": true,
-                "count": 100,
+                "lower": [
+                    40,
+                    110,
+                    90
+                ],
                 "upper": [
                     80,
                     140,
                     210
                 ],
-                "lower": [
-                    40,
-                    110,
-                    90
-                ]
+                "connected": true,
+                "count": 100
             }
         }
     },
@@ -134,18 +134,18 @@
                     41,
                     159
                 ],
-                "connected": true,
-                "count": 100,
+                "lower": [
+                    150,
+                    130,
+                    0
+                ],
                 "upper": [
                     190,
                     170,
                     50
                 ],
-                "lower": [
-                    150,
-                    130,
-                    0
-                ]
+                "connected": true,
+                "count": 100
             }
         }
     },

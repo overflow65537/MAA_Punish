@@ -14,7 +14,6 @@
         ]
     },
     "意外点击_涂装界面": {
-        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -27,12 +26,12 @@
                 "expected": "涂装"
             }
         },
+        "post_delay": 2000,
         "next": [
             "返回"
         ]
     },
     "意外点击_皮肤卡池": {
-        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -45,6 +44,7 @@
                 "expected": "音量设置"
             }
         },
+        "post_delay": 2000,
         "next": [
             "返回"
         ]
@@ -71,7 +71,6 @@
         ]
     },
     "进入采购": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -86,7 +85,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "点击补给包": {
         "recognition": {
@@ -123,7 +123,6 @@
         }
     },
     "检查限购": {
-        "post_wait_freezes": 500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -141,10 +140,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_wait_freezes": 500
     },
     "领取": {
-        "post_wait_freezes": 500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -162,6 +161,7 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_wait_freezes": 500
     }
 }

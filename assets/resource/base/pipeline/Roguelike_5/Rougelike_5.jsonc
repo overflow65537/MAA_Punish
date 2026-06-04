@@ -73,10 +73,6 @@
         }
     },
     "处理刻印过多": {
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 2000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -99,12 +95,13 @@
                     560
                 ]
             }
+        },
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 2000
         }
     },
     "没过教程提示": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]请通关教程后再使用该功能[/color]"
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -121,6 +118,9 @@
         },
         "action": {
             "type": "StopTask"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:Tomato]请通关教程后再使用该功能[/color]"
         }
     },
     "打开时宇漫纪": {
@@ -220,7 +220,6 @@
         }
     },
     "情报分析_神寂启示录": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -233,6 +232,7 @@
                 "expected": "剧情回顾"
             }
         },
+        "post_delay": 1000,
         "next": [
             "情报分析_渡边",
             "情报分析_死亡骑士",
@@ -241,7 +241,6 @@
         ]
     },
     "情报分析_渡边": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -261,6 +260,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "选择成员",
             "继续_神寂启示录",
@@ -276,7 +276,6 @@
         ]
     },
     "情报分析_死亡骑士": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -302,6 +301,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "选择成员",
             "继续_神寂启示录",
@@ -390,7 +390,6 @@
         ]
     },
     "推演": {
-        "post_delay": 2500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -407,7 +406,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 2500
     },
     "跳过": {
         "recognition": {
@@ -541,7 +541,6 @@
         ]
     },
     "退出战斗_神寂启示录": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -562,10 +561,10 @@
                     40
                 ]
             }
-        }
+        },
+        "post_delay": 1000
     },
     "退出战斗2_神寂启示录": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -588,7 +587,8 @@
                     40
                 ]
             }
-        }
+        },
+        "post_delay": 1000
     },
     "选择事件_神寂启示录": {
         "recognition": {
@@ -611,7 +611,6 @@
         ]
     },
     "打开启示之路": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -628,12 +627,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "进入战斗_启示之路": {
-        "post_wait_freezes": {
-            "time": 1000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -652,6 +649,9 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 1000
         }
     },
     "选择成员": {

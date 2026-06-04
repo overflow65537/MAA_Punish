@@ -29,7 +29,6 @@
         ]
     },
     "意外点击_玩家详情": {
-        "post_delay": 3000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -50,7 +49,8 @@
                     36
                 ]
             }
-        }
+        },
+        "post_delay": 3000
     },
     "关闭战斗力提示": {
         "recognition": {
@@ -87,7 +87,6 @@
         ]
     },
     "确定选择": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -102,10 +101,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "坚持作战": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -120,13 +119,13 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "检查常序区次数MAX": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
                 "roi": [
                     979,
                     621,
@@ -135,7 +134,8 @@
                 ],
                 "expected": [
                     "([1-3])(?:\/|1)3"
-                ]
+                ],
+                "only_rec": true
             }
         },
         "post_wait_freezes": {
@@ -164,7 +164,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
                 "roi": [
                     979,
                     621,
@@ -173,7 +172,8 @@
                 ],
                 "expected": [
                     "0(?:\/|1)3" //20260321修改,用户识别到了`n0/3`
-                ]
+                ],
+                "only_rec": true
             }
         },
         "post_wait_freezes": {
@@ -198,17 +198,17 @@
                     88,
                     33
                 ],
-                "replace": [
-                    [
-                        "自",
-                        "目"
-                    ]
-                ],
                 "expected": [
                     "目标",
                     "血量",
                     "三标",
                     "标血"
+                ],
+                "replace": [
+                    [
+                        "自",
+                        "目"
+                    ]
                 ]
             }
         },
@@ -217,14 +217,9 @@
         ]
     },
     "检查特遣区次数MAX": {
-        "post_wait_freezes": {
-            "time": 80,
-            "timeout": 1000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
                 "roi": [
                     979,
                     621,
@@ -233,8 +228,13 @@
                 ],
                 "expected": [
                     "([1-3])(?:\/|1)3"
-                ]
+                ],
+                "only_rec": true
             }
+        },
+        "post_wait_freezes": {
+            "time": 80,
+            "timeout": 1000
         },
         "next": [
             "特遣区返回"
@@ -258,7 +258,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
                 "roi": [
                     979,
                     621,
@@ -267,7 +266,8 @@
                 ],
                 "expected": [
                     "0(?:\/|1)3"
-                ]
+                ],
+                "only_rec": true
             }
         },
         "next": [
@@ -288,6 +288,11 @@
                     88,
                     33
                 ],
+                "expected": [
+                    "目标",
+                    "血量",
+                    "标血"
+                ],
                 "replace": [
                     [
                         "自",
@@ -301,11 +306,6 @@
                         "Ⅲ",
                         "血"
                     ]
-                ],
-                "expected": [
-                    "目标",
-                    "血量",
-                    "标血"
                 ]
             }
         },
@@ -315,14 +315,9 @@
         ]
     },
     "检查BOSS区次数MAX": {
-        "post_wait_freezes": {
-            "time": 80,
-            "timeout": 1000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
                 "roi": [
                     979,
                     621,
@@ -331,8 +326,13 @@
                 ],
                 "expected": [
                     "([1-3])(?:\/|1)3"
-                ]
+                ],
+                "only_rec": true
             }
+        },
+        "post_wait_freezes": {
+            "time": 80,
+            "timeout": 1000
         },
         "next": [
             "BOSS区返回"
@@ -356,7 +356,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
                 "roi": [
                     979,
                     621,
@@ -365,7 +364,8 @@
                 ],
                 "expected": [
                     "0(?:\/|1)3"
-                ]
+                ],
+                "only_rec": true
             }
         },
         "next": [
@@ -386,17 +386,17 @@
                     88,
                     33
                 ],
-                "replace": [
-                    [
-                        "自",
-                        "目"
-                    ]
-                ],
                 "expected": [
                     "目标",
                     "血量",
                     "三标",
                     "标血"
+                ],
+                "replace": [
+                    [
+                        "自",
+                        "目"
+                    ]
                 ]
             }
         },
@@ -408,7 +408,6 @@
         ]
     },
     "点击BOSS区_常态": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -441,6 +440,7 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "检查BOSS区次数MAX",
             "检查BOSS区次数未满",
@@ -472,7 +472,6 @@
         ]
     },
     "点击特遣区": {
-        "post_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -491,6 +490,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "检查特遣区次数MAX",
             "检查特遣区次数未满",
@@ -498,7 +498,6 @@
         ]
     },
     "作战界面": {
-        "timeout": 60000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -511,6 +510,7 @@
                 "expected": "作战开始"
             }
         },
+        "timeout": 60000,
         "next": [
             "[JumpBack]识别人物",
             "[JumpBack]战斗中",
@@ -523,7 +523,6 @@
         ]
     },
     "保存分数": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -538,13 +537,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "添加人物": {
-        "post_wait_freezes": {
-            "time": 300,
-            "timeout": 2000
-        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -562,10 +558,13 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 300,
+            "timeout": 2000
         }
     },
     "选择其他人物": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -581,7 +580,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "选择人物_拟真围剿": {
         "recognition": {
@@ -598,7 +598,6 @@
         }
     },
     "开始作战_拟真围剿": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -613,10 +612,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "点击常序区": {
-        "post_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -635,6 +634,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "检查常序区次数MAX",
             "检查常序区次数未满",
@@ -642,7 +642,6 @@
         ]
     },
     "准备作战_拟真围剿": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -657,7 +656,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "进入拟真围剿": {
         "recognition": {
@@ -696,7 +696,6 @@
         ]
     },
     "领取本周贡献": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -712,6 +711,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "[JumpBack]一键领取_宿舍任务",
             "[JumpBack]关闭奖励",
@@ -724,7 +724,6 @@
         ]
     },
     "识别本周贡献3000": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -746,13 +745,13 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "返回主菜单",
             "[JumpBack]关闭奖励"
         ]
     },
     "识别本周贡献6000": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -774,13 +773,13 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "返回主菜单",
             "[JumpBack]关闭奖励"
         ]
     },
     "识别本周贡献9000": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -802,13 +801,13 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "返回主菜单",
             "[JumpBack]关闭奖励"
         ]
     },
     "识别本周贡献12000": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -830,13 +829,13 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "返回主菜单",
             "[JumpBack]关闭奖励"
         ]
     },
     "识别本周贡献15000": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -858,13 +857,13 @@
                 ]
             }
         },
+        "post_delay": 1000,
         "next": [
             "返回主菜单",
             "[JumpBack]关闭奖励"
         ]
     },
     "返回指挥局": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -885,7 +884,8 @@
                     33
                 ]
             }
-        }
+        },
+        "post_delay": 1000
     },
     "打开指挥局": {
         "recognition": {
@@ -900,6 +900,9 @@
                 "expected": "公会"
             }
         },
+        "action": {
+            "type": "Click"
+        },
         "post_wait_freezes": {
             "time": 500,
             "timeout": 10000,
@@ -909,9 +912,6 @@
                 72,
                 66
             ]
-        },
-        "action": {
-            "type": "Click"
         }
     }
 }

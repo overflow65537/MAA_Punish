@@ -1,9 +1,5 @@
 {
     "打开战斗": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 5000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -19,10 +15,13 @@
         "action": {
             "type": "Click",
             "param": {}
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 5000
         }
     },
     "意外点击_限定活动": {
-        "post_delay": 3000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -43,6 +42,7 @@
                     36
                 ]
             }
-        }
+        },
+        "post_delay": 3000
     }
 }

@@ -1,9 +1,5 @@
 {
     "战斗地块_寒境曙光": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]战斗地块[/color]"
-        },
-        "post_wait_freezes": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -20,14 +16,17 @@
                 ]
             }
         },
+        "post_wait_freezes": 1000,
         "next": [
             "识别岗哨塔_寒境曙光",
             "直接进入战斗_寒境曙光"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]战斗地块[/color]"
+        }
     },
     "识别岗哨塔_寒境曙光": {
         "enabled": false,
-        "_doc": "识别是否有岗哨塔,暂时没写逻辑",
         "recognition": {
             "type": "OCR",
             "param": {
@@ -40,16 +39,16 @@
                 "expected": "[7-9]|\\d{2,}"
             }
         },
-        "post_delay": 1000,
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "使用岗哨塔_寒境曙光"
-        ]
+        ],
+        "_doc": "识别是否有岗哨塔,暂时没写逻辑"
     },
     "使用岗哨塔_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -65,6 +64,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "放置岗哨塔_寒境曙光"
         ]
@@ -112,15 +112,15 @@
         }
     },
     "直接进入战斗_寒境曙光": {
-        "post_wait_freezes": {
-            "time": 500,
-            "threshold": 0.7
-        },
         "action": {
             "type": "Click",
             "param": {
                 "target": "战斗地块_寒境曙光"
             }
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "threshold": 0.7
         },
         "next": [
             "剩余资金700以上_寒境曙光",
@@ -128,7 +128,6 @@
         ]
     },
     "准备战斗_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -147,6 +146,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "肉鸽战斗_寒境曙光",
             "准备战斗_寒境曙光"
@@ -179,9 +179,6 @@
         ]
     },
     "汇合_寒境曙光": {
-        "on_error": [
-            "港口异常点_寒境曙光"
-        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -194,9 +191,6 @@
                 "expected": "汇合"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]汇合[/color]"
-        },
         "action": {
             "type": "Click"
         },
@@ -204,7 +198,13 @@
             "离开对话_寒境曙光",
             "[JumpBack]汇合_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光"
-        ]
+        ],
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]汇合[/color]"
+        }
     },
     "汇合_结束对话_寒境曙光": {
         "recognition": {
@@ -244,10 +244,6 @@
         }
     },
     "拓荒_寒境曙光": {
-        "on_error": [
-            "港口异常点_寒境曙光"
-        ],
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -260,19 +256,23 @@
                 "expected": "拓荒"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]拓荒[/color]"
-        },
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "离开对话_寒境曙光",
             "[JumpBack]继续_寒境曙光",
             "[JumpBack]拓荒_寒境曙光_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光",
             "[JumpBack]关闭奖励_寒境曙光"
-        ]
+        ],
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]拓荒[/color]"
+        }
     },
     "拓荒_寒境曙光_对话_寒境曙光": {
         "recognition": {
@@ -292,9 +292,6 @@
         }
     },
     "无尚之戒_寒境曙光": {
-        "on_error": [
-            "港口异常点_寒境曙光"
-        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -311,6 +308,9 @@
             "决定事件_寒境曙光",
             "[JumpBack]继续对话_寒境曙光",
             "[JumpBack]无尚之戒_寒境曙光_对话_寒境曙光"
+        ],
+        "on_error": [
+            "港口异常点_寒境曙光"
         ]
     },
     "无尚之戒_寒境曙光_对话_寒境曙光": {
@@ -331,9 +331,6 @@
         }
     },
     "前方有陷阱_寒境曙光": {
-        "on_error": [
-            "港口异常点_寒境曙光"
-        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -349,15 +346,18 @@
         "action": {
             "type": "Click"
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]前方有陷阱[/color]"
-        },
         "next": [
             "离开对话_寒境曙光",
             "[JumpBack]决定事件_寒境曙光",
             "[JumpBack]前方有陷阱_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光"
-        ]
+        ],
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]前方有陷阱[/color]"
+        }
     },
     "前方有陷阱_对话_寒境曙光": {
         "recognition": {
@@ -380,9 +380,6 @@
         }
     },
     "剩余资金_寒境曙光": {
-        "on_error": [
-            "港口异常点_寒境曙光"
-        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -398,16 +395,19 @@
         "action": {
             "type": "Click"
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]剩余资金[/color]"
-        },
         "next": [
             "离开对话_寒境曙光",
             "物资事件结束_寒境曙光",
             "[JumpBack]决定事件_寒境曙光",
             "[JumpBack]剩余资金_寒境曙光_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光"
-        ]
+        ],
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]剩余资金[/color]"
+        }
     },
     "剩余资金_寒境曙光_对话_寒境曙光": {
         "recognition": {
@@ -427,9 +427,6 @@
         }
     },
     "冬日之影_寒境曙光": {
-        "on_error": [
-            "港口异常点_寒境曙光"
-        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -442,9 +439,6 @@
                 "expected": "冬日之"
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]冬日之影[/color]"
-        },
         "action": {
             "type": "Click"
         },
@@ -452,7 +446,13 @@
             "离开对话_寒境曙光",
             "[JumpBack]冬日之影_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光"
-        ]
+        ],
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]冬日之影[/color]"
+        }
     },
     "冬日之影_对话_寒境曙光": {
         "recognition": {
@@ -474,7 +474,6 @@
         }
     },
     "离开对话_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -496,6 +495,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "事件完成_寒境曙光",
             "[JumpBack]局内招募_寒境曙光",
@@ -511,9 +511,6 @@
         ]
     },
     "战马瑞恩_寒境曙光": {
-        "on_error": [
-            "港口异常点_寒境曙光"
-        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -532,9 +529,6 @@
                 ]
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]战马瑞恩[/color]"
-        },
         "action": {
             "type": "Click"
         },
@@ -543,7 +537,13 @@
             "[JumpBack]决定事件_寒境曙光",
             "[JumpBack]战马瑞恩_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光"
-        ]
+        ],
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]战马瑞恩[/color]"
+        }
     },
     "战马瑞恩_对话_寒境曙光": {
         "recognition": {
@@ -581,9 +581,6 @@
         ]
     },
     "鲨鱼置物箱_寒境曙光": {
-        "on_error": [
-            "港口异常点_寒境曙光"
-        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -599,9 +596,6 @@
                 ]
             }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]鲨鱼置物箱[/color]"
-        },
         "action": {
             "type": "Click"
         },
@@ -611,7 +605,13 @@
             "[JumpBack]鲨鱼置物箱_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光",
             "[JumpBack]关闭奖励_寒境曙光" //不知道为什么这里会弹一个奖励
-        ]
+        ],
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]鲨鱼置物箱[/color]"
+        }
     },
     "鲨鱼置物箱_对话_寒境曙光": {
         "recognition": {
@@ -631,9 +631,6 @@
         }
     },
     "学者来访_寒境曙光": {
-        "on_error": [
-            "港口异常点_寒境曙光"
-        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -649,15 +646,18 @@
         "action": {
             "type": "Click"
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]学者来访[/color]"
-        },
         "next": [
             "离开对话_寒境曙光",
             "[JumpBack]决定事件_寒境曙光",
             "[JumpBack]学者来访_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光"
-        ]
+        ],
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]学者来访[/color]"
+        }
     },
     "学者来访_对话_寒境曙光": {
         "recognition": {
@@ -677,10 +677,6 @@
         }
     },
     "运力紧张_寒境曙光": {
-        "on_error": [
-            "港口异常点_寒境曙光"
-        ],
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -696,15 +692,19 @@
         "action": {
             "type": "Click"
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]运力紧张[/color]"
-        },
+        "post_delay": 1000,
         "next": [
             "离开对话_寒境曙光",
             "[JumpBack]决定事件_寒境曙光",
             "[JumpBack]运力紧张_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光"
-        ]
+        ],
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]运力紧张[/color]"
+        }
     },
     "运力紧张_对话_寒境曙光": {
         "recognition": {
@@ -724,9 +724,6 @@
         }
     },
     "废弃港口_寒境曙光": {
-        "on_error": [
-            "港口异常点_寒境曙光"
-        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -742,15 +739,18 @@
         "action": {
             "type": "Click"
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]废弃港口[/color]"
-        },
         "next": [
             "离开对话_寒境曙光",
             "[JumpBack]决定事件_寒境曙光",
             "[JumpBack]废弃港口_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光"
-        ]
+        ],
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]废弃港口[/color]"
+        }
     },
     "废弃港口_对话_寒境曙光": {
         "recognition": {
@@ -770,9 +770,6 @@
         }
     },
     "商队来访_寒境曙光": {
-        "on_error": [
-            "港口异常点_寒境曙光"
-        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -788,15 +785,18 @@
         "action": {
             "type": "Click"
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]商队来访[/color]"
-        },
         "next": [
             "离开对话_寒境曙光",
             "[JumpBack]决定事件_寒境曙光",
             "[JumpBack]商队来访_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光"
-        ]
+        ],
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]商队来访[/color]"
+        }
     },
     "商队来访_对话_寒境曙光": {
         "recognition": {
@@ -816,9 +816,6 @@
         }
     },
     "拦路的废墟_寒境曙光": {
-        "on_error": [
-            "港口异常点_寒境曙光"
-        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -838,15 +835,18 @@
         "action": {
             "type": "Click"
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]拦路的废墟[/color]"
-        },
         "next": [
             "离开对话_寒境曙光",
             "[JumpBack]决定事件_寒境曙光",
             "[JumpBack]拦路的废墟_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光"
-        ]
+        ],
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]拦路的废墟[/color]"
+        }
     },
     "拦路的废墟_对话_寒境曙光": {
         "recognition": {
@@ -866,9 +866,6 @@
         }
     },
     "难民团到访_寒境曙光": {
-        "on_error": [
-            "港口异常点_寒境曙光"
-        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -884,18 +881,20 @@
         "action": {
             "type": "Click"
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]难民团到访[/color]"
-        },
         "next": [
             "离开对话_寒境曙光",
             "[JumpBack]决定事件_寒境曙光",
             "[JumpBack]难民团到访_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光"
-        ]
+        ],
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]难民团到访[/color]"
+        }
     },
     "决定事件_寒境曙光": {
-        "post_delay": 1000,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -911,7 +910,8 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "难民团到访_对话_寒境曙光": {
         "recognition": {
@@ -933,9 +933,6 @@
         }
     },
     "建筑师的建议_寒境曙光": {
-        "on_error": [
-            "港口异常点_寒境曙光"
-        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -951,15 +948,18 @@
         "action": {
             "type": "Click"
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]建筑师的建议[/color]"
-        },
         "next": [
             "离开对话_寒境曙光",
             "[JumpBack]决定事件_寒境曙光",
             "[JumpBack]建筑师的建议_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光"
-        ]
+        ],
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]建筑师的建议[/color]"
+        }
     },
     "建筑师的建议_对话_寒境曙光": {
         "recognition": {
@@ -981,10 +981,6 @@
         }
     },
     "旧国遗产_寒境曙光": {
-        "on_error": [
-            "港口异常点_寒境曙光"
-        ],
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1003,15 +999,19 @@
         "action": {
             "type": "Click"
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]旧国遗产[/color]"
-        },
+        "post_delay": 1000,
         "next": [
             "离开对话_寒境曙光",
             "[JumpBack]决定事件_寒境曙光",
             "[JumpBack]旧国遗产_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光"
-        ]
+        ],
+        "on_error": [
+            "港口异常点_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]旧国遗产[/color]"
+        }
     },
     "旧国遗产_对话_寒境曙光": {
         "recognition": {
@@ -1034,10 +1034,6 @@
         }
     },
     "纯色地块黄_寒境曙光": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]黄色地块[/color]"
-        },
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1048,30 +1044,30 @@
                     640
                 ],
                 "method": 40,
-                "order_by": "Score",
-                "count": 4000,
-                "connected": true,
+                "lower": [
+                    10,
+                    50,
+                    100
+                ],
                 "upper": [
                     25,
                     210,
                     255
                 ],
-                "lower": [
-                    10,
-                    50,
-                    100
-                ]
+                "connected": true,
+                "count": 4000,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
+        },
+        "post_delay": 1000,
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]黄色地块[/color]"
         }
     },
     "纯色地块红_寒境曙光": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]红色地块[/color]"
-        },
-        "post_delay": 1000,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -1082,30 +1078,30 @@
                     640
                 ],
                 "method": 40,
-                "order_by": "Score",
-                "count": 3000,
-                "connected": true,
+                "lower": [
+                    160,
+                    100,
+                    100
+                ],
                 "upper": [
                     180,
                     160,
                     220
                 ],
-                "lower": [
-                    160,
-                    100,
-                    100
-                ]
+                "connected": true,
+                "count": 3000,
+                "order_by": "Score"
             }
         },
         "action": {
             "type": "Click"
+        },
+        "post_delay": 1000,
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]红色地块[/color]"
         }
     },
     "纯色地块蓝_寒境曙光": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]蓝色地块[/color]"
-        },
-        "post_delay": 1000,
         "recognition": {
             "type": "Custom",
             "param": {
@@ -1114,6 +1110,10 @@
         },
         "action": {
             "type": "Click"
+        },
+        "post_delay": 1000,
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]蓝色地块[/color]"
         }
     },
     "寒境蓝色地块检查": {
@@ -1126,20 +1126,20 @@
                     979,
                     640
                 ],
-                "order_by": "Score",
-                "count": 2000,
-                "connected": true,
                 "method": 40,
+                "lower": [
+                    101,
+                    60,
+                    110
+                ],
                 "upper": [
                     110,
                     170,
                     245
                 ],
-                "lower": [
-                    101,
-                    60,
-                    110
-                ]
+                "connected": true,
+                "count": 2000,
+                "order_by": "Score"
             }
         }
     },
@@ -1148,18 +1148,18 @@
             "type": "ColorMatch",
             "param": {
                 "roi": "寒境蓝色地块检查",
-                "upper": [
-                    255,
-                    255,
-                    255
-                ],
                 "lower": [
                     220,
                     220,
                     220
                 ],
-                "count": 1500,
-                "connected": true
+                "upper": [
+                    255,
+                    255,
+                    255
+                ],
+                "connected": true,
+                "count": 1500
             }
         }
     }

@@ -3,9 +3,7 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "template": [
-                    "界面/攻击区.png"
-                ]
+                "template": ["界面/攻击区.png"]
             }
         }
     },
@@ -13,9 +11,7 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "template": [
-                    "界面/闪避区.png"
-                ]
+                "template": ["界面/闪避区.png"]
             }
         }
     },
@@ -23,9 +19,7 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "template": [
-                    "界面/信号球区.png"
-                ]
+                "template": ["界面/信号球区.png"]
             }
         }
     },
@@ -33,9 +27,7 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "template": [
-                    "界面/大招区.png"
-                ]
+                "template": ["界面/大招区.png"]
             }
         }
     },
@@ -43,9 +35,7 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "template": [
-                    "界面/换人区.png"
-                ],
+                "template": ["界面/换人区.png"],
                 "green_mask": true
             }
         }
@@ -54,9 +44,7 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "template": [
-                    "界面/核心被动区.png"
-                ]
+                "template": ["界面/核心被动区.png"]
             }
         }
     },
@@ -64,9 +52,7 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "template": [
-                    "界面/辅助机区.png"
-                ]
+                "template": ["界面/辅助机区.png"]
             }
         }
     },
@@ -74,17 +60,15 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "template": [
-                    "界面/锁定区.png"
-                ]
+                "template": ["界面/锁定区.png"]
             }
         }
     },
     "覆盖布局菜单": {
+        "max_hit": 1,
         "recognition": {
             "type": "DirectHit"
         },
-        "max_hit": 1,
         "action": {
             "type": "Custom",
             "param": {

@@ -56,10 +56,6 @@
         }
     },
     "检查指定按钮": {
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -78,6 +74,10 @@
         "action": {
             "type": "Click"
         },
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "next": [
             "检查主界面2",
             "[JumpBack]关闭奖励_指挥局",
@@ -90,6 +90,12 @@
             "type": "OCR",
             "param": {
                 "roi": "识别文字颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
                 "expected": "鲸律星屿",
                 "replace": [
                     [
@@ -97,13 +103,7 @@
                         "鲸"
                     ]
                 ],
-                "only_rec": true,
-                "roi_offset": [
-                    -2,
-                    -2,
-                    4,
-                    4
-                ]
+                "only_rec": true
             }
         }
     },
@@ -137,14 +137,14 @@
             "type": "OCR",
             "param": {
                 "roi": "识别文字颜色",
-                "expected": "经典舱室",
-                "only_rec": true,
                 "roi_offset": [
                     -2,
                     -2,
                     4,
                     4
-                ]
+                ],
+                "expected": "经典舱室",
+                "only_rec": true
             }
         }
     },
@@ -178,14 +178,14 @@
             "type": "OCR",
             "param": {
                 "roi": "识别文字颜色",
-                "expected": "庭梨栖雪",
-                "only_rec": true,
                 "roi_offset": [
                     -2,
                     -2,
                     4,
                     4
-                ]
+                ],
+                "expected": "庭梨栖雪",
+                "only_rec": true
             }
         }
     },
@@ -219,14 +219,14 @@
             "type": "OCR",
             "param": {
                 "roi": "识别文字颜色",
-                "expected": "岁雪新宵",
-                "only_rec": true,
                 "roi_offset": [
                     -2,
                     -2,
                     4,
                     4
-                ]
+                ],
+                "expected": "岁雪新宵",
+                "only_rec": true
             }
         }
     },
@@ -260,14 +260,13 @@
             "type": "OCR",
             "param": {
                 "roi": "识别文字颜色",
-                "expected": "蔚蓝之",
-                "only_rec": true,
                 "roi_offset": [
                     -2,
                     -2,
                     4,
                     4
                 ],
+                "expected": "蔚蓝之",
                 "replace": [
                     [
                         "尉",
@@ -277,7 +276,8 @@
                         "南",
                         "蔚"
                     ]
-                ]
+                ],
+                "only_rec": true
             }
         }
     },
@@ -311,14 +311,14 @@
             "type": "OCR",
             "param": {
                 "roi": "识别文字颜色",
-                "expected": "云海空岛",
-                "only_rec": true,
                 "roi_offset": [
                     -2,
                     -2,
                     4,
                     4
-                ]
+                ],
+                "expected": "云海空岛",
+                "only_rec": true
             }
         }
     },
@@ -352,14 +352,14 @@
             "type": "OCR",
             "param": {
                 "roi": "识别文字颜色",
-                "expected": "漫花清夏",
-                "only_rec": true,
                 "roi_offset": [
                     -2,
                     -2,
                     4,
                     4
-                ]
+                ],
+                "expected": "漫花清夏",
+                "only_rec": true
             }
         }
     },
@@ -389,7 +389,6 @@
         }
     },
     "关闭奖励_指挥局": {
-        "post_delay": 1500,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -402,6 +401,7 @@
                 "expected": "已领取"
             }
         },
+        "pre_delay": 1000,
         "action": {
             "type": "Click",
             "param": {
@@ -411,6 +411,6 @@
                 ]
             }
         },
-        "pre_delay": 1000
+        "post_delay": 1500
     }
 }

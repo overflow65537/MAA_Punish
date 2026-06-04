@@ -8,7 +8,6 @@
         ]
     },
     "检查是否是资源副本界面": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -21,6 +20,7 @@
                 "expected": "角色碎片"
             }
         },
+        "post_delay": 1000,
         "next": [
             "A级角色",
             "[JumpBack]滑动角色碎片界面",
@@ -28,7 +28,6 @@
         ]
     },
     "进入资源副本": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -43,11 +42,11 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "post_delay": 1000
     },
     "滑动角色碎片界面": {
         "max_hit": 25,
-        "post_delay": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -79,10 +78,10 @@
                 ],
                 "end_hold": 500
             }
-        }
+        },
+        "post_delay": 0
     },
     "A级角色": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -98,16 +97,13 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "使用体力刷碎片",
             "未解锁自动作战"
         ]
     },
     "未解锁自动作战": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]未解锁自动作战[/color]"
-        },
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -120,12 +116,15 @@
                 "expected": "^战斗$"
             }
         },
+        "post_delay": 1000,
         "next": [
             "返回主菜单"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:Tomato]未解锁自动作战[/color]"
+        }
     },
     "使用体力刷碎片": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -141,6 +140,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "A_MAX",
             "A_挑战次数不足"
@@ -164,7 +164,6 @@
         ]
     },
     "A_MAX": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -180,12 +179,12 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "A_确认出战"
         ]
     },
     "A_确认出战": {
-        "post_delay": 3000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -201,6 +200,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 3000,
         "next": [
             "A_出战结束_确认",
             "A_血清组",
@@ -281,7 +281,6 @@
         ]
     },
     "A_血清组": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -294,13 +293,13 @@
                 "expected": "注射血清"
             }
         },
+        "post_delay": 1000,
         "next": [
             "A_使用体力",
             "A_不使用体力"
         ]
     },
     "A_使用体力": {
-        "post_delay": 2000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -316,6 +315,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 2000,
         "next": [
             "A_体力取消",
             "[JumpBack]关闭奖励"
@@ -362,7 +362,6 @@
         ]
     },
     "A_出战结束_确认": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -378,6 +377,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "返回主菜单"
         ]

@@ -48,7 +48,6 @@
                         "recognition": {
                             "type": "OCR",
                             "param": {
-                                "only_rec": true,
                                 "roi": "_战斗任务识别",
                                 "roi_offset": [
                                     85,
@@ -56,7 +55,8 @@
                                     0,
                                     0
                                 ],
-                                "expected": "已完成"
+                                "expected": "已完成",
+                                "only_rec": true
                             }
                         }
                     }
@@ -88,7 +88,6 @@
                         "recognition": {
                             "type": "OCR",
                             "param": {
-                                "only_rec": true,
                                 "roi": "_废弃仓库识别",
                                 "roi_offset": [
                                     85,
@@ -96,7 +95,8 @@
                                     0,
                                     0
                                 ],
-                                "expected": "已完成"
+                                "expected": "已完成",
+                                "only_rec": true
                             }
                         }
                     }
@@ -128,7 +128,6 @@
                         "recognition": {
                             "type": "OCR",
                             "param": {
-                                "only_rec": true,
                                 "roi": "_支援箱识别",
                                 "roi_offset": [
                                     85,
@@ -136,7 +135,8 @@
                                     0,
                                     0
                                 ],
-                                "expected": "已完成"
+                                "expected": "已完成",
+                                "only_rec": true
                             }
                         }
                     }
@@ -171,7 +171,6 @@
         ]
     },
     "开始行动": {
-        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -192,7 +191,8 @@
                     640
                 ]
             }
-        }
+        },
+        "post_delay": 1000
     },
     "打开维系者行动": {
         "recognition": {
