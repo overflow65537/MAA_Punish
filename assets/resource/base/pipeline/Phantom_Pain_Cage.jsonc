@@ -119,6 +119,7 @@
                     235,
                     188
                 ],
+                "method": 40,
                 "connected": true,
                 "count": 100
             }
@@ -164,6 +165,7 @@
                     235,
                     188
                 ],
+                "method": 40,
                 "connected": true,
                 "count": 100
             }
@@ -209,6 +211,7 @@
                     235,
                     188
                 ],
+                "method": 40,
                 "connected": true,
                 "count": 100
             }
@@ -273,7 +276,7 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    "检查是否是最终难度_反向",
+                    "需要进行作战",
                     "作战准备"
                 ],
                 "box_index": 1
@@ -301,7 +304,6 @@
                     117
                 ],
                 "expected": [
-                    "讨伐值",
                     "地狱"
                 ]
             }
@@ -351,18 +353,84 @@
             }
         }
     },
-    "检查是否是最终难度_反向": {
+    "需要进行作战": {
+        "recognition": {
+            "type": "Or",
+            "param": {
+                "any_of": [
+                    "不是最终难度",
+                    "是最终难度但是没有分数"
+                ]
+            }
+        }
+    },
+    "是最终难度但是没有分数": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "检查是否是最终难度",
+                    "没有分数"
+                ]
+            }
+        }
+    },
+    "没有分数": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    {
+                        "sub_name": "_白色文字",
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    884,
+                                    162,
+                                    260,
+                                    55
+                                ],
+                                "lower": [
+                                    240,
+                                    240,
+                                    240
+                                ],
+                                "upper": [
+                                    255,
+                                    255,
+                                    255
+                                ],
+                                "count": 10
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": "_白色文字",
+                                "expected": "^0$",
+                                "only_rec": true
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "不是最终难度": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    665,
-                    267,
-                    94,
-                    62
+                    365,
+                    69,
+                    915,
+                    187
                 ],
                 "expected": [
-                    "混沌"
+                    "骑士|混沌"
                 ]
             }
         }
