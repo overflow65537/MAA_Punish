@@ -49,12 +49,11 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
                 "roi": [
-                    957,
-                    550,
-                    195,
-                    170
+                    959,
+                    561,
+                    321,
+                    159
                 ],
                 "replace": [
                     "真",
