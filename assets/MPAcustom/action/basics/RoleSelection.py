@@ -183,11 +183,21 @@ class RoleSelection(CustomAction):
         *,
         notified: bool = False,
     ) -> None:
+        if context.tasker.stopping:
+            self.logger.info("收到停止信号, 跳过未找到角色的 abort 流程")
+            return
         time.sleep(0.5)
+        if context.tasker.stopping:
+            self.logger.info("收到停止信号, 跳过未找到角色的 abort 流程")
+            return
         if not notified:
             msg = f"未找到{role_name}" if role_name else "未指定出战角色"
             self.send_msg(context, msg)
+            if context.tasker.stopping:
+                return
         context.run_task("返回主菜单")
+        if context.tasker.stopping:
+            return
         context.run_action("停止任务")
 
     def _run_exclusive_pick(
