@@ -3,7 +3,7 @@
         "next": [
             "[JumpBack]雾夜镇魂曲内部",
             "[JumpBack]终止_雾夜镇魂曲",
-            "[JumpBack]跳过剧情", //剧情模式专属
+            "[JumpBack]跳过剧情",
             "[JumpBack]进入战斗_雾夜镇魂曲",
             "[JumpBack]开始战斗_雾夜镇魂曲",
             "[JumpBack]选择模式_雾夜镇魂曲",
@@ -57,7 +57,9 @@
             "[JumpBack]确定_雾夜镇魂曲",
             "[JumpBack]选择任务_雾夜镇魂曲",
             "[JumpBack]离开商店_雾夜镇魂曲",
-            "[JumpBack]战斗事件_雾夜镇魂曲",
+            "[JumpBack]变速_雾夜镇魂曲",
+            "[JumpBack]结束战斗_雾夜镇魂曲",
+            "[JumpBack]战斗中_雾夜镇魂曲",
             "[JumpBack]跳过剧情",
             "[JumpBack]滑动事件"
         ]
@@ -379,30 +381,6 @@
         "action": {
             "type": "Click"
         }
-    },
-    "战斗事件_雾夜镇魂曲": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    971,
-                    0,
-                    309,
-                    160
-                ],
-                "expected": [
-                    "退出"
-                ]
-            }
-        },
-        "next": [
-            "[JumpBack]变速_雾夜镇魂曲",
-            "[JumpBack]结束战斗_雾夜镇魂曲",
-            "[JumpBack]战斗中_雾夜镇魂曲",
-            "[JumpBack]跳过剧情",
-            "返回雾夜镇魂曲内部",
-            "下一步" //用来退出战斗事件,多半是结算了
-        ]
     },
     "战斗中_雾夜镇魂曲": {
         "recognition": {
