@@ -17,8 +17,15 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [312, 507, 913, 213],
-                "expected": ["终止前进"]
+                "roi": [
+                    312,
+                    507,
+                    913,
+                    213
+                ],
+                "expected": [
+                    "终止前进"
+                ]
             }
         },
         "action": {
@@ -59,14 +66,24 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [186, 7, 961, 164],
+                "roi": [
+                    186,
+                    7,
+                    961,
+                    164
+                ],
                 "template": [
                     "雾夜镇魂曲/标志1.png",
                     "雾夜镇魂曲/标志2.png",
                     "雾夜镇魂曲/标志3.png",
                     "雾夜镇魂曲/标志4.png"
                 ],
-                "threshold": [0.8, 0.8, 0.8, 0.8]
+                "threshold": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    0.8
+                ]
             }
         }
     },
@@ -74,8 +91,16 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [136, 108, 258, 349],
-                "expected": ["简单", "困难"]
+                "roi": [
+                    136,
+                    108,
+                    258,
+                    349
+                ],
+                "expected": [
+                    "简单",
+                    "困难"
+                ]
             }
         }
     },
@@ -83,8 +108,15 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [464, 568, 386, 149],
-                "expected": ["开启本层"]
+                "roi": [
+                    464,
+                    568,
+                    386,
+                    149
+                ],
+                "expected": [
+                    "开启本层"
+                ]
             }
         },
         "action": {
@@ -95,21 +127,40 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [0, 521, 418, 199],
-                "expected": ["放弃存档"]
+                "roi": [
+                    0,
+                    521,
+                    418,
+                    199
+                ],
+                "expected": [
+                    "放弃存档"
+                ]
             }
         },
         "action": {
             "type": "Click"
         },
-        "next": ["确定", "对比并替换", "放弃存档", "已经回到主界面"]
+        "next": [
+            "确定",
+            "对比并替换",
+            "放弃存档",
+            "已经回到主界面"
+        ]
     },
     "已经回到主界面": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [111, 548, 382, 172],
-                "expected": ["迷局突围"]
+                "roi": [
+                    111,
+                    548,
+                    382,
+                    172
+                ],
+                "expected": [
+                    "迷局突围"
+                ]
             }
         }
     },
@@ -117,23 +168,37 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [534, 595, 231, 125],
-                "expected": ["保存"]
+                "roi": [
+                    534,
+                    595,
+                    231,
+                    125
+                ],
+                "expected": [
+                    "保存"
+                ]
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [1205, 73]
+                "target": [
+                    1205,
+                    73
+                ]
             }
         },
-        "next": ["放弃存档"]
+        "next": [
+            "放弃存档"
+        ]
     },
     "返回雾夜镇魂曲内部": {
         "recognition": {
             "type": "And",
             "param": {
-                "all_of": ["雾夜镇魂曲内部"]
+                "all_of": [
+                    "雾夜镇魂曲内部"
+                ]
             }
         }
     },
@@ -141,8 +206,15 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [505, 184, 289, 153],
-                "expected": ["任务需求"]
+                "roi": [
+                    505,
+                    184,
+                    289,
+                    153
+                ],
+                "expected": [
+                    "任务需求"
+                ]
             }
         },
         "next": [
@@ -161,10 +233,23 @@
                         "recognition": {
                             "type": "ColorMatch",
                             "param": {
-                                "roi": [97, 447, 713, 150],
+                                "roi": [
+                                    97,
+                                    447,
+                                    713,
+                                    150
+                                ],
                                 "method": 40,
-                                "lower": [90, 140, 70],
-                                "upper": [96, 210, 140],
+                                "lower": [
+                                    85,
+                                    140,
+                                    70
+                                ],
+                                "upper": [
+                                    100,
+                                    210,
+                                    140
+                                ],
                                 "connected": true,
                                 "count": 10
                             }
@@ -186,10 +271,23 @@
                         "recognition": {
                             "type": "ColorMatch",
                             "param": {
-                                "roi": [503, 443, 281, 161],
+                                "roi": [
+                                    503,
+                                    443,
+                                    281,
+                                    161
+                                ],
                                 "method": 40,
-                                "lower": [170, 70, 26],
-                                "upper": [180, 160, 60],
+                                "lower": [
+                                    170,
+                                    70,
+                                    26
+                                ],
+                                "upper": [
+                                    180,
+                                    160,
+                                    60
+                                ],
                                 "count": 10
                             }
                         }
@@ -198,10 +296,23 @@
                         "recognition": {
                             "type": "ColorMatch",
                             "param": {
-                                "roi": [174, 492, 178, 73],
+                                "roi": [
+                                    174,
+                                    492,
+                                    178,
+                                    73
+                                ],
                                 "method": 40,
-                                "lower": [170, 70, 26],
-                                "upper": [180, 160, 60],
+                                "lower": [
+                                    170,
+                                    70,
+                                    26
+                                ],
+                                "upper": [
+                                    180,
+                                    160,
+                                    60
+                                ],
                                 "count": 10
                             }
                         }
@@ -210,8 +321,15 @@
                         "recognition": {
                             "type": "OCR",
                             "param": {
-                                "roi": [1001, 582, 279, 138],
-                                "expected": ["确定"]
+                                "roi": [
+                                    1001,
+                                    582,
+                                    279,
+                                    138
+                                ],
+                                "expected": [
+                                    "确定"
+                                ]
                             }
                         }
                     }
@@ -227,8 +345,15 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [924, 575, 288, 145],
-                "expected": ["离开商店"]
+                "roi": [
+                    924,
+                    575,
+                    288,
+                    145
+                ],
+                "expected": [
+                    "离开商店"
+                ]
             }
         },
         "action": {
@@ -240,8 +365,15 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [350, 478, 577, 242],
-                "expected": ["确定"]
+                "roi": [
+                    350,
+                    478,
+                    577,
+                    242
+                ],
+                "expected": [
+                    "确定"
+                ]
             }
         },
         "action": {
@@ -252,8 +384,15 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [971, 0, 309, 160],
-                "expected": ["退出"]
+                "roi": [
+                    971,
+                    0,
+                    309,
+                    160
+                ],
+                "expected": [
+                    "退出"
+                ]
             }
         },
         "next": [
@@ -269,8 +408,15 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [971, 0, 309, 160],
-                "expected": ["退出"]
+                "roi": [
+                    971,
+                    0,
+                    309,
+                    160
+                ],
+                "expected": [
+                    "退出"
+                ]
             }
         }
     },
@@ -278,8 +424,16 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [0, 0, 167, 139],
-                "expected": ["x1", "X1"]
+                "roi": [
+                    0,
+                    0,
+                    167,
+                    139
+                ],
+                "expected": [
+                    "x1",
+                    "X1"
+                ]
             }
         },
         "action": {
@@ -290,8 +444,15 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [924, 575, 288, 145],
-                "expected": ["继续"]
+                "roi": [
+                    924,
+                    575,
+                    288,
+                    145
+                ],
+                "expected": [
+                    "继续"
+                ]
             }
         },
         "action": {
@@ -302,14 +463,23 @@
         "recognition": {
             "type": "Or",
             "param": {
-                "any_of": ["雾夜镇魂曲内部条件1", "雾夜镇魂曲内部条件2"]
+                "any_of": [
+                    "雾夜镇魂曲内部条件1",
+                    "雾夜镇魂曲内部条件2"
+                ]
             }
         },
         "action": {
             "type": "Swipe",
             "param": {
-                "begin": [650, 400],
-                "end": [250, 400],
+                "begin": [
+                    650,
+                    400
+                ],
+                "end": [
+                    250,
+                    400
+                ],
                 "duration": 500
             }
         }
