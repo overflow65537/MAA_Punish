@@ -62,6 +62,7 @@ class AspectRatioChecker(TaskerEventSink):
             logger.error(
                 f"🚨 分辨率比例不匹配！任务已停止。"
                 f"当前: {self.format_resolution(width, height)} (比例: {actual_ratio:.4f})，"
+                f"请将模拟器分辨率设置为 16:9任意分辨率"
             )
 
             tasker.post_stop()
