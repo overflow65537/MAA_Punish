@@ -9,9 +9,7 @@
                     389,
                     210
                 ],
-                "expected": [
-                    "下一步"
-                ]
+                "expected": "下一步"
             }
         },
         "action": {
