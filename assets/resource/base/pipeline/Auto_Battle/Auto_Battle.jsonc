@@ -242,7 +242,7 @@
             "type": "StopTask"
         },
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Auto_Battle.Auto_Battle.不使用体力.Node.Recognition.Succeeded",
+            "Node.Recognition.Succeeded": "$focus.base.Auto_Battle.Auto_Battle.不使用体力.Node.Recognition.Succeeded"
         }
     },
     "点击下一关": {

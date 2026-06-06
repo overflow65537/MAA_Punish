@@ -376,11 +376,11 @@
             }
         },
         "action": {
-            "type": "Click", //这个点击动作单纯为了多发条通知（
+            "type": "Click" //这个点击动作单纯为了多发条通知（
         },
         "focus": {
             "Node.Action.Succeeded": "$focus.base.Start_up.MAS联动处理-检查到维护公告_将发送假通知.Node.Action.Succeeded",
-            "Node.Recognition.Succeeded": "$focus.base.Start_up.MAS联动处理-检查到维护公告_将发送假通知.Node.Recognition.Succeeded", 骗MAS用的
+            "Node.Recognition.Succeeded": "$focus.base.Start_up.MAS联动处理-检查到维护公告_将发送假通知.Node.Recognition.Succeeded" //骗MAS用的
         }
     }
 }
