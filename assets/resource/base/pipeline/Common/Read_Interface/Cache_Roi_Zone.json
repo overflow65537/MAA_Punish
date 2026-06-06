@@ -85,11 +85,18 @@
                     257,
                     457
                 ],
-                "expected": ["键位", "鍵位"]
+                "expected": [
+                    "键位",
+                    "鍵位"
+                ]
             }
         },
         "action": {
             "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 100
+            
         }
     },
     "前往布局设置": {
