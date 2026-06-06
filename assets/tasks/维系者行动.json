@@ -2,7 +2,9 @@
     "task": [
         {
             "name": "维系者行动",
-            "group": ["daily"],
+            "group": [
+                "daily"
+            ],
             "default_check": true,
             "entry": "维系者行动",
             "description": "<p>自动完成维系者行动。</p><p><b>速通</b>：每天5点后可运行1次，运行后需等待24小时。</p>",

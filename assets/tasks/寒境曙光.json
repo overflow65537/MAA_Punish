@@ -2,7 +2,9 @@
     "task": [
         {
             "name": "寒境曙光",
-            "group": ["roguelike"],
+            "group": [
+                "roguelike"
+            ],
             "entry": "寒境曙光",
             "pipeline_override": {
                 "检查主界面2": {

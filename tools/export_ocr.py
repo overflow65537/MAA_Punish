@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-遍历 assets/resource/base/pipeline 下所有 json/jsonc 文件，
+遍历 assets/resource/base（通用资源）pipeline 下所有 json/jsonc 文件，
 提取 OCR 相关节点的中文 expected，导出为 OCR_i18n.json。
 """
 
@@ -99,12 +99,9 @@ def pick_zh_from_expected(value: Any) -> str:
     return str(value)
 
 
-def extract_ocr_info(node_name: str, node: Any, rel_path: str) -> Optional[Dict[str, str]]:
+def extract_ocr_expected(node: Any) -> Optional[Any]:
     """
-    从单个节点中提取 OCR 对应的 expected：
-    - recognition.type == "OCR"
-    - 或 recognition == "OCR"
-    - expected 优先从 recognition.param.expected / recognition.expected，其次 action.expected
+    从单个节点中提取 OCR 对应的 expected 原始值（str 或 list[str]）。
     """
     if not isinstance(node, dict):
         return None
@@ -124,7 +121,6 @@ def extract_ocr_info(node_name: str, node: Any, rel_path: str) -> Optional[Dict[
     elif isinstance(rec, str) and rec == "OCR":
         is_ocr = True
 
-    # 兼容极简结构：节点自身就是 OCR
     if not is_ocr and node.get("type") == "OCR":
         is_ocr = True
         if "expected" in node:
@@ -142,11 +138,50 @@ def extract_ocr_info(node_name: str, node: Any, rel_path: str) -> Optional[Dict[
     if expected_value is None:
         return None
 
+    return expected_value
+
+
+def extract_ocr_info(node_name: str, node: Any, rel_path: str) -> Optional[Dict[str, str]]:
+    """
+    从单个节点中提取 OCR 对应的 expected：
+    - recognition.type == "OCR"
+    - 或 recognition == "OCR"
+    - expected 优先从 recognition.param.expected / recognition.expected，其次 action.expected
+    """
+    expected_value = extract_ocr_expected(node)
+    if expected_value is None:
+        return None
+
     zh_cn = pick_zh_from_expected(expected_value)
     return {
         "path": rel_path,
         "zh_CN": zh_cn,
     }
+
+
+def scan_base_ocr_nodes() -> Dict[str, Dict[str, Any]]:
+    """遍历 base pipeline，返回 {节点名: {path, expected}}。"""
+    if not ASSETS_PIPELINE_BASE.exists():
+        raise SystemExit(f"未找到目录: {ASSETS_PIPELINE_BASE}")
+
+    result: Dict[str, Dict[str, Any]] = {}
+
+    for path in sorted(ASSETS_PIPELINE_BASE.rglob("*.json*")):
+        data = load_json_or_jsonc(path)
+        if not isinstance(data, dict):
+            continue
+        rel_path = str(path.relative_to(ROOT_DIR)).replace("\\", "/")
+
+        for node_name, node in data.items():
+            expected = extract_ocr_expected(node)
+            if expected is None:
+                continue
+            result[node_name] = {
+                "path": rel_path,
+                "expected": expected,
+            }
+
+    return result
 
 
 def main() -> None:

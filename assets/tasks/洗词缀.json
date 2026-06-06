@@ -2,7 +2,9 @@
     "task": [
         {
             "name": "洗词缀",
-            "group": ["tools"],
+            "group": [
+                "tools"
+            ],
             "entry": "洗词缀",
             "option": [
                 "选择目标词缀"

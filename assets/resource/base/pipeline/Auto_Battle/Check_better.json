@@ -4,7 +4,10 @@
         "pre_delay": 0,
         "post_delay": 0,
         "rate_limit": 0,
-        "next": ["正确处于战斗内", "需要重置键位"]
+        "next": [
+            "正确处于战斗内",
+            "需要重置键位"
+        ]
     },
     "需要重置键位": {
         "pre_delay": 0,
@@ -18,7 +21,10 @@
         "recognition": {
             "type": "And",
             "param": {
-                "all_of": ["统计信号球数量", "检查血量百分比"]
+                "all_of": [
+                    "统计信号球数量",
+                    "检查血量百分比"
+                ]
             }
         },
         "pre_delay": 0,
@@ -29,7 +35,12 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [990, 567, 131, 131],
+                "roi": [
+                    990,
+                    567,
+                    131,
+                    131
+                ],
                 "template": "战斗/闪避.png",
                 "green_mask": true,
                 "threshold": 0.6

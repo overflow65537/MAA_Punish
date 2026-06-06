@@ -2,7 +2,9 @@
     "task": [
         {
             "name": "结束游戏",
-            "group": ["daily"],
+            "group": [
+                "daily"
+            ],
             "default_check": true,
             "entry": "关闭"
         }

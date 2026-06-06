@@ -2,7 +2,9 @@
     "task": [
         {
             "name": "厄愿潮声",
-            "group": ["roguelike"],
+            "group": [
+                "roguelike"
+            ],
             "entry": "厄愿潮声",
             "option": [
                 "选择难度",

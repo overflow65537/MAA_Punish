@@ -2,7 +2,9 @@
     "task": [
         {
             "name": "神寂启示录",
-            "group": ["roguelike"],
+            "group": [
+                "roguelike"
+            ],
             "entry": "神寂启示录",
             "option": [
                 "选择角色"

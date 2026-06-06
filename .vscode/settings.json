@@ -1,31 +1,12 @@
 {
-    "json.schemas": [
-        {
-            "fileMatch": [
-                "/assets/resource/**/*.json",
-                "/install/resource/**/*.json",
-                "/assets/resource/**/*.jsonc",
-                "/install/resource/**/*.jsonc"
-            ],
-            "url": "/deps/tools/pipeline.schema.json"
-        }
-    ],
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "json.format.keepLines": false,
+    "json.format.enable": true,
     "[json]": {
-        "editor.formatOnSave": true,
-        "editor.insertSpaces": true,
-        "editor.tabSize": 4,
-        "editor.indentSize": "tabSize"
+        "editor.defaultFormatter": "vscode.json-language-features"
     },
     "[jsonc]": {
-        "editor.formatOnSave": true,
-        "editor.insertSpaces": true,
-        "editor.tabSize": 4,
-        "editor.indentSize": "tabSize"
-    },
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter"
-    },
-    "python.analysis.autoImportCompletions": true,
-    "python-envs.defaultEnvManager": "ms-python.python:conda",
-    "python-envs.defaultPackageManager": "ms-python.python:conda"
+        "editor.defaultFormatter": "vscode.json-language-features"
+    }
 }

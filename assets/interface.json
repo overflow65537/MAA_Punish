@@ -96,16 +96,9 @@
     ],
     "resource": [
         {
-            "name": "简体中文",
+            "name": "通用资源",
             "path": [
                 "./resource/base"
-            ]
-        },
-        {
-            "name": "繁体中文",
-            "path": [
-                "./resource/base",
-                "./resource/zh_TW"
             ]
         }
     ],
