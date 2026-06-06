@@ -717,7 +717,7 @@
     "缓存角色": {
         "next": [
             "缓存角色程序",
-            "打开成员列表",
+            "[JumpBack]打开成员列表",
             "[JumpBack]返回主菜单"
         ],
         "focus": {
@@ -777,10 +777,7 @@
             "time": 100,
             "timeout": 2000
         },
-        "post_delay": 1000,
-        "next": [
-            "缓存角色程序"
-        ]
+        "post_delay": 1000
     },
     "点击首发": {
         "recognition": {
