@@ -330,7 +330,7 @@
             "返回主菜单"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "未选择配队"
+            "Node.Recognition.Succeeded": "$focus.base.HighRankMapping.成员整备.Node.Recognition.Succeeded"
         }
     },
     "前往作战": {
@@ -404,7 +404,7 @@
             "返回主菜单"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "历战分数达标"
+            "Node.Recognition.Succeeded": "$focus.base.HighRankMapping.识别历战分数.Node.Recognition.Succeeded"
         }
     },
     "领取历战奖励": {

@@ -9,7 +9,7 @@
             "[JumpBack]esc键"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]严重错误[/color]"
+            "Node.Recognition.Succeeded": "$focus.pgr_win32.General.重启游戏.Node.Recognition.Succeeded"
         }
     }
 }

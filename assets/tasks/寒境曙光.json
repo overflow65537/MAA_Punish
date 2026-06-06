@@ -31,7 +31,8 @@
                 "选择温度",
                 "选择效果"
             ],
-            "description": "<p>推荐使用严霜和启动资金。</p>"
+            "description": "$task.寒境曙光.description",
+            "label": "$task.寒境曙光.label"
         }
     ],
     "option": {
@@ -47,7 +48,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择温度.cases.常温.label"
                 },
                 {
                     "name": "初冷",
@@ -59,7 +61,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择温度.cases.初冷.label"
                 },
                 {
                     "name": "微寒",
@@ -71,7 +74,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择温度.cases.微寒.label"
                 },
                 {
                     "name": "冰冽",
@@ -83,7 +87,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择温度.cases.冰冽.label"
                 },
                 {
                     "name": "严霜",
@@ -95,7 +100,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择温度.cases.严霜.label"
                 },
                 {
                     "name": "极寒",
@@ -107,9 +113,11 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择温度.cases.极寒.label"
                 }
-            ]
+            ],
+            "label": "$option.选择温度.label"
         },
         "选择效果": {
             "cases": [
@@ -123,7 +131,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择效果.cases.军事.label"
                 },
                 {
                     "name": "基建",
@@ -135,7 +144,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择效果.cases.基建.label"
                 },
                 {
                     "name": "经济",
@@ -147,7 +157,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择效果.cases.经济.label"
                 },
                 {
                     "name": "启动资金",
@@ -159,9 +170,11 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择效果.cases.启动资金.label"
                 }
-            ]
+            ],
+            "label": "$option.选择效果.label"
         }
     }
 }

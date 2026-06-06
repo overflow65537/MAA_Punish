@@ -6,11 +6,12 @@
                 "daily"
             ],
             "entry": "刷A级碎片",
-            "description": "<p>自动扫荡A级碎片，不会自动战斗。</p>",
+            "description": "$task.刷A级碎片.description",
             "option": [
                 "选择A级角色",
                 "是否使用体力"
-            ]
+            ],
+            "label": "$task.刷A级碎片.label"
         }
     ],
     "option": {
@@ -22,7 +23,8 @@
                     "pipeline_override": {},
                     "option": [
                         "输入A级角色名"
-                    ]
+                    ],
+                    "label": "$option.选择A级角色.cases.自行输入角色名.label"
                 },
                 {
                     "name": "破晓",
@@ -34,7 +36,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.破晓.label"
                 },
                 {
                     "name": "徊闪",
@@ -46,7 +49,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.徊闪.label"
                 },
                 {
                     "name": "耀炎",
@@ -58,7 +62,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.耀炎.label"
                 },
                 {
                     "name": "觅语",
@@ -70,7 +75,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.觅语.label"
                 },
                 {
                     "name": "擎驱",
@@ -82,7 +88,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.擎驱.label"
                 },
                 {
                     "name": "清商",
@@ -94,7 +101,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.清商.label"
                 },
                 {
                     "name": "琉璃",
@@ -106,7 +114,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.琉璃.label"
                 },
                 {
                     "name": "XXI",
@@ -130,7 +139,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.明觉.label"
                 },
                 {
                     "name": "游麟",
@@ -142,7 +152,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.游麟.label"
                 },
                 {
                     "name": "瑰丽",
@@ -154,7 +165,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.瑰丽.label"
                 },
                 {
                     "name": "弧光",
@@ -166,7 +178,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.弧光.label"
                 },
                 {
                     "name": "银牙",
@@ -178,7 +191,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.银牙.label"
                 },
                 {
                     "name": "溢彩",
@@ -190,7 +204,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.溢彩.label"
                 },
                 {
                     "name": "重能",
@@ -202,7 +217,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.重能.label"
                 },
                 {
                     "name": "零度",
@@ -214,7 +230,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.零度.label"
                 },
                 {
                     "name": "流光",
@@ -226,7 +243,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.流光.label"
                 },
                 {
                     "name": "夙星",
@@ -238,7 +256,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.夙星.label"
                 },
                 {
                     "name": "夜刃",
@@ -250,7 +269,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.夜刃.label"
                 },
                 {
                     "name": "爆裂",
@@ -262,7 +282,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.爆裂.label"
                 },
                 {
                     "name": "异火",
@@ -274,7 +295,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.异火.label"
                 },
                 {
                     "name": "风暴",
@@ -286,7 +308,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.风暴.label"
                 },
                 {
                     "name": "蚀暗",
@@ -298,7 +321,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.蚀暗.label"
                 },
                 {
                     "name": "黎明",
@@ -310,7 +334,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.黎明.label"
                 },
                 {
                     "name": "红莲",
@@ -322,9 +347,11 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择A级角色.cases.红莲.label"
                 }
-            ]
+            ],
+            "label": "$option.选择A级角色.label"
         },
         "是否使用体力": {
             "type": "switch",
@@ -351,7 +378,8 @@
                         }
                     }
                 }
-            ]
+            ],
+            "label": "$option.是否使用体力.label"
         }
     }
 }

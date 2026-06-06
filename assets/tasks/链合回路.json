@@ -6,7 +6,8 @@
                 "tools"
             ],
             "entry": "链合回路",
-            "description": "<p>进入链合回路游戏界面后启动，会自动点击“重新开始”。</p>"
+            "description": "$task.链合回路.description",
+            "label": "$task.链合回路.label"
         }
     ],
     "option": {}

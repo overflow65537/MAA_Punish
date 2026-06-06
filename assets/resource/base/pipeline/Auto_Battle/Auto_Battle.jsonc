@@ -242,7 +242,7 @@
             "type": "StopTask"
         },
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]体力不足,任务结束[/color]"
+            "Node.Recognition.Succeeded": "$focus.base.Auto_Battle.Auto_Battle.不使用体力.Node.Recognition.Succeeded",
         }
     },
     "点击下一关": {

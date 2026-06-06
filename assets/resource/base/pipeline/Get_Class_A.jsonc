@@ -127,7 +127,7 @@
             "返回主菜单"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]未解锁自动作战[/color]"
+            "Node.Recognition.Succeeded": "$focus.base.Get_Class_A.未解锁自动作战.Node.Recognition.Succeeded"
         }
     },
     "使用体力刷碎片": {

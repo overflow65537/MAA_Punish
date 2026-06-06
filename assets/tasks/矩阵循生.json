@@ -35,7 +35,8 @@
                 "选择模式",
                 "使用人物"
             ],
-            "description": "<p>仅在解锁4点初始招募能量后，“使用人物”选项才会生效。</p><p>未解锁时：首次选择精通等级小于3的人物；经历物归新主事件后，会在所选5人中选择精通等级小于12的人物进行战斗。</p>"
+            "description": "$task.矩阵循生.description",
+            "label": "$task.矩阵循生.label"
         }
     ],
     "option": {
@@ -53,7 +54,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择模式.cases.普通模式.label"
                 },
                 {
                     "name": "困难模式",
@@ -67,7 +69,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择模式.cases.困难模式.label"
                 },
                 {
                     "name": "噩梦模式",
@@ -82,9 +85,11 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "label": "$option.选择模式.cases.噩梦模式.label"
                 }
-            ]
+            ],
+            "label": "$option.选择模式.label"
         },
         "使用人物": {
             "cases": [
@@ -105,7 +110,8 @@
                                 ]
                             }
                         }
-                    }
+                    },
+                    "label": "$option.使用人物.cases.誓焰.label"
                 },
                 {
                     "name": "深红囚影",
@@ -124,7 +130,8 @@
                                 ]
                             }
                         }
-                    }
+                    },
+                    "label": "$option.使用人物.cases.深红囚影.label"
                 },
                 {
                     "name": "深谣",
@@ -143,7 +150,8 @@
                                 ]
                             }
                         }
-                    }
+                    },
+                    "label": "$option.使用人物.cases.深谣.label"
                 },
                 {
                     "name": "终焉",
@@ -162,7 +170,8 @@
                                 ]
                             }
                         }
-                    }
+                    },
+                    "label": "$option.使用人物.cases.终焉.label"
                 },
                 {
                     "name": "深痕",
@@ -181,7 +190,8 @@
                                 ]
                             }
                         }
-                    }
+                    },
+                    "label": "$option.使用人物.cases.深痕.label"
                 },
                 {
                     "name": "启明",
@@ -206,7 +216,8 @@
                     },
                     "自动qte": {
                         "enabled": false
-                    }
+                    },
+                    "label": "$option.使用人物.cases.启明.label"
                 },
                 {
                     "name": "超刻",
@@ -225,9 +236,11 @@
                                 ]
                             }
                         }
-                    }
+                    },
+                    "label": "$option.使用人物.cases.超刻.label"
                 }
-            ]
+            ],
+            "label": "$option.使用人物.label"
         }
     }
 }

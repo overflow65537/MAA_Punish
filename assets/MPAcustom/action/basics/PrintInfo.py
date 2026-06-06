@@ -28,6 +28,8 @@ from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.define import OCRResult
 
+from MPAcustom.i18n import t
+
 class PrintInfo(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
@@ -38,7 +40,10 @@ class PrintInfo(CustomAction):
                     {
                         "自定义信息_为了防止重复所以名字长一点": {
                             "focus": {
-                                "Node.Recognition.Succeeded": f"[color:Tomato]当前识别结果:{argv.reco_detail.best_result.text}[/color]",
+                                "Node.Recognition.Succeeded": t(
+                                    "agent.printinfo.ocr_result",
+                                    text=argv.reco_detail.best_result.text,
+                                ),
                             }
                         }
                     }
@@ -48,7 +53,9 @@ class PrintInfo(CustomAction):
                     {
                         "自定义信息_为了防止重复所以名字长一点": {
                             "focus": {
-                                "Node.Recognition.Succeeded": f"[color:Tomato]未识别到任何信息,已保存截图至debug目录[/color]",
+                                "Node.Recognition.Succeeded": t(
+                                    "agent.printinfo.no_result"
+                                ),
                             },
                             "action": {
                                 "type": "Custom",
@@ -66,7 +73,10 @@ class PrintInfo(CustomAction):
                 {
                     "自定义信息_为了防止重复所以名字长一点": {
                         "focus": {
-                            "Node.Recognition.Succeeded": f"[color:Tomato]当前识别结果:{argv.reco_detail.best_result}[/color]",
+                            "Node.Recognition.Succeeded": t(
+                                "agent.printinfo.generic_result",
+                                result=argv.reco_detail.best_result,
+                            ),
                         }
                     }
                 }

@@ -10,6 +10,8 @@ from maa.define import OCRResult
 import json
 import datetime
 
+from MPAcustom.i18n import t
+
 
 class Notice(CustomAction):
     def run(
@@ -73,14 +75,14 @@ class Notice(CustomAction):
 
                 now_time = datetime.datetime.now()
                 next_time = now_time + datetime.timedelta(seconds=next_energy)
-                self.custom_notify(context, "初始黑卡:")
+                self.custom_notify(context, t("agent.notice.start_black_card"))
                 self.custom_notify(context, start_black_card)
-                self.custom_notify(context, "当前黑卡:")
+                self.custom_notify(context, t("agent.notice.current_black_card"))
                 self.custom_notify(context, end_black_card)
-                self.custom_notify(context, "收益:")
+                self.custom_notify(context, t("agent.notice.profit"))
                 self.custom_notify(context, str(profit))
 
-                self.custom_notify(context, "下次体力恢复时间:")
+                self.custom_notify(context, t("agent.notice.next_energy_recovery"))
                 self.custom_notify(context, next_time.strftime("%Y-%m-%d %H:%M:%S"))
 
         return CustomAction.RunResult(success=True)

@@ -6,7 +6,8 @@
                 "daily"
             ],
             "default_check": true,
-            "entry": "关闭"
+            "entry": "关闭",
+            "label": "$task.结束游戏.label"
         }
     ],
     "option": {}
