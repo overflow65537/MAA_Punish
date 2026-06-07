@@ -23,7 +23,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Tool.Reroll_Affix.确认目标词缀.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]完成[/color]"
         }
     },
     "结果检查左侧_不可信": {
@@ -63,7 +63,7 @@
             "type": "StopTask"
         },
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Tool.Reroll_Affix.结果检查左侧_不可信.Node.Recognition.Succeeded",
+            "Node.Recognition.Succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
         }
     },
     "结果检查_不可信": {
@@ -105,7 +105,7 @@
             "type": "StopTask"
         },
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Tool.Reroll_Affix.结果检查_不可信.Node.Recognition.Succeeded",
+            "Node.Recognition.Succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
         }
     },
     "结果检查_可信": {

@@ -111,7 +111,7 @@
             "[JumpBack]点击继续"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.商店_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]鲨鲨特卖[/color]"
         }
     },
     "商店_对话2": {
@@ -178,7 +178,7 @@
             "[JumpBack]布道者_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.布道者_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]布道者[/color]"
         }
     },
     "布道者_对话1": {
@@ -248,7 +248,7 @@
             "[JumpBack]悠久之歌_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.悠久之歌_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]悠久之歌[/color]"
         }
     },
     "悠久之歌_对话1": {
@@ -318,7 +318,7 @@
             "[JumpBack]鲨鲨置物箱_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.鲨鲨置物箱_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]鲨鲨置物箱[/color]"
         }
     },
     "鲨鲨置物箱_对话1": {
@@ -391,7 +391,7 @@
             "[JumpBack]名为知识的诅咒_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.名为知识的诅咒_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]名为知识的诅咒[/color]"
         }
     },
     "名为知识的诅咒_对话1": {
@@ -459,7 +459,7 @@
             "[JumpBack]集市_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.集市_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]集市[/color]"
         }
     },
     "集市_对话1": {
@@ -532,7 +532,7 @@
             "[JumpBack]废弃庭院_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.废弃庭院_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]废弃庭院[/color]"
         }
     },
     "废弃庭院_对话1": {
@@ -597,7 +597,7 @@
             "[JumpBack]恶魔配方_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.恶魔配方_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]恶魔配方[/color]"
         }
     },
     "恶魔配方_对话1": {
@@ -671,7 +671,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.军备库_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]军备库[/color]"
         }
     },
     "军备库_对话1": {
@@ -745,7 +745,7 @@
             "[JumpBack]迷雾之梦_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.迷雾之梦_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]迷雾之梦[/color]"
         }
     },
     "迷雾之梦_对话1": {
@@ -817,7 +817,7 @@
             "[JumpBack]旅行剧团_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.旅行剧团_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]旅行剧团[/color]"
         }
     },
     "旅行剧团_对话1": {
@@ -888,7 +888,7 @@
             "[JumpBack]返乡者_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.返乡者_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]返乡者[/color]"
         }
     },
     "返乡者_对话1": {
@@ -963,7 +963,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.命运前路_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]命运前路[/color]"
         }
     },
     "命运前路_对话1": {
@@ -1037,7 +1037,7 @@
             "[JumpBack]拾荒者派对_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.拾荒者派对_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]拾荒者派对[/color]"
         }
     },
     "拾荒者派对_对话1": {
@@ -1118,7 +1118,7 @@
             "[JumpBack]名为禁忌的睿智_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.名为禁忌的睿智_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]名为禁忌的睿智[/color]"
         }
     },
     "名为禁忌的睿智_对话1": {
@@ -1189,7 +1189,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.遗骨之滨_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]遗骨之滨[/color]"
         }
     },
     "遗骨之滨_对话1": {
@@ -1263,7 +1263,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.柯蕾多尔的馈赠_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]柯蕾多尔的馈赠[/color]"
         }
     },
     "柯雷多尔的馈赠_对话1": {
@@ -1337,7 +1337,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.街头艺人_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]街头艺人[/color]"
         }
     },
     "街头艺人_对话1": {
@@ -1411,7 +1411,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.失败者_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]失败者[/color]"
         }
     },
     "失败者_对话1": {
@@ -1507,7 +1507,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.欢乐时光_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]欢乐时光[/color]"
         }
     },
     "欢乐时光_对话1": {
@@ -1577,7 +1577,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.谨听忠告_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]谨听忠告[/color]"
         }
     },
     "谨听忠告_对话1": {
@@ -1648,7 +1648,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.禁忌教堂_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]禁忌教堂[/color]"
         }
     },
     "禁忌教堂_对话1": {
@@ -1724,7 +1724,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.被完成的谜题_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]被完成的谜题[/color]"
         }
     },
     "被完成的谜题_对话1": {
@@ -1800,7 +1800,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.藏书库_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]藏书库[/color]"
         }
     },
     "藏书库_对话1": {
@@ -1873,7 +1873,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.另一面圆桌_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]另一面圆桌[/color]"
         }
     },
     "另一面圆桌_对话1": {
@@ -1949,7 +1949,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.恶魔传说_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]恶魔传说[/color]"
         }
     },
     "恶魔传说_对话1": {
@@ -2025,7 +2025,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.许愿之井_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]许愿之井[/color]"
         }
     },
     "许愿之井_对话1": {
@@ -2098,7 +2098,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.迷途之子_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]迷途之子[/color]"
         }
     },
     "迷途之子_对话1": {
@@ -2176,7 +2176,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.阵营冲突_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]阵营冲突[/color]"
         }
     },
     "阵营冲突_对话1": {
@@ -2254,7 +2254,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_2.Roguelike_2_Event.珠宝猎人_厄愿潮声.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]珠宝猎人[/color]"
         }
     },
     "珠宝猎人_对话1": {

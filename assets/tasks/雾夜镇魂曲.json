@@ -18,13 +18,12 @@
                     ]
                 }
             },
-            "description": "$task.雾夜镇魂曲.description",
-            "label": "$task.雾夜镇魂曲.label"
+            "description": "<p>自动执行雾夜镇魂曲。</p>"
         }
     ],
     "option": {
         "选择模式_雾夜镇魂曲": {
-            "label": "$option.选择模式_雾夜镇魂曲.label",
+            "label": "选择模式",
             "cases": [
                 {
                     "name": "剧情模式",
@@ -37,8 +36,7 @@
                         "开始战斗_雾夜镇魂曲": {
                             "next": []
                         }
-                    },
-                    "label": "$option.选择模式_雾夜镇魂曲.cases.剧情模式.label"
+                    }
                 },
                 {
                     "name": "等级模式",
@@ -51,13 +49,12 @@
                     },
                     "option": [
                         "选择难度_雾夜镇魂曲"
-                    ],
-                    "label": "$option.选择模式_雾夜镇魂曲.cases.等级模式.label"
+                    ]
                 }
             ]
         },
         "选择角色_雾夜镇魂曲": {
-            "label": "$option.选择角色_雾夜镇魂曲.label",
+            "label": "选择角色",
             "cases": [
                 {
                     "name": "阿尔法",
@@ -77,8 +74,7 @@
                                 "阿尔法"
                             ]
                         }
-                    },
-                    "label": "$option.选择角色_雾夜镇魂曲.cases.阿尔法.label"
+                    }
                 },
                 {
                     "name": "维罗妮卡",
@@ -98,13 +94,12 @@
                                 "维罗妮卡"
                             ]
                         }
-                    },
-                    "label": "$option.选择角色_雾夜镇魂曲.cases.维罗妮卡.label"
+                    }
                 }
             ]
         },
         "选择难度_雾夜镇魂曲": {
-            "label": "$option.选择难度_雾夜镇魂曲.label",
+            "label": "选择难度",
             "cases": [
                 {
                     "name": "难度1",
@@ -124,8 +119,7 @@
                         "滑动难度右": {
                             "enabled": false
                         }
-                    },
-                    "label": "$option.选择难度_雾夜镇魂曲.cases.难度1.label"
+                    }
                 },
                 {
                     "name": "难度2",
@@ -146,8 +140,7 @@
                                 "难度2"
                             ]
                         }
-                    },
-                    "label": "$option.选择难度_雾夜镇魂曲.cases.难度2.label"
+                    }
                 },
                 {
                     "name": "难度3",
@@ -168,8 +161,7 @@
                                 "难度3"
                             ]
                         }
-                    },
-                    "label": "$option.选择难度_雾夜镇魂曲.cases.难度3.label"
+                    }
                 },
                 {
                     "name": "难度4",
@@ -189,8 +181,7 @@
                                 "难度4"
                             ]
                         }
-                    },
-                    "label": "$option.选择难度_雾夜镇魂曲.cases.难度4.label"
+                    }
                 }
             ]
         }

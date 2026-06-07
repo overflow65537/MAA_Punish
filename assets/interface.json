@@ -1,25 +1,24 @@
 {
     "interface_version": 2,
-    "name": "$project.name",
+    "name": "法奥斯之矛",
     "mirrorchyan_rid": "MAA_Punish",
     "github": "https://github.com/overflow65537/MAA_Punish",
     "license": "./LICENSE",
     "contact": "./CONTACT.md",
     "welcome": "./DISCLAIMER.md",
-    "description": "$project.description",
+    "description": "愿每一位重返地球的人类之子平安",
     "MFW_min_req_version": "99.99.99",
     "icon": "./logo.png",
     "controller": [
         {
             "name": "安卓端",
             "type": "Adb",
-            "description": "$controller.安卓端.description",
-            "label": "$controller.安卓端.label"
+            "description": "<p>仅支持安卓模拟器，不支持官方模拟器。</p><p>请在游戏设置中关闭异形屏适配。</p>"
         },
         {
             "name": "Win32-Window",
-            "label": "$controller.Win32-Window.label",
-            "description": "$controller.Win32-Window.description",
+            "label": "Win32控制器-通用",
+            "description": "<p>通用Win32控制器，兼容性更好，偶尔会占用鼠标</p><p>需要管理员权限</p><p>请正确填写程序路径为游戏入口PGR.exe而非启动器的launcher.exe</p>",
             "type": "Win32",
             "win32": {
                 "class_regex": "UnityWndClass",
@@ -35,8 +34,8 @@
         },
         {
             "name": "Win32-Window-Background",
-            "label": "$controller.Win32-Window-Background.label",
-            "description": "$controller.Win32-Window-Background.description",
+            "label": "Win32控制器-后台",
+            "description": "<p>Win32控制器-后台，完全不占用鼠标，需要游戏处于窗口模式生效</p><p>需要管理员权限</p><p>请正确填写程序路径为游戏入口PGR.exe而非启动器的launcher.exe</p>",
             "type": "Win32",
             "win32": {
                 "class_regex": "UnityWndClass",
@@ -52,8 +51,8 @@
         },
         {
             "name": "Win32-Window-Front",
-            "label": "$controller.Win32-Window-Front.label",
-            "description": "$controller.Win32-Window-Front.description",
+            "label": "Win32控制器-前台",
+            "description": "<p>Win32控制器-前台，占用鼠标，最强的兼容性</p><p>需要管理员权限</p><p>请正确填写程序路径为游戏入口PGR.exe而非启动器的launcher.exe</p>",
             "type": "Win32",
             "win32": {
                 "class_regex": "UnityWndClass",
@@ -70,14 +69,13 @@
         {
             "name": "PlayCover端",
             "type": "PlayCover",
-            "description": "$controller.PlayCover端.description",
+            "description": "<p style=\"color: red; font-weight: bold;\">Macos 专用,支持PlayCover</p><p>playcover无法自己启动游戏</p>",
             "playcover": {
                 "uuid": "maa.playcover"
             },
             "attach_resource_path": [
                 "./resource/playcover"
-            ],
-            "label": "$controller.PlayCover端.label"
+            ]
         }
     ],
     "agent": {
@@ -101,35 +99,34 @@
             "name": "通用资源",
             "path": [
                 "./resource/base"
-            ],
-            "label": "$resource.通用资源.label"
+            ]
         }
     ],
     "task": [],
     "group": [
         {
             "name": "daily",
-            "label": "$group.daily.label",
-            "description": "$group.daily.description",
+            "label": "日常",
+            "description": "周常、资源本、领取类与常规玩法任务",
             "default_expand": true
         },
         {
             "name": "roguelike",
-            "label": "$group.roguelike.label",
-            "description": "$group.roguelike.description",
+            "label": "肉鸽",
+            "description": "宣叙妄响、厄愿潮声、矩阵循生、寒境曙光、神寂启示录等肉鸽玩法",
             "default_expand": true
         },
         {
             "name": "tools",
-            "label": "$group.tools.label",
-            "description": "$group.tools.description",
+            "label": "工具",
+            "description": "缓存更新、洗词缀、链合回路、战斗辅助等辅助工具",
             "default_expand": true
         }
     ],
     "preset": [
         {
             "name": "preset_daily",
-            "label": "$preset.preset_daily.label",
+            "label": "日常",
             "task": [
                 {
                     "name": "进入游戏",
@@ -224,8 +221,8 @@
         },
         {
             "name": "preset_roguelike",
-            "label": "$preset.preset_roguelike.label",
-            "description": "$preset.preset_roguelike.description",
+            "label": "肉鸽",
+            "description": "宣叙妄响、厄愿潮声、矩阵循生、寒境曙光、神寂启示录",
             "task": [
                 {
                     "name": "宣叙妄响",
@@ -255,8 +252,8 @@
         },
         {
             "name": "preset_tools",
-            "label": "$preset.preset_tools.label",
-            "description": "$preset.preset_tools.description",
+            "label": "工具",
+            "description": "手动更新角色缓存、洗词缀、链合回路、战斗辅助",
             "task": [
                 {
                     "name": "手动更新角色缓存",
@@ -310,8 +307,8 @@
     ],
     "option": {
         "角色缓存更新频率": {
-            "label": "$option.角色缓存更新频率.label",
-            "description": "$option.角色缓存更新频率.description",
+            "label": "角色缓存更新频率",
+            "description": "角色信息缓存的更新频率，过期后将自动更新角色信息",
             "type": "select",
             "cases": [
                 {
@@ -341,8 +338,7 @@
                                 "update_frequency": "weekly"
                             }
                         }
-                    },
-                    "label": "$option.角色缓存更新频率.cases.每周.label"
+                    }
                 },
                 {
                     "name": "每月",
@@ -371,8 +367,7 @@
                                 "update_frequency": "monthly"
                             }
                         }
-                    },
-                    "label": "$option.角色缓存更新频率.cases.每月.label"
+                    }
                 },
                 {
                     "name": "永不过期",
@@ -401,14 +396,13 @@
                                 "update_frequency": "never"
                             }
                         }
-                    },
-                    "label": "$option.角色缓存更新频率.cases.永不过期.label"
+                    }
                 }
             ]
         },
         "多账号缓存": {
-            "label": "$option.多账号缓存.label",
-            "description": "$option.多账号缓存.description",
+            "label": "多账号缓存",
+            "description": "为不同账号使用独立的角色缓存文件；开启后需填写前缀，文件名为「前缀_role_cache.json」",
             "type": "switch",
             "default_case": "No",
             "cases": [
@@ -424,18 +418,18 @@
             ]
         },
         "角色缓存账号前缀": {
-            "label": "$option.角色缓存账号前缀.label",
-            "description": "$option.角色缓存账号前缀.description",
+            "label": "角色缓存账号前缀",
+            "description": "用于区分多账号缓存，仅允许字母、数字、中文、下划线与连字符",
             "type": "input",
             "inputs": [
                 {
                     "name": "账号前缀",
-                    "label": "$option.角色缓存账号前缀.inputs.账号前缀.label",
-                    "description": "$option.角色缓存账号前缀.inputs.账号前缀.description",
+                    "label": "账号前缀",
+                    "description": "例如 main、小号1；对应 assets/前缀_role_cache.json",
                     "default": "main",
                     "pipeline_type": "string",
                     "verify": "^[\\w\\u4e00-\\u9fff\\-]{1,32}$",
-                    "pattern_msg": "$option.角色缓存账号前缀.inputs.账号前缀.pattern_msg"
+                    "pattern_msg": "请输入 1–32 位有效前缀（字母、数字、中文、_、-）"
                 }
             ],
             "pipeline_override": {
@@ -471,8 +465,8 @@
             }
         },
         "切换服务器": {
-            "label": "$option.切换服务器.label",
-            "description": "$option.切换服务器.description",
+            "label": "切换服务器",
+            "description": "切换服务器",
             "type": "select",
             "controller": [
                 "安卓端"
@@ -480,8 +474,7 @@
             "cases": [
                 {
                     "name": "官服",
-                    "pipeline_override": {},
-                    "label": "$option.切换服务器.cases.官服.label"
+                    "pipeline_override": {}
                 },
                 {
                     "name": "云战双",
@@ -535,8 +528,7 @@
                                 "启动"
                             ]
                         }
-                    },
-                    "label": "$option.切换服务器.cases.云战双.label"
+                    }
                 },
                 {
                     "name": "B服",
@@ -568,8 +560,7 @@
                                 "启动"
                             ]
                         }
-                    },
-                    "label": "$option.切换服务器.cases.B服.label"
+                    }
                 },
                 {
                     "name": "应用宝服",
@@ -601,8 +592,7 @@
                                 "启动"
                             ]
                         }
-                    },
-                    "label": "$option.切换服务器.cases.应用宝服.label"
+                    }
                 },
                 {
                     "name": "vivo服",
@@ -634,8 +624,7 @@
                                 "启动"
                             ]
                         }
-                    },
-                    "label": "$option.切换服务器.cases.vivo服.label"
+                    }
                 },
                 {
                     "name": "oppo服",
@@ -667,8 +656,7 @@
                                 "启动"
                             ]
                         }
-                    },
-                    "label": "$option.切换服务器.cases.oppo服.label"
+                    }
                 },
                 {
                     "name": "小米服",
@@ -700,8 +688,7 @@
                                 "启动"
                             ]
                         }
-                    },
-                    "label": "$option.切换服务器.cases.小米服.label"
+                    }
                 },
                 {
                     "name": "4399服",
@@ -733,8 +720,7 @@
                                 "启动"
                             ]
                         }
-                    },
-                    "label": "$option.切换服务器.cases.4399服.label"
+                    }
                 },
                 {
                     "name": "华为服",
@@ -766,8 +752,7 @@
                                 "启动"
                             ]
                         }
-                    },
-                    "label": "$option.切换服务器.cases.华为服.label"
+                    }
                 },
                 {
                     "name": "抖音(字节跳动)服",
@@ -799,8 +784,7 @@
                                 "启动"
                             ]
                         }
-                    },
-                    "label": "$option.切换服务器.cases.抖音(字节跳动)服.label"
+                    }
                 },
                 {
                     "name": "九游服",
@@ -832,8 +816,7 @@
                                 "启动"
                             ]
                         }
-                    },
-                    "label": "$option.切换服务器.cases.九游服.label"
+                    }
                 },
                 {
                     "name": "MuMu服",
@@ -865,8 +848,7 @@
                                 "启动"
                             ]
                         }
-                    },
-                    "label": "$option.切换服务器.cases.MuMu服.label"
+                    }
                 },
                 {
                     "name": "waydroid官服",
@@ -879,14 +861,13 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.切换服务器.cases.waydroid官服.label"
+                    }
                 }
             ]
         },
         "自定义键位": {
-            "label": "$option.自定义键位.label",
-            "description": "$option.自定义键位.description",
+            "label": "是否启用自定义键位",
+            "description": "打开后可以自定义游戏中的按键设置",
             "type": "switch",
             "default_case": "No",
             "controller": [
@@ -908,128 +889,113 @@
         },
         "输入键码": {
             "type": "input",
-            "label": "$option.输入键码.label",
-            "description": "$option.输入键码.description",
+            "label": "按键设置",
+            "description": "请输入对应按键的键码",
             "inputs": [
                 {
                     "name": "攻击",
                     "default": "74",
                     "pipeline_type": "int",
                     "verify": "^\\d+$",
-                    "pattern_msg": "$option.输入键码.inputs.攻击.pattern_msg",
-                    "label": "$option.输入键码.inputs.攻击.label"
+                    "pattern_msg": "请输入有效的数字键码"
                 },
                 {
                     "name": "闪避",
                     "default": "75",
                     "pipeline_type": "int",
                     "verify": "^\\d+$",
-                    "pattern_msg": "$option.输入键码.inputs.闪避.pattern_msg",
-                    "label": "$option.输入键码.inputs.闪避.label"
+                    "pattern_msg": "请输入有效的数字键码"
                 },
                 {
                     "name": "技能",
                     "default": "76",
                     "pipeline_type": "int",
                     "verify": "^\\d+$",
-                    "pattern_msg": "$option.输入键码.inputs.技能.pattern_msg",
-                    "label": "$option.输入键码.inputs.技能.label"
+                    "pattern_msg": "请输入有效的数字键码"
                 },
                 {
                     "name": "上方QTE",
                     "default": "81",
                     "pipeline_type": "int",
                     "verify": "^\\d+$",
-                    "pattern_msg": "$option.输入键码.inputs.上方QTE.pattern_msg",
-                    "label": "$option.输入键码.inputs.上方QTE.label"
+                    "pattern_msg": "请输入有效的数字键码"
                 },
                 {
                     "name": "下方QTE",
                     "default": "69",
                     "pipeline_type": "int",
                     "verify": "^\\d+$",
-                    "pattern_msg": "$option.输入键码.inputs.下方QTE.pattern_msg",
-                    "label": "$option.输入键码.inputs.下方QTE.label"
+                    "pattern_msg": "请输入有效的数字键码"
                 },
                 {
                     "name": "1号球",
                     "default": "49",
                     "pipeline_type": "int",
                     "verify": "^\\d+$",
-                    "pattern_msg": "$option.输入键码.inputs.1号球.pattern_msg",
-                    "label": "$option.输入键码.inputs.1号球.label"
+                    "pattern_msg": "请输入有效的数字键码"
                 },
                 {
                     "name": "2号球",
                     "default": "50",
                     "pipeline_type": "int",
                     "verify": "^\\d+$",
-                    "pattern_msg": "$option.输入键码.inputs.2号球.pattern_msg",
-                    "label": "$option.输入键码.inputs.2号球.label"
+                    "pattern_msg": "请输入有效的数字键码"
                 },
                 {
                     "name": "3号球",
                     "default": "51",
                     "pipeline_type": "int",
                     "verify": "^\\d+$",
-                    "pattern_msg": "$option.输入键码.inputs.3号球.pattern_msg",
-                    "label": "$option.输入键码.inputs.3号球.label"
+                    "pattern_msg": "请输入有效的数字键码"
                 },
                 {
                     "name": "4号球",
                     "default": "52",
                     "pipeline_type": "int",
                     "verify": "^\\d+$",
-                    "pattern_msg": "$option.输入键码.inputs.4号球.pattern_msg",
-                    "label": "$option.输入键码.inputs.4号球.label"
+                    "pattern_msg": "请输入有效的数字键码"
                 },
                 {
                     "name": "5号球",
                     "default": "53",
                     "pipeline_type": "int",
                     "verify": "^\\d+$",
-                    "pattern_msg": "$option.输入键码.inputs.5号球.pattern_msg",
-                    "label": "$option.输入键码.inputs.5号球.label"
+                    "pattern_msg": "请输入有效的数字键码"
                 },
                 {
                     "name": "6号球",
                     "default": "54",
                     "pipeline_type": "int",
                     "verify": "^\\d+$",
-                    "pattern_msg": "$option.输入键码.inputs.6号球.pattern_msg",
-                    "label": "$option.输入键码.inputs.6号球.label"
+                    "pattern_msg": "请输入有效的数字键码"
                 },
                 {
                     "name": "7号球",
                     "default": "55",
                     "pipeline_type": "int",
                     "verify": "^\\d+$",
-                    "pattern_msg": "$option.输入键码.inputs.7号球.pattern_msg",
-                    "label": "$option.输入键码.inputs.7号球.label"
+                    "pattern_msg": "请输入有效的数字键码"
                 },
                 {
                     "name": "8号球",
                     "default": "56",
                     "pipeline_type": "int",
                     "verify": "^\\d+$",
-                    "pattern_msg": "$option.输入键码.inputs.8号球.pattern_msg",
-                    "label": "$option.输入键码.inputs.8号球.label"
+                    "pattern_msg": "请输入有效的数字键码"
                 },
                 {
                     "name": "锁定视角",
                     "default": "9",
                     "pipeline_type": "int",
                     "verify": "^\\d+$",
-                    "pattern_msg": "$option.输入键码.inputs.锁定视角.pattern_msg",
-                    "label": "$option.输入键码.inputs.锁定视角.label"
+                    "pattern_msg": "请输入有效的数字键码"
                 },
                 {
                     "name": "辅助机",
                     "default": "67",
                     "pipeline_type": "int",
                     "verify": "^\\d+$",
-                    "pattern_msg": "$option.输入键码.inputs.辅助机.pattern_msg",
-                    "label": "$option.输入键码.inputs.辅助机.label"
+                    "pattern_msg": "请输入有效的数字键码"
                 }
             ],
             "pipeline_override": {
@@ -1212,7 +1178,7 @@
             }
         },
         "自动QTE": {
-            "description": "$option.自动QTE.description",
+            "description": "<p>是否允许在战斗中使用QTE功能</p>",
             "type": "switch",
             "cases": [
                 {
@@ -1231,11 +1197,10 @@
                         }
                     }
                 }
-            ],
-            "label": "$option.自动QTE.label"
+            ]
         },
         "自动切换角色": {
-            "description": "$option.自动切换角色.description",
+            "description": "<p>是否允许在战斗中进行轮切</p>",
             "type": "switch",
             "cases": [
                 {
@@ -1254,12 +1219,11 @@
                         }
                     }
                 }
-            ],
-            "label": "$option.自动切换角色.label"
+            ]
         },
         "同时选择多名角色": {
             "type": "switch",
-            "description": "$option.同时选择多名角色.description",
+            "description": "<p>是否允许在选人中同时选择多名角色</p>",
             "cases": [
                 {
                     "name": "Yes",
@@ -1282,19 +1246,17 @@
                     "name": "No",
                     "pipeline_override": {}
                 }
-            ],
-            "label": "$option.同时选择多名角色.label"
+            ]
         },
         "输入A级角色名": {
-            "label": "$option.输入A级角色名.label",
+            "label": "请输角色名",
             "type": "input",
             "inputs": [
                 {
                     "name": "角色名",
-                    "description": "$option.输入A级角色名.inputs.角色名.description",
+                    "description": "<p>请输入角色代号，例如：破晓。</p>",
                     "default": "破晓",
-                    "pipeline_type": "string",
-                    "label": "$option.输入A级角色名.inputs.角色名.label"
+                    "pipeline_type": "string"
                 }
             ],
             "pipeline_override": {
@@ -1307,9 +1269,5 @@
                 }
             }
         }
-    },
-    "languages": {
-        "zh_cn": "locales/interface/zh_cn.json",
-        "zh_tw": "locales/interface/zh_tw.json"
     }
 }

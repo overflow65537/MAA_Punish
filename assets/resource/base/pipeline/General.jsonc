@@ -174,7 +174,7 @@
             "错误处理流程"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.General.返回主菜单_err.Node.Recognition.Succeeded",
+            "Node.Recognition.Succeeded": "[color:Tomato]识别错误，返回主菜单[/color]",
             "aborted": true
         }
     },
@@ -205,7 +205,7 @@
             "启动"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.General.重启游戏.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:Tomato]未知错误,重启游戏[/color]"
         }
     },
     "意外点击_物品": {

@@ -31,8 +31,7 @@
                     "enabled": false
                 }
             },
-            "description": "$task.厄愿潮声.description",
-            "label": "$task.厄愿潮声.label"
+            "description": "<p>推荐选择普通及以下难度，其他难度可能无法通关。</p><p>当前支持自动作战人物：深痕、深瑶、深红囚影、超刻。</p>"
         }
     ],
     "option": {
@@ -48,8 +47,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择难度.cases.浅听潮涌-简单.label"
+                    }
                 },
                 {
                     "name": "征逐浪影-普通",
@@ -61,8 +59,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择难度.cases.征逐浪影-普通.label"
+                    }
                 },
                 {
                     "name": "邂逅渊流-困难",
@@ -74,11 +71,9 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择难度.cases.邂逅渊流-困难.label"
+                    }
                 }
-            ],
-            "label": "$option.选择难度.label"
+            ]
         },
         "调查团组建": {
             "cases": [
@@ -92,8 +87,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.调查团组建.cases.探潮者.label"
+                    }
                 },
                 {
                     "name": "拾荒者",
@@ -105,8 +99,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.调查团组建.cases.拾荒者.label"
+                    }
                 },
                 {
                     "name": "旅行剧团",
@@ -118,8 +111,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.调查团组建.cases.旅行剧团.label"
+                    }
                 },
                 {
                     "name": "生存专家",
@@ -131,8 +123,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.调查团组建.cases.生存专家.label"
+                    }
                 },
                 {
                     "name": "远征队",
@@ -144,8 +135,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.调查团组建.cases.远征队.label"
+                    }
                 },
                 {
                     "name": "渡厄者",
@@ -157,11 +147,9 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.调查团组建.cases.渡厄者.label"
+                    }
                 }
-            ],
-            "label": "$option.调查团组建.label"
+            ]
         }
     }
 }

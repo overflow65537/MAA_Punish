@@ -17,8 +17,7 @@
                     ]
                 }
             },
-            "description": "$task.神寂启示录.description",
-            "label": "$task.神寂启示录.label"
+            "description": "<p>自动执行神寂启示录，可结合所选角色与策略进行刷本。</p>"
         }
     ],
     "option": {
@@ -39,8 +38,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择角色.cases.渡边.label"
+                    }
                 },
                 {
                     "name": "薇拉",
@@ -57,8 +55,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择角色.cases.薇拉.label"
+                    }
                 },
                 {
                     "name": "万事",
@@ -75,8 +72,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择角色.cases.万事.label"
+                    }
                 },
                 {
                     "name": "莉莉丝",
@@ -93,11 +89,9 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择角色.cases.莉莉丝.label"
+                    }
                 }
-            ],
-            "label": "$option.选择角色.label"
+            ]
         }
     }
 }

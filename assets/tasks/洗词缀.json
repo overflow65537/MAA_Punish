@@ -9,8 +9,7 @@
             "option": [
                 "选择目标词缀"
             ],
-            "description": "$task.洗词缀.description",
-            "label": "$task.洗词缀.label"
+            "description": "<p>见证，拟战绩分的消失！</p>"
         }
     ],
     "option": {
@@ -30,8 +29,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择目标词缀.cases.带攻击的词缀.label"
+                    }
                 },
                 {
                     "name": "QTE",
@@ -60,8 +58,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择目标词缀.cases.核心被动.label"
+                    }
                 },
                 {
                     "name": "必杀技",
@@ -75,8 +72,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择目标词缀.cases.必杀技.label"
+                    }
                 },
                 {
                     "name": "职业技",
@@ -90,8 +86,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择目标词缀.cases.职业技.label"
+                    }
                 },
                 {
                     "name": "普通攻击",
@@ -105,8 +100,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择目标词缀.cases.普通攻击.label"
+                    }
                 },
                 {
                     "name": "红球",
@@ -120,8 +114,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择目标词缀.cases.红球.label"
+                    }
                 },
                 {
                     "name": "蓝球",
@@ -135,8 +128,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择目标词缀.cases.蓝球.label"
+                    }
                 },
                 {
                     "name": "黄球",
@@ -150,8 +142,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择目标词缀.cases.黄球.label"
+                    }
                 },
                 {
                     "name": "攻击+15、会心+15",
@@ -165,8 +156,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择目标词缀.cases.攻击+15、会心+15.label"
+                    }
                 },
                 {
                     "name": "攻击+15、防御+23",
@@ -180,8 +170,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择目标词缀.cases.攻击+15、防御+23.label"
+                    }
                 },
                 {
                     "name": "生命+75、攻击+15",
@@ -195,8 +184,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择目标词缀.cases.生命+75、攻击+15.label"
+                    }
                 },
                 {
                     "name": "生命+75、会心+15",
@@ -210,11 +198,9 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择目标词缀.cases.生命+75、会心+15.label"
+                    }
                 }
-            ],
-            "label": "$option.选择目标词缀.label"
+            ]
         }
     }
 }

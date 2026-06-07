@@ -124,7 +124,7 @@
             "type": "StopTask"
         },
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_5.Rougelike_5.没过教程提示.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:Tomato]请通关教程后再使用该功能[/color]"
         }
     },
     "打开时宇漫纪": {

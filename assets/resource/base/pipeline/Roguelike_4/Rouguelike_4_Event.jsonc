@@ -25,7 +25,7 @@
             "直接进入战斗_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.战斗地块_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]战斗地块[/color]"
         }
     },
     "识别岗哨塔_寒境曙光": {
@@ -214,7 +214,7 @@
             "港口异常点_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.汇合_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]汇合[/color]"
         }
     },
     "汇合_结束对话_寒境曙光": {
@@ -284,7 +284,7 @@
             "港口异常点_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.拓荒_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]拓荒[/color]"
         }
     },
     "拓荒_寒境曙光_对话_寒境曙光": {
@@ -375,7 +375,7 @@
             "港口异常点_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.前方有陷阱_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]前方有陷阱[/color]"
         }
     },
     "前方有陷阱_对话_寒境曙光": {
@@ -430,7 +430,7 @@
             "港口异常点_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.剩余资金_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]剩余资金[/color]"
         }
     },
     "剩余资金_寒境曙光_对话_寒境曙光": {
@@ -478,7 +478,7 @@
             "港口异常点_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.冬日之影_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]冬日之影[/color]"
         }
     },
     "冬日之影_对话_寒境曙光": {
@@ -577,7 +577,7 @@
             "港口异常点_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.战马瑞恩_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]战马瑞恩[/color]"
         }
     },
     "战马瑞恩_对话_寒境曙光": {
@@ -652,7 +652,7 @@
             "港口异常点_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.鲨鱼置物箱_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]鲨鱼置物箱[/color]"
         }
     },
     "鲨鱼置物箱_对话_寒境曙光": {
@@ -701,7 +701,7 @@
             "港口异常点_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.学者来访_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]学者来访[/color]"
         }
     },
     "学者来访_对话_寒境曙光": {
@@ -754,7 +754,7 @@
             "港口异常点_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.运力紧张_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]运力紧张[/color]"
         }
     },
     "运力紧张_对话_寒境曙光": {
@@ -806,7 +806,7 @@
             "港口异常点_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.废弃港口_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]废弃港口[/color]"
         }
     },
     "废弃港口_对话_寒境曙光": {
@@ -858,7 +858,7 @@
             "港口异常点_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.商队来访_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]商队来访[/color]"
         }
     },
     "商队来访_对话_寒境曙光": {
@@ -914,7 +914,7 @@
             "港口异常点_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.拦路的废墟_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]拦路的废墟[/color]"
         }
     },
     "拦路的废墟_对话_寒境曙光": {
@@ -966,7 +966,7 @@
             "港口异常点_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.难民团到访_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]难民团到访[/color]"
         }
     },
     "决定事件_寒境曙光": {
@@ -1037,7 +1037,7 @@
             "港口异常点_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.建筑师的建议_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]建筑师的建议[/color]"
         }
     },
     "建筑师的建议_对话_寒境曙光": {
@@ -1092,7 +1092,7 @@
             "港口异常点_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.旧国遗产_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]旧国遗产[/color]"
         }
     },
     "旧国遗产_对话_寒境曙光": {
@@ -1148,7 +1148,7 @@
         },
         "post_delay": 1000,
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.纯色地块黄_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]黄色地块[/color]"
         }
     },
     "纯色地块红_寒境曙光": {
@@ -1182,7 +1182,7 @@
         },
         "post_delay": 1000,
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.纯色地块红_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]红色地块[/color]"
         }
     },
     "纯色地块蓝_寒境曙光": {
@@ -1197,7 +1197,7 @@
         },
         "post_delay": 1000,
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Rouguelike_4_Event.纯色地块蓝_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]蓝色地块[/color]"
         }
     },
     "寒境蓝色地块检查": {

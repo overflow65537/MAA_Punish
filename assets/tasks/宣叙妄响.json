@@ -30,8 +30,7 @@
                     "enabled": false
                 }
             },
-            "description": "$task.宣叙妄响.description",
-            "label": "$task.宣叙妄响.label"
+            "description": "<p>推荐选择精通难度。</p><p>当前支持自动作战人物：深痕、深瑶、深红囚影、超刻。</p><p>该任务不会帮你领取每日任务，请自行领取。</p>"
         }
     ],
     "option": {
@@ -54,8 +53,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择宣叙妄响难度.cases.入门.label"
+                    }
                 },
                 {
                     "name": "通俗",
@@ -67,8 +65,7 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择宣叙妄响难度.cases.通俗.label"
+                    }
                 },
                 {
                     "name": "精通",
@@ -80,11 +77,9 @@
                                 }
                             }
                         }
-                    },
-                    "label": "$option.选择宣叙妄响难度.cases.精通.label"
+                    }
                 }
-            ],
-            "label": "$option.选择宣叙妄响难度.label"
+            ]
         }
     }
 }

@@ -248,7 +248,7 @@
             "[JumpBack]开始探索_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Roguelike_4.物资_寒境曙光.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]物资地块[/color]"
         }
     },
     "物资事件结束_寒境曙光": {
@@ -311,7 +311,7 @@
             "暂离_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Roguelike_4.重新进入_寒境曙光.Node.Recognition.Succeeded",
+            "Node.Recognition.Succeeded": "[color:LightSalmon]未搜索到目标,重新进入[/color]"
         }
     },
     "暂离_寒境曙光": {
@@ -341,7 +341,7 @@
             "下一天_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Roguelike_4.分数计算.Node.Recognition.Succeeded",
+            "Node.Recognition.Succeeded": "[color:ForestGreen]分数确认,强制结算[/color]"
         }
     },
     "下一天_寒境曙光": {
@@ -1453,7 +1453,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Roguelike_4.重置镜头.Node.Recognition.Succeeded",
+            "Node.Recognition.Succeeded": "未搜索到目标,重置镜头"
         }
     },
     "领取奖励界面_结束": {
@@ -2227,7 +2227,7 @@
             "挑战失败_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Roguelike_4.强制失败.Node.Recognition.Succeeded",
+            "Node.Recognition.Succeeded": "[color:tomato]未检测到目标,结束当前游戏[/color]"
         }
     },
     "下一天_强制失败": {
@@ -2417,7 +2417,7 @@
             "type": "StopTask"
         },
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_4.Roguelike_4.未解锁开局.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:Tomato]未解锁对应开局[/color]"
         }
     },
     "选择具体开局_寒境曙光": {

@@ -6,9 +6,8 @@
                 "daily"
             ],
             "default_check": true,
-            "description": "$task.战令.description",
-            "entry": "通行证",
-            "label": "$task.战令.label"
+            "description": "<p>自动领取战令奖励。</p>",
+            "entry": "通行证"
         }
     ],
     "option": {}

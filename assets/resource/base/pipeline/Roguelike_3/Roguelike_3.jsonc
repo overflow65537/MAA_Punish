@@ -52,7 +52,7 @@
             "[JumpBack]意外点击_限定活动"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_3.Roguelike_3.矩阵循生.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]开始演算[/color]"
         }
     },
     "返回_矩阵循生": {
@@ -1132,7 +1132,7 @@
             "[JumpBack]载入中"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_3.Roguelike_3.战斗事件_矩阵循生.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:ForestGreen]开始战斗[/color]"
         }
     },
     "算力单元不足": {
@@ -1235,7 +1235,7 @@
         },
         "post_delay": 1000,
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.Roguelike_3.Roguelike_3.战斗失败.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "[color:Tomato]寄![/color]"
         }
     },
     "进入战斗_矩阵循生": {

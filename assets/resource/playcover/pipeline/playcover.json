@@ -4,7 +4,7 @@
             "type": "DoNothing"
         },
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.playcover.playcover.打开应用.Node.Recognition.Succeeded"
+            "Node.Recognition.Succeeded": "别看了,playcover无法启动游戏"
         }
     },
     "关闭应用": {
