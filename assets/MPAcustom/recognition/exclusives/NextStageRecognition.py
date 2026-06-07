@@ -27,13 +27,19 @@ MAA_Punish 下一关识别程序
 from maa.custom_recognition import CustomRecognition
 from maa.define import OCRResult
 
+from MPAcustom.logger_component import LoggerComponent
+
+
 class NextStageRecognition(CustomRecognition):
     def analyze(
         self,
         context,
         argv: CustomRecognition.AnalyzeArg,
     ) -> CustomRecognition.AnalyzeResult | None:
+        logger_component = LoggerComponent(__name__)
+        logger = logger_component.logger
         image = argv.image
+        logger.info("[NextStageRecognition] 开始识别下一关")
         # 当前章节
         current_stage_reco = context.run_recognition(
             "检查当前章节",
@@ -44,6 +50,7 @@ class NextStageRecognition(CustomRecognition):
             and current_stage_reco.hit
             and isinstance(current_stage_reco.best_result, OCRResult)
         ):
+            logger.info("[NextStageRecognition] 检查当前章节未命中, 返回 None")
             return
         current_stage_text = current_stage_reco.best_result.text
         if "EX" in current_stage_text or "ER" in current_stage_text:
@@ -53,8 +60,15 @@ class NextStageRecognition(CustomRecognition):
             current_stage = current_stage_text[:2]
         if current_stage[0] == "0":
             current_stage = current_stage[1]
+        logger.info(
+            f"[NextStageRecognition] 当前章节 OCR={current_stage_text!r}, "
+            f"解析章节={current_stage!r}"
+        )
         # 最后关卡
-
+        expected_pattern = f"^{current_stage}[-一1]?\\s*\\d+$"
+        logger.info(
+            f"[NextStageRecognition] 检查最后关卡, expected={expected_pattern!r}"
+        )
         last_stage_reco = context.run_recognition(
             "检查最后关卡",
             image,
@@ -62,7 +76,7 @@ class NextStageRecognition(CustomRecognition):
                 "检查最后关卡": {
                     "recognition": {
                         "param": {
-                            "expected": f"^{current_stage}[-一1]?\\s*\\d+$",
+                            "expected": expected_pattern,
                         },
                     }
                 }
@@ -73,18 +87,22 @@ class NextStageRecognition(CustomRecognition):
             and last_stage_reco.hit
             and isinstance(last_stage_reco.best_result, OCRResult)
         ):
+            logger.info("[NextStageRecognition] 检查最后关卡未命中, 返回 None")
             return
+        click_box = (
+            last_stage_reco.best_result.box[0]
+            + last_stage_reco.best_result.box[2],
+            last_stage_reco.best_result.box[1]
+            + last_stage_reco.best_result.box[3]
+            + 50,
+            0,
+            0,
+        )
+        logger.info(
+            f"[NextStageRecognition] 命中最后关卡 {last_stage_reco.best_result.text!r}, "
+            f"点击坐标={click_box}"
+        )
         return CustomRecognition.AnalyzeResult(
-            box=(
-                (
-                    last_stage_reco.best_result.box[0]
-                    + last_stage_reco.best_result.box[2],
-                    last_stage_reco.best_result.box[1]
-                    + last_stage_reco.best_result.box[3]
-                    + 50,
-                    0,
-                    0,
-                )
-            ),
+            box=(click_box,),
             detail={"status":"success","message":f"hit {last_stage_reco.best_result.text}"},
         )
