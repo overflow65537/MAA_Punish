@@ -478,7 +478,15 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    0,
+                    0,
+                    -50,
+                    0
+                ]
+            }
         },
         "next": [
             "检查BOSS区次数MAX",
