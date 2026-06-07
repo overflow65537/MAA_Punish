@@ -87,6 +87,7 @@
     },
     "global_option": [
         "切换服务器",
+        "缓存组件信息",
         "角色缓存更新频率",
         "多账号缓存",
         "自动QTE",
@@ -414,6 +415,30 @@
                 },
                 {
                     "name": "No"
+                }
+            ]
+        },
+        "缓存组件信息": {
+            "label": "缓存组件信息",
+            "description": "如果更改了按钮位置可以打开,程序会自动定位并偏移组件识别区域，无需重新设置",
+            "type": "switch",
+            "default_case": "No",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "覆盖布局菜单": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "覆盖布局菜单": {
+                            "enabled": false
+                        }
+                    }
                 }
             ]
         },

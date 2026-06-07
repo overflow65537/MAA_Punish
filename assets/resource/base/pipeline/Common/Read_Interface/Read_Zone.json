@@ -81,10 +81,8 @@
         }
     },
     "覆盖布局菜单": {
+        "enabled": false,
         "max_hit": 1,
-        "recognition": {
-            "type": "DirectHit"
-        },
         "action": {
             "type": "Custom",
             "param": {
