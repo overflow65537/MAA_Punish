@@ -199,14 +199,13 @@ jobs:
           fi
 
       - name: Rename Windows MFW.exe
-        if: matrix.platform == 'win'
         shell: bash
         run: |
           set -euo pipefail
           n=0
           while IFS= read -r -d '' exe; do
             dir="$(dirname "$exe")"
-            target="$dir/法奥斯之矛.exe"
+            target="$dir/FOS.exe"
             if [ -e "$target" ]; then
               echo "⚠️ Skip (already exists): $target"
             else

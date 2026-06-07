@@ -205,7 +205,7 @@
             "启动"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.base.General.重启游戏.Node.Recognition.Succeeded",
+            "Node.Recognition.Succeeded": "$focus.base.General.重启游戏.Node.Recognition.Succeeded"
         }
     },
     "意外点击_物品": {
