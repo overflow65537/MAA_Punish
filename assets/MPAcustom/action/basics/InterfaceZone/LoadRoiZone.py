@@ -87,6 +87,7 @@ class LoadRoiZone(CustomAction):
         "检查核心球_霁梦",
         "检查核心被动1_深谣",
         "检查核心被动2_深谣",
+        "检查逆冕特殊球",
     ]
     SWITCH_ROI_ZONE = [
         "qte1",
@@ -260,11 +261,7 @@ class LoadRoiZone(CustomAction):
         if not cls._is_numeric_list(roi, 4) or cls._is_default_roi(roi):
             return None
 
-        return {
-            "recognition": {
-                "param": {"roi": cls._apply_offset(roi, zone_offset)}
-            }
-        }
+        return {"recognition": {"param": {"roi": cls._apply_offset(roi, zone_offset)}}}
 
     @classmethod
     def _build_action_override(

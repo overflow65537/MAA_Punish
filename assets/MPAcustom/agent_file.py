@@ -25,6 +25,7 @@ from action.exclusives.Limpidity import Limpidity
 from action.exclusives.GeneralFight import GeneralFight
 from action.exclusives.Pianissimo import Pianissimo
 from action.exclusives.Spectre import Spectre
+from action.exclusives.InverseCrown import InverseCrown
 
 
 from recognition.exclusives.CheckResolution import CheckResolution
@@ -185,4 +186,8 @@ class Agent_Pyroath(Pyroath):
 
 @AgentServer.custom_action("Stigmata")
 class Agent_Stigmata(Stigmata):
+    pass
+
+@AgentServer.custom_action("InverseCrown")
+class Agent_InverseCrown(InverseCrown):
     pass

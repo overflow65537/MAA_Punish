@@ -606,7 +606,10 @@
                     138,
                     142
                 ],
-                "template": [],
+                "template": [
+                    "自定义战斗/逆冕大太刀.png",
+                    "自定义战斗/逆冕小太刀.png"
+                ],
                 "green_mask": true
             }
         }

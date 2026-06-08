@@ -194,6 +194,71 @@
             "识别囚笼次数_辅助"
         ]
     },
+    "检查逆冕特殊球": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1165,
+                    451,
+                    104,
+                    109
+                ],
+                "template": [
+                    "自定义战斗/逆冕特殊球.png"
+                ],
+                "green_mask": true
+            }
+        }
+    },
+    "检查逆冕能量即将满": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    191,
+                    62,
+                    52,
+                    3
+                ],
+                "method": 40,
+                "lower": [
+                    4,
+                    0,
+                    0
+                ],
+                "upper": [
+                    19,
+                    150,
+                    255
+                ],
+                "count": 150,
+                "connected": true
+            }
+        }
+    },
+    "检查逆冕能量空": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    30,
+                    62,
+                    213,
+                    3
+                ],
+                "method": 6,
+                "lower": [
+                    66
+                ],
+                "upper": [
+                    66
+                ],
+                "count": 600,
+                "connected": true
+            }
+        }
+    },
     "检查极锋核心条1": {
         "recognition": {
             "type": "ColorMatch",

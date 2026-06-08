@@ -28,12 +28,13 @@ class RecognitionRole(CustomAction):
                         "recognition": {
                             "param": {
                                 "template": role_info["attack_template"],
-                                "threshold": 0.8,
+                                "threshold": [0.8] * len(role_info["attack_template"]),
                             },
                         }
                     }
                 },
             )
+            # logger.info(f"result: {result}")
 
             if result and result.hit:
                 context.override_pipeline(
