@@ -19,14 +19,16 @@
                 ]
             }
         },
-        "post_wait_freezes": 1000,
+        "action": {
+            "type": "Screencap"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]战斗地块[/color]"
+        },
         "next": [
             "识别岗哨塔_寒境曙光",
             "直接进入战斗_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]战斗地块[/color]"
-        }
+        ]
     },
     "识别岗哨塔_寒境曙光": {
         "enabled": false,
@@ -191,10 +193,10 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    731,
-                    68,
-                    117,
-                    59
+                    300,
+                    1,
+                    979,
+                    640
                 ],
                 "expected": [
                     "汇合",
@@ -203,7 +205,21 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Screencap"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]汇合[/color]"
+        },
+        "next": [
+            "汇合_寒境曙光_执行器"
+        ]
+    },
+    "汇合_寒境曙光_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "汇合_寒境曙光"
+            }
         },
         "next": [
             "离开对话_寒境曙光",
@@ -212,10 +228,7 @@
         ],
         "on_error": [
             "港口异常点_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]汇合[/color]"
-        }
+        ]
     },
     "汇合_结束对话_寒境曙光": {
         "recognition": {
@@ -270,22 +283,33 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Screencap"
         },
-        "post_delay": 1000,
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]拓荒[/color]"
+        },
+        "next": [
+            "拓荒_寒境曙光_执行器"
+        ]
+    },
+    "拓荒_寒境曙光_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "拓荒_寒境曙光"
+            }
+        },
         "next": [
             "离开对话_寒境曙光",
             "[JumpBack]继续_寒境曙光",
             "[JumpBack]拓荒_寒境曙光_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光",
-            "[JumpBack]关闭奖励_寒境曙光"
+            "[JumpBack]关闭奖励_寒境曙光" //不知道为什么这里会弹一个奖励
         ],
+        "post_delay": 1000,
         "on_error": [
             "港口异常点_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]拓荒[/color]"
-        }
+        ]
     },
     "拓荒_寒境曙光_对话_寒境曙光": {
         "recognition": {
@@ -363,7 +387,21 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Screencap"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]前方有陷阱[/color]"
+        },
+        "next": [
+            "前方有陷阱_寒境曙光_执行器"
+        ]
+    },
+    "前方有陷阱_寒境曙光_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "前方有陷阱_寒境曙光"
+            }
         },
         "next": [
             "离开对话_寒境曙光",
@@ -373,10 +411,7 @@
         ],
         "on_error": [
             "港口异常点_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]前方有陷阱[/color]"
-        }
+        ]
     },
     "前方有陷阱_对话_寒境曙光": {
         "recognition": {
@@ -417,7 +452,21 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Screencap"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]剩余资金[/color]"
+        },
+        "next": [
+            "剩余资金_寒境曙光_执行器"
+        ]
+    },
+    "剩余资金_寒境曙光_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "剩余资金_寒境曙光"
+            }
         },
         "next": [
             "离开对话_寒境曙光",
@@ -428,10 +477,7 @@
         ],
         "on_error": [
             "港口异常点_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]剩余资金[/color]"
-        }
+        ]
     },
     "剩余资金_寒境曙光_对话_寒境曙光": {
         "recognition": {
@@ -459,15 +505,29 @@
             "param": {
                 "roi": [
                     300,
-                    3,
+                    1,
                     979,
-                    634
+                    640
                 ],
                 "expected": "冬日之"
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Screencap"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]冬日之影[/color]"
+        },
+        "next": [
+            "冬日之影_寒境曙光_执行器"
+        ]
+    },
+    "冬日之影_寒境曙光_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "冬日之影_寒境曙光"
+            }
         },
         "next": [
             "离开对话_寒境曙光",
@@ -476,10 +536,7 @@
         ],
         "on_error": [
             "港口异常点_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]冬日之影[/color]"
-        }
+        ]
     },
     "冬日之影_对话_寒境曙光": {
         "recognition": {
@@ -565,7 +622,21 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Screencap"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]战马瑞恩[/color]"
+        },
+        "next": [
+            "战马瑞恩_寒境曙光_执行器"
+        ]
+    },
+    "战马瑞恩_寒境曙光_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "战马瑞恩_寒境曙光"
+            }
         },
         "next": [
             "离开对话_寒境曙光",
@@ -575,10 +646,7 @@
         ],
         "on_error": [
             "港口异常点_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]战马瑞恩[/color]"
-        }
+        ]
     },
     "战马瑞恩_对话_寒境曙光": {
         "recognition": {
@@ -639,21 +707,32 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Screencap"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]鲨鱼置物箱[/color]"
+        },
+        "next": [
+            "鲨鱼置物箱_寒境曙光_执行器"
+        ]
+    },
+    "鲨鱼置物箱_寒境曙光_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "鲨鱼置物箱_寒境曙光"
+            }
         },
         "next": [
             "离开对话_寒境曙光",
             "[JumpBack]决定事件_寒境曙光",
             "[JumpBack]鲨鱼置物箱_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光",
-            "[JumpBack]关闭奖励_寒境曙光"//不知道为什么这里会弹一个奖励
+            "[JumpBack]关闭奖励_寒境曙光"
         ],
         "on_error": [
             "港口异常点_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]鲨鱼置物箱[/color]"
-        }
+        ]
     },
     "鲨鱼置物箱_对话_寒境曙光": {
         "recognition": {
@@ -689,7 +768,21 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Screencap"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]学者来访[/color]"
+        },
+        "next": [
+            "学者来访_寒境曙光_执行器"
+        ]
+    },
+    "学者来访_寒境曙光_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "学者来访_寒境曙光"
+            }
         },
         "next": [
             "离开对话_寒境曙光",
@@ -699,10 +792,7 @@
         ],
         "on_error": [
             "港口异常点_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]学者来访[/color]"
-        }
+        ]
     },
     "学者来访_对话_寒境曙光": {
         "recognition": {
@@ -741,21 +831,32 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Screencap"
         },
-        "post_delay": 1000,
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]运力紧张[/color]"
+        },
+        "next": [
+            "运力紧张_寒境曙光_执行器"
+        ]
+    },
+    "运力紧张_寒境曙光_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "运力紧张_寒境曙光"
+            }
+        },
         "next": [
             "离开对话_寒境曙光",
             "[JumpBack]决定事件_寒境曙光",
             "[JumpBack]运力紧张_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光"
         ],
+        "post_delay": 1000,
         "on_error": [
             "港口异常点_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]运力紧张[/color]"
-        }
+        ]
     },
     "运力紧张_对话_寒境曙光": {
         "recognition": {
@@ -794,7 +895,21 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Screencap"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]废弃港口[/color]"
+        },
+        "next": [
+            "废弃港口_寒境曙光_执行器"
+        ]
+    },
+    "废弃港口_寒境曙光_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "废弃港口_寒境曙光"
+            }
         },
         "next": [
             "离开对话_寒境曙光",
@@ -804,10 +919,7 @@
         ],
         "on_error": [
             "港口异常点_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]废弃港口[/color]"
-        }
+        ]
     },
     "废弃港口_对话_寒境曙光": {
         "recognition": {
@@ -846,7 +958,21 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Screencap"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]商队来访[/color]"
+        },
+        "next": [
+            "商队来访_寒境曙光_执行器"
+        ]
+    },
+    "商队来访_寒境曙光_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "商队来访_寒境曙光"
+            }
         },
         "next": [
             "离开对话_寒境曙光",
@@ -856,10 +982,7 @@
         ],
         "on_error": [
             "港口异常点_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]商队来访[/color]"
-        }
+        ]
     },
     "商队来访_对话_寒境曙光": {
         "recognition": {
@@ -902,7 +1025,21 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Screencap"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]拦路的废墟[/color]"
+        },
+        "next": [
+            "拦路的废墟_寒境曙光_执行器"
+        ]
+    },
+    "拦路的废墟_寒境曙光_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "拦路的废墟_寒境曙光"
+            }
         },
         "next": [
             "离开对话_寒境曙光",
@@ -912,10 +1049,7 @@
         ],
         "on_error": [
             "港口异常点_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]拦路的废墟[/color]"
-        }
+        ]
     },
     "拦路的废墟_对话_寒境曙光": {
         "recognition": {
@@ -954,7 +1088,21 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Screencap"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]难民团到访[/color]"
+        },
+        "next": [
+            "难民团到访_寒境曙光_执行器"
+        ]
+    },
+    "难民团到访_寒境曙光_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "难民团到访_寒境曙光"
+            }
         },
         "next": [
             "离开对话_寒境曙光",
@@ -964,10 +1112,7 @@
         ],
         "on_error": [
             "港口异常点_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]难民团到访[/color]"
-        }
+        ]
     },
     "决定事件_寒境曙光": {
         "recognition": {
@@ -1025,7 +1170,21 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Screencap"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]建筑师的建议[/color]"
+        },
+        "next": [
+            "建筑师的建议_寒境曙光_执行器"
+        ]
+    },
+    "建筑师的建议_寒境曙光_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "建筑师的建议_寒境曙光"
+            }
         },
         "next": [
             "离开对话_寒境曙光",
@@ -1035,10 +1194,7 @@
         ],
         "on_error": [
             "港口异常点_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]建筑师的建议[/color]"
-        }
+        ]
     },
     "建筑师的建议_对话_寒境曙光": {
         "recognition": {
@@ -1079,21 +1235,32 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Screencap"
         },
-        "post_delay": 1000,
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]旧国遗产[/color]"
+        },
+        "next": [
+            "旧国遗产_寒境曙光_执行器"
+        ]
+    },
+    "旧国遗产_寒境曙光_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "旧国遗产_寒境曙光"
+            }
+        },
         "next": [
             "离开对话_寒境曙光",
             "[JumpBack]决定事件_寒境曙光",
             "[JumpBack]旧国遗产_对话_寒境曙光",
             "[JumpBack]开始探索_寒境曙光"
         ],
+        "post_delay": 1000,
         "on_error": [
             "港口异常点_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]旧国遗产[/color]"
-        }
+        ]
     },
     "旧国遗产_对话_寒境曙光": {
         "recognition": {
@@ -1144,12 +1311,23 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Screencap"
         },
-        "post_delay": 1000,
         "focus": {
             "Node.Recognition.Succeeded": "[color:ForestGreen]黄色地块[/color]"
-        }
+        },
+        "next": [
+            "纯色地块黄_寒境曙光_执行器"
+        ]
+    },
+    "纯色地块黄_寒境曙光_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "纯色地块黄_寒境曙光"
+            }
+        },
+        "post_delay": 1000
     },
     "纯色地块红_寒境曙光": {
         "recognition": {
@@ -1178,12 +1356,23 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Screencap"
         },
-        "post_delay": 1000,
         "focus": {
             "Node.Recognition.Succeeded": "[color:ForestGreen]红色地块[/color]"
-        }
+        },
+        "next": [
+            "纯色地块红_寒境曙光_执行器"
+        ]
+    },
+    "纯色地块红_寒境曙光_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "纯色地块红_寒境曙光"
+            }
+        },
+        "post_delay": 1000
     },
     "纯色地块蓝_寒境曙光": {
         "recognition": {
@@ -1224,6 +1413,20 @@
                 "connected": true,
                 "count": 2000,
                 "order_by": "Score"
+            }
+        },
+        "action": {
+            "type": "Screencap"
+        },
+        "next": [
+            "寒境蓝色地块检查_执行器"
+        ]
+    },
+    "寒境蓝色地块检查_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "寒境蓝色地块检查"
             }
         }
     },

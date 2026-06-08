@@ -1,4 +1,12 @@
 {
+    "模型测试": {
+        "recognition": {
+            "type": "NeuralNetworkDetect",
+            "param": {
+                "model": "best.onnx"
+            }
+        }
+    },
     "测试": {
         "recognition": {
             "type": "TemplateMatch",
