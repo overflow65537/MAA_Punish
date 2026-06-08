@@ -69,7 +69,7 @@ class InverseCrown(CustomAction):
         else:
             cage = cage.get("attach", {}).get("cage", False)
         self.action.logger.info(f"cage: {cage}")
-        
+
         if cage:
             self.action.long_press_skill(2000)
         else:
@@ -81,11 +81,10 @@ class InverseCrown(CustomAction):
             ):
                 self.action.attack()
                 time.sleep(0.05)
-            for _ in range(10):
+            for _ in range(20):
                 self.action.use_skill()
                 if self.action.check_status("检查逆冕能量空"):
                     break
                 time.sleep(0.05)
 
             self.action.long_press_attack(4000)
-            
