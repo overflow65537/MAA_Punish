@@ -55,7 +55,7 @@
 
 ## 注意事项
 
-- 安卓端：任意模拟器皆可,如果出现部分任务无法完成,请切换1280*720(240DPI)
+- 安卓端：任意模拟器皆可,如果出现部分任务无法完成,请切换1280\*720(240DPI)
 - 桌面端：需要使用管理员权限启动
 - PlayCover端：支持,但没有测试,如果有问题请反馈
 - 打开无法运行首先尝试安装运行库 <https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170>
@@ -69,7 +69,7 @@
 
 - 对于绝大部分用户，请下载 `MPA-win-x86_64-vXXX.zip`
 - 若确定自己的电脑是 arm 架构，请下载 `MPA-win-aarch64-vXXX.zip`
-- 解压后运行 `MaaPiCli.exe`（命令行）或者`MFW.exe`（图形化界面） 即可
+- 解压后运行 `FOS.exe`即可
 
 ### macOS
 
@@ -78,41 +78,42 @@
 - 使用方法如下：
   1. 打开终端，解压下载的压缩包，您有以下三种解压方式可供选择：
 
-      **选项 1：解压到系统目录（需管理员权限）**
-      此方式将把程序解压到系统目录，需要输入管理员密码获取权限。
+     **选项 1：解压到系统目录（需管理员权限）**
+     此方式将把程序解压到系统目录，需要输入管理员密码获取权限。
 
-      ```zsh
-      sudo mkdir -p /usr/local/bin/MPA
-      sudo tar -xzf <下载的MPA压缩包路径> -C /usr/local/bin/MPA
-      ```
+     ```zsh
+     sudo mkdir -p /usr/local/bin/MPA
+     sudo tar -xzf <下载的MPA压缩包路径> -C /usr/local/bin/MPA
+     ```
 
-      **选项 2：解压到用户目录（推荐）**
-      该方式无需管理员权限，操作简便且便于管理个人文件。
+     **选项 2：解压到用户目录（推荐）**
+     该方式无需管理员权限，操作简便且便于管理个人文件。
 
-      ```zsh
-      mkdir -p ~/MPA
-      tar -xzf <下载的MPA压缩包路径> -C ~/MPA
-      ```
+     ```zsh
+     mkdir -p ~/MPA
+     tar -xzf <下载的MPA压缩包路径> -C ~/MPA
+     ```
 
-      **选项 3：直接解压到下载目录（不推荐）**
-      这种方式操作快捷，但可能会导致 `Downloads` 文件夹文件杂乱。您只需双击下载的 MPA 压缩包，即可在同级目录自动解压。
+     **选项 3：直接解压到下载目录（不推荐）**
+     这种方式操作快捷，但可能会导致 `Downloads` 文件夹文件杂乱。您只需双击下载的 MPA 压缩包，即可在同级目录自动解压。
 
   2. 进入解压目录并运行程序：
-      - 根据上一步选择的解压方式操作：
-          - 若选择选项 1 ，在终端中执行以下命令打开程序目录：
+     - 根据上一步选择的解压方式操作：
+       - 若选择选项 1 ，在终端中执行以下命令打开程序目录：
 
-          ```zsh
-          open /usr/local/bin/MPA
-          ```
+       ```zsh
+       open /usr/local/bin/MPA
+       ```
 
-          - 若选择选项 2，在终端中执行以下命令打开程序目录：
+       - 若选择选项 2，在终端中执行以下命令打开程序目录：
 
-          ```zsh
-          open ~/MPA
-          ```
+       ```zsh
+       open ~/MPA
+       ```
 
-          - 若选择选项 3，直接双击解压后的文件夹进入。
-      - 找到 `MFW` 程序并双击运行。
+       - 若选择选项 3，直接双击解压后的文件夹进入。
+
+     - 找到 `FOS` 程序并双击运行。
 
   ⚠️Gatekeeper 安全提示处理：
   在 macOS 10.15 (Catalina) 及更高版本中，Gatekeeper 可能会阻止运行未签名的应用程序。若遇到“无法打开，因为无法验证开发者”,或者“已损坏”等错误，请使用以下命令移除隔离属性：
@@ -121,7 +122,7 @@
   sudo xattr -rd com.apple.quarantine /usr/local/bin/MPA/*
   # 若选择选项 2，解压到用户目录，使用以下命令：xattr -rd com.apple.quarantine ~/MPA/*
   # 若选择选项 3，直接解压到下载目录，使用以下命令：xattr -rd com.apple.quarantine <下载目录>/MPA/*
-
+  ```
 
 ### Linux
 
@@ -131,12 +132,12 @@
 
 目前支持的战斗逻辑：
 
-| | | |
-|---|---|---|
-|[深红囚影](assets/custom/action/exclusives/CrimsonWeave.py)|[深谣](assets/custom/action/exclusives/LostLullaby.py)|[终焉](assets/custom/action/exclusives/Oblivion.py)|
-|[誓焰](assets/custom/action/exclusives/Pyroath.py)|[启明](assets/custom/action/exclusives/Shukra.py)|[深痕](assets/custom/action/exclusives/Stigmata.py)|
-|[超刻](assets/custom/action/exclusives/Hyperreal.py)|[晖暮](assets/custom/action/exclusives/Crepuscule.py)|[希声](assets/MPAcustom/action/exclusives/Pianissimo.py)|
-|[铮骨](assets/custom/action/exclusives/Aegis.py)|[骇影](assets/MPAcustom/action/exclusives/Spectre.py)| |
+|                                                             |                                                        |                                                          |
+| ----------------------------------------------------------- | ------------------------------------------------------ | -------------------------------------------------------- |
+| [深红囚影](assets/custom/action/exclusives/CrimsonWeave.py) | [深谣](assets/custom/action/exclusives/LostLullaby.py) | [终焉](assets/custom/action/exclusives/Oblivion.py)      |
+| [誓焰](assets/custom/action/exclusives/Pyroath.py)          | [启明](assets/custom/action/exclusives/Shukra.py)      | [深痕](assets/custom/action/exclusives/Stigmata.py)      |
+| [超刻](assets/custom/action/exclusives/Hyperreal.py)        | [晖暮](assets/custom/action/exclusives/Crepuscule.py)  | [希声](assets/MPAcustom/action/exclusives/Pianissimo.py) |
+| [铮骨](assets/custom/action/exclusives/Aegis.py)            | [骇影](assets/MPAcustom/action/exclusives/Spectre.py)  |                                                          |
 
 其余部分人物由于开发者精力有限,无法同时添加,如果希望自行添加，具体参考[如何编写战斗逻辑](docs/自动战斗框架开发指南.md)，开发途中有问题可以进群反馈 **965061066**
 
@@ -151,16 +152,16 @@
 
 0. 完整克隆本项目及子项目
 
-    ```bash
-    git clone --recursive https://github.com/overflow65537/MAA_Punish.git
-    ```
+   ```bash
+   git clone --recursive https://github.com/overflow65537/MAA_Punish.git
+   ```
 
 1. 下载 MaaFramework 的 [Release 包](https://github.com/MaaXYZ/MaaFramework/releases)，解压到 `deps` 文件夹中
 2. 安装
 
-    ```python
-    python ./install.py
-    ```
+   ```python
+   python ./install.py
+   ```
 
 生成的二进制及相关资源文件在 `install` 目录下
 
@@ -169,7 +170,7 @@
 ### 开源库
 
 - [MaaFramework](https://github.com/MaaXYZ/MaaFramework)
-  
+
   基于图像识别的自动化黑盒测试框架 | An automation black-box testing framework based on image recognition
 
 - [MFW-ChainFlow Assistant](https://github.com/overflow65537/MFW-PyQt6)
