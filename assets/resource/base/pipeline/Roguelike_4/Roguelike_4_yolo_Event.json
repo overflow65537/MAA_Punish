@@ -5,9 +5,7 @@
             "param": {
                 "model": "RG4_Event.onnx",
                 "expected": [
-                    0,
-                    2,
-                    4
+                    2
                 ]
             }
         },
@@ -15,8 +13,6 @@
             "type": "Click"
         },
         "next": [
-            "战斗地块_寒境曙光_yolo",
-            "物资_寒境曙光_yolo",
             "旧国遗产_寒境曙光_yolo",
             "拓荒_寒境曙光_yolo",
             "战马瑞恩_寒境曙光_yolo",
@@ -35,6 +31,48 @@
         ],
         "focus": {
             "Node.Recognition.Succeeded": "[color:ForestGreen]事件识别[/color]"
+        }
+    },
+    "物资识别_寒境曙光_yolo": {
+        "recognition": {
+            "type": "NeuralNetworkDetect",
+            "param": {
+                "model": "RG4_Event.onnx",
+                "expected": [
+                    4
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "物资事件结束_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]物资识别[/color]"
+        }
+    },
+    "战斗识别_寒境曙光_yolo": {
+        "recognition": {
+            "type": "NeuralNetworkDetect",
+            "param": {
+                "model": "RG4_Event.onnx",
+                "expected": [
+                    0
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "剩余资金700以上_寒境曙光",
+            "准备战斗_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]战斗识别[/color]"
         }
     },
     "战斗地块_寒境曙光_yolo": {
@@ -58,8 +96,7 @@
             }
         },
         "next": [
-            "识别岗哨塔_寒境曙光",
-            "直接进入战斗_寒境曙光"
+            "识别岗哨塔_寒境曙光"
         ],
         "post_wait_freezes": 1000,
         "focus": {
