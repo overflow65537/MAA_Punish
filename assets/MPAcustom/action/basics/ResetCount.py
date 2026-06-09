@@ -59,7 +59,7 @@ class ResetCount(CustomAction):
                 has_failure = True
                 continue
 
-            logger.info(f"ResetCount successfully cleared hit count: node={node_name}")
+            #logger.info(f"ResetCount successfully cleared hit count: node={node_name}")
 
         if has_failure and strict:
             logger.error("ResetCount failed to clear some nodes in strict mode")
