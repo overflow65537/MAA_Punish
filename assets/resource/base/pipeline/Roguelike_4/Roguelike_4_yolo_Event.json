@@ -3,7 +3,7 @@
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
-                "model": "RG4_Event.onnx",
+                "model": "RG4_Zone.onnx",
                 "expected": [
                     2
                 ]
@@ -37,7 +37,7 @@
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
-                "model": "RG4_Event.onnx",
+                "model": "RG4_Zone.onnx",
                 "expected": [
                     4
                 ]
@@ -58,50 +58,31 @@
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
-                "model": "RG4_Event.onnx",
+                "model": "RG4_Zone.onnx",
                 "expected": [
                     0
                 ]
             }
         },
-        "action": {
-            "type": "Click"
-        },
         "next": [
-            "剩余资金700以上_寒境曙光",
-            "准备战斗_寒境曙光"
+            "识别岗哨塔_寒境曙光",
+            "战斗地块_寒境曙光_yolo"
         ],
         "focus": {
             "Node.Recognition.Succeeded": "[color:ForestGreen]战斗识别[/color]"
         }
     },
     "战斗地块_寒境曙光_yolo": {
-        "recognition": {
-            "type": "OCR",
+        "action": {
+            "type": "Click",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
-                ],
-                "expected": [
-                    "低危区",
-                    "低危區",
-                    "中危区",
-                    "中危區",
-                    "高危区",
-                    "高危區"
-                ]
+                "target": "战斗地块_寒境曙光"
             }
         },
         "next": [
-            "识别岗哨塔_寒境曙光"
-        ],
-        "post_wait_freezes": 1000,
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]战斗地块[/color]"
-        }
+            "剩余资金700以上_寒境曙光",
+            "准备战斗_寒境曙光"
+        ]
     },
     "拓荒_寒境曙光_yolo": {
         "recognition": {

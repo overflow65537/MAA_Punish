@@ -78,6 +78,14 @@
         ]
     },
     "放置岗哨塔_寒境曙光": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "识别目标战斗区"
+                ]
+            }
+        },
         "action": {
             "type": "Custom",
             "param": {
@@ -85,19 +93,37 @@
             }
         },
         "next": [
-            "确认放塔",
-            "放置岗哨塔_寒境曙光"
+            "确认放塔"
         ]
     },
-    "识别周围空地": {
+    "识别目标战斗区": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "寒境曙光/翻开区域_1.png",
-                    "寒境曙光/翻开区域_2.png",
-                    "寒境曙光/翻开区域_3.png",
-                    "寒境曙光/翻开区域_4.png"
+                "roi": [
+                    300,
+                    1,
+                    979,
+                    640
+                ],
+                "expected": [
+                    "低危区",
+                    "低危區",
+                    "中危区",
+                    "中危區",
+                    "高危区",
+                    "高危區"
+                ]
+            }
+        }
+    },
+    "识别上方空地": {
+        "recognition": {
+            "type": "NeuralNetworkDetect",
+            "param": {
+                "model": "RG4_Zone.onnx",
+                "expected": [
+                    5
                 ]
             }
         }
