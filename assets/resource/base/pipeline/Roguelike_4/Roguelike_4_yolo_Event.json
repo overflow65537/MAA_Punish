@@ -76,7 +76,7 @@
         "action": {
             "type": "Click",
             "param": {
-                "target": "战斗地块_寒境曙光"
+                "target": "战斗识别_寒境曙光_yolo"
             }
         },
         "next": [
