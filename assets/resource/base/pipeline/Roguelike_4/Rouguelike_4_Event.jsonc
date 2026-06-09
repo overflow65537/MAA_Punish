@@ -19,6 +19,15 @@
                 ]
             }
         },
+        "post_wait_freezes": {
+            "time": 500,
+            "target": [
+                836,
+                249,
+                97,
+                84
+            ]
+        },
         "action": {
             "type": "Screencap"
         },

@@ -25,6 +25,23 @@
                 },
                 "自动qte": {
                     "enabled": false
+                },
+                "选择具体难度_寒境曙光": {
+                    "recognition": {
+                        "param": {
+                            "expected": "^严霜$"
+                        }
+                    }
+                },
+                "剩余资金700以上_寒境曙光": {
+                    "expected": "(6\\d{2}|[7-9]\\d{2}|\\d{4,})"
+                },
+                "选择具体开局_寒境曙光": {
+                    "recognition": {
+                        "param": {
+                            "expected": "^启动资金$"
+                        }
+                    }
                 }
             },
             "option": [

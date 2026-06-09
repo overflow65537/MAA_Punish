@@ -52,7 +52,11 @@
         ],
         "focus": {
             "Node.Recognition.Succeeded": "[color:ForestGreen]物资识别[/color]"
-        }
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 5000
     },
     "战斗识别_寒境曙光_yolo": {
         "recognition": {
@@ -63,6 +67,15 @@
                     0
                 ]
             }
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "target": [
+                836,
+                249,
+                97,
+                84
+            ]
         },
         "next": [
             "识别岗哨塔_寒境曙光",
