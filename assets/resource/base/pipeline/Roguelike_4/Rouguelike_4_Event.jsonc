@@ -31,7 +31,6 @@
         ]
     },
     "识别岗哨塔_寒境曙光": {
-        "enabled": false,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -86,14 +85,8 @@
                 ]
             }
         },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "SetTower"
-            }
-        },
         "next": [
-            "确认放塔"
+            "点击上方空地"
         ]
     },
     "识别目标战斗区": {
@@ -117,16 +110,73 @@
             }
         }
     },
-    "识别上方空地": {
-        "recognition": {
-            "type": "NeuralNetworkDetect",
+    "点击上方空地": {
+        "action": {
+            "type": "Click",
             "param": {
-                "model": "RG4_Zone.onnx",
-                "expected": [
-                    5
+                "target": "放置岗哨塔_寒境曙光",
+                "target_offset": [
+                    0,
+                    -136,
+                    0,
+                    0
                 ]
             }
-        }
+        },
+        "next": [
+            "点击下方空地"
+        ]
+    },
+    "点击下方空地": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "放置岗哨塔_寒境曙光",
+                "target_offset": [
+                    0,
+                    136,
+                    0,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "点击左方空地"
+        ]
+    },
+    "点击左方空地": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "放置岗哨塔_寒境曙光",
+                "target_offset": [
+                    180,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "点击右方空地"
+        ]
+    },
+    "点击右方空地": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "放置岗哨塔_寒境曙光",
+                "target_offset": [
+                    -180,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "确认放塔"
+        ]
     },
     "确认放塔": {
         "recognition": {
@@ -143,7 +193,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "战斗完成_寒境曙光"
+        ]
     },
     "直接进入战斗_寒境曙光": {
         "action": {
