@@ -6,6 +6,9 @@
                 "model": "RG4_Zone.onnx",
                 "expected": [
                     2
+                ],
+                "threshold": [
+                    0.7
                 ]
             }
         },
@@ -40,6 +43,9 @@
                 "model": "RG4_Zone.onnx",
                 "expected": [
                     4
+                ],
+                "threshold": [
+                    0.8
                 ]
             }
         },
@@ -65,6 +71,9 @@
                 "model": "RG4_Zone.onnx",
                 "expected": [
                     0
+                ],
+                "threshold": [
+                    0.8
                 ]
             }
         },

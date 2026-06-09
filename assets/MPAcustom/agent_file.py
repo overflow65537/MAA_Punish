@@ -10,6 +10,7 @@ from action.basics.RedmeeCode import RedeemCode
 from action.basics.RedmeeCode import CheckRedeemCode
 from action.basics.InterfaceZone.ReadRoiZone import ReadROIZone
 from action.basics.InterfaceZone.LoadRoiZone import LoadRoiZone
+from action.basics.ResetCount import ResetCount
 
 
 from action.exclusives.CrimsonWeave import CrimsonWeave
@@ -190,4 +191,8 @@ class Agent_Stigmata(Stigmata):
 
 @AgentServer.custom_action("InverseCrown")
 class Agent_InverseCrown(InverseCrown):
+    pass
+
+@AgentServer.custom_action("ResetCount")
+class Agent_ResetCount(ResetCount):
     pass

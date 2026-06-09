@@ -7,9 +7,6 @@
                 "custom_action_param": {
                     "识别人物": {
                         "enabled": true
-                    },
-                    "编入队伍": {
-                        "max_hit": 30
                     }
                 }
             }
@@ -74,6 +71,17 @@
                     "平均战力",
                     "平均戰力"
                 ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "ResetCount",
+                "custom_action_param": {
+                    "nodes": [
+                        "编入队伍"
+                    ]
+                }
             }
         },
         "next": [

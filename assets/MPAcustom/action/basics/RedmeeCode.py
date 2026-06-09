@@ -4,7 +4,7 @@ MAA_Punish pipeline 兑换码程序
 作者:overflow65537
 """
 
-import re
+
 from maa.context import Context
 from maa.custom_action import CustomAction
 import json
