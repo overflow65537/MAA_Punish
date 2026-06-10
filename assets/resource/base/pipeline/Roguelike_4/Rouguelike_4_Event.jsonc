@@ -19,9 +19,9 @@
                 ]
             }
         },
-        "action": {
-            "type": "Screencap"
-        },
+        // "action": {
+        //     "type": "Screencap"
+        // },
         "focus": {
             "Node.Recognition.Succeeded": "[color:ForestGreen]战斗地块[/color]"
         },
@@ -247,7 +247,8 @@
                     "中危區",
                     "高危区",
                     "高危區"
-                ]
+                ],
+                "index": -1
             }
         },
         "action": {
