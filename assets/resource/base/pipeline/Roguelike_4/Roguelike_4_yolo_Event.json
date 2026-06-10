@@ -78,51 +78,11 @@
             }
         },
         "next": [
-            "转移视角位置_yolo"
+            "转移视角位置"
         ],
         "focus": {
             "Node.Recognition.Succeeded": "[color:ForestGreen]战斗识别[/color]"
         }
-    },
-    "转移视角位置_yolo": {
-        "action": {
-            "type": "Swipe",
-            "param": {
-                "begin": "战斗识别_寒境曙光_yolo",
-                "end": [
-                    [
-                        636,
-                        327
-                    ]
-                ]
-            }
-        },
-        "post_wait_freezes": {
-            "time": 500,
-            "target": [
-                836,
-                249,
-                97,
-                84
-            ],
-            "timeout": 2000
-        },
-        "next": [
-            "识别岗哨塔_寒境曙光",
-            "战斗地块_寒境曙光_yolo"
-        ]
-    },
-    "战斗地块_寒境曙光_yolo": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": "战斗识别_寒境曙光_yolo"
-            }
-        },
-        "next": [
-            "剩余资金700以上_寒境曙光",
-            "准备战斗_寒境曙光"
-        ]
     },
     "拓荒_寒境曙光_yolo": {
         "recognition": {
