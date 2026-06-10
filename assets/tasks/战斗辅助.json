@@ -158,6 +158,25 @@
             "description": "<p>选择想要使用的角色进行战斗；若未找到将自动选择。</p>",
             "cases": [
                 {
+                    "name": "露西亚·逆冕",
+                    "pipeline_override": {
+                        "选择角色程序": {
+                            "attach": {
+                                "pick": [
+                                    "露西亚·逆冕"
+                                ]
+                            }
+                        },
+                        "选择角色程序_onlyNode": {
+                            "attach": {
+                                "pick": [
+                                    "露西亚·逆冕"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
                     "name": "露西亚·深红囚影",
                     "pipeline_override": {
                         "选择角色程序": {
