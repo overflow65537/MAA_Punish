@@ -457,17 +457,6 @@
                 "expected": "藏品"
             }
         },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "ResetCount",
-                "custom_action_param": {
-                    "nodes": [
-                        "编入队伍"
-                    ]
-                }
-            }
-        },
         "next": [
             "链路崩溃",
             "[JumpBack]进入物归新主_矩阵循生",

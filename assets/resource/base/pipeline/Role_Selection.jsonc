@@ -227,7 +227,6 @@
         }
     },
     "编入队伍": {
-        "max_hit": 30,
         "recognition": {
             "type": "OCR",
             "param": {

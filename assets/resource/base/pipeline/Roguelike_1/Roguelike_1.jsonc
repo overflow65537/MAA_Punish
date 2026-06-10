@@ -73,17 +73,7 @@
                 ]
             }
         },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "ResetCount",
-                "custom_action_param": {
-                    "nodes": [
-                        "编入队伍"
-                    ]
-                }
-            }
-        },
+
         "next": [
             "失败_宣叙妄响",
             "boss_宣叙妄响",

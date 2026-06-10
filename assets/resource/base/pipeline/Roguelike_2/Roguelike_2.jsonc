@@ -152,17 +152,7 @@
                 ]
             }
         },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "ResetCount",
-                "custom_action_param": {
-                    "nodes": [
-                        "编入队伍"
-                    ]
-                }
-            }
-        },
+
         "next": [
             "肉鸽失败_厄愿潮声",
             "[JumpBack]点击继续",
