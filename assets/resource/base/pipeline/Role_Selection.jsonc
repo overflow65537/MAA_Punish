@@ -825,17 +825,44 @@
     },
     "作战准备": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    979,
-                    574,
-                    301,
-                    146
-                ],
-                "expected": [
-                    "作战准备",
-                    "作戰準備"
+                "all_of": [
+                    {
+                        "sub_name": "_白色文字",
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    979,
+                                    574,
+                                    301,
+                                    146
+                                ],
+                                "expected": [
+                                    "作战准备",
+                                    "作戰準備"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": "_白色文字",
+                                "method": 6,
+                                "lower": [
+                                    0
+                                ],
+                                "upper": [
+                                    48
+                                ],
+                                "count": 40,
+                                "connected": true
+                            }
+                        }
+                    }
                 ]
             }
         },
