@@ -139,6 +139,17 @@ class RoleSelection(CustomAction):
         """排他模式仅使用正式角色名，去掉可能误配的试用后缀。"""
         return name.replace("[试用]", "").strip()
 
+    @staticmethod
+    def _template_match_hits(result) -> list[TemplateMatchResult]:
+        """同页多实例时优先用 all_results；filtered_results 受 index 影响可能只有一条。"""
+        for candidates in (result.all_results, result.filtered_results):
+            hits = [r for r in candidates if isinstance(r, TemplateMatchResult)]
+            if hits:
+                return hits
+        if isinstance(result.best_result, TemplateMatchResult):
+            return [result.best_result]
+        return []
+
     def _team_from_exclusive_pick(
         self, pick: list, need_multi: bool
     ) -> dict[str, str | None]:
@@ -580,10 +591,11 @@ class RoleSelection(CustomAction):
                 #self.logger.debug(f"模板未命中: {role_name}")
                 continue
 
-            if not isinstance(result.best_result, TemplateMatchResult):
+            match_hits = self._template_match_hits(result)
+            if not match_hits:
                 self.logger.warning(
-                    f"角色 {role_name} 识别命中但结果类型异常: "
-                    f"{type(result.best_result).__name__}"
+                    f"角色 {role_name} 识别命中但无有效模板匹配结果: "
+                    f"best={type(result.best_result).__name__}"
                 )
                 continue
 
@@ -598,180 +610,171 @@ class RoleSelection(CustomAction):
                 )
                 return role
 
-            match_count = len(result.filtered_results)
+            match_count = len(match_hits)
             if match_count > 1:
                 self.logger.info(
                     f"角色 {role_name} 在本页匹配到 {match_count} 个位置"
                 )
 
-            for role_reco in result.filtered_results:
-                    # 检查识别结果并提取box信息
-                    if not isinstance(role_reco, TemplateMatchResult):
-                        self.logger.warning(
-                            f"角色 {role_name} filtered_results 含非模板结果, 跳过"
-                        )
-                        self.send_msg(context, f"未检测到对应人物: {role_name}")
-                        return {}
+            for role_reco in match_hits:
+                #self.logger.debug(f"角色 {role_name} box={role_reco.box}")
 
-                    #self.logger.debug(f"角色 {role_name} box={role_reco.box}")
+                trial_reco = context.run_recognition(
+                    entry="识别试用角色",
+                    image=image,
+                    pipeline_override={
+                        "识别试用角色": {
+                            "recognition": {
+                                "param": {"roi": role_reco.box},
+                            },
+                        }
+                    },
+                )
+                trial = bool(trial_reco and trial_reco.hit)
 
-                    trial_reco = context.run_recognition(
-                        entry="识别试用角色",
-                        image=image,
-                        pipeline_override={
-                            "识别试用角色": {
-                                "recognition": {
-                                    "param": {"roi": role_reco.box},
-                                },
-                            }
-                        },
+                display_name = (
+                    role_name + "[试用]"
+                    if trial and "[试用]" not in role_name
+                    else role_name
+                )
+                metadata = role_action.get("metadata", {})
+                role[display_name] = (
+                    metadata.copy() if isinstance(metadata, dict) else {}
+                )
+
+                power_reco = context.run_recognition(
+                    entry="识别战斗参数",
+                    image=image,
+                    pipeline_override={
+                        "识别战斗参数": {
+                            "recognition": {
+                                "param": {"roi": role_reco.box},
+                            },
+                        }
+                    },
+                )
+
+                power_text = None
+                if (
+                    power_reco
+                    and power_reco.hit
+                    and isinstance(power_reco.best_result, OCRResult)
+                ):
+                    power_text = "".join(
+                        c for c in power_reco.best_result.text if c.isdigit()
                     )
-                    trial = bool(trial_reco and trial_reco.hit)
-
-                    display_name = (
-                        role_name + "[试用]"
-                        if trial and "[试用]" not in role_name
-                        else role_name
-                    )
-                    metadata = role_action.get("metadata", {})
-                    role[display_name] = (
-                        metadata.copy() if isinstance(metadata, dict) else {}
-                    )
-
-                    power_reco = context.run_recognition(
-                        entry="识别战斗参数",
-                        image=image,
-                        pipeline_override={
-                            "识别战斗参数": {
-                                "recognition": {
-                                    "param": {"roi": role_reco.box},
-                                },
-                            }
-                        },
-                    )
-                    
-
-                    power_text = None
-                    if (
-                        power_reco
-                        and power_reco.hit
-                        and isinstance(power_reco.best_result, OCRResult)
-                    ):
-                        power_text = "".join(
-                            c for c in power_reco.best_result.text if c.isdigit()
-                        )
-                        if power_text:
-                            role[display_name]["power"] = int(power_text)
-                        else:
-                            power_reco_2 = context.run_recognition(
-                              entry="识别战力",
-                              image=image,
-                            )
-                            if power_reco_2 and power_reco_2.hit:
-                                power_text = "".join(
-                                    c for c in power_reco_2.best_result.text if c.isdigit()
-                                )
-                                if power_text:
-                                    role[display_name]["power"] = int(power_text)
-                                else:
-                                    role[display_name]["power"] = 0
-                            else:
-                                self.logger.warning(
-                                    f"角色 {display_name} 战力识别失败 "
-                                    f"(hit={power_reco_2.hit if power_reco_2 else None})"
-                                )
-                                role[display_name]["power"] = 0
+                    if power_text:
+                        role[display_name]["power"] = int(power_text)
                     else:
-                        self.logger.warning(
-                            f"角色 {display_name} 战力识别失败 "
-                            f"(hit={power_reco.hit if power_reco else None})"
+                        power_reco_2 = context.run_recognition(
+                            entry="识别战力",
+                            image=image,
                         )
-
-                    if cage:
-                        if (
-                            cage_3_result := context.run_recognition(
-                                entry="识别囚笼次数3",
-                                image=image,
-                                pipeline_override={
-                                    "识别囚笼次数3": {
-                                        "recognition": {
-                                            "param": {
-                                                "roi": role_reco.box,
-                                            },
-                                        }
-                                    }
-                                },
+                        if power_reco_2 and power_reco_2.hit:
+                            power_text = "".join(
+                                c for c in power_reco_2.best_result.text if c.isdigit()
                             )
-                        ) is not None and cage_3_result.hit:
-                            role[display_name]["cage"] = 3
-                        elif (
-                            cage_2_result := context.run_recognition(
-                                entry="识别囚笼次数2",
-                                image=image,
-                                pipeline_override={
-                                    "识别囚笼次数2": {
-                                        "recognition": {
-                                            "param": {
-                                                "roi": role_reco.box,
-                                            },
-                                        }
-                                    }
-                                },
-                            )
-                        ) is not None and cage_2_result.hit:
-                            role[display_name]["cage"] = 2
-                        elif (
-                            cage_1_result := context.run_recognition(
-                                entry="识别囚笼次数1",
-                                image=image,
-                                pipeline_override={
-                                    "识别囚笼次数1": {
-                                        "recognition": {
-                                            "param": {
-                                                "roi": role_reco.box,
-                                            },
-                                        }
-                                    }
-                                },
-                            )
-                        ) is not None and cage_1_result.hit:
-                            role[display_name]["cage"] = 1
+                            if power_text:
+                                role[display_name]["power"] = int(power_text)
+                            else:
+                                role[display_name]["power"] = 0
                         else:
-                            role[display_name]["cage"] = 0
+                            self.logger.warning(
+                                f"角色 {display_name} 战力识别失败 "
+                                f"(hit={power_reco_2.hit if power_reco_2 else None})"
+                            )
+                            role[display_name]["power"] = 0
+                else:
+                    self.logger.warning(
+                        f"角色 {display_name} 战力识别失败 "
+                        f"(hit={power_reco.hit if power_reco else None})"
+                    )
 
-                    if roguelike_mode == 1:
-                        mastery_result = context.run_recognition(
-                            entry="识别精通等级",
+                if cage:
+                    if (
+                        cage_3_result := context.run_recognition(
+                            entry="识别囚笼次数3",
                             image=image,
                             pipeline_override={
-                                "识别精通等级": {
+                                "识别囚笼次数3": {
                                     "recognition": {
-                                        "param": {"roi": role_reco.box},
+                                        "param": {
+                                            "roi": role_reco.box,
+                                        },
                                     }
                                 }
                             },
                         )
-                        role[display_name]["master_level"] = bool(
-                            mastery_result and mastery_result.hit
+                    ) is not None and cage_3_result.hit:
+                        role[display_name]["cage"] = 3
+                    elif (
+                        cage_2_result := context.run_recognition(
+                            entry="识别囚笼次数2",
+                            image=image,
+                            pipeline_override={
+                                "识别囚笼次数2": {
+                                    "recognition": {
+                                        "param": {
+                                            "roi": role_reco.box,
+                                        },
+                                    }
+                                }
+                            },
                         )
+                    ) is not None and cage_2_result.hit:
+                        role[display_name]["cage"] = 2
+                    elif (
+                        cage_1_result := context.run_recognition(
+                            entry="识别囚笼次数1",
+                            image=image,
+                            pipeline_override={
+                                "识别囚笼次数1": {
+                                    "recognition": {
+                                        "param": {
+                                            "roi": role_reco.box,
+                                        },
+                                    }
+                                }
+                            },
+                        )
+                    ) is not None and cage_1_result.hit:
+                        role[display_name]["cage"] = 1
+                    else:
+                        role[display_name]["cage"] = 0
 
-                    detail_parts = [
-                        f"box={role_reco.box}",
-                        f"trial={trial}",
-                        f"power={role[display_name].get('power', 'N/A')}",
-                        #f"战斗参数OCR={power_text if power_text is not None else 'None'}",
-                    ]
-                    if cage:
-                        detail_parts.append(
-                            f"cage={role[display_name].get('cage', 'N/A')}"
-                        )
-                    if roguelike_mode == 1:
-                        detail_parts.append(
-                            f"master_level={role[display_name].get('master_level', 'N/A')}"
-                        )
-                    self.logger.info(
-                        f"识别到角色: {display_name}, {', '.join(detail_parts)}"
+                if roguelike_mode == 1:
+                    mastery_result = context.run_recognition(
+                        entry="识别精通等级",
+                        image=image,
+                        pipeline_override={
+                            "识别精通等级": {
+                                "recognition": {
+                                    "param": {"roi": role_reco.box},
+                                }
+                            }
+                        },
                     )
+                    role[display_name]["master_level"] = bool(
+                        mastery_result and mastery_result.hit
+                    )
+
+                detail_parts = [
+                    f"box={role_reco.box}",
+                    f"trial={trial}",
+                    f"power={role[display_name].get('power', 'N/A')}",
+                    #f"战斗参数OCR={power_text if power_text is not None else 'None'}",
+                ]
+                if cage:
+                    detail_parts.append(
+                        f"cage={role[display_name].get('cage', 'N/A')}"
+                    )
+                if roguelike_mode == 1:
+                    detail_parts.append(
+                        f"master_level={role[display_name].get('master_level', 'N/A')}"
+                    )
+                self.logger.info(
+                    f"识别到角色: {display_name}, {', '.join(detail_parts)}"
+                )
 
         if role:
             summary = ", ".join(
