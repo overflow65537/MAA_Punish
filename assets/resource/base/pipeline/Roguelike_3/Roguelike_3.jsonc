@@ -1688,9 +1688,52 @@
         },
         "post_delay": 1000,
         "next": [
-            "下一步",
+            "下一步_迭变藏品",
             "[JumpBack]点击迭变投影选项"
         ]
+    },
+    "下一步_迭变藏品": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    {
+                        "sub_name": "文字颜色",
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    926,
+                                    567,
+                                    348,
+                                    153
+                                ],
+                                "method": 6,
+                                "lower": [
+                                    200
+                                ],
+                                "upper": [
+                                    255
+                                ],
+                                "count": 30
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": "文字颜色",
+                                "expected": [
+                                    "下一步"
+                                ],
+                                "only_rec": true
+                            }
+                        }
+                    }
+                ]
+            }
+        }
     },
     "点击迭变投影选项": {
         "recognition": {
