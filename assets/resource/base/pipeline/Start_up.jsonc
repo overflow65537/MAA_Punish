@@ -302,7 +302,7 @@
         "action": {
             "type": "StartApp",
             "param": {
-                "package": "com.kurogame.haru.hero"
+                "package": "com.kurogame.haru.hero/com.haru.herousdk.SplashActivity"
             }
         },
         "post_delay": 5000,

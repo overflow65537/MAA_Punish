@@ -530,7 +530,7 @@
                             "action": {
                                 "type": "StartApp",
                                 "param": {
-                                    "package": "com.kurogame.haru.cloud"
+                                    "package": "com.kurogame.haru.cloud/com.kuro.cloudgame.module.splash.KuroSplashActivity"
                                 }
                             }
                         },
@@ -562,7 +562,7 @@
                             "action": {
                                 "type": "StartApp",
                                 "param": {
-                                    "package": "com.kurogame.haru.bilibili"
+                                    "package": "com.kurogame.haru.bilibili/com.haru.herousdk.SplashActivity"
                                 }
                             }
                         },
@@ -594,7 +594,7 @@
                             "action": {
                                 "type": "StartApp",
                                 "param": {
-                                    "package": "com.tencent.tmgp.kurogame.haru"
+                                    "package": "com.tencent.tmgp.kurogame.haru/com.haru.herousdk.SplashActivity"
                                 }
                             }
                         },
@@ -626,7 +626,7 @@
                             "action": {
                                 "type": "StartApp",
                                 "param": {
-                                    "package": "com.kurogame.haru.vivo"
+                                    "package": "com.kurogame.haru.vivo/com.haru.herousdk.SplashActivity"
                                 }
                             }
                         },
@@ -658,7 +658,7 @@
                             "action": {
                                 "type": "StartApp",
                                 "param": {
-                                    "package": "com.kurogame.haru.nearme.gamecenter"
+                                    "package": "com.kurogame.haru.nearme.gamecenter/com.haru.herousdk.SplashActivity"
                                 }
                             }
                         },
@@ -690,7 +690,7 @@
                             "action": {
                                 "type": "StartApp",
                                 "param": {
-                                    "package": "com.kurogame.haru.mi"
+                                    "package": "com.kurogame.haru.mi/com.haru.herousdk.SplashActivity"
                                 }
                             }
                         },
@@ -722,7 +722,7 @@
                             "action": {
                                 "type": "StartApp",
                                 "param": {
-                                    "package": "com.kurogame.haru.m4399"
+                                    "package": "com.kurogame.haru.m4399/com.haru.herousdk.SplashActivity"
                                 }
                             }
                         },
@@ -754,7 +754,7 @@
                             "action": {
                                 "type": "StartApp",
                                 "param": {
-                                    "package": "com.kurogame.haru.huawei"
+                                    "package": "com.kurogame.haru.huawei/com.haru.herousdk.SplashActivity"
                                 }
                             }
                         },
@@ -786,7 +786,7 @@
                             "action": {
                                 "type": "StartApp",
                                 "param": {
-                                    "package": "com.kurogame.haru.hero.bytedance.gamecenter"
+                                    "package": "com.kurogame.haru.hero.bytedance.gamecenter/com.haru.herousdk.SplashActivity"
                                 }
                             }
                         },
@@ -818,7 +818,7 @@
                             "action": {
                                 "type": "StartApp",
                                 "param": {
-                                    "package": "com.kurogame.haru.aligames"
+                                    "package": "com.kurogame.haru.aligames/com.haru.herousdk.SplashActivity"
                                 }
                             }
                         },
@@ -850,7 +850,7 @@
                             "action": {
                                 "type": "StartApp",
                                 "param": {
-                                    "package": "com.kurogame.haru.yofun.mumu"
+                                    "package": "com.kurogame.haru.yofun.mumu/com.haru.herousdk.SplashActivity"
                                 }
                             }
                         },
