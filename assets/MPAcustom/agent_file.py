@@ -28,6 +28,8 @@ from action.exclusives.Pianissimo import Pianissimo
 from action.exclusives.Spectre import Spectre
 from action.exclusives.InverseCrown import InverseCrown
 
+from action.combat.runner import CombatRunner
+
 
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
@@ -195,4 +197,9 @@ class Agent_InverseCrown(InverseCrown):
 
 @AgentServer.custom_action("ResetCount")
 class Agent_ResetCount(ResetCount):
+    pass
+
+
+@AgentServer.custom_action("CombatRunner")
+class Agent_CombatRunner(CombatRunner):
     pass

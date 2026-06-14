@@ -40,9 +40,12 @@ from MPAcustom.logger_component import LoggerComponent
 class CombatActions:
     """通用战斗功能"""
 
-    def __init__(self, context: Context, role_name: str = ""):
+    def __init__(
+        self, context: Context, role_name: str = "", *, skip_combat_gate: bool = False
+    ):
         self.context = context
         self.role_name = role_name
+        self.skip_combat_gate = skip_combat_gate
 
         self.template = {}
         if role_name in ROLE_ACTIONS:
@@ -81,12 +84,12 @@ class CombatActions:
         执行一次攻击操作。
         """
         image = self.context.tasker.controller.post_screencap().wait().get()
-        result = self.context.run_recognition("战斗中", image)
-        if result and result.hit:
-            self._auto_dodge(image)
-            return self.context.run_action("攻击")
-        else:
-            return False
+        if not self.skip_combat_gate:
+            result = self.context.run_recognition("战斗中", image)
+            if not (result and result.hit):
+                return False
+        self._auto_dodge(image)
+        return self.context.run_action("攻击")
 
     def continuous_attack(self, count: int = 10, interval: int = 100) -> bool:
         """

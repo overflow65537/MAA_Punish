@@ -33,10 +33,12 @@
         ]
     },
     "AAA_战斗测试": {
-        "next": [
-            "循环执行器",
-            "[JumpBack]战斗辅助"
-        ]
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "CombatRunner"
+            }
+        }
     },
     "点击空白处关闭_速通": {
         "recognition": {
