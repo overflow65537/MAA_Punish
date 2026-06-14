@@ -30,7 +30,7 @@ import logging
 from dataclasses import dataclass
 from typing import Any
 
-from MPAcustom.action.tool.LoadSetting import ROLE_ACTIONS
+from MPAcustom.action.combat.config.LoadSetting import ROLE_ACTIONS
 
 logger = logging.getLogger(__name__)
 

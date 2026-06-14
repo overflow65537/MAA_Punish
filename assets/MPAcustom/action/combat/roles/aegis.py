@@ -18,49 +18,39 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""
-MAA_Punish
-MAA_Punish 铮骨战斗程序
-作者:overflow65537
-"""
+from __future__ import annotations
 
 import time
-from MPAcustom.action.basics import CombatActions
-from maa.context import Context
-from maa.custom_action import CustomAction
 
+from MPAcustom.action.combat.core.role import BaseRole
 
-class Aegis(CustomAction):
-    def run(
-        self, context: Context, argv: CustomAction.RunArg
-    ) -> CustomAction.RunResult:
-        action = CombatActions(context, role_name="维罗妮卡·铮骨")
-
-        action.lens_lock()
-        action.attack()
+class AegisRole(BaseRole):
+    def do_perform(self) -> None:
+        self.action.lens_lock()
+        self.action.attack()
 
         for _ in range(10):
-            action.ball_elimination_target(1)
+            self.action.ball_elimination_target(1)
             time.sleep(0.1)
-            action.attack()
-            if action.check_Skill_energy_bar():
+            self.action.attack()
+            if self.action.check_Skill_energy_bar():
                 for _ in range(10):
-                    action.use_skill()
+                    self.action.use_skill()
                     time.sleep(0.1)
-                action.auto_qte("a")
-                action.auxiliary_machine()
+                self.action.auto_qte("a")
+                self.action.auxiliary_machine()
                 continue
 
-            if ball_count := action.count_signal_balls() >= 3:
+            if ball_count := self.action.count_signal_balls() >= 3:
                 for _ in range(3):
-                    action.ball_elimination_target()
+                    self.action.ball_elimination_target()
                     time.sleep(0.1)
-                action.auto_qte("a")
-                if action.count_signal_balls() == ball_count:
-                    action.dodge()
+                self.action.auto_qte("a")
+                if self.action.count_signal_balls() == ball_count:
+                    self.action.dodge()
                     time.sleep(0.1)
-                    action.ball_elimination_target()
-                action.auto_qte("a")
-                action.auxiliary_machine()
-        action.attack()
-        return CustomAction.RunResult(success=True)
+                    self.action.ball_elimination_target()
+                self.action.auto_qte("a")
+                self.action.auxiliary_machine()
+        self.action.attack()
+        return

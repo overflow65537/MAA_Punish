@@ -1,16 +1,27 @@
-from MPAcustom.action.combat.provider import BaseCombatCheck, CombatCheck
-from MPAcustom.action.combat.role import BaseRole, SwitchPriority, resolve_role_name
-from MPAcustom.action.combat.role_factory import ROLE_CLASS_MAP, create_role
-from MPAcustom.action.combat.runner import CombatRunner
-from MPAcustom.action.combat.session import CombatTask
-from MPAcustom.action.combat.switch import click_qte_by_color
-from MPAcustom.action.combat.team import TEAM_COLORS, TeamSnapshot
+from MPAcustom.action.combat.actions import CombatActions
+from MPAcustom.action.combat.config import ROLE_ACTIONS
+from MPAcustom.action.combat.core import (
+    BaseCombatCheck,
+    BaseRole,
+    CombatCheck,
+    CombatTask,
+    ROLE_CLASS_MAP,
+    SwitchPriority,
+    TEAM_COLORS,
+    TeamSnapshot,
+    click_qte_by_color,
+    create_role,
+    resolve_role_name,
+)
+from MPAcustom.action.combat.entry import CombatRunner
 
 __all__ = [
     "BaseCombatCheck",
     "CombatCheck",
     "CombatTask",
     "CombatRunner",
+    "CombatActions",
+    "ROLE_ACTIONS",
     "TeamSnapshot",
     "TEAM_COLORS",
     "click_qte_by_color",

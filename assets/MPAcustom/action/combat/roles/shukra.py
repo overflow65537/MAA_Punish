@@ -18,24 +18,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""
-MAA_Punish
-MAA_Punish 启明战斗程序
-作者:overflow65537
-"""
-
+from __future__ import annotations
 
 import time
 
+from MPAcustom.action.combat.core.role import BaseRole
 
-from MPAcustom.action.basics import CombatActions
-
-
-from maa.context import Context
-from maa.custom_action import CustomAction
-
-
-class Shukra(CustomAction):
+class ShukraRole(BaseRole):
     """
     启明战斗逻辑
     检查是否存在大招
@@ -53,49 +42,43 @@ class Shukra(CustomAction):
         攻击攒球
     """
 
-    def run(
-        self, context: Context, argv: CustomAction.RunArg
-    ) -> CustomAction.RunResult:
+    def do_perform(self) -> None:
+        self.action.lens_lock()
+        self.action.attack()
 
-        action = CombatActions(context, role_name="启明")
-
-        action.lens_lock()
-        action.attack()
-
-        if action.check_Skill_energy_bar():
-            action.use_skill()  # 万世生死,淬于寒冰
+        if self.action.check_Skill_energy_bar():
+            self.action.use_skill()  # 万世生死,淬于寒冰
             start_time = time.time()
             while time.time() - start_time < 3:  # 生死喧嚣,归于寂静
                 time.sleep(0.1)
-                action.ball_elimination_target(1)
-            action.use_skill()
+                self.action.ball_elimination_target(1)
+            self.action.use_skill()
             time.sleep(0.1)
-            action.auxiliary_machine()
-            action.switch()
+            self.action.auxiliary_machine()
+            self.action.switch()
             print("切换完成")
-            return CustomAction.RunResult(success=True)
-
-        elif action.count_signal_balls() >= 9:  # 信号球数量大于9
+            return
+        elif self.action.count_signal_balls() >= 9:  # 信号球数量大于9
             start_time = time.time()
             while time.time() - start_time < 7:
                 time.sleep(0.3)
-                target = action.Arrange_Signal_Balls("any")
-                action.ball_elimination_target(target)
-                action.logger.info(f"初次消球")
+                target = self.action.Arrange_Signal_Balls("any")
+                self.action.ball_elimination_target(target)
+                self.action.logger.info(f"初次消球")
                 if target > 0:
                     time.sleep(0.1)
-                    action.logger.info(f"三连目标,开始二次消球")
-                    action.ball_elimination_target(1)  # 单独消球
+                    self.action.logger.info(f"三连目标,开始二次消球")
+                    self.action.ball_elimination_target(1)  # 单独消球
                 elif target == 0:
-                    action.logger.info(f"信号球空,结束")
+                    self.action.logger.info(f"信号球空,结束")
                     break
-            action.logger.info(f"长按攻击")
-            action.long_press_attack()
+            self.action.logger.info(f"长按攻击")
+            self.action.long_press_attack()
         else:
-            action.logger.info(f"普攻")
+            self.action.logger.info(f"普攻")
             start_time = time.time()
             while time.time() - start_time < 2:
-                action.attack()  # 攻击
+                self.action.attack()  # 攻击
                 time.sleep(0.1)
-        action.attack()
-        return CustomAction.RunResult(success=True)
+        self.action.attack()
+        return

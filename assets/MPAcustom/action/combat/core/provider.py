@@ -29,12 +29,13 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING, Any
 
-from MPAcustom.action.combat.team import TeamSnapshot
+from MPAcustom.action.combat.core.role_detect import detect_current_role
+from MPAcustom.action.combat.core.team import TeamSnapshot
 
 if TYPE_CHECKING:
     from maa.context import Context
 
-    from MPAcustom.action.combat.session import CombatTask
+    from MPAcustom.action.combat.core.session import CombatTask
 
 
 class BaseCombatCheck(ABC):
@@ -104,9 +105,18 @@ class CombatCheck(BaseCombatCheck):
 
     def detect_team(self, context: Context, combat: CombatTask) -> TeamSnapshot | None:
         """
-        进战后识别 R/B/Y 色位与 cls_name。
+        进战识别当前上场角色（attack_template / 检查角色）。
 
-        在此实现并返回 TeamSnapshot.from_dict({...})，例如：
-        {"R": "CrimsonWeave", "B": "Shukra", "Y": "Hyperreal", "current": "R"}
+        切人未启用时 R/B/Y 仅占位，current 固定为 R；完整色位识别后续再补。
         """
-        return None
+        image = self._get_frame(context, combat)
+        display_name, cls_name = detect_current_role(context, image)
+        combat.current_role_name = display_name
+        return TeamSnapshot.from_dict(
+            {
+                "R": cls_name,
+                "B": "GeneralFight",
+                "Y": "GeneralFight",
+                "current": "R",
+            }
+        )

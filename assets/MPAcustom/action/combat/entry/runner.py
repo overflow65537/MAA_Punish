@@ -20,52 +20,24 @@
 
 """
 MAA_Punish
-MAA_Punish 晖暮战斗程序
+MAA_Punish 战斗框架入口
 作者:overflow65537
 """
 
-import time
-from MPAcustom.action.basics import CombatActions
 from maa.context import Context
 from maa.custom_action import CustomAction
 
+from MPAcustom.action.combat.core.provider import CombatCheck
+from MPAcustom.action.combat.core.session import CombatTask
 
-class Crepuscule(CustomAction):
+
+class CombatRunner(CustomAction):
+    """战斗 CustomAction：一次调用内跑完 combat_once。"""
+
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        action = CombatActions(context, role_name="晖暮")
-
-        action.lens_lock()
-        action.attack()
-        if action.check_Skill_energy_bar():
-            action.logger.info("大招就绪")
-            for _ in range(10):
-                action.use_skill()
-                time.sleep(0.05)
-                action.auxiliary_machine()
-            action.switch()
-            print("切换完成")
-            return CustomAction.RunResult(success=True)
-
-        elif action.check_status("检查核心被动_晖暮"):
-            action.long_press_dodge(3000)
-            s1 = time.time()
-            context.run_action(
-                "长按1号球", pipeline_override={"长按1号球": {"duration": 3500}}
-            )
-            print("长按完成")
-            print("长按耗时:", time.time() - s1)
-            action.auto_qte("a")
-            action.auxiliary_machine()
-        else:
-            action.logger.info("核心技能未就绪")
-            item = 0
-            while action.count_signal_balls() < 9 and item < 100:
-                if action.attack():
-                    item += 1
-                else:
-                    return CustomAction.RunResult(success=True)
-
-        action.attack()
+        combat_check = CombatCheck()
+        combat = CombatTask(context, combat_check)
+        combat.combat_once()
         return CustomAction.RunResult(success=True)

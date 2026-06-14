@@ -13,22 +13,23 @@ from action.basics.InterfaceZone.LoadRoiZone import LoadRoiZone
 from action.basics.ResetCount import ResetCount
 
 
-from action.exclusives.CrimsonWeave import CrimsonWeave
-from action.exclusives.LostLullaby import LostLullaby
-from action.exclusives.Oblivion import Oblivion
-from action.exclusives.Pyroath import Pyroath
-from action.exclusives.Stigmata import Stigmata
-from action.exclusives.Shukra import Shukra
-from action.exclusives.Hyperreal import Hyperreal
-from action.exclusives.Crepuscule import Crepuscule
-from action.exclusives.Aegis import Aegis
-from action.exclusives.Limpidity import Limpidity
-from action.exclusives.GeneralFight import GeneralFight
-from action.exclusives.Pianissimo import Pianissimo
-from action.exclusives.Spectre import Spectre
-from action.exclusives.InverseCrown import InverseCrown
-
-from action.combat.runner import CombatRunner
+from action.combat.entry.custom_actions import (
+    Aegis,
+    Crepuscule,
+    CrimsonWeave,
+    GeneralFight,
+    Hyperreal,
+    InverseCrown,
+    Limpidity,
+    LostLullaby,
+    Oblivion,
+    Pianissimo,
+    Pyroath,
+    Shukra,
+    Spectre,
+    Stigmata,
+)
+from action.combat.entry.runner import CombatRunner
 
 
 from recognition.exclusives.CheckResolution import CheckResolution

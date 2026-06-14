@@ -26,14 +26,15 @@ MAA_Punish 战斗角色策略基类
 
 from __future__ import annotations
 
+import time
 from enum import StrEnum
 from typing import TYPE_CHECKING
 
-from MPAcustom.action.tool.CombatActions import CombatActions
-from MPAcustom.action.tool.LoadSetting import ROLE_ACTIONS
+from MPAcustom.action.combat.actions.CombatActions import CombatActions
+from MPAcustom.action.combat.config.LoadSetting import ROLE_ACTIONS
 
 if TYPE_CHECKING:
-    from MPAcustom.action.combat.session import CombatTask
+    from MPAcustom.action.combat.core.session import CombatTask
 
 
 class SwitchPriority(StrEnum):
@@ -62,6 +63,7 @@ class BaseRole:
             combat.context,
             role_name=resolve_role_name(cls_name),
             skip_combat_gate=True,
+            stub_switch=combat.SWITCH_STUB or getattr(combat, "single_shot", False),
         )
 
     def perform(self) -> None:
@@ -91,3 +93,15 @@ class BaseRole:
 
     def reset_state(self) -> None:
         self.phase = "idle"
+
+    def run_rotation(self, *, max_ticks: int = 500) -> None:
+        """Pipeline CustomAction：跑完一轮策略后返回。"""
+        interval = self.combat.sleep_check_interval
+        single_shot = getattr(self.combat, "single_shot", False)
+        for _ in range(max_ticks):
+            if self.combat.context.tasker.stopping:
+                return
+            self.do_perform()
+            if single_shot and self.phase == "done":
+                return
+            time.sleep(interval)

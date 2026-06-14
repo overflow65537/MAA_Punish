@@ -18,26 +18,32 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""
-MAA_Punish
-MAA_Punish 战斗框架入口
-作者:overflow65537
-"""
+from __future__ import annotations
 
-from maa.context import Context
-from maa.custom_action import CustomAction
+import time
 
-from MPAcustom.action.combat.provider import CombatCheck
-from MPAcustom.action.combat.session import CombatTask
+from MPAcustom.action.combat.core.role import BaseRole
 
+class StigmataRole(BaseRole):
 
-class CombatRunner(CustomAction):
-    """战斗 CustomAction：一次调用内跑完 combat_once。"""
+    def do_perform(self) -> None:
+        self.action.lens_lock()
+        self.action.attack()
+        if self.action.check_Skill_energy_bar():
+            self.action.use_skill()  # 此刻,见证终焉之光/以此宣告,噩梦的崩解
+            self.action.auxiliary_machine()
+            self.action.switch()
+            print("切换完成")
+            return
+        elif self.action.check_status("检查比安卡·深痕一阶段"):
+            if self.action.check_status("检查核心被动_深痕"):
+                self.action.long_press_dodge()  # 开启照域
+                for _ in range(10):
+                    self.action.ball_elimination_target(1)  # 消球
+                    time.sleep(0.3)
+                    self.action.attack()
+                    time.sleep(0.1)
+                return
+        self.action.continuous_attack(8, 300)
 
-    def run(
-        self, context: Context, argv: CustomAction.RunArg
-    ) -> CustomAction.RunResult:
-        combat_check = CombatCheck()
-        combat = CombatTask(context, combat_check)
-        combat.combat_once()
-        return CustomAction.RunResult(success=True)
+        return

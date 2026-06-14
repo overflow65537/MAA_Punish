@@ -18,27 +18,54 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""
-MAA_Punish
-MAA_Punish 战斗角色工厂
-作者:overflow65537
-"""
+"""???????????"""
 
 from __future__ import annotations
 
+import time
 from typing import TYPE_CHECKING
 
-from MPAcustom.action.combat.role import BaseRole
-from MPAcustom.action.combat.roles.general import GeneralRole
-
 if TYPE_CHECKING:
-    from MPAcustom.action.combat.session import CombatTask
-
-ROLE_CLASS_MAP: dict[str, type[BaseRole]] = {
-    "GeneralFight": GeneralRole,
-}
+    from MPAcustom.action.combat.core.role import BaseRole
 
 
-def create_role(combat: CombatTask, color: str, cls_name: str) -> BaseRole:
-    role_cls = ROLE_CLASS_MAP.get(cls_name, GeneralRole)
-    return role_cls(combat, color, cls_name)
+def complete_rotation(role: BaseRole) -> None:
+    """Pipeline ???????CombatRunner ?????? main?"""
+    if getattr(role.combat, "single_shot", False):
+        role.phase = "done"
+    else:
+        role.phase = "main"
+
+
+def combat_start(role: BaseRole, *, next_phase: str = "main") -> bool:
+    """idle ????? + ??????? phase??? True ??? tick ????"""
+    if role.phase != "idle":
+        return False
+    role.action.lens_lock()
+    role.action.attack()
+    role.phase = next_phase
+    return True
+
+
+def done_attack(role: BaseRole) -> bool:
+    """done ????????? True ??? tick ????"""
+    if role.phase != "done":
+        return False
+    role.action.attack()
+    return True
+
+
+def finish_switch(role: BaseRole, *, qte: str = "a", attack_first: bool = False) -> None:
+    if attack_first:
+        role.action.attack()
+    role.action.auto_qte(qte)
+    role.switch_next()
+    role.phase = "done"
+
+
+def timed_out(deadline: float | None) -> bool:
+    return deadline is not None and time.monotonic() >= deadline
+
+
+def set_deadline(seconds: float) -> float:
+    return time.monotonic() + seconds

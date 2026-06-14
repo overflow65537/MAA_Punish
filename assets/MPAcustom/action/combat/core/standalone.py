@@ -20,34 +20,31 @@
 
 """
 MAA_Punish
-MAA_Punish 通用战斗程序
-作者:overflow65537
+Pipeline CustomAction 专用轻量 CombatTask（单角色跑一轮）
 """
 
-from MPAcustom.action.basics import CombatActions
-from maa.context import Context
-from maa.custom_action import CustomAction
-import time
+from __future__ import annotations
+
+from typing import TYPE_CHECKING, Any
+
+from MPAcustom.action.combat.core.provider import BaseCombatCheck
+from MPAcustom.action.combat.core.session import CombatTask
+
+if TYPE_CHECKING:
+    from maa.context import Context
 
 
-class GeneralFight(CustomAction):
-    def run(
-        self, context: Context, argv: CustomAction.RunArg
-    ) -> CustomAction.RunResult:
-        action = CombatActions(context, role_name="通用")
-        print("开始战斗")
-        action.lens_lock()
-        action.attack()
-        for _ in range(10):
-            if context.tasker.stopping:
-                return CustomAction.RunResult(success=True)
-            action.attack()
-            action.ball_elimination_target()
-            action.use_skill()
-            action.auxiliary_machine()
-        action.attack()
-        action.auto_qte("a")
+class _AlwaysInCombatCheck(BaseCombatCheck):
+    def in_combat(self, context: Context, combat: CombatTask) -> bool:
+        return True
 
-        action.switch()
-        print("切换完成")
-        return CustomAction.RunResult(success=True)
+
+class StandaloneCombat(CombatTask):
+    """Pipeline JumpBack 链路：不跑完整 combat_once，仅承载 Role 策略。"""
+
+    single_shot = True
+
+    def __init__(self, context: Context):
+        super().__init__(context, _AlwaysInCombatCheck())
+        self.combat_ui_visible = True
+        self.frame: Any | None = None

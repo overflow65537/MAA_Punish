@@ -13,7 +13,7 @@ import sys
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 LOADSETTING_PATH = (
-    PROJECT_ROOT / "assets" / "MPAcustom" / "action" / "tool" / "LoadSetting.py"
+    PROJECT_ROOT / "assets" / "MPAcustom" / "action" / "combat" / "config" / "LoadSetting.py"
 )
 TEMPLATE_ROOT = (
     PROJECT_ROOT / "assets" / "resource" / "base" / "image" / "人物索引"

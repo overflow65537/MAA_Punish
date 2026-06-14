@@ -29,12 +29,12 @@ from __future__ import annotations
 import time
 from typing import TYPE_CHECKING, Any
 
-from MPAcustom.action.combat.provider import BaseCombatCheck
-from MPAcustom.action.combat.role import BaseRole, SwitchPriority
-from MPAcustom.action.combat.role_factory import create_role
-from MPAcustom.action.combat.switch import click_qte_by_color
-from MPAcustom.action.combat.team import TEAM_COLORS, TeamSnapshot
-from MPAcustom.action.tool.LoadSetting import ROLE_ACTIONS
+from MPAcustom.action.combat.core.provider import BaseCombatCheck
+from MPAcustom.action.combat.core.role import BaseRole, SwitchPriority
+from MPAcustom.action.combat.core.role_factory import create_role
+from MPAcustom.action.combat.core.switch import click_qte_by_color
+from MPAcustom.action.combat.core.team import TEAM_COLORS, TeamSnapshot
+from MPAcustom.action.combat.config.LoadSetting import ROLE_ACTIONS
 from MPAcustom.logger_component import LoggerComponent
 
 if TYPE_CHECKING:
@@ -52,7 +52,9 @@ class CombatTask:
     """战斗任务：进战 → 循环 perform → 退战。"""
 
     WAIT_COMBAT_TIME = 30.0
-    SLEEP_CHECK_INTERVAL = 0.4
+    # ok-ww BaseCombatTask.combat_once 主循环 perform 间无固定 sleep（仅 next_frame 刷新）；
+    # 旧 exclusives 内部常用 0.05。tick 角色策略需较低间隔。
+    SLEEP_CHECK_INTERVAL = 0.05
     WAIT_POLL_INTERVAL = 0.2
     COMBAT_UI_LOST_TIMEOUT = 20.0
     SWITCH_COOLDOWN = 15.0
@@ -97,6 +99,7 @@ class CombatTask:
 
         self.team: TeamSnapshot | None = None
         self.roles: dict[str, BaseRole] = {}
+        self.current_role_name: str = ""
         self.last_switch_time: float = 0.0
 
         self._logger_component = LoggerComponent(__name__)
@@ -164,22 +167,22 @@ class CombatTask:
         if self._should_stop():
             return
 
-        self.logger.debug(
-            "dispatch loop=%s cls=%s color=%s phase=%s switch=%s cd=%.1fs",
-            self.loop_count,
-            role.cls_name,
-            role.color,
-            role.phase,
-            self.can_switch(),
-            self.switch_cooldown_remaining(),
-        )
+        #self.logger.debug(
+        #    "dispatch loop=%s cls=%s color=%s phase=%s switch=%s cd=%.1fs",
+        #    self.loop_count,
+        #    role.cls_name,
+        #    role.color,
+        #    role.phase,
+        #    self.can_switch(),
+        #    self.switch_cooldown_remaining(),
+        #)
         role.perform()
 
     def load_team(self) -> bool:
-        """进战识别队伍，仅调用一次。"""
+        """进战识别当前角色，仅调用一次。"""
         snapshot = self.combat_check.detect_team(self.context, self)
         if snapshot is None:
-            self.logger.warning("队伍识别失败")
+            self.logger.warning("角色识别失败")
             return False
 
         self.team = snapshot
@@ -189,13 +192,7 @@ class CombatTask:
         for role in self.roles.values():
             role.reset_state()
 
-        self.logger.info(
-            "队伍 R=%s B=%s Y=%s current=%s",
-            snapshot.R,
-            snapshot.B,
-            snapshot.Y,
-            snapshot.current,
-        )
+        self.logger.info("识别到角色: %s", self.current_role_name)
         return True
 
     def get_current_role(self) -> BaseRole | None:
@@ -269,7 +266,7 @@ class CombatTask:
         按色位切人。CD 未好或 QTE 不可见时立即返回 False，不阻塞等待。
         """
         if self.SWITCH_STUB:
-            self.logger.debug("切人已屏蔽 (stub): color=%s", color)
+            self.logger.info("切人已屏蔽 (stub): color=%s", color)
             return True
 
         if self.team is None:
@@ -318,6 +315,7 @@ class CombatTask:
         self.frame = None
         self.team = None
         self.roles = {}
+        self.current_role_name = ""
         self.last_switch_time = 0.0
         reason = self.out_of_combat_reason or "unknown"
         self.logger.info("战斗结束: %s", reason)
@@ -375,5 +373,7 @@ class CombatTask:
 
     def _sleep_check(self) -> None:
         if self._should_stop():
+            return
+        if self.sleep_check_interval <= 0:
             return
         time.sleep(self.sleep_check_interval)

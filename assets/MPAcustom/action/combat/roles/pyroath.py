@@ -18,27 +18,15 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""
-MAA_Punish
-MAA_Punish 誓焰战斗程序
-作者:overflow65537,HCX0426
-"""
-
+from __future__ import annotations
 
 import time
-from MPAcustom.action.basics import CombatActions
-from maa.context import Context
-from maa.custom_action import CustomAction
 
+from MPAcustom.action.combat.core.role import BaseRole
 
-class Pyroath(CustomAction):
+class PyroathRole(BaseRole):
 
-    def run(
-        self, context: Context, argv: CustomAction.RunArg
-    ) -> CustomAction.RunResult:
-
-        self.action = CombatActions(context, role_name="誓焰")
-
+    def do_perform(self) -> None:
         start_time = time.time()
         print(f"启动时间: {start_time}")
         self.action.lens_lock()
@@ -93,10 +81,10 @@ class Pyroath(CustomAction):
             self.action.auto_qte("a")
             self.action.switch()
             print("切换完成")
-            return CustomAction.RunResult(success=True)
+            return
         self.action.attack()
         end_time = time.time()
         print(f"誓焰: {end_time - start_time}")
         print(f"结束时间: {end_time}")
 
-        return CustomAction.RunResult(success=True)
+        return
