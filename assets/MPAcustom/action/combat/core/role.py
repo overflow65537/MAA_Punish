@@ -64,6 +64,7 @@ class BaseRole:
             role_name=resolve_role_name(cls_name),
             skip_combat_gate=True,
             stub_switch=combat.SWITCH_STUB or getattr(combat, "single_shot", False),
+            stub_qte=combat.QTE_STUB or getattr(combat, "single_shot", False),
         )
 
     def perform(self) -> None:

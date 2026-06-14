@@ -52,13 +52,13 @@ class CombatTask:
     """战斗任务：进战 → 循环 perform → 退战。"""
 
     WAIT_COMBAT_TIME = 30.0
-    # ok-ww BaseCombatTask.combat_once 主循环 perform 间无固定 sleep（仅 next_frame 刷新）；
-    # 旧 exclusives 内部常用 0.05。tick 角色策略需较低间隔。
-    SLEEP_CHECK_INTERVAL = 0.05
+    # ok-ww 主循环 perform 间无固定 sleep；0 表示仅依赖每轮 _capture_frame 刷新。
+    SLEEP_CHECK_INTERVAL = 0
     WAIT_POLL_INTERVAL = 0.2
     COMBAT_UI_LOST_TIMEOUT = 20.0
     SWITCH_COOLDOWN = 15.0
     SWITCH_STUB = True  # 调试：屏蔽实际切人，相关方法直接返回 True
+    QTE_STUB = True  # 调试：屏蔽 auto_qte
 
     def __init__(
         self,

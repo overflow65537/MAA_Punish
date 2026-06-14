@@ -47,11 +47,13 @@ class CombatActions:
         *,
         skip_combat_gate: bool = False,
         stub_switch: bool = False,
+        stub_qte: bool = False,
     ):
         self.context = context
         self.role_name = role_name
         self.skip_combat_gate = skip_combat_gate
         self.stub_switch = stub_switch
+        self.stub_qte = stub_qte
 
         self.template = {}
         if role_name in ROLE_ACTIONS:
@@ -256,6 +258,9 @@ class CombatActions:
         :param target: QTE颜色(r,y,b,a)，默认r。a表示依次检查r、b、y
         :return: 点击操作结果
         """
+        if self.stub_qte:
+            self.logger.info("自动QTE已屏蔽 (stub)")
+            return False
         if not self.auto_qte_config:
             self.logger.info("未开启自动QTE功能")
             return False
