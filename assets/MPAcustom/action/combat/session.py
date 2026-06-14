@@ -56,6 +56,7 @@ class CombatTask:
     WAIT_POLL_INTERVAL = 0.2
     COMBAT_UI_LOST_TIMEOUT = 20.0
     SWITCH_COOLDOWN = 15.0
+    SWITCH_STUB = True  # 调试：屏蔽实际切人，相关方法直接返回 True
 
     def __init__(
         self,
@@ -204,6 +205,12 @@ class CombatTask:
 
     def choose_switch_color(self, requester: BaseRole) -> str | None:
         """选切人目标色位。Phase 4 可扩展 buff 优先级。"""
+        if self.SWITCH_STUB:
+            if self.team is None:
+                return None
+            others = self.team.other_colors()
+            return others[0] if others else None
+
         if self.team is None:
             return None
 
@@ -245,6 +252,8 @@ class CombatTask:
         return self.team.current_cls()
 
     def can_switch(self) -> bool:
+        if self.SWITCH_STUB:
+            return True
         if self.last_switch_time <= 0:
             return True
         return (time.monotonic() - self.last_switch_time) >= self.switch_cooldown
@@ -259,6 +268,10 @@ class CombatTask:
         """
         按色位切人。CD 未好或 QTE 不可见时立即返回 False，不阻塞等待。
         """
+        if self.SWITCH_STUB:
+            self.logger.debug("切人已屏蔽 (stub): color=%s", color)
+            return True
+
         if self.team is None:
             return False
 

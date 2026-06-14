@@ -76,6 +76,9 @@ class BaseRole:
         return SwitchPriority.NORMAL
 
     def switch_next(self) -> bool:
+        if self.combat.SWITCH_STUB:
+            self.reset_state()
+            return True
         if not self.combat.can_switch():
             return False
         target_color = self.combat.choose_switch_color(self)
