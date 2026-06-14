@@ -1696,6 +1696,7 @@
         "recognition": {
             "type": "And",
             "param": {
+                "box_index": 1,
                 "all_of": [
                     {
                         "sub_name": "文字颜色",
@@ -1732,6 +1733,9 @@
                         }
                     }
                 ]
+            },
+            "action": {
+                "type": "Click"
             }
         }
     },
