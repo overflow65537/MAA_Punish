@@ -39,6 +39,10 @@
         "action": {
             "type": "Click"
         },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
         "next": [
             "[JumpBack]确定",
             "[JumpBack]下一步",
