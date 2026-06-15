@@ -8,7 +8,7 @@
             "[JumpBack]意外点击_主界面"
         ]
     },
-      "前往任务": {
+    "前往任务": {
         "pre_wait_freezes": {
             "time": 500,
             "target": [
@@ -100,7 +100,8 @@
             "领取活跃100",
             "[JumpBack]关闭奖励"
         ]
-    }, "领取活跃0-19": {
+    },
+    "领取活跃0-19": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -259,7 +260,6 @@
             "[JumpBack]关闭奖励"
         ]
     },
-
     "每周任务": {
         "recognition": {
             "type": "OCR",
@@ -554,7 +554,8 @@
             "每日任务",
             "[JumpBack]关闭奖励"
         ]
-    },  "逐浪拾光": {
+    },
+    "逐浪拾光": {
         "max_hit": 1,
         "recognition": {
             "type": "OCR",
