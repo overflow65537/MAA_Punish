@@ -9,8 +9,28 @@
         "pre_delay": 150,
         "post_delay": 0,
         "rate_limit": 0,
+        "action": {
+            "type": "Screencap"
+        },
         "next": [
             "闪避"
+        ]
+    },
+    "自动闪避截图": {
+        "recognition": {
+            "type": "NeuralNetworkDetect",
+            "param": {
+                "model": "Dodge.onnx"
+            }
+        },
+        "pre_delay": 150,
+        "post_delay": 0,
+        "rate_limit": 0,
+        "action": {
+            "type": "Screencap"
+        },
+        "next": [
+            "自动闪避截图"
         ]
     }
 }

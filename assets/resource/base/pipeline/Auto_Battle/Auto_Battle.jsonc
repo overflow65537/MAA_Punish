@@ -562,12 +562,12 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    990,
-                    567,
-                    131,
-                    131
+                    1165,
+                    2,
+                    108,
+                    99
                 ],
-                "template": "战斗/闪避.png",
+                "template": "战斗/战斗中.png",
                 "green_mask": true,
                 "threshold": 0.6
             }
