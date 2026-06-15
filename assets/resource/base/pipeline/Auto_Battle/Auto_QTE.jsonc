@@ -3,22 +3,9 @@
         "recognition": {
             "type": "ColorMatch",
             "param": {
-                "roi": [
-                    1207,
-                    170,
-                    60,
-                    158
-                ],
-                "lower": [
-                    80,
-                    150,
-                    200
-                ],
-                "upper": [
-                    135,
-                    188,
-                    234
-                ],
+                "roi": [1207, 170, 60, 158],
+                "lower": [80, 150, 200],
+                "upper": [135, 188, 234],
                 "connected": true,
                 "count": 50
             }
@@ -28,22 +15,9 @@
         "recognition": {
             "type": "ColorMatch",
             "param": {
-                "roi": [
-                    1207,
-                    170,
-                    60,
-                    158
-                ],
-                "lower": [
-                    200,
-                    60,
-                    60
-                ],
-                "upper": [
-                    255,
-                    85,
-                    90
-                ],
+                "roi": [1207, 170, 60, 158],
+                "lower": [200, 60, 60],
+                "upper": [255, 85, 90],
                 "connected": true,
                 "count": 50
             }
@@ -53,22 +27,9 @@
         "recognition": {
             "type": "ColorMatch",
             "param": {
-                "roi": [
-                    1207,
-                    170,
-                    60,
-                    158
-                ],
-                "lower": [
-                    186,
-                    171,
-                    80
-                ],
-                "upper": [
-                    250,
-                    230,
-                    115
-                ],
+                "roi": [1207, 170, 60, 158],
+                "lower": [186, 171, 80],
+                "upper": [250, 230, 115],
                 "connected": true,
                 "count": 50
             }
@@ -78,22 +39,9 @@
         "recognition": {
             "type": "ColorMatch",
             "param": {
-                "roi": [
-                    1219,
-                    173,
-                    41,
-                    159
-                ],
-                "lower": [
-                    100,
-                    15,
-                    15
-                ],
-                "upper": [
-                    140,
-                    40,
-                    40
-                ],
+                "roi": [1219, 173, 41, 159],
+                "lower": [100, 15, 15],
+                "upper": [140, 40, 40],
                 "connected": true,
                 "count": 100
             }
@@ -103,22 +51,9 @@
         "recognition": {
             "type": "ColorMatch",
             "param": {
-                "roi": [
-                    1219,
-                    173,
-                    41,
-                    159
-                ],
-                "lower": [
-                    40,
-                    110,
-                    90
-                ],
-                "upper": [
-                    80,
-                    140,
-                    210
-                ],
+                "roi": [1219, 173, 41, 159],
+                "lower": [40, 110, 90],
+                "upper": [80, 140, 210],
                 "connected": true,
                 "count": 100
             }
@@ -128,22 +63,9 @@
         "recognition": {
             "type": "ColorMatch",
             "param": {
-                "roi": [
-                    1219,
-                    173,
-                    41,
-                    159
-                ],
-                "lower": [
-                    150,
-                    130,
-                    0
-                ],
-                "upper": [
-                    190,
-                    170,
-                    50
-                ],
+                "roi": [1219, 173, 41, 159],
+                "lower": [150, 130, 0],
+                "upper": [190, 170, 50],
                 "connected": true,
                 "count": 100
             }
