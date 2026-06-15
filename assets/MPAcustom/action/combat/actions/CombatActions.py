@@ -41,19 +41,11 @@ class CombatActions:
     """通用战斗功能"""
 
     def __init__(
-        self,
-        context: Context,
-        role_name: str = "",
-        *,
-        skip_combat_gate: bool = False,
-        stub_switch: bool = False,
-        stub_qte: bool = False,
+        self, context: Context, role_name: str = "", *, skip_combat_gate: bool = False
     ):
         self.context = context
         self.role_name = role_name
         self.skip_combat_gate = skip_combat_gate
-        self.stub_switch = stub_switch
-        self.stub_qte = stub_qte
 
         self.template = {}
         if role_name in ROLE_ACTIONS:
@@ -258,9 +250,6 @@ class CombatActions:
         :param target: QTE颜色(r,y,b,a)，默认r。a表示依次检查r、b、y
         :return: 点击操作结果
         """
-        if self.stub_qte:
-            self.logger.info("自动QTE已屏蔽 (stub)")
-            return False
         if not self.auto_qte_config:
             self.logger.info("未开启自动QTE功能")
             return False
@@ -608,16 +597,13 @@ class CombatActions:
         else:
             return 0
 
-    def switch(self) -> bool:
+    def switch(self):
         """
-        切换角色。成功返回 True；stub / 未开启 / 失败返回 False。
+        切换角色
         """
-        if self.stub_switch:
-            self.logger.info("切换角色已屏蔽 (stub)")
-            return False
         if not self.switch_config:
             self.logger.info("未开启切换角色功能")
-            return False
+            return
         role_type = ROLE_ACTIONS.get(self.role_name, {}).get("type", "general")
         print(f"当前角色: {role_type}")
 
@@ -673,12 +659,12 @@ class CombatActions:
         localtion_mapping = _create_qte_mapping()
         if not localtion_mapping:
             self.logger.error("未找到任何QTE")
-            return False
+            return
 
         target_node = self.context.get_node_data("QTE目标")
         if not target_node:
             self.logger.error("未找到QTE目标 node")
-            return False
+            return
         target = int(target_node.get("post_delay", 0))
         if target == 0:
             print(f"切换到{localtion_mapping[-1]},目标{target}")
@@ -689,8 +675,4 @@ class CombatActions:
             _click_qte(localtion_mapping[0])
             self.context.override_pipeline({"QTE目标": {"post_delay": 0}})
         else:
-            return False
-
-        self.context.override_pipeline({"识别人物": {"max_hit": 1}})
-        self.logger.info("切换角色")
-        return True
+            return

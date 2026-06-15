@@ -23,7 +23,7 @@ MAA_Punish
 MAA_Punish 战斗角色工厂
 作者:overflow65537
 
-约定：roles 包内类名 {cls_name}Role 自动对应 LoadSetting.ROLE_ACTIONS.cls_name。
+约定：roles 包内类名与 LoadSetting.ROLE_ACTIONS.cls_name 一致。
 """
 
 from __future__ import annotations
@@ -41,14 +41,6 @@ if TYPE_CHECKING:
 logger = logging.getLogger(__name__)
 
 _DEFAULT_CLS_NAME = "GeneralFight"
-_ROLE_SUFFIX = "Role"
-
-
-def _cls_name_from_role_class(role_cls: type[BaseRole]) -> str:
-    name = role_cls.__name__
-    if not name.endswith(_ROLE_SUFFIX):
-        raise ValueError(f"角色策略类名须以 Role 结尾: {name}")
-    return name[: -len(_ROLE_SUFFIX)]
 
 
 def _discover_role_classes() -> dict[str, type[BaseRole]]:
@@ -60,14 +52,12 @@ def _discover_role_classes() -> dict[str, type[BaseRole]]:
             continue
         module = importlib.import_module(f"{roles_pkg.__name__}.{modinfo.name}")
         for attr_name in dir(module):
-            if not attr_name.endswith(_ROLE_SUFFIX):
-                continue
             role_cls = getattr(module, attr_name)
             if not isinstance(role_cls, type):
                 continue
             if not issubclass(role_cls, BaseRole) or role_cls is BaseRole:
                 continue
-            cls_name = _cls_name_from_role_class(role_cls)
+            cls_name = role_cls.__name__
             if cls_name in mapping:
                 logger.warning(
                     "重复注册 cls_name=%s: %s 与 %s",
@@ -85,8 +75,8 @@ ROLE_CLASS_MAP: dict[str, type[BaseRole]] = _discover_role_classes()
 def create_role(combat: CombatTask, color: str, cls_name: str) -> BaseRole:
     role_cls = ROLE_CLASS_MAP.get(cls_name)
     if role_cls is None:
-        logger.debug("未找到 %sRole，兜底 %sRole", cls_name, _DEFAULT_CLS_NAME)
+        logger.debug("未找到 %s，兜底 %s", cls_name, _DEFAULT_CLS_NAME)
         role_cls = ROLE_CLASS_MAP.get(_DEFAULT_CLS_NAME)
     if role_cls is None:
-        raise RuntimeError(f"缺少默认角色策略: {_DEFAULT_CLS_NAME}Role")
+        raise RuntimeError(f"缺少默认角色策略: {_DEFAULT_CLS_NAME}")
     return role_cls(combat, color, cls_name)

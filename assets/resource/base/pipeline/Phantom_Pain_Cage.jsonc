@@ -455,7 +455,6 @@
         "timeout": 40000,
         "rate_limit": 0,
         "next": [
-            "[JumpBack]识别人物",
             "[JumpBack]战斗中",
             "[JumpBack]载入中",
             "战斗结束",
@@ -613,9 +612,6 @@
                         "attach": {
                             "cage": true
                         }
-                    },
-                    "识别人物": {
-                        "enabled": true
                     }
                 }
             }
@@ -667,9 +663,6 @@
                             "cage": true,
                             "need_element": "ice"
                         }
-                    },
-                    "识别人物": {
-                        "enabled": true
                     }
                 }
             }
@@ -722,9 +715,6 @@
                             "cage": true,
                             "need_element": "dark"
                         }
-                    },
-                    "识别人物": {
-                        "enabled": true
                     }
                 }
             }
@@ -774,9 +764,6 @@
                             "cage": true,
                             "need_element": "fire"
                         }
-                    },
-                    "识别人物": {
-                        "enabled": true
                     }
                 }
             }
@@ -825,9 +812,6 @@
                             "cage": true,
                             "need_element": "physical"
                         }
-                    },
-                    "识别人物": {
-                        "enabled": true
                     }
                 }
             }
@@ -878,9 +862,6 @@
                             "cage": true,
                             "need_element": "lightning"
                         }
-                    },
-                    "识别人物": {
-                        "enabled": true
                     }
                 }
             }
@@ -924,9 +905,6 @@
                         "attach": {
                             "cage": true
                         }
-                    },
-                    "识别人物": {
-                        "enabled": true
                     }
                 }
             }
@@ -973,9 +951,6 @@
                         "attach": {
                             "cage": true
                         }
-                    },
-                    "识别人物": {
-                        "enabled": true
                     }
                 }
             }
@@ -1022,9 +997,6 @@
                         "attach": {
                             "cage": true
                         }
-                    },
-                    "识别人物": {
-                        "enabled": true
                     }
                 }
             }

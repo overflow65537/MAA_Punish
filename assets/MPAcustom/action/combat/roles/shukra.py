@@ -18,30 +18,16 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+"""启明战斗程序"""
+
 from __future__ import annotations
 
 import time
 
 from MPAcustom.action.combat.core.role import BaseRole
 
-class ShukraRole(BaseRole):
-    """
-    启明战斗逻辑
-    检查是否存在大招
-        释放大招
-    检查信号球数量信号球数量大于9
-        7秒内循环
-            识别信号球
-            消球
-            如果刚才的球是三消
-                再消球触发核心技能
-            如果没有球了
-                结束
-        结束后长按攻击尝试触发冰山
-    检查信号球数量信号球数量小于9
-        攻击攒球
-    """
 
+class Shukra(BaseRole):
     def do_perform(self) -> None:
         self.action.lens_lock()
         self.action.attack()

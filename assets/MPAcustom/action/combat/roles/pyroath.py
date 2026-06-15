@@ -18,14 +18,16 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+"""火神战斗程序"""
+
 from __future__ import annotations
 
 import time
 
 from MPAcustom.action.combat.core.role import BaseRole
 
-class PyroathRole(BaseRole):
 
+class Pyroath(BaseRole):
     def do_perform(self) -> None:
         start_time = time.time()
         print(f"启动时间: {start_time}")

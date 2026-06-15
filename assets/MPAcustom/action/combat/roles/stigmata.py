@@ -18,14 +18,16 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+"""誓焰战斗程序"""
+
 from __future__ import annotations
 
 import time
 
 from MPAcustom.action.combat.core.role import BaseRole
 
-class StigmataRole(BaseRole):
 
+class Stigmata(BaseRole):
     def do_perform(self) -> None:
         self.action.lens_lock()
         self.action.attack()

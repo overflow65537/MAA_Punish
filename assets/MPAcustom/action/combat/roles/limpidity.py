@@ -18,22 +18,16 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+"""澄心战斗程序"""
+
 from __future__ import annotations
 
 import time
 
 from MPAcustom.action.combat.core.role import BaseRole
 
-class LimpidityRole(BaseRole):
-    """
-    丽芙霁梦 战斗逻辑
-    优先级:
-    1. 必杀技
-    2. 普攻形态1 + 核心
-    3. 普攻形态2
-    4. 默认普攻
-    """
 
+class Limpidity(BaseRole):
     def do_perform(self) -> None:
         self.action.lens_lock()
         self.action.attack()

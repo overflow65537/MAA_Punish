@@ -5,9 +5,6 @@
             "param": {
                 "custom_action": "PPOverride",
                 "custom_action_param": {
-                    "识别人物": {
-                        "enabled": true
-                    }
                 }
             }
         },
@@ -722,7 +719,6 @@
             "宣叙妄响内部_reco",
             "没打过_宣叙妄响_reco",
             "失败2_宣叙妄响",
-            "[JumpBack]识别人物",
             "[JumpBack]重启_寒境曙光",
             "[JumpBack]战斗中",
             "[JumpBack]关闭奖励",
@@ -767,7 +763,6 @@
             "宣叙妄响内部_reco",
             "没打过_宣叙妄响_reco",
             "失败2_宣叙妄响",
-            "[JumpBack]识别人物",
             "[JumpBack]重启_寒境曙光",
             "[JumpBack]战斗中",
             "[JumpBack]关闭奖励",
@@ -797,7 +792,6 @@
             "宣叙妄响内部_reco",
             "没打过_宣叙妄响_reco",
             "失败2_宣叙妄响",
-            "[JumpBack]识别人物",
             "[JumpBack]重启_寒境曙光",
             "[JumpBack]战斗中",
             "[JumpBack]关闭奖励",

@@ -51,14 +51,16 @@ def _role_type_for_cls(cls_name: str) -> str:
 class CombatTask:
     """战斗任务：进战 → 循环 perform → 退战。"""
 
+    _ROLE_NOTIFY_NODE = (
+        "发送消息_这是程序自动生成的node所以故意写的很长来防止某一天想不开用了这个名字导致报错"
+    )
+
     WAIT_COMBAT_TIME = 30.0
-    # ok-ww 主循环 perform 间无固定 sleep；0 表示仅依赖每轮 _capture_frame 刷新。
-    SLEEP_CHECK_INTERVAL = 0
+    SLEEP_CHECK_INTERVAL = 0.4
     WAIT_POLL_INTERVAL = 0.2
     COMBAT_UI_LOST_TIMEOUT = 20.0
     SWITCH_COOLDOWN = 15.0
     SWITCH_STUB = True  # 调试：屏蔽实际切人，相关方法直接返回 True
-    QTE_STUB = True  # 调试：屏蔽 auto_qte
 
     def __init__(
         self,
@@ -193,7 +195,28 @@ class CombatTask:
             role.reset_state()
 
         self.logger.info("识别到角色: %s", self.current_role_name)
+        self._notify_current_role()
         return True
+
+    def _notify_current_role(self) -> None:
+        """向 Pipeline focus 推送当前主站角色（兼容原 RecognitionRole 日志）。"""
+        if not self.current_role_name:
+            return
+        try:
+            self.context.override_pipeline(
+                {
+                    self._ROLE_NOTIFY_NODE: {
+                        "focus": {
+                            "Node.Recognition.Succeeded": (
+                                f"识别到角色: {self.current_role_name}"
+                            )
+                        }
+                    }
+                }
+            )
+            self.context.run_task(self._ROLE_NOTIFY_NODE)
+        except Exception:
+            self.logger.debug("推送角色识别消息失败", exc_info=True)
 
     def get_current_role(self) -> BaseRole | None:
         if self.team is None:
@@ -266,7 +289,7 @@ class CombatTask:
         按色位切人。CD 未好或 QTE 不可见时立即返回 False，不阻塞等待。
         """
         if self.SWITCH_STUB:
-            self.logger.info("切人已屏蔽 (stub): color=%s", color)
+            self.logger.debug("切人已屏蔽 (stub): color=%s", color)
             return True
 
         if self.team is None:
@@ -373,7 +396,5 @@ class CombatTask:
 
     def _sleep_check(self) -> None:
         if self._should_stop():
-            return
-        if self.sleep_check_interval <= 0:
             return
         time.sleep(self.sleep_check_interval)

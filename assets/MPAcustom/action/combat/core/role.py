@@ -63,8 +63,6 @@ class BaseRole:
             combat.context,
             role_name=resolve_role_name(cls_name),
             skip_combat_gate=True,
-            stub_switch=combat.SWITCH_STUB or getattr(combat, "single_shot", False),
-            stub_qte=combat.QTE_STUB or getattr(combat, "single_shot", False),
         )
 
     def perform(self) -> None:
@@ -94,15 +92,3 @@ class BaseRole:
 
     def reset_state(self) -> None:
         self.phase = "idle"
-
-    def run_rotation(self, *, max_ticks: int = 500) -> None:
-        """Pipeline CustomAction：跑完一轮策略后返回。"""
-        interval = self.combat.sleep_check_interval
-        single_shot = getattr(self.combat, "single_shot", False)
-        for _ in range(max_ticks):
-            if self.combat.context.tasker.stopping:
-                return
-            self.do_perform()
-            if single_shot and self.phase == "done":
-                return
-            time.sleep(interval)
