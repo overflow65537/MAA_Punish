@@ -2,6 +2,7 @@
     "task": [
         {
             "name": "幻痛囚笼",
+            "label": "幻痛の檻",
             "group": [
                 "daily"
             ],

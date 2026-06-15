@@ -1,0 +1,10 @@
+{
+    "group_daily_label": "日常",
+    "group_roguelike_label": "肉鸽",
+    "group_tools_label": "工具",
+    "ctrl_android_label": "安卓端",
+    "ctrl_win32_generic": "Win32控制器-通用",
+    "ctrl_win32_bg": "Win32控制器-后台",
+    "ctrl_win32_fg": "Win32控制器-前台",
+    "ctrl_playcover_label": "PlayCover端"
+}

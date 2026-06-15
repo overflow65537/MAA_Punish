@@ -2,6 +2,7 @@
     "task": [
         {
             "name": "战令",
+            "label": "BP",
             "group": [
                 "daily"
             ],

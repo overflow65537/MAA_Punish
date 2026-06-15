@@ -2,6 +2,7 @@
     "task": [
         {
             "name": "链合回路",
+            "label": "連結回路",
             "group": [
                 "tools"
             ],

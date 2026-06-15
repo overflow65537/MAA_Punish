@@ -2,6 +2,7 @@
     "task": [
         {
             "name": "购买物品",
+            "label": "アイテム購入",
             "group": [
                 "daily"
             ],

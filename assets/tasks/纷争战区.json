@@ -2,6 +2,7 @@
     "task": [
         {
             "name": "纷争战区",
+            "label": "紛争戦区",
             "group": [
                 "daily"
             ],

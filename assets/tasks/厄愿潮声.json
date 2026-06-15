@@ -2,6 +2,7 @@
     "task": [
         {
             "name": "厄愿潮声",
+            "label": "厄願潮声",
             "group": [
                 "roguelike"
             ],

@@ -2,6 +2,7 @@
     "task": [
         {
             "name": "历战映射",
+            "label": "歴戦射影",
             "group": [
                 "daily"
             ],

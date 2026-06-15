@@ -2,6 +2,7 @@
     "task": [
         {
             "name": "寒境曙光",
+            "label": "寒境曙光",
             "group": [
                 "roguelike"
             ],

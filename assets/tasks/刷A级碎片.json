@@ -2,6 +2,7 @@
     "task": [
         {
             "name": "刷A级碎片",
+            "label": "Aグレード欠片収集",
             "group": [
                 "daily"
             ],

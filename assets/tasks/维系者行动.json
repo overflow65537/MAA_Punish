@@ -2,6 +2,7 @@
     "task": [
         {
             "name": "维系者行动",
+            "label": "巡回作戦",
             "group": [
                 "daily"
             ],
