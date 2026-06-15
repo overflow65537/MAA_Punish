@@ -34,7 +34,7 @@ class Stigmata(BaseRole):
         if self.action.check_Skill_energy_bar():
             self.action.use_skill()  # 此刻,见证终焉之光/以此宣告,噩梦的崩解
             self.action.auxiliary_machine()
-            self.action.switch()
+            self.switch_next()
             print("切换完成")
             return
         elif self.action.check_status("检查比安卡·深痕一阶段"):

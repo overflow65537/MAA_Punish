@@ -58,9 +58,7 @@ class CombatActions:
         self._logger_component = LoggerComponent(__name__)
         self.logger = self._logger_component.logger
         auto_qte_config = self.context.get_node_data("自动qte") or {}
-        switch_config = self.context.get_node_data("自动切换") or {}
         self.auto_qte_config = auto_qte_config.get("enabled", False)
-        self.switch_config = switch_config.get("enabled", False)
 
     def _auto_dodge(self, image=None):
         """
@@ -596,83 +594,3 @@ class CombatActions:
             return min(max(hp_percent, 0), 100)
         else:
             return 0
-
-    def switch(self):
-        """
-        切换角色
-        """
-        if not self.switch_config:
-            self.logger.info("未开启切换角色功能")
-            return
-        role_type = ROLE_ACTIONS.get(self.role_name, {}).get("type", "general")
-        print(f"当前角色: {role_type}")
-
-        def _click_qte(color: str):
-            mapping = {
-                "blue": "切换蓝色QTE",
-                "yellow": "切换黄色QTE",
-                "red": "切换红色QTE",
-            }
-            reco_name = mapping.get(color, "")
-            image = self.context.tasker.controller.cached_image
-            qte = self.context.run_recognition(reco_name, image)
-            if qte and qte.hit:
-                print(f"找到{color}QTE")
-                self.context.tasker.controller.post_click(
-                    qte.best_result.box[0], qte.best_result.box[1]  # type: ignore
-                )
-
-                for _ in range(100):
-                    image = self.context.tasker.controller.post_screencap().wait().get()
-                    qte = self.context.run_recognition(reco_name, image)
-                    self.attack()
-                    if qte and qte.hit:
-                        self.context.tasker.controller.post_click(
-                            qte.best_result.box[0], qte.best_result.box[1]  # type: ignore
-                        )
-                    else:
-                        break
-
-            else:
-                print(f"未找到{color}QTE")
-                print(qte)
-
-        def _create_qte_mapping():
-            image = self.context.tasker.controller.post_screencap().wait().get()
-            candidates = []
-            for color, reco_name in (
-                ("blue", "切换蓝色QTE"),
-                ("yellow", "切换黄色QTE"),
-                ("red", "切换红色QTE"),
-            ):
-                result = self.context.run_recognition(reco_name, image)
-                if result and result.hit and result.best_result:
-                    box = result.best_result.box  # type: ignore[attr-defined]
-                    # box 为 xywh，按中心 y 值排序
-                    center_y = box[1] + box[3] / 2
-                    candidates.append((center_y, color))
-
-            candidates.sort(key=lambda item: item[0])
-            # 返回颜色列表：0 为最上面，1 为最下面
-            return [color for _, color in candidates]
-
-        localtion_mapping = _create_qte_mapping()
-        if not localtion_mapping:
-            self.logger.error("未找到任何QTE")
-            return
-
-        target_node = self.context.get_node_data("QTE目标")
-        if not target_node:
-            self.logger.error("未找到QTE目标 node")
-            return
-        target = int(target_node.get("post_delay", 0))
-        if target == 0:
-            print(f"切换到{localtion_mapping[-1]},目标{target}")
-            _click_qte(localtion_mapping[-1])
-            self.context.override_pipeline({"QTE目标": {"post_delay": 1}})
-        elif target == 1:
-            print(f"切换到{localtion_mapping[0]},目标{target}")
-            _click_qte(localtion_mapping[0])
-            self.context.override_pipeline({"QTE目标": {"post_delay": 0}})
-        else:
-            return

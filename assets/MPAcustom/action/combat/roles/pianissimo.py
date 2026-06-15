@@ -63,7 +63,7 @@ class Pianissimo(BaseRole):
                     time.sleep(0.2)
                     self.action.auxiliary_machine()
                     self.action.auto_qte("a")
-                    self.action.switch()
+                    self.switch_next()
                     print("切换完成")
                     return
                 self.action.ball_elimination_target(2)
@@ -80,7 +80,7 @@ class Pianissimo(BaseRole):
                 self.action.use_skill()
                 self.action.auxiliary_machine()
                 self.action.auto_qte("a")
-                self.action.switch()
+                self.switch_next()
                 print("切换完成")
                 return
         elif self.action.count_signal_balls() > 5:

@@ -64,7 +64,7 @@ class Oblivion(BaseRole):
             self.action.auto_qte("a")
             for _ in range(10):
                 self.action.attack()
-            self.action.switch()
+            self.switch_next()
             print("切换完成")
             return
         else:

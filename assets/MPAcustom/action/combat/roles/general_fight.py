@@ -42,6 +42,6 @@ class GeneralFight(BaseRole):
         self.action.attack()
         self.action.auto_qte("a")
 
-        self.action.switch()
+        self.switch_next()
         print("切换完成")
         return

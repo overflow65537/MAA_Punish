@@ -74,7 +74,7 @@ class Limpidity(BaseRole):
                     self.action.auxiliary_machine()
                     time.sleep(0.1)
                 print("映天地,渡你新生")
-                self.action.switch()
+                self.switch_next()
                 print("切换完成")
                 return
             elif self.action.count_signal_balls() != 0:

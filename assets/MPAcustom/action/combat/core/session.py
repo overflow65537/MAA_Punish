@@ -56,7 +56,7 @@ class CombatTask:
     )
 
     WAIT_COMBAT_TIME = 30.0
-    SLEEP_CHECK_INTERVAL = 0.4
+    SLEEP_CHECK_INTERVAL = 0.0
     WAIT_POLL_INTERVAL = 0.2
     COMBAT_UI_LOST_TIMEOUT = 20.0
     SWITCH_COOLDOWN = 15.0
@@ -266,6 +266,10 @@ class CombatTask:
 
         return allowed[self.loop_count % len(allowed)][0]
 
+    def is_switch_enabled(self) -> bool:
+        node = self.context.get_node_data("自动切换") or {}
+        return bool(node.get("enabled", False))
+
     def get_current_cls(self) -> str | None:
         if self.team is None:
             return None
@@ -288,10 +292,6 @@ class CombatTask:
         """
         按色位切人。CD 未好或 QTE 不可见时立即返回 False，不阻塞等待。
         """
-        if self.SWITCH_STUB:
-            self.logger.debug("切人已屏蔽 (stub): color=%s", color)
-            return True
-
         if self.team is None:
             return False
 
@@ -300,14 +300,27 @@ class CombatTask:
             self.logger.warning("无效切人色位: %s", color)
             return False
 
+        if target == self.team.current.upper():
+            return False
+
+        if self.SWITCH_STUB:
+            self.team.current = target
+            self.last_switch_time = time.monotonic()
+            target_role = self.roles.get(target)
+            if target_role is not None:
+                target_role.reset_state()
+            self.logger.info(
+                "切人 stub -> %s (%s)",
+                target,
+                self.team.current_cls(),
+            )
+            return True
+
         if not self.can_switch():
             self.logger.debug(
                 "切人 CD 中，剩余 %.1fs",
                 self.switch_cooldown_remaining(),
             )
-            return False
-
-        if target == self.team.current.upper():
             return False
 
         available = self.combat_check.detect_qte_colors(self.context, self)
@@ -395,6 +408,6 @@ class CombatTask:
         return bool(self.context.tasker.stopping)
 
     def _sleep_check(self) -> None:
-        if self._should_stop():
+        if self._should_stop() or self.sleep_check_interval <= 0:
             return
         time.sleep(self.sleep_check_interval)

@@ -77,9 +77,10 @@ class BaseRole:
         return SwitchPriority.NORMAL
 
     def switch_next(self) -> bool:
-        if self.combat.SWITCH_STUB:
-            self.reset_state()
-            return True
+        """请求战斗管理器切到下一合适角色（受 Pipeline「自动切换」开关控制）。"""
+        if not self.combat.is_switch_enabled():
+            self.action.logger.info("未开启切换角色功能")
+            return False
         if not self.combat.can_switch():
             return False
         target_color = self.combat.choose_switch_color(self)

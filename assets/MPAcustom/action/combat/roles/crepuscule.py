@@ -37,7 +37,7 @@ class Crepuscule(BaseRole):
                 self.action.use_skill()
                 time.sleep(0.05)
                 self.action.auxiliary_machine()
-            self.action.switch()
+            self.switch_next()
             print("切换完成")
             return
         elif self.action.check_status("检查核心被动_晖暮"):
