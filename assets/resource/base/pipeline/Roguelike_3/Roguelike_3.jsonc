@@ -1993,10 +1993,10 @@
                         }
                     }
                 ]
-            },
-            "action": {
-                "type": "Click"
             }
+        },
+        "action": {
+            "type": "Click"
         }
     },
     "点击迭变投影选项": {
