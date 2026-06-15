@@ -10,20 +10,6 @@
             }
         },
         "next": [
-            "DiscordNotify_完成",
-            "停止"
-        ]
-    },
-    "DiscordNotify_完成": {
-        "enabled": false,
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "DiscordNotify",
-                "custom_action_param": {}
-            }
-        },
-        "next": [
             "停止"
         ]
     },

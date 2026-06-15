@@ -93,8 +93,7 @@
         "自动QTE",
         "自动切换角色",
         "同时选择多名角色",
-        "自定义键位",
-        "Discord通知"
+        "自定义键位"
     ],
     "resource": [
         {
@@ -1334,69 +1333,6 @@
                 }
             }
         },
-        "Discord通知": {
-            "label": "Discord Webhook 通知",
-            "description": "<p>任务流程完成后发送 Discord 通知。</p><p>启用后请在下方填写 Webhook URL。</p>",
-            "type": "switch",
-            "default_case": "No",
-            "cases": [
-                {
-                    "name": "Yes",
-                    "option": [
-                        "Discord_Webhook设置"
-                    ],
-                    "pipeline_override": {
-                        "DiscordNotify_完成": {
-                            "enabled": true
-                        }
-                    }
-                },
-                {
-                    "name": "No",
-                    "pipeline_override": {
-                        "DiscordNotify_完成": {
-                            "enabled": false
-                        }
-                    }
-                }
-            ]
-        },
-        "Discord_Webhook设置": {
-            "label": "Discord Webhook 设置",
-            "description": "<p>在 Discord 频道「编辑频道 → 整合 → Webhook → 新建 Webhook → 复制 Webhook URL」取得 URL。</p>",
-            "type": "input",
-            "inputs": [
-                {
-                    "name": "discord_url",
-                    "label": "Webhook URL",
-                    "description": "Discord Webhook URL",
-                    "default": "",
-                    "pipeline_type": "string"
-                },
-                {
-                    "name": "discord_mention",
-                    "label": "@ 提及 ID（选填）",
-                    "description": "Discord 用户 ID，通知时 @ 该用户（留空则不提及）",
-                    "default": "",
-                    "pipeline_type": "string"
-                }
-            ],
-            "pipeline_override": {
-                "DiscordNotify_完成": {
-                    "action": {
-                        "type": "Custom",
-                        "param": {
-                            "custom_action": "DiscordNotify",
-                            "custom_action_param": {
-                                "type": "completed",
-                                "discord_url": "{discord_url}",
-                                "discord_mention": "{discord_mention}"
-                            }
-                        }
-                    }
-                }
-            }
-        }
     },
     "version": "v3.9.6"
 }
