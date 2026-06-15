@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "拟真围剿",
-            "label": "模擬討伐戦",
+            "label": "$拟真围剿",
             "group": [
                 "daily"
             ],

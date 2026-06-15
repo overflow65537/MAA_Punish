@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "矩阵循生",
-            "label": "行列循環",
+            "label": "$矩阵循生",
             "group": [
                 "roguelike"
             ],

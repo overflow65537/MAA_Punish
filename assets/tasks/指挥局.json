@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "指挥局",
-            "label": "師団",
+            "label": "$指挥局",
             "group": [
                 "daily"
             ],

@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "战斗辅助",
-            "label": "戦闘補助",
+            "label": "$战斗辅助",
             "group": [
                 "tools"
             ],

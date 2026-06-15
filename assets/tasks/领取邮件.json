@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "领取邮件",
-            "label": "メール受取",
+            "label": "$领取邮件",
             "group": [
                 "daily"
             ],

@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "战令",
-            "label": "BP",
+            "label": "$战令",
             "group": [
                 "daily"
             ],

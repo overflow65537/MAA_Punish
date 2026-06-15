@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "拟战场域",
-            "label": "模擬戦域",
+            "label": "$拟战场域",
             "group": [
                 "daily"
             ],

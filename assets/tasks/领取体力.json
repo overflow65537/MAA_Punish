@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "领取体力",
-            "label": "スタミナ受取",
+            "label": "$领取体力",
             "group": [
                 "daily"
             ],

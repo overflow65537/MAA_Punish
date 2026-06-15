@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "宣叙妄响",
-            "label": "宣叙妄響",
+            "label": "$宣叙妄响",
             "group": [
                 "roguelike"
             ],

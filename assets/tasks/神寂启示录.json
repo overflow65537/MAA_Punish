@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "神寂启示录",
-            "label": "神寂黙示録",
+            "label": "$神寂启示录",
             "group": [
                 "roguelike"
             ],

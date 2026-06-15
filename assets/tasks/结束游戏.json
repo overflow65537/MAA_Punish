@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "结束游戏",
-            "label": "ゲーム終了",
+            "label": "$结束游戏",
             "group": [
                 "daily"
             ],

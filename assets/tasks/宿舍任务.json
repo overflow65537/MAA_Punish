@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "宿舍任务",
-            "label": "宿舎任務",
+            "label": "$宿舍任务",
             "group": [
                 "daily"
             ],

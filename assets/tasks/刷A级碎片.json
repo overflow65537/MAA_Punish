@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "刷A级碎片",
-            "label": "Aグレード欠片収集",
+            "label": "$刷A级碎片",
             "group": [
                 "daily"
             ],

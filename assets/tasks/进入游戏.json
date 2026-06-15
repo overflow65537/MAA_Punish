@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "进入游戏",
-            "label": "ゲーム起動",
+            "label": "$进入游戏",
             "group": [
                 "daily"
             ],

@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "洗词缀",
-            "label": "アフィックスリセット",
+            "label": "$洗词缀",
             "group": [
                 "tools"
             ],

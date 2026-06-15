@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "领取任务",
-            "label": "任務受取",
+            "label": "$领取任务",
             "group": [
                 "daily"
             ],
