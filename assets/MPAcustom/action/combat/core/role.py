@@ -89,6 +89,7 @@ class BaseRole:
         if self.combat.switch_to_color(target_color):
             self.reset_state()
             return True
+        self.action.logger.warning("切人失败")
         return False
 
     def reset_state(self) -> None:

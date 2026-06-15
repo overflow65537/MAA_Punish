@@ -26,7 +26,8 @@ import time
 
 from MPAcustom.action.combat.core.role import BaseRole
 
-# Pipeline: Check_Characters_Skill.jsonc
+# Pipeline: Auto_Battle/Check_Characters_Skill/
+#   Common.jsonc / 囚影.jsonc 等
 #   检查大太刀无光值     → 颜色 + 文本 And，判定大太刀形态
 #   检查大太刀无光值_文本 → OCR 读数 (0~600)，登龙阈值用
 #   检查小太刀无光值     → 颜色 + 文本 And，判定小太刀形态
@@ -34,7 +35,7 @@ _GREAT_LIGHT_NODE = "检查大太刀无光值"
 _GREAT_LIGHT_TEXT_NODE = "检查大太刀无光值_文本"
 _SMALL_LIGHT_NODE = "检查小太刀无光值"
 _SMALL_LIGHT_TEXT_NODE = "检查小太刀无光值_文本"
-# 闪避后特殊连段窗口（请在 Check_Characters_Skill.jsonc 中添加）
+# 闪避后特殊连段窗口（Check_Characters_Skill/囚影.jsonc）
 _SMALL_SPECIAL_NODE = "检查小太刀特殊攻击"
 _GREAT_SPECIAL_NODE = "检查大太刀特殊攻击"
 # 登龙：无光 OCR 达标后按下闪避充能 → 松开 → 红色无光 → 长按攻击

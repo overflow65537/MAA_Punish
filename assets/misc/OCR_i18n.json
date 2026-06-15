@@ -80,7 +80,7 @@
         "zh_TW": ""
     },
     "检查支援类型角色是否被选中": {
-        "path": "assets/resource/base/pipeline/Auto_Battle/Check_Characters_Skill.jsonc",
+        "path": "assets/resource/base/pipeline/Auto_Battle/Check_Characters_Skill/Common.jsonc",
         "zh_CN": "编队中",
         "zh_TW": "編隊中"
     },

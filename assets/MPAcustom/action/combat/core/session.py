@@ -32,7 +32,11 @@ from typing import TYPE_CHECKING, Any
 from MPAcustom.action.combat.core.provider import BaseCombatCheck
 from MPAcustom.action.combat.core.role import BaseRole, SwitchPriority
 from MPAcustom.action.combat.core.role_factory import create_role
-from MPAcustom.action.combat.core.switch import click_qte_by_color
+from MPAcustom.action.combat.core.switch import (
+    choose_general_rotation_color,
+    click_qte_until_done,
+    detect_visible_team_colors,
+)
 from MPAcustom.action.combat.core.team import TEAM_COLORS, TeamSnapshot
 from MPAcustom.action.combat.config.LoadSetting import ROLE_ACTIONS
 from MPAcustom.logger_component import LoggerComponent
@@ -60,7 +64,7 @@ class CombatTask:
     WAIT_POLL_INTERVAL = 0.2
     COMBAT_UI_LOST_TIMEOUT = 20.0
     SWITCH_COOLDOWN = 15.0
-    SWITCH_STUB = True  # 调试：屏蔽实际切人，相关方法直接返回 True
+    SWITCH_DISABLED = False
 
     def __init__(
         self,
@@ -224,25 +228,23 @@ class CombatTask:
         return self.roles.get(self.team.current.upper())
 
     def choose_switch_color(self, requester: BaseRole) -> str | None:
-        """选切人目标色位。Phase 4 可扩展 buff 优先级。"""
-        if self.SWITCH_STUB:
-            if self.team is None:
-                return None
-            others = self.team.other_colors()
-            return others[0] if others else None
-
+        """选切人目标色位。"""
         if self.team is None:
             return None
 
-        qte_colors = set(
-            self.combat_check.detect_qte_colors(self.context, self)
-        )
-        candidates = [c for c in self.team.other_colors() if c in qte_colors]
-        if not candidates:
+        visible = set(detect_visible_team_colors(self.context, self.frame))
+        others = [c for c in self.team.other_colors() if c in visible]
+        if not others:
             return None
 
+        if requester.cls_name == "GeneralFight":
+            rotated = choose_general_rotation_color(self.context, self.frame)
+            if rotated and rotated in others:
+                return rotated
+            return others[0]
+
         allowed: list[tuple[str, SwitchPriority, BaseRole]] = []
-        for color in candidates:
+        for color in others:
             role = self.roles.get(color)
             if role is None:
                 continue
@@ -258,11 +260,16 @@ class CombatTask:
             return must_targets[0]
 
         requester_type = _role_type_for_cls(requester.cls_name)
-        if requester_type == "Attacker":
-            for prefer_type in ("Support", "Tank"):
-                for color, _, role in allowed:
-                    if _role_type_for_cls(role.cls_name) == prefer_type:
-                        return color
+        prefer_types = {
+            "Attacker": ("Support", "Tank"),
+            "Support": ("Tank", "Attacker"),
+            "Tank": ("Attacker", "Support"),
+        }.get(requester_type, ())
+
+        for prefer_type in prefer_types:
+            for color, _, role in allowed:
+                if _role_type_for_cls(role.cls_name) == prefer_type:
+                    return color
 
         return allowed[self.loop_count % len(allowed)][0]
 
@@ -270,14 +277,15 @@ class CombatTask:
         node = self.context.get_node_data("自动切换") or {}
         return bool(node.get("enabled", False))
 
+    def is_switch_disabled(self) -> bool:
+        return bool(self.SWITCH_DISABLED)
+
     def get_current_cls(self) -> str | None:
         if self.team is None:
             return None
         return self.team.current_cls()
 
     def can_switch(self) -> bool:
-        if self.SWITCH_STUB:
-            return True
         if self.last_switch_time <= 0:
             return True
         return (time.monotonic() - self.last_switch_time) >= self.switch_cooldown
@@ -290,8 +298,12 @@ class CombatTask:
 
     def switch_to_color(self, color: str) -> bool:
         """
-        按色位切人。CD 未好或 QTE 不可见时立即返回 False，不阻塞等待。
+        按色位切人：识别 QTE → 点击并等待切换动画结束。
         """
+        if self.SWITCH_DISABLED:
+            self.logger.debug("切人已暂时屏蔽")
+            return False
+
         if self.team is None:
             return False
 
@@ -303,19 +315,6 @@ class CombatTask:
         if target == self.team.current.upper():
             return False
 
-        if self.SWITCH_STUB:
-            self.team.current = target
-            self.last_switch_time = time.monotonic()
-            target_role = self.roles.get(target)
-            if target_role is not None:
-                target_role.reset_state()
-            self.logger.info(
-                "切人 stub -> %s (%s)",
-                target,
-                self.team.current_cls(),
-            )
-            return True
-
         if not self.can_switch():
             self.logger.debug(
                 "切人 CD 中，剩余 %.1fs",
@@ -323,12 +322,17 @@ class CombatTask:
             )
             return False
 
-        available = self.combat_check.detect_qte_colors(self.context, self)
-        if target not in available:
-            self.logger.debug("色位 %s 不在当前 QTE 区: %s", target, available)
+        visible = detect_visible_team_colors(self.context, self.frame)
+        if target not in visible:
+            self.logger.debug("色位 %s 不在当前 QTE 区: %s", target, visible)
             return False
 
-        if not click_qte_by_color(self.context, target, self.frame):
+        current_role = self.get_current_role()
+        tick = current_role.action.attack if current_role is not None else None
+
+        if not click_qte_until_done(
+            self.context, target, self.frame, tick_callback=tick
+        ):
             self.logger.warning("点击 QTE 失败: %s", target)
             return False
 

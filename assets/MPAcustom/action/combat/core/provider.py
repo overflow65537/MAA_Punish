@@ -30,6 +30,7 @@ from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING, Any
 
 from MPAcustom.action.combat.core.role_detect import detect_current_role
+from MPAcustom.action.combat.core.switch import detect_visible_team_colors
 from MPAcustom.action.combat.core.team import TeamSnapshot
 
 if TYPE_CHECKING:
@@ -61,10 +62,9 @@ class BaseCombatCheck(ABC):
         return None
 
     def detect_qte_colors(self, context: Context, combat: CombatTask) -> list[str]:
-        """当前 QTE 换人区可见色位（最多 2 个）。默认：除 current 外两色。"""
-        if combat.team is None:
-            return []
-        return list(combat.team.other_colors())
+        """当前 QTE 换人区可见色位（R/B/Y）。"""
+        image = self._get_frame(context, combat)
+        return detect_visible_team_colors(context, image)
 
     def combat_end_condition(self, context: Context, combat: CombatTask) -> bool:
         """额外结束条件（如 Boss 死亡、任务完成）。默认不主动结束。"""

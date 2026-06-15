@@ -1,0 +1,48 @@
+{
+    "检查比安卡·深痕一阶段": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1113,
+                    556,
+                    138,
+                    142
+                ],
+                "template": [
+                    "自定义战斗/深痕.png"
+                ],
+                "green_mask": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查核心被动_深痕": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    994,
+                    569,
+                    122,
+                    125
+                ],
+                "lower": [
+                    68,
+                    69,
+                    89
+                ],
+                "upper": [
+                    169,
+                    165,
+                    204
+                ]
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    }
+}

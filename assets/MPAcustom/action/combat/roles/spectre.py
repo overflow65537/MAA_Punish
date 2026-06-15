@@ -67,8 +67,8 @@ class Spectre(BaseRole):
                     time.sleep(0.05)
 
             self.action.auxiliary_machine()
-            self.switch_next()
-            print("切换完成")
+            if self.switch_next():
+                print("切换完成")
             return
         elif self.action.count_signal_balls() >= 9:
             print("一阶段")

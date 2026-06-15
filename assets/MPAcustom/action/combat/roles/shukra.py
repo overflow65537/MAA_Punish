@@ -41,8 +41,8 @@ class Shukra(BaseRole):
             self.action.use_skill()
             time.sleep(0.1)
             self.action.auxiliary_machine()
-            self.switch_next()
-            print("切换完成")
+            if self.switch_next():
+                print("切换完成")
             return
         elif self.action.count_signal_balls() >= 9:  # 信号球数量大于9
             start_time = time.time()

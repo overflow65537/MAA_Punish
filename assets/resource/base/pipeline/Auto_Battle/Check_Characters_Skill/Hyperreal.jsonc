@@ -1,0 +1,47 @@
+{
+    "检查核心技能_超刻": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    739,
+                    606,
+                    45,
+                    41
+                ],
+                "lower": [
+                    110,
+                    160,
+                    245
+                ],
+                "upper": [
+                    125,
+                    175,
+                    255
+                ],
+                "connected": true,
+                "count": 10
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查核心技能结束_超刻": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    451,
+                    622,
+                    383,
+                    94
+                ],
+                "expected": "\\d+"
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    }
+}

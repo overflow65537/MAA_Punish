@@ -57,8 +57,8 @@ class Hyperreal(BaseRole):
                 self.action.attack()
             self.action.logger.info("核心技能结束")
             self.action.auxiliary_machine()
-            self.switch_next()
-            print("切换完成")
+            if self.switch_next():
+                print("切换完成")
             return
         else:
             self.action.logger.info("核心技能未就绪")
