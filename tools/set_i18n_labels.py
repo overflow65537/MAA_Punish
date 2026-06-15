@@ -43,6 +43,7 @@ for filename in sorted(os.listdir(TASKS_DIR)):
 
     updated.append(f"{filename}: '{current_label}' -> '{expected_label}'")
 
+
 print(f"Updated {len(updated)} files:")
 for u in updated:
     print(f"  {u}")
