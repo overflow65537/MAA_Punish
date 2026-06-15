@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(xargs grep -l \"i18n\\\\|translate\\\\|locale\\\\|ja_JP\")"
-    ]
-  }
-}
