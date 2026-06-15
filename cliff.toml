@@ -19,8 +19,7 @@ footer = """
 {% if latest_version %}
 **绝大部分用户请下载 [MPA-win-x86_64-{{ latest_version }}.zip]({{ self::remote_url() }}/releases/download/{{ latest_version }}/MPA-win-x86_64-{{ latest_version }}.zip)** | [已有 Mirror酱 CDK？点击前往高速下载](https://mirrorchyan.com/zh/projects?rid=MAA_Punish&source=MPA_gh_release)
 {% else %}
-**绝大部分用户请下载 MPA-win-x86_64-vx.x.x.zip，没找到的请点 show all x assets** | [已有 Mirror酱 CDK？点击前往高速下载](https://mirrorchyan.com/zh/projects?rid=MAA_Punish&source=MPA_gh_release)
-{% endif %}
+**绝大部分用户请下载 MPA-win-x86_64-vx.x.x.zip，没找到的请点 show all x assets** | 
 <!--本软件完全免费，若您有付费购买请立即退款并举报！-->
 """
 
