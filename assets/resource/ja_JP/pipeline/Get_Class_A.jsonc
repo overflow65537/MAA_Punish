@@ -1,0 +1,428 @@
+{
+    "刷A级碎片": {
+        "next": [
+            "检查是否是资源副本界面",
+            "[JumpBack]进入资源副本",
+            "[JumpBack]打开战斗",
+            "[JumpBack]意外点击_限定活动"
+        ]
+    },
+    "检查是否是资源副本界面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    247,
+                    106,
+                    120,
+                    45
+                ],
+                "expected": [
+                    "隊員の欠片"
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "A级角色",
+            "[JumpBack]滑动角色碎片界面",
+            "返回主菜单"
+        ]
+    },
+    "进入资源副本": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    887,
+                    651,
+                    150,
+                    66
+                ],
+                "expected": [
+                    "資源"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "滑动角色碎片界面": {
+        "max_hit": 25,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    247,
+                    107,
+                    107,
+                    41
+                ],
+                "expected": [
+                    "隊員"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    556,
+                    506
+                ],
+                "end": [
+                    [
+                        358,
+                        506
+                    ],
+                    [
+                        358,
+                        700
+                    ]
+                ],
+                "end_hold": 500
+            }
+        },
+        "post_delay": 0
+    },
+    "A级角色": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    260,
+                    450,
+                    1000,
+                    130
+                ],
+                "expected": ""
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "使用体力刷碎片",
+            "未解锁自动作战"
+        ]
+    },
+    "未解锁自动作战": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    939,
+                    621,
+                    250,
+                    69
+                ],
+                "expected": [
+                    "^战斗$",
+                    "^戰鬥$",
+                    "^戦闘$",
+                    "^戦闘準備$",
+                    "^準備$"
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "返回主菜单"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:Tomato]未解锁自动作战[/color]"
+        }
+    },
+    "使用体力刷碎片":{
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    955,
+                    630,
+                    100,
+                    50
+                ],
+                "expected": [
+                    "オート",
+                    "才"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "A_MAX",
+            "A_挑战次数不足"
+        ]
+    },
+    "A_挑战次数不足": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    450,
+                    330,
+                    300,
+                    50
+                ],
+                "expected": [
+                    "挑戦回数が不足しています",
+                    "挑戦回数",
+                    "しています"
+                ]
+            }
+        },
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "A_MAX": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    286,
+                    497,
+                    100,
+                    60
+                ],
+                "expected": [
+                    "MAX"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "A_确认出战"
+        ]
+    },
+    "A_确认出战": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1012,
+                    486,
+                    251,
+                    63
+                ],
+                "expected": [
+                    "確認",
+                    "確定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 3000,
+        "next": [
+            "A_出战结束_确认",
+            "A_血清组",
+            "返回主菜单"
+        ]
+    },
+    "补给包不足": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    341,
+                    368,
+                    160,
+                    81
+                ],
+                "expected": [
+                    "黒パス"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    656,
+                    600
+                ]
+            }
+        },
+        "next": [
+            "补给包不足_next"
+        ]
+    },
+    "补给包不足_next": {
+        "next": [
+            "退出自动作战",
+            "退出战斗界面",
+            "返回主菜单"
+        ]
+    },
+    "退出自动作战": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "出撃を確認"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    410,
+                    25
+                ]
+            }
+        },
+        "next": [
+            "补给包不足_next"
+        ]
+    },
+    "退出战斗界面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "オート"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    410,
+                    25
+                ]
+            }
+        },
+        "next": [
+            "补给包不足_next"
+        ]
+    },
+    "A_血清组": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    845,
+                    268,
+                    195,
+                    64
+                ],
+                "expected": [
+                    "注射血清",
+                    "血清注射"
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "A_使用体力",
+            "A_不使用体力"
+        ]
+    },
+    "A_使用体力": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    859,
+                    586,
+                    67,
+                    38
+                ],
+                "expected": [
+                    "確定",
+                    "確認"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 2000,
+        "next": [
+            "A_体力取消",
+            "[JumpBack]关闭奖励"
+        ]
+    },
+    "A_体力取消": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    664,
+                    588,
+                    120,
+                    50
+                ],
+                "expected": [
+                    "キャンセル"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "A_MAX"
+        ]
+    },
+    "A_不使用体力": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    664,
+                    588,
+                    57,
+                    44
+                ],
+                "expected": [
+                    "キャンセル"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "A_出战结束_确认": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1077,
+                    623,
+                    176,
+                    88
+                ],
+                "expected": [
+                    "確定",
+                    "確認"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "返回主菜单"
+        ]
+    }
+}

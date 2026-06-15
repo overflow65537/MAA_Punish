@@ -1,0 +1,325 @@
+{
+    "攻击": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1200,
+                    690
+                ]
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "闪避": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1056,
+                    690
+                ]
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "技能": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    915,
+                    690
+                ]
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "长按攻击": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    1200,
+                    690
+                ],
+                "end": [
+                    1200,
+                    690
+                ],
+                "duration": 1000
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "长按闪避": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    1056,
+                    690
+                ],
+                "end": [
+                    1056,
+                    690
+                ],
+                "duration": 1000
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "长按技能": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    915,
+                    690
+                ],
+                "end": [
+                    915,
+                    690
+                ],
+                "duration": 1000
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "按下攻击": {
+        "pre_delay": 0,
+        "action": {
+            "type": "TouchDown",
+            "param": {
+                "target": [
+                    1200,
+                    690
+                ],
+                "contact": 0
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "按下闪避": {
+        "pre_delay": 0,
+        "action": {
+            "type": "TouchDown",
+            "param": {
+                "target": [
+                    1056,
+                    690
+                ],
+                "contact": 0
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "松开闪避": {
+        "pre_delay": 0,
+        "action": {
+            "type": "TouchUp",
+            "param": {
+                "contact": 0
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "qte1": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1208,
+                    154
+                ]
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "qte2": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1208,
+                    265
+                ]
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "长按1号球": {
+        "pre_delay": 0,
+        "action": {
+            "type": "LongPress",
+            "param": {
+                "target": [
+                    1220,
+                    500
+                ],
+                "duration": 3000
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "消球1": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1220,
+                    500
+                ]
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "消球2": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1111,
+                    500
+                ]
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "消球3": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1003,
+                    500
+                ]
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "消球4": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    894,
+                    500
+                ]
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "消球5": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    786,
+                    500
+                ]
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "消球6": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    677,
+                    500
+                ]
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "消球7": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    569,
+                    500
+                ]
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "消球8": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    460,
+                    500
+                ]
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "锁定视角": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1108,
+                    383
+                ]
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "辅助机": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1214,
+                    387
+                ]
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    }
+}

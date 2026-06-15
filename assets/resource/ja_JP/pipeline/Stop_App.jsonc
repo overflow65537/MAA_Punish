@@ -1,0 +1,38 @@
+{
+    "关闭": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Notice",
+                "custom_action_param": {
+                    "action": "show_black_card"
+                }
+            }
+        },
+        "next": [
+            "DiscordNotify_完成",
+            "停止"
+        ]
+    },
+    "DiscordNotify_完成": {
+        "enabled": false,
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "DiscordNotify",
+                "custom_action_param": {}
+            }
+        },
+        "next": [
+            "停止"
+        ]
+    },
+    "停止": {
+        "action": {
+            "type": "StopApp",
+            "param": {
+                "package": "com.herogame.gplay.punishing.grayraven.jp"
+            }
+        }
+    }
+}

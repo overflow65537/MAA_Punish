@@ -1,0 +1,466 @@
+{
+    "指挥局": {
+        "next": [
+            "检查是否在指挥局内部",
+            "[JumpBack]打开指挥局",
+            "[JumpBack]切换主界面状态",
+            "[JumpBack]意外点击_主界面"
+        ]
+    },
+    "检查是否在指挥局内部": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    282,
+                    0,
+                    166,
+                    75
+                ],
+                "expected": [
+                    "新版指挥局",
+                    "新版指揮局",
+                    "新師団",
+                    "ギルド",
+                    "師団",
+                    "新"
+                ]
+            }
+        },
+        "next": [
+            "检查指定按钮",
+            "[JumpBack]移动_蔚蓝之夏",
+            "[JumpBack]移动_岁雪新宵",
+            "[JumpBack]移动_庭梨栖雪",
+            "[JumpBack]移动_漫花清夏",
+            "[JumpBack]移动_鲸律星屿",
+            "[JumpBack]移动_云海空岛",
+            "[JumpBack]移动_经典舱室"
+        ]
+    },
+    "识别文字颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    990,
+                    18,
+                    223,
+                    34
+                ],
+                "lower": [
+                    150,
+                    150,
+                    150
+                ],
+                "upper": [
+                    255,
+                    255,
+                    255
+                ],
+                "count": 20
+            }
+        }
+    },
+    "检查指定按钮": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    874,
+                    273,
+                    242,
+                    167
+                ],
+                "expected": [
+                    "(^算|签$)",
+                    "查看签文",
+                    "查看籤文",
+                    "おみくじ",
+                    "みくじ",
+                    "署名を確認",
+                    "くじ引き",
+                    "く",
+                    "解説を見る",
+                    "解説",
+                    "見"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
+        "next": [
+            "检查主界面2",
+            "[JumpBack]关闭奖励_指挥局",
+            "[JumpBack]返回",
+            "[JumpBack]返回_图标"
+        ]
+    },
+    "识别_鲸律星屿": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "识别文字颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
+                "expected": [
+                    "鲸律星屿",
+                    "鯨律星嶼",
+                    "ホエールソング"
+                ],
+                "replace": [
+                    [
+                        "鯨",
+                        "鲸"
+                    ]
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "移动_鲸律星屿": {
+        "max_hit": 20,
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "识别文字颜色",
+                    "识别_鲸律星屿"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    281,
+                    451
+                ],
+                "end": [
+                    281,
+                    451
+                ]
+            }
+        }
+    },
+    "识别_经典舱室": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "识别文字颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
+                "expected": [
+                    "经典舱室",
+                    "經典艙室",
+                    "クラシックキャビン",
+                    "クラシック",
+                    "经典",
+                    "キャビン"
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "移动_经典舱室": {
+        "max_hit": 20,
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "识别文字颜色",
+                    "识别_经典舱室"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    279,
+                    542
+                ],
+                "end": [
+                    350,
+                    542
+                ]
+            }
+        }
+    },
+    "识别_庭梨栖雪": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "识别文字颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
+                "expected": [
+                    "庭梨栖雪",
+                    "庭梨棲雪",
+                    "庭園の梨雪"
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "移动_庭梨栖雪": {
+        "max_hit": 20,
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "识别文字颜色",
+                    "识别_庭梨栖雪"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    279,
+                    542
+                ],
+                "end": [
+                    350,
+                    542
+                ]
+            }
+        }
+    },
+    "识别_岁雪新宵": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "识别文字颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
+                "expected": [
+                    "岁雪新宵",
+                    "歲雪新宵",
+                    "深雪の新宵"
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "移动_岁雪新宵": {
+        "max_hit": 20,
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "识别文字颜色",
+                    "识别_岁雪新宵"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    279,
+                    542
+                ],
+                "end": [
+                    350,
+                    542
+                ]
+            }
+        }
+    },
+    "识别_蔚蓝之夏": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "识别文字颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
+                "expected": [
+                    "蔚蓝之",
+                    "蔚藍之",
+                    "コバルト"
+                ],
+                "replace": [
+                    [
+                        "尉",
+                        "蔚"
+                    ],
+                    [
+                        "南",
+                        "蔚"
+                    ]
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "移动_蔚蓝之夏": {
+        "max_hit": 20,
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "识别文字颜色",
+                    "识别_蔚蓝之夏"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    279,
+                    542
+                ],
+                "end": [
+                    350,
+                    542
+                ]
+            }
+        }
+    },
+    "识别_云海空岛": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "识别文字颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
+                "expected": [
+                    "云海空岛",
+                    "雲海空島",
+                    "雲海の空島"
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "移动_云海空岛": {
+        "max_hit": 20,
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "识别文字颜色",
+                    "识别_云海空岛"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    279,
+                    542
+                ],
+                "end": [
+                    350,
+                    542
+                ]
+            }
+        }
+    },
+    "识别_漫花清夏": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "识别文字颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    10,
+                    10
+                ],
+                "expected": [
+                    "漫花清夏",
+                    "清夏"
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "移动_漫花清夏": {
+        "max_hit": 20,
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "识别文字颜色",
+                    "识别_漫花清夏"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    279,
+                    542
+                ],
+                "end": [
+                    350,
+                    542
+                ]
+            }
+        }
+    },
+    "关闭奖励_指挥局": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    600,
+                    570,
+                    200,
+                    200
+                ],
+                "expected": [
+                    "已领取",
+                    "已領取",
+                    "受取済み"
+                ]
+            }
+        },
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    833,
+                    100
+                ]
+            }
+        },
+        "post_delay": 1500
+    }
+}

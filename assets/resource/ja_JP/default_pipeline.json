@@ -1,0 +1,11 @@
+{
+    "Default": {
+        "on_error": [
+            "返回主菜单_err"
+        ]
+    },
+    "global": {
+        "i18n": "OCR_i18n.json",
+        "template_match_threshold": 0.40
+    }
+}

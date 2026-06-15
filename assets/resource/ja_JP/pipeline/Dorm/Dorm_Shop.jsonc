@@ -1,0 +1,530 @@
+{
+    "宿舍任务_皮肤": {
+        "next": [
+            "在宿舍币商店中",
+            "[JumpBack]关闭奖励",
+            "[JumpBack]选择宿舍币商店",
+            "[JumpBack]打开宿舍商店",
+            "[JumpBack]打开宿舍",
+            "[JumpBack]切换主界面状态",
+            "[JumpBack]意外点击_商店物品"
+        ]
+    },
+    "宿舍任务_遣测": {
+        "next": [
+            "遣测商店内部",
+            "[JumpBack]关闭奖励",
+            "[JumpBack]打开遣测商店",
+            "[JumpBack]打开宿舍商店",
+            "[JumpBack]打开宿舍",
+            "[JumpBack]切换主界面状态",
+            "[JumpBack]意外点击_商店物品"
+        ]
+    },
+    "意外点击_商店物品": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    700,
+                    620,
+                    120,
+                    70
+                ],
+
+                "template": "界面/大廳/購入.png",
+                "threshold": 0.6,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1221,
+                    74,
+                    1,
+                    1
+                ]
+            }
+        }
+    },
+    "错误购买": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    551,
+                    206,
+                    175,
+                    42
+                ],
+                "expected": [
+                    "入住凭证",
+                    "入住憑證",
+                    "入居許可書",
+                    "碎片",
+                    "逆元欠片",
+                    "超频",
+                    "超頻",
+                    "オーバークロック"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1199,
+                    69
+                ]
+            }
+        },
+        "post_delay": 2000,
+        "next": [
+            "购买物品"
+        ]
+    },
+    "打开遣测商店": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    {
+                        "sub_name": "_目标文字",
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    9,
+                                    156,
+                                    267,
+                                    442
+                                ],
+                                "expected": [
+                                    "遣测商店",
+                                    "遣測商店",
+                                    "ストア"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": "_目标文字",
+                                "lower": [
+                                    167,
+                                    178,
+                                    200
+                                ],
+                                "upper": [
+                                    244,
+                                    245,
+                                    248
+                                ],
+                                "connected": true,
+                                "count": 500
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500
+    },
+    "购买碎片失败_宿舍": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    521,
+                    338,
+                    240,
+                    37
+                ],
+                "expected": [
+                    "超过商店可购买的数量",
+                    "購入可能數を超えました",
+                ],
+                "replace": [
+                    [
+                        "招",
+                        "超"
+                    ],
+                    [
+                        "绍",
+                        "超"
+                    ],
+                    [
+                        "可可",
+                        "可"
+                    ]
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    646,
+                    115
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "关闭界面_宿舍"
+        ]
+    },
+    "关闭界面_宿舍": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1195,
+                    30,
+                    61,
+                    61
+                ],
+                "template": "购买碎片/关闭_1195_30_61_61__1119_0_161_161.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "遣测商店内部": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    {
+                        "sub_name": "_目标文字",
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    9,
+                                    156,
+                                    267,
+                                    442
+                                ],
+                                "expected": [
+                                    "遣测商店",
+                                    "遣測商店",
+                                    "ストア"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": "_目标文字",
+                                "lower": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "upper": [
+                                    47,
+                                    47,
+                                    47
+                                ],
+                                "connected": true,
+                                "count": 500
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "推荐物品",
+            "[JumpBack]意外点击_商店物品",
+            "返回主菜单"
+        ]
+    },
+    "在宿舍币商店中": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    {
+                        "sub_name": "_目标文字",
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    9,
+                                    156,
+                                    267,
+                                    442
+                                ],
+                                "expected": [
+                                    "宿舍币商店",
+                                    "宿舍幣商店",
+                                    "メダルストア"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": "_目标文字",
+                                "lower": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "upper": [
+                                    47,
+                                    47,
+                                    47
+                                ],
+                                "connected": true,
+                                "count": 500
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "post_delay": 1500,
+        "next": [
+            "推荐物品",
+            "[JumpBack]意外点击_商店物品",
+            "返回主菜单"
+        ]
+    },
+    "翻到底了_遣测": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1023,
+                    217,
+                    246,
+                    175
+                ],
+                "expected": [
+                    "武器塗装設計図",
+                    "完売"
+                ]
+            }
+        },
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "翻到底了_宿舍": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1048,
+                    347,
+                    231,
+                    30
+                ],
+                "expected": [
+                    "ギフト・普通",
+                    "ギフト",
+                    "普通"
+                ]
+            }
+        },
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "购买_宿舍": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    310,340,
+                    178,
+                    39
+                ],
+                "expected": [
+                    "涂装设计草稿",
+                    "塗裝設計草稿",
+                    "塗装設計図の下描き",
+                    "塗装設計図"
+                ],
+                "only_rec": true
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "错误购买",
+            "点击购买_宿舍"
+        ]
+    },
+    "点击购买_宿舍": {
+         "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    731,
+                    646,
+                    71,
+                    45
+                ],
+                "expected": [
+                    "購入"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "购买碎片失败_宿舍",
+            "购买成功"
+        ]
+    },
+    "购买成功": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    521,
+                    338,
+                    250,
+                    50
+                ],
+                "expected": [
+                    "购买成功",
+                    "購買成功",
+                    "購入しました"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    600,
+                    20
+                ]
+            }
+        },
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "打开宿舍商店": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    252,
+                    648,
+                    81,
+                    38
+                ],
+                "expected": [
+                    "商店",
+                    "ストア"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "选择宿舍币商店": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    {
+                        "sub_name": "_目标文字",
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    9,
+                                    156,
+                                    267,
+                                    442
+                                ],
+                                "expected": [
+                                    "宿舍币商店",
+                                    "宿舍幣商店",
+                                    "メダルストア"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": "_目标文字",
+                                "lower": [
+                                    167,
+                                    178,
+                                    200
+                                ],
+                                "upper": [
+                                    244,
+                                    245,
+                                    248
+                                ],
+                                "connected": true,
+                                "count": 500
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500
+    },
+    "推荐物品": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    208,
+                    405,
+                    999,
+                    44
+                ],
+                "expected": [
+                    "可购",
+                    "可購",
+                    "購入可能"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500,
+        "next": [
+            "错误购买",
+            "购买_宿舍"
+        ]
+    }
+}
