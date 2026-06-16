@@ -98,12 +98,16 @@
     "resource": [
         {
             "name": "简体中文",
+            "label": "简体中文",
+            "description": "<p>国服 / 简体客户端请选此项。</p>",
             "path": [
                 "./resource/base"
             ]
         },
         {
             "name": "繁体中文",
+            "label": "繁体中文",
+            "description": "<p>台服、Steam 繁中客户端（窗口标题为「戰雙帕彌什」）<strong>必须</strong>选择此项，否则 OCR 会按简体文字匹配导致任务卡死。</p><p>与界面语言设为繁体中文不同：请在「资源」或「资源包」下拉框中确认已选「繁体中文」。</p>",
             "path": [
                 "./resource/base",
                 "./resource/zh_TW"
