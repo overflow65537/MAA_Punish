@@ -1,615 +1,185 @@
 {
     "获得奖励_神寂启示录": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    197,
-                    75,
-                    295,
-                    78
-                ],
                 "expected": [
                     "获得",
                     "獲得",
                     "奖励",
                     "獎勵"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    1106,
-                    118,
-                    5,
-                    5
-                ]
-            }
-        },
-        "post_delay": 2500
+        }
     },
     "选择奖励_神寂启示录": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    529,
-                    16,
-                    247,
-                    108
-                ],
                 "expected": [
                     "选择奖励",
                     "選擇獎勵"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "点击选择奖励_神寂启示录",
-            "空任务"
-        ]
+        }
     },
     "点击选择奖励_神寂启示录": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    180,
-                    548,
-                    964,
-                    111
-                ],
                 "expected": [
                     "选择",
                     "選擇"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "选择技能_神寂启示录": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    289,
-                    181,
-                    114,
-                    44
-                ],
                 "expected": [
                     "选择技能",
                     "選擇技能"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    132,
-                    410
-                ]
-            }
-        },
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000
-        },
-        "next": [
-            "装备技能_神寂启示录",
-            "空任务"
-        ]
+        }
     },
     "装备技能_神寂启示录": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    623,
-                    563,
-                    81,
-                    39
-                ],
                 "expected": [
                     "选择",
                     "選擇"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000
-        },
-        "next": [
-            "[JumpBack]背包已满_神寂启示录",
-            "空任务"
-        ]
+        }
     },
     "背包已满_神寂启示录": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    505,
-                    331,
-                    289,
-                    62
-                ],
                 "expected": [
                     "背包已满",
                     "背包已滿"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "出售_神寂启示录",
-            "[JumpBack]选择界面未关闭",
-            "[JumpBack]点击多余技能_神寂启示录"
-        ]
+        }
     },
     "选择界面未关闭": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    623,
-                    563,
-                    81,
-                    39
-                ],
                 "expected": [
                     "选择",
                     "選擇"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    169,
-                    622
-                ]
-            }
-        }
-    },
-    "出售_神寂启示录": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    439,
-                    505,
-                    162,
-                    69
                 ],
-                "expected": "出售"
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "点击多余技能_神寂启示录": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    608,
-                    656
-                ]
+                "replace": []
             }
         }
     },
     "确认_神寂启示录": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1078,
-                    640,
-                    89,
-                    39
-                ],
                 "expected": [
                     "确认",
                     "確認",
                     "确定",
                     "確定"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "结束战斗_神寂启示录": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1064,
-                    650,
-                    121,
-                    39
-                ],
                 "expected": [
                     "结束",
                     "結束"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "点击开战_神寂启示录": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1039,
-                    569,
-                    240,
-                    150
-                ],
                 "expected": [
                     "开战",
                     "開戰"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "事件完成_神寂启示录": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    24,
-                    59,
-                    1255,
-                    189
                 ],
-                "template": [
-                    "神寂启示录/肉鸽内部_已完成.png",
-                    "神寂启示录/肉鸽内部_待选择.png",
-                    "神寂启示录/肉鸽内部_未到达.png"
-                ]
-            }
-        },
-        "post_delay": 2500,
-        "next": [
-            "事件完成_二次确认_神寂启示录"
-        ]
-    },
-    "事件完成_二次确认_神寂启示录": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    24,
-                    59,
-                    1255,
-                    189
-                ],
-                "template": [
-                    "神寂启示录/肉鸽内部_已完成.png",
-                    "神寂启示录/肉鸽内部_待选择.png",
-                    "神寂启示录/肉鸽内部_未到达.png"
-                ]
+                "replace": []
             }
         }
-    },
-    "战斗中_神寂启示录": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1164,
-                    22,
-                    72,
-                    40
-                ],
-                "expected": "退出"
-            }
-        },
-        "post_delay": 2000
-    },
-    "通用事件处理_神寂启示录": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    26,
-                    665,
-                    110,
-                    54
-                ],
-                "expected": "角色"
-            }
-        },
-        "timeout": 60000,
-        "next": [
-            "事件完成_神寂启示录",
-            "战斗失败_神寂启示录",
-            "[JumpBack]战斗中_神寂启示录",
-            "[JumpBack]点击开战_神寂启示录",
-            "[JumpBack]结束战斗_神寂启示录",
-            "[JumpBack]获得奖励_神寂启示录",
-            "[JumpBack]选择奖励_神寂启示录",
-            "[JumpBack]符纹宝箱_神寂启示录",
-            "[JumpBack]选择技能_神寂启示录",
-            "[JumpBack]选择委托_神寂启示录",
-            "[JumpBack]领取委托_神寂启示录",
-            "[JumpBack]通用事件处理_对话2",
-            "[JumpBack]通用事件处理_对话1"
-        ],
-        "on_error": [
-            "神寂启示录"
-        ]
     },
     "领取委托_神寂启示录": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    545,
-                    567,
-                    189,
-                    96
-                ],
                 "expected": [
                     "确定",
                     "確定",
                     "物品詳情"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "选择委托_神寂启示录": {
         "recognition": {
-            "type": "And",
             "param": {
-                "all_of": [
-                    {
+                "all_of": {
+                    "0": {
                         "recognition": {
-                            "type": "OCR",
                             "param": {
-                                "roi": [
-                                    176,
-                                    545,
-                                    987,
-                                    143
-                                ],
                                 "expected": [
                                     "确定",
                                     "確定"
-                                ]
+                                ],
+                                "replace": []
                             }
                         }
                     },
-                    {
+                    "1": {
                         "recognition": {
-                            "type": "OCR",
                             "param": {
-                                "roi": [
-                                    528,
-                                    0,
-                                    234,
-                                    122
-                                ],
                                 "expected": [
                                     "选择委托",
                                     "選擇委託"
-                                ]
+                                ],
+                                "replace": []
                             }
                         }
                     }
-                ]
+                }
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "符纹宝箱_神寂启示录": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    183,
-                    41,
-                    357,
-                    153
-                ],
                 "expected": [
                     "物品详情",
                     "物品詳情"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    1106,
-                    118,
-                    5,
-                    5
-                ]
-            }
-        },
-        "post_delay": 2500
+        }
     },
     "战斗失败_神寂启示录": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    48,
-                    25,
-                    180,
-                    68
-                ],
                 "expected": [
                     "失败",
                     "戰爭騎士的能力是什么"
-                ]
+                ],
+                "replace": []
             }
         }
-    },
-    "通用事件处理_对话1": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    1065,
-                                    632,
-                                    182,
-                                    55
-                                ],
-                                "lower": [
-                                    173,
-                                    4,
-                                    21
-                                ],
-                                "upper": [
-                                    217,
-                                    33,
-                                    40
-                                ],
-                                "connected": true,
-                                "count": 1000
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    1065,
-                                    632,
-                                    182,
-                                    55
-                                ],
-                                "lower": [
-                                    170,
-                                    170,
-                                    170
-                                ],
-                                "upper": [
-                                    224,
-                                    222,
-                                    222
-                                ],
-                                "count": 100
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "通用事件处理_对话2": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    777,
-                                    352,
-                                    476,
-                                    249
-                                ],
-                                "lower": [
-                                    16,
-                                    24,
-                                    24
-                                ],
-                                "upper": [
-                                    48,
-                                    56,
-                                    61
-                                ],
-                                "connected": true,
-                                "count": 1500
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    777,
-                                    352,
-                                    476,
-                                    249
-                                ],
-                                "lower": [
-                                    194,
-                                    198,
-                                    199
-                                ],
-                                "upper": [
-                                    214,
-                                    217,
-                                    218
-                                ],
-                                "connected": true,
-                                "count": 100
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "通用事件处理_对话1",
-            "空任务"
-        ]
     },
     "情报分析_渡边目标1": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    430,
-                    243,
-                    397,
-                    178
-                ],
                 "expected": [
                     "战争骑士的能力是什么",
                     "渡邊需要力量的理由",
@@ -629,43 +199,25 @@
                     "如何嵌入聖環要塞",
                     "潜入要塞后",
                     "潛入要塞後"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "情报分析_答案1"
-        ]
+        }
     },
     "情报分析_渡边目标2": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    430,
-                    243,
-                    397,
-                    178
-                ],
                 "expected": [
                     "渡边需要力量的理由",
                     "自己如何與死亡騎士結識"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "情报分析_答案2"
-        ]
+        }
     },
     "情报分析_死亡骑士目标1": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    430,
-                    243,
-                    397,
-                    178
-                ],
                 "expected": [
                     "自己如何与死亡骑士结识",
                     "惡魔的起源是",
@@ -677,66 +229,39 @@
                     "如今靈魂爲何無法進入地",
                     "魔女拖延时间的目的是",
                     "魔女拖延時間的目的是"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "情报分析_答案1"
-        ]
+        }
     },
     "情报分析_死亡骑士目标2": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    430,
-                    243,
-                    397,
-                    178
-                ],
                 "expected": [
                     "恶魔的起源是",
                     "如今誰在統治地獄"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "情报分析_答案2"
-        ]
+        }
     },
     "情报分析_死亡骑士目标3": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    430,
-                    243,
-                    397,
-                    178
-                ],
                 "expected": [
                     "如今谁在统治地狱",
                     "萬事現在的身份是",
                     "海妲魔女的能力是",
                     "欧米茄卵会孵化出什么",
                     "歐米茄卵會孵化出什麼"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "情报分析_答案3"
-        ]
+        }
     },
     "情报分析_万事目标1": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    422,
-                    232,
-                    451,
-                    219
-                ],
                 "expected": [
                     "万事现在的身份是",
                     "萬事與我簽訂契約的契機",
@@ -746,23 +271,14 @@
                     "有沒有什麼東西能揭示兇",
                     "死者丧生于什么原因",
                     "死者喪生於什麼原因"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "情报分析_答案1"
-        ]
+        }
     },
     "情报分析_万事目标2": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    422,
-                    232,
-                    451,
-                    219
-                ],
                 "expected": [
                     "万事与我签订契约的契机",
                     "這些案件之間有沒有什么",
@@ -772,43 +288,25 @@
                     "這些活死人生前的身份是",
                     "现场是否有操办仪式之人",
                     "現場是否有操辦儀式之人"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "情报分析_答案2"
-        ]
+        }
     },
     "情报分析_万事目标3": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    422,
-                    232,
-                    451,
-                    219
-                ],
                 "expected": [
                     "这些案件之间有没有什么",
                     "我在哪里與莉莉絲結識的"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "情报分析_答案3"
-        ]
+        }
     },
     "情报分析_莉莉丝目标1": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    422,
-                    232,
-                    451,
-                    219
-                ],
                 "expected": [
                     "我在哪里与莉莉丝结识的",
                     "",
@@ -834,101 +332,6 @@
                     "弈"
                 ]
             }
-        },
-        "next": [
-            "情报分析_答案1"
-        ]
-    },
-    "情报分析_答案1": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    969,
-                    46,
-                    277,
-                    501
-                ],
-                "expected": "",
-                "order_by": "Vertical",
-                "index": 0
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "推演"
-        ]
-    },
-    "情报分析_答案2": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    969,
-                    46,
-                    277,
-                    501
-                ],
-                "expected": "",
-                "order_by": "Vertical",
-                "index": 1
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "推演"
-        ]
-    },
-    "情报分析_答案3": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    969,
-                    46,
-                    277,
-                    501
-                ],
-                "expected": "",
-                "order_by": "Vertical",
-                "index": 2
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "推演"
-        ]
-    },
-    "情报分析_答案4": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    969,
-                    46,
-                    277,
-                    501
-                ],
-                "expected": "",
-                "order_by": "Vertical",
-                "index": 3
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "推演"
-        ]
+        }
     }
 }

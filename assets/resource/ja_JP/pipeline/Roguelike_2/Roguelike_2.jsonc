@@ -1,134 +1,50 @@
 {
     "厄愿潮声": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "识别人物": {
-                        "enabled": true
-                    }
-                }
-            }
-        },
-        "next": [
-            "[JumpBack]覆盖布局菜单",
-            "肉鸽内部_厄愿潮声",
-            "[JumpBack]不可重复获得该秘藏品",
-            "[JumpBack]选择宝箱奖励_厄愿潮声",
-            "[JumpBack]邀约选择_厄愿潮声",
-            "[JumpBack]调查团组建_厄愿潮声",
-            "[JumpBack]选择难度_厄愿潮声",
-            "[JumpBack]开始旅途_厄愿潮声",
-            "[JumpBack]退出_厄愿潮声",
-            "[JumpBack]下一步_厄愿潮声",
-            "[JumpBack]点击继续",
-            "[JumpBack]确定",
-            "[JumpBack]终止_厄愿潮声",
-            "[JumpBack]打开厄愿潮声",
-            "[JumpBack]打开多维演绎",
-            "[JumpBack]打开时宇漫纪",
-            "[JumpBack]打开挑战",
-            "[JumpBack]打开战斗",
-            "[JumpBack]意外点击_溯渊歧想",
-            "[JumpBack]意外点击_限定活动"
-        ],
         "focus": {
             "Node.Recognition.Succeeded": "[color:ForestGreen]冒険開始[/color]"
         }
     },
     "下一步_厄愿潮声": {
-        "desc": "only_rec的下一步,跳过OCR缓存",
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1101,
-                    631,
-                    99,
-                    44
-                ],
                 "expected": [
                     "次へ",
                     "下一步"
-                ],
-                "only_rec": true
+                ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "不可重复获得该秘藏品": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    401,
-                    265,
-                    468,
-                    132
-                ],
                 "expected": [
-                    "重複獲得不可", // 不可重複獲得日服官方提示
+                    "重複獲得不可",
                     "不可重複獲得",
                     "不可重复获得",
                     "不可重復獲得"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "厄愿潮声主界面",
-            "[JumpBack]打开厄愿潮声",
-            "[JumpBack]打开多维演绎",
-            "[JumpBack]打开挑战",
-            "[JumpBack]打开战斗",
-            "[JumpBack]确定",
-            "[JumpBack]返回"
-        ]
+        }
     },
     "意外点击_溯渊歧想": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    56,
-                    279,
-                    116,
-                    46
-                ],
                 "expected": [
-                    "進行度任務", // 流程任務日服翻譯
+                    "進行度任務",
                     "ルート任務",
                     "流程任务",
                     "流程任務"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    78,
-                    36
-                ]
-            }
-        },
-        "post_delay": 3000
+        }
     },
     "选择宝箱奖励_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    531,
-                    56,
-                    219,
-                    33
-                ],
                 "expected": [
-                    "宝箱報酬", // 寶箱獎勵日服官方譯名
+                    "宝箱報酬",
                     "宝箱報酬を選択",
                     "宝箱奖励",
                     "寶箱獎勵"
@@ -138,1620 +54,240 @@
                     "励"
                 ]
             }
-        },
-        "post_delay": 1000,
-        "next": [
-            "领取藏品_厄愿潮声",
-            "点击藏品_厄愿潮声"
-        ]
+        }
     },
     "肉鸽内部_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1022,
-                    600,
-                    225,
-                    83
-                ],
                 "expected": [
                     "第.章",
                     "第[一二三四五六七八九十百千]+章",
-                    "第[0-90-9]+章" // 額外相容日服的阿拉伯數字「第1章」
+                    "第[0-90-9]+章"
                 ]
             }
-        },
-
-        "next": [
-            "肉鸽失败_厄愿潮声",
-            "[JumpBack]点击继续",
-            "[JumpBack]对话事件_厄愿潮声",
-            "[JumpBack]特殊事件_厄愿潮声",
-            "[JumpBack]商店事件_厄愿潮声",
-            "[JumpBack]战斗事件_厄愿潮声",
-            "[JumpBack]BOSS战_厄愿潮声",
-            "[JumpBack]战斗完成_厄愿潮声"
-        ]
-    },
-    "特殊事件_厄愿潮声": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    228,
-                    120,
-                    963,
-                    131
-                ],
-                "template": [
-                    "厄愿潮声/特殊事件.png"
-                ],
-                "green_mask": true
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "特殊事件确定"
-        ]
-    },
-    "BOSS战_厄愿潮声": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    228,
-                    120,
-                    963,
-                    131
-                ],
-                "template": [
-                    "厄愿潮声/BOSS战.png"
-                ],
-                "green_mask": true,
-                "order_by": "Score"
-            }
-        },
-        "next": [
-            "返回_厄愿潮声"
-        ]
+        }
     },
     "返回_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    76,
-                    18,
-                    62,
-                    34
-                ],
                 "expected": [
-                    "戻る", // 返回日服官方翻譯
+                    "戻る",
                     "返回"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1500,
-        "next": [
-            "确定",
-            "[JumpBack]终止_厄愿潮声"
-        ]
+        }
     },
     "商店事件_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    255,
-                    291,
-                    658,
-                    36
-                ],
                 "expected": [
-                    "シャメ", // 鯊鯊日服官方譯名(シャメ)
-                    "特売", // 特賣日服官方譯名
+                    "シャメ",
+                    "特売",
                     "特売店",
                     "鲨鲨",
                     "鯊鯊",
                     "特卖",
                     "特賣"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "商店确认_厄愿潮声"
-        ]
+        }
     },
     "商店确认_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    230,
-                    496,
-                    912,
-                    59
-                ],
                 "expected": [
                     "確認",
                     "選択",
                     "确认",
                     "选择",
                     "選擇"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "商店_厄愿潮声"
-        ]
-    },
-    "对话事件_厄愿潮声": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    228,
-                    120,
-                    963,
-                    131
                 ],
-                "template": [
-                    "厄愿潮声/文字事件.png"
-                ],
-                "green_mask": true
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "事件确定"
-        ]
+        }
     },
     "事件确定": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    230,
-                    496,
-                    912,
-                    59
-                ],
                 "expected": [
                     "確認",
                     "選択",
                     "确认",
                     "选择",
                     "選擇"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "布道者_厄愿潮声",
-            "悠久之歌_厄愿潮声",
-            "鲨鲨置物箱_厄愿潮声",
-            "名为知识的诅咒_厄愿潮声",
-            "集市_厄愿潮声",
-            "废弃庭院_厄愿潮声",
-            "恶魔配方_厄愿潮声",
-            "军备库_厄愿潮声",
-            "迷雾之梦_厄愿潮声",
-            "旅行剧团_厄愿潮声",
-            "返乡者_厄愿潮声",
-            "命运前路_厄愿潮声",
-            "拾荒者派对_厄愿潮声",
-            "名为禁忌的睿智_厄愿潮声",
-            "遗骨之滨_厄愿潮声",
-            "柯蕾多尔的馈赠_厄愿潮声",
-            "街头艺人_厄愿潮声",
-            "失败者_厄愿潮声",
-            "欢乐时光_厄愿潮声",
-            "藏书库_厄愿潮声",
-            "被完成的谜题_厄愿潮声",
-            "恶魔传说_厄愿潮声",
-            "许愿之井_厄愿潮声",
-            "迷途之子_厄愿潮声",
-            "阵营冲突_厄愿潮声",
-            "珠宝猎人_厄愿潮声",
-            "谨听忠告_厄愿潮声"
-        ]
+        }
     },
     "特殊事件确定": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    230,
-                    496,
-                    912,
-                    59
-                ],
                 "expected": [
                     "確認",
                     "選択",
                     "确认",
                     "选择",
                     "選擇"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "禁忌教堂_厄愿潮声",
-            "另一面圆桌_厄愿潮声"
-        ]
+        }
     },
     "战斗事件_厄愿潮声": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    228,
-                    120,
-                    963,
-                    131
-                ],
-                "template": [
-                    "厄愿潮声/战斗.png",
-                    "厄愿潮声/困难战斗.png"
-                ],
-                "green_mask": true,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "timeout": 300000,
-        "rate_limit": 0,
-        "next": [
-            "战斗完成_厄愿潮声",
-            "战斗失败_厄愿潮声",
-            "[JumpBack]识别人物",
-            "[JumpBack]重启_寒境曙光",
-            "[JumpBack]战斗中",
-            "[JumpBack]跳过战斗对话",
-            "[JumpBack]未选人_寒境曙光",
-            "[JumpBack]作战开始",
-            "[JumpBack]进入战斗_厄愿潮声",
-            "[JumpBack]载入中",
-            "[JumpBack]意外点击_选择人物"
-        ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]戦闘イベント[/color]" // 戰鬥事件日服官方翻譯
+            "Node.Recognition.Succeeded": "[color:ForestGreen]戦闘イベント[/color]"
         }
     },
     "意外点击_选择人物": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    985,
-                    469,
-                    109,
-                    39
-                ],
                 "expected": [
-                    "外す", // 卸下日服翻譯
-                    "編成", // 隊伍日服翻譯
+                    "外す",
+                    "編成",
                     "チーム",
                     "卸下",
                     "队伍",
                     "隊伍"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    78,
-                    36
-                ]
-            }
-        },
-        "post_delay": 5000
+        }
     },
     "进入战斗_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    230,
-                    496,
-                    912,
-                    59
-                ],
                 "expected": [
                     "確認",
                     "選択",
                     "确认",
                     "选择",
                     "選擇"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "战斗完成_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    494,
-                    7,
-                    297,
-                    143
-                ],
                 "expected": [
-                    "戦闘報酬を受け取る", // 領取戰鬥獎勵日服譯名
+                    "戦闘報酬を受け取る",
                     "戦闘報酬獲得",
                     "领取战斗奖励",
                     "領取戰鬥獎勵"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "已领取所有奖励_厄愿潮声",
-            "[JumpBack]选择过秘藏品",
-            "[JumpBack]领取_厄愿潮声",
-            "[JumpBack]领取人物_厄愿潮声",
-            "[JumpBack]意外点击_羁绊选择",
-            "[JumpBack]领取藏品_厄愿潮声",
-            "[JumpBack]关闭奖励_厄愿潮声",
-            "[JumpBack]点击藏品_厄愿潮声",
-            "[JumpBack]取消_厄愿潮声"
-        ]
+        }
     },
     "选择过秘藏品": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    401,
-                    265,
-                    468,
-                    132
-                ],
                 "expected": [
                     "重複獲得不可",
-                    "選択済み", // 已選擇過日服翻譯
+                    "選択済み",
                     "不可重复获得",
                     "不可重復獲得",
                     "已选择过",
                     "已選擇過"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "选择其他秘藏品"
-        ]
-    },
-    "选择其他秘藏品": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": "点击藏品_厄愿潮声",
-                "roi_offset": [
-                    200,
-                    0,
-                    800,
-                    0
                 ],
-                "expected": ""
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "意外点击_羁绊选择": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    556,
-                    81,
-                    137,
-                    46
-                ],
                 "expected": [
-                    "追憶", // 追憶日服漢字一致
+                    "追憶",
                     "追忆"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    78,
-                    36
-                ]
-            }
-        },
-        "post_delay": 3000
+        }
     },
     "取消_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    659,
-                    515,
-                    77,
-                    36
-                ],
                 "expected": [
-                    "キャンセル", // 取消日服官方翻譯
+                    "キャンセル",
                     "取消"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "领取藏品_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    231,
-                    507,
-                    850,
-                    56
-                ],
                 "expected": [
-                    "選択", // 選擇/選取日服按鈕翻譯
+                    "選択",
                     "選択$",
                     "選擇"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "点击藏品_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    254,
-                    356,
-                    772,
-                    35
-                ],
                 "expected": [
-                    "の紋章", // 之紋日服翻譯 (例: 〇〇の紋章)
+                    "の紋章",
                     "の紋",
-                    "(バラのジンジャーブレッド|ジンジャーブレッド(大|小)袋)", // 錫製薑餅日服翻譯：ジンジャーブレッド / バラのジンジャーブレッド
-                    "((小|中|大)瓶|特製)模造秘血", // 仿生秘血日服官方譯名：模造秘血
+                    "(バラのジンジャーブレッド|ジンジャーブレッド(大|小)袋)",
+                    "((小|中|大)瓶|特製)模造秘血",
                     "之纹",
                     "之紋",
                     "(零散|(大|小)袋)锡制姜饼",
                     "((小|中|大)瓶|特质)仿生秘血"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "已领取所有奖励_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    518,
-                    334,
-                    251,
-                    52
-                ],
                 "expected": [
-                    "すべての報酬を受け取りました", // 已領取所有獎勵日服譯名
+                    "すべての報酬を受け取りました",
                     "全報酬獲得済み",
                     "已领取所有奖励",
                     "已領取所有獎勵"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "下一步",
-            "空任务"
-        ]
+        }
     },
     "关闭奖励_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    580,
-                    248,
-                    117,
-                    35
-                ],
                 "expected": [
-                    "報酬", // 獎勵日服漢字
+                    "報酬",
                     "ボーナス",
                     "奖励",
                     "獎勵"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    600,
-                    80
-                ]
+                ],
+                "replace": []
             }
         }
     },
     "领取人物_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    611,
-                    52,
-                    57,
-                    34
-                ],
                 "expected": [
-                    "招待", // 邀約日服官方翻譯：招待
+                    "招待",
                     "邀约",
                     "邀約"
                 ],
-                "only_rec": true
-            }
-        },
-        "pre_wait_freezes": 80,
-        "pre_delay": 1000,
-        "next": [
-            "确认招募",
-            "[JumpBack]选择羁绊_金色1",
-            "[JumpBack]选择羁绊_金色2",
-            "[JumpBack]选择羁绊_金色3",
-            "[JumpBack]选择羁绊_紫色1",
-            "[JumpBack]选择羁绊_紫色2",
-            "[JumpBack]选择羁绊_紫色3",
-            "[JumpBack]选择羁绊_蓝色1",
-            "[JumpBack]选择羁绊_蓝色2",
-            "[JumpBack]选择羁绊_蓝色3",
-            "[JumpBack]没有羁绊"
-        ]
-    },
-    "确认招募": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    605,
-                    590,
-                    75,
-                    41
-                ],
-                "expected": [
-                    "募集", // 招募日服翻譯
-                    "ランクアップ", // 升星日服翻譯
-                    "招募",
-                    "升星"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "确认招募完毕"
-        ]
-    },
-    "确认招募完毕": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1107,
-                    624,
-                    87,
-                    48
-                ],
-                "expected": [
-                    "次へ",
-                    "下一步"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "确认招募完毕",
-            "空任务"
-        ]
-    },
-    "招募次数大于0_厄愿潮声": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1060,
-                    576,
-                    167,
-                    39
-                ],
-                "expected": "[1-9]+"
+                "replace": []
             }
         }
     },
-    "选择羁绊_金色1": {
+    "确认招募": {
         "recognition": {
-            "type": "And",
             "param": {
-                "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    419,
-                                    200,
-                                    46,
-                                    134
-                                ],
-                                "lower": [
-                                    66,
-                                    49,
-                                    27
-                                ],
-                                "upper": [
-                                    169,
-                                    128,
-                                    62
-                                ],
-                                "connected": true,
-                                "count": 100,
-                                "order_by": "Score"
-                            }
-                        }
-                    },
-                    "招募次数大于0_厄愿潮声"
-                ]
-            }
-        },
-        "next": [
-            "点击招募_金色1",
-            "点击升星_金色1",
-            "[JumpBack]意外点击_羁绊选择"
-        ]
-    },
-    "点击升星_金色1": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "选择羁绊_金色1",
-                "roi_offset": [
-                    -145,
-                    0,
-                    60,
-                    250
-                ],
-                "lower": [
-                    186,
-                    131,
-                    23
-                ],
-                "upper": [
-                    215,
-                    172,
-                    106
-                ],
-                "connected": true,
-                "count": 100,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "点击招募_金色1": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "选择羁绊_金色1",
-                "roi_offset": [
-                    -145,
-                    0,
-                    60,
-                    250
-                ],
-                "lower": [
-                    26,
-                    101,
-                    160
-                ],
-                "upper": [
-                    72,
-                    135,
-                    194
-                ],
-                "connected": true,
-                "count": 100,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "选择羁绊_金色2": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    745,
-                                    202,
-                                    42,
-                                    119
-                                ],
-                                "lower": [
-                                    66,
-                                    49,
-                                    27
-                                ],
-                                "upper": [
-                                    169,
-                                    128,
-                                    62
-                                ],
-                                "connected": true,
-                                "count": 100,
-                                "order_by": "Score"
-                            }
-                        }
-                    },
-                    "招募次数大于0_厄愿潮声"
-                ]
-            }
-        },
-        "next": [
-            "点击招募_金色2",
-            "点击升星_金色2",
-            "[JumpBack]意外点击_羁绊选择"
-        ]
-    },
-    "点击升星_金色2": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "选择羁绊_金色2",
-                "roi_offset": [
-                    -145,
-                    0,
-                    60,
-                    250
-                ],
-                "lower": [
-                    186,
-                    131,
-                    23
-                ],
-                "upper": [
-                    215,
-                    172,
-                    106
-                ],
-                "connected": true,
-                "count": 100,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "点击招募_金色2": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "选择羁绊_金色2",
-                "roi_offset": [
-                    -145,
-                    0,
-                    60,
-                    250
-                ],
-                "lower": [
-                    26,
-                    101,
-                    160
-                ],
-                "upper": [
-                    72,
-                    135,
-                    194
-                ],
-                "connected": true,
-                "count": 100,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "选择羁绊_金色3": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    1071,
-                                    202,
-                                    45,
-                                    127
-                                ],
-                                "lower": [
-                                    66,
-                                    49,
-                                    27
-                                ],
-                                "upper": [
-                                    169,
-                                    128,
-                                    62
-                                ],
-                                "connected": true,
-                                "count": 100,
-                                "order_by": "Score"
-                            }
-                        }
-                    },
-                    "招募次数大于0_厄愿潮声"
-                ]
-            }
-        },
-        "next": [
-            "点击招募_金色3",
-            "点击升星_金色3",
-            "[JumpBack]意外点击_羁绊选择"
-        ]
-    },
-    "点击升星_金色3": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "选择羁绊_金色3",
-                "roi_offset": [
-                    -145,
-                    0,
-                    60,
-                    250
-                ],
-                "lower": [
-                    186,
-                    131,
-                    23
-                ],
-                "upper": [
-                    215,
-                    172,
-                    106
-                ],
-                "connected": true,
-                "count": 100,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "点击招募_金色3": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "选择羁绊_金色3",
-                "roi_offset": [
-                    -145,
-                    0,
-                    60,
-                    250
-                ],
-                "lower": [
-                    26,
-                    101,
-                    160
-                ],
-                "upper": [
-                    72,
-                    135,
-                    194
-                ],
-                "connected": true,
-                "count": 100,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "选择羁绊_紫色1": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    419,
-                                    200,
-                                    46,
-                                    134
-                                ],
-                                "lower": [
-                                    75,
-                                    49,
-                                    79
-                                ],
-                                "upper": [
-                                    154,
-                                    82,
-                                    148
-                                ],
-                                "connected": true,
-                                "count": 100,
-                                "order_by": "Score"
-                            }
-                        }
-                    },
-                    "招募次数大于0_厄愿潮声"
-                ]
-            }
-        },
-        "next": [
-            "点击招募_紫色1",
-            "点击升星_紫色1",
-            "[JumpBack]意外点击_羁绊选择"
-        ]
-    },
-    "点击升星_紫色1": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "选择羁绊_紫色1",
-                "roi_offset": [
-                    -145,
-                    0,
-                    60,
-                    250
-                ],
-                "lower": [
-                    186,
-                    131,
-                    23
-                ],
-                "upper": [
-                    215,
-                    172,
-                    106
-                ],
-                "connected": true,
-                "count": 100,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "点击招募_紫色1": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "选择羁绊_紫色1",
-                "roi_offset": [
-                    -145,
-                    0,
-                    60,
-                    250
-                ],
-                "lower": [
-                    26,
-                    101,
-                    160
-                ],
-                "upper": [
-                    72,
-                    135,
-                    194
-                ],
-                "connected": true,
-                "count": 100,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "选择羁绊_紫色2": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    745,
-                                    202,
-                                    42,
-                                    119
-                                ],
-                                "lower": [
-                                    75,
-                                    49,
-                                    79
-                                ],
-                                "upper": [
-                                    154,
-                                    82,
-                                    148
-                                ],
-                                "connected": true,
-                                "count": 100,
-                                "order_by": "Score"
-                            }
-                        }
-                    },
-                    "招募次数大于0_厄愿潮声"
-                ]
-            }
-        },
-        "next": [
-            "点击招募_紫色2",
-            "点击升星_紫色2",
-            "[JumpBack]意外点击_羁绊选择"
-        ]
-    },
-    "点击升星_紫色2": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "选择羁绊_紫色2",
-                "roi_offset": [
-                    -145,
-                    0,
-                    60,
-                    250
-                ],
-                "lower": [
-                    186,
-                    131,
-                    23
-                ],
-                "upper": [
-                    215,
-                    172,
-                    106
-                ],
-                "connected": true,
-                "count": 100,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "点击招募_紫色2": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "选择羁绊_紫色2",
-                "roi_offset": [
-                    -145,
-                    0,
-                    60,
-                    250
-                ],
-                "lower": [
-                    26,
-                    101,
-                    160
-                ],
-                "upper": [
-                    72,
-                    135,
-                    194
-                ],
-                "connected": true,
-                "count": 100,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "选择羁绊_紫色3": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    1071,
-                                    202,
-                                    45,
-                                    127
-                                ],
-                                "lower": [
-                                    75,
-                                    49,
-                                    79
-                                ],
-                                "upper": [
-                                    154,
-                                    82,
-                                    148
-                                ],
-                                "connected": true,
-                                "count": 100,
-                                "order_by": "Score"
-                            }
-                        }
-                    },
-                    "招募次数大于0_厄愿潮声"
-                ]
-            }
-        },
-        "next": [
-            "点击招募_紫色3",
-            "点击升星_紫色3",
-            "[JumpBack]意外点击_羁绊选择"
-        ]
-    },
-    "点击升星_紫色3": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "选择羁绊_紫色3",
-                "roi_offset": [
-                    -145,
-                    0,
-                    60,
-                    250
-                ],
-                "lower": [
-                    186,
-                    131,
-                    23
-                ],
-                "upper": [
-                    215,
-                    172,
-                    106
-                ],
-                "connected": true,
-                "count": 100,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "点击招募_紫色3": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "选择羁绊_紫色3",
-                "roi_offset": [
-                    -145,
-                    0,
-                    60,
-                    250
-                ],
-                "lower": [
-                    26,
-                    101,
-                    160
-                ],
-                "upper": [
-                    72,
-                    135,
-                    194
-                ],
-                "connected": true,
-                "count": 100,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "选择羁绊_蓝色1": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    419,
-                                    200,
-                                    46,
-                                    134
-                                ],
-                                "lower": [
-                                    43,
-                                    71,
-                                    113
-                                ],
-                                "upper": [
-                                    60,
-                                    97,
-                                    152
-                                ],
-                                "connected": true,
-                                "count": 100,
-                                "order_by": "Score"
-                            }
-                        }
-                    },
-                    "招募次数大于0_厄愿潮声"
-                ]
-            }
-        },
-        "next": [
-            "点击招募_蓝色1",
-            "点击升星_蓝色1",
-            "[JumpBack]意外点击_羁绊选择"
-        ]
-    },
-    "点击升星_蓝色1": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "选择羁绊_蓝色1",
-                "roi_offset": [
-                    -145,
-                    0,
-                    60,
-                    250
-                ],
-                "lower": [
-                    186,
-                    131,
-                    23
-                ],
-                "upper": [
-                    215,
-                    172,
-                    106
-                ],
-                "connected": true,
-                "count": 100,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "点击招募_蓝色1": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "选择羁绊_蓝色1",
-                "roi_offset": [
-                    -145,
-                    0,
-                    60,
-                    250
-                ],
-                "lower": [
-                    26,
-                    101,
-                    160
-                ],
-                "upper": [
-                    72,
-                    135,
-                    194
-                ],
-                "connected": true,
-                "count": 100,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "选择羁绊_蓝色2": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    745,
-                                    202,
-                                    42,
-                                    119
-                                ],
-                                "lower": [
-                                    43,
-                                    71,
-                                    113
-                                ],
-                                "upper": [
-                                    60,
-                                    97,
-                                    152
-                                ],
-                                "connected": true,
-                                "count": 100,
-                                "order_by": "Score"
-                            }
-                        }
-                    },
-                    "招募次数大于0_厄愿潮声"
-                ]
-            }
-        },
-        "next": [
-            "点击招募_蓝色2",
-            "点击升星_蓝色2",
-            "[JumpBack]意外点击_羁绊选择"
-        ]
-    },
-    "点击升星_蓝色2": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "选择羁绊_蓝色2",
-                "roi_offset": [
-                    -145,
-                    0,
-                    60,
-                    250
-                ],
-                "lower": [
-                    186,
-                    131,
-                    23
-                ],
-                "upper": [
-                    215,
-                    172,
-                    106
-                ],
-                "connected": true,
-                "count": 100,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "点击招募_蓝色2": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "选择羁绊_蓝色2",
-                "roi_offset": [
-                    -145,
-                    0,
-                    60,
-                    250
-                ],
-                "lower": [
-                    26,
-                    101,
-                    160
-                ],
-                "upper": [
-                    72,
-                    135,
-                    194
-                ],
-                "connected": true,
-                "count": 100,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "选择羁绊_蓝色3": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    1071,
-                                    202,
-                                    45,
-                                    127
-                                ],
-                                "lower": [
-                                    43,
-                                    71,
-                                    113
-                                ],
-                                "upper": [
-                                    60,
-                                    97,
-                                    152
-                                ],
-                                "connected": true,
-                                "count": 100,
-                                "order_by": "Score"
-                            }
-                        }
-                    },
-                    "招募次数大于0_厄愿潮声"
-                ]
-            }
-        },
-        "next": [
-            "点击招募_蓝色3",
-            "点击升星_蓝色3",
-            "[JumpBack]意外点击_羁绊选择"
-        ]
-    },
-    "点击升星_蓝色3": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "选择羁绊_蓝色3",
-                "roi_offset": [
-                    -145,
-                    0,
-                    60,
-                    250
-                ],
-                "lower": [
-                    186,
-                    131,
-                    23
-                ],
-                "upper": [
-                    215,
-                    172,
-                    106
-                ],
-                "connected": true,
-                "count": 100,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "点击招募_蓝色3": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "选择羁绊_蓝色3",
-                "roi_offset": [
-                    -145,
-                    0,
-                    60,
-                    250
-                ],
-                "lower": [
-                    26,
-                    101,
-                    160
-                ],
-                "upper": [
-                    72,
-                    135,
-                    194
-                ],
-                "connected": true,
-                "count": 100,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "没有羁绊": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    282,
-                    363,
-                    725,
-                    41
-                ],
                 "expected": [
                     "募集",
                     "ランクアップ",
@@ -1759,47 +295,48 @@
                     "升星"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
+    },
+    "确认招募完毕": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "次へ",
+                    "下一步"
+                ]
+            }
+        }
+    },
+    "没有羁绊": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "募集",
+                    "ランクアップ",
+                    "招募",
+                    "升星"
+                ]
+            }
+        }
     },
     "领取_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    61,
-                    499,
-                    1156,
-                    71
-                ],
                 "expected": [
-                    "受け取る", // 領取日服官方翻譯
+                    "受け取る",
                     "獲得",
                     "领取",
                     "領取"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "战斗失败_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    555,
-                    342,
-                    163,
-                    33
-                ],
                 "expected": [
-                    "アイテム数量不足", // 道具數量不足日服翻譯
+                    "アイテム数量不足",
                     "所持数不足",
                     "道具数量不足",
                     "道具數量不足"
@@ -1815,241 +352,85 @@
                     ]
                 ]
             }
-        },
-        "next": [
-            "放弃战斗_厄愿潮声"
-        ]
+        }
     },
     "放弃战斗_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    335,
-                    448,
-                    214,
-                    184
-                ],
                 "expected": [
-                    "諦める", // 放棄戰鬥日服按鈕翻譯
+                    "諦める",
                     "放棄",
                     "放弃"
-                ],
-                "replace": [
-                    "棄",
-                    "弃"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "放弃战斗_厄愿潮声",
-            "空任务"
-        ]
+        }
     },
     "肉鸽失败_厄愿潮声": {
         "recognition": {
-            "type": "Or",
             "param": {
-                "any_of": [
-                    {
+                "any_of": {
+                    "1": {
                         "recognition": {
-                            "type": "TemplateMatch",
                             "param": {
-                                "roi": [
-                                    460,
-                                    149,
-                                    415,
-                                    294
-                                ],
-                                "template": "厄愿潮声/结束.png"
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    459,
-                                    261,
-                                    416,
-                                    183
-                                ],
                                 "expected": [
-                                    "潮噬" // 潮噬屬於特殊專有名詞，日服漢字完全一致
+                                    "潮噬"
                                 ]
                             }
                         }
                     }
-                ]
+                }
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "厄愿潮声"
-        ]
+        }
     },
     "邀约选择_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    111,
-                    357,
-                    161,
-                    40
-                ],
-                "expected": [
-                    "の招待LV2", // 之邀約LV2日服官方翻譯
-                    "の招待",
-                    "之邀约LV2",
-                    "之邀約LV2"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "选择人物1_厄愿潮声",
-            "选择人物2_厄愿潮声",
-            "选择人物3_厄愿潮声",
-            "招募次数0_厄愿潮声",
-            "刷新次数为0_厄愿潮声",
-            "[JumpBack]邀约选择二次点击_厄愿潮声",
-            "[JumpBack]刷新人物_厄愿潮声",
-            "[JumpBack]下一步",
-            "[JumpBack]意外点击_羁绊选择"
-        ]
-    },
-    "邀约选择二次点击_厄愿潮声": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    111,
-                    357,
-                    161,
-                    40
-                ],
                 "expected": [
                     "の招待LV2",
                     "の招待",
                     "之邀约LV2",
                     "之邀約LV2"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "下一步",
-            "[JumpBack]意外点击_羁绊选择"
-        ]
-    },
-    "招募次数0_厄愿潮声": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1190,
-                    573,
-                    33,
-                    38
                 ],
-                "expected": "^0$",
-                "only_rec": true
+                "replace": []
             }
-        },
-        "next": [
-            "下一步"
-        ]
+        }
     },
-    "刷新次数为0_厄愿潮声": {
+    "邀约选择二次点击_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1201,
-                    90,
-                    28,
-                    38
+                "expected": [
+                    "の招待LV2",
+                    "の招待",
+                    "之邀约LV2",
+                    "之邀約LV2"
                 ],
-                "expected": "^0$",
-                "only_rec": true
+                "replace": []
             }
-        },
-        "post_delay": 500,
-        "next": [
-            "厄愿潮声主界面",
-            "[JumpBack]打开厄愿潮声",
-            "[JumpBack]打开多维演绎",
-            "[JumpBack]打开挑战",
-            "[JumpBack]打开战斗",
-            "[JumpBack]确定",
-            "[JumpBack]返回"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "未找到指定角色,即将重新进入"
         }
     },
     "厄愿潮声主界面": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    168,
-                    221,
-                    103,
-                    36
-                ],
                 "expected": [
-                    "失落外典" // 外典屬於特殊遊戲名詞，日服漢字完全一致
+                    "失落外典"
                 ]
             }
         }
     },
     "刷新人物_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1100,
-                    89,
-                    55,
-                    33
-                ],
                 "expected": [
-                    "更新", // 重新整理/整理日服翻譯
+                    "更新",
                     "リフレッシュ",
                     "刷新"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "选择人物1_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    242,
-                    440,
-                    145,
-                    24
-                ],
                 "expected": [
                     "深紅ノ影",
                     "誓焔",
@@ -2066,28 +447,13 @@
                     "深紅囚影",
                     "囚影"
                 ],
-                "only_rec": true
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "招募人物_厄愿潮声",
-            "选择人物1_厄愿潮声"
-        ]
+        }
     },
     "选择人物2_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    577,
-                    440,
-                    145,
-                    24
-                ],
                 "expected": [
                     "深紅ノ影",
                     "誓焔",
@@ -2104,28 +470,13 @@
                     "深紅囚影",
                     "囚影"
                 ],
-                "only_rec": true
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "招募人物_厄愿潮声",
-            "选择人物2_厄愿潮声"
-        ]
+        }
     },
     "选择人物3_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    903,
-                    440,
-                    145,
-                    24
-                ],
                 "expected": [
                     "深紅ノ影",
                     "誓焔",
@@ -2142,28 +493,13 @@
                     "深紅囚影",
                     "囚影"
                 ],
-                "only_rec": true
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "招募人物_厄愿潮声",
-            "选择人物3_厄愿潮声"
-        ]
+        }
     },
     "招募人物_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    604,
-                    589,
-                    73,
-                    41
-                ],
                 "expected": [
                     "募集",
                     "ランクアップ",
@@ -2171,256 +507,114 @@
                     "升星"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "调查团组建_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    563,
-                    45,
-                    166,
-                    65
-                ],
                 "expected": [
-                    "調査団結成", // 調查團組建日服官方翻譯：調査団結成
+                    "調査団結成",
                     "調査団組成",
                     "调查团组建",
                     "調查團組建"
-                ]
-            }
-        },
-        "next": [
-            "选择策略_厄愿潮声",
-            "选择宝箱奖励_厄愿潮声",
-            "[JumpBack]滑动_厄愿潮声",
-            "[JumpBack]反向滑动_厄愿潮声",
-            "[JumpBack]重置厄愿潮声滑动次数"
-        ]
-    },
-    "重置厄愿潮声滑动次数": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "滑动_厄愿潮声": {
-                        "max_hit": 3
-                    },
-                    "反向滑动_厄愿潮声": {
-                        "max_hit": 1
-                    }
-                }
+                ],
+                "replace": []
             }
         }
     },
     "选择策略_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    7,
-                    360,
-                    1260,
-                    41
-                ],
                 "expected": [
-                    "旅の劇団", // 旅行劇團日服專用名
+                    "旅の劇団",
                     "旅行劇団",
                     "旅行剧团"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "下一步"
-        ]
+        }
     },
     "滑动_厄愿潮声": {
-        "max_hit": 3,
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    563,
-                    45,
-                    166,
-                    65
-                ],
                 "expected": [
                     "調査団結成",
                     "调查团组建",
                     "調查團組建"
-                ]
-            }
-        },
-        "action": {
-            "type": "Swipe",
-            "param": {
-                "begin": [
-                    916,
-                    435
                 ],
-                "end": [
-                    729,
-                    433
-                ]
+                "replace": []
             }
-        },
-        "post_delay": 1000
-    },
-    "反向滑动_厄愿潮声": {
-        "max_hit": 1,
-        "action": {
-            "type": "Swipe",
-            "param": {
-                "begin": [
-                    150,
-                    350
-                ],
-                "end": [
-                    1280,
-                    150
-                ]
-            }
-        },
-        "post_delay": 2000
+        }
     },
     "调查团组建reco_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    563,
-                    45,
-                    166,
-                    65
-                ],
                 "expected": [
                     "調査団結成",
                     "调查团组建",
                     "調查團組建"
-                ]
+                ],
+                "replace": []
             }
         }
     },
     "选择难度_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    43,
-                    180,
-                    180,
-                    319
-                ],
                 "expected": [
-                    "浅き潮鳴り", // 淺聽潮湧難度日服官方名：浅き潮鳴り
+                    "浅き潮鳴り",
                     "浅听潮涌",
                     "淺聽潮湧"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "调查团组建reco_厄愿潮声",
-            "[JumpBack]下一步",
-            "[JumpBack]确定"
-        ]
+        }
     },
     "开始旅途_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1066,
-                    630,
-                    127,
-                    42
-                ],
                 "expected": [
-                    "旅立ち", // 開始旅途日服官方翻譯：旅立ち
+                    "旅立ち",
                     "旅の始まり",
                     "开始旅途",
                     "開始旅途"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "退出_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1085,
-                    630,
-                    145,
-                    51
-                ],
                 "expected": [
-                    "退出", // 退出日服漢字完全一致
+                    "退出",
                     "戻る"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "终止_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    843,
-                    632,
-                    86,
-                    42
-                ],
                 "expected": [
-                    "終了", // 終止/結束日服按鈕常用漢字
+                    "終了",
                     "終止",
                     "终止"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "打开厄愿潮声": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    355,
-                    454,
-                    923,
-                    54
-                ],
                 "expected": [
-                    "連祷の残響", // 厄願潮聲日服官方譯名
+                    "連祷の残響",
                     "厄愿潮声",
                     "厄願潮聲"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     }
 }

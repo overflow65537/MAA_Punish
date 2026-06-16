@@ -111,6 +111,7 @@
         {
             "name": "日文",
             "path": [
+                "./resource/base",
                 "./resource/ja_JP"
             ]
         }

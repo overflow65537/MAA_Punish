@@ -1,40 +1,17 @@
 {
-    "洗词缀": {
-        "next": [
-            "确认目标词缀",
-            "[JumpBack]结果检查_不可信",
-            "[JumpBack]结果检查_可信"
-        ]
-    },
     "确认目标词缀": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    410,
-                    424,
-                    699,
-                    30
-                ],
                 "expected": [
-                    "目標ステータス",
-                ]
+                    "目標ステータス"
+                ],
+                "replace": []
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]完成[/color]"
         }
     },
     "结果检查左侧_不可信": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    270,
-                    422,
-                    319,
-                    33
-                ],
                 "expected": [
                     "(?=.*攻撃)(?=.*防御)",
                     "(?=.*HP)(?=.*攻撃)",
@@ -47,27 +24,14 @@
                     "コアパッシブ",
                     "qte",
                     "QTE"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "inverse": true,
-        "action": {
-            "type": "StopTask"
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
         }
     },
     "结果检查_不可信": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    804,
-                    423,
-                    206,
-                    29
-                ],
                 "expected": [
                     "(?=.*攻撃)(?=.*防御)",
                     "(?=.*HP)(?=.*攻撃)",
@@ -81,20 +45,13 @@
                     "ジョブスキル",
                     "qte",
                     "QTE"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "inverse": true,
-        "action": {
-            "type": "StopTask"
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
         }
     },
     "结果检查_可信": {
         "recognition": {
-            "type": "OCR",
             "param": {
                 "roi": [
                     282,
@@ -104,14 +61,9 @@
                 ],
                 "expected": [
                     "共鳴を続ける"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": {
-            "time": 200
         }
     }
 }

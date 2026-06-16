@@ -1,174 +1,18 @@
 {
-    "事件识别_寒境曙光_yolo": {
-        "recognition": {
-            "type": "NeuralNetworkDetect",
-            "param": {
-                "model": "RG4_Zone.onnx",
-                "expected": [
-                    2
-                ],
-                "threshold": [
-                    0.7
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "旧国遗产_寒境曙光_yolo",
-            "拓荒_寒境曙光_yolo",
-            "战马瑞恩_寒境曙光_yolo",
-            "冬日之影_寒境曙光_yolo",
-            "拦路的废墟_寒境曙光_yolo",
-            "建筑师的建议_寒境曙光_yolo",
-            "剩余资金_寒境曙光_yolo",
-            "前方有陷阱_寒境曙光_yolo",
-            "鲨鱼置物箱_寒境曙光_yolo",
-            "汇合_寒境曙光_yolo",
-            "难民团到访_寒境曙光_yolo",
-            "学者来访_寒境曙光_yolo",
-            "运力紧张_寒境曙光_yolo",
-            "商队来访_寒境曙光_yolo",
-            "废弃港口_寒境曙光_yolo"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]事件识别[/color]"
-        }
-    },
-    "物资识别_寒境曙光_yolo": {
-        "recognition": {
-            "type": "NeuralNetworkDetect",
-            "param": {
-                "model": "RG4_Zone.onnx",
-                "expected": [
-                    4
-                ],
-                "threshold": [
-                    0.8
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "物资事件结束_寒境曙光",
-            "[JumpBack]开始探索_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]物资识别[/color]"
-        },
-        "on_error": [
-            "寒境曙光"
-        ],
-        "timeout": 5000
-    },
-    "战斗识别_寒境曙光_yolo": {
-        "recognition": {
-            "type": "NeuralNetworkDetect",
-            "param": {
-                "model": "RG4_Zone.onnx",
-                "expected": [
-                    0
-                ],
-                "threshold": [
-                    0.8
-                ]
-            }
-        },
-        "next": [
-            "转移视角位置"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]战斗识别[/color]"
-        }
-    },
-    "拓荒_寒境曙光_yolo": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
-                ],
-                "expected": "拓荒"
-            }
-        },
-        "next": [
-            "离开对话_寒境曙光",
-            "[JumpBack]继续_寒境曙光",
-            "[JumpBack]拓荒_寒境曙光_对话_寒境曙光",
-            "[JumpBack]开始探索_寒境曙光",
-            "[JumpBack]关闭奖励_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]拓荒[/color]"
-        },
-        "post_delay": 1000
-    },
-    "前方有陷阱_寒境曙光_yolo": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
-                ],
-                "expected": "前方有陷阱"
-            }
-        },
-        "next": [
-            "离开对话_寒境曙光",
-            "[JumpBack]决定事件_寒境曙光",
-            "[JumpBack]前方有陷阱_对话_寒境曙光",
-            "[JumpBack]开始探索_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]前方有陷阱[/color]"
-        }
-    },
     "剩余资金_寒境曙光_yolo": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
-                ],
                 "expected": [
                     "剩余资金",
                     "剩余資金"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "离开对话_寒境曙光",
-            "物资事件结束_寒境曙光",
-            "[JumpBack]决定事件_寒境曙光",
-            "[JumpBack]剩余资金_寒境曙光_对话_寒境曙光",
-            "[JumpBack]开始探索_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]剩余资金[/color]"
         }
     },
     "战马瑞恩_寒境曙光_yolo": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
-                ],
                 "expected": [
                     "战马瑞恩",
                     "戰馬瑞恩"
@@ -180,160 +24,67 @@
                     ]
                 ]
             }
-        },
-        "next": [
-            "离开对话_寒境曙光",
-            "[JumpBack]决定事件_寒境曙光",
-            "[JumpBack]战马瑞恩_对话_寒境曙光",
-            "[JumpBack]开始探索_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]战马瑞恩[/color]"
         }
     },
     "鲨鱼置物箱_寒境曙光_yolo": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
-                ],
                 "expected": [
                     "鲨鱼",
                     "鯊魚",
                     "置物箱"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "离开对话_寒境曙光",
-            "[JumpBack]决定事件_寒境曙光",
-            "[JumpBack]鲨鱼置物箱_对话_寒境曙光",
-            "[JumpBack]开始探索_寒境曙光",
-            "[JumpBack]关闭奖励_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]鲨鱼置物箱[/color]"
         }
     },
     "学者来访_寒境曙光_yolo": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
-                ],
                 "expected": [
                     "学者来访",
                     "學者來訪"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "离开对话_寒境曙光",
-            "[JumpBack]决定事件_寒境曙光",
-            "[JumpBack]学者来访_对话_寒境曙光",
-            "[JumpBack]开始探索_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]学者来访[/color]"
         }
     },
     "运力紧张_寒境曙光_yolo": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
-                ],
                 "expected": [
                     "运力紧张",
                     "運力緊張"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "离开对话_寒境曙光",
-            "[JumpBack]决定事件_寒境曙光",
-            "[JumpBack]运力紧张_对话_寒境曙光",
-            "[JumpBack]开始探索_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]运力紧张[/color]"
-        },
-        "post_delay": 1000
+        }
     },
     "废弃港口_寒境曙光_yolo": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
-                ],
                 "expected": [
                     "废弃港口",
                     "廢棄港口"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "离开对话_寒境曙光",
-            "[JumpBack]决定事件_寒境曙光",
-            "[JumpBack]废弃港口_对话_寒境曙光",
-            "[JumpBack]开始探索_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]废弃港口[/color]"
         }
     },
     "商队来访_寒境曙光_yolo": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
-                ],
                 "expected": [
                     "商队来访",
                     "商隊來訪"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "离开对话_寒境曙光",
-            "[JumpBack]决定事件_寒境曙光",
-            "[JumpBack]商队来访_对话_寒境曙光",
-            "[JumpBack]开始探索_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]商队来访[/color]"
         }
     },
     "拦路的废墟_寒境曙光_yolo": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
-                ],
                 "expected": [
                     "拦路",
                     "攔路",
@@ -341,169 +92,66 @@
                     "的廢墟",
                     "的废址",
                     "的廢址"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "离开对话_寒境曙光",
-            "[JumpBack]决定事件_寒境曙光",
-            "[JumpBack]拦路的废墟_对话_寒境曙光",
-            "[JumpBack]开始探索_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]拦路的废墟[/color]"
         }
     },
     "难民团到访_寒境曙光_yolo": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
-                ],
                 "expected": [
                     "难民团到访",
                     "難民團到訪"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "离开对话_寒境曙光",
-            "[JumpBack]决定事件_寒境曙光",
-            "[JumpBack]难民团到访_对话_寒境曙光",
-            "[JumpBack]开始探索_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]难民团到访[/color]"
         }
     },
     "建筑师的建议_寒境曙光_yolo": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
-                ],
                 "expected": [
                     "建筑师的建议",
                     "建筑師的建議"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "离开对话_寒境曙光",
-            "[JumpBack]决定事件_寒境曙光",
-            "[JumpBack]建筑师的建议_对话_寒境曙光",
-            "[JumpBack]开始探索_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]建筑师的建议[/color]"
         }
     },
     "旧国遗产_寒境曙光_yolo": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
-                ],
                 "expected": [
                     "旧国",
                     "舊國",
                     "遗产",
                     "遺產"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "离开对话_寒境曙光",
-            "[JumpBack]决定事件_寒境曙光",
-            "[JumpBack]旧国遗产_对话_寒境曙光",
-            "[JumpBack]开始探索_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]旧国遗产[/color]"
-        },
-        "post_delay": 1000
+        }
     },
     "物资_寒境曙光_yolo": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
-                ],
                 "expected": [
                     "物资$",
                     "物資"
-                ]
-            }
-        },
-        "next": [
-            "物资事件结束_寒境曙光",
-            "[JumpBack]开始探索_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]物资地块[/color]"
-        }
-    },
-    "冬日之影_寒境曙光_yolo": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
                 ],
-                "expected": "冬日之"
+                "replace": []
             }
-        },
-        "next": [
-            "离开对话_寒境曙光",
-            "[JumpBack]冬日之影_对话_寒境曙光",
-            "[JumpBack]开始探索_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]冬日之影[/color]"
         }
     },
     "汇合_寒境曙光_yolo": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
-                ],
                 "expected": [
                     "汇合",
                     "匯合"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "离开对话_寒境曙光",
-            "[JumpBack]汇合_对话_寒境曙光",
-            "[JumpBack]开始探索_寒境曙光"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]汇合[/color]"
         }
     }
 }

@@ -1,1242 +1,459 @@
 {
     "矩阵循生": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择模式_矩阵循生": {
-                        "enabled": true
-                    },
-                    "选择首发_矩阵循生": {
-                        "enabled": true
-                    },
-                    "异度投影_矩阵循生": {
-                        "enabled": true
-                    },
-                    "进入物归新主_矩阵循生": {
-                        "enabled": false
-                    },
-                    "选择首发2_矩阵循生": {
-                        "enabled": false
-                    }
-                }
-            }
-        },
-        "next": [
-            "[JumpBack]覆盖布局菜单",
-            "肉鸽内部",
-            "迭变投影_矩阵循生",
-            "[JumpBack]转场_矩阵循生",
-            "[JumpBack]编队完成_矩阵循生",
-            "[JumpBack]选择难度_矩阵循生",
-            "[JumpBack]迭变藏品_矩阵循生",
-            "[JumpBack]选择模式_矩阵循生",
-            "[JumpBack]选择首发_矩阵循生",
-            "[JumpBack]选择首发2_矩阵循生",
-            "[JumpBack]启程_矩阵循生",
-            "[JumpBack]下一页",
-            "[JumpBack]点击继续",
-            "[JumpBack]确认结束购物_矩阵循生",
-            "[JumpBack]终止_矩阵循生",
-            "[JumpBack]打开矩阵循生",
-            "[JumpBack]打开多维演绎",
-            "[JumpBack]打开时宇漫纪",
-            "[JumpBack]打开挑战",
-            "[JumpBack]打开战斗",
-            "[JumpBack]确认装备_矩阵循生",
-            "[JumpBack]选择装备_矩阵循生",
-            "[JumpBack]意外点击_限定活动"
-        ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]演算開始[/color]" // 開始演算日服官方翻譯
+            "Node.Recognition.Succeeded": "[color:ForestGreen]演算開始[/color]"
         }
     },
     "返回_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1103,
-                    627,
-                    63,
-                    55
-                ],
                 "expected": [
-                    "秘蔵品", // 藏品日服官方譯名
+                    "秘蔵品",
                     "蔵品",
                     "藏品"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    58,
-                    31
                 ]
             }
         }
     },
     "选择模式_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    288,
-                    162,
-                    88,
-                    50
-                ],
-                "expected": [
-                    "初期配置", // 首發陣容日服官方譯名：初期配置
-                    "先発",
-                    "首发",
-                    "首發"
-                ]
-            }
-        },
-        "next": [
-            "招募能量4点",
-            "招募能量3点"
-        ]
-    },
-    "招募能量4点": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    53,
-                    593,
-                    44,
-                    60
-                ],
-                "expected": [
-                    "4",
-                    "5"
-                ],
-                "only_rec": true
-            }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择模式_矩阵循生": {
-                        "enabled": false
-                    }
-                }
-            }
-        }
-    },
-    "招募能量3点": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    53,
-                    593,
-                    44,
-                    60
-                ],
-                "expected": "3",
-                "only_rec": true
-            }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择模式_矩阵循生": {
-                        "enabled": false
-                    },
-                    "选择首发_矩阵循生": {
-                        "enabled": false
-                    },
-                    "异度投影_矩阵循生": {
-                        "enabled": false
-                    },
-                    "进入物归新主_矩阵循生": {
-                        "enabled": true
-                    },
-                    "选择首发2_矩阵循生": {
-                        "enabled": true
-                    }
-                }
-            }
-        }
-    },
-    "选择首发2_矩阵循生": {
-        "enabled": false,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    288,
-                    162,
-                    88,
-                    50
-                ],
                 "expected": [
                     "初期配置",
                     "先発",
                     "首发",
                     "首發"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "点击精通等级低于3的人物",
-            "选择首发2_矩阵循生",
-            "[JumpBack]滑动_选人"
-        ]
+        }
+    },
+    "选择首发2_矩阵循生": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "初期配置",
+                    "先発",
+                    "首发",
+                    "首發"
+                ],
+                "replace": []
+            }
+        }
     },
     "点击精通等级低于3的人物": {
         "recognition": {
-            "type": "And",
             "param": {
-                "all_of": [
-                    {
-                        "sub_name": "_精通等级",
+                "all_of": {
+                    "0": {
                         "recognition": {
-                            "type": "OCR",
                             "param": {
-                                "roi": [
-                                    68,
-                                    71,
-                                    267,
-                                    574
-                                ],
                                 "expected": [
-                                    "熟練度", // 矩陣循生獨特機制「精通等級」日服譯為：熟練度 (熟練度Lv)
+                                    "熟練度",
                                     "熟練レベル",
                                     "精通等级",
                                     "精通等級"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "sub_name": "_等级颜色",
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": "_精通等级",
-                                "roi_offset": [
-                                    88,
-                                    -2,
-                                    -32,
-                                    3
                                 ],
-                                "method": 40,
-                                "lower": [
-                                    103,
-                                    108,
-                                    187
-                                ],
-                                "upper": [
-                                    108,
-                                    255,
-                                    199
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": "_等级颜色",
-                                "roi_offset": [
-                                    -2,
-                                    -2,
-                                    4,
-                                    4
-                                ],
-                                "expected": [
-                                    "^0$",
-                                    "^1$",
-                                    "^2$"
-                                ],
-                                "only_rec": true
+                                "replace": []
                             }
                         }
                     }
-                ]
+                }
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "编入_矩阵循生"
-        ]
+        }
     },
     "打开矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    355,
-                    454,
-                    923,
-                    54
-                ],
                 "expected": [
-                    "マトリクス巡生", // 矩陣循生日服官方譯名
+                    "マトリクス巡生",
                     "矩阵循生",
                     "矩陣循生"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "打开多维演绎": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    43,
-                    153,
-                    167,
-                    431
-                ],
                 "expected": [
-                    "多維演算", // 多維演繹日服官方譯名
+                    "多維演算",
                     "多维演绎",
                     "多維演繹"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "打开挑战": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1074,
-                    609,
-                    206,
-                    111
-                ],
                 "expected": [
-                    "挑戦", // 挑戰日服官方漢字
+                    "挑戦",
                     "挑战",
                     "挑戰"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "启程_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1132,
-                    614,
-                    130,
-                    78
-                ],
-                "expected": [
-                    "出発", // 啟程日服官方常用漢字
-                    "启程",
-                    "啟程"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "重开启程_矩阵循生": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1132,
-                    614,
-                    130,
-                    78
-                ],
                 "expected": [
                     "出発",
                     "启程",
                     "啟程"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "矩阵循生"
-        ]
+        }
+    },
+    "重开启程_矩阵循生": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "出発",
+                    "启程",
+                    "啟程"
+                ],
+                "replace": []
+            }
+        }
     },
     "迭变投影_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    554,
-                    42,
-                    183,
-                    62
-                ],
                 "expected": [
-                    "変異投影", // 迭變投影日服官方譯名：変異投影
+                    "変異投影",
                     "迭变投影",
                     "迭變投影",
                     "选变投影",
                     "選變投影"
-                ]
-            }
-        },
-        "next": [
-            "重开启程_矩阵循生",
-            "[JumpBack]确认结束购物_矩阵循生",
-            "[JumpBack]终止_矩阵循生",
-            "[JumpBack]下一页",
-            "[JumpBack]点击继续",
-            "[JumpBack]返回"
-        ]
-    },
-    "转场_矩阵循生": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1083,
-                    664,
-                    66,
-                    21
                 ],
-                "expected": "Chapter",
-                "only_rec": true
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    600,
-                    10
-                ]
-            }
-        },
-        "post_delay": 1000
+        }
     },
     "链路崩溃": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    547,
-                    367,
-                    183,
-                    69
-                ],
                 "expected": [
-                    "接続崩壊", // 鏈路崩潰日服官方譯名：接続崩壊
+                    "接続崩壊",
                     "回線崩壊",
                     "链路崩溃",
                     "鏈路崩潰"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "post_delay": 1000,
-        "next": [
-            "矩阵循生"
-        ]
+        }
     },
     "肉鸽内部": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1103,
-                    627,
-                    63,
-                    55
-                ],
                 "expected": [
                     "秘蔵品",
                     "蔵品",
                     "藏品"
                 ]
             }
-        },
-        "next": [
-            "链路崩溃",
-            "[JumpBack]进入物归新主_矩阵循生",
-            "[JumpBack]异度投影_矩阵循生",
-            "[JumpBack]对话事件_矩阵循生",
-            "[JumpBack]转换层级_矩阵循生",
-            "[JumpBack]商店_矩阵循生",
-            "[JumpBack]战斗事件_矩阵循生",
-            "[JumpBack]BOSS战_矩阵循生"
-        ]
+        }
     },
     "进入物归新主_矩阵循生": {
-        "enabled": false,
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    292,
-                    272,
-                    754,
-                    45
-                ],
                 "expected": [
-                    "返還", // 物歸新主官方意譯為：返還
+                    "返還",
                     "元の持ち主へ",
                     "物归新主",
                     "物歸新主"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "物归新主_矩阵循生",
-            "[JumpBack]确定进入物归新主_矩阵循生"
-        ]
+        }
     },
     "确定进入物归新主_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    284,
-                    472,
-                    840,
-                    82
-                ],
                 "expected": [
                     "確定",
                     "確認",
                     "确定",
                     "確定"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "物归新主完成_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1103,
-                    627,
-                    63,
-                    55
-                ],
                 "expected": [
                     "秘蔵品",
                     "蔵品",
                     "藏品"
                 ]
             }
-        },
-        "post_delay": 2000,
-        "next": [
-            "物归新主完成_二次确认_矩阵循生",
-            "[JumpBack]关闭奖励_矩阵循生",
-            "[JumpBack]领取_矩阵循生",
-            "[JumpBack]确认装备_矩阵循生",
-            "[JumpBack]选择装备_矩阵循生",
-            "[JumpBack]离开_寒境曙光"
-        ]
+        }
     },
     "物归新主完成_二次确认_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1103,
-                    627,
-                    63,
-                    55
-                ],
                 "expected": [
                     "秘蔵品",
                     "蔵品",
                     "藏品"
                 ]
             }
-        },
-        "post_delay": 2000,
-        "next": [
-            "更换人物"
-        ]
+        }
     },
     "更换人物": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    778,
-                    635,
-                    54,
-                    47
-                ],
                 "expected": [
-                    "編成", // 隊伍/編隊日服最常見翻譯
+                    "編成",
                     "チーム",
                     "编队",
                     "編隊"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": {
-            "time": 500
-        },
-        "next": [
-            "事件完成_矩阵循生",
-            "[JumpBack]更换首发_矩阵循生",
-            "[JumpBack]点击下阵",
-            "[JumpBack]点击精通等级低于12的人物",
-            "[JumpBack]滑动_选人"
-        ]
+        }
     },
     "点击精通等级低于12的人物": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1041,
-                    617,
-                    116,
-                    68
-                ],
                 "expected": [
-                    "編成", // 編入/加入隊伍日服翻譯
+                    "編成",
                     "チーム入り",
                     "编入",
                     "編入"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "RoleSelection",
-                "custom_action_param": {
-                    "selection_mode": "roguelike_3",
-                    "need_multi": false
-                }
-            }
-        },
-        "post_delay": 1000,
-        "next": [
-            "确定编队_矩阵循生"
-        ]
+        }
     },
     "确定编队_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    968,
-                    616,
-                    235,
-                    56
-                ],
                 "expected": [
                     "確定",
                     "確認",
                     "确定",
                     "確定"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
-    "识别精通等级": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": "识别人物",
-                "roi_offset": [
-                    189,
-                    25,
-                    -51,
-                    -45
                 ],
-                "expected": "^(?!12$).*$",
-                "only_rec": true
+                "replace": []
             }
         }
     },
     "点击下阵": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1061,
-                    629,
-                    71,
-                    45
-                ],
                 "expected": [
-                    "外す", // 下陣/解除編隊日服官方翻譯
+                    "外す",
                     "解除",
                     "下阵",
                     "下陣"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": {
-            "time": 500
         }
     },
     "更换首发_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    288,
-                    162,
-                    88,
-                    50
-                ],
                 "expected": [
                     "初期配置",
                     "先発",
                     "首发",
                     "首發"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": {
-            "time": 500
         }
     },
     "事件确定_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    183,
-                    469,
-                    972,
-                    63
-                ],
                 "expected": [
                     "確定",
                     "確認",
                     "确定",
                     "確定"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "亚人少女_矩阵循生",
-            "贴心搭档_矩阵循生",
-            "在途存货_矩阵循生",
-            "洁塔薇的游戏_矩阵循生",
-            "洁塔薇的食材_矩阵循生",
-            "逃出生天_矩阵循生",
-            "禁忌验证_矩阵循生",
-            "头号玩家_矩阵循生",
-            "致命失误_矩阵循生",
-            "工业怪谈_矩阵循生",
-            "动物坟场_矩阵循生",
-            "观星真相_矩阵循生",
-            "异界通讯I_矩阵循生",
-            "异界通讯II_矩阵循生",
-            "步履蹒跚_矩阵循生",
-            "举手之劳_矩阵循生",
-            "盛典纪行_矩阵循生",
-            "火灾现场_矩阵循生",
-            "棋盘难题_矩阵循生",
-            "皇后游戏_矩阵循生",
-            "瑕疵造物_矩阵循生",
-            "迷失之馆_矩阵循生",
-            "圣殿战役_矩阵循生",
-            "西西弗斯_矩阵循生",
-            "野性之森_矩阵循生",
-            "蓝色裂痕_矩阵循生",
-            "铁石心肠_矩阵循生",
-            "栩栩如生_矩阵循生",
-            "荒废古卷_矩阵循生",
-            "荒废古堡_矩阵循生",
-            "天台扭蛋机_矩阵循生",
-            "莫比乌斯_矩阵循生",
-            "赝品工匠_矩阵循生",
-            "禁忌实验_矩阵循生",
-            "继承之物_矩阵循生",
-            "失败造物_矩阵循生",
-            "旧日情谊_矩阵循生",
-            "贫困收藏家_矩阵循生",
-            "英雄真相_矩阵循生",
-            "记忆真相_矩阵循生",
-            "天选者的故事_矩阵循生",
-            "树神之女_矩阵循生",
-            "无尽长廊_矩阵循生",
-            "万两黄金_矩阵循生",
-            "工业幽灵_矩阵循生",
-            "自投罗网_矩阵循生",
-            "武器技师_矩阵循生",
-            "致命隐患_矩阵循生",
-            "物归新主非兼容_矩阵循生",
-            "隐秘工坊_矩阵循生",
-            "无效救援_矩阵循生",
-            "事件确定_矩阵循生",
-            "未知事件_矩阵循生"
-        ]
-    },
-    "对话事件_矩阵循生": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    198,
-                    133,
-                    1022,
-                    146
                 ],
-                "template": [
-                    "矩阵循生/对话事件.png",
-                    "矩阵循生/对话事件1.png"
-                ],
-                "green_mask": true
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "事件确定_矩阵循生"
-        ]
-    },
-    "BOSS战_矩阵循生": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    285,
-                    130,
-                    912,
-                    111
-                ],
-                "template": "矩阵循生/BOSS.png",
-                "green_mask": true
-            }
-        },
-        "next": [
-            "确认结束购物_矩阵循生",
-            "[JumpBack]终止_矩阵循生",
-            "[JumpBack]返回"
-        ]
+        }
     },
     "终止_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    982,
-                    642,
-                    68,
-                    44
-                ],
                 "expected": [
-                    "終了", // 終止/結束日服按鈕最常見漢字
+                    "終了",
                     "終止",
                     "终止"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "下一页": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1034,
-                    626,
-                    88,
-                    48
-                ],
                 "expected": [
-                    "次へ", // 下一頁日服翻譯
-                    "完了", // 完成日服翻譯
+                    "次へ",
+                    "完了",
                     "下一页",
                     "下一頁",
                     "完成"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "点击继续": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    588,
-                    665,
-                    110,
-                    36
-                ],
                 "expected": [
-                    "次へ", // 繼續/下一步日服最常見配音字
+                    "次へ",
                     "進む",
                     "继续",
                     "繼續"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "离开_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1029,
-                    617,
-                    71,
-                    47
-                ],
                 "expected": [
-                    "離れる", // 離開日服翻譯
+                    "離れる",
                     "立ち去る",
                     "离开",
                     "離開"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "转换层级_矩阵循生": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    300,
-                    556,
-                    55,
-                    132
                 ],
-                "template": [
-                    "矩阵循生/转换层级.png"
-                ]
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "异度投影_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    276,
-                    236,
-                    961,
-                    96
-                ],
                 "expected": [
-                    "異次元投影", // 異度投影日服官方譯名：異次元投影
+                    "異次元投影",
                     "異度投影",
                     "异度投影"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "进入异度投影"
-        ]
+        }
     },
     "进入异度投影": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    183,
-                    469,
-                    972,
-                    63
-                ],
                 "expected": [
                     "確定",
                     "確認",
                     "确定",
                     "確定"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "事件完成_矩阵循生",
-            "[JumpBack]关闭奖励_矩阵循生",
-            "[JumpBack]出发_矩阵循生",
-            "[JumpBack]异度投影_对话",
-            "[JumpBack]异度投影_对话2",
-            "[JumpBack]异度投影_对话3",
-            "[JumpBack]beta_过场动画",
-            "[JumpBack]转场_矩阵循生",
-            "[JumpBack]跳过剧情"
-        ]
+        }
     },
     "异度投影_对话3": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    690,
-                    254,
-                    554,
-                    339
-                ],
                 "expected": [
-                    "観測を行う", // 進行觀測日服翻譯
+                    "観測を行う",
                     "観測する",
                     "进行观测",
                     "進行觀測"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "决定_矩阵循生",
-            "[JumpBack]跳过剧情"
-        ]
+        }
     },
     "beta_过场动画": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    614,
-                    70,
-                    57,
-                    32
-                ],
                 "expected": [
-                    "フェーズ", // 階段日服多用片假名：フェーズ (Phase)
+                    "フェーズ",
                     "段階",
                     "阶段",
                     "階段"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    10,
-                    10
-                ]
+                ],
+                "replace": []
             }
         }
     },
     "异度投影_对话": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1034,
-                    619,
-                    62,
-                    41
-                ],
                 "expected": [
-                    "近づく", // 靠近日服翻譯
-                    "進む", // 前進日服翻譯
+                    "近づく",
+                    "進む",
                     "靠近",
                     "前进",
                     "前進"
                 ],
-                "only_rec": true
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "异度投影_对话2": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    690,
-                    254,
-                    554,
-                    339
-                ],
                 "expected": [
-                    "さらに近づく", // 繼續靠近日服翻譯
-                    "強制起動", // 強制啟動日服漢字完全一致
+                    "さらに近づく",
+                    "強制起動",
                     "继续靠近",
                     "繼續靠近",
                     "强制启动",
                     "強制啓動"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "决定_矩阵循生"
-        ]
+        }
     },
     "前进_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1034,
-                    622,
-                    59,
-                    34
-                ],
                 "expected": [
                     "進む",
                     "前进",
                     "前進"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "战斗事件_矩阵循生": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    278,
-                    150,
-                    834,
-                    86
-                ],
-                "template": [
-                    "矩阵循生/战斗地块.png"
-                ],
-                "green_mask": true,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "timeout": 300000,
-        "rate_limit": 0,
-        "next": [
-            "战斗完成_矩阵循生",
-            "战斗失败",
-            "[JumpBack]算力单元不足",
-            "[JumpBack]识别人物",
-            "[JumpBack]重启_寒境曙光",
-            "[JumpBack]战斗中",
-            "[JumpBack]出击_矩阵循生",
-            "[JumpBack]跳过战斗对话",
-            "[JumpBack]进入战斗_矩阵循生",
-            "[JumpBack]载入中"
-        ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]戦闘開始[/color]" // 開始戰鬥日服官方翻譯
+            "Node.Recognition.Succeeded": "[color:ForestGreen]戦闘開始[/color]"
         }
     },
     "算力单元不足": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    566,
-                    344,
-                    154,
-                    30
-                ],
                 "expected": [
-                    "演算ユニット不足", // 矩陣機制「算力單元」日服官方譯為：演算ユニット
+                    "演算ユニット不足",
                     "算力ユニット不足",
                     "算力单元",
                     "算力單元",
                     "不足"
                 ],
-                "only_rec": true
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "链路崩溃_reco",
-            "[JumpBack]放弃战斗_矩阵循生"
-        ]
+        }
     },
     "放弃战斗_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    335,
-                    448,
-                    214,
-                    184
-                ],
                 "expected": [
-                    "諦める", // 放棄日服手遊最常用詞
+                    "諦める",
                     "撤退",
                     "放弃",
                     "放棄"
@@ -1246,142 +463,53 @@
                     "弃"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "重复点击战斗_矩阵循生": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    278,
-                    150,
-                    834,
-                    86
-                ],
-                "template": [
-                    "矩阵循生/战斗地块.png"
-                ],
-                "green_mask": true,
-                "order_by": "Score"
-            }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "战斗失败": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    547,
-                    367,
-                    183,
-                    69
-                ],
                 "expected": [
                     "接続崩壊",
                     "链路崩溃",
                     "鏈路崩潰"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "识别人物": {
-                        "enabled": true
-                    }
-                }
-            }
-        },
-        "post_delay": 1000,
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]寄![/color]"
         }
     },
     "进入战斗_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    183,
-                    469,
-                    972,
-                    63
-                ],
                 "expected": [
                     "確定",
                     "確認",
                     "确定",
                     "確定"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "战斗完成_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    544,
-                    24,
-                    187,
-                    60
-                ],
                 "expected": [
-                    "報酬獲得", // 領取獎勵日服官方常用漢字
+                    "報酬獲得",
                     "報酬を受け取る",
                     "领取奖励",
                     "領取獎勵"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "识别人物": {
-                        "enabled": true
-                    }
-                }
-            }
-        },
-        "next": [
-            "事件完成_矩阵循生",
-            "[JumpBack]关闭奖励_矩阵循生",
-            "[JumpBack]领取_矩阵循生",
-            "[JumpBack]确认装备_矩阵循生",
-            "[JumpBack]选择装备_矩阵循生",
-            "[JumpBack]离开_寒境曙光",
-            "[JumpBack]熵值通知_矩阵循生",
-            "[JumpBack]领取熵值奖励_矩阵循生"
-        ]
+        }
     },
     "熵值通知_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    441,
-                    181,
-                    433,
-                    80
-                ],
                 "expected": [
                     "注入中",
-                    "フィードバック", // 反饋
-                    "エントロピー変異", // 玩法核心機制「熵變」日服官方譯名
+                    "フィードバック",
+                    "エントロピー変異",
                     "結果確認",
                     "正在注入",
                     "反馈",
@@ -1390,80 +518,26 @@
                     "熵變",
                     "结果中",
                     "結果中"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "领取熵值奖励_矩阵循生": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    144,
-                    229,
-                    1055,
-                    71
                 ],
-                "expected": ""
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "领取藏品": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    547,
-                    22,
-                    200,
-                    69
-                ],
                 "expected": [
                     "報酬獲得",
                     "领取奖励",
                     "領取獎勵"
-                ]
-            }
-        },
-        "next": [
-            "领取_矩阵循生",
-            "事件完成_矩阵循生",
-            "[JumpBack]点击藏品"
-        ]
-    },
-    "点击藏品": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    202,
-                    273,
-                    944,
-                    79
                 ],
-                "expected": ""
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "离开_寒境曙光": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1036,
-                    641,
-                    56,
-                    34
-                ],
                 "expected": [
                     "離れる",
                     "立ち去る",
@@ -1475,149 +549,71 @@
                     "开"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1500
+        }
     },
     "确认装备_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1133,
-                    649,
-                    65,
-                    33
-                ],
                 "expected": [
                     "確定",
                     "確認",
                     "确定",
                     "確定"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "选择装备_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    16,
-                    71,
-                    186,
-                    39
-                ],
                 "expected": [
-                    "装備を選択してください", // 請選擇裝備日服翻譯
+                    "装備を選択してください",
                     "请选择装备",
                     "請選擇裝備"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    157,
-                    412
-                ]
+                ],
+                "replace": []
             }
         }
     },
     "领取_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    49,
-                    454,
-                    1175,
-                    93
-                ],
                 "expected": [
                     "受け取る",
                     "獲得",
                     "领取",
                     "領取"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "事件完成_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1103,
-                    627,
-                    63,
-                    55
-                ],
                 "expected": [
                     "秘蔵品",
                     "蔵品",
                     "藏品"
                 ]
             }
-        },
-        "post_delay": 2000,
-        "next": [
-            "事件完成_二次确认_矩阵循生",
-            "[JumpBack]关闭奖励_矩阵循生",
-            "[JumpBack]领取_矩阵循生",
-            "[JumpBack]确认装备_矩阵循生",
-            "[JumpBack]选择装备_矩阵循生",
-            "[JumpBack]离开_寒境曙光"
-        ]
+        }
     },
     "事件完成_结束_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1103,
-                    627,
-                    63,
-                    55
-                ],
                 "expected": [
                     "秘蔵品",
                     "蔵品",
                     "藏品"
                 ]
             }
-        },
-        "post_delay": 2000,
-        "next": [
-            "事件完成_结束_二次确认_矩阵循生",
-            "[JumpBack]关闭奖励_矩阵循生",
-            "[JumpBack]领取_矩阵循生",
-            "[JumpBack]确认装备_矩阵循生",
-            "[JumpBack]选择装备_矩阵循生",
-            "[JumpBack]离开_寒境曙光"
-        ]
+        }
     },
     "事件完成_二次确认_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1103,
-                    627,
-                    63,
-                    55
-                ],
                 "expected": [
                     "秘蔵品",
                     "蔵品",
@@ -1628,341 +624,173 @@
     },
     "事件完成_结束_二次确认_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1103,
-                    627,
-                    63,
-                    55
-                ],
                 "expected": [
                     "秘蔵品",
                     "蔵品",
                     "藏品"
                 ]
             }
-        },
-        "next": [
-            "确认结束购物_矩阵循生",
-            "[JumpBack]终止_矩阵循生",
-            "[JumpBack]返回"
-        ]
+        }
     },
     "出击_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1016,
-                    625,
-                    64,
-                    40
-                ],
                 "expected": [
-                    "出撃", // 出擊日服官方漢字
+                    "出撃",
                     "出击",
                     "出擊"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "关闭奖励_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    580,
-                    213,
-                    133,
-                    40
-                ],
                 "expected": [
                     "報酬獲得",
                     "获得奖励",
                     "獲得獎勵"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "决定_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1032,
-                    618,
-                    72,
-                    42
-                ],
                 "expected": [
                     "決定",
                     "决定",
                     "決定"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": {
-            "time": 1000
         }
     },
     "出发_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1032,
-                    618,
-                    72,
-                    42
-                ],
                 "expected": [
                     "出発",
                     "出发",
                     "出發"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "肉鸽战斗_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1103,
-                    627,
-                    63,
-                    55
-                ],
                 "expected": [
                     "戦闘",
                     "战斗",
                     "戰鬥"
-                ]
+                ],
+                "replace": []
             }
         }
     },
     "选择难度_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    191,
-                    311,
-                    895,
-                    28
-                ],
                 "expected": [
-                    "ノーマル", // 普通難度日服官方譯名：ノーマル (Normal)
+                    "ノーマル",
                     "普通"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "下一步",
-            "空任务"
-        ]
+        }
     },
     "迭变藏品_矩阵循生": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    44,
-                    267,
-                    1209,
-                    55
-                ],
-                "expected": [
-                    "外層", // 外層日服漢字
-                    "外层"
-                ]
-            }
-        },
-        "post_delay": 1000,
         "next": [
             "下一步",
             "[JumpBack]点击迭变投影选项"
-        ]
-    },
-    "点击迭变投影选项": {
+        ],
         "recognition": {
-            "type": "TemplateMatch",
             "param": {
-                "roi": [
-                    19,
-                    98,
-                    311,
-                    522
+                "expected": [
+                    "外層",
+                    "外层"
                 ],
-                "template": [
-                    "矩阵循生/迭变投影.png"
-                ]
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "选择首发_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    288,
-                    162,
-                    88,
-                    50
-                ],
                 "expected": [
                     "初期配置",
                     "先発",
                     "首发",
                     "首發"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "选择角色程序_矩阵循生",
-            "选择首发_矩阵循生"
-        ]
+        }
     },
     "选择角色程序_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    983,
-                    464,
-                    276,
-                    244
-                ],
                 "expected": [
                     "編成",
                     "チーム入り",
                     "编入",
                     "編入"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "RoleSelection",
-                "custom_action_param": {
-                    "selection_mode": "roguelike_3",
-                    "need_multi": false
-                }
-            }
-        },
-        "attach": {
-            "max_try": 5
         }
     },
     "链路崩溃_reco": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    547,
-                    367,
-                    183,
-                    69
-                ],
                 "expected": [
                     "接続崩壊",
                     "链路崩溃",
                     "鏈路崩潰"
-                ]
+                ],
+                "replace": []
             }
         }
     },
     "编入_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1058,
-                    628,
-                    75,
-                    45
-                ],
                 "expected": [
                     "編成",
                     "チーム入り",
                     "编入",
                     "編入"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "编队完成_矩阵循生": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    749,
-                    618,
-                    153,
-                    48
-                ],
                 "expected": [
-                    "編成調整", // 隊伍調整日服官方譯名：編成調整
+                    "編成調整",
                     "队伍调整",
                     "隊伍調整"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "next": [
-            "开始演算",
-            "转场_矩阵循生"
-        ]
+        }
     },
     "开始演算": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1012,
-                    621,
-                    119,
-                    44
-                ],
                 "expected": [
                     "演算開始",
                     "开始演算",
                     "開始演算"
-                ]
+                ],
+                "replace": []
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     }
 }
