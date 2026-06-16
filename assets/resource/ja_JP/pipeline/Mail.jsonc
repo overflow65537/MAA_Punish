@@ -1,7 +1,6 @@
-{    
+{
     "邮件": {
         "next": [
-            
             "领取全部",
             "[JumpBack]打开邮件_圖片",
             "[JumpBack]打开邮件_文字"
@@ -35,10 +34,12 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    130,410,
-                   50,50
+                    130,
+                    410,
+                    50,
+                    50
                 ],
-                "template": "界面/大廳/郵件.png",
+                "template": "輔助識別/郵件.png",
                 "threshold": 0.6,
                 "green_mask": true
             }
@@ -52,7 +53,7 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                     81,
+                    81,
                     397,
                     139,
                     119

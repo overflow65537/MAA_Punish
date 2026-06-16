@@ -31,7 +31,7 @@
                     120,
                     70
                 ],
-                "template": "界面/大廳/購入.png",
+                "template": "輔助識別/購入.png",
                 "threshold": 0.6,
                 "green_mask": true
             }
