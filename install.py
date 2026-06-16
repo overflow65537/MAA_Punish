@@ -45,14 +45,21 @@ def install_chores():
         working_dir / "LICENSE",
         install_path,
     )
+    # 默认简体副本（兼容未解析 i18n 的 Client）；多语言正文在 assets/i18n/<lang>/
     shutil.copy2(
-        working_dir / "DISCLAIMER.md",
-        install_path,
+        working_dir / "assets" / "i18n" / "zh_cn" / "DISCLAIMER.md",
+        install_path / "DISCLAIMER.md",
     )
     shutil.copy2(
-        working_dir / "CONTACT.md",
-        install_path,
+        working_dir / "assets" / "i18n" / "zh_cn" / "CONTACT.md",
+        install_path / "CONTACT.md",
     )
+    for lang in ("zh_cn", "zh_tw"):
+        src = working_dir / "assets" / "i18n" / lang
+        dst = install_path / "i18n" / lang
+        dst.mkdir(parents=True, exist_ok=True)
+        for name in ("CONTACT.md", "DISCLAIMER.md"):
+            shutil.copy2(src / name, dst / name)
     shutil.copy2(
         install_path / "logo.png",
         install_path / "dashboard.png",

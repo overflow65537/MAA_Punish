@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "Screencap",
-            "label": "截图",
+            "label": "$task.Screencap.label",
             "group": [
                 "tools"
             ],
@@ -12,13 +12,13 @@
     ],
     "option": {
         "ScreenCaplimit": {
-            "label": "输入截图冷却（毫秒）",
+            "label": "$option.ScreenCaplimit.label",
             "type": "input",
             "inputs": [
                 {
                     "name": "ScreencapPostDelay",
-                    "description": "<p>请输入截图冷却时间（毫秒）。</p>",
-                    "label": "截图冷却时间",
+                    "description": "$input.ScreenCaplimit.ScreencapPostDelay.description",
+                    "label": "$input.ScreenCaplimit.ScreencapPostDelay.label",
                     "default": "1000",
                     "pipeline_type": "int",
                     "verify": "^\\d+$"

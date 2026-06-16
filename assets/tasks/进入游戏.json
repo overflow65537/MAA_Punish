@@ -22,13 +22,14 @@
             },
             "option": [
                 "MAS通知处理"
-            ]
+            ],
+            "label": "$task.进入游戏"
         }
     ],
     "option": {
         "MAS通知处理": {
-            "label": "是否启用了MAS",
-            "description": "若您不清楚MAS是什么的话请尽量不要启用本功能",
+            "label": "$option.MAS通知处理.label",
+            "description": "$option.MAS通知处理.description",
             "type": "switch",
             "default": "No",
             "cases": [
