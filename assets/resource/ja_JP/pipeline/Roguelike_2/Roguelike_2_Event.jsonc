@@ -724,10 +724,10 @@
         "next": [
             "事件完成_厄愿潮声",
             "[JumpBack]确定",
-            "[JumpBack]领取藏品_厄愿潮声",
-            "[JumpBack]关闭奖励_厄愿潮声",
             "[JumpBack]军备库_对话2",
             "[JumpBack]军备库_对话1",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]关闭奖励_厄愿潮声",
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
