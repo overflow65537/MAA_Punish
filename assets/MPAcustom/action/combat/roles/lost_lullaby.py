@@ -73,8 +73,8 @@ class LostLullaby(BaseRole):
                     self.action.use_skill()  # 沉没在,这片海底
                     self.action.auxiliary_machine()
                     self.action.auto_qte("a")
-                    if self.switch_next():
-                        print("切换完成")
+                    self.switch_next()
+                    print("切换完成")
                     return
             else:
                 self.action.ball_elimination_target(1)

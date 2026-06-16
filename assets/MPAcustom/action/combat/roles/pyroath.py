@@ -81,8 +81,8 @@ class Pyroath(BaseRole):
             time.sleep(0.1)
             self.action.auxiliary_machine()
             self.action.auto_qte("a")
-            if self.switch_next():
-                print("切换完成")
+            self.switch_next()
+            print("切换完成")
             return
         self.action.attack()
         end_time = time.time()
