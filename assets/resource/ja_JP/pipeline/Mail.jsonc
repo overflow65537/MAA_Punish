@@ -8,26 +8,12 @@
     },
     "领取全部": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    212,
-                    612,
-                    207,
-                    55
-                ],
                 "expected": [
                     "全て受取"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "返回主菜单",
-            "[JumpBack]关闭奖励"
-        ]
+        }
     },
     "打开邮件_圖片": {
         "recognition": {

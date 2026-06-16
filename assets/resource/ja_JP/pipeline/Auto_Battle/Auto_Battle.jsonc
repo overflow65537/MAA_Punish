@@ -1,167 +1,26 @@
 {
-    "战斗辅助": {
-        "pre_delay": 0,
-        "post_delay": 0,
-        "rate_limit": 0,
-        "next": [
-            "[JumpBack]覆盖布局菜单",
-            "[JumpBack]自动闪避",
-            "[JumpBack]战斗重启1",
-            "[JumpBack]播放剧情",
-            "[JumpBack]主线跳过",
-            "[JumpBack]跳过剧情",
-            "[JumpBack]确认跳过",
-            "[JumpBack]跳过战斗对话_主线",
-            "[JumpBack]进入战斗",
-            "[JumpBack]识别人物",
-            "[JumpBack]战斗中",
-            "[JumpBack]点击对话",
-            "[JumpBack]点击空白处关闭_速通",
-            "[JumpBack]载入中",
-            "[JumpBack]未选人",
-            "[JumpBack]使用体力",
-            "[JumpBack]不使用体力",
-            "[JumpBack]点击作战开始_速通",
-            "[JumpBack]打开速通开关",
-            "[JumpBack]从中间开始",
-            "[JumpBack]战斗准备_速通",
-            "[JumpBack]点击下一关_剧情",
-            "[JumpBack]点击下一关",
-            "[JumpBack]退出战斗",
-            "[JumpBack]重置识别"
-        ]
-    },
-    "AAA_战斗测试": {
-        "next": [
-            "循环执行器",
-            "[JumpBack]战斗辅助"
-        ]
-    },
     "点击空白处关闭_速通": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    371,
-                    581,
-                    530,
-                    138
-                ],
                 "expected": [
                     "タップして閉じる",
                     "画面"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1500
-    },
-    "点击对话": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    635,
-                    97,
-                    464,
-                    484
-                ],
-                "template": [
-                    "战斗/点击事件.png"
-                ],
-                "green_mask": true,
-                "threshold": [
-                    0.8
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "从中间开始": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    874,
-                    343,
-                    180,
-                    68
-                ],
                 "expected": [
                     "途中から再生",
                     "途中"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "点击下一关_剧情": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    11,
-                    70,
-                    1269,
-                    540
-                ],
-                "template": [
-                    "战斗/剧情_1.png",
-                    "战斗/剧情_11.png",
-                    "战斗/剧情_22.png",
-                    "战斗/剧情_37.png",
-                    "战斗/战斗_2.png",
-                    "战斗/战斗_11.png",
-                    "战斗/战斗_28.png"
-                ],
-                "green_mask": true,
-                "threshold": [
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.9,
-                    0.7,
-                    0.7,
-                    0.7
-                ],
-                "order_by": "Horizontal",
-                "index": -1
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 5000
-        }
-    },
-    "识别文字": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "lower": [
-                    255,
-                    255,
-                    255
-                ],
-                "upper": [
-                    255,
-                    255,
-                    255
                 ]
             }
         }
     },
     "使用体力": {
         "recognition": {
-            "type": "And",
             "param": {
                 "all_of": [
                     {
@@ -199,146 +58,57 @@
                     }
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 2000,
-        "next": [
-            "体力取消",
-            "[JumpBack]关闭奖励"
-        ]
+        }
     },
     "体力取消": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    664,
-                    588,
-                    57,
-                    44
-                ],
                 "expected": [
                     "キャンセル"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "不使用体力": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    664,
-                    588,
-                    57,
-                    44
-                ],
                 "expected": [
                     "キャンセル"
                 ]
             }
-        },
-        "action": {
-            "type": "StopTask"
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]体力不足,任务结束[/color]"
         }
-    },
-    "点击下一关": {
-        "recognition": {
-            "type": "Custom",
-            "param": {
-                "custom_recognition": "NextStageRecognition"
-            }
-        },
-        "action": "Click",
-        "post_delay": 1000
     },
     "未选人": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    41,
-                    627,
-                    125,
-                    33
-                ],
                 "expected": [
                     "隊長が選ばれていません"
                 ]
             }
-        },
-        "next": [
-            "清除队伍"
-        ]
+        }
     },
     "点击作战开始_速通": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1032,
-                    640,
-                    138,
-                    56
-                ],
                 "expected": [
                     "戦闘開始",
                     "作戦開始"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "战斗准备_速通": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    747,
-                    459,
-                    451,
-                    247
-                ],
                 "expected": [
                     "戦闘準備",
                     "作戦準備"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "打开速通开关": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    528,
-                    441,
-                    327,
-                    218
-                ],
-                "expected": "OFF"
-            }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "播放剧情": {
         "recognition": {
-            "type": "OCR",
             "param": {
                 "roi": [
                     731,
@@ -351,109 +121,38 @@
                     "再生開始"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "rate_limit": 0
+        }
     },
     "跳过战斗对话_主线": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    757,
-                    565,
-                    137,
-                    97
-                ],
                 "expected": [
                     "スキップ",
                     "SKIP"
                 ]
             }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        }
-    },
-    "自动反击": {
-        "recognition": {
-            "type": "Custom",
-            "param": {
-                "custom_recognition": "AutoCounter",
-                "custom_recognition_param": {
-                    "current_hp": ""
-                }
-            }
-        },
-        "pre_delay": 500,
-        "post_delay": 0,
-        "next": [
-            "[JumpBack]识别人物",
-            "战斗中"
-        ]
-    },
-    "检查血量": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    19,
-                    15,
-                    141,
-                    29
-                ],
-                "expected": "\\d+/\\d+"
-            }
         }
     },
     "战斗重启1": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    820,
-                    266,
-                    73,
-                    53
-                ],
                 "expected": [
                     "再挑戦"
                 ]
             }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "rate_limit": 0
+        }
     },
     "对话跳过": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    787,
-                    595,
-                    50,
-                    32
-                ],
                 "expected": [
                     "SKIP"
-                ],
-                "only_rec": true
+                ]
             }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
         }
     },
     "进入战斗": {
         "recognition": {
-            "type": "Or",
             "param": {
                 "any_of": [
                     {
@@ -525,133 +224,14 @@
                     }
                 ]
             }
-        },
-        "pre_delay": 0,
-        "post_delay": 0,
-        "rate_limit": 0,
-        "next": [
-            "识别人物",
-            "[JumpBack]战斗中",
-            "空任务"
-        ]
-    },
-    "重置识别": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "识别人物": {
-                        "enabled": true
-                    }
-                }
-            }
         }
     },
     "主线跳过": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1179,
-                    22,
-                    78,
-                    33
-                ],
                 "expected": [
                     "SKIP"
                 ]
-            }
-        },
-        "pre_delay": 0,
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 0,
-        "rate_limit": 0
-    },
-    "循环执行器": {
-        "inverse": true
-    },
-    "识别人物": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    990,
-                    567,
-                    131,
-                    131
-                ],
-                "template": "战斗/闪避.png",
-                "green_mask": true
-            }
-        },
-        "pre_delay": 0,
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "RecognitionRole"
-            }
-        },
-        "post_delay": 0,
-        "rate_limit": 0
-    },
-    "检查角色": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    1113,
-                    556,
-                    138,
-                    142
-                ],
-                "template": [
-                    "自定义战斗/逆冕大太刀.png",
-                    "自定义战斗/逆冕小太刀.png"
-                ],
-                "green_mask": true
-            }
-        }
-    },
-    "检查当前章节": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    25,
-                    90,
-                    488,
-                    115
-                ],
-                "expected": "^(?:\\d+|EX\\d+|ER\\d+)",
-                "replace": [
-                    [
-                        "O",
-                        "0"
-                    ],
-                    [
-                        "o",
-                        "0"
-                    ]
-                ]
-            }
-        }
-    },
-    "检查最后关卡": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    10,
-                    168,
-                    1269,
-                    439
-                ],
-                "expected": "",
-                "order_by": "Horizontal",
-                "index": -1
             }
         }
     }

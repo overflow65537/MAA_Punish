@@ -1,7 +1,6 @@
 {
     "开始手动战斗": {
         "recognition": {
-            "type": "OCR",
             "param": {
                 "roi": [
                     1028,
@@ -13,87 +12,28 @@
                     "まとめて挑戦"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "[JumpBack]覆盖布局菜单",
-            "作战开始_拟战场域",
-            "手动战斗_体力不足"
-        ]
-    },
-    "作战开始_拟战场域": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    "作战开始"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "手动战斗_作战失败",
-            "手动战斗_战斗成功",
-            "[JumpBack]识别人物",
-            "[JumpBack]重启_寒境曙光",
-            "[JumpBack]战斗中",
-            "[JumpBack]载入中"
-        ]
+        }
     },
     "手动战斗_作战失败": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    254,
-                    178,
-                    302,
-                    96
-                ],
                 "expected": [
                     "作戦失敗"
                 ]
             }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "post_delay": 1000,
-        "next": [
-            "返回主菜单"
-        ]
+        }
     },
     "手动战斗_战斗成功": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1007,
-                    574,
-                    273,
-                    146
-                ],
                 "expected": [
                     "戻る"
                 ]
             }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "next": [
-            "返回主菜单"
-        ]
+        }
     },
     "手动战斗_体力不足": {
         "recognition": {
-            "type": "OCR",
             "param": {
                 "roi": [
                     127,
@@ -105,10 +45,6 @@
                     "使用しますか"
                 ]
             }
-        },
-        "post_delay": 3500,
-        "next": [
-            "返回主菜单"
-        ]
+        }
     }
 }

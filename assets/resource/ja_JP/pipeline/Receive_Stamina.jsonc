@@ -14,47 +14,24 @@
     },
     "意外点击_涂装界面": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    847,
-                    84,
-                    110,
-                    65
-                ],
                 "expected": [
                     "スキン"
                 ]
             }
-        },
-        "post_delay": 2000,
-        "next": [
-            "返回"
-        ]
+        }
     },
     "意外点击_皮肤卡池": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    93,
-                    630,
-                    158,
-                    77
-                ],
                 "expected": [
                     "音声設定"
                 ]
             }
-        },
-        "post_delay": 2000,
-        "next": [
-            "返回"
-        ]
+        }
     },
     "补给包售罄": {
         "recognition": {
-            "type": "OCR",
             "param": {
                 "roi": [
                     580,
@@ -66,35 +43,19 @@
                     "完売"
                 ]
             }
-        },
-        "next": [
-            "返回主菜单",
-            "[JumpBack]关闭奖励"
-        ]
+        }
     },
     "进入采购": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    975,
-                    306,
-                    75,
-                    60
-                ],
                 "expected": [
                     "購入"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "点击补给包": {
         "recognition": {
-            "type": "OCR",
             "param": {
                 "roi": [
                     515,
@@ -107,14 +68,10 @@
                 ]
             }
         },
-        "action": {
-            "type": "Click"
-        },
         "post_delay": 500
     },
     "点击日常补给包": {
         "recognition": {
-            "type": "OCR",
             "param": {
                 "roi": [
                     10,
@@ -127,38 +84,23 @@
                 ]
             }
         },
-        "action": {
-            "type": "Click"
-        },
         "post_delay": 500
     },
     "检查限购": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    349,
-                    353,
-                    129,
-                    288
-                ],
                 "expected": [
                     "血清補給",
                     "無料補給"
                 ]
             }
         },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": 500,
         "next": [
             "领取"
         ]
     },
     "领取": {
         "recognition": {
-            "type": "OCR",
             "param": {
                 "roi": [
                     1073,
@@ -170,10 +112,6 @@
                     "^無料$"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": 500
+        }
     }
 }

@@ -15,142 +15,49 @@
     },
     "终止_雾夜镇魂曲": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    312,
-                    507,
-                    913,
-                    213
-                ],
-                "expected": ["终止前进", "終止前進"]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "[JumpBack]确定",
-            "[JumpBack]下一步",
-            "对比并替换",
-            "放弃存档",
-            "已经回到主界面"
-        ]
-    },
-    "雾夜镇魂曲内部": {
-        "recognition": {
-            "type": "Or",
-            "param": {
-                "any_of": [
-                    "雾夜镇魂曲内部条件1",
-                    "雾夜镇魂曲内部条件2",
-                    "雾夜镇魂曲内部条件3"
-                ]
-            }
-        },
-        "next": [
-            "放弃存档",
-            "[JumpBack]下一步",
-            "[JumpBack]雾夜镇魂曲内部条件3",
-            "[JumpBack]确定_雾夜镇魂曲",
-            "[JumpBack]选择任务_雾夜镇魂曲",
-            "[JumpBack]离开商店_雾夜镇魂曲",
-            "[JumpBack]变速_雾夜镇魂曲",
-            "[JumpBack]结束战斗_雾夜镇魂曲",
-            "[JumpBack]战斗中_雾夜镇魂曲",
-            "[JumpBack]跳过剧情",
-            "[JumpBack]滑动事件"
-        ]
-    },
-    "雾夜镇魂曲内部条件1": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    186,
-                    7,
-                    961,
-                    164
-                ],
-                "template": [
-                    "雾夜镇魂曲/标志1.png",
-                    "雾夜镇魂曲/标志2.png",
-                    "雾夜镇魂曲/标志3.png",
-                    "雾夜镇魂曲/标志4.png"
-                ],
-                "threshold": [
-                    0.8,
-                    0.8,
-                    0.8,
-                    0.8
+                "expected": [
+                    "终止前进",
+                    "終止前進"
                 ]
             }
         }
     },
     "雾夜镇魂曲内部条件2": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    136,
-                    108,
-                    258,
-                    349
-                ],
-                "expected": ["简单", "簡單", "困难", "困難"]
+                "expected": [
+                    "简单",
+                    "簡單",
+                    "困难",
+                    "困難"
+                ]
             }
         }
     },
     "雾夜镇魂曲内部条件3": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    464,
-                    568,
-                    386,
-                    149
-                ],
-                "expected": ["开启本层", "開啓本層"]
+                "expected": [
+                    "开启本层",
+                    "開啓本層"
+                ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "放弃存档": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    0,
-                    521,
-                    418,
-                    199
-                ],
-                "expected": ["放弃存档", "放棄存檔"]
+                "expected": [
+                    "放弃存档",
+                    "放棄存檔"
+                ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "确定",
-            "对比并替换",
-            "放弃存档",
-            "已经回到主界面"
-        ]
+        }
     },
     "已经回到主界面": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    111,
-                    548,
-                    382,
-                    172
-                ],
                 "expected": [
                     "迷局突围",
                     "迷局突圍"
@@ -158,103 +65,18 @@
             }
         }
     },
-    "对比并替换": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    534,
-                    595,
-                    231,
-                    125
-                ],
-                "expected": "保存"
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    1205,
-                    73
-                ]
-            }
-        },
-        "next": [
-            "放弃存档"
-        ]
-    },
-    "返回雾夜镇魂曲内部": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    "雾夜镇魂曲内部"
-                ]
-            }
-        }
-    },
     "选择任务_雾夜镇魂曲": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    505,
-                    184,
-                    289,
-                    153
-                ],
-                "expected": ["任务需求", "任務需求"]
-            }
-        },
-        "next": [
-            "返回雾夜镇魂曲内部",
-            "[JumpBack]选择_雾夜镇魂曲",
-            "确认任务_雾夜镇魂曲"
-        ]
-    },
-    "选择_雾夜镇魂曲": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    {
-                        "sub_name": "文本颜色",
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    97,
-                                    447,
-                                    713,
-                                    150
-                                ],
-                                "method": 40,
-                                "lower": [
-                                    85,
-                                    140,
-                                    70
-                                ],
-                                "upper": [
-                                    100,
-                                    210,
-                                    140
-                                ],
-                                "connected": true,
-                                "count": 10
-                            }
-                        }
-                    }
+                "expected": [
+                    "任务需求",
+                    "任務需求"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "确认任务_雾夜镇魂曲": {
         "recognition": {
-            "type": "And",
             "param": {
                 "all_of": [
                     {
@@ -317,126 +139,44 @@
                                     279,
                                     138
                                 ],
-                                "expected": ["确定", "確定"]
+                                "expected": [
+                                    "确定",
+                                    "確定"
+                                ]
                             }
                         }
                     }
-                ],
-                "box_index": 2
+                ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "离开商店_雾夜镇魂曲": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    924,
-                    575,
-                    288,
-                    145
-                ],
-                "expected": ["离开商店", "離開商店"]
+                "expected": [
+                    "离开商店",
+                    "離開商店"
+                ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "确定_雾夜镇魂曲": {
-        "desc": "roi比通用确定更小",
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    350,
-                    478,
-                    577,
-                    242
-                ],
-                "expected": ["确定", "確定"]
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "战斗中_雾夜镇魂曲": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    971,
-                    0,
-                    309,
-                    160
-                ],
-                "expected": "退出"
-            }
-        }
-    },
-    "变速_雾夜镇魂曲": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    0,
-                    0,
-                    167,
-                    139
-                ],
                 "expected": [
-                    "x1",
-                    "X1"
+                    "确定",
+                    "確定"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "结束战斗_雾夜镇魂曲": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    924,
-                    575,
-                    288,
-                    145
-                ],
-                "expected": ["继续", "繼續"]
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "滑动事件": {
-        "recognition": {
-            "type": "Or",
-            "param": {
-                "any_of": [
-                    "雾夜镇魂曲内部条件1",
-                    "雾夜镇魂曲内部条件2"
+                "expected": [
+                    "继续",
+                    "繼續"
                 ]
-            }
-        },
-        "action": {
-            "type": "Swipe",
-            "param": {
-                "begin": [
-                    650,
-                    400
-                ],
-                "end": [
-                    250,
-                    400
-                ],
-                "duration": 500
             }
         }
     }

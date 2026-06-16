@@ -1,214 +1,84 @@
 {
-    "宿舍任务": {
-        "next": [
-            "宿舍内部",
-            "[JumpBack]打开宿舍",
-            "[JumpBack]意外点击_主界面"
-        ]
-    },
-    "宿舍任务_领取": {
-        "next": [
-            "今日任务已完成",
-            "[JumpBack]一键领取_宿舍任务",
-            "[JumpBack]关闭奖励",
-            "[JumpBack]打开宿舍任务",
-            "[JumpBack]选择每日任务"
-        ]
-    },
     "今日任务已完成": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    633,
-                    333,
-                    248,
-                    60
-                ],
                 "expected": [
                     "本日の任務は完了済"
                 ]
             }
-        },
-        "next": [
-            "宿舍任务_返回3",
-            "[JumpBack]关闭奖励"
-        ]
-    },
-    "宿舍任务_执勤": {
-        "action": {
-            "type": "Swipe",
-            "param": {
-                "begin": [
-                    1227,
-                    552
-                ],
-                "end": [
-                    1017,
-                    554
-                ]
-            }
-        },
-        "next": [
-            "[JumpBack]宿舍任务_领取执勤",
-            "[JumpBack]意外点击_退出代工",
-            "二次进入执勤",
-            "选择执勤伙伴",
-            "[JumpBack]开始执勤",
-            "[JumpBack]打开执勤"
-        ]
+        }
     },
     "二次进入执勤": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    163,
-                    211,
-                    294,
-                    104
-                ],
                 "expected": [
                     "休憩中",
                     "代行"
                 ]
             }
-        },
-        "next": [
-            "宿舍任务_返回2"
-        ]
+        }
     },
     "宿舍内部": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    107,
-                    649,
-                    62,
-                    37
-                ],
                 "expected": [
                     "製造"
                 ]
             }
-        },
-        "next": [
-            "关闭完成事件",
-            "宿舍事件无",
-            "[JumpBack]完成事件"
-        ]
+        }
     },
     "一键领取_宿舍任务": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1007,
-                    56,
-                    269,
-                    146
-                ],
                 "expected": [
                     "括受取"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "关闭奖励_宿舍任务": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    409,
-                    176,
-                    491,
-                    150
-                ],
                 "expected": [
                     "^獲得$",
                     "^報酬$"
                 ]
             }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    446,
-                    30
-                ]
-            }
-        },
-        "post_delay": 1000,
-        "next": [
-            "返回主菜单"
-        ]
+        }
     },
     "选择每日任务": {
         "recognition": {
-            "type": "TemplateMatch",
             "param": {
                 "roi": [
                     0,
                     243,
                     250,
                     200
-                ],
-                "template": "任务/每日_32_293_208_40__0_243_308_140.png",
-                "threshold": 0.8
+                ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "宿舍任务_领取执勤": {
         "recognition": {
-            "type": "OCR",
             "param": {
                 "expected": [
                     "当番完了"
                 ]
             }
-        },
-        "pre_delay": 0,
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 0,
-        "rate_limit": 0,
-        "next": [
-            "关闭奖励"
-        ]
+        }
     },
     "打开宿舍任务": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    1181,
-                    82,
-                    56,
-                    56
-                ],
                 "expected": [
                     "任務"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "意外点击_退出代工": {
         "recognition": {
-            "type": "And",
             "param": {
                 "all_of": [
                     {
@@ -243,77 +113,30 @@
                             }
                         }
                     }
-                ],
-                "box_index": 1
+                ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "选择执勤伙伴": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    199,
-                    66,
-                    292,
-                    102
-                ],
                 "expected": [
                     "当番を選択"
                 ]
             }
-        },
-        "next": [
-            "执勤已满",
-            "[JumpBack]开始选择执勤伙伴"
-        ]
-    },
-    "执勤已满": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    978,
-                    92,
-                    59,
-                    49
-                ],
-                "expected": "^([1-8])(?:/|1)\\1$",
-                "only_rec": true
-            }
-        },
-        "next": [
-            "退出执勤"
-        ]
+        }
     },
     "退出执勤": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    872,
-                    620,
-                    96,
-                    39
-                ],
                 "expected": [
                     "当番開始"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "宿舍任务_返回2"
-        ]
+        }
     },
     "开始选择执勤伙伴": {
         "recognition": {
-            "type": "And",
             "param": {
                 "all_of": [
                     {
@@ -353,376 +176,124 @@
                             }
                         }
                     }
-                ],
-                "box_index": 1
+                ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 500
-    },
-    "开始执勤": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    0,
-                    221,
-                    1280,
-                    397
-                ],
-                "template": "宿舍委托/打开执勤_1189_392_64_52__1116_342_164_152.png"
-            }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "打开执勤": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1030,
-                    678,
-                    62,
-                    32
-                ],
                 "expected": [
                     "当番"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "关闭完成事件": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    565,
-                    144,
-                    156,
-                    52
-                ],
                 "expected": [
                     "願い事完了"
                 ]
             }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    614,
-                    94
-                ]
-            }
-        },
-        "next": [
-            "宿舍任务_执勤"
-        ]
+        }
     },
     "宿舍事件无": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    887,
-                    680,
-                    81,
-                    26
-                ],
                 "expected": [
                     "願い事完了"
                 ]
             }
-        },
-        "inverse": true,
-        "next": [
-            "宿舍任务_执勤"
-        ]
+        }
     },
     "完成事件": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    887,
-                    680,
-                    81,
-                    26
-                ],
                 "expected": [
                     "願い事完了"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "宿舍任务_返回": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    83,
-                    20,
-                    55,
-                    34
-                ],
                 "expected": [
                     "戻る"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "宿舍任务"
-        ]
+        }
     },
     "宿舍任务_返回2": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    83,
-                    20,
-                    55,
-                    34
-                ],
                 "expected": [
                     "戻る"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 500,
-        "next": [
-            "宿舍任务_领取",
-            "退出执勤"
-        ]
+        }
     },
     "宿舍任务_返回3": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    83,
-                    20,
-                    55,
-                    34
-                ],
                 "expected": [
                     "戻る"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "宿舍委托"
-        ]
-    },
-    "宿舍委托": {
-        "next": [
-            "已派遣",
-            "无派遣任务",
-            "[JumpBack]一键派遣",
-            "[JumpBack]领取委托完成奖励",
-            "[JumpBack]关闭委托完成通知",
-            "[JumpBack]打开委托界面",
-            "[JumpBack]打开宿舍",
-            "[JumpBack]切换主界面状态",
-            "[JumpBack]意外点击_主界面"
-        ]
-    },
-    "已派遣": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    22,
-                    586,
-                    1116,
-                    44
-                ],
-                "template": "宿舍委托/委托存在_242_594_31_31__192_544_131_131.png"
-            }
-        },
-        "next": [
-            "返回主菜单"
-        ]
+        }
     },
     "无派遣任务": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    458,
-                    342,
-                    379,
-                    34
-                ],
                 "expected": [
                     "委托引受済"
                 ]
             }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    100,
-                    100
-                ]
-            }
-        },
-        "post_delay": 2000,
-        "next": [
-            "返回主菜单"
-        ]
+        }
     },
     "一键派遣": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1168,
-                    644,
-                    66,
-                    40
-                ],
                 "expected": [
                     "派遣"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1500
+        }
     },
     "领取委托完成奖励": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1168,
-                    644,
-                    66,
-                    40
-                ],
                 "expected": [
                     "帰還"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
+        }
     },
     "关闭委托完成通知": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    256,
-                    66,
-                    202,
-                    63
-                ],
                 "expected": [
                     "委託完了"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    1200,
-                    700
                 ]
             }
         }
     },
     "打开宿舍": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    867,
-                    389,
-                    53,
-                    37
-                ],
                 "expected": [
                     "宿"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "打开委托界面": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1163,
-                    678,
-                    62,
-                    30
-                ],
                 "expected": [
                     "委託"
                 ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "检查当前数量": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    439,
-                    97,
-                    40,
-                    47
-                ],
-                "expected": "^\\d*$",
-                "only_rec": true
-            }
-        }
-    },
-    "检查目标数量": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    479,
-                    117,
-                    15,
-                    22
-                ],
-                "expected": "^\\d*$",
-                "only_rec": true
             }
         }
     }

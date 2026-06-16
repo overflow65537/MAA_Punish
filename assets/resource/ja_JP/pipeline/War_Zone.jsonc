@@ -1,278 +1,105 @@
 {
-    "纷争战区": {
-        "next": [
-            "[JumpBack]覆盖布局菜单",
-            "[JumpBack]是否需要缓存",
-            "结算期",
-            "纷争战区内部",
-            "[JumpBack]打开纷争战区",
-            "[JumpBack]破纪录",
-            "[JumpBack]打开战斗",
-            "[JumpBack]打开挑战_纷争战区",
-            "[JumpBack]退出战斗",
-            "[JumpBack]意外点击_限定活动"
-        ]
-    },
     "结算期": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    665,
-                    434,
-                    145,
-                    55
-                ],
                 "expected": [
                     "集計中"
                 ]
             }
-        },
-        "next": [
-            "返回主菜单"
-        ]
+        }
     },
     "打开挑战_纷争战区": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1130,
-                    656,
-                    74,
-                    53
-                ],
                 "expected": [
                     "挑戦"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "滑动_纷争战区",
-            "打开纷争战区"
-        ]
+        }
     },
     "滑动_纷争战区": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    5,
-                    315,
-                    1274,
-                    188
-                ],
                 "expected": [
                     "紛争戦区"
-                ]
-            }
-        },
-        "inverse": true,
-        "action": {
-            "type": "Swipe",
-            "param": {
-                "begin": [
-                    800,
-                    400
-                ],
-                "end": [
-                    400,
-                    400
                 ]
             }
         }
     },
     "纷争战区内部": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    448,
-                    114,
-                    73,
-                    70
-                ],
                 "expected": [
                     "PT",
                     "順位"
                 ]
             }
-        },
-        "post_wait_freezes": {
-            "time": 200,
-            "timeout": 5000,
-            "target": [
-                24,
-                208,
-                517,
-                451
-            ]
-        },
-        "next": [
-            "[JumpBack]破纪录",
-            "[JumpBack]首通未完成",
-            "首通已完成",
-            "[JumpBack]战斗结束"
-        ]
+        }
     },
     "破纪录": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    497,
-                    269,
-                    295,
-                    198
-                ],
                 "expected": [
                     "NEW",
                     "RECORD",
                     "新記録"
                 ]
             }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    633,
-                    700
-                ]
-            }
         }
     },
     "首通未完成": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    544,
-                    45,
-                    722,
-                    666
-                ],
                 "expected": [
                     "未挑戦"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "战斗准备",
-            "[JumpBack]意外点击_玩家详情",
-            "[JumpBack]战斗结束",
-            "首通未完成"
-        ]
+        }
     },
     "首通已完成": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1189,
-                    502,
-                    58,
-                    52
-                ],
                 "expected": [
                     "任務"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "战区奖励已领取",
-            "[JumpBack]领取战区奖励",
-            "[JumpBack]关闭奖励",
-            "[JumpBack]破纪录"
-        ]
+        }
     },
     "战区奖励已领取": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1054,
-                    159,
-                    176,
-                    65
-                ],
                 "expected": [
                     "受取済"
                 ]
             }
-        },
-        "next": [
-            "返回主菜单",
-            "[JumpBack]关闭奖励"
-        ]
+        }
     },
     "领取战区奖励": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1034,
-                    132,
-                    210,
-                    538
-                ],
                 "expected": [
                     "受取"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "打开纷争战区": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    5,
-                    315,
-                    1274,
-                    188
-                ],
                 "expected": [
                     "紛争戦区"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "战斗准备": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1020,
-                    644,
-                    109,
-                    53
-                ],
                 "expected": [
                     "戦闘準備"
                 ]
             }
         },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
         "next": [
             "进入战区选人界面",
             "战斗准备"
@@ -280,301 +107,80 @@
     },
     "进入战区选人界面": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1179,
-                    15,
-                    81,
-                    71
-                ],
                 "expected": [
                     "編成"
                 ]
             }
-        },
-        "timeout": 60000,
-        "next": [
-            "[JumpBack]识别人物",
-            "[JumpBack]战斗中",
-            "战斗结束",
-            "[JumpBack]载入中",
-            "[JumpBack]查看地图_空区",
-            "[JumpBack]查看地图_火区",
-            "[JumpBack]查看地图_暗区",
-            "[JumpBack]查看地图_雷区",
-            "[JumpBack]查看地图_物理区",
-            "[JumpBack]查看地图_冰区",
-            "[JumpBack]查看地图_特性区"
-        ]
+        }
     },
     "战斗结束": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    953,
-                    604,
-                    327,
-                    116
-                ],
                 "expected": [
                     "離脱",
                     "保存"
                 ]
             }
-        },
-        "pre_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000,
-            "target": [
-                0,
-                0,
-                1280,
-                720
-            ]
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": {
-            "time": 1500,
-            "timeout": 5000,
-            "target": [
-                112,
-                56,
-                394,
-                461
-            ]
         }
     },
     "查看地图_空区": {
-        "max_hit": 1,
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    0,
-                    57,
-                    165,
-                    85
-                ],
                 "expected": [
                     "空域浮台"
                 ]
             }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择角色程序": {
-                        "attach": {
-                            "need_element": "nihil"
-                        }
-                    },
-                    "识别人物": {
-                        "enabled": true
-                    }
-                }
-            }
-        },
-        "next": [
-            "清除队伍"
-        ]
+        }
     },
     "查看地图_火区": {
-        "max_hit": 1,
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    0,
-                    57,
-                    165,
-                    85
-                ],
                 "expected": [
                     "火焔輪廻"
                 ]
             }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择角色程序": {
-                        "attach": {
-                            "need_element": "fire"
-                        }
-                    },
-                    "识别人物": {
-                        "enabled": true
-                    }
-                }
-            }
-        },
-        "next": [
-            "清除队伍"
-        ]
+        }
     },
     "查看地图_暗区": {
-        "max_hit": 1,
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    0,
-                    57,
-                    165,
-                    85
-                ],
                 "expected": [
                     "暗影深林"
                 ]
             }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择角色程序": {
-                        "attach": {
-                            "need_element": "dark"
-                        }
-                    },
-                    "识别人物": {
-                        "enabled": true
-                    }
-                }
-            }
-        },
-        "next": [
-            "清除队伍"
-        ]
+        }
     },
     "查看地图_雷区": {
-        "max_hit": 1,
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    0,
-                    57,
-                    165,
-                    85
-                ],
                 "expected": [
                     "レーザー合金"
                 ]
             }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择角色程序": {
-                        "attach": {
-                            "need_element": "lightning"
-                        }
-                    },
-                    "识别人物": {
-                        "enabled": true
-                    }
-                }
-            }
-        },
-        "next": [
-            "清除队伍"
-        ]
+        }
     },
     "查看地图_物理区": {
-        "max_hit": 1,
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    0,
-                    57,
-                    165,
-                    85
-                ],
                 "expected": [
                     "機械工場"
                 ]
             }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择角色程序": {
-                        "attach": {
-                            "need_element": "physical"
-                        }
-                    },
-                    "识别人物": {
-                        "enabled": true
-                    }
-                }
-            }
-        },
-        "next": [
-            "清除队伍"
-        ]
+        }
     },
     "查看地图_冰区": {
-        "max_hit": 1,
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    0,
-                    57,
-                    165,
-                    85
-                ],
                 "expected": [
                     "緋色氷原"
                 ]
             }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择角色程序": {
-                        "attach": {
-                            "need_element": "ice"
-                        }
-                    },
-                    "识别人物": {
-                        "enabled": true
-                    }
-                }
-            }
-        },
-        "next": [
-            "清除队伍"
-        ]
+        }
     },
     "查看地图_特性区": {
-        "max_hit": 1,
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    0,
-                    57,
-                    165,
-                    85
-                ],
                 "expected": [
                     "襲凜危塔",
                     "蝕刃峯嶺",
@@ -583,51 +189,11 @@
                     "危塔"
                 ]
             }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "选择角色程序": {
-                        "attach": {}
-                    },
-                    "识别人物": {
-                        "enabled": true
-                    }
-                }
-            }
-        },
-        "next": [
-            "清除队伍"
-        ]
-    },
-    "作战开始": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    "作战开始识别",
-                    "作战开始背景颜色识别"
-                ]
-            }
-        },
-        "post_delay": 1500,
-        "next": [
-            "[JumpBack]未选择队长",
-            "点击作战开始"
-        ]
+        }
     },
     "作战开始识别": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1032,
-                    641,
-                    148,
-                    53
-                ],
                 "expected": [
                     "作戦開始",
                     "戦闘開始"
@@ -635,130 +201,36 @@
             }
         }
     },
-    "作战开始背景颜色识别": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": [
-                    1032,
-                    641,
-                    148,
-                    53
-                ],
-                "lower": [
-                    250,
-                    250,
-                    250
-                ],
-                "upper": [
-                    255,
-                    255,
-                    255
-                ]
-            }
-        }
-    },
-    "点击作战开始": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": "作战开始"
-            }
-        },
-        "post_delay": 5000
-    },
     "未选择队长": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    21,
-                    605,
-                    155,
-                    82
-                ],
                 "expected": [
                     "隊長が選ばれていません"
                 ]
             }
-        },
-        "next": [
-            "点击选择队长",
-            "[JumpBack]点击更换队长"
-        ]
+        }
     },
     "点击选择队长": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    253,
-                    480,
-                    715,
-                    103
-                ],
                 "expected": [
                     "選択"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "点击更换队长": {
-        "max_hit": 3,
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    275,
-                    598,
-                    117,
-                    93
-                ],
                 "expected": [
                     "変更"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": {
-            "time": 200,
-            "timeout": 5000
         }
-    },
-    "战斗中": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    990,
-                    567,
-                    131,
-                    131
-                ],
-                "template": "战斗/闪避.png",
-                "green_mask": true,
-                "threshold": 0.6
-            }
-        },
-        "pre_delay": 0,
-        "post_delay": 0,
-        "rate_limit": 0
     },
     "载入中": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    1168,
-                    629,
-                    91,
-                    54
-                ],
                 "expected": [
                     "adin",
                     "Loading",
@@ -769,43 +241,11 @@
     },
     "退出战斗": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    574,
-                    439,
-                    706,
-                    281
-                ],
                 "expected": [
                     "離脱",
                     "戻る"
                 ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": 500,
-        "next": [
-            "速通滑动",
-            "空任务"
-        ]
-    },
-    "速通滑动": {
-        "enabled": false,
-        "action": {
-            "type": "Swipe",
-            "param": {
-                "begin": [
-                    863,
-                    259
-                ],
-                "end": [
-                    307,
-                    260
-                ],
-                "duration": 500
             }
         }
     }

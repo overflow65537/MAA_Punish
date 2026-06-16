@@ -1,17 +1,6 @@
 {
-    "通行证": {
-        "next": [
-            "[JumpBack]通行证-意外处理-点击确认",
-            "通行证内部",
-            "[JumpBack]关闭奖励",
-            "[JumpBack]打开通行证",
-            "[JumpBack]打开通行证_图片",
-            "[JumpBack]意外点击_主界面"
-        ]
-    },
     "通行证内部": {
         "recognition": {
-            "type": "OCR",
             "param": {
                 "roi": [
                     1040,
@@ -23,273 +12,82 @@
                     "情報アンロック"
                 ]
             }
-        },
-        "next": [
-            "[JumpBack]点击蓝点",
-            "返回主菜单"
-        ]
-    },
-    "点击蓝点": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": [
-                    0,
-                    0,
-                    185,
-                    409
-                ],
-                "method": 40,
-                "lower": [
-                    107,
-                    140,
-                    190
-                ],
-                "upper": [
-                    107,
-                    150,
-                    200
-                ],
-                "connected": true,
-                "count": 10
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "一键领取_通行证"
-        ]
+        }
     },
     "一键领取_通行证": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    702,
-                    564,
-                    321,
-                    156
-                ],
                 "expected": [
                     "括受取"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "关闭奖励"
-        ]
+        }
     },
     "通行证-意外处理-点击确认": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    712,
-                    443,
-                    265,
-                    103
-                ],
                 "expected": [
                     "確認"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
-    },
-    "打开通行证_图片": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    281,
-                    54,
-                    113,
-                    90
-                ],
-                "template": [
-                    "通行证/通行证_黄金假日.png",
-                    "通行证/通行证_家园.png",
-                    "通行证/通行证_恋屿干年歌.png",
-                    "通行证/通行证_溺梦游歌.png",
-                    "通行证/通行证_白梦游弋.png",
-                    "通行证/通行证_离诗遗城.png",
-                    "通行证/通行证_耀阳映画.png",
-                    "通行证/通行证_花溪憩乡.png",
-                    "通行证/通行证_银光教堂.png",
-                    "通行证/通行证_闲庭疏影.png",
-                    "通行证/通行证_鸣神叹妙.png",
-                    "通行证/通行证_梦栖宵暮.png",
-                    "通行证/通行证_默认.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
     },
     "评定任务": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    8,
-                    224,
-                    275,
-                    396
-                ],
                 "expected": [
                     "評価任務",
                     "デイリー任务"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "[JumpBack]通行证-意外处理-点击确认",
-            "[JumpBack]没点上评定任务",
-            "一键领取_评定任务"
-        ]
+        }
     },
     "没点上评定任务": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    26,
-                    418,
-                    141,
-                    55
-                ],
                 "expected": [
                     "評価任務",
                     "デイリー任务"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "一键领取_评定任务": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    974,
-                    611,
-                    258,
-                    100
-                ],
                 "expected": [
                     "一括受取",
                     "括受取"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "通行证-意外处理-点击确认",
-            "战略补给",
-            "[JumpBack]关闭奖励"
-        ]
+        }
     },
     "战略补给": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    8,
-                    224,
-                    275,
-                    396
-                ],
                 "expected": [
                     "手帳任務"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "[JumpBack]没点上战略补给",
-            "通行证-意外处理-点击确认",
-            "一键领取_战略补给"
-        ]
+        }
     },
     "没点上战略补给": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    24,
-                    257,
-                    150,
-                    50
-                ],
                 "expected": [
                     "手帳"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "一键领取_战略补给": {
         "recognition": {
-            "type": "OCR",
             "param": {
-                "roi": [
-                    974,
-                    611,
-                    258,
-                    100
-                ],
                 "expected": [
                     "一括受取",
                     "括受取"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "通行证-意外处理-点击确认",
-            "返回主菜单",
-            "[JumpBack]关闭奖励"
-        ]
-    },
-    "打开通行证": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    257,
-                    26,
-                    164,
-                    151
-                ],
-                "expected": "BP"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 4000
+        }
     }
 }
