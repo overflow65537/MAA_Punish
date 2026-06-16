@@ -42,6 +42,7 @@
             "[JumpBack]打开矩阵循生",
             "[JumpBack]打开多维演绎",
             "[JumpBack]打开时宇漫纪",
+            "[JumpBack]打开空中花园",
             "[JumpBack]打开挑战",
             "[JumpBack]打开战斗",
             "[JumpBack]确认装备_矩阵循生",
@@ -1282,7 +1283,12 @@
                     34
                 ],
                 "expected": "离开",
-                "replace": [["升", "开"]]
+                "replace": [
+                    [
+                        "升",
+                        "开"
+                    ]
+                ]
             }
         },
         "action": {

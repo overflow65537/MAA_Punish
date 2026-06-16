@@ -19,6 +19,7 @@
             "[JumpBack]打开神寂启示录",
             "[JumpBack]时宇漫纪_滑动",
             "[JumpBack]打开时宇漫纪",
+            "[JumpBack]打开空中花园",
             "[JumpBack]打开挑战",
             "[JumpBack]打开战斗",
             "[JumpBack]继续_神寂启示录"
@@ -115,6 +116,23 @@
             "Node.Recognition.Succeeded": "[color:Tomato]请通关教程后再使用该功能[/color]"
         }
     },
+    "打开空中花园": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    45,
+                    608,
+                    150,
+                    30
+                ],
+                "expected": "空中花园"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
     "打开时宇漫纪": {
         "recognition": {
             "type": "OCR",
@@ -126,7 +144,16 @@
                     30
                 ],
                 "expected": "时宇漫纪",
-                "replace": [["宝", "宇"], ["温", "漫"]]
+                "replace": [
+                    [
+                        "宝",
+                        "宇"
+                    ],
+                    [
+                        "温",
+                        "漫"
+                    ]
+                ]
             }
         },
         "action": {
@@ -157,7 +184,16 @@
                     "拉斐尔夫人",
                     "无限幻"
                 ],
-                "replace": [["火", "人"], ["姐", "妲"]]
+                "replace": [
+                    [
+                        "火",
+                        "人"
+                    ],
+                    [
+                        "姐",
+                        "妲"
+                    ]
+                ]
             }
         },
         "next": [
@@ -241,6 +277,7 @@
             "[JumpBack]打开启示之路",
             "[JumpBack]打开神寂启示录",
             "[JumpBack]打开时宇漫纪",
+            "[JumpBack]打开空中花园",
             "[JumpBack]打开挑战",
             "[JumpBack]打开战斗",
             "[JumpBack]返回",
@@ -262,7 +299,12 @@
                     "^地狱$",
                     "海妲魔女"
                 ],
-                "replace": [["姐", "妲"]]
+                "replace": [
+                    [
+                        "姐",
+                        "妲"
+                    ]
+                ]
             }
         },
         "action": {
@@ -278,6 +320,7 @@
             "[JumpBack]打开启示之路",
             "[JumpBack]打开神寂启示录",
             "[JumpBack]打开时宇漫纪",
+            "[JumpBack]打开空中花园",
             "[JumpBack]打开挑战",
             "[JumpBack]打开战斗",
             "[JumpBack]返回",
@@ -313,6 +356,7 @@
             "[JumpBack]打开启示之路",
             "[JumpBack]打开神寂启示录",
             "[JumpBack]打开时宇漫纪",
+            "[JumpBack]打开空中花园",
             "[JumpBack]打开挑战",
             "[JumpBack]打开战斗",
             "[JumpBack]返回",
@@ -334,7 +378,12 @@
                     "拉斐尔夫人",
                     "无限幻"
                 ],
-                "replace": [["火", "人"]]
+                "replace": [
+                    [
+                        "火",
+                        "人"
+                    ]
+                ]
             }
         },
         "action": {
@@ -347,6 +396,7 @@
             "[JumpBack]打开启示之路",
             "[JumpBack]打开神寂启示录",
             "[JumpBack]打开时宇漫纪",
+            "[JumpBack]打开空中花园",
             "[JumpBack]打开挑战",
             "[JumpBack]打开战斗",
             "[JumpBack]返回",
@@ -581,7 +631,12 @@
                     170
                 ],
                 "expected": "示之路",
-                "replace": [["宗", "示"]]
+                "replace": [
+                    [
+                        "宗",
+                        "示"
+                    ]
+                ]
             }
         },
         "action": {

@@ -24,6 +24,7 @@
             "[JumpBack]打开宣叙妄响",
             "[JumpBack]打开多维演绎",
             "[JumpBack]打开时宇漫纪",
+            "[JumpBack]打开空中花园",
             "[JumpBack]打开挑战",
             "[JumpBack]打开战斗",
             "[JumpBack]意外点击_限定活动",
@@ -57,7 +58,7 @@
                     134
                 ],
                 "expected": [
-                    "队伍",
+                    "^队伍$",
                     "全员等级",
                     "平均战力"
                 ],
