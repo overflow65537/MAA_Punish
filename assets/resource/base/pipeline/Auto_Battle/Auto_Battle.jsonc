@@ -1,5 +1,8 @@
 {
     "战斗辅助": {
+        "on_error": [
+            "战斗辅助"
+        ],
         "pre_delay": 0,
         "post_delay": 0,
         "rate_limit": 0,
@@ -33,13 +36,21 @@
         ]
     },
     "AAA_战斗测试": {
-        "next": ["循环执行器", "[JumpBack]战斗辅助"]
+        "next": [
+            "循环执行器",
+            "[JumpBack]战斗辅助"
+        ]
     },
     "点击空白处关闭_速通": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [371, 581, 530, 138],
+                "roi": [
+                    371,
+                    581,
+                    530,
+                    138
+                ],
                 "expected": "点击空白处"
             }
         },
@@ -52,10 +63,19 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [635, 97, 464, 484],
-                "template": ["战斗/点击事件.png"],
+                "roi": [
+                    635,
+                    97,
+                    464,
+                    484
+                ],
+                "template": [
+                    "战斗/点击事件.png"
+                ],
                 "green_mask": true,
-                "threshold": [0.8]
+                "threshold": [
+                    0.8
+                ]
             }
         },
         "action": {
@@ -66,7 +86,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [874, 343, 180, 68],
+                "roi": [
+                    874,
+                    343,
+                    180,
+                    68
+                ],
                 "expected": "从中间开始"
             }
         },
@@ -78,7 +103,12 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [11, 70, 1269, 540],
+                "roi": [
+                    11,
+                    70,
+                    1269,
+                    540
+                ],
                 "template": [
                     "战斗/剧情_1.png",
                     "战斗/剧情_11.png",
@@ -89,7 +119,15 @@
                     "战斗/战斗_28.png"
                 ],
                 "green_mask": true,
-                "threshold": [0.9, 0.9, 0.9, 0.9, 0.7, 0.7, 0.7],
+                "threshold": [
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.9,
+                    0.7,
+                    0.7,
+                    0.7
+                ],
                 "order_by": "Horizontal",
                 "index": -1
             }
@@ -106,8 +144,16 @@
         "recognition": {
             "type": "ColorMatch",
             "param": {
-                "lower": [255, 255, 255],
-                "upper": [255, 255, 255]
+                "lower": [
+                    255,
+                    255,
+                    255
+                ],
+                "upper": [
+                    255,
+                    255,
+                    255
+                ]
             }
         }
     },
@@ -120,7 +166,12 @@
                         "recognition": {
                             "type": "OCR",
                             "param": {
-                                "roi": [859, 586, 67, 38],
+                                "roi": [
+                                    859,
+                                    586,
+                                    67,
+                                    38
+                                ],
                                 "expected": "确定"
                             }
                         }
@@ -129,7 +180,12 @@
                         "recognition": {
                             "type": "OCR",
                             "param": {
-                                "roi": [222, 78, 223, 89],
+                                "roi": [
+                                    222,
+                                    78,
+                                    223,
+                                    89
+                                ],
                                 "expected": "是否使用"
                             }
                         }
@@ -141,13 +197,21 @@
             "type": "Click"
         },
         "post_delay": 2000,
-        "next": ["体力取消", "[JumpBack]关闭奖励"]
+        "next": [
+            "体力取消",
+            "[JumpBack]关闭奖励"
+        ]
     },
     "体力取消": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [664, 588, 57, 44],
+                "roi": [
+                    664,
+                    588,
+                    57,
+                    44
+                ],
                 "expected": "取消"
             }
         },
@@ -159,7 +223,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [664, 588, 57, 44],
+                "roi": [
+                    664,
+                    588,
+                    57,
+                    44
+                ],
                 "expected": "取消"
             }
         },
@@ -184,17 +253,29 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [41, 627, 125, 33],
+                "roi": [
+                    41,
+                    627,
+                    125,
+                    33
+                ],
                 "expected": "未选择队长"
             }
         },
-        "next": ["清除队伍"]
+        "next": [
+            "清除队伍"
+        ]
     },
     "点击作战开始_速通": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [1032, 640, 138, 56],
+                "roi": [
+                    1032,
+                    640,
+                    138,
+                    56
+                ],
                 "expected": "战开始"
             }
         },
@@ -206,8 +287,16 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [747, 459, 451, 247],
-                "expected": ["战斗准备", "出战"]
+                "roi": [
+                    747,
+                    459,
+                    451,
+                    247
+                ],
+                "expected": [
+                    "战斗准备",
+                    "出战"
+                ]
             }
         },
         "action": {
@@ -218,7 +307,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [528, 441, 327, 218],
+                "roi": [
+                    528,
+                    441,
+                    327,
+                    218
+                ],
                 "expected": "OFF"
             }
         },
@@ -230,7 +324,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [731, 383, 344, 308],
+                "roi": [
+                    731,
+                    383,
+                    344,
+                    308
+                ],
                 "expected": "播放剧情"
             }
         },
@@ -243,8 +342,16 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [757, 565, 137, 97],
-                "expected": ["跳过", "挑过"]
+                "roi": [
+                    757,
+                    565,
+                    137,
+                    97
+                ],
+                "expected": [
+                    "跳过",
+                    "挑过"
+                ]
             }
         },
         "action": {
@@ -264,13 +371,21 @@
         },
         "pre_delay": 500,
         "post_delay": 0,
-        "next": ["[JumpBack]识别人物", "战斗中"]
+        "next": [
+            "[JumpBack]识别人物",
+            "战斗中"
+        ]
     },
     "检查血量": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [19, 15, 141, 29],
+                "roi": [
+                    19,
+                    15,
+                    141,
+                    29
+                ],
                 "expected": "\\d+/\\d+"
             }
         }
@@ -279,7 +394,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [820, 266, 73, 53],
+                "roi": [
+                    820,
+                    266,
+                    73,
+                    53
+                ],
                 "expected": "重启"
             }
         },
@@ -293,7 +413,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [787, 595, 50, 32],
+                "roi": [
+                    787,
+                    595,
+                    50,
+                    32
+                ],
                 "expected": "跳过",
                 "only_rec": true
             }
@@ -312,14 +437,35 @@
                         "recognition": {
                             "type": "ColorMatch",
                             "param": {
-                                "roi": [403, 51, 20, 7],
+                                "roi": [
+                                    403,
+                                    51,
+                                    20,
+                                    7
+                                ],
                                 "lower": [
-                                    [255, 255, 255],
-                                    [127, 225, 255]
+                                    [
+                                        255,
+                                        255,
+                                        255
+                                    ],
+                                    [
+                                        127,
+                                        225,
+                                        255
+                                    ]
                                 ],
                                 "upper": [
-                                    [255, 255, 255],
-                                    [127, 225, 255]
+                                    [
+                                        255,
+                                        255,
+                                        255
+                                    ],
+                                    [
+                                        127,
+                                        225,
+                                        255
+                                    ]
                                 ],
                                 "connected": true
                             }
@@ -329,7 +475,12 @@
                         "recognition": {
                             "type": "OCR",
                             "param": {
-                                "roi": [14, 82, 214, 67],
+                                "roi": [
+                                    14,
+                                    82,
+                                    214,
+                                    67
+                                ],
                                 "expected": [
                                     "^击败.*",
                                     "^消灭.*",
@@ -350,7 +501,11 @@
         "pre_delay": 0,
         "post_delay": 0,
         "rate_limit": 0,
-        "next": ["识别人物", "[JumpBack]战斗中", "空任务"]
+        "next": [
+            "识别人物",
+            "[JumpBack]战斗中",
+            "空任务"
+        ]
     },
     "重置识别": {
         "action": {
@@ -369,7 +524,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [1179, 22, 78, 33],
+                "roi": [
+                    1179,
+                    22,
+                    78,
+                    33
+                ],
                 "expected": "SKIP"
             }
         },
@@ -387,7 +547,12 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [990, 567, 131, 131],
+                "roi": [
+                    990,
+                    567,
+                    131,
+                    131
+                ],
                 "template": "战斗/闪避.png",
                 "green_mask": true
             }
@@ -406,7 +571,12 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [1113, 556, 138, 142],
+                "roi": [
+                    1113,
+                    556,
+                    138,
+                    142
+                ],
                 "template": [
                     "自定义战斗/逆冕大太刀.png",
                     "自定义战斗/逆冕小太刀.png"
@@ -419,11 +589,22 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [25, 90, 488, 115],
+                "roi": [
+                    25,
+                    90,
+                    488,
+                    115
+                ],
                 "expected": "^(?:\\d+|EX\\d+|ER\\d+)",
                 "replace": [
-                    ["O", "0"],
-                    ["o", "0"]
+                    [
+                        "O",
+                        "0"
+                    ],
+                    [
+                        "o",
+                        "0"
+                    ]
                 ]
             }
         }
@@ -432,7 +613,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [10, 168, 1269, 439],
+                "roi": [
+                    10,
+                    168,
+                    1269,
+                    439
+                ],
                 "expected": "",
                 "order_by": "Horizontal",
                 "index": -1
