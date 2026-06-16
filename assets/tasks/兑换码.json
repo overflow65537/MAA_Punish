@@ -2,7 +2,7 @@
     "task": [
         {
             "name": "兑换码",
-            "label": "$兑换码",
+            "label": "兌換ID",
             "group": [
                 "daily"
             ],
