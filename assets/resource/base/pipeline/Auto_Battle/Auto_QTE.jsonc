@@ -151,5 +151,11 @@
     },
     "QTE目标": {
         "post_delay": 1, //这个是用来标记QTE目标的
+    },
+    "战斗队伍色位": {
+        "attach": {},
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     }
 }

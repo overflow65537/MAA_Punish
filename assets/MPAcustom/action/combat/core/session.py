@@ -189,13 +189,16 @@ class CombatTask:
             return False
 
         self.team = snapshot
-        self.roles = {
-            c: create_role(self, c, snapshot.cls_at(c)) for c in TEAM_COLORS
-        }
+        self.roles = {}
+        for color in TEAM_COLORS:
+            cls_name = snapshot.cls_at(color)
+            if cls_name:
+                self.roles[color] = create_role(self, color, cls_name)
         for role in self.roles.values():
             role.reset_state()
 
-        self.logger.info("识别到角色: %s", self.current_role_name)
+        solo = "单人队" if snapshot.is_solo() else f"{len(snapshot.filled_colors())}人队"
+        self.logger.info("识别到角色: %s (%s)", self.current_role_name, solo)
         self._notify_current_role()
         return True
 
@@ -226,19 +229,19 @@ class CombatTask:
 
     def choose_switch_color(self, requester: BaseRole) -> str | None:
         """选切人目标色位。Phase 4 可扩展 buff 优先级。"""
-        if self.SWITCH_STUB:
-            if self.team is None:
-                return None
-            others = self.team.other_colors()
-            return others[0] if others else None
-
-        if self.team is None:
+        if self.team is None or self.team.is_solo():
             return None
+
+        if self.SWITCH_STUB:
+            others = self.team.other_filled_colors()
+            return others[0] if others else None
 
         qte_colors = set(
             self.combat_check.detect_qte_colors(self.context, self)
         )
-        candidates = [c for c in self.team.other_colors() if c in qte_colors]
+        candidates = [
+            c for c in self.team.other_filled_colors() if c in qte_colors
+        ]
         if not candidates:
             return None
 
@@ -309,6 +312,10 @@ class CombatTask:
             return False
 
         if target == self.team.current.upper():
+            return False
+
+        if not self.team.cls_at(target):
+            self.logger.debug("色位 %s 无人，跳过切人", target)
             return False
 
         if self.SWITCH_STUB:

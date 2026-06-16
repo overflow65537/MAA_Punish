@@ -3,7 +3,7 @@
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
 # in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# to use, copy, modify, distribute, sublicense, and/or sell
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
 #
@@ -26,16 +26,24 @@ MAA_Punish 战斗识别
 
 from __future__ import annotations
 
+import logging
 from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING, Any
 
 from MPAcustom.action.combat.core.role_detect import detect_current_role
-from MPAcustom.action.combat.core.team import TeamSnapshot
+from MPAcustom.action.combat.core.switch import detect_visible_team_colors
+from MPAcustom.action.combat.core.team import (
+    TEAM_COLORS,
+    TeamSnapshot,
+    load_team_roster_from_context,
+)
 
 if TYPE_CHECKING:
     from maa.context import Context
 
     from MPAcustom.action.combat.core.session import CombatTask
+
+logger = logging.getLogger(__name__)
 
 
 class BaseCombatCheck(ABC):
@@ -61,10 +69,18 @@ class BaseCombatCheck(ABC):
         return None
 
     def detect_qte_colors(self, context: Context, combat: CombatTask) -> list[str]:
-        """当前 QTE 换人区可见色位（最多 2 个）。默认：除 current 外两色。"""
-        if combat.team is None:
+        """当前 QTE 换人区可见且有色位配置的色位（不含 current）。"""
+        if combat.team is None or combat.team.is_solo():
             return []
-        return list(combat.team.other_colors())
+        image = self._get_frame(context, combat)
+        visible = set(detect_visible_team_colors(context, image))
+        filled = set(combat.team.filled_colors())
+        cur = combat.team.current.upper()
+        return [
+            c
+            for c in TEAM_COLORS
+            if c != cur and c in filled and c in visible
+        ]
 
     def combat_end_condition(self, context: Context, combat: CombatTask) -> bool:
         """额外结束条件（如 Boss 死亡、任务完成）。默认不主动结束。"""
@@ -105,18 +121,49 @@ class CombatCheck(BaseCombatCheck):
 
     def detect_team(self, context: Context, combat: CombatTask) -> TeamSnapshot | None:
         """
-        进战识别当前上场角色（attack_template / 检查角色）。
+        进战识别：仅扫主站 attack_template；色位 roster 从「战斗队伍色位」节点读取。
 
-        切人未启用时 R/B/Y 仅占位，current 固定为 R；完整色位识别后续再补。
+        节点 attach 为空 → 单人队（仅当前识别到的角色）。
         """
         image = self._get_frame(context, combat)
         display_name, cls_name = detect_current_role(context, image)
         combat.current_role_name = display_name
-        return TeamSnapshot.from_dict(
+
+        roster = load_team_roster_from_context(context)
+        if roster is None:
+            logger.info("战斗队伍色位为空，按单人队处理: %s", cls_name)
+            return TeamSnapshot.solo(cls_name)
+
+        current = "R"
+        for color in TEAM_COLORS:
+            if roster.get(color) == cls_name:
+                current = color
+                break
+        else:
+            logger.warning(
+                "主站 %s 不在战前 roster %s 中，按 solo 处理",
+                cls_name,
+                roster,
+            )
+            return TeamSnapshot.solo(cls_name)
+
+        snapshot = TeamSnapshot.from_dict(
             {
-                "R": cls_name,
-                "B": "GeneralFight",
-                "Y": "GeneralFight",
-                "current": "R",
+                "R": roster["R"],
+                "B": roster["B"],
+                "Y": roster["Y"],
+                "current": current,
             }
         )
+        if snapshot is None:
+            return TeamSnapshot.solo(cls_name)
+
+        logger.info(
+            "队伍快照: R=%s B=%s Y=%s current=%s solo=%s",
+            snapshot.R,
+            snapshot.B,
+            snapshot.Y,
+            snapshot.current,
+            snapshot.is_solo(),
+        )
+        return snapshot

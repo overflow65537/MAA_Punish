@@ -41,6 +41,10 @@ import numpy
 
 
 from MPAcustom.action.combat.config import ROLE_ACTIONS
+from MPAcustom.action.combat.core.team import (
+    publish_team_roster,
+    roster_from_role_selection,
+)
 from MPAcustom.action.tool import role_cache_policy as cache_policy
 from MPAcustom.logger_component import LoggerComponent
 
@@ -176,6 +180,19 @@ class RoleSelection(CustomAction):
             team["attacker"] = names[0]
         return team
 
+    def _publish_combat_team_roster(
+        self,
+        context: Context,
+        attacker: str | None,
+        tank: str | None,
+        support: str | None,
+    ) -> None:
+        """战前配队完成后写入战斗队伍色位，供 CombatTask 读取。"""
+        publish_team_roster(
+            context,
+            roster_from_role_selection(attacker, tank, support),
+        )
+
     def _consume_cage_for_role(
         self, role_name: str, update_frequency: str
     ) -> None:
@@ -282,6 +299,9 @@ class RoleSelection(CustomAction):
                     time.sleep(0.5)
                     context.run_task("返回")
 
+        self._publish_combat_team_roster(
+            context, attacker_name, tank_name, support_name
+        )
         return CustomAction.RunResult(success=True)
 
     def run(
@@ -461,6 +481,9 @@ class RoleSelection(CustomAction):
                     time.sleep(0.5)
                     context.run_task("返回")
 
+        self._publish_combat_team_roster(
+            context, attacker_name, tank_name, support_name
+        )
         return CustomAction.RunResult(success=True)
 
     def find_role(
