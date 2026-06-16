@@ -2,13 +2,12 @@
     "task": [
         {
             "name": "宿舍任务",
-            "label": "$宿舍任务",
             "group": [
                 "daily"
             ],
             "default_check": true,
             "entry": "宿舍任务",
-            "description": "<p>自动完成宿舍任务。</p><p><b>速通</b>：每天5点后可运行1次，运行后需等待24小时。</p>",
+            "description": "$task.宿舍任务.description",
             "speedrun": {
                 "mode": "daily",
                 "trigger": {
@@ -19,7 +18,8 @@
                 "run": {
                     "count": 1
                 }
-            }
+            },
+            "label": "$task.宿舍任务"
         }
     ],
     "option": {}

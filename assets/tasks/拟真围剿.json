@@ -2,13 +2,12 @@
     "task": [
         {
             "name": "拟真围剿",
-            "label": "$拟真围剿",
             "group": [
                 "daily"
             ],
             "default_check": true,
             "entry": "拟真围剿",
-            "description": "<p>自动进行工会战并领取奖励。</p><p><b>速通</b>：每周二5点后可运行2次，首次运行后需等待24小时。</p>",
+            "description": "$task.拟真围剿.description",
             "pipeline_override": {
                 "编入队伍": {
                     "next": [
@@ -33,7 +32,8 @@
                         "min_interval_hours": 24
                     }
                 }
-            }
+            },
+            "label": "$task.拟真围剿"
         }
     ],
     "option": {}
