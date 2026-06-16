@@ -1,0 +1,69 @@
+{    
+    "邮件": {
+        "next": [
+            
+            "领取全部",
+            "[JumpBack]打开邮件_圖片",
+            "[JumpBack]打开邮件_文字"
+        ]
+    },
+    "领取全部": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    212,
+                    612,
+                    207,
+                    55
+                ],
+                "expected": [
+                    "全て受取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "返回主菜单",
+            "[JumpBack]关闭奖励"
+        ]
+    },
+    "打开邮件_圖片": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    130,410,
+                   50,50
+                ],
+                "template": "界面/大廳/郵件.png",
+                "threshold": 0.6,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "打开邮件_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                     81,
+                    397,
+                    139,
+                    119
+                ],
+                "expected": [
+                    "メール"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}

@@ -1,0 +1,122 @@
+{
+    "兑换码": {
+        "next": [
+            "[JumpBack]检查是否需要运行"
+        ]
+    },
+    "检查是否需要运行": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "CheckRedeemCode"
+            }
+        }
+    },
+    "打开个人页面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    236,
+                    217
+                ],
+                "expected": [
+                    "Lv",
+                    "[iI][dD]\\s*[：:]\\s*\\d+"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "可以输入兑换码": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    830,
+                    525,
+                    250,
+                    50
+                ],
+                "expected": [
+                    "交換ID"
+                ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "RedeemCode",
+                "custom_action_param": {
+                    "code": [
+                        "FOSANNIVERSARY",
+                        "NEWALPHA0602"
+                    ]
+                }
+            }
+        }
+    },
+    "兑换码提示": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    275,
+                    187,
+                    585,
+                    353
+                ],
+                "expected": [
+                    "交換ID",
+                    "期限切れ",
+                    "交換済み",
+                    "誤った交換IDです",
+                    "再度ご確認ください"
+                ]
+            }
+        }
+    },
+    "输入兑换码": {
+        "action": {
+            "type": "InputText",
+            "param": {
+                "input_text": "PUNISHING"
+            }
+        }
+    },
+    "确认兑换": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [1192, 568, 68, 36]
+            }
+        }
+    },
+    "点击兑换码": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [860, 565, 335, 38]
+            }
+        }
+    },
+    "按下删除": {
+        "action": {
+            "type": "LongPressKey",
+            "param": {
+                "duration": 1000,
+                "key": 67
+            }
+        }
+    }
+}

@@ -1,0 +1,4704 @@
+{
+    "未命中选项": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    472,
+                    256,
+                    333,
+                    217
+                ],
+                "expected": [
+                    "選択してください", // 請先選擇選項日服官方提示
+                    "請選択してください",
+                    "请先选择选项",
+                    "請先選擇選項"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "商店_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    246,
+                    200,
+                    974,
+                    120
+                ],
+                "expected": [
+                    "ストア", // 「士多」日服官方譯名：ストア (Store)
+                    "ショップ",
+                    "士多"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "进入商店_矩阵循生"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]ストア[/color]"
+        }
+    },
+    "意外点击藏品_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    696,
+                    52,
+                    208,
+                    124
+                ],
+                "expected": "^.品$"
+            }
+        },
+        "post_delay": 2000,
+        "next": [
+            "返回"
+        ]
+    },
+    "进入商店_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    183,
+                    469,
+                    972,
+                    63
+                ],
+                "expected": [
+                    "確定",
+                    "確認",
+                    "确定",
+                    "確定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]确认结束购物_矩阵循生",
+            "[JumpBack]结束购物_矩阵循生"
+        ]
+    },
+    "确认结束购物_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    706,
+                    465,
+                    59,
+                    37
+                ],
+                "expected": [
+                    "確定",
+                    "確認",
+                    "确认",
+                    "確認"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "结束购物_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1038,
+                    622,
+                    97,
+                    36
+                ],
+                "expected": [
+                    "買い物を終了", // 結束購物日服官方翻譯
+                    "買い物終了",
+                    "结束购物",
+                    "結束購物"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "在途存货_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "輸送中の貨物", // 在途存貨日服官方奇遇事件譯名：輸送中の貨物
+                    "在途存货",
+                    "在途存貨"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]在途存货_对话1",
+            "[JumpBack]在途存货_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]輸送中の貨物[/color]"
+        }
+    },
+    "在途存货_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる",
+                    "立ち去る",
+                    "离开",
+                    "離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "在途存货_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    773,
+                    302,
+                    360,
+                    240
+                ],
+                "expected": [
+                    "大きな虫捕り袋を撃つ", // 射擊大的捕蟲袋日服對話選項
+                    "射击大的捕虫袋",
+                    "射擊大的捕蟲袋"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "亚人少女_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "亜人の少女", // 亞人少女日服官方奇遇事件譯名
+                    "亚人少女",
+                    "亞人少女"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]亚人少女_对话2",
+            "[JumpBack]亚人少女_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]亜人の少女[/color]"
+        }
+    },
+    "亚人少女_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    773,
+                    400,
+                    97,
+                    39
+                ],
+                "expected": [
+                    "振り返って逃げる", // 轉身逃離日服選項翻譯
+                    "背を向けて逃げる",
+                    "转身逃离",
+                    "轉身逃離"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "亚人少女_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "その場で観察する", // 原地觀察
+                    "離れる", // 離開
+                    "原地观察",
+                    "原地觀察",
+                    "离开",
+                    "離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "贴心搭档_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "気配り上手な相棒", // 貼心搭檔日服官方奇遇事件譯名：気配り上手な相棒
+                    "贴心搭档",
+                    "貼心搭檔"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]出发_矩阵循生",
+            "[JumpBack]未命中选项",
+            "[JumpBack]贴心搭档_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]気配り上手な相棒[/color]"
+        }
+    },
+    "贴心搭档_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    768,
+                    305,
+                    193,
+                    47
+                ],
+                "expected": [
+                    "ずっしり重い大荷物を受け取る", // 取走沉甸甸的大包裹日服翻譯
+                    "大荷物を受け取る",
+                    "取走沉甸甸的大包裹"
+                ],
+                "replace": [
+                    "里",
+                    "裹"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生",
+            "出发_矩阵循生"
+        ]
+    },
+    "逃出生天_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "九死に一生", // 逃出生天日服官方奇遇事件譯名：九死に一生
+                    "逃出生天"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]逃出生天_对话2",
+            "[JumpBack]逃出生天_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]九死に一生[/color]"
+        }
+    },
+    "逃出生天_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "受け取る", // 收下
+                    "離れる", // 離開
+                    "收下",
+                    "离开",
+                    "離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "逃出生天_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "大ネズミに食べ物を与える", // 給巨鼠些吃的日服選項翻譯
+                    "给巨鼠些吃的",
+                    "給巨鼠些吃的"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "隐秘工坊_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "隠された工房", // 隱秘工坊日服官方奇遇事件譯名：隠された工房
+                    "隐秘工坊",
+                    "隱秘工坊"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_结束_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]隐秘工坊_对话2",
+            "[JumpBack]隐秘工坊_对话",
+            "[JumpBack]转场_矩阵循生"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]隠された工房[/color]"
+        }
+    },
+    "隐秘工坊_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "すぐに出発する", // 直接出發
+                    "直接出发",
+                    "直接出發"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "隐秘工坊_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "受け取る", // 收取
+                    "回収",
+                    "出発", // 出發
+                    "收取",
+                    "出发",
+                    "出發"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "洁塔薇的游戏_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "ギタヴィのゲーム", // 潔塔薇(Gitavy)的遊戲日服官方奇遇事件譯名
+                    "洁塔薇的游戏",
+                    "潔塔薇的游戲"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]洁塔薇的游戏_对话2",
+            "[JumpBack]洁塔薇的游戏_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]ギタヴィのゲーム[/color]"
+        }
+    },
+    "洁塔薇的游戏_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "振り返って自分の後ろを見る", // 轉頭看向自己背後日服對話選項
+                    "転頭看向自己背后",
+                    "转头看向自己背后",
+                    "轉頭看向自己背后"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "洁塔薇的游戏_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "彼女を追いかける", // 追上她
+                    "承諾する", // 答應
+                    "応じる",
+                    "一緒に離れる", // 一起離開
+                    "追上她",
+                    "答应",
+                    "答應",
+                    "起离开",
+                    "起離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "禁忌验证_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    708,
+                    99,
+                    158,
+                    53
+                ],
+                "expected": [
+                    "禁忌の検証", // 禁忌驗證日服官方奇遇事件譯名：禁忌の検証
+                    "禁忌验证",
+                    "禁忌驗證"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]禁忌验证_对话2",
+            "[JumpBack]禁忌验证_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]禁忌の検証[/color]"
+        }
+    },
+    "禁忌验证_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "周囲を調べる", // 檢查四周
+                    "カードをしまう", // 收起卡片
+                    "離れる", // 離開
+                    "检查四周",
+                    "檢查四週",
+                    "收起卡片",
+                    "离开",
+                    "離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "禁忌验证_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "安全区域を探す", // 尋找安全區
+                    "振り返って戦闘に備える", // 轉身準備戰鬥
+                    "寻找安全区",
+                    "尋找安全區",
+                    "转身准备战斗",
+                    "轉身準備戰鬥"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "头号玩家_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "レディ・プレイヤー1", // 頭號玩家日服官方奇遇事件譯名(連假名形式均涵蓋)
+                    "レディプレイヤー",
+                    "头号玩家",
+                    "頭號玩家",
+                    "实号玩家",
+                    "實號玩家"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]头号玩家_对话2",
+            "[JumpBack]头号玩家_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]レディ・プレイヤー1[/color]"
+        }
+    },
+    "头号玩家_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる",
+                    "立ち去る",
+                    "离开",
+                    "離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "头号玩家_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "ゲーム機のチップを持ち去る", // 取走遊戲機的晶片日服選項譯名
+                    "取走游戏机的芯片",
+                    "取走游戲機的芯片"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "致命失误_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "致命的なミス", // 致命失誤日服官方奇遇事件譯名：致命的なミス
+                    "致命失误",
+                    "致命失誤"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]致命失误_对话2",
+            "[JumpBack]致命失误_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]致命的なミス[/color]"
+        }
+    },
+    "致命失误_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "物を持ち去る", // 取走東西
+                    "急いで離れる", // 趕緊離開
+                    "取走东西",
+                    "取走東西",
+                    "赶紧离开",
+                    "趕緊離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "致命失误_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "実験日誌を開いて読む", // 打開實驗日誌閱讀
+                    "打开实验日志阅读",
+                    "打開實驗日志閱讀"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "工业怪谈_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "工業怪談", // 工業怪談日服漢字完全一致
+                    "工业怪谈"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]工业怪谈_对话2",
+            "[JumpBack]工业怪谈_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]工業怪談[/color]"
+        }
+    },
+    "工业怪谈_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる",
+                    "立ち去る",
+                    "离开",
+                    "離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "工业怪谈_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "その場で回収する", // 就地回收
+                    "就地回收"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "动物坟场_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "動物の墓場", // 動物墳場日服官方奇遇事件譯名
+                    "動物の墓地",
+                    "动物坟场",
+                    "動物墳場"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]动物坟场_对话2",
+            "[JumpBack]动物坟场_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]動物の墓場[/color]"
+        }
+    },
+    "动物坟场_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "周囲を確認する", // 查看周圍
+                    "周辺を捜索する", // 搜索周邊
+                    "離れる", // 離開
+                    "查看周围",
+                    "查看週圍",
+                    "搜索周边",
+                    "搜索周邊",
+                    "离开",
+                    "離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "动物坟场_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "掘り起こす", // 挖掘
+                    "周辺", // 周邊
+                    "埋葬する", // 安葬
+                    "骸骨", // 骸骨
+                    "挖掘",
+                    "周边",
+                    "周邊",
+                    "安葬",
+                    "骸骨"
+                ],
+                "replace": [
+                    "該",
+                    "骸"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "观星真相_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "天体観測の真相", // 觀星真相日服官方奇遇事件譯名：天体観測の真相
+                    "観星の真相",
+                    "观星真相",
+                    "觀星真相"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]观星真相_对话2",
+            "[JumpBack]观星真相_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]天体観測の真相[/color]"
+        }
+    },
+    "观星真相_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "避ける", // 避開
+                    "離れる", // 離開
+                    "避开",
+                    "避開",
+                    "别开",
+                    "闢開",
+                    "离开",
+                    "離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "观星真相_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "ロボットのチップを調査する", // 調查機器人的晶片
+                    "新しいチップを挿入する", // 插入新的晶片
+                    "调查机器人的芯片",
+                    "調查機器人的芯片",
+                    "插入新的芯片"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "异界通讯I_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    705,
+                    103,
+                    300,
+                    56
+                ],
+                "expected": [
+                    "機械的な故障", // 矩陣機制「異界通訊I」第一階段標題：機械的な故障
+                    "機械的故障",
+                    "机械性故障",
+                    "機械性故障"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]异界通讯I_对话2",
+            "[JumpBack]异界通讯I_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]機械的な故障[/color]"
+        }
+    },
+    "异界通讯I_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "武器を確認する", // 檢查武器
+                    "接続を行う", // 進行鏈接
+                    "送信する", // 發送
+                    "離れる", // 離開
+                    "要求を提示する", // 提出需求
+                    "检查武器",
+                    "檢查武器",
+                    "进行链接",
+                    "進行鏈接",
+                    "发送",
+                    "發送",
+                    "离开",
+                    "離開",
+                    "提出需求"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "异界通讯I_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "確立する", // 建立
+                    "異世界の通信ポイントを探す", // 尋找異界通訊點
+                    "離れる", // 離開
+                    "建立",
+                    "寻找异界通讯点",
+                    "尋找異界通訊點",
+                    "离开",
+                    "離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "步履蹒跚_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "よろめく足取り", // 步履蹣跚日服官方奇遇事件譯名：よろめく足取り
+                    "歩行困難",
+                    "步履",
+                    "蹒跚",
+                    "蹣跚",
+                    "購"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]步履蹒跚_对话2",
+            "[JumpBack]步履蹒跚_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]よろめく足取り[/color]"
+        }
+    },
+    "步履蹒跚_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "彼の後を追う", // 跟上他
+                    "封筒を確認する", // 查看信封
+                    "隠し格好を開ける", // 打開暗格
+                    "補給を持ち去る", // 取走補給
+                    "离开",
+                    "離開",
+                    "跟上他",
+                    "查看信封",
+                    "打开暗格",
+                    "打開暗格",
+                    "取走补给",
+                    "取走補給"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "举手之劳_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "お安い御用", // 舉手之勞日服官方奇遇事件譯名：お安い御用
+                    "举手之劳",
+                    "舉手之勞"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]领取藏品",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]举手之劳_对话2",
+            "[JumpBack]举手之劳_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]お安い御用[/color]"
+        }
+    },
+    "举手之劳_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "確認する", // 查看
+                    "調べる", // 檢查
+                    "開ける", // 打開
+                    "离开",
+                    "離開",
+                    "查看",
+                    "检查",
+                    "檢查",
+                    "打开",
+                    "打開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "举手之劳_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "庭園で水をやる", // 去花園裡澆水日服譯名
+                    "去花园里浇水",
+                    "去花園里澆水"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "步履蹒跚_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "金庫を見に行く", // 去看看保險櫃日服選項翻譯
+                    "去看看保险柜",
+                    "去看看保險櫃"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "无效救援_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "無駄な救助", // 無效救援日服官方奇遇事件譯名：無駄な救助
+                    "无效救援",
+                    "無效救援"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_结束_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]无效救援_对话2",
+            "[JumpBack]无效救援_对话",
+            "[JumpBack]转场_矩阵循生"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]無駄な救助[/color]"
+        }
+    },
+    "无效救援_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "下へ進む", // 往下方走
+                    "物資を回収する", // 回收物資
+                    "出発する", // 出發
+                    "离开",
+                    "離開",
+                    "往下方走",
+                    "回收物资",
+                    "回收物資",
+                    "出发",
+                    "出發"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "无效救援_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "すぐに出発する", // 直接出發
+                    "直接出发",
+                    "直接出發"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "盛典纪行_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "盛典紀行", // 盛典紀行日服官方奇遇事件譯名(漢字完全一致)
+                    "盛典行",
+                    "盛典纪行"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]盛典纪行_对话2",
+            "[JumpBack]盛典纪行_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]盛典紀行[/color]"
+        }
+    },
+    "盛典纪行_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "確認する", // 檢查
+                    "離れる", // 離開
+                    "キャンプを捜索する", // 搜尋營地
+                    "检查",
+                    "檢查",
+                    "离开",
+                    "離開",
+                    "搜寻营地",
+                    "搜尋營地"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "盛典纪行_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "救出する", // 解救
+                    "武器を構える", // 拿出武器
+                    "解救",
+                    "拿出武器"
+                ],
+                "replace": [
+                    "教",
+                    "解"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "火灾现场_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "火災現場", // 火災現場日服官方奇遇事件譯名(漢字完全一致)
+                    "火灾现场"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]火灾现场_对话2",
+            "[JumpBack]火灾现场_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]火災現場[/color]"
+        }
+    },
+    "火灾现场_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "推測する", // 推測
+                    "近くを調査する", // 調查附近
+                    "离开",
+                    "離開",
+                    "推测",
+                    "推測",
+                    "调查附近",
+                    "調查附近"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "火灾现场_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "巧妙に仕組まれた殺人事件だ", // 這是一場布局精妙的謀殺日服選項翻譯
+                    "这是一场布局精妙的谋杀",
+                    "這是一場布局精妙的謀殺"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "棋盘难题_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "チェスの難題", // 棋盤難題日服官方奇遇事件譯名
+                    "盤上の難題",
+                    "棋盘难题",
+                    "棋槃難題"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]棋盘难题_对话2",
+            "[JumpBack]棋盘难题_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]チェスの難題[/color]"
+        }
+    },
+    "棋盘难题_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "前を見る", // 向前看
+                    "負けを認める", // 認輸
+                    "离开",
+                    "離開",
+                    "向前看",
+                    "认输",
+                    "認輸"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "棋盘难题_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "挑戦を受け入れる", // 接受挑戰
+                    "接受挑战",
+                    "接受挑戰"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "皇后游戏_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "クイーンのゲーム", // 皇后遊戲日服官方奇遇事件譯名：クイーンのゲーム
+                    "后游戏",
+                    "后游戲"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]皇后游戏_对话2",
+            "[JumpBack]皇后游戏_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]クイーンのゲーム[/color]"
+        }
+    },
+    "皇后游戏_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "確認する", // 查看
+                    "調べる", // 檢查
+                    "開ける", // 打開
+                    "カードを引く", // 拿牌
+                    "続ける", // 繼續
+                    "离开",
+                    "離開",
+                    "查看",
+                    "检查",
+                    "檢查",
+                    "打开",
+                    "打開",
+                    "拿牌",
+                    "继续",
+                    "繼續"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "皇后游戏_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "挑戦を受け入れる", // 接受挑戰
+                    "同意する", // 同意
+                    "^「クイーン」$", // 「皇后」日服官方片假名
+                    "席を離れる", // 離桌
+                    "接受挑战",
+                    "接受挑戰",
+                    "同意",
+                    "^「皇后」$",
+                    "离桌",
+                    "離桌"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "瑕疵造物_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "不完全な造物", // 瑕疵造物日服官方奇遇事件譯名：不完全な造物
+                    "欠陥のある造物",
+                    "瑕疵造物"
+                ],
+                "replace": [
+                    [
+                        "症",
+                        "疵"
+                    ],
+                    [
+                        "疝",
+                        "疵"
+                    ]
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]瑕疵造物_对话2",
+            "[JumpBack]瑕疵造物_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]不完全な造物[/color]"
+        }
+    },
+    "瑕疵造物_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "決定する", // 決定
+                    "离开",
+                    "離開",
+                    "决定",
+                    "決定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "瑕疵造物_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "ミロのヴィナス", // 斷臂維納斯日服官方選項譯名
+                    "断臂维纳斯",
+                    "斷臂維納斯"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "迷失之馆_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "迷い子の館", // 迷失之館日服官方奇遇事件譯名：迷い子の館
+                    "迷失の館",
+                    "迷失之馆",
+                    "迷失之館"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]迷失之馆_对话2",
+            "[JumpBack]迷失之馆_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]迷い子の館[/color]"
+        }
+    },
+    "迷失之馆_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "彼に尋ねる", // 詢問他
+                    "离开",
+                    "離開",
+                    "询问他",
+                    "詢問他"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "迷失之馆_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "彼を助ける", // 幫助他
+                    "帮助他",
+                    "幫助他"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "圣殿战役_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "聖殿の戦い", // 聖殿戰役日服官方奇遇事件譯名
+                    "聖殿戦役",
+                    "圣殿战役",
+                    "聖殿戰役"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]圣殿战役_对话2",
+            "[JumpBack]圣殿战役_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]聖殿の戦い[/color]"
+        }
+    },
+    "圣殿战役_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "観察する", // 觀察
+                    "一緒に叫ぶ", // 跟著喊
+                    "受け取る", // 收下
+                    "离开",
+                    "離開",
+                    "观察",
+                    "觀察",
+                    "跟着喊",
+                    "收下"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "圣殿战役_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "黒衣の男を助ける", // 協助黑衣人
+                    "拳で道を切り開く", // 用拳開路
+                    "协助黑衣人",
+                    "協助黑衣人",
+                    "用拳开路",
+                    "用拳開路"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "西西弗斯_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "シシュポス", // 西西弗斯日服官方譯名(片假名)
+                    "西西弗斯"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]西西弗斯_对话2",
+            "[JumpBack]西西弗斯_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]シシュポス[/color]"
+        }
+    },
+    "西西弗斯_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる",
+                    "离开",
+                    "離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "西西弗斯_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "少女に尋ねる", // 詢問少女
+                    "询问少女",
+                    "詢問少女"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "野性之森_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "野生の森", // 野性之森日服官方奇遇事件譯名
+                    "野性之森"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]野性之森_对话2",
+            "[JumpBack]野性之森_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]野生の森[/color]"
+        }
+    },
+    "野性之森_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "前進を続ける", // 繼續前行
+                    "彼女を連れて帰る", // 帶她回去
+                    "出発する", // 出發
+                    "离开",
+                    "離開",
+                    "继续前行",
+                    "繼續前行",
+                    "带她回去",
+                    "帶她回去",
+                    "出发",
+                    "出發"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "野性之森_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "女の子に昆虫の種類を尋ねる", // 問女孩昆蟲的品種日服譯名
+                    "问女孩昆虫的品种",
+                    "問女孩昆蟲的品種"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "蓝色裂痕_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "青い亀裂", // 藍色裂痕日服官方奇遇事件譯名：青い亀裂
+                    "青い裂け目",
+                    "蓝色裂痕",
+                    "藍色裂痕"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]蓝色裂痕_对话2",
+            "[JumpBack]蓝色裂痕_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]青い亀裂[/color]"
+        }
+    },
+    "蓝色裂痕_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "続ける", // 繼續
+                    "資料を確認する", // 查看資料
+                    "しまう", // 收起
+                    "离开",
+                    "離開",
+                    "继续",
+                    "繼續",
+                    "查看资料",
+                    "查看資料",
+                    "收起"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "蓝色裂痕_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "中に入る", // 進入裡面
+                    "なりふり構わず資料集を持ち去る", // 不顧一切取走資料集日服翻譯
+                    "进入里面",
+                    "進入里面",
+                    "不顾一切取走资料集",
+                    "不顧一切取走資料集"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "铁石心肠_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "鉄の心", // 鐵石心腸日服官方奇遇事件譯名：鉄の心
+                    "鉄石心腸",
+                    "铁石心肠",
+                    "鐵石心腸"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]铁石心肠_对话2",
+            "[JumpBack]铁石心肠_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]鉄の心[/color]"
+        }
+    },
+    "铁石心肠_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる",
+                    "离开",
+                    "離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "铁石心肠_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "アーカイブを優先して起動する", // 優先啟動檔案庫日服選項翻譯
+                    "优先启动档案库",
+                    "優先啟動檔案庫"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "栩栩如生_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "生き生きとした", // 栩栩如生日服官方奇遇事件譯名
+                    "真に迫る",
+                    "栩栩",
+                    "如生"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]栩栩如生_对话2",
+            "[JumpBack]栩栩如生_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]生き生きとした[/color]"
+        }
+    },
+    "栩栩如生_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "油絵を見る", // 看向油畫
+                    "続ける", // 繼續
+                    "离开",
+                    "離開",
+                    "看向油画",
+                    "看向油畫",
+                    "继续",
+                    "繼續"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "栩栩如生_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "絶境の希望", // 絕境的希望
+                    "前に進んでメモを取る", // 上前取下紙條
+                    "绝境的希望",
+                    "絕境的希望",
+                    "上前取下纸条",
+                    "上前取下紙條"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "荒废古卷_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "廃れた古文書", // 荒廢古卷日服官方奇遇事件譯名：廃れた古文書
+                    "荒废古卷",
+                    "荒廢古卷"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]荒废古卷_对话2",
+            "[JumpBack]荒废古卷_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]廃れた古文書[/color]"
+        }
+    },
+    "荒废古卷_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "ページをめくる", // 翻閱
+                    "离开",
+                    "離開",
+                    "翻阅",
+                    "翻閱"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "荒废古卷_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "完全品",
+                    "完全品"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生",
+            "回答_矩阵循生"
+        ]
+    },
+    "回答_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    618,
+                    72,
+                    42
+                ],
+                "expected": [
+                    "回答する", // 回答
+                    "回答"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "洁塔薇的食材_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "ギタヴィの食材", // 潔塔薇的食材日服官方奇遇事件譯名
+                    "洁塔薇的食材",
+                    "潔塔薇的食材"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]洁塔薇的食材_对话2",
+            "[JumpBack]洁塔薇的食材_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]ギタヴィの食材[/color]"
+        }
+    },
+    "洁塔薇的食材_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "食材を探す", // 尋找食材
+                    "待つ", // 等待
+                    "离开",
+                    "離開",
+                    "寻找食材",
+                    "尋找食材",
+                    "等待"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "洁塔薇的食材_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "鮮やかな紫色", // 紫裡透紅日服選項意譯
+                    "ウサギ肉の火鍋", // 兔肉火鍋日服選項翻譯
+                    "紫里透红",
+                    "紫里透紅",
+                    "兔肉火锅",
+                    "兔肉火鍋"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "荒废古堡_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "廃れた古城", // 荒廢古堡日服官方奇遇事件譯名：廃れた古城
+                    "荒废古堡",
+                    "荒廢古堡"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]荒废古堡_对话2",
+            "[JumpBack]荒废古堡_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]廃れた古城[/color]"
+        }
+    },
+    "荒废古堡_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "検分する", // 檢視
+                    "离开",
+                    "離開",
+                    "检视",
+                    "檢視"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "荒废古堡_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "振り返って離れる", // 轉身離開
+                    "转身离开",
+                    "轉身離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "天台扭蛋机_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "屋上のガチャ", // 天台扭蛋機日服官方奇遇事件譯名
+                    "屋上ガシャ機",
+                    "天台扭蛋机",
+                    "天台扭蛋機"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]天台扭蛋机_对话2",
+            "[JumpBack]天台扭蛋机_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]屋上のガチャ[/color]"
+        }
+    },
+    "天台扭蛋机_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる",
+                    "离开",
+                    "離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "天台扭蛋机_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "やっぱりやめておく", // 還是算了
+                    "还是算了",
+                    "還是算了"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "莫比乌斯_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "メビウス", // 莫比烏斯日服官方奇遇事件譯名(片假名形式)
+                    "莫比乌斯",
+                    "莫比烏斯"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]莫比乌斯_对话2",
+            "[JumpBack]莫比乌斯_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]メビウス[/color]"
+        }
+    },
+    "莫比乌斯_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "異物を取り除く", // 取下異物
+                    "その場で分析する", // 原地分析
+                    "离开",
+                    "離開",
+                    "取下异物",
+                    "取下異物",
+                    "原地分析"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "莫比乌斯_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "おとなしくしている", // 不動聲色日服選項譯名
+                    "不動の姿勢",
+                    "不动声色",
+                    "不動聲色"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "赝品工匠_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "贋作の職人", // 假貨/贗品工匠日服官方奇遇事件譯名：贋作の職人
+                    "品工匠"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]赝品工匠_对话2",
+            "[JumpBack]赝品工匠_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]贋作の職人[/color]"
+        }
+    },
+    "赝品工匠_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "続ける", // 繼續
+                    "离开",
+                    "離開",
+                    "继续",
+                    "繼續"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "赝品工匠_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "夜に注がれる月光", // 夜裡撒入的月光日服選項譯名
+                    "夜里撒入的月光"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "继承之物_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "受け継がれしもの", // 繼承之物日服官方奇遇事件譯名：受け継がれしもの
+                    "继承之物",
+                    "繼承之物"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]继承之物_对话2",
+            "[JumpBack]继承之物_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]受け継がれしもの[/color]"
+        }
+    },
+    "继承之物_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "耳を傾ける", // 聆聽
+                    "离开",
+                    "離開",
+                    "聆听",
+                    "聆聽",
+                    "玲听",
+                    "玲聽"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "继承之物_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "怪物について彼に尋ねる", // 詢問他關於怪物的事
+                    "男の代わりに怪物追跡を続ける", // 替男人繼續追蹤怪物
+                    "询问他关于怪物的事",
+                    "詢問他關於怪物的事",
+                    "替男人继续追踪怪物",
+                    "替男人繼續追蹤怪物"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "异界通讯II_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    705,
+                    97,
+                    324,
+                    56
+                ],
+                "expected": [
+                    "意外な要求", // 矩陣機制「異界通訊II」標題：意外な要求 / 意外な請求
+                    "意外な請求",
+                    "意外的请求",
+                    "意外的請求"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]异界通讯II_对话2",
+            "[JumpBack]异界通讯II_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]異界通信II[/color]"
+        }
+    },
+    "异界通讯II_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "装置を起動する", // 啟動機器
+                    "迎え撃つ", // 迎戰
+                    "送信する", // 發送
+                    "离开",
+                    "離開",
+                    "启动机器",
+                    "啓動機器",
+                    "迎战",
+                    "迎戰",
+                    "发送",
+                    "發送"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "异界通讯II_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "要求を受け入れる", // 接受請求
+                    "請求を受け入れる",
+                    "接受请求",
+                    "接受請求"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "禁忌实验_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "禁忌の実験", // 禁忌實驗日服官方奇遇事件譯名：禁忌の実験
+                    "禁忌实验",
+                    "禁忌意見"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]禁忌实验_对话2",
+            "[JumpBack]禁忌实验_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]禁忌の実験[/color]"
+        }
+    },
+    "禁忌实验_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "観察する", // 觀察
+                    "出力を上げる", // 提高功率
+                    "メモを確認する", // 查看紙條
+                    "离开",
+                    "離開",
+                    "观察",
+                    "觀察",
+                    "提高功率",
+                    "查看纸条",
+                    "查看紙條"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "禁忌实验_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "怪物を射撃する", // 射擊怪物
+                    "射击怪物",
+                    "射擊怪物"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "失败造物_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "失敗作の造物", // 失敗造物日服官方奇遇事件譯名：失敗作の造物
+                    "失敗造物",
+                    "失败造物"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]失败造物_对话2",
+            "[JumpBack]失败造物_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]失敗作の造物[/color]"
+        }
+    },
+    "失败造物_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "前に進んで尋ねる", // 上前詢問
+                    "続ける", // 繼續
+                    "离开",
+                    "離開",
+                    "上前询问",
+                    "上前詢問",
+                    "继续",
+                    "繼續"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "失败造物_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "活発で明るいピンク髪のリリーを調査", // 調查活潑開朗的粉發莉莉日服翻譯
+                    "调查活泼开朗的粉发莉莉",
+                    "調查活潑開朗的粉發莉莉"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生",
+            "调查_矩阵循生",
+            "继续_矩阵循生"
+        ]
+    },
+    "继续_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    618,
+                    72,
+                    42
+                ],
+                "expected": [
+                    "続ける",
+                    "继续",
+                    "繼續"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "调查_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    618,
+                    72,
+                    42
+                ],
+                "expected": [
+                    "調査する",
+                    "调查",
+                    "調查"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "旧日情谊_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "古い情誼", // 舊日情誼日服官方奇遇事件譯名：古い情誼
+                    "旧日情谊",
+                    "舊日情誼"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]旧日情谊_对话2",
+            "[JumpBack]旧日情谊_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]古い情誼[/color]"
+        }
+    },
+    "旧日情谊_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "前に進んで挨拶する", // 上前招呼
+                    "离开",
+                    "離開",
+                    "上前招呼"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "旧日情谊_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "リリーの要求を拒絶する", // 拒絕莉莉的請求日服選項翻譯
+                    "拒绝莉莉的请求",
+                    "拒絕莉莉的請求"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "贫困收藏家_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "貧しき収集家", // 貧困收藏家日服官方奇遇事件譯名：貧しき収集家
+                    "贫困收藏家",
+                    "貧困收藏家"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]贫困收藏家_对话2",
+            "[JumpBack]贫困收藏家_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]貧しき収集家[/color]"
+        }
+    },
+    "贫困收藏家_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる",
+                    "离开",
+                    "離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "贫困收藏家_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "交換を拒否する", // 拒絕交換日服選項翻譯
+                    "拒绝交换",
+                    "拒絕交換"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "英雄真相_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "英雄の真相", // 英雄真相日服官方奇遇事件譯名(漢字完全一致)
+                    "英雄真相"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]英雄真相_对话2",
+            "[JumpBack]英雄真相_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]英雄の真相[/color]"
+        }
+    },
+    "英雄真相_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "続ける", // 繼續
+                    "离开",
+                    "離開",
+                    "继续",
+                    "繼續"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "英雄真相_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "囚われた少女の救出を優先する", // 優先解救被困少女日服翻譯
+                    "少女を連れて離れる", // 帶著少女離開日服翻譯
+                    "优先解救被困少女",
+                    "優先解救被困少女",
+                    "带着少女离开",
+                    "帶着少女離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "记忆真相_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "記憶の真相", // 記憶真相日服官方奇遇事件譯名：記憶の真相
+                    "记忆真相",
+                    "記憶真相"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]记忆真相_对话2",
+            "[JumpBack]记忆真相_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]記憶の真相[/color]"
+        }
+    },
+    "记忆真相_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "押し退ける", // 推開
+                    "拒絶する", // 拒絕
+                    "离开",
+                    "離開",
+                    "推开",
+                    "推開",
+                    "拒绝",
+                    "拒絕"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "记忆真相_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "時間を費やして怪物を消滅させる", // 花費時間消滅怪物日服翻譯
+                    "花费时间消灭怪物",
+                    "花費時間消滅怪物"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "天选者的故事_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "選ばれし者の物語", // 天選者的故事日服官方奇遇事件譯名：選ばれし者の物語
+                    "天选者的故事",
+                    "天選者的故事"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]天选者的故事_对话2",
+            "[JumpBack]天选者的故事_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]選ばれし者の物語[/color]"
+        }
+    },
+    "天选者的故事_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "決定する", // 決定
+                    "日記を閉じる", // 合上日記
+                    "眠りにつく", // 入眠
+                    "离开",
+                    "離開",
+                    "决定",
+                    "決定",
+                    "合上日记",
+                    "合上日記",
+                    "入眠"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "天选者的故事_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "選ばれし者との出会い", // 與天選者的相遇日服選項翻譯
+                    "与天选者的相遇",
+                    "與天選者的相遇"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生",
+            "翻阅_矩阵循生"
+        ]
+    },
+    "翻阅_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    618,
+                    72,
+                    42
+                ],
+                "expected": [
+                    "ページをめくる",
+                    "翻阅",
+                    "翻閱"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "树神之女_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "樹神の娘", // 樹神之女日服官方奇遇事件譯名
+                    "树神之女",
+                    "樹神之女"
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]树神之女_对话2",
+            "[JumpBack]树神之女_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]樹神の娘[/color]"
+        }
+    },
+    "树神之女_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる",
+                    "离开",
+                    "離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "树神之女_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "少女を教え導く", // 開導少女日服對話選項翻譯
+                    "开导少女",
+                    "開導少女"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "物归新主_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "返還", // 物歸新主官方意譯為：返還
+                    "元の持ち主へ",
+                    "物归新主",
+                    "物歸新主"
+                ]
+            }
+        },
+        "next": [
+            "物归新主完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]物归新主_对话2",
+            "[JumpBack]物归新主_对话",
+            "[JumpBack]转场_矩阵循生"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]返還[/color]"
+        }
+    },
+    "物归新主_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "出発する",
+                    "出发",
+                    "出發"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "物归新主_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "箱を開ける", // 打開箱子
+                    "打开箱子",
+                    "打開箱子"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "无尽长廊_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "果てなき回廊", // 無盡長廊日服官方奇遇事件譯名：果てなき回廊
+                    "无尽长廊",
+                    "無盡長廊"
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]无尽长廊_对话2",
+            "[JumpBack]无尽长廊_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]果てなき回廊[/color]"
+        }
+    },
+    "无尽长廊_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "進む", // 前進
+                    "离开",
+                    "離開",
+                    "前进",
+                    "前進"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "无尽长廊_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "進む", // 前進
+                    "周囲を観察する", // 觀察四周
+                    "巨大な油絵を破る", // 撕開巨幅油畫日服選項翻譯
+                    "前进",
+                    "前進",
+                    "观察四周",
+                    "觀察四周",
+                    "撕开巨幅油画",
+                    "撕開巨幅油畫"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "万两黄金_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "万両の黄金", // 萬兩黃金日服官方奇遇事件譯名：万両の黄金
+                    "万两黄金",
+                    "萬兩黃金"
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]万两黄金_对话2",
+            "[JumpBack]万两黄金_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]万両の黄金[/color]"
+        }
+    },
+    "万两黄金_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "周囲を捜索する", // 搜查四周
+                    "离开",
+                    "離開",
+                    "搜查四周"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "万两黄金_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "小さな庭園を調査する", // 去小花園調查日服選項翻譯
+                    "去小花园调查",
+                    "去小花園調查"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "工业幽灵_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "工業の幽霊", // 工業幽靈日服官方奇遇事件譯名：工業の幽霊
+                    "工业幽灵",
+                    "工業幽靈"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]工业幽灵_对话2",
+            "[JumpBack]工业幽灵_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]工業の幽霊[/color]"
+        }
+    },
+    "工业幽灵_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる",
+                    "离开",
+                    "離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "工业幽灵_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "発砲して感染体を片付ける", // 開槍解決感染體日服翻譯
+                    "案内ロボットを確認する", // 查看向導機器人日服翻譯
+                    "开枪解决感染体",
+                    "開槍解決感染體",
+                    "查看向导机器人",
+                    "查看向導機器人"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "自投罗网_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "飛んで火に入る夏の虫", // 自投羅網日服官方奇遇事件成語化意譯
+                    "自ら罠にかかる",
+                    "自投罗网",
+                    "自投羅網"
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]自投罗网_对话2",
+            "[JumpBack]自投罗网_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]飛んで火に入る夏の虫[/color]"
+        }
+    },
+    "自投罗网_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "空に向けて発砲する", // 朝天開槍日服翻譯
+                    "离开",
+                    "離開",
+                    "朝天开枪",
+                    "朝天開槍"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "自投罗网_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "彼に物資を出させる", // 讓他交出物資日服翻譯
+                    "让他交出物资",
+                    "讓他交出物資"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "武器技师_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "武器技師", // 武器技師日服官方奇遇事件譯名(漢字完全一致)
+                    "武器技师"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]武器技师_对话2",
+            "[JumpBack]武器技师_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]武器技師[/color]"
+        }
+    },
+    "武器技师_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる",
+                    "离开",
+                    "離開"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "武器技师_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "ゲーム機に接続してプレイする", // 接入該遊戲機進行遊玩日服選項翻譯
+                    "接入该游戏机进行游玩",
+                    "接入該游戲機進行游玩"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "致命隐患_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "致命的な隠れた危険", // 致命隱患日服官方奇遇事件譯名
+                    "致命的なリスク",
+                    "致命隐患",
+                    "致命隱患"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]致命隐患_对话2",
+            "[JumpBack]致命隐患_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]致命的な隠れた危険[/color]"
+        }
+    },
+    "致命隐患_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "離れる", // 離開
+                    "薬を探す", // 尋找藥物
+                    "端末へ向かう", // 前往終端
+                    "埋葬する", // 安葬
+                    "离开",
+                    "離開",
+                    "寻找药物",
+                    "尋找藥物",
+                    "前往终端",
+                    "前往終端",
+                    "安葬"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "致命隐患_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "発砲して二頭の感染体を撃退する", // 開槍擊退兩頭感染體日服對話翻譯
+                    "開槍雞腿兩頭感染體" // 保留原本錯別字模糊匹配
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "物归新主非兼容_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "返還", // 依舊對應物歸新主官方意譯譯名
+                    "元の持ち主へ",
+                    "物归新主",
+                    "物歸新主"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]物归新主非兼容_对话2",
+            "[JumpBack]物归新主非兼容_对话",
+            "[JumpBack]转场_矩阵循生"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:ForestGreen]返還[/color]"
+        }
+    },
+    "物归新主非兼容_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "出発する",
+                    "出发",
+                    "出發"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "物归新主非兼容_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "箱を開ける",
+                    "打开箱子",
+                    "打開箱子"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "未知事件_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": ""
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PrintInfo"
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "链路崩溃_reco",
+            "[JumpBack]返回_矩阵循生",
+            "[JumpBack]确认结束购物_矩阵循生",
+            "[JumpBack]终止_矩阵循生"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:Tomato]文本识别错误[/color]"
+        }
+    }
+}

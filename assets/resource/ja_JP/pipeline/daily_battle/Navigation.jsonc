@@ -1,0 +1,185 @@
+{
+    "拟战场域": {
+        "post_delay": 0,
+        "rate_limit": 0,
+        "next": [
+            "吃体力药",
+            "[JumpBack]返回主菜单",
+            "[JumpBack]返回"
+        ]
+    },
+    "拟战场域_作战任务": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1074,
+                    309,
+                    95,
+                    52
+                ],
+                "expected": [
+                    "^戦闘$"
+                ]
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
+        "next": [
+            "打开战斗_拟战场域"
+        ]
+    },
+    "打开战斗_拟战场域": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "打开战斗"
+                ]
+            }
+        },
+        "pre_delay": 0,
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 0,
+        "rate_limit": 0,
+        "next": [
+            "打开资源"
+        ]
+    },
+    "打开资源": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    905,
+                    640,
+                    113,
+                    80
+                ],
+                "expected": [
+                    "資源"
+                ]
+            }
+        },
+        "pre_delay": 0,
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 0,
+        "rate_limit": 0,
+        "next": [
+            "打开拟战场域",
+            "[JumpBack]检查_打开资源"
+        ]
+    },
+    "检查_打开资源": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    852,
+                    716,
+                    214,
+                    4
+                ],
+                "lower": [
+                    245,
+                    245,
+                    245
+                ],
+                "upper": [
+                    255,
+                    255,
+                    255
+                ],
+                "connected": true,
+                "count": 400
+            }
+        },
+        "inverse": true,
+        "pre_delay": 0,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "打开资源"
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "打开拟战场域": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    47,
+                    465,
+                    166,
+                    75
+                ],
+                "expected": [
+                    "模擬戦域"
+                ]
+            }
+        },
+        "pre_delay": 0,
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 0,
+        "rate_limit": 0,
+        "next": [
+            "确认进入拟战场域"
+        ]
+    },
+    "确认进入拟战场域": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    35,
+                    640,
+                    150,
+                    50
+                ],
+                "expected": [
+                    "模擬戦ストア"
+                ]
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
+        "next": [
+            "確認自动作战"
+        ]
+    },
+    "確認自动作战": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    875,
+                    630,
+                    120,
+                    70
+                ],
+                "expected": [
+                    "オート"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 4000,
+        "next": [
+            "[JumpBack]等级提升",
+            "检查结果_体力不足",
+            "检查结果_战斗完成"
+        ]
+    }
+}

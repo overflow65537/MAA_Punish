@@ -1,0 +1,246 @@
+{
+    "缓存ROI偏移配置": {
+        "next": [
+            "打开界面设置",
+            "[JumpBack]返回主菜单"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "正在缓存战斗界面配置,请勿操作游戏"
+        }
+    },
+    "打开界面设置": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    986,
+                    478,
+                    294,
+                    242
+                ],
+                "template": [
+                    "界面/打开菜单/打开菜单.png",
+                    "界面/打开菜单/打开菜单2.png",
+                    "界面/打开菜单/打开菜单3.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "收起布局菜单",
+            "[JumpBack]前往布局设置",
+            "[JumpBack]打开界面布局",
+            "[JumpBack]打开键位",
+            "[JumpBack]打开设置"
+        ]
+    },
+    "打开界面布局": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    275,
+                    57,
+                    752,
+                    132
+                ],
+                "expected": [
+                    "レイアウト設定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "打开设置": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    785,
+                    397,
+                    495,
+                    323
+                ],
+                "template": [
+                    "界面/设置.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "打开键位": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    30,
+                    330,
+                    257,
+                    457
+                ],
+                "expected": [
+                    "ボタン"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 100
+        }
+    },
+    "前往布局设置": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1050,
+                    178,
+                    318,
+                    201
+                ],
+                "expected": [
+                    "設定へ"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "收起布局菜单": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    514,
+                    214,
+                    263,
+                    196
+                ],
+                "template": [
+                    "界面/折叠.png",
+                    "界面/展开.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "识别区域"
+        ]
+    },
+    "识别区域": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "识别攻击区",
+                    "识别闪避区"
+                ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "ReadROIZone",
+                "custom_action_param": {
+                    "controller": "adb"
+                }
+            }
+        },
+        "next": [
+            "展开布局菜单"
+        ]
+    },
+    "展开布局菜单": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    536,
+                    0,
+                    213,
+                    93
+                ],
+                "template": [
+                    "界面/折叠.png",
+                    "界面/展开.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 100,
+            "target": [
+                372,
+                1,
+                531,
+                295
+            ]
+        },
+        "next": [
+            "退出布局菜单"
+        ]
+    },
+    "退出布局菜单": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    251,
+                    99,
+                    385,
+                    288
+                ],
+                "expected": [
+                    "閉じる",
+                    "戻る"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "退出界面设置",
+            "[JumpBack]返回",
+            "[JumpBack]确定"
+        ]
+    },
+    "退出界面设置": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    785,
+                    397,
+                    495,
+                    323
+                ],
+                "template": [
+                    "界面/设置.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    10,
+                    10
+                ]
+            }
+        }
+    }
+}
