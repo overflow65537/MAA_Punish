@@ -271,6 +271,10 @@
                 {
                     "name": "战斗辅助",
                     "enabled": false
+                },
+                {
+                    "name": "Screencap",
+                    "enabled": false
                 }
             ]
         }
@@ -304,7 +308,8 @@
         "./tasks/矩阵循生.json",
         "./tasks/寒境曙光.json",
         "./tasks/神寂启示录.json",
-        "./tasks/雾夜镇魂曲.json"
+        "./tasks/雾夜镇魂曲.json",
+        "./tasks/Screencap.json"
     ],
     "option": {
         "角色缓存更新频率": {

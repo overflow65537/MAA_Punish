@@ -7,17 +7,7 @@
                 "tools"
             ],
             "default_check": false,
-            "entry": "Screencap",
-            "pipeline_override": {
-                "Screencap": {
-                    "pre_delay": 0,
-                    "rate_limit": 0,
-                    "action": "Screencap",
-                    "next": [
-                        "Screencap"
-                    ]
-                }
-            }
+            "entry": "Screencap"
         }
     ],
     "option": {
