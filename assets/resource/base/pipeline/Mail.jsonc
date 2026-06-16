@@ -2,6 +2,7 @@
     "邮件": {
         "next": [
             "领取全部",
+            "[JumpBack]打开邮件_圖片",
             "[JumpBack]打开邮件",
             "[JumpBack]意外点击_主界面"
         ]
@@ -16,7 +17,10 @@
                     207,
                     55
                 ],
-                "expected": "领取全部",
+                "expected": [
+                    "领取全部",
+                    "全て受取"
+                ],
                 "replace": [
                     [
                         "領",
@@ -33,6 +37,25 @@
             "[JumpBack]关闭奖励"
         ]
     },
+    "打开邮件_圖片": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    130,
+                    410,
+                    50,
+                    50
+                ],
+                "template": "界面/大厅/邮件.png",
+                "threshold": 0.6,
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
     "打开邮件": {
         "recognition": {
             "type": "OCR",
@@ -43,7 +66,10 @@
                     139,
                     119
                 ],
-                "expected": "邮件",
+                "expected": [
+                    "邮件",
+                    "メール"
+                ],
                 "replace": [
                     [
                         "郵",
