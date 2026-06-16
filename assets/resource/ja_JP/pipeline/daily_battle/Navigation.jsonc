@@ -140,42 +140,19 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    10,
-                    603,
-                    450,
-                    117
+                    35,
+                    640,
+                    150,
+                    50
                 ],
                 "expected": [
-                    "模擬戦域"
+                    "模擬戦ストア"
                 ]
             }
         },
         "pre_delay": 0,
         "post_delay": 0,
         "rate_limit": 0,
-        "next": [
-            "確認自动作战"
-        ]
-    },
-    "偵測自动作战": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    740,
-                    630,
-                    100,
-                    70
-                ],
-                "template": "战斗/MAX.png",
-                "threshold": 0.3,
-                "green_mask": true
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 300,
         "next": [
             "確認自动作战"
         ]
