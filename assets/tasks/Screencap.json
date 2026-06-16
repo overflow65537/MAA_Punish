@@ -1,0 +1,44 @@
+{
+    "task": [
+        {
+            "name": "Screencap",
+            "label": "截图",
+            "group": [
+                "tools"
+            ],
+            "default_check": false,
+            "entry": "Screencap",
+            "pipeline_override": {
+                "Screencap": {
+                    "pre_delay": 0,
+                    "rate_limit": 0,
+                    "action": "Screencap",
+                    "next": [
+                        "Screencap"
+                    ]
+                }
+            }
+        }
+    ],
+    "option": {
+        "ScreenCaplimit": {
+            "label": "输入截图冷却（毫秒）",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "ScreencapPostDelay",
+                    "description": "<p>请输入截图冷却时间（毫秒）。</p>",
+                    "label": "截图冷却时间",
+                    "default": "1000",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$"
+                }
+            ],
+            "pipeline_override": {
+                "Screencap": {
+                    "post_delay": "{ScreencapPostDelay}"
+                }
+            }
+        }
+    }
+}

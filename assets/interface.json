@@ -1120,7 +1120,6 @@
                         }
                     }
                 },
-
                 "消球1": {
                     "action": {
                         "type": "ClickKey",
@@ -1273,27 +1272,6 @@
                     "pipeline_override": {}
                 }
             ]
-        },
-        "输入A级角色名": {
-            "label": "请输角色名",
-            "type": "input",
-            "inputs": [
-                {
-                    "name": "角色名",
-                    "description": "<p>请输入角色代号，例如：破晓。</p>",
-                    "default": "破晓",
-                    "pipeline_type": "string"
-                }
-            ],
-            "pipeline_override": {
-                "A级角色": {
-                    "recognition": {
-                        "param": {
-                            "expected": "{角色名}"
-                        }
-                    }
-                }
-            }
         }
     }
 }
