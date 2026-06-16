@@ -4,8 +4,10 @@
     "label": "$project.label",
     "languages": {
         "zh_cn": "./i18n/zh_cn.json",
-        "zh_tw": "./i18n/zh_tw.json"
+        "zh_tw": "./i18n/zh_tw.json",
+        "ja_jp": "./i18n/ja_jp.json"
     },
+    "title": "$project.label",
     "mirrorchyan_rid": "MAA_Punish",
     "github": "https://github.com/overflow65537/MAA_Punish",
     "license": "./LICENSE",
@@ -119,6 +121,15 @@
                 "./resource/zh_TW"
             ],
             "label": "$resource.zh_TW.label"
+        },
+        {
+            "name": "ja_JP",
+            "label": "$resource.ja_JP.label",
+            "description": "$resource.ja_JP.description",
+            "path": [
+                "./resource/base",
+                "./resource/ja_JP"
+            ]
         }
     ],
     "task": [],
@@ -527,6 +538,39 @@
                     "name": "官服",
                     "pipeline_override": {},
                     "label": "$case.切换服务器.官服"
+                },
+                {
+                    "name": "日服",
+                    "label": "$case.切换服务器.日服",
+                    "pipeline_override": {
+                        "打开应用": {
+                            "action": {
+                                "type": "StartApp",
+                                "param": {
+                                    "package": "com.herogame.gplay.punishing.grayraven.jp"
+                                }
+                            }
+                        },
+                        "停止": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.herogame.gplay.punishing.grayraven.jp"
+                                }
+                            }
+                        },
+                        "重启游戏": {
+                            "action": {
+                                "type": "StopApp",
+                                "param": {
+                                    "package": "com.herogame.gplay.punishing.grayraven.jp"
+                                }
+                            },
+                            "next": [
+                                "进入游戏"
+                            ]
+                        }
+                    }
                 },
                 {
                     "name": "云战双",
