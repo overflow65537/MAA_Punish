@@ -1,23 +1,5 @@
 {
     "宣叙妄响": {
-        "next": [
-            "[JumpBack]覆盖布局菜单",
-            "宣叙妄响内部",
-            "[JumpBack]选择人物_宣叙妄响",
-            "[JumpBack]确认跳过",
-            "[JumpBack]跳过剧情_宣叙妄响",
-            "[JumpBack]确定",
-            "[JumpBack]选择难度_宣叙妄响",
-            "[JumpBack]揭开帷幕_宣叙妄响",
-            "[JumpBack]未完待续_宣叙妄响",
-            "[JumpBack]打开宣叙妄响",
-            "[JumpBack]打开多维演绎",
-            "[JumpBack]打开时宇漫纪",
-            "[JumpBack]打开挑战",
-            "[JumpBack]打开战斗",
-            "[JumpBack]意外点击_限定活动",
-            "[JumpBack]意外点击_主界面"
-        ],
         "focus": {
             "Node.Recognition.Succeeded": "[color:ForestGreen]上演開始[/color]"
         }

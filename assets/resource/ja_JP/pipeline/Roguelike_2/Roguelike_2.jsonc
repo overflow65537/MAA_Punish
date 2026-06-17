@@ -1,27 +1,5 @@
 {
     "厄愿潮声": {
-        "next": [
-            "[JumpBack]覆盖布局菜单",
-            "肉鸽内部_厄愿潮声",
-            "[JumpBack]不可重复获得该秘藏品",
-            "[JumpBack]选择宝箱奖励_厄愿潮声",
-            "[JumpBack]邀约选择_厄愿潮声",
-            "[JumpBack]调查团组建_厄愿潮声",
-            "[JumpBack]选择难度_厄愿潮声",
-            "[JumpBack]开始旅途_厄愿潮声",
-            "[JumpBack]退出_厄愿潮声",
-            "[JumpBack]下一步_厄愿潮声",
-            "[JumpBack]点击继续",
-            "[JumpBack]确定",
-            "[JumpBack]终止_厄愿潮声",
-            "[JumpBack]打开厄愿潮声",
-            "[JumpBack]打开多维演绎",
-            "[JumpBack]打开时宇漫纪",
-            "[JumpBack]打开挑战",
-            "[JumpBack]打开战斗",
-            "[JumpBack]意外点击_溯渊歧想",
-            "[JumpBack]意外点击_限定活动"
-        ],
         "focus": {
             "Node.Recognition.Succeeded": "[color:ForestGreen]冒険開始[/color]"
         }

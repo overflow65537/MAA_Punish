@@ -1,18 +1,5 @@
 {
-    "雾夜镇魂曲": {
-        "next": [
-            "[JumpBack]雾夜镇魂曲内部",
-            "[JumpBack]终止_雾夜镇魂曲",
-            "[JumpBack]跳过剧情",
-            "[JumpBack]进入战斗_雾夜镇魂曲",
-            "[JumpBack]开始战斗_雾夜镇魂曲",
-            "[JumpBack]选择模式_雾夜镇魂曲",
-            "[JumpBack]打开雾夜镇魂曲",
-            "[JumpBack]打开时宇漫纪",
-            "[JumpBack]打开挑战",
-            "[JumpBack]打开战斗"
-        ]
-    },
+
     "终止_雾夜镇魂曲": {
         "recognition": {
             "param": {

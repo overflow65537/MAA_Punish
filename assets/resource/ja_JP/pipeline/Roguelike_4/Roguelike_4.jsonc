@@ -1,23 +1,4 @@
 {
-    "寒境曙光": {
-        "next": [
-            "[JumpBack]覆盖布局菜单",
-            "重开游戏_寒境曙光",
-            "标准进入方式_寒境曙光",
-            "[JumpBack]选择难度_寒境曙光",
-            "[JumpBack]选择开局_寒境曙光",
-            "[JumpBack]选择人物_寒境曙光",
-            "[JumpBack]港口异常点_寒境曙光",
-            "[JumpBack]雪域异常点_寒境曙光",
-            "[JumpBack]打开寒境曙光",
-            "[JumpBack]打开多维演绎",
-            "[JumpBack]打开时宇漫纪",
-            "[JumpBack]打开挑战",
-            "[JumpBack]打开战斗",
-            "[JumpBack]意外点击_限定活动",
-            "[JumpBack]挑战失败_寒境曙光"
-        ]
-    },
     "重开游戏_寒境曙光": {
         "recognition": {
             "param": {

@@ -1,30 +1,5 @@
 {
     "矩阵循生": {
-        "next": [
-            "[JumpBack]覆盖布局菜单",
-            "肉鸽内部",
-            "迭变投影_矩阵循生",
-            "[JumpBack]转场_矩阵循生",
-            "[JumpBack]编队完成_矩阵循生",
-            "[JumpBack]选择难度_矩阵循生",
-            "[JumpBack]迭变藏品_矩阵循生",
-            "[JumpBack]选择模式_矩阵循生",
-            "[JumpBack]选择首发_矩阵循生",
-            "[JumpBack]选择首发2_矩阵循生",
-            "[JumpBack]启程_矩阵循生",
-            "[JumpBack]下一页",
-            "[JumpBack]点击继续",
-            "[JumpBack]确认结束购物_矩阵循生",
-            "[JumpBack]终止_矩阵循生",
-            "[JumpBack]打开矩阵循生",
-            "[JumpBack]打开多维演绎",
-            "[JumpBack]打开时宇漫纪",
-            "[JumpBack]打开挑战",
-            "[JumpBack]打开战斗",
-            "[JumpBack]确认装备_矩阵循生",
-            "[JumpBack]选择装备_矩阵循生",
-            "[JumpBack]意外点击_限定活动"
-        ],
         "focus": {
             "Node.Recognition.Succeeded": "[color:ForestGreen]演算開始[/color]"
         }

@@ -1,29 +1,4 @@
 {
-    "神寂启示录": {
-        "next": [
-            "神寂启示录内部",
-            "没过教程提示",
-            "[JumpBack]跳过剧情",
-            "[JumpBack]退出_神寂启示录",
-            "[JumpBack]下一页_神寂启示录",
-            "[JumpBack]废弃刻印",
-            "[JumpBack]处理刻印过多",
-            "[JumpBack]确定",
-            "[JumpBack]终止_神寂启示录",
-            "[JumpBack]情报分析_神寂启示录",
-            "[JumpBack]继续情报分析_神寂启示录",
-            "[JumpBack]进入战斗_启示之路",
-            "[JumpBack]跳过",
-            "[JumpBack]选择成员",
-            "[JumpBack]打开启示之路",
-            "[JumpBack]打开神寂启示录",
-            "[JumpBack]时宇漫纪_滑动",
-            "[JumpBack]打开时宇漫纪",
-            "[JumpBack]打开挑战",
-            "[JumpBack]打开战斗",
-            "[JumpBack]继续_神寂启示录"
-        ]
-    },
     "时宇漫纪_滑动": {
         "recognition": {
             "param": {
@@ -134,20 +109,7 @@
                     "聖環要塞"
                 ]
             }
-        },
-        "next": [
-            "选择成员",
-            "继续_神寂启示录",
-            "[JumpBack]情报分析_渡边目标1",
-            "[JumpBack]情报分析_渡边目标2",
-            "[JumpBack]打开启示之路",
-            "[JumpBack]打开神寂启示录",
-            "[JumpBack]打开时宇漫纪",
-            "[JumpBack]打开挑战",
-            "[JumpBack]打开战斗",
-            "[JumpBack]返回",
-            "[JumpBack]跳过"
-        ]
+        }
     },
     "情报分析_死亡骑士": {
         "recognition": {
@@ -159,21 +121,7 @@
                     "海妲魔女"
                 ]
             }
-        },
-        "next": [
-            "选择成员",
-            "继续_神寂启示录",
-            "[JumpBack]情报分析_死亡骑士目标1",
-            "[JumpBack]情报分析_死亡骑士目标2",
-            "[JumpBack]情报分析_死亡骑士目标3",
-            "[JumpBack]打开启示之路",
-            "[JumpBack]打开神寂启示录",
-            "[JumpBack]打开时宇漫纪",
-            "[JumpBack]打开挑战",
-            "[JumpBack]打开战斗",
-            "[JumpBack]返回",
-            "[JumpBack]跳过"
-        ]
+        }
     },
     "情报分析_万事": {
         "recognition": {
@@ -185,21 +133,8 @@
                     "嘉奈利"
                 ]
             }
-        },
-        "next": [
-            "选择成员",
-            "继续_神寂启示录",
-            "[JumpBack]情报分析_万事目标1",
-            "[JumpBack]情报分析_万事目标2",
-            "[JumpBack]情报分析_万事目标3",
-            "[JumpBack]打开启示之路",
-            "[JumpBack]打开神寂启示录",
-            "[JumpBack]打开时宇漫纪",
-            "[JumpBack]打开挑战",
-            "[JumpBack]打开战斗",
-            "[JumpBack]返回",
-            "[JumpBack]跳过"
-        ]
+        }
+
     },
     "情报分析_莉莉丝": {
         "recognition": {
@@ -217,19 +152,10 @@
                     "人"
                 ]
             }
-        },
-        "next": [
-            "选择成员",
-            "继续_神寂启示录",
-            "[JumpBack]情报分析_莉莉丝目标1",
-            "[JumpBack]打开启示之路",
-            "[JumpBack]打开神寂启示录",
-            "[JumpBack]打开时宇漫纪",
-            "[JumpBack]打开挑战",
-            "[JumpBack]打开战斗",
-            "[JumpBack]返回",
-            "[JumpBack]跳过"
-        ]
+        }
+    },
+    "打开空中花园": {
+        "expected": "空中花園"
     },
     "跳过": {
         "recognition": {
