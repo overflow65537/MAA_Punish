@@ -23,7 +23,7 @@ class LoggerComponent:
         timestamp = datetime.now().strftime("%Y%m%d")
         log_file_path = os.path.join(LOG_DIR, f"custom_{timestamp}.log")
 
-        logger = logging.getLogger(f"MPAcustom.{name}")
+        logger = logging.getLogger(f"agent.{name}")
         logger.setLevel(logging.DEBUG)
         for handler in logger.handlers[:]:
             logger.removeHandler(handler)

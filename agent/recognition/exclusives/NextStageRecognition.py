@@ -27,7 +27,7 @@ MAA_Punish 下一关识别程序
 from maa.custom_recognition import CustomRecognition
 from maa.define import OCRResult
 
-from MPAcustom.logger_component import LoggerComponent
+from agent.logger_component import LoggerComponent
 
 
 class NextStageRecognition(CustomRecognition):

@@ -27,7 +27,7 @@ MAA_Punish 囚影战斗程序
 
 import time
 
-from MPAcustom.action.basics import CombatActions
+from agent.action.basics import CombatActions
 from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.define import OCRResult

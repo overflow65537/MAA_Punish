@@ -40,9 +40,9 @@ from pathlib import Path
 import numpy
 
 
-from MPAcustom.action.tool.LoadSetting import ROLE_ACTIONS
-from MPAcustom.action.tool import role_cache_policy as cache_policy
-from MPAcustom.logger_component import LoggerComponent
+from agent.action.tool.LoadSetting import ROLE_ACTIONS
+from agent.action.tool import role_cache_policy as cache_policy
+from agent.logger_component import LoggerComponent
 
 
 _SELECTION_MODE_TABLE: dict[str, dict] = {

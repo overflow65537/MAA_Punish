@@ -33,8 +33,8 @@ from maa.define import (
 )
 import time
 import re
-from MPAcustom.action.tool.LoadSetting import ROLE_ACTIONS
-from MPAcustom.logger_component import LoggerComponent
+from agent.action.tool.LoadSetting import ROLE_ACTIONS
+from agent.logger_component import LoggerComponent
 
 
 class CombatActions:

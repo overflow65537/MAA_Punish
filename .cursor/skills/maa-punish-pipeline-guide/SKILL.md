@@ -14,7 +14,7 @@ description: MAA_Punish 任务流水线 JSON/JSONC 编写与审查指南。含 P
 | 上游原文 | [3.1-PipelineProtocol](https://github.com/MaaXYZ/MaaFramework/blob/main/docs/en_us/3.1-PipelineProtocol.md) |
 | JSON Schema 校验 | `tools/schema/pipeline.schema.json`、`custom.*.schema.json` |
 | 自动战斗专项 | `docs/自动战斗框架开发指南.md` |
-| Python 自定义实现 | `assets/MPAcustom/recognition/`、`assets/MPAcustom/action/` |
+| Python 自定义实现 | `agent/recognition/`、`agent/action/` |
 
 ---
 
@@ -144,7 +144,7 @@ description: MAA_Punish 任务流水线 JSON/JSONC 编写与审查指南。含 P
 }
 ```
 
-注册名必须与 `assets/MPAcustom` 内实现一致；调试看 **`custom.log`** 或 `debug/custom_*.log`。
+注册名必须与 `assets/agent` 内实现一致；调试看 **`custom.log`** 或 `debug/custom_*.log`。
 
 ---
 

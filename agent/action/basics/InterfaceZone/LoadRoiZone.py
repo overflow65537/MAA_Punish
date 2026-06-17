@@ -8,7 +8,7 @@ from typing import Any
 
 from maa.context import Context
 from maa.custom_action import CustomAction
-from MPAcustom.logger_component import LoggerComponent
+from agent.logger_component import LoggerComponent
 import json
 
 from action.basics.InterfaceZone.roi_zone_controller import (

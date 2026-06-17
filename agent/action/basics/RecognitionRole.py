@@ -6,8 +6,8 @@ MAA_Punish 在战斗中识别角色
 
 from maa.context import Context
 from maa.custom_action import CustomAction
-from MPAcustom.action.tool.LoadSetting import ROLE_ACTIONS
-from MPAcustom.logger_component import LoggerComponent
+from agent.action.tool.LoadSetting import ROLE_ACTIONS
+from agent.logger_component import LoggerComponent
 
 
 class RecognitionRole(CustomAction):

@@ -24,7 +24,7 @@ MAA_Punish 通用战斗程序
 作者:overflow65537
 """
 
-from MPAcustom.action.basics import CombatActions
+from agent.action.basics import CombatActions
 from maa.context import Context
 from maa.custom_action import CustomAction
 import time
