@@ -44,7 +44,10 @@
                         "选择难度_厄愿潮声": {
                             "recognition": {
                                 "param": {
-                                    "expected": "浅听潮涌"
+                                    "expected": [
+                                        "浅听潮涌",
+                                        "淺聽潮湧"
+                                    ]
                                 }
                             }
                         }
@@ -57,7 +60,10 @@
                         "选择难度_厄愿潮声": {
                             "recognition": {
                                 "param": {
-                                    "expected": "征逐浪影"
+                                    "expected": [
+                                        "征逐浪影",
+                                        "徵逐浪影"
+                                    ]
                                 }
                             }
                         }
@@ -70,7 +76,10 @@
                         "选择难度_厄愿潮声": {
                             "recognition": {
                                 "param": {
-                                    "expected": "邂逅渊流"
+                                    "expected": [
+                                        "邂逅渊流",
+                                        "邂逅淵流"
+                                    ]
                                 }
                             }
                         }
@@ -113,7 +122,10 @@
                         "选择策略_厄愿潮声": {
                             "recognition": {
                                 "param": {
-                                    "expected": "旅行剧团"
+                                    "expected": [
+                                        "旅行剧团",
+                                        "旅行劇團"
+                                    ]
                                 }
                             }
                         }
@@ -126,7 +138,10 @@
                         "选择策略_厄愿潮声": {
                             "recognition": {
                                 "param": {
-                                    "expected": "生存专家"
+                                    "expected": [
+                                        "生存专家",
+                                        "生存專家"
+                                    ]
                                 }
                             }
                         }
@@ -139,7 +154,10 @@
                         "选择策略_厄愿潮声": {
                             "recognition": {
                                 "param": {
-                                    "expected": "远征队"
+                                    "expected": [
+                                        "远征队",
+                                        "遠征隊"
+                                    ]
                                 }
                             }
                         }

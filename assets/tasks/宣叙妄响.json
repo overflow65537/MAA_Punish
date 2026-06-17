@@ -50,7 +50,10 @@
                                         39
                                     ],
                                     "only_rec": true,
-                                    "expected": "入门"
+                                    "expected": [
+                                        "入门",
+                                        "入門"
+                                    ]
                                 }
                             }
                         }

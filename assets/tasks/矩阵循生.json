@@ -48,9 +48,7 @@
                         "选择难度_矩阵循生": {
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "普通"
-                                    ]
+                                    "expected": "普通"
                                 }
                             }
                         }
@@ -64,7 +62,8 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "困难"
+                                        "困难",
+                                        "困難"
                                     ]
                                 }
                             }
@@ -80,7 +79,9 @@
                                 "param": {
                                     "expected": [
                                         "梦",
-                                        "漏洞爆发"
+                                        "夢",
+                                        "漏洞爆发",
+                                        "漏洞爆發"
                                     ]
                                 }
                             }
