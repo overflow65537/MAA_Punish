@@ -90,8 +90,7 @@
         "child_exec": "python",
         "child_args": [
             "{PROJECT_DIR}/agent/main.py"
-        ],
-        "embedded": true
+        ]
     },
     "global_option": [
         "切换服务器",
