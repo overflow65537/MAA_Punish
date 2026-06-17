@@ -444,7 +444,6 @@ deps/*
 !deps/tools/
 deps/tools/*
 !deps/tools/*.schema.json
-!deps/tools/interface.schema.custom.json
 build
 install
 

@@ -14,7 +14,6 @@
     "contact": "$contact",
     "welcome": "$welcome",
     "description": "$project.description",
-    "MFW_min_req_version": "99.99.99",
     "icon": "./logo.png",
     "controller": [
         {

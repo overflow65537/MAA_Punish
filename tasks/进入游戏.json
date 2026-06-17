@@ -31,7 +31,6 @@
             "label": "$option.MAS通知处理.label",
             "description": "$option.MAS通知处理.description",
             "type": "switch",
-            "default": "No",
             "cases": [
                 {
                     "name": "Yes",
@@ -49,7 +48,8 @@
                         }
                     }
                 }
-            ]
+            ],
+            "default_case": "No"
         }
     }
 }

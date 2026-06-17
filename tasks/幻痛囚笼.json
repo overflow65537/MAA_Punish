@@ -11,21 +11,6 @@
             "option": [
                 "选择区域"
             ],
-            "speedrun": {
-                "mode": "weekly",
-                "trigger": {
-                    "weekly": {
-                        "weekday": [
-                            2
-                        ],
-                        "hour_start": 5
-                    }
-                },
-                "run": {
-                    "count": 2,
-                    "min_interval_hours": 24
-                }
-            },
             "label": "$task.幻痛囚笼"
         }
     ],
@@ -56,7 +41,8 @@
                     ],
                     "label": "$case.选择区域.终级区"
                 }
-            ]
+            ],
+            "type": "select"
         },
         "自行选择编队_囚笼_高级区": {
             "label": "$option.自行选择编队_囚笼_高级区.label",
@@ -684,7 +670,6 @@
         "选择火队角色": {
             "label": "$option.选择火队角色.label",
             "type": "select",
-            "default": "露西亚·誓焰",
             "description": "$option.选择火队角色.description",
             "cases": [
                 {
@@ -1083,12 +1068,12 @@
                     },
                     "label": "$case.选择火队角色.布偶熊·骇影"
                 }
-            ]
+            ],
+            "default_case": "露西亚·誓焰"
         },
         "选择雷队角色": {
             "label": "$option.选择雷队角色.label",
             "type": "select",
-            "default": "露西亚·深红囚影",
             "description": "$option.选择雷队角色.description",
             "cases": [
                 {
@@ -1487,12 +1472,12 @@
                     },
                     "label": "$case.选择雷队角色.布偶熊·骇影"
                 }
-            ]
+            ],
+            "default_case": "露西亚·深红囚影"
         },
         "选择冰队角色": {
             "label": "$option.选择冰队角色.label",
             "type": "select",
-            "default": "曲·启明",
             "description": "$option.选择冰队角色.description",
             "cases": [
                 {
@@ -1891,12 +1876,12 @@
                     },
                     "label": "$case.选择冰队角色.维罗妮卡·铮骨"
                 }
-            ]
+            ],
+            "default_case": "曲·启明"
         },
         "选择暗队角色": {
             "label": "$option.选择暗队角色.label",
             "type": "select",
-            "default": "比安卡·晖暮",
             "description": "$option.选择暗队角色.description",
             "cases": [
                 {
@@ -2295,12 +2280,12 @@
                     },
                     "label": "$case.选择暗队角色.布偶熊·骇影"
                 }
-            ]
+            ],
+            "default_case": "比安卡·晖暮"
         },
         "选择物理队角色": {
             "label": "$option.选择物理队角色.label",
             "type": "select",
-            "default": "赛琳娜·希声",
             "description": "$option.选择物理队角色.description",
             "cases": [
                 {
@@ -2699,12 +2684,12 @@
                     },
                     "label": "$case.选择物理队角色.布偶熊·骇影"
                 }
-            ]
+            ],
+            "default_case": "赛琳娜·希声"
         },
         "选择无分类队角色": {
             "label": "$option.选择无分类队角色.label",
             "type": "select",
-            "default": "赛琳娜·希声",
             "description": "$option.选择无分类队角色.description",
             "cases": [
                 {
@@ -3763,7 +3748,8 @@
                     },
                     "label": "$case.选择无分类队角色.布偶熊·骇影"
                 }
-            ]
+            ],
+            "default_case": "赛琳娜·希声"
         }
     }
 }

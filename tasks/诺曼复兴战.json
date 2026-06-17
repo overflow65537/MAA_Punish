@@ -8,21 +8,6 @@
             "default_check": true,
             "entry": "诺曼复兴战",
             "description": "$task.诺曼复兴战.description",
-            "speedrun": {
-                "mode": "weekly",
-                "trigger": {
-                    "weekly": {
-                        "weekday": [
-                            2
-                        ],
-                        "hour_start": 5
-                    }
-                },
-                "run": {
-                    "count": 2,
-                    "min_interval_hours": 24
-                }
-            },
             "label": "$task.诺曼复兴战"
         }
     ],

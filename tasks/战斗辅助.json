@@ -88,7 +88,8 @@
                     },
                     "label": "$case.战斗模式.持续战斗"
                 }
-            ]
+            ],
+            "type": "select"
         },
         "速通模式": {
             "type": "switch",
@@ -380,7 +381,8 @@
                     },
                     "label": "$case.选择人物.里·超刻"
                 }
-            ]
+            ],
+            "type": "select"
         }
     }
 }

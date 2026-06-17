@@ -18,21 +18,6 @@
                     ]
                 }
             },
-            "speedrun": {
-                "mode": "weekly",
-                "trigger": {
-                    "weekly": {
-                        "weekday": [
-                            2
-                        ],
-                        "hour_start": 5
-                    },
-                    "run": {
-                        "count": 2,
-                        "min_interval_hours": 24
-                    }
-                }
-            },
             "label": "$task.拟真围剿"
         }
     ],

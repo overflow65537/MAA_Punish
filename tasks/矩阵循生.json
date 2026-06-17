@@ -89,7 +89,8 @@
                     },
                     "label": "$case.选择模式.噩梦模式"
                 }
-            ]
+            ],
+            "type": "select"
         },
         "使用人物": {
             "cases": [
@@ -209,13 +210,13 @@
                                     "曲·启明"
                                 ]
                             }
+                        },
+                        "自动切换": {
+                            "enabled": false
+                        },
+                        "自动qte": {
+                            "enabled": false
                         }
-                    },
-                    "自动切换": {
-                        "enabled": false
-                    },
-                    "自动qte": {
-                        "enabled": false
                     },
                     "label": "$case.使用人物.启明"
                 },
@@ -239,7 +240,8 @@
                     },
                     "label": "$case.使用人物.超刻"
                 }
-            ]
+            ],
+            "type": "select"
         }
     }
 }
