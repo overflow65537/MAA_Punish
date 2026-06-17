@@ -70,6 +70,9 @@
         }
     },
     "处理刻印过多": {
+        "post_delay": 0,
+        "pre_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -94,6 +97,71 @@
         "post_wait_freezes": {
             "time": 1000,
             "timeout": 2000
+        },
+        "next": [
+            "处理刻印过多_2"
+        ]
+    },
+    "处理刻印过多_2": {
+        "post_delay": 0,
+        "pre_delay": 0,
+        "rate_limit": 0,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    770,
+                    560
+                ]
+            }
+        },
+        "next": [
+            "处理刻印过多_3"
+        ]
+    },
+    "处理刻印过多_3": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    846,
+                    560
+                ]
+            }
+        },
+        "next": [
+            "处理刻印过多_4"
+        ]
+    },
+    "处理刻印过多_4": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    922,
+                    560
+                ]
+            }
+        },
+        "next": [
+            "出售刻印_神寂启示录"
+        ]
+    },
+    "出售刻印_神寂启示录": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    481,
+                    371,
+                    634,
+                    180
+                ],
+                "expected": "出售"
+            }
+        },
+        "action": {
+            "type": "Click"
         }
     },
     "没过教程提示": {
@@ -508,7 +576,7 @@
         },
         "next": [
             "失败_神寂启示录",
-             "对局结束_神寂启示录",
+            "对局结束_神寂启示录",
             "[JumpBack]选择事件_神寂启示录"
         ]
     },

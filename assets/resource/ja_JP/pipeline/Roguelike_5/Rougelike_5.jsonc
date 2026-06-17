@@ -29,6 +29,13 @@
             }
         }
     },
+    "出售刻印_神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": "出售"
+            }
+        }
+    },
     "没过教程提示": {
         "recognition": {
             "param": {
