@@ -12,7 +12,7 @@ description: MAA_Punish 任务流水线 JSON/JSONC 编写与审查指南。含 P
 | **速查表（本节下方）** | 识别/动作/字段默认值/节点属性 |
 | 完整语义与边界情况 | 仓库根目录 `protocol-3.1-task-pipeline.md` |
 | 上游原文 | [3.1-PipelineProtocol](https://github.com/MaaXYZ/MaaFramework/blob/main/docs/en_us/3.1-PipelineProtocol.md) |
-| JSON Schema 校验 | `deps/tools/pipeline.schema.json`、`custom.*.schema.json` |
+| JSON Schema 校验 | `tools/schema/pipeline.schema.json`、`custom.*.schema.json` |
 | 自动战斗专项 | `docs/自动战斗框架开发指南.md` |
 | Python 自定义实现 | `assets/MPAcustom/recognition/`、`assets/MPAcustom/action/` |
 
@@ -153,7 +153,7 @@ description: MAA_Punish 任务流水线 JSON/JSONC 编写与审查指南。含 P
 1. **状态驱动**：识别 → 操作 → 再识别；少凭假设点击后的画面。
 2. **高命中率**：`next` 覆盖分支（含弹窗、加载、异常界面）。
 3. **慎用纯延迟**：优先加识别节点与 `*_wait_freezes`；需要「无等待」时对默认敏感字段显式 `0`。
-4. **Schema**：提交前用仓库工具/IDE 校验 `deps/tools/pipeline.schema.json`。
+4. **Schema**：提交前用仓库工具/IDE 校验 `tools/schema/pipeline.schema.json`。
 5. **勿照搬其他项目**：Custom 名称以本仓库为准。
 
 ---
@@ -172,5 +172,5 @@ description: MAA_Punish 任务流水线 JSON/JSONC 编写与审查指南。含 P
 
 - `protocol-3.1-task-pipeline.md`（权威细节）
 - `docs/自动战斗框架开发指南.md`
-- `deps/tools/pipeline.schema.json`
+- `tools/schema/pipeline.schema.json`
 - 成熟范例：同目录其它 `*.jsonc`（如 `Role_Selection.jsonc`）

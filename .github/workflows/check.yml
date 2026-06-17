@@ -11,7 +11,7 @@ on:
       - "resource/**"
       - "tasks/**"
       - "tools/ci/**"
-      - "deps/tools/**"
+      - "tools/schema/**"
   pull_request:
     branches:
       - "**"
@@ -22,7 +22,7 @@ on:
       - "resource/**"
       - "tasks/**"
       - "tools/ci/**"
-      - "deps/tools/**"
+      - "tools/schema/**"
   workflow_dispatch:
 
 jobs:

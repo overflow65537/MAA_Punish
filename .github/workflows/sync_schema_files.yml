@@ -36,38 +36,38 @@ jobs:
         run: |
           set -euo pipefail
           echo "Current Date and Time (UTC): $(date -u '+%Y-%m-%d %H:%M:%S')"
-          mkdir -p deps/tools
-          curl -fsSL -o deps/tools/interface.schema.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/interface.schema.json
-          curl -fsSL -o deps/tools/interface_config.schema.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/interface_config.schema.json
-          curl -fsSL -o deps/tools/interface_import.schema.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/interface_import.schema.json
-          curl -fsSL -o deps/tools/pipeline.schema.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/pipeline.schema.json
+          mkdir -p tools/schema
+          curl -fsSL -o tools/schema/interface.schema.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/interface.schema.json
+          curl -fsSL -o tools/schema/interface_config.schema.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/interface_config.schema.json
+          curl -fsSL -o tools/schema/interface_import.schema.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/interface_import.schema.json
+          curl -fsSL -o tools/schema/pipeline.schema.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/pipeline.schema.json
           echo "Checking downloaded files:"
-          ls -la deps/tools/*.schema.json
+          ls -la tools/schema/*.schema.json
 
       - name: Check for changes with git status
         id: check_status
         run: |
-          git add -f deps/tools/*.schema.json
-          if [[ -n "$(git status --porcelain deps/tools/*.schema.json)" ]]; then
+          git add -f tools/schema/*.schema.json
+          if [[ -n "$(git status --porcelain tools/schema/*.schema.json)" ]]; then
             echo "Changes detected in JSON schema files"
-            git status --porcelain deps/tools/*.schema.json
+            git status --porcelain tools/schema/*.schema.json
             echo "changes_detected=true" >> $GITHUB_OUTPUT
-            if [[ -n "$(git status --porcelain deps/tools/interface.schema.json)" ]]; then
+            if [[ -n "$(git status --porcelain tools/schema/interface.schema.json)" ]]; then
               echo "interface_changed=true" >> $GITHUB_OUTPUT
             else
               echo "interface_changed=false" >> $GITHUB_OUTPUT
             fi
-            if [[ -n "$(git status --porcelain deps/tools/interface_config.schema.json)" ]]; then
+            if [[ -n "$(git status --porcelain tools/schema/interface_config.schema.json)" ]]; then
               echo "interface_config_changed=true" >> $GITHUB_OUTPUT
             else
               echo "interface_config_changed=false" >> $GITHUB_OUTPUT
             fi
-            if [[ -n "$(git status --porcelain deps/tools/interface_import.schema.json)" ]]; then
+            if [[ -n "$(git status --porcelain tools/schema/interface_import.schema.json)" ]]; then
               echo "interface_import_changed=true" >> $GITHUB_OUTPUT
             else
               echo "interface_import_changed=false" >> $GITHUB_OUTPUT
             fi
-            if [[ -n "$(git status --porcelain deps/tools/pipeline.schema.json)" ]]; then
+            if [[ -n "$(git status --porcelain tools/schema/pipeline.schema.json)" ]]; then
               echo "pipeline_changed=true" >> $GITHUB_OUTPUT
             else
               echo "pipeline_changed=false" >> $GITHUB_OUTPUT
