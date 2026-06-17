@@ -6,6 +6,9 @@
             "group": [
                 "tools"
             ],
+            "option": [
+                "ScreenCaplimit"
+            ],
             "default_check": false,
             "entry": "Screencap"
         }
