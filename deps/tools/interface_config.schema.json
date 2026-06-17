@@ -13,11 +13,7 @@
                 "type": {
                     "title": "控制器类型",
                     "type": "string",
-                    "enum": [
-                        "Adb",
-                        "Win32",
-                        "PlayCover"
-                    ]
+                    "enum": ["Adb", "Win32", "PlayCover", "WlRoots"]
                 }
             }
         },
@@ -57,6 +53,16 @@
                 }
             }
         },
+        "wlroots": {
+            "title": "WlRoots配置",
+            "type": "object",
+            "properties": {
+                "wlr_socket_path": {
+                    "title": "Wayland Socket路径",
+                    "type": "string"
+                }
+            }
+        },
         "resource": {
             "title": "激活的资源",
             "type": "string"
@@ -86,22 +92,13 @@
                                     "type": "string"
                                 }
                             },
-                            "required": [
-                                "name",
-                                "value"
-                            ]
+                            "required": ["name", "value"]
                         }
                     }
                 },
-                "required": [
-                    "name"
-                ]
+                "required": ["name"]
             }
         }
     },
-    "required": [
-        "controller",
-        "resource",
-        "task"
-    ]
+    "required": ["controller", "resource", "task"]
 }
