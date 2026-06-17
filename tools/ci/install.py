@@ -34,8 +34,8 @@ def install_resource():
         install_path / "logo.png",
     )
     shutil.copy2(
-        REPO_ROOT / "update_flag.txt",
-        install_path / "update_flag.txt",
+        REPO_ROOT / "CFA_setting.json",
+        install_path / "CFA_setting.json",
     )
 
     with open(install_path / "interface.json", "r", encoding="utf-8") as f:
