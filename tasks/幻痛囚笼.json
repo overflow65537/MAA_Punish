@@ -1,0 +1,3769 @@
+{
+    "task": [
+        {
+            "name": "幻痛囚笼",
+            "group": [
+                "daily"
+            ],
+            "default_check": true,
+            "entry": "幻痛囚笼",
+            "description": "$task.幻痛囚笼.description",
+            "option": [
+                "选择区域"
+            ],
+            "speedrun": {
+                "mode": "weekly",
+                "trigger": {
+                    "weekly": {
+                        "weekday": [
+                            2
+                        ],
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 2,
+                    "min_interval_hours": 24
+                }
+            },
+            "label": "$task.幻痛囚笼"
+        }
+    ],
+    "option": {
+        "选择区域": {
+            "cases": [
+                {
+                    "name": "高级区",
+                    "pipeline_override": {},
+                    "option": [
+                        "自行选择编队_囚笼_高级区"
+                    ],
+                    "label": "$case.选择区域.高级区"
+                },
+                {
+                    "name": "终级区",
+                    "pipeline_override": {
+                        "选择区域": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "终级"
+                                }
+                            }
+                        }
+                    },
+                    "option": [
+                        "自行选择编队_囚笼_终级区"
+                    ],
+                    "label": "$case.选择区域.终级区"
+                }
+            ]
+        },
+        "自行选择编队_囚笼_高级区": {
+            "label": "$option.自行选择编队_囚笼_高级区.label",
+            "type": "select",
+            "default_case": "自动选择",
+            "description": "$option.自行选择编队_囚笼_高级区.description",
+            "cases": [
+                {
+                    "name": "自动选择",
+                    "pipeline_override": {},
+                    "label": "$case.自行选择编队_囚笼_高级区.自动选择"
+                },
+                {
+                    "name": "选择编队",
+                    "pipeline_override": {},
+                    "option": [
+                        "选择火队_囚笼",
+                        "选择雷队_囚笼",
+                        "选择冰队_囚笼",
+                        "选择暗队_囚笼",
+                        "选择物理队_囚笼",
+                        "选择无分类队伍_囚笼"
+                    ],
+                    "label": "$case.自行选择编队_囚笼_高级区.选择编队"
+                },
+                {
+                    "name": "选择人物",
+                    "pipeline_override": {},
+                    "option": [
+                        "选择火队角色",
+                        "选择雷队角色",
+                        "选择冰队角色",
+                        "选择暗队角色",
+                        "选择物理队角色",
+                        "选择无分类队角色"
+                    ],
+                    "label": "$case.自行选择编队_囚笼_高级区.选择人物"
+                }
+            ]
+        },
+        "自行选择编队_囚笼_终级区": {
+            "label": "$option.自行选择编队_囚笼_终级区.label",
+            "type": "select",
+            "default_case": "自动选择",
+            "description": "$option.自行选择编队_囚笼_终级区.description",
+            "cases": [
+                {
+                    "name": "自动选择",
+                    "pipeline_override": {},
+                    "label": "$case.自行选择编队_囚笼_终级区.自动选择"
+                },
+                {
+                    "name": "选择编队",
+                    "pipeline_override": {},
+                    "option": [
+                        "选择A区编队_囚笼",
+                        "选择B区编队_囚笼",
+                        "选择C区编队_囚笼"
+                    ],
+                    "label": "$case.自行选择编队_囚笼_终级区.选择编队"
+                },
+                {
+                    "name": "选择人物",
+                    "pipeline_override": {},
+                    "option": [
+                        "选择A区角色_囚笼",
+                        "选择B区角色_囚笼",
+                        "选择C区角色_囚笼"
+                    ],
+                    "label": "$case.自行选择编队_囚笼_终级区.选择人物"
+                }
+            ]
+        },
+        "选择A区编队_囚笼": {
+            "label": "$option.选择A区编队_囚笼.label",
+            "description": "$option.选择A区编队_囚笼.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择A区编队_囚笼.编队名.pattern_msg",
+                    "default": "编队1"
+                }
+            ],
+            "pipeline_override": {
+                "检查A区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "查看终极区Boss": {
+                                    "action": {
+                                        "type": "Custom",
+                                        "param": {
+                                            "custom_action": "PPOverride",
+                                            "custom_action_param": {
+                                                "选择预设": {
+                                                    "expected": "{编队名}"
+                                                },
+                                                "识别人物": {
+                                                    "enabled": true
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "next": [
+                                        "切换预设"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "选择B区编队_囚笼": {
+            "label": "$option.选择B区编队_囚笼.label",
+            "description": "$option.选择B区编队_囚笼.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择B区编队_囚笼.编队名.pattern_msg",
+                    "default": "编队1"
+                }
+            ],
+            "pipeline_override": {
+                "检查B区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "查看终极区Boss": {
+                                    "action": {
+                                        "type": "Custom",
+                                        "param": {
+                                            "custom_action": "PPOverride",
+                                            "custom_action_param": {
+                                                "选择预设": {
+                                                    "expected": "{编队名}"
+                                                },
+                                                "识别人物": {
+                                                    "enabled": true
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "next": [
+                                        "切换预设"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "选择C区编队_囚笼": {
+            "label": "$option.选择C区编队_囚笼.label",
+            "description": "$option.选择C区编队_囚笼.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择C区编队_囚笼.编队名.pattern_msg",
+                    "default": "编队1"
+                }
+            ],
+            "pipeline_override": {
+                "检查C区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "查看终极区Boss": {
+                                    "action": {
+                                        "type": "Custom",
+                                        "param": {
+                                            "custom_action": "PPOverride",
+                                            "custom_action_param": {
+                                                "选择预设": {
+                                                    "expected": "{编队名}"
+                                                },
+                                                "识别人物": {
+                                                    "enabled": true
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "next": [
+                                        "切换预设"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "选择A区角色_囚笼": {
+            "label": "$option.选择A区角色_囚笼.label",
+            "description": "$option.选择A区角色_囚笼.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "角色名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择A区角色_囚笼.角色名.pattern_msg"
+                }
+            ],
+            "pipeline_override": {
+                "检查A区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "查看终极区Boss": {
+                                    "action": {
+                                        "type": "Custom",
+                                        "param": {
+                                            "custom_action": "PPOverride",
+                                            "custom_action_param": {
+                                                "选择角色程序": {
+                                                    "attach": {
+                                                        "cage": true,
+                                                        "weight_mode": "exclusive",
+                                                        "pick": [
+                                                            "{角色名}"
+                                                        ]
+                                                    }
+                                                },
+                                                "选择角色程序_onlyNode": {
+                                                    "attach": {
+                                                        "cage": true,
+                                                        "weight_mode": "exclusive",
+                                                        "pick": [
+                                                            "{角色名}"
+                                                        ]
+                                                    }
+                                                },
+                                                "识别人物": {
+                                                    "enabled": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "选择B区角色_囚笼": {
+            "label": "$option.选择B区角色_囚笼.label",
+            "description": "$option.选择B区角色_囚笼.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "角色名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择B区角色_囚笼.角色名.pattern_msg"
+                }
+            ],
+            "pipeline_override": {
+                "检查B区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "查看终极区Boss": {
+                                    "action": {
+                                        "type": "Custom",
+                                        "param": {
+                                            "custom_action": "PPOverride",
+                                            "custom_action_param": {
+                                                "选择角色程序": {
+                                                    "attach": {
+                                                        "cage": true,
+                                                        "weight_mode": "exclusive",
+                                                        "pick": [
+                                                            "{角色名}"
+                                                        ]
+                                                    }
+                                                },
+                                                "选择角色程序_onlyNode": {
+                                                    "attach": {
+                                                        "cage": true,
+                                                        "weight_mode": "exclusive",
+                                                        "pick": [
+                                                            "{角色名}"
+                                                        ]
+                                                    }
+                                                },
+                                                "识别人物": {
+                                                    "enabled": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "选择C区角色_囚笼": {
+            "label": "$option.选择C区角色_囚笼.label",
+            "description": "$option.选择C区角色_囚笼.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "角色名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择C区角色_囚笼.角色名.pattern_msg"
+                }
+            ],
+            "pipeline_override": {
+                "检查C区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "查看终极区Boss": {
+                                    "action": {
+                                        "type": "Custom",
+                                        "param": {
+                                            "custom_action": "PPOverride",
+                                            "custom_action_param": {
+                                                "选择角色程序": {
+                                                    "attach": {
+                                                        "cage": true,
+                                                        "weight_mode": "exclusive",
+                                                        "pick": [
+                                                            "{角色名}"
+                                                        ]
+                                                    }
+                                                },
+                                                "选择角色程序_onlyNode": {
+                                                    "attach": {
+                                                        "cage": true,
+                                                        "weight_mode": "exclusive",
+                                                        "pick": [
+                                                            "{角色名}"
+                                                        ]
+                                                    }
+                                                },
+                                                "识别人物": {
+                                                    "enabled": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "选择火队_囚笼": {
+            "label": "$option.选择火队_囚笼.label",
+            "description": "$option.选择火队_囚笼.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择火队_囚笼.编队名.pattern_msg",
+                    "default": "编队1"
+                }
+            ],
+            "pipeline_override": {
+                "查看Boss_火队": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择雷队_囚笼": {
+            "label": "$option.选择雷队_囚笼.label",
+            "description": "$option.选择雷队_囚笼.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择雷队_囚笼.编队名.pattern_msg",
+                    "default": "编队1"
+                }
+            ],
+            "pipeline_override": {
+                "查看Boss_雷队": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择冰队_囚笼": {
+            "label": "$option.选择冰队_囚笼.label",
+            "description": "$option.选择冰队_囚笼.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择冰队_囚笼.编队名.pattern_msg",
+                    "default": "编队1"
+                }
+            ],
+            "pipeline_override": {
+                "查看Boss_冰队": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择暗队_囚笼": {
+            "label": "$option.选择暗队_囚笼.label",
+            "description": "$option.选择暗队_囚笼.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择暗队_囚笼.编队名.pattern_msg",
+                    "default": "编队1"
+                }
+            ],
+            "pipeline_override": {
+                "查看Boss_暗队": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择物理队_囚笼": {
+            "label": "$option.选择物理队_囚笼.label",
+            "description": "$option.选择物理队_囚笼.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择物理队_囚笼.编队名.pattern_msg",
+                    "default": "编队1"
+                }
+            ],
+            "pipeline_override": {
+                "查看Boss_物队": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择无分类队伍_囚笼": {
+            "label": "$option.选择无分类队伍_囚笼.label",
+            "description": "$option.选择无分类队伍_囚笼.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择无分类队伍_囚笼.编队名.pattern_msg",
+                    "default": "编队1"
+                }
+            ],
+            "pipeline_override": {
+                "查看Boss_武藏玖型": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                },
+                "查看Boss_罗塞塔": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                },
+                "查看Boss_不明构造体": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                },
+                                "识别人物": {
+                                    "enabled": true
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择火队角色": {
+            "label": "$option.选择火队角色.label",
+            "type": "select",
+            "default": "露西亚·誓焰",
+            "description": "$option.选择火队角色.description",
+            "cases": [
+                {
+                    "name": "露西亚·深红囚影",
+                    "pipeline_override": {
+                        "查看Boss_火队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色.露西亚·深红囚影"
+                },
+                {
+                    "name": "拉弥亚·深谣",
+                    "pipeline_override": {
+                        "查看Boss_火队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色.拉弥亚·深谣"
+                },
+                {
+                    "name": "露娜·终焉",
+                    "pipeline_override": {
+                        "查看Boss_火队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色.露娜·终焉"
+                },
+                {
+                    "name": "露西亚·誓焰",
+                    "pipeline_override": {
+                        "查看Boss_火队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色.露西亚·誓焰"
+                },
+                {
+                    "name": "曲·启明",
+                    "pipeline_override": {
+                        "查看Boss_火队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色.曲·启明"
+                },
+                {
+                    "name": "比安卡·深痕",
+                    "pipeline_override": {
+                        "查看Boss_火队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色.比安卡·深痕"
+                },
+                {
+                    "name": "里·超刻",
+                    "pipeline_override": {
+                        "查看Boss_火队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色.里·超刻"
+                },
+                {
+                    "name": "比安卡·晖暮",
+                    "pipeline_override": {
+                        "查看Boss_火队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色.比安卡·晖暮"
+                },
+                {
+                    "name": "赛琳娜·希声",
+                    "pipeline_override": {
+                        "查看Boss_火队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色.赛琳娜·希声"
+                },
+                {
+                    "name": "维罗妮卡·铮骨",
+                    "pipeline_override": {
+                        "查看Boss_火队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色.维罗妮卡·铮骨"
+                },
+                {
+                    "name": "布偶熊·骇影",
+                    "pipeline_override": {
+                        "查看Boss_火队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色.布偶熊·骇影"
+                }
+            ]
+        },
+        "选择雷队角色": {
+            "label": "$option.选择雷队角色.label",
+            "type": "select",
+            "default": "露西亚·深红囚影",
+            "description": "$option.选择雷队角色.description",
+            "cases": [
+                {
+                    "name": "露西亚·深红囚影",
+                    "pipeline_override": {
+                        "查看Boss_雷队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色.露西亚·深红囚影"
+                },
+                {
+                    "name": "拉弥亚·深谣",
+                    "pipeline_override": {
+                        "查看Boss_雷队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色.拉弥亚·深谣"
+                },
+                {
+                    "name": "露娜·终焉",
+                    "pipeline_override": {
+                        "查看Boss_雷队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色.露娜·终焉"
+                },
+                {
+                    "name": "露西亚·誓焰",
+                    "pipeline_override": {
+                        "查看Boss_雷队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色.露西亚·誓焰"
+                },
+                {
+                    "name": "曲·启明",
+                    "pipeline_override": {
+                        "查看Boss_雷队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色.曲·启明"
+                },
+                {
+                    "name": "比安卡·深痕",
+                    "pipeline_override": {
+                        "查看Boss_雷队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色.比安卡·深痕"
+                },
+                {
+                    "name": "里·超刻",
+                    "pipeline_override": {
+                        "查看Boss_雷队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色.里·超刻"
+                },
+                {
+                    "name": "比安卡·晖暮",
+                    "pipeline_override": {
+                        "查看Boss_雷队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色.比安卡·晖暮"
+                },
+                {
+                    "name": "赛琳娜·希声",
+                    "pipeline_override": {
+                        "查看Boss_雷队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色.赛琳娜·希声"
+                },
+                {
+                    "name": "维罗妮卡·铮骨",
+                    "pipeline_override": {
+                        "查看Boss_雷队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色.维罗妮卡·铮骨"
+                },
+                {
+                    "name": "布偶熊·骇影",
+                    "pipeline_override": {
+                        "查看Boss_雷队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色.布偶熊·骇影"
+                }
+            ]
+        },
+        "选择冰队角色": {
+            "label": "$option.选择冰队角色.label",
+            "type": "select",
+            "default": "曲·启明",
+            "description": "$option.选择冰队角色.description",
+            "cases": [
+                {
+                    "name": "曲·启明",
+                    "pipeline_override": {
+                        "查看Boss_冰队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色.曲·启明"
+                },
+                {
+                    "name": "布偶熊·骇影",
+                    "pipeline_override": {
+                        "查看Boss_冰队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色.布偶熊·骇影"
+                },
+                {
+                    "name": "露西亚·深红囚影",
+                    "pipeline_override": {
+                        "查看Boss_冰队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色.露西亚·深红囚影"
+                },
+                {
+                    "name": "拉弥亚·深谣",
+                    "pipeline_override": {
+                        "查看Boss_冰队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色.拉弥亚·深谣"
+                },
+                {
+                    "name": "露娜·终焉",
+                    "pipeline_override": {
+                        "查看Boss_冰队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色.露娜·终焉"
+                },
+                {
+                    "name": "露西亚·誓焰",
+                    "pipeline_override": {
+                        "查看Boss_冰队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色.露西亚·誓焰"
+                },
+                {
+                    "name": "比安卡·深痕",
+                    "pipeline_override": {
+                        "查看Boss_冰队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色.比安卡·深痕"
+                },
+                {
+                    "name": "里·超刻",
+                    "pipeline_override": {
+                        "查看Boss_冰队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色.里·超刻"
+                },
+                {
+                    "name": "比安卡·晖暮",
+                    "pipeline_override": {
+                        "查看Boss_冰队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色.比安卡·晖暮"
+                },
+                {
+                    "name": "赛琳娜·希声",
+                    "pipeline_override": {
+                        "查看Boss_冰队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色.赛琳娜·希声"
+                },
+                {
+                    "name": "维罗妮卡·铮骨",
+                    "pipeline_override": {
+                        "查看Boss_冰队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色.维罗妮卡·铮骨"
+                }
+            ]
+        },
+        "选择暗队角色": {
+            "label": "$option.选择暗队角色.label",
+            "type": "select",
+            "default": "比安卡·晖暮",
+            "description": "$option.选择暗队角色.description",
+            "cases": [
+                {
+                    "name": "拉弥亚·深谣",
+                    "pipeline_override": {
+                        "查看Boss_暗队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色.拉弥亚·深谣"
+                },
+                {
+                    "name": "比安卡·晖暮",
+                    "pipeline_override": {
+                        "查看Boss_暗队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色.比安卡·晖暮"
+                },
+                {
+                    "name": "露西亚·深红囚影",
+                    "pipeline_override": {
+                        "查看Boss_暗队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色.露西亚·深红囚影"
+                },
+                {
+                    "name": "露娜·终焉",
+                    "pipeline_override": {
+                        "查看Boss_暗队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色.露娜·终焉"
+                },
+                {
+                    "name": "露西亚·誓焰",
+                    "pipeline_override": {
+                        "查看Boss_暗队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色.露西亚·誓焰"
+                },
+                {
+                    "name": "曲·启明",
+                    "pipeline_override": {
+                        "查看Boss_暗队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色.曲·启明"
+                },
+                {
+                    "name": "比安卡·深痕",
+                    "pipeline_override": {
+                        "查看Boss_暗队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色.比安卡·深痕"
+                },
+                {
+                    "name": "里·超刻",
+                    "pipeline_override": {
+                        "查看Boss_暗队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色.里·超刻"
+                },
+                {
+                    "name": "赛琳娜·希声",
+                    "pipeline_override": {
+                        "查看Boss_暗队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色.赛琳娜·希声"
+                },
+                {
+                    "name": "维罗妮卡·铮骨",
+                    "pipeline_override": {
+                        "查看Boss_暗队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色.维罗妮卡·铮骨"
+                },
+                {
+                    "name": "布偶熊·骇影",
+                    "pipeline_override": {
+                        "查看Boss_暗队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色.布偶熊·骇影"
+                }
+            ]
+        },
+        "选择物理队角色": {
+            "label": "$option.选择物理队角色.label",
+            "type": "select",
+            "default": "赛琳娜·希声",
+            "description": "$option.选择物理队角色.description",
+            "cases": [
+                {
+                    "name": "比安卡·深痕",
+                    "pipeline_override": {
+                        "查看Boss_物队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色.比安卡·深痕"
+                },
+                {
+                    "name": "赛琳娜·希声",
+                    "pipeline_override": {
+                        "查看Boss_物队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色.赛琳娜·希声"
+                },
+                {
+                    "name": "维罗妮卡·铮骨",
+                    "pipeline_override": {
+                        "查看Boss_物队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色.维罗妮卡·铮骨"
+                },
+                {
+                    "name": "露西亚·深红囚影",
+                    "pipeline_override": {
+                        "查看Boss_物队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色.露西亚·深红囚影"
+                },
+                {
+                    "name": "拉弥亚·深谣",
+                    "pipeline_override": {
+                        "查看Boss_物队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色.拉弥亚·深谣"
+                },
+                {
+                    "name": "露娜·终焉",
+                    "pipeline_override": {
+                        "查看Boss_物队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色.露娜·终焉"
+                },
+                {
+                    "name": "露西亚·誓焰",
+                    "pipeline_override": {
+                        "查看Boss_物队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色.露西亚·誓焰"
+                },
+                {
+                    "name": "曲·启明",
+                    "pipeline_override": {
+                        "查看Boss_物队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色.曲·启明"
+                },
+                {
+                    "name": "里·超刻",
+                    "pipeline_override": {
+                        "查看Boss_物队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色.里·超刻"
+                },
+                {
+                    "name": "比安卡·晖暮",
+                    "pipeline_override": {
+                        "查看Boss_物队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色.比安卡·晖暮"
+                },
+                {
+                    "name": "布偶熊·骇影",
+                    "pipeline_override": {
+                        "查看Boss_物队": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色.布偶熊·骇影"
+                }
+            ]
+        },
+        "选择无分类队角色": {
+            "label": "$option.选择无分类队角色.label",
+            "type": "select",
+            "default": "赛琳娜·希声",
+            "description": "$option.选择无分类队角色.description",
+            "cases": [
+                {
+                    "name": "比安卡·深痕",
+                    "pipeline_override": {
+                        "查看Boss_罗塞塔": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_武藏玖型": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_不明构造体": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色.比安卡·深痕"
+                },
+                {
+                    "name": "赛琳娜·希声",
+                    "pipeline_override": {
+                        "查看Boss_武藏玖型": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_罗塞塔": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_不明构造体": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色.赛琳娜·希声"
+                },
+                {
+                    "name": "维罗妮卡·铮骨",
+                    "pipeline_override": {
+                        "查看Boss_罗塞塔": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_武藏玖型": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_不明构造体": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色.维罗妮卡·铮骨"
+                },
+                {
+                    "name": "露西亚·深红囚影",
+                    "pipeline_override": {
+                        "查看Boss_罗塞塔": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_武藏玖型": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_不明构造体": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色.露西亚·深红囚影"
+                },
+                {
+                    "name": "拉弥亚·深谣",
+                    "pipeline_override": {
+                        "查看Boss_罗塞塔": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_武藏玖型": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_不明构造体": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色.拉弥亚·深谣"
+                },
+                {
+                    "name": "露娜·终焉",
+                    "pipeline_override": {
+                        "查看Boss_罗塞塔": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_武藏玖型": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_不明构造体": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色.露娜·终焉"
+                },
+                {
+                    "name": "露西亚·誓焰",
+                    "pipeline_override": {
+                        "查看Boss_罗塞塔": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_武藏玖型": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_不明构造体": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色.露西亚·誓焰"
+                },
+                {
+                    "name": "曲·启明",
+                    "pipeline_override": {
+                        "查看Boss_罗塞塔": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_武藏玖型": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_不明构造体": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色.曲·启明"
+                },
+                {
+                    "name": "里·超刻",
+                    "pipeline_override": {
+                        "查看Boss_罗塞塔": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_武藏玖型": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_不明构造体": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色.里·超刻"
+                },
+                {
+                    "name": "比安卡·晖暮",
+                    "pipeline_override": {
+                        "查看Boss_罗塞塔": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_武藏玖型": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_不明构造体": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色.比安卡·晖暮"
+                },
+                {
+                    "name": "布偶熊·骇影",
+                    "pipeline_override": {
+                        "查看Boss_罗塞塔": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_武藏玖型": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "查看Boss_不明构造体": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "cage": true,
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色.布偶熊·骇影"
+                }
+            ]
+        }
+    }
+}

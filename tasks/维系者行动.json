@@ -1,0 +1,26 @@
+{
+    "task": [
+        {
+            "name": "维系者行动",
+            "group": [
+                "daily"
+            ],
+            "default_check": true,
+            "entry": "维系者行动",
+            "description": "$task.维系者行动.description",
+            "speedrun": {
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
+                }
+            },
+            "label": "$task.维系者行动"
+        }
+    ],
+    "option": {}
+}

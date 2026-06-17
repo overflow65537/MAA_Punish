@@ -1,0 +1,34 @@
+{
+    "task": [
+        {
+            "name": "Screencap",
+            "label": "$task.Screencap.label",
+            "group": [
+                "tools"
+            ],
+            "default_check": false,
+            "entry": "Screencap"
+        }
+    ],
+    "option": {
+        "ScreenCaplimit": {
+            "label": "$option.ScreenCaplimit.label",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "ScreencapPostDelay",
+                    "description": "$input.ScreenCaplimit.ScreencapPostDelay.description",
+                    "label": "$input.ScreenCaplimit.ScreencapPostDelay.label",
+                    "default": "1000",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$"
+                }
+            ],
+            "pipeline_override": {
+                "Screencap": {
+                    "post_delay": "{ScreencapPostDelay}"
+                }
+            }
+        }
+    }
+}

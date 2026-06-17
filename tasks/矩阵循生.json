@@ -1,0 +1,245 @@
+{
+    "task": [
+        {
+            "name": "矩阵循生",
+            "group": [
+                "roguelike"
+            ],
+            "entry": "矩阵循生",
+            "pipeline_override": {
+                "检查主界面2": {
+                    "post_delay": 1000,
+                    "next": [
+                        "矩阵循生"
+                    ]
+                },
+                "返回": {
+                    "post_delay": 2500
+                },
+                "选择角色程序": {
+                    "next": [],
+                    "attach": {
+                        "selection_mode": "roguelike_3",
+                        "need_multi": false,
+                        "max_try": 3
+                    }
+                },
+                "自动切换": {
+                    "enabled": false
+                },
+                "自动qte": {
+                    "enabled": false
+                }
+            },
+            "option": [
+                "选择模式",
+                "使用人物"
+            ],
+            "description": "$task.矩阵循生.description",
+            "label": "$task.矩阵循生"
+        }
+    ],
+    "option": {
+        "选择模式": {
+            "cases": [
+                {
+                    "name": "普通模式",
+                    "pipeline_override": {
+                        "选择难度_矩阵循生": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "普通"
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择模式.普通模式"
+                },
+                {
+                    "name": "困难模式",
+                    "pipeline_override": {
+                        "选择难度_矩阵循生": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "困难",
+                                        "困難"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择模式.困难模式"
+                },
+                {
+                    "name": "噩梦模式",
+                    "pipeline_override": {
+                        "选择难度_矩阵循生": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "梦",
+                                        "夢",
+                                        "漏洞爆发",
+                                        "漏洞爆發"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择模式.噩梦模式"
+                }
+            ]
+        },
+        "使用人物": {
+            "cases": [
+                {
+                    "name": "誓焰",
+                    "pipeline_override": {
+                        "选择角色程序_矩阵循生": {
+                            "attach": {
+                                "pick": [
+                                    "露西亚·誓焰"
+                                ]
+                            }
+                        },
+                        "点击精通等级低于12的人物": {
+                            "attach": {
+                                "pick": [
+                                    "露西亚·誓焰"
+                                ]
+                            }
+                        }
+                    },
+                    "label": "$case.使用人物.誓焰"
+                },
+                {
+                    "name": "深红囚影",
+                    "pipeline_override": {
+                        "选择角色程序_矩阵循生": {
+                            "attach": {
+                                "pick": [
+                                    "露西亚·深红囚影"
+                                ]
+                            }
+                        },
+                        "点击精通等级低于12的人物": {
+                            "attach": {
+                                "pick": [
+                                    "露西亚·深红囚影"
+                                ]
+                            }
+                        }
+                    },
+                    "label": "$case.使用人物.深红囚影"
+                },
+                {
+                    "name": "深谣",
+                    "pipeline_override": {
+                        "选择角色程序_矩阵循生": {
+                            "attach": {
+                                "pick": [
+                                    "拉弥亚·深谣"
+                                ]
+                            }
+                        },
+                        "点击精通等级低于12的人物": {
+                            "attach": {
+                                "pick": [
+                                    "拉弥亚·深谣"
+                                ]
+                            }
+                        }
+                    },
+                    "label": "$case.使用人物.深谣"
+                },
+                {
+                    "name": "终焉",
+                    "pipeline_override": {
+                        "选择角色程序_矩阵循生": {
+                            "attach": {
+                                "pick": [
+                                    "露娜·终焉"
+                                ]
+                            }
+                        },
+                        "点击精通等级低于12的人物": {
+                            "attach": {
+                                "pick": [
+                                    "露娜·终焉"
+                                ]
+                            }
+                        }
+                    },
+                    "label": "$case.使用人物.终焉"
+                },
+                {
+                    "name": "深痕",
+                    "pipeline_override": {
+                        "选择角色程序_矩阵循生": {
+                            "attach": {
+                                "pick": [
+                                    "比安卡·深痕"
+                                ]
+                            }
+                        },
+                        "点击精通等级低于12的人物": {
+                            "attach": {
+                                "pick": [
+                                    "比安卡·深痕"
+                                ]
+                            }
+                        }
+                    },
+                    "label": "$case.使用人物.深痕"
+                },
+                {
+                    "name": "启明",
+                    "pipeline_override": {
+                        "选择角色程序_矩阵循生": {
+                            "attach": {
+                                "pick": [
+                                    "曲·启明"
+                                ]
+                            }
+                        },
+                        "点击精通等级低于12的人物": {
+                            "attach": {
+                                "pick": [
+                                    "曲·启明"
+                                ]
+                            }
+                        }
+                    },
+                    "自动切换": {
+                        "enabled": false
+                    },
+                    "自动qte": {
+                        "enabled": false
+                    },
+                    "label": "$case.使用人物.启明"
+                },
+                {
+                    "name": "超刻",
+                    "pipeline_override": {
+                        "选择角色程序_矩阵循生": {
+                            "attach": {
+                                "pick": [
+                                    "里·超刻"
+                                ]
+                            }
+                        },
+                        "点击精通等级低于12的人物": {
+                            "attach": {
+                                "pick": [
+                                    "里·超刻"
+                                ]
+                            }
+                        }
+                    },
+                    "label": "$case.使用人物.超刻"
+                }
+            ]
+        }
+    }
+}

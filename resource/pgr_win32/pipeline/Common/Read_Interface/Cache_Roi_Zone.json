@@ -1,0 +1,11 @@
+{
+    "识别区域": {
+        "action": {
+            "param": {
+                "custom_action_param": {
+                    "controller": "win32"
+                }
+            }
+        }
+    }
+}

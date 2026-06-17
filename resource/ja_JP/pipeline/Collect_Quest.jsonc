@@ -1,0 +1,125 @@
+{
+    "任务": {
+        "next": [
+            "[JumpBack]前往任务",
+            "每周任务",
+            "每日任务",
+            "[JumpBack]打开任务",
+            "[JumpBack]意外点击_主界面"
+        ]
+    },
+    "前往任务": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "任務"
+                ]
+            }
+        }
+    },
+    "领取_逐浪拾光": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "受け取る"
+                ]
+            }
+        }
+    },
+    "每日任务": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "デイリー"
+                ]
+            }
+        }
+    },
+    "每周任务": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    9,
+                    184,
+                    355,
+                    355
+                ],
+                "expected": [
+                    "ウィークリー"
+                ]
+            }
+        }
+    },
+    "勤务任务": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "勤仕"
+                ]
+            }
+        }
+    },
+    "打开任务": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "任務"
+                ]
+            }
+        }
+    },
+    "一键领取_定期": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "括受取"
+                ]
+            }
+        }
+    },
+    "一键领取_勤务": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "括受取"
+                ]
+            }
+        }
+    },
+    "一键领取_任务": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "括受取"
+                ]
+            }
+        }
+    },
+    "关闭奖励_勤务": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "報酬"
+                ]
+            }
+        }
+    },
+    "关闭奖励_任务": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "報酬"
+                ]
+            }
+        }
+    },
+    "逐浪拾光": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "逐浪拾光"
+                ]
+            }
+        }
+    }
+}

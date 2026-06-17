@@ -1,0 +1,133 @@
+{
+    "关闭奖励": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "報酬"
+                ]
+            }
+        }
+    },
+    "返回主菜单": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "ホーム"
+                ]
+            }
+        }
+    },
+    "返回主菜单_reco": {
+        "recognition": {
+            "param": {
+                "expected": "ホーム"
+            }
+        }
+    },
+    "意外点击_主界面": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "库街区",
+                    "庫街區"
+                ]
+            }
+        }
+    },
+    "返回": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "戻る"
+                ]
+            }
+        }
+    },
+    "重启游戏": {
+        "action": {
+            "param": {
+                "package": "com.herogame.gplay.punishing.grayraven.jp"
+            }
+        }
+    },
+    "跳过剧情": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "SKIP"
+                ]
+            }
+        },
+        "next": [
+            "确认跳过",
+            "跳过剧情",
+            "空任务",
+            "速通滑动",
+            "检查结果_体力不足",
+            "检查结果_战斗完成"
+        ]
+    },
+    "确认跳过": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "SKIP"
+                ]
+            }
+        },
+        "next": [
+            "速通滑动",
+            "空任务",
+            "检查结果_体力不足",
+            "检查结果_战斗完成"
+        ]
+    },
+    "点击频率过快": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "メッセージの送信が速すぎます"
+                ]
+            }
+        }
+    },
+    "点击频率过快_确认": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "OK",
+                    "確認"
+                ]
+            }
+        }
+    },
+    "确定": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "OK",
+                    "^確認$"
+                ]
+            }
+        }
+    },
+    "确定_sp": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^OK$",
+                    "^確認$"
+                ]
+            }
+        }
+    },
+    "退出血清界面_err": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "キャンセル"
+                ]
+            }
+        }
+    }
+}

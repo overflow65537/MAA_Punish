@@ -1,0 +1,20 @@
+{
+    "打开战斗": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "戦闘"
+                ]
+            }
+        }
+    },
+    "意外点击_限定活动": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "限定開放"
+                ]
+            }
+        }
+    }
+}

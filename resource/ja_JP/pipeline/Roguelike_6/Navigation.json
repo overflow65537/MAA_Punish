@@ -1,0 +1,106 @@
+{
+    "打开雾夜镇魂曲": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "雾夜镇魂曲",
+                    "霧夜鎮魂曲"
+                ]
+            }
+        }
+    },
+    "选择模式_雾夜镇魂曲": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "迷局突围",
+                    "迷局突圍"
+                ]
+            }
+        }
+    },
+    "选择角色": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "归档",
+                    "歸檔"
+                ]
+            }
+        }
+    },
+    "选择角色完成": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "阿尔法",
+                    "阿爾法"
+                ]
+            }
+        }
+    },
+    "开始战斗_雾夜镇魂曲": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "开始战斗",
+                    "開始戰鬥",
+                    "开启",
+                    "開啓"
+                ]
+            }
+        }
+    },
+    "选择难度": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "难度",
+                    "難度"
+                ]
+            }
+        }
+    },
+    "正确选择难度": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "难度3",
+                    "難度3"
+                ]
+            }
+        }
+    },
+    "滑动难度左": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "难度3",
+                    "難度3"
+                ]
+            }
+        }
+    },
+    "滑动难度右": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "难度2",
+                    "難度2",
+                    "难度3",
+                    "難度3"
+                ]
+            }
+        }
+    },
+    "进入战斗_雾夜镇魂曲": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "进入战斗",
+                    "進入戰鬥"
+                ]
+            }
+        }
+    }
+}

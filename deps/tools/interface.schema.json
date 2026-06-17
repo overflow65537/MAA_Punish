@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "MaaFramework Project Interface V2",
-    "description": "MaaFramework 项目接口配置文件 V2 版本的 JSON Schema",
+    "description": "MaaFramework 项目接口配置文件 V2 版本的 JSON Schema。💡 v2.5.0：Client 启动 agent 子进程时应按文档约定注入 PI_* 环境变量（见 Project Interface 文档 Agent 子进程环境变量 / Agent subprocess environment variables 章节）",
     "type": "object",
     "definitions": {
         "i18nString": {
@@ -403,8 +403,10 @@
                     "enum": [
                         "Adb",
                         "Win32",
+                        "MacOS",
                         "PlayCover",
-                        "Gamepad"
+                        "Gamepad",
+                        "WlRoots"
                     ]
                 },
                 "display_short_side": {
@@ -515,6 +517,36 @@
                     },
                     "additionalProperties": false
                 },
+                "macos": {
+                    "type": "object",
+                    "title": "MacOS 控制器配置",
+                    "description": "MacOS 控制器的具体配置",
+                    "properties": {
+                        "title_regex": {
+                            "type": "string",
+                            "title": "窗口标题正则",
+                            "description": "可选。MacOS 控制器搜索窗口标题使用的正则表达式"
+                        },
+                        "input": {
+                            "type": "string",
+                            "title": "输入控制方式",
+                            "description": "可选。MacOS 控制器的输入控制方式，不提供则使用默认",
+                            "enum": [
+                                "GlobalEvent",
+                                "PostToPid"
+                            ]
+                        },
+                        "screencap": {
+                            "type": "string",
+                            "title": "截图方式",
+                            "description": "可选。MacOS 控制器的截图方式，不提供则使用默认",
+                            "enum": [
+                                "ScreenCaptureKit"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false
+                },
                 "playcover": {
                     "type": "object",
                     "title": "PlayCover 控制器配置",
@@ -569,6 +601,25 @@
                                 "PrintWindow",
                                 "ScreenDC"
                             ]
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "wlroots": {
+                    "type": "object",
+                    "title": "WlRoots 控制器配置",
+                    "description": "WlRoots 控制器的具体配置（仅 Linux）",
+                    "properties": {
+                        "wlr_socket_path": {
+                            "type": "string",
+                            "title": "Wayland Socket 路径",
+                            "description": "可选。Wayland Socket 路径，不提供则使用默认"
+                        },
+                        "use_win32_vk_code": {
+                            "type": "boolean",
+                            "title": "使用 Win32 VK 键码",
+                            "description": "可选。为 true 时按键被视为 Win32 Virtual-Key 码，内部转换为 Linux evdev 码；否则按原始 evdev 码处理。默认 false",
+                            "default": false
                         }
                     },
                     "additionalProperties": false
@@ -627,6 +678,12 @@
                     "items": {
                         "type": "string"
                     }
+                },
+                "hash": {
+                    "type": "string",
+                    "minLength": 1,
+                    "title": "资源 hash",
+                    "description": "资源校验值，通过 MaaResourceGetHash 获取。校验时机为加载 resource.path 后、加载 controller.attach_resource_path 之前"
                 }
             },
             "required": [
@@ -783,7 +840,7 @@
         "agentConfig": {
             "type": "object",
             "title": "代理配置",
-            "description": "包含子进程（AgentServer）的信息",
+            "description": "包含子进程（AgentServer）的信息。💡 v2.5.0：Client 启动该子进程时应向环境注入 PI_INTERFACE_VERSION、PI_CLIENT_*、PI_VERSION、PI_CONTROLLER、PI_RESOURCE 等变量，详见 Project Interface 文档",
             "properties": {
                 "child_exec": {
                     "type": "string",
@@ -802,11 +859,6 @@
                     "type": "string",
                     "title": "连接标识符",
                     "description": "被用来创建一个通信套接字。填写则会被使用，否则自动创建"
-                },
-                "embedded": {
-                    "type": "boolean",
-                    "title": "内嵌运行",
-                    "description": "是否以内嵌方式启动 Agent"
                 }
             },
             "required": [
@@ -819,7 +871,7 @@
         "interface_version": {
             "type": "number",
             "title": "接口版本号",
-            "description": "当前为 2，固定且必须设置。用于标识 ProjectInterface 协议版本",
+            "description": "当前为 2，固定且必须设置。标识 interface.json 的 JSON 结构主版本；与 PI 文档独立演进的语义化版本（如 v2.5.0 的 PI_* 环境变量约定）不同，二者不必对应",
             "const": 2
         },
         "languages": {
@@ -922,6 +974,7 @@
             }
         },
         "agent": {
+            "description": "💡 v2.5.0：启动各子进程时 Client 应注入 PI_* 环境变量，详见 Project Interface 文档",
             "oneOf": [
                 {
                     "$ref": "#/definitions/agentConfig"
@@ -929,7 +982,7 @@
                 {
                     "type": "array",
                     "title": "代理配置数组",
-                    "description": "多个子进程（AgentServer）的配置",
+                    "description": "多个子进程（AgentServer）的配置。💡 v2.5.0：每个子进程启动时均应获得 PI_* 环境变量",
                     "items": {
                         "$ref": "#/definitions/agentConfig"
                     }
@@ -1034,11 +1087,6 @@
                 ],
                 "additionalProperties": false
             }
-        },
-        "MFW_min_req_version": {
-            "type": "string",
-            "title": "最低 MaaFramework 版本",
-            "description": "项目运行所需的最低 MaaFramework 版本号"
         }
     },
     "required": [

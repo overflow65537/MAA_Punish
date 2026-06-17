@@ -1,0 +1,598 @@
+{
+    "拟真围剿": {
+        "next": [
+            "[JumpBack]覆盖布局菜单",
+            "拟真围剿内部",
+            "拟真围剿无法进入",
+            "[JumpBack]进入拟真围剿",
+            "[JumpBack]准备作战_拟真围剿",
+            "[JumpBack]打开指挥局",
+            "[JumpBack]切换主界面状态",
+            "[JumpBack]意外点击_玩家详情"
+        ]
+    },
+    "拟真围剿无法进入": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [0, 0, 0, 0],
+                "expected": "需要等待下一期活动开启后"
+            }
+        },
+        "next": ["返回主菜单"]
+    },
+    "意外点击_玩家详情": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [171, 323, 91, 33],
+                "expected": "个人信息"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [78, 36]
+            }
+        },
+        "post_delay": 3000
+    },
+    "关闭战斗力提示": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [360, 510, 126, 51],
+                "expected": "取消"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "拟真围剿内部": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [142, 636, 100, 34],
+                "expected": "作战详情"
+            }
+        },
+        "next": ["点击常序区"]
+    },
+    "确定选择": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [745, 496, 60, 37],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "坚持作战": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [535, 488, 129, 46],
+                "expected": "坚持作战"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "检查常序区次数MAX": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [979, 621, 33, 23],
+                "expected": "([1-3])(?:/|1)3",
+                "only_rec": true
+            }
+        },
+        "post_wait_freezes": {
+            "time": 80,
+            "timeout": 1000
+        },
+        "next": ["常序区返回"]
+    },
+    "常序区返回": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": ["返回"]
+            }
+        },
+        "action": "Click",
+        "next": ["常序区作战完成"]
+    },
+    "检查常序区次数未满": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [979, 621, 33, 23],
+                "expected": [
+                    "0(?:\/|1)3", //20260321修改,用户识别到了`n0/3`
+                ],
+                "only_rec": true
+            }
+        },
+        "post_wait_freezes": {
+            "time": 80,
+            "timeout": 1000
+        },
+        "next": [
+            "常序区作战完成",
+            "[JumpBack]作战界面",
+            "[JumpBack]坚持作战",
+            "[JumpBack]确定选择",
+            "[JumpBack]开始作战_拟真围剿"
+        ]
+    },
+    "常序区作战完成": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [1036, 70, 88, 33],
+                "expected": ["目标", "血量", "三标", "标血"],
+                "replace": [["自", "目"]]
+            }
+        },
+        "next": ["点击特遣区"]
+    },
+    "检查特遣区次数MAX": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [979, 621, 33, 23],
+                "expected": "([1-3])(?:/|1)3",
+                "only_rec": true
+            }
+        },
+        "post_wait_freezes": {
+            "time": 80,
+            "timeout": 1000
+        },
+        "next": ["特遣区返回"]
+    },
+    "特遣区返回": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": ["返回"]
+            }
+        },
+        "action": "Click",
+        "next": ["特遣区作战完成"]
+    },
+    "检查特遣区次数未满": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [979, 621, 33, 23],
+                "expected": "0(?:/|1)3",
+                "only_rec": true
+            }
+        },
+        "next": [
+            "特遣区作战完成",
+            "[JumpBack]作战界面",
+            "[JumpBack]坚持作战",
+            "[JumpBack]确定选择",
+            "[JumpBack]开始作战_拟真围剿"
+        ]
+    },
+    "特遣区作战完成": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [1036, 70, 88, 33],
+                "expected": ["目标", "血量", "标血"],
+                "replace": [["自", "目"], ["三", "目"], ["Ⅲ", "血"]]
+            }
+        },
+        "next": ["点击BOSS区_常态", "点击BOSS区_已击杀"]
+    },
+    "检查BOSS区次数MAX": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [979, 621, 33, 23],
+                "expected": "([1-3])(?:/|1)3",
+                "only_rec": true
+            }
+        },
+        "post_wait_freezes": {
+            "time": 80,
+            "timeout": 1000
+        },
+        "next": ["BOSS区返回"]
+    },
+    "BOSS区返回": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": ["返回"]
+            }
+        },
+        "action": "Click",
+        "next": ["BOSS区作战完成"]
+    },
+    "检查BOSS区次数未满": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [979, 621, 33, 23],
+                "expected": "0(?:/|1)3",
+                "only_rec": true
+            }
+        },
+        "next": [
+            "BOSS区作战完成",
+            "[JumpBack]作战界面",
+            "[JumpBack]坚持作战",
+            "[JumpBack]确定选择",
+            "[JumpBack]开始作战_拟真围剿"
+        ]
+    },
+    "BOSS区作战完成": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [1036, 70, 88, 33],
+                "expected": ["目标", "血量", "三标", "标血"],
+                "replace": [["自", "目"]]
+            }
+        },
+        "next": [
+            "返回指挥局主界面",
+            "[JumpBack]返回主菜单",
+            "[JumpBack]打开指挥局",
+            "[JumpBack]切换主界面状态"
+        ]
+    },
+    "点击BOSS区_常态": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [450, 360, 147, 165],
+                "expected": ["目标", "血量"],
+                "replace": [["自", "目"]]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [130, -80, 0, 0]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "检查BOSS区次数MAX",
+            "检查BOSS区次数未满",
+            "点击BOSS区_已击杀"
+        ]
+    },
+    "点击BOSS区_已击杀": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [0, 0, 0, 0],
+                "expected": "已击杀"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [0, 0, -50, 0]
+            }
+        },
+        "next": [
+            "检查BOSS区次数MAX",
+            "检查BOSS区次数未满",
+            "点击BOSS区_已击杀"
+        ]
+    },
+    "点击特遣区": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [769, 151, 153, 145],
+                "template": ["拟真围剿/特遣区.png"],
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": ["检查特遣区次数MAX", "检查特遣区次数未满", "点击特遣区"]
+    },
+    "作战界面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [1024, 639, 151, 56],
+                "expected": "作战开始"
+            }
+        },
+        "timeout": 60000,
+        "next": [
+            "[JumpBack]识别人物",
+            "[JumpBack]战斗中",
+            "保存分数",
+            "编入队伍",
+            "[JumpBack]添加人物",
+            "[JumpBack]选择其他人物",
+            "[JumpBack]作战开始",
+            "[JumpBack]载入中"
+        ]
+    },
+    "保存分数": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [978, 628, 241, 56],
+                "expected": "保存"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "添加人物": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [172, 281, 926, 221],
+                "template": [
+                    "幻痛囚笼/队伍净空_红.png",
+                    "幻痛囚笼/队伍净空_蓝黄.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 300,
+            "timeout": 2000
+        }
+    },
+    "选择其他人物": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [209, 64, 57, 576],
+                "expected": "战斗参数",
+                "order_by": "Random"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "选择人物_拟真围剿": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [213, 246, 58, 22],
+                "expected": "战斗参数"
+            }
+        }
+    },
+    "开始作战_拟真围剿": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [1083, 604, 148, 45],
+                "expected": "开始作战"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "点击常序区": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [435, 21, 207, 185],
+                "template": ["拟真围剿/常序区.png"],
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": ["检查常序区次数MAX", "检查常序区次数未满", "点击常序区"]
+    },
+    "准备作战_拟真围剿": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [180, 589, 109, 48],
+                "expected": "准备作战"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "进入拟真围剿": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [1124, 159, 51, 55],
+                "template": "指挥局/拟真围剿入口.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "返回指挥局主界面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [301, 14, 123, 34],
+                "expected": "新版指挥局"
+            }
+        },
+        "next": [
+            "领取本周贡献",
+            "[JumpBack]打开指挥局",
+            "[JumpBack]切换主界面状态"
+        ]
+    },
+    "领取本周贡献": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [14, 190, 115, 39],
+                "expected": "本周贡献"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "[JumpBack]一键领取_宿舍任务",
+            "[JumpBack]关闭奖励",
+            "识别本周贡献15000",
+            "识别本周贡献12000",
+            "识别本周贡献9000",
+            "识别本周贡献6000",
+            "识别本周贡献3000",
+            "返回主菜单"
+        ]
+    },
+    "识别本周贡献3000": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [47, 657, 140, 48],
+                "expected": "^(3(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4})$"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [440, 635]
+            }
+        },
+        "post_delay": 1000,
+        "next": ["返回主菜单", "[JumpBack]关闭奖励"]
+    },
+    "识别本周贡献6000": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [47, 657, 140, 48],
+                "expected": "^(6(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4})$"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [633, 631]
+            }
+        },
+        "post_delay": 1000,
+        "next": ["返回主菜单", "[JumpBack]关闭奖励"]
+    },
+    "识别本周贡献9000": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [47, 657, 140, 48],
+                "expected": "^(9(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4})$"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [818, 631]
+            }
+        },
+        "post_delay": 1000,
+        "next": ["返回主菜单", "[JumpBack]关闭奖励"]
+    },
+    "识别本周贡献12000": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [47, 657, 140, 48],
+                "expected": "^(12(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4})$"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [1020, 636]
+            }
+        },
+        "post_delay": 1000,
+        "next": ["返回主菜单", "[JumpBack]关闭奖励"]
+    },
+    "识别本周贡献15000": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [47, 657, 140, 48],
+                "expected": "^(15(?!000$)\\d{3}|[4-9]\\d{3}|[1-9]\\d{4})$"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [1205, 633]
+            }
+        },
+        "post_delay": 1000,
+        "next": ["返回主菜单", "[JumpBack]关闭奖励"]
+    },
+    "返回指挥局": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [11, 328, 143, 63],
+                "expected": "拟真围剿"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [54, 33]
+            }
+        },
+        "post_delay": 1000
+    },
+    "打开指挥局": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [949, 342, 162, 138],
+                "expected": "公会"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 10000,
+            "target": [1179, 625, 72, 66]
+        }
+    }
+}
