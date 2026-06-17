@@ -160,7 +160,7 @@
 2. 安装
 
    ```python
-   python ./install.py
+   python ./tools/ci/install.py
    ```
 
 生成的二进制及相关资源文件在 `install` 目录下

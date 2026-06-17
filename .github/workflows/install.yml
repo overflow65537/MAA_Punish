@@ -8,15 +8,25 @@ on:
       - "**"
     paths:
       - ".github/workflows/install.yml"
-      - "assets/**"
-      - "**.py"
+      - "tools/ci/install.py"
+      - "agent/**"
+      - "resource/**"
+      - "tasks/**"
+      - "i18n/**"
+      - "interface.json"
+      - "requirements.txt"
   pull_request:
     branches:
       - "**"
     paths:
       - ".github/workflows/install.yml"
-      - "assets/**"
-      - "**.py"
+      - "tools/ci/install.py"
+      - "agent/**"
+      - "resource/**"
+      - "tasks/**"
+      - "i18n/**"
+      - "interface.json"
+      - "requirements.txt"
   workflow_dispatch:
 
 jobs:
@@ -141,7 +151,7 @@ jobs:
           python -m pip install pyinstaller
           python -m pip install -r requirements.txt
           python -m pip install json-with-comments
-          python ./install.py ${{ needs.meta.outputs.tag }}
+          python ./tools/ci/install.py ${{ needs.meta.outputs.tag }}
 
       - name: Download MFW
         uses: robinraju/release-downloader@v1
