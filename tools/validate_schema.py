@@ -221,29 +221,35 @@ def main():
         "--resource-dirs",
         type=str,
         nargs="+",
-        default=["assets/resource"],
-        help="Directories containing resource files to validate (default: assets/resource)",
+        default=[
+            "resource/base",
+            "resource/pgr_win32",
+            "resource/playcover",
+            "resource/zh_TW",
+            "resource/ja_JP",
+        ],
+        help="Directories containing resource files to validate",
     )
     parser.add_argument(
         "--exclude-dirs",
         type=str,
         nargs="*",
-        default=[],
-        help="Directories to exclude from validation (default: none)",
+        default=["resource/gamedata", "resource/base/image"],
+        help="Directories to exclude from validation",
     )
     parser.add_argument(
         "--interface-files",
         type=str,
         nargs="+",
-        default=["assets/interface.json"],
-        help="Path to interface.json files (default: assets/interface.json)",
+        default=["interface.json"],
+        help="Path to interface.json files",
     )
     parser.add_argument(
         "--task-dirs",
         type=str,
         nargs="*",
-        default=[],
-        help="Directories containing task files to validate against interface_import.schema.json (default: none)",
+        default=["tasks"],
+        help="Directories containing task files to validate against interface_import.schema.json",
     )
 
     args = parser.parse_args()

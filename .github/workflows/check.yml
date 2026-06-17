@@ -10,7 +10,9 @@ on:
       - "i18n/**"
       - "resource/**"
       - "tasks/**"
-      - "tools/schema/**"
+      - "tools/check_resource.py"
+      - "tools/validate_schema.py"
+      - "deps/tools/**"
   pull_request:
     branches:
       - "**"
@@ -20,7 +22,9 @@ on:
       - "i18n/**"
       - "resource/**"
       - "tasks/**"
-      - "tools/schema/**"
+      - "tools/check_resource.py"
+      - "tools/validate_schema.py"
+      - "deps/tools/**"
   workflow_dispatch:
 
 jobs:
@@ -54,4 +58,4 @@ jobs:
       - name: Validate JSON Schema
         run: |
           python -m pip install jsonschema==4.26.0 referencing==0.37.0
-          python tools/validate_schema.py --resource-dirs resource/base resource/pgr_win32 resource/playcover resource/zh_TW resource/ja_JP --exclude-dirs resource/gamedata resource/base/image --task-dirs tasks
+          python tools/validate_schema.py
