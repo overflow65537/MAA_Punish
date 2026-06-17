@@ -507,7 +507,7 @@
             "返回主菜单"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:tomato]未识别到已知BOSS,可能处于终极区[/color]"
+            "Node.Recognition.Succeeded": "$focus.boss识别错误"
         }
     },
     "挑战次数不足_弹窗": {
@@ -533,7 +533,7 @@
             "[JumpBack]返回"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "挑战次数不足"
+            "Node.Recognition.Succeeded": "$focus.挑战次数不足_弹窗"
         }
     },
     "未命中BOSS名": {
@@ -541,7 +541,7 @@
             "返回主菜单"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "未知BOSS"
+            "Node.Recognition.Succeeded": "$focus.未命中BOSS名"
         }
     },
     "查看终极区Boss": {
@@ -603,7 +603,7 @@
             "未命中BOSS名"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "已选择终极区"
+            "Node.Recognition.Succeeded": "$focus.查看终极区Boss"
         }
     },
     "查看Boss_冰队": {
@@ -655,7 +655,7 @@
             "未命中BOSS名"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "已选择冰队"
+            "Node.Recognition.Succeeded": "$focus.查看Boss_冰队"
         }
     },
     "查看Boss_暗队": {
@@ -709,7 +709,7 @@
             "未命中BOSS名"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "已选择暗队"
+            "Node.Recognition.Succeeded": "$focus.查看Boss_暗队"
         }
     },
     "查看Boss_火队": {
@@ -761,7 +761,7 @@
             "未命中BOSS名"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "已选择火队"
+            "Node.Recognition.Succeeded": "$focus.查看Boss_火队"
         }
     },
     "查看Boss_物队": {
@@ -809,7 +809,7 @@
             "未命中BOSS名"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "已选择物理队"
+            "Node.Recognition.Succeeded": "$focus.查看Boss_物队"
         }
     },
     "查看Boss_雷队": {
@@ -861,7 +861,7 @@
             "未命中BOSS名"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "已选择雷队"
+            "Node.Recognition.Succeeded": "$focus.查看Boss_雷队"
         }
     },
     "查看Boss_武藏玖型": {
@@ -907,7 +907,7 @@
             "未命中BOSS名"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "武藏玖型"
+            "Node.Recognition.Succeeded": "$focus.查看Boss_武藏玖型"
         }
     },
     "查看Boss_不明构造体": {
@@ -953,7 +953,7 @@
             "未命中BOSS名"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "不明构造体α"
+            "Node.Recognition.Succeeded": "$focus.查看Boss_不明构造体"
         }
     },
     "查看Boss_罗塞塔": {
@@ -999,7 +999,7 @@
             "未命中BOSS名"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "罗塞塔"
+            "Node.Recognition.Succeeded": "$focus.查看Boss_罗塞塔"
         }
     },
     "意外点击_保存分数": {

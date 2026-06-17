@@ -31,7 +31,7 @@
             "废弃港口_寒境曙光_yolo"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]事件识别[/color]"
+            "Node.Recognition.Succeeded": "$focus.事件识别_寒境曙光_yolo"
         }
     },
     "物资识别_寒境曙光_yolo": {
@@ -53,7 +53,7 @@
             "[JumpBack]开始探索_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]物资识别[/color]"
+            "Node.Recognition.Succeeded": "$focus.物资识别_寒境曙光_yolo"
         },
         "on_error": [
             "寒境曙光"
@@ -75,7 +75,7 @@
             "转移视角位置"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]战斗识别[/color]"
+            "Node.Recognition.Succeeded": "$focus.战斗识别_寒境曙光_yolo"
         }
     },
     "拓荒_寒境曙光_yolo": {
@@ -99,7 +99,7 @@
             "[JumpBack]关闭奖励_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]拓荒[/color]"
+            "Node.Recognition.Succeeded": "$focus.拓荒_寒境曙光_yolo"
         },
         "post_delay": 1000
     },
@@ -123,7 +123,7 @@
             "[JumpBack]开始探索_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]前方有陷阱[/color]"
+            "Node.Recognition.Succeeded": "$focus.前方有陷阱_寒境曙光_yolo"
         }
     },
     "剩余资金_寒境曙光_yolo": {
@@ -147,7 +147,7 @@
             "[JumpBack]开始探索_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]剩余资金[/color]"
+            "Node.Recognition.Succeeded": "$focus.剩余资金_寒境曙光_yolo"
         }
     },
     "战马瑞恩_寒境曙光_yolo": {
@@ -171,7 +171,7 @@
             "[JumpBack]开始探索_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]战马瑞恩[/color]"
+            "Node.Recognition.Succeeded": "$focus.战马瑞恩_寒境曙光_yolo"
         }
     },
     "鲨鱼置物箱_寒境曙光_yolo": {
@@ -198,7 +198,7 @@
             "[JumpBack]关闭奖励_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]鲨鱼置物箱[/color]"
+            "Node.Recognition.Succeeded": "$focus.鲨鱼置物箱_寒境曙光_yolo"
         }
     },
     "学者来访_寒境曙光_yolo": {
@@ -221,7 +221,7 @@
             "[JumpBack]开始探索_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]学者来访[/color]"
+            "Node.Recognition.Succeeded": "$focus.学者来访_寒境曙光_yolo"
         }
     },
     "运力紧张_寒境曙光_yolo": {
@@ -244,7 +244,7 @@
             "[JumpBack]开始探索_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]运力紧张[/color]"
+            "Node.Recognition.Succeeded": "$focus.运力紧张_寒境曙光_yolo"
         },
         "post_delay": 1000
     },
@@ -268,7 +268,7 @@
             "[JumpBack]开始探索_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]废弃港口[/color]"
+            "Node.Recognition.Succeeded": "$focus.废弃港口_寒境曙光_yolo"
         }
     },
     "商队来访_寒境曙光_yolo": {
@@ -291,7 +291,7 @@
             "[JumpBack]开始探索_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]商队来访[/color]"
+            "Node.Recognition.Succeeded": "$focus.商队来访_寒境曙光_yolo"
         }
     },
     "拦路的废墟_寒境曙光_yolo": {
@@ -318,7 +318,7 @@
             "[JumpBack]开始探索_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]拦路的废墟[/color]"
+            "Node.Recognition.Succeeded": "$focus.拦路的废墟_寒境曙光_yolo"
         }
     },
     "难民团到访_寒境曙光_yolo": {
@@ -341,7 +341,7 @@
             "[JumpBack]开始探索_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]难民团到访[/color]"
+            "Node.Recognition.Succeeded": "$focus.难民团到访_寒境曙光_yolo"
         }
     },
     "建筑师的建议_寒境曙光_yolo": {
@@ -364,7 +364,7 @@
             "[JumpBack]开始探索_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]建筑师的建议[/color]"
+            "Node.Recognition.Succeeded": "$focus.建筑师的建议_寒境曙光_yolo"
         }
     },
     "旧国遗产_寒境曙光_yolo": {
@@ -390,7 +390,7 @@
             "[JumpBack]开始探索_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]旧国遗产[/color]"
+            "Node.Recognition.Succeeded": "$focus.旧国遗产_寒境曙光_yolo"
         },
         "post_delay": 1000
     },
@@ -415,7 +415,7 @@
             "[JumpBack]开始探索_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]物资地块[/color]"
+            "Node.Recognition.Succeeded": "$focus.物资_寒境曙光_yolo"
         }
     },
     "冬日之影_寒境曙光_yolo": {
@@ -437,7 +437,7 @@
             "[JumpBack]开始探索_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]冬日之影[/color]"
+            "Node.Recognition.Succeeded": "$focus.冬日之影_寒境曙光_yolo"
         }
     },
     "汇合_寒境曙光_yolo": {
@@ -459,7 +459,7 @@
             "[JumpBack]开始探索_寒境曙光"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]汇合[/color]"
+            "Node.Recognition.Succeeded": "$focus.汇合_寒境曙光_yolo"
         }
     }
 }

@@ -5,7 +5,7 @@
             "[JumpBack]返回主菜单"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "正在缓存战斗界面配置,请勿操作游戏"
+            "Node.Recognition.Succeeded": "$focus.缓存ROI偏移配置"
         }
     },
     "打开界面设置": {

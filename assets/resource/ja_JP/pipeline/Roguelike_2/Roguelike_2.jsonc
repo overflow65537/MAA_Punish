@@ -1,9 +1,4 @@
 {
-    "厄愿潮声": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]冒険開始[/color]"
-        }
-    },
     "下一步_厄愿潮声": {
         "recognition": {
             "param": {
@@ -127,11 +122,6 @@
                     "選擇"
                 ]
             }
-        }
-    },
-    "战斗事件_厄愿潮声": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]戦闘イベント[/color]"
         }
     },
     "意外点击_选择人物": {

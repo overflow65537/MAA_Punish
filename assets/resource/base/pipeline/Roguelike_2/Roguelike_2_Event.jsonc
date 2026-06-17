@@ -102,7 +102,7 @@
             "[JumpBack]点击继续"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]鲨鲨特卖[/color]"
+            "Node.Recognition.Succeeded": "$focus.商店_厄愿潮声"
         }
     },
     "商店_对话2": {
@@ -163,7 +163,7 @@
             "[JumpBack]布道者_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]布道者[/color]"
+            "Node.Recognition.Succeeded": "$focus.布道者_厄愿潮声"
         }
     },
     "布道者_对话1": {
@@ -227,7 +227,7 @@
             "[JumpBack]悠久之歌_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]悠久之歌[/color]"
+            "Node.Recognition.Succeeded": "$focus.悠久之歌_厄愿潮声"
         }
     },
     "悠久之歌_对话1": {
@@ -291,7 +291,7 @@
             "[JumpBack]鲨鲨置物箱_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]鲨鲨置物箱[/color]"
+            "Node.Recognition.Succeeded": "$focus.鲨鲨置物箱_厄愿潮声"
         }
     },
     "鲨鲨置物箱_对话1": {
@@ -356,7 +356,7 @@
             "[JumpBack]名为知识的诅咒_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]名为知识的诅咒[/color]"
+            "Node.Recognition.Succeeded": "$focus.名为知识的诅咒_厄愿潮声"
         }
     },
     "名为知识的诅咒_对话1": {
@@ -418,7 +418,7 @@
             "[JumpBack]集市_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]集市[/color]"
+            "Node.Recognition.Succeeded": "$focus.集市_厄愿潮声"
         }
     },
     "集市_对话1": {
@@ -483,7 +483,7 @@
             "[JumpBack]废弃庭院_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]废弃庭院[/color]"
+            "Node.Recognition.Succeeded": "$focus.废弃庭院_厄愿潮声"
         }
     },
     "废弃庭院_对话1": {
@@ -545,7 +545,7 @@
             "[JumpBack]恶魔配方_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]恶魔配方[/color]"
+            "Node.Recognition.Succeeded": "$focus.恶魔配方_厄愿潮声"
         }
     },
     "恶魔配方_对话1": {
@@ -610,7 +610,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]军备库[/color]"
+            "Node.Recognition.Succeeded": "$focus.军备库_厄愿潮声"
         }
     },
     "军备库_对话1": {
@@ -678,7 +678,7 @@
             "[JumpBack]迷雾之梦_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]迷雾之梦[/color]"
+            "Node.Recognition.Succeeded": "$focus.迷雾之梦_厄愿潮声"
         }
     },
     "迷雾之梦_对话1": {
@@ -743,7 +743,7 @@
             "[JumpBack]旅行剧团_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]旅行剧团[/color]"
+            "Node.Recognition.Succeeded": "$focus.旅行剧团_厄愿潮声"
         }
     },
     "旅行剧团_对话1": {
@@ -805,7 +805,7 @@
             "[JumpBack]返乡者_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]返乡者[/color]"
+            "Node.Recognition.Succeeded": "$focus.返乡者_厄愿潮声"
         }
     },
     "返乡者_对话1": {
@@ -871,7 +871,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]命运前路[/color]"
+            "Node.Recognition.Succeeded": "$focus.命运前路_厄愿潮声"
         }
     },
     "命运前路_对话1": {
@@ -941,7 +941,7 @@
             "[JumpBack]拾荒者派对_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]拾荒者派对[/color]"
+            "Node.Recognition.Succeeded": "$focus.拾荒者派对_厄愿潮声"
         }
     },
     "拾荒者派对_对话1": {
@@ -1007,7 +1007,7 @@
             "[JumpBack]名为禁忌的睿智_对话2"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]名为禁忌的睿智[/color]"
+            "Node.Recognition.Succeeded": "$focus.名为禁忌的睿智_厄愿潮声"
         }
     },
     "名为禁忌的睿智_对话1": {
@@ -1072,7 +1072,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]遗骨之滨[/color]"
+            "Node.Recognition.Succeeded": "$focus.遗骨之滨_厄愿潮声"
         }
     },
     "遗骨之滨_对话1": {
@@ -1137,7 +1137,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]柯蕾多尔的馈赠[/color]"
+            "Node.Recognition.Succeeded": "$focus.柯蕾多尔的馈赠_厄愿潮声"
         }
     },
     "柯雷多尔的馈赠_对话1": {
@@ -1202,7 +1202,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]街头艺人[/color]"
+            "Node.Recognition.Succeeded": "$focus.街头艺人_厄愿潮声"
         }
     },
     "街头艺人_对话1": {
@@ -1267,7 +1267,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]失败者[/color]"
+            "Node.Recognition.Succeeded": "$focus.失败者_厄愿潮声"
         }
     },
     "失败者_对话1": {
@@ -1351,7 +1351,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]欢乐时光[/color]"
+            "Node.Recognition.Succeeded": "$focus.欢乐时光_厄愿潮声"
         }
     },
     "欢乐时光_对话1": {
@@ -1418,7 +1418,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]谨听忠告[/color]"
+            "Node.Recognition.Succeeded": "$focus.谨听忠告_厄愿潮声"
         }
     },
     "谨听忠告_对话1": {
@@ -1488,7 +1488,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]禁忌教堂[/color]"
+            "Node.Recognition.Succeeded": "$focus.禁忌教堂_厄愿潮声"
         }
     },
     "禁忌教堂_对话1": {
@@ -1555,7 +1555,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]被完成的谜题[/color]"
+            "Node.Recognition.Succeeded": "$focus.被完成的谜题_厄愿潮声"
         }
     },
     "被完成的谜题_对话1": {
@@ -1622,7 +1622,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]藏书库[/color]"
+            "Node.Recognition.Succeeded": "$focus.藏书库_厄愿潮声"
         }
     },
     "藏书库_对话1": {
@@ -1689,7 +1689,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]另一面圆桌[/color]"
+            "Node.Recognition.Succeeded": "$focus.另一面圆桌_厄愿潮声"
         }
     },
     "另一面圆桌_对话1": {
@@ -1756,7 +1756,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]恶魔传说[/color]"
+            "Node.Recognition.Succeeded": "$focus.恶魔传说_厄愿潮声"
         }
     },
     "恶魔传说_对话1": {
@@ -1823,7 +1823,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]许愿之井[/color]"
+            "Node.Recognition.Succeeded": "$focus.许愿之井_厄愿潮声"
         }
     },
     "许愿之井_对话1": {
@@ -1890,7 +1890,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]迷途之子[/color]"
+            "Node.Recognition.Succeeded": "$focus.迷途之子_厄愿潮声"
         }
     },
     "迷途之子_对话1": {
@@ -1960,7 +1960,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]阵营冲突[/color]"
+            "Node.Recognition.Succeeded": "$focus.阵营冲突_厄愿潮声"
         }
     },
     "阵营冲突_对话1": {
@@ -2030,7 +2030,7 @@
             "[JumpBack]点击藏品_厄愿潮声"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]珠宝猎人[/color]"
+            "Node.Recognition.Succeeded": "$focus.珠宝猎人_厄愿潮声"
         }
     },
     "珠宝猎人_对话1": {

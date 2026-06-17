@@ -276,7 +276,7 @@
         ],
         "on_error": [],
         "focus": {
-            "Node.Recognition.Succeeded": "角色耐力不足"
+            "Node.Recognition.Succeeded": "$focus.角色耐力不足"
         }
     },
     "卸下队伍": {
@@ -681,7 +681,7 @@
             "[JumpBack]返回主菜单"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "正在更新角色缓存"
+            "Node.Recognition.Succeeded": "$focus.缓存角色"
         }
     },
     "缓存角色程序": {

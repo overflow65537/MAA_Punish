@@ -36,7 +36,7 @@
             "进入商店_矩阵循生"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]商店[/color]"
+            "Node.Recognition.Succeeded": "$focus.商店_矩阵循生"
         }
     },
     "意外点击藏品_矩阵循生": {
@@ -147,7 +147,7 @@
             "[JumpBack]在途存货_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]在途存货[/color]"
+            "Node.Recognition.Succeeded": "$focus.在途存货_矩阵循生"
         }
     },
     "在途存货_对话1": {
@@ -215,7 +215,7 @@
             "[JumpBack]亚人少女_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]亚人少女[/color]"
+            "Node.Recognition.Succeeded": "$focus.亚人少女_矩阵循生"
         }
     },
     "亚人少女_对话2": {
@@ -286,7 +286,7 @@
             "[JumpBack]贴心搭档_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]贴心搭档[/color]"
+            "Node.Recognition.Succeeded": "$focus.贴心搭档_矩阵循生"
         }
     },
     "贴心搭档_对话": {
@@ -338,7 +338,7 @@
             "[JumpBack]逃出生天_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]逃出生天[/color]"
+            "Node.Recognition.Succeeded": "$focus.逃出生天_矩阵循生"
         }
     },
     "逃出生天_对话2": {
@@ -410,7 +410,7 @@
             "[JumpBack]转场_矩阵循生"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]隐秘工坊[/color]"
+            "Node.Recognition.Succeeded": "$focus.隐秘工坊_矩阵循生"
         }
     },
     "隐秘工坊_对话2": {
@@ -481,7 +481,7 @@
             "[JumpBack]洁塔薇的游戏_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]洁塔薇的游戏[/color]"
+            "Node.Recognition.Succeeded": "$focus.洁塔薇的游戏_矩阵循生"
         }
     },
     "洁塔薇的游戏_对话2": {
@@ -553,7 +553,7 @@
             "[JumpBack]禁忌验证_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]禁忌验证[/color]"
+            "Node.Recognition.Succeeded": "$focus.禁忌验证_矩阵循生"
         }
     },
     "禁忌验证_对话": {
@@ -631,7 +631,7 @@
             "[JumpBack]头号玩家_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]头号玩家[/color]"
+            "Node.Recognition.Succeeded": "$focus.头号玩家_矩阵循生"
         }
     },
     "头号玩家_对话": {
@@ -699,7 +699,7 @@
             "[JumpBack]致命失误_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]致命失误[/color]"
+            "Node.Recognition.Succeeded": "$focus.致命失误_矩阵循生"
         }
     },
     "致命失误_对话": {
@@ -770,7 +770,7 @@
             "[JumpBack]工业怪谈_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]工业怪谈[/color]"
+            "Node.Recognition.Succeeded": "$focus.工业怪谈_矩阵循生"
         }
     },
     "工业怪谈_对话": {
@@ -838,7 +838,7 @@
             "[JumpBack]动物坟场_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]动物坟场[/color]"
+            "Node.Recognition.Succeeded": "$focus.动物坟场_矩阵循生"
         }
     },
     "动物坟场_对话": {
@@ -916,7 +916,7 @@
             "[JumpBack]观星真相_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]观星真相[/color]"
+            "Node.Recognition.Succeeded": "$focus.观星真相_矩阵循生"
         }
     },
     "观星真相_对话": {
@@ -991,7 +991,7 @@
             "[JumpBack]异界通讯I_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]机械性故障[/color]"
+            "Node.Recognition.Succeeded": "$focus.异界通讯I_矩阵循生"
         }
     },
     "异界通讯I_对话": {
@@ -1073,7 +1073,7 @@
             "[JumpBack]步履蹒跚_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]步履蹒跚[/color]"
+            "Node.Recognition.Succeeded": "$focus.步履蹒跚_矩阵循生"
         }
     },
     "步履蹒跚_对话": {
@@ -1126,7 +1126,7 @@
             "[JumpBack]举手之劳_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]举手之劳[/color]"
+            "Node.Recognition.Succeeded": "$focus.举手之劳_矩阵循生"
         }
     },
     "举手之劳_对话": {
@@ -1221,7 +1221,7 @@
             "[JumpBack]转场_矩阵循生"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]无效救援[/color]"
+            "Node.Recognition.Succeeded": "$focus.无效救援_矩阵循生"
         }
     },
     "无效救援_对话": {
@@ -1294,7 +1294,7 @@
             "[JumpBack]盛典纪行_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]盛典纪行[/color]"
+            "Node.Recognition.Succeeded": "$focus.盛典纪行_矩阵循生"
         }
     },
     "盛典纪行_对话": {
@@ -1370,7 +1370,7 @@
             "[JumpBack]火灾现场_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]火灾现场[/color]"
+            "Node.Recognition.Succeeded": "$focus.火灾现场_矩阵循生"
         }
     },
     "火灾现场_对话": {
@@ -1442,7 +1442,7 @@
             "[JumpBack]棋盘难题_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]棋盘难题[/color]"
+            "Node.Recognition.Succeeded": "$focus.棋盘难题_矩阵循生"
         }
     },
     "棋盘难题_对话": {
@@ -1514,7 +1514,7 @@
             "[JumpBack]皇后游戏_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]皇后游戏[/color]"
+            "Node.Recognition.Succeeded": "$focus.皇后游戏_矩阵循生"
         }
     },
     "皇后游戏_对话": {
@@ -1595,7 +1595,7 @@
             "[JumpBack]瑕疵造物_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]瑕疵造物[/color]"
+            "Node.Recognition.Succeeded": "$focus.瑕疵造物_矩阵循生"
         }
     },
     "瑕疵造物_对话": {
@@ -1666,7 +1666,7 @@
             "[JumpBack]迷失之馆_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]迷失之馆[/color]"
+            "Node.Recognition.Succeeded": "$focus.迷失之馆_矩阵循生"
         }
     },
     "迷失之馆_对话": {
@@ -1737,7 +1737,7 @@
             "[JumpBack]圣殿战役_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]圣殿战役[/color]"
+            "Node.Recognition.Succeeded": "$focus.圣殿战役_矩阵循生"
         }
     },
     "圣殿战役_对话": {
@@ -1813,7 +1813,7 @@
             "[JumpBack]西西弗斯_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]西西弗斯[/color]"
+            "Node.Recognition.Succeeded": "$focus.西西弗斯_矩阵循生"
         }
     },
     "西西弗斯_对话": {
@@ -1881,7 +1881,7 @@
             "[JumpBack]野性之森_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]野性之森[/color]"
+            "Node.Recognition.Succeeded": "$focus.野性之森_矩阵循生"
         }
     },
     "野性之森_对话": {
@@ -1954,7 +1954,7 @@
             "[JumpBack]蓝色裂痕_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]蓝色裂痕[/color]"
+            "Node.Recognition.Succeeded": "$focus.蓝色裂痕_矩阵循生"
         }
     },
     "蓝色裂痕_对话": {
@@ -2030,7 +2030,7 @@
             "[JumpBack]铁石心肠_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]铁石心肠[/color]"
+            "Node.Recognition.Succeeded": "$focus.铁石心肠_矩阵循生"
         }
     },
     "铁石心肠_对话": {
@@ -2101,7 +2101,7 @@
             "[JumpBack]栩栩如生_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]栩栩如生[/color]"
+            "Node.Recognition.Succeeded": "$focus.栩栩如生_矩阵循生"
         }
     },
     "栩栩如生_对话": {
@@ -2176,7 +2176,7 @@
             "[JumpBack]荒废古卷_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]荒废古卷[/color]"
+            "Node.Recognition.Succeeded": "$focus.荒废古卷_矩阵循生"
         }
     },
     "荒废古卷_对话": {
@@ -2266,7 +2266,7 @@
             "[JumpBack]洁塔薇的食材_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]洁塔薇的食材[/color]"
+            "Node.Recognition.Succeeded": "$focus.洁塔薇的食材_矩阵循生"
         }
     },
     "洁塔薇的食材_对话": {
@@ -2341,7 +2341,7 @@
             "[JumpBack]荒废古堡_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]荒废古堡[/color]"
+            "Node.Recognition.Succeeded": "$focus.荒废古堡_矩阵循生"
         }
     },
     "荒废古堡_对话": {
@@ -2412,7 +2412,7 @@
             "[JumpBack]天台扭蛋机_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]天台扭蛋机[/color]"
+            "Node.Recognition.Succeeded": "$focus.天台扭蛋机_矩阵循生"
         }
     },
     "天台扭蛋机_对话": {
@@ -2479,7 +2479,7 @@
             "[JumpBack]莫比乌斯_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]莫比乌斯[/color]"
+            "Node.Recognition.Succeeded": "$focus.莫比乌斯_矩阵循生"
         }
     },
     "莫比乌斯_对话": {
@@ -2550,7 +2550,7 @@
             "[JumpBack]赝品工匠_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]赝品工匠[/color]"
+            "Node.Recognition.Succeeded": "$focus.赝品工匠_矩阵循生"
         }
     },
     "赝品工匠_对话": {
@@ -2620,7 +2620,7 @@
             "[JumpBack]继承之物_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]继承之物[/color]"
+            "Node.Recognition.Succeeded": "$focus.继承之物_矩阵循生"
         }
     },
     "继承之物_对话": {
@@ -2694,7 +2694,7 @@
             "[JumpBack]异界通讯II_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]异界通讯II[/color]"
+            "Node.Recognition.Succeeded": "$focus.异界通讯II_矩阵循生"
         }
     },
     "异界通讯II_对话": {
@@ -2766,7 +2766,7 @@
             "[JumpBack]禁忌实验_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]禁忌实验[/color]"
+            "Node.Recognition.Succeeded": "$focus.禁忌实验_矩阵循生"
         }
     },
     "禁忌实验_对话": {
@@ -2838,7 +2838,7 @@
             "[JumpBack]失败造物_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]失败造物[/color]"
+            "Node.Recognition.Succeeded": "$focus.失败造物_矩阵循生"
         }
     },
     "失败造物_对话": {
@@ -2947,7 +2947,7 @@
             "[JumpBack]旧日情谊_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]旧日情谊[/color]"
+            "Node.Recognition.Succeeded": "$focus.旧日情谊_矩阵循生"
         }
     },
     "旧日情谊_对话": {
@@ -3017,7 +3017,7 @@
             "[JumpBack]贫困收藏家_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]贫困收藏家[/color]"
+            "Node.Recognition.Succeeded": "$focus.贫困收藏家_矩阵循生"
         }
     },
     "贫困收藏家_对话": {
@@ -3084,7 +3084,7 @@
             "[JumpBack]英雄真相_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]英雄真相[/color]"
+            "Node.Recognition.Succeeded": "$focus.英雄真相_矩阵循生"
         }
     },
     "英雄真相_对话": {
@@ -3158,7 +3158,7 @@
             "[JumpBack]记忆真相_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]记忆真相[/color]"
+            "Node.Recognition.Succeeded": "$focus.记忆真相_矩阵循生"
         }
     },
     "记忆真相_对话": {
@@ -3229,7 +3229,7 @@
             "[JumpBack]天选者的故事_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]天选者的故事[/color]"
+            "Node.Recognition.Succeeded": "$focus.天选者的故事_矩阵循生"
         }
     },
     "天选者的故事_对话": {
@@ -3321,7 +3321,7 @@
             "[JumpBack]树神之女_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]树神之女[/color]"
+            "Node.Recognition.Succeeded": "$focus.树神之女_矩阵循生"
         }
     },
     "树神之女_对话": {
@@ -3389,7 +3389,7 @@
             "[JumpBack]转场_矩阵循生"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]物归新主[/color]"
+            "Node.Recognition.Succeeded": "$focus.物归新主_矩阵循生"
         }
     },
     "物归新主_对话": {
@@ -3457,7 +3457,7 @@
             "[JumpBack]无尽长廊_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]无尽长廊[/color]"
+            "Node.Recognition.Succeeded": "$focus.无尽长廊_矩阵循生"
         }
     },
     "无尽长廊_对话": {
@@ -3532,7 +3532,7 @@
             "[JumpBack]万两黄金_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]万两黄金[/color]"
+            "Node.Recognition.Succeeded": "$focus.万两黄金_矩阵循生"
         }
     },
     "万两黄金_对话": {
@@ -3602,7 +3602,7 @@
             "[JumpBack]工业幽灵_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]工业幽灵[/color]"
+            "Node.Recognition.Succeeded": "$focus.工业幽灵_矩阵循生"
         }
     },
     "工业幽灵_对话": {
@@ -3673,7 +3673,7 @@
             "[JumpBack]自投罗网_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]自投罗网[/color]"
+            "Node.Recognition.Succeeded": "$focus.自投罗网_矩阵循生"
         }
     },
     "自投罗网_对话": {
@@ -3743,7 +3743,7 @@
             "[JumpBack]武器技师_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]武器技师[/color]"
+            "Node.Recognition.Succeeded": "$focus.武器技师_矩阵循生"
         }
     },
     "武器技师_对话": {
@@ -3810,7 +3810,7 @@
             "[JumpBack]致命隐患_对话"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]致命隐患[/color]"
+            "Node.Recognition.Succeeded": "$focus.致命隐患_矩阵循生"
         }
     },
     "致命隐患_对话": {
@@ -3883,7 +3883,7 @@
             "[JumpBack]转场_矩阵循生"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]物归新主[/color]"
+            "Node.Recognition.Succeeded": "$focus.物归新主非兼容_矩阵循生"
         }
     },
     "物归新主非兼容_对话": {
@@ -3952,7 +3952,7 @@
             "[JumpBack]终止_矩阵循生"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]文本识别错误[/color]"
+            "Node.Recognition.Succeeded": "$focus.未知事件_矩阵循生"
         }
     }
 }

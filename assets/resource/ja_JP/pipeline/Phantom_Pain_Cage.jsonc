@@ -145,11 +145,6 @@
             }
         }
     },
-    "boss识别错误": {
-        "focus": {
-            "Node.Recognition.Succeeded": "未识别到已知BOSS,可能处于终极区"
-        }
-    },
     "挑战次数不足_弹窗": {
         "recognition": {
             "param": {

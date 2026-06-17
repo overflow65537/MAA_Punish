@@ -31,7 +31,7 @@
             "[JumpBack]意外点击_主界面"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]开始演绎[/color]"
+            "Node.Recognition.Succeeded": "$focus.宣叙妄响"
         }
     },
     "宣叙妄响内部_reco": {

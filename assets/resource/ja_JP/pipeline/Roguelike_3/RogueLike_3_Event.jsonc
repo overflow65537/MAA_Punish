@@ -20,9 +20,6 @@
                     "士多"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]ストア[/color]"
         }
     },
     "进入商店_矩阵循生": {
@@ -70,9 +67,6 @@
                     "在途存貨"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]輸送中の貨物[/color]"
         }
     },
     "在途存货_对话1": {
@@ -107,9 +101,6 @@
                     "亞人少女"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]亜人の少女[/color]"
         }
     },
     "亚人少女_对话2": {
@@ -147,9 +138,6 @@
                     "貼心搭檔"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]気配り上手な相棒[/color]"
         }
     },
     "贴心搭档_对话": {
@@ -175,9 +163,6 @@
                     "逃出生天"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]九死に一生[/color]"
         }
     },
     "逃出生天_对话2": {
@@ -213,9 +198,6 @@
                     "隱秘工坊"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]隠された工房[/color]"
         }
     },
     "隐秘工坊_对话2": {
@@ -252,9 +234,6 @@
                     "潔塔薇的游戲"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]ギタヴィのゲーム[/color]"
         }
     },
     "洁塔薇的游戏_对话2": {
@@ -295,9 +274,6 @@
                     "禁忌驗證"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]禁忌の検証[/color]"
         }
     },
     "禁忌验证_对话": {
@@ -342,9 +318,6 @@
                     "實號玩家"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]レディ・プレイヤー1[/color]"
         }
     },
     "头号玩家_对话": {
@@ -379,9 +352,6 @@
                     "致命失誤"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]致命的なミス[/color]"
         }
     },
     "致命失误_对话": {
@@ -417,9 +387,6 @@
                     "工业怪谈"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]工業怪談[/color]"
         }
     },
     "工业怪谈_对话": {
@@ -454,9 +421,6 @@
                     "動物墳場"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]動物の墓場[/color]"
         }
     },
     "动物坟场_对话": {
@@ -507,9 +471,6 @@
                     "觀星真相"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]天体観測の真相[/color]"
         }
     },
     "观星真相_对话": {
@@ -551,9 +512,6 @@
                     "機械性故障"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]機械的な故障[/color]"
         }
     },
     "异界通讯I_对话": {
@@ -606,9 +564,6 @@
                     "購"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]よろめく足取り[/color]"
         }
     },
     "步履蹒跚_对话": {
@@ -641,9 +596,6 @@
                     "舉手之勞"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]お安い御用[/color]"
         }
     },
     "举手之劳_对话": {
@@ -696,9 +648,6 @@
                     "無效救援"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]無駄な救助[/color]"
         }
     },
     "无效救援_对话": {
@@ -740,9 +689,6 @@
                     "盛典纪行"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]盛典紀行[/color]"
         }
     },
     "盛典纪行_对话": {
@@ -786,9 +732,6 @@
                     "火灾现场"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]火災現場[/color]"
         }
     },
     "火灾现场_对话": {
@@ -829,9 +772,6 @@
                     "棋槃難題"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]チェスの難題[/color]"
         }
     },
     "棋盘难题_对话": {
@@ -870,9 +810,6 @@
                     "后游戲"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]クイーンのゲーム[/color]"
         }
     },
     "皇后游戏_对话": {
@@ -926,9 +863,6 @@
                     "瑕疵造物"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]不完全な造物[/color]"
         }
     },
     "瑕疵造物_对话": {
@@ -966,9 +900,6 @@
                     "迷失之館"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]迷い子の館[/color]"
         }
     },
     "迷失之馆_对话": {
@@ -1006,9 +937,6 @@
                     "聖殿戰役"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]聖殿の戦い[/color]"
         }
     },
     "圣殿战役_对话": {
@@ -1051,9 +979,6 @@
                     "西西弗斯"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]シシュポス[/color]"
         }
     },
     "西西弗斯_对话": {
@@ -1086,9 +1011,6 @@
                     "野性之森"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]野生の森[/color]"
         }
     },
     "野性之森_对话": {
@@ -1132,9 +1054,6 @@
                     "藍色裂痕"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]青い亀裂[/color]"
         }
     },
     "蓝色裂痕_对话": {
@@ -1180,9 +1099,6 @@
                     "鐵石心腸"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]鉄の心[/color]"
         }
     },
     "铁石心肠_对话": {
@@ -1217,9 +1133,6 @@
                     "如生"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]生き生きとした[/color]"
         }
     },
     "栩栩如生_对话": {
@@ -1262,9 +1175,6 @@
                     "荒廢古卷"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]廃れた古文書[/color]"
         }
     },
     "荒废古卷_对话": {
@@ -1310,9 +1220,6 @@
                     "潔塔薇的食材"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]ギタヴィの食材[/color]"
         }
     },
     "洁塔薇的食材_对话": {
@@ -1354,9 +1261,6 @@
                     "荒廢古堡"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]廃れた古城[/color]"
         }
     },
     "荒废古堡_对话": {
@@ -1394,9 +1298,6 @@
                     "天台扭蛋機"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]屋上のガチャ[/color]"
         }
     },
     "天台扭蛋机_对话": {
@@ -1430,9 +1331,6 @@
                     "莫比烏斯"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]メビウス[/color]"
         }
     },
     "莫比乌斯_对话": {
@@ -1471,9 +1369,6 @@
                     "品工匠"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]贋作の職人[/color]"
         }
     },
     "赝品工匠_对话": {
@@ -1509,9 +1404,6 @@
                     "繼承之物"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]受け継がれしもの[/color]"
         }
     },
     "继承之物_对话": {
@@ -1554,9 +1446,6 @@
                     "意外的請求"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]異界通信II[/color]"
         }
     },
     "异界通讯II_对话": {
@@ -1600,9 +1489,6 @@
                     "禁忌意見"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]禁忌の実験[/color]"
         }
     },
     "禁忌实验_对话": {
@@ -1644,9 +1530,6 @@
                     "失败造物"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]失敗作の造物[/color]"
         }
     },
     "失败造物_对话": {
@@ -1708,9 +1591,6 @@
                     "舊日情誼"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]古い情誼[/color]"
         }
     },
     "旧日情谊_对话": {
@@ -1752,9 +1632,6 @@
                     "貧困收藏家"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]貧しき収集家[/color]"
         }
     },
     "贫困收藏家_对话": {
@@ -1787,9 +1664,6 @@
                     "英雄真相"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]英雄の真相[/color]"
         }
     },
     "英雄真相_对话": {
@@ -1829,9 +1703,6 @@
                     "記憶真相"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]記憶の真相[/color]"
         }
     },
     "记忆真相_对话": {
@@ -1871,9 +1742,6 @@
                     "天選者的故事"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]選ばれし者の物語[/color]"
         }
     },
     "天选者的故事_对话": {
@@ -1926,9 +1794,6 @@
                     "樹神之女"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]樹神の娘[/color]"
         }
     },
     "树神之女_对话": {
@@ -1963,9 +1828,6 @@
                     "物歸新主"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]返還[/color]"
         }
     },
     "物归新主_对话": {
@@ -1999,9 +1861,6 @@
                     "無盡長廊"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]果てなき回廊[/color]"
         }
     },
     "无尽长廊_对话": {
@@ -2044,9 +1903,6 @@
                     "萬兩黃金"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]万両の黄金[/color]"
         }
     },
     "万两黄金_对话": {
@@ -2082,9 +1938,6 @@
                     "工業幽靈"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]工業の幽霊[/color]"
         }
     },
     "工业幽灵_对话": {
@@ -2122,9 +1975,6 @@
                     "自投羅網"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]飛んで火に入る夏の虫[/color]"
         }
     },
     "自投罗网_对话": {
@@ -2160,9 +2010,6 @@
                     "武器技师"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]武器技師[/color]"
         }
     },
     "武器技师_对话": {
@@ -2197,9 +2044,6 @@
                     "致命隱患"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]致命的な隠れた危険[/color]"
         }
     },
     "致命隐患_对话": {
@@ -2241,9 +2085,6 @@
                     "物歸新主"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]返還[/color]"
         }
     },
     "物归新主非兼容_对话": {

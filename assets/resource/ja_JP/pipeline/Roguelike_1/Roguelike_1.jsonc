@@ -1,9 +1,4 @@
 {
-    "宣叙妄响": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]上演開始[/color]"
-        }
-    },
     "宣叙妄响内部_reco": {
         "recognition": {
             "type": "OCR",

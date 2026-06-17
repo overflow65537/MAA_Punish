@@ -35,7 +35,7 @@
             "[JumpBack]意外点击_限定活动"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]开始冒险[/color]"
+            "Node.Recognition.Succeeded": "$focus.厄愿潮声"
         }
     },
     "下一步_厄愿潮声": {
@@ -403,7 +403,7 @@
             "[JumpBack]意外点击_选择人物"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]战斗事件[/color]"
+            "Node.Recognition.Succeeded": "$focus.战斗事件_厄愿潮声"
         }
     },
     "意外点击_选择人物": {
@@ -1890,7 +1890,7 @@
             "[JumpBack]返回"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "未找到指定角色,即将重新进入"
+            "Node.Recognition.Succeeded": "$focus.刷新次数为0_厄愿潮声"
         }
     },
     "厄愿潮声主界面": {

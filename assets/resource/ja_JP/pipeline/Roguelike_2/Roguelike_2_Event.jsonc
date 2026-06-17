@@ -46,9 +46,6 @@
                     "鯊鯊特賣"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]シャメの特売[/color]"
         }
     },
     "商店_对话2": {
@@ -83,9 +80,6 @@
                     "布道者"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]伝道者[/color]"
         }
     },
     "布道者_对话1": {
@@ -155,9 +149,6 @@
                     "鯊鯊置物箱"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]シャメのロッカー[/color]"
         }
     },
     "鲨鲨置物箱_对话1": {
@@ -196,9 +187,6 @@
                     "的詛咒"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]知識という名の呪い[/color]"
         }
     },
     "名为知识的诅咒_对话1": {
@@ -233,9 +221,6 @@
                     "集市"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]市場[/color]"
         }
     },
     "集市_对话1": {
@@ -273,9 +258,6 @@
                     "廢棄庭院"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]廃れた庭園[/color]"
         }
     },
     "废弃庭院_对话1": {
@@ -310,9 +292,6 @@
                     "配方"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]悪魔のレシピ[/color]"
         }
     },
     "恶魔配方_对话1": {
@@ -348,9 +327,6 @@
                     "军备库"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]兵器庫[/color]"
         }
     },
     "军备库_对话1": {
@@ -387,9 +363,6 @@
                     "迷雾之梦"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]霧の夢[/color]"
         }
     },
     "迷雾之梦_对话1": {
@@ -426,9 +399,6 @@
                     "旅行剧团"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]旅の劇団[/color]"
         }
     },
     "旅行剧团_对话1": {
@@ -462,9 +432,6 @@
                     "返鄉者"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]帰郷者[/color]"
         }
     },
     "返乡者_对话1": {
@@ -498,9 +465,6 @@
                     "命運前路"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]運命の行く先[/color]"
         }
     },
     "命运前路_对话1": {
@@ -536,9 +500,6 @@
                     "拾荒者派對"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]スカベンジャーの集い[/color]"
         }
     },
     "拾荒者派对_对话1": {
@@ -574,9 +535,6 @@
                     "的睿智"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]禁忌という名の叡智[/color]"
         }
     },
     "名为禁忌的睿智_对话1": {
@@ -612,9 +570,6 @@
                     "遺骨之濱"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]遺骨の浜辺[/color]"
         }
     },
     "遗骨之滨_对话1": {
@@ -650,9 +605,6 @@
                     "蕾多爾的饋贈"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]コレドールの贈り物[/color]"
         }
     },
     "柯雷多尔的馈赠_对话1": {
@@ -688,9 +640,6 @@
                     "街頭藝人"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]大道芸人[/color]"
         }
     },
     "街头艺人_对话1": {
@@ -725,9 +674,6 @@
                     "失敗者"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]敗北者[/color]"
         }
     },
     "失败者_对话1": {
@@ -775,9 +721,6 @@
                     "歡樂時光"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]楽しいひと時[/color]"
         }
     },
     "欢乐时光_对话1": {
@@ -811,9 +754,6 @@
                     "要塞中"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]要塞の中[/color]"
         }
     },
     "谨听忠告_对话1": {
@@ -849,9 +789,6 @@
                     "^禁忌教堂$"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]禁忌の教会[/color]"
         }
     },
     "禁忌教堂_对话1": {
@@ -886,9 +823,6 @@
                     "被完成的謎題"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]解かれた謎[/color]"
         }
     },
     "被完成的谜题_对话1": {
@@ -925,9 +859,6 @@
                     "藏書庫"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]図書室[/color]"
         }
     },
     "藏书库_对话1": {
@@ -963,9 +894,6 @@
                     "另一面圓桌"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]円卓の裏面[/color]"
         }
     },
     "另一面圆桌_对话1": {
@@ -1002,9 +930,6 @@
                     "傳說"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]悪魔の伝説[/color]"
         }
     },
     "恶魔传说_对话1": {
@@ -1040,9 +965,6 @@
                     "擺願之井"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]願いの井戸[/color]"
         }
     },
     "许愿之井_对话1": {
@@ -1076,9 +998,6 @@
                     "迷途之子"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]迷い子[/color]"
         }
     },
     "迷途之子_对话1": {
@@ -1115,9 +1034,6 @@
                     "陣營沖突"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]陣営衝突[/color]"
         }
     },
     "阵营冲突_对话1": {
@@ -1155,9 +1071,6 @@
                     "珠寶獵人"
                 ]
             }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]宝石ハンター[/color]"
         }
     },
     "珠宝猎人_对话1": {

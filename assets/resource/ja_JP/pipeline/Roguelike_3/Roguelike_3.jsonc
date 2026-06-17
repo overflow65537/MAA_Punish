@@ -1,9 +1,4 @@
 {
-    "矩阵循生": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]演算開始[/color]"
-        }
-    },
     "返回_矩阵循生": {
         "recognition": {
             "param": {
@@ -453,11 +448,6 @@
                     "前進"
                 ]
             }
-        }
-    },
-    "战斗事件_矩阵循生": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]戦闘開始[/color]"
         }
     },
     "算力单元不足": {

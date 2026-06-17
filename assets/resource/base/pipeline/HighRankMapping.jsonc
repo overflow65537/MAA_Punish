@@ -303,7 +303,7 @@
             "返回主菜单"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "未选择配队"
+            "Node.Recognition.Succeeded": "$focus.成员整备"
         }
     },
     "前往作战": {
@@ -371,7 +371,7 @@
             "返回主菜单"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "历战分数达标"
+            "Node.Recognition.Succeeded": "$focus.识别历战分数"
         }
     },
     "领取历战奖励": {

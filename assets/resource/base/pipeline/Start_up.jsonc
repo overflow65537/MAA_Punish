@@ -183,7 +183,7 @@
     "服务器错误提示": {
         "next": ["启动"],
         "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]服务器错误,请选择所在服务器(比如b服)[/color]"
+            "Node.Recognition.Succeeded": "$focus.服务器错误提示"
         }
     },
     "切换主界面状态": {
@@ -234,7 +234,7 @@
         },
         "focus": {
             "Node.Action.Succeeded": "战双维护中",
-            "Node.Recognition.Succeeded": "所有任务都已完成", //骗MAS用的
+            "Node.Recognition.Succeeded": "$focus.MAS联动处理-检查到维护公告_将发送假通知", //骗MAS用的
         }
     }
 }

@@ -20,7 +20,7 @@
             }
         },
         "focus": {
-            "Node.Recognition.Succeeded": "[color:ForestGreen]完成[/color]"
+            "Node.Recognition.Succeeded": "$focus.确认目标词缀"
         }
     },
     "结果检查左侧_不可信": {
@@ -53,7 +53,7 @@
             "type": "StopTask"
         },
         "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
+            "Node.Recognition.Succeeded": "$focus.结果检查左侧_不可信"
         }
     },
     "结果检查_不可信": {
@@ -87,7 +87,7 @@
             "type": "StopTask"
         },
         "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]识别异常,结果已不可信[/color]"
+            "Node.Recognition.Succeeded": "$focus.结果检查_不可信"
         }
     },
     "结果检查_可信": {

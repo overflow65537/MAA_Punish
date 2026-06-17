@@ -129,11 +129,6 @@
             }
         }
     },
-    "服务器错误提示": {
-        "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]服务器错误,请选择所在服务器[/color]"
-        }
-    },
     "MAS联动处理-检查到维护公告_将发送假通知": {
         "recognition": {
             "param": {

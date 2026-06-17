@@ -113,7 +113,7 @@
             "type": "StopTask"
         },
         "focus": {
-            "Node.Recognition.Succeeded": "[color:Tomato]请通关教程后再使用该功能[/color]"
+            "Node.Recognition.Succeeded": "$focus.没过教程提示"
         }
     },
     "打开空中花园": {
