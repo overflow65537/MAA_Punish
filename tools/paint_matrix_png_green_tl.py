@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-读取文件夹中的 PNG，筛选文件名含「_矩阵」且尺寸约 82×82 的图片，
-将左上角 58×20 区域涂成绿色。
+读取文件夹中的 PNG，在左上角涂绿色矩形，按文件名区分规则：
+
+- 文件名含「矩阵」：以左上角为基准，宽 58、高 20（约 82×82 矩阵头像模板）
+- 文件名不含「矩阵」：以左上角为基准，宽 39、高 19
 
 依赖: pip install pillow
 
@@ -21,9 +23,15 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw
 
+MATRIX_MARKER = "矩阵"
+MATRIX_RECT = (58, 20)
+NON_MATRIX_RECT = (39, 19)
+
 
 def parse_args() -> argparse.Namespace:
-    p = argparse.ArgumentParser(description="将「_矩阵」PNG 左上角 58×20 涂绿")
+    p = argparse.ArgumentParser(
+        description="PNG 左上角涂绿：含「矩阵」58×20，否则 39×19"
+    )
     p.add_argument(
         "folder",
         type=Path,
@@ -50,31 +58,34 @@ def parse_args() -> argparse.Namespace:
         help="输出目录（默认与输入同级目录下的 painted_green_tl）",
     )
     p.add_argument(
-        "--marker",
-        default="矩阵_",
-        help="文件名需包含的子串（默认: _矩阵）",
-    )
-    p.add_argument(
-        "--size",
+        "--matrix-size",
         type=int,
         nargs=2,
         metavar=("W", "H"),
         default=(82, 82),
-        help="期望宽高（默认 82 82）",
+        help="含「矩阵」图片期望宽高（默认 82 82）",
     )
     p.add_argument(
         "--size-tol",
         type=int,
         default=8,
-        help="宽高允许偏差像素（默认 8）",
+        help="含「矩阵」图片宽高允许偏差像素（默认 8）",
     )
     p.add_argument(
-        "--rect",
+        "--matrix-rect",
         type=int,
         nargs=2,
         metavar=("W", "H"),
-        default=(58, 20),
-        help="左上角矩形宽高（默认 58 20）",
+        default=MATRIX_RECT,
+        help="含「矩阵」左上角矩形宽高（默认 58 20）",
+    )
+    p.add_argument(
+        "--non-matrix-rect",
+        type=int,
+        nargs=2,
+        metavar=("W", "H"),
+        default=NON_MATRIX_RECT,
+        help="不含「矩阵」左上角矩形宽高（默认 39 19）",
     )
     p.add_argument(
         "--rgb",
@@ -92,6 +103,20 @@ def iter_pngs(root: Path, recursive: bool):
     yield from sorted(root.glob(pattern))
 
 
+def rect_for_name(name: str, args: argparse.Namespace) -> tuple[int, int]:
+    if MATRIX_MARKER in name:
+        return tuple(args.matrix_rect)
+    return tuple(args.non_matrix_rect)
+
+
+def passes_size_check(name: str, w: int, h: int, args: argparse.Namespace) -> bool:
+    if MATRIX_MARKER not in name:
+        return True
+    tw, th = args.matrix_size
+    tol = args.size_tol
+    return abs(w - tw) <= tol and abs(h - th) <= tol
+
+
 def main() -> int:
     args = parse_args()
     folder = args.folder.expanduser().resolve()
@@ -99,9 +124,6 @@ def main() -> int:
         print(f"错误: 不是文件夹: {folder}", file=sys.stderr)
         return 1
 
-    tw, th = args.size
-    tol = args.size_tol
-    rw, rh = args.rect
     r, g, b = args.rgb
 
     if args.in_place:
@@ -113,23 +135,25 @@ def main() -> int:
         out_root = folder.parent / "painted_green_tl"
         out_root.mkdir(parents=True, exist_ok=True)
 
-    processed = 0
+    processed_matrix = 0
+    processed_non_matrix = 0
     skipped_size = 0
-    skipped_name = 0
 
     recursive = not args.flat
     for png in iter_pngs(folder, recursive):
-        if args.marker not in png.name:
-            skipped_name += 1
-            continue
-
         img = Image.open(png)
         w, h = img.size
-        if abs(w - tw) > tol or abs(h - th) > tol:
-            print(f"跳过尺寸 {w}x{h}（期望约 {tw}x{th}±{tol}）: {png}")
+        if not passes_size_check(png.name, w, h, args):
+            tw, th = args.matrix_size
+            print(
+                f"跳过尺寸 {w}x{h}（含「矩阵」时期望约 {tw}x{th}±{args.size_tol}）: {png}"
+            )
             skipped_size += 1
             img.close()
             continue
+
+        rw, rh = rect_for_name(png.name, args)
+        is_matrix = MATRIX_MARKER in png.name
 
         if img.mode not in ("RGB", "RGBA"):
             img = img.convert("RGBA")
@@ -137,7 +161,6 @@ def main() -> int:
             img = img.copy()
 
         draw = ImageDraw.Draw(img)
-        # 左上角矩形 [0, 0, rw-1, rh-1] 共 rw×rh 像素
         draw.rectangle(
             [0, 0, rw - 1, rh - 1],
             fill=(r, g, b, 255) if img.mode == "RGBA" else (r, g, b),
@@ -153,13 +176,19 @@ def main() -> int:
 
         img.save(dest, format="PNG")
         img.close()
-        print(f"已写入: {dest}")
-        processed += 1
+        kind = "矩阵" if is_matrix else "非矩阵"
+        print(f"已写入 [{kind} {rw}x{rh}]: {dest}")
+        if is_matrix:
+            processed_matrix += 1
+        else:
+            processed_non_matrix += 1
 
+    total = processed_matrix + processed_non_matrix
     print(
-        f"完成: 处理 {processed} 张；"
-        f"因尺寸跳过 {skipped_size}；"
-        f"因文件名不含「{args.marker}」略过 {skipped_name} 个文件（仍扫描了目录内 png）"
+        f"完成: 处理 {total} 张"
+        f"（含「矩阵」{processed_matrix} 张 {args.matrix_rect[0]}×{args.matrix_rect[1]}，"
+        f"不含「矩阵」{processed_non_matrix} 张 {args.non_matrix_rect[0]}×{args.non_matrix_rect[1]}）；"
+        f"因尺寸跳过 {skipped_size}"
     )
     return 0
 
