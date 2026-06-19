@@ -4,15 +4,6 @@
             "type": "DirectHit"
         },
         "pre_delay": 0,
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "LoadROIZone",
-                "custom_action_param": {
-                    "controller": "adb"
-                }
-            }
-        },
         "post_delay": 0,
         "rate_limit": 0,
         "next": [
