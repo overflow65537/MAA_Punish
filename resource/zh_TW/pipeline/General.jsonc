@@ -15,7 +15,7 @@
         "expected": "確定"
     },
     "确定": {
-        "expected": "^確定$"
+        "expected": "^確定"
     },
     "确定_sp": {
         "expected": "^確定$"
