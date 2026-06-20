@@ -1,10 +1,8 @@
 {
-    "关闭奖励": {
+    "关闭奖励_文字": {
         "recognition": {
             "param": {
-                "expected": [
-                    "報酬"
-                ]
+                "expected": "報酬"
             }
         }
     },

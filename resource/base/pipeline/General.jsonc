@@ -7,17 +7,11 @@
     },
     "关闭奖励": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    409,
-                    176,
-                    491,
-                    150
-                ],
-                "expected": [
-                    "^(获得)?奖励$",
-                    "奖励详情"
+                "all_of": [
+                    "关闭奖励_颜色",
+                    "关闭奖励_文字"
                 ]
             }
         },
@@ -33,6 +27,47 @@
         "post_wait_freezes": {
             "time": 500,
             "timeout": 2000
+        }
+    },
+    "关闭奖励_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "关闭奖励_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
+                "expected": "奖励",
+                "only_rec": true
+            }
+        }
+    },
+    "关闭奖励_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    560,
+                    218,
+                    300,
+                    72
+                ],
+                "method": 40,
+                "lower": [
+                    101,
+                    210,
+                    160
+                ],
+                "upper": [
+                    105,
+                    255,
+                    200
+                ],
+                "count": 10
+            }
         }
     },
     "返回主菜单": {
