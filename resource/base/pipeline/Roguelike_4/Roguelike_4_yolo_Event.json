@@ -58,7 +58,7 @@
         "on_error": [
             "寒境曙光"
         ],
-        "timeout": 5000
+        "timeout": 10000
     },
     "战斗识别_寒境曙光_yolo": {
         "recognition": {
@@ -101,7 +101,11 @@
         "focus": {
             "Node.Recognition.Succeeded": "$focus.拓荒_寒境曙光_yolo"
         },
-        "post_delay": 1000
+        "post_delay": 1000,
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
     },
     "前方有陷阱_寒境曙光_yolo": {
         "recognition": {
@@ -124,7 +128,11 @@
         ],
         "focus": {
             "Node.Recognition.Succeeded": "$focus.前方有陷阱_寒境曙光_yolo"
-        }
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
     },
     "剩余资金_寒境曙光_yolo": {
         "recognition": {
@@ -148,7 +156,11 @@
         ],
         "focus": {
             "Node.Recognition.Succeeded": "$focus.剩余资金_寒境曙光_yolo"
-        }
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
     },
     "战马瑞恩_寒境曙光_yolo": {
         "recognition": {
@@ -161,7 +173,12 @@
                     185
                 ],
                 "expected": "战马瑞恩",
-                "replace": [["嘴果", "瑞恩"]]
+                "replace": [
+                    [
+                        "嘴果",
+                        "瑞恩"
+                    ]
+                ]
             }
         },
         "next": [
@@ -172,7 +189,11 @@
         ],
         "focus": {
             "Node.Recognition.Succeeded": "$focus.战马瑞恩_寒境曙光_yolo"
-        }
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
     },
     "鲨鱼置物箱_寒境曙光_yolo": {
         "recognition": {
@@ -199,7 +220,11 @@
         ],
         "focus": {
             "Node.Recognition.Succeeded": "$focus.鲨鱼置物箱_寒境曙光_yolo"
-        }
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
     },
     "学者来访_寒境曙光_yolo": {
         "recognition": {
@@ -222,7 +247,11 @@
         ],
         "focus": {
             "Node.Recognition.Succeeded": "$focus.学者来访_寒境曙光_yolo"
-        }
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
     },
     "运力紧张_寒境曙光_yolo": {
         "recognition": {
@@ -246,7 +275,11 @@
         "focus": {
             "Node.Recognition.Succeeded": "$focus.运力紧张_寒境曙光_yolo"
         },
-        "post_delay": 1000
+        "post_delay": 1000,
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
     },
     "废弃港口_寒境曙光_yolo": {
         "recognition": {
@@ -269,7 +302,11 @@
         ],
         "focus": {
             "Node.Recognition.Succeeded": "$focus.废弃港口_寒境曙光_yolo"
-        }
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
     },
     "商队来访_寒境曙光_yolo": {
         "recognition": {
@@ -292,7 +329,11 @@
         ],
         "focus": {
             "Node.Recognition.Succeeded": "$focus.商队来访_寒境曙光_yolo"
-        }
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
     },
     "拦路的废墟_寒境曙光_yolo": {
         "recognition": {
@@ -319,7 +360,11 @@
         ],
         "focus": {
             "Node.Recognition.Succeeded": "$focus.拦路的废墟_寒境曙光_yolo"
-        }
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
     },
     "难民团到访_寒境曙光_yolo": {
         "recognition": {
@@ -342,7 +387,11 @@
         ],
         "focus": {
             "Node.Recognition.Succeeded": "$focus.难民团到访_寒境曙光_yolo"
-        }
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
     },
     "建筑师的建议_寒境曙光_yolo": {
         "recognition": {
@@ -365,7 +414,11 @@
         ],
         "focus": {
             "Node.Recognition.Succeeded": "$focus.建筑师的建议_寒境曙光_yolo"
-        }
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
     },
     "旧国遗产_寒境曙光_yolo": {
         "recognition": {
@@ -392,7 +445,11 @@
         "focus": {
             "Node.Recognition.Succeeded": "$focus.旧国遗产_寒境曙光_yolo"
         },
-        "post_delay": 1000
+        "post_delay": 1000,
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
     },
     "物资_寒境曙光_yolo": {
         "recognition": {
@@ -416,7 +473,11 @@
         ],
         "focus": {
             "Node.Recognition.Succeeded": "$focus.物资_寒境曙光_yolo"
-        }
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
     },
     "冬日之影_寒境曙光_yolo": {
         "recognition": {
@@ -438,7 +499,11 @@
         ],
         "focus": {
             "Node.Recognition.Succeeded": "$focus.冬日之影_寒境曙光_yolo"
-        }
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
     },
     "汇合_寒境曙光_yolo": {
         "recognition": {
@@ -460,6 +525,10 @@
         ],
         "focus": {
             "Node.Recognition.Succeeded": "$focus.汇合_寒境曙光_yolo"
-        }
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
     }
 }

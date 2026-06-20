@@ -23,7 +23,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [896, 617, 77, 52],
+                "roi": [
+                    896,
+                    617,
+                    77,
+                    52
+                ],
                 "expected": "终止"
             }
         },
@@ -39,7 +44,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [1009, 619, 194, 78],
+                "roi": [
+                    1009,
+                    619,
+                    194,
+                    78
+                ],
                 "expected": "退出"
             }
         },
@@ -57,7 +67,12 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [994, 551, 261, 166],
+                "roi": [
+                    994,
+                    551,
+                    261,
+                    166
+                ],
                 "template": "寒境曙光/启程.png"
             }
         },
@@ -73,13 +88,20 @@
             }
         },
         "post_delay": 1500,
-        "next": ["寒境曙光"]
+        "next": [
+            "寒境曙光"
+        ]
     },
     "打开寒境曙光": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [355, 454, 923, 54],
+                "roi": [
+                    355,
+                    454,
+                    923,
+                    54
+                ],
                 "expected": "寒"
             }
         },
@@ -91,7 +113,12 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [994, 551, 261, 166],
+                "roi": [
+                    994,
+                    551,
+                    261,
+                    166
+                ],
                 "template": "寒境曙光/启程.png"
             }
         },
@@ -112,7 +139,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [93, 41, 128, 40],
+                "roi": [
+                    93,
+                    41,
+                    128,
+                    40
+                ],
                 "expected": "雪域异常点"
             }
         },
@@ -130,9 +162,23 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [93, 41, 128, 40],
+                "roi": [
+                    93,
+                    41,
+                    128,
+                    40
+                ],
                 "expected": "港口异常点",
-                "replace": [["湖", "港"], ["異", "港"]]
+                "replace": [
+                    [
+                        "湖",
+                        "港"
+                    ],
+                    [
+                        "異",
+                        "港"
+                    ]
+                ]
             }
         },
         "pre_delay": 0,
@@ -167,15 +213,23 @@
             "[JumpBack]废弃港口_寒境曙光",
             "[JumpBack]分数计算"
         ],
-        "on_error": ["重新进入_寒境曙光"]
+        "on_error": [
+            "重新进入_寒境曙光"
+        ]
     },
     "纯色地块_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000,
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
                 "model": "RG4_Zone.onnx",
                 "expected": [],
-                "threshold": [0.7]
+                "threshold": [
+                    0.7
+                ]
             }
         },
         "action": {
@@ -183,17 +237,32 @@
         }
     },
     "物资_寒境曙光": {
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000,
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [300, 1, 979, 640],
-                "expected": ["物资$", "物资"]
+                "roi": [
+                    300,
+                    1,
+                    979,
+                    640
+                ],
+                "expected": [
+                    "物资$",
+                    "物资"
+                ]
             }
         },
         "action": {
             "type": "Click"
         },
-        "next": ["物资事件结束_寒境曙光", "[JumpBack]开始探索_寒境曙光"],
+        "next": [
+            "物资事件结束_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
+        ],
         "focus": {
             "Node.Recognition.Succeeded": "$focus.物资_寒境曙光"
         }
@@ -202,24 +271,39 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [567, 234, 157, 49],
+                "roi": [
+                    567,
+                    234,
+                    157,
+                    49
+                ],
                 "expected": "获得奖励"
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [100, 100]
+                "target": [
+                    100,
+                    100
+                ]
             }
         },
         "post_delay": 1000,
-        "next": ["事件完成_寒境曙光"]
+        "next": [
+            "事件完成_寒境曙光"
+        ]
     },
     "重新进入_寒境曙光": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [1169, 13, 83, 48],
+                "roi": [
+                    1169,
+                    13,
+                    83,
+                    48
+                ],
                 "expected": "暂离"
             }
         },
@@ -233,7 +317,9 @@
             }
         },
         "post_delay": 2000,
-        "next": ["暂离_寒境曙光"],
+        "next": [
+            "暂离_寒境曙光"
+        ],
         "focus": {
             "Node.Recognition.Succeeded": "$focus.重新进入_寒境曙光"
         }
@@ -246,7 +332,10 @@
             }
         },
         "post_delay": 1000,
-        "next": ["启程_寒境曙光", "重新进入_寒境曙光"]
+        "next": [
+            "启程_寒境曙光",
+            "重新进入_寒境曙光"
+        ]
     },
     "分数计算": {
         "recognition": {
@@ -258,7 +347,9 @@
                 }
             }
         },
-        "next": ["下一天_寒境曙光"],
+        "next": [
+            "下一天_寒境曙光"
+        ],
         "focus": {
             "Node.Recognition.Succeeded": "$focus.分数计算"
         }
@@ -267,27 +358,42 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [1131, 651, 111, 44],
+                "roi": [
+                    1131,
+                    651,
+                    111,
+                    44
+                ],
                 "expected": "下一天"
             }
         },
         "action": {
             "type": "Click"
         },
-        "next": ["确认下一天_寒境曙光"]
+        "next": [
+            "确认下一天_寒境曙光"
+        ]
     },
     "确认下一天_寒境曙光": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [460, 311, 363, 61],
+                "roi": [
+                    460,
+                    311,
+                    363,
+                    61
+                ],
                 "expected": "尚有行动点未消耗，是否结束日程"
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [725, 454]
+                "target": [
+                    725,
+                    454
+                ]
             }
         },
         "next": [
@@ -305,17 +411,29 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [550, 48, 185, 60],
+                "roi": [
+                    550,
+                    48,
+                    185,
+                    60
+                ],
                 "expected": "跋涉印记"
             }
         },
-        "next": ["返回"]
+        "next": [
+            "返回"
+        ]
     },
     "挑战失败_寒境曙光": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [540, 424, 146, 74],
+                "roi": [
+                    540,
+                    424,
+                    146,
+                    74
+                ],
                 "expected": "退出挑战"
             }
         },
@@ -333,7 +451,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [540, 424, 146, 74],
+                "roi": [
+                    540,
+                    424,
+                    146,
+                    74
+                ],
                 "expected": "退出挑战"
             }
         }
@@ -342,7 +465,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [540, 424, 146, 74],
+                "roi": [
+                    540,
+                    424,
+                    146,
+                    74
+                ],
                 "expected": "退出挑战"
             }
         }
@@ -351,7 +479,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [1170, 681, 64, 34],
+                "roi": [
+                    1170,
+                    681,
+                    64,
+                    34
+                ],
                 "expected": "^0(?:/|1)3$"
             }
         },
@@ -375,14 +508,22 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [507, 317, 288, 43],
+                "roi": [
+                    507,
+                    317,
+                    288,
+                    43
+                ],
                 "expected": "驻扎点即将遭受攻击"
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [100, 100]
+                "target": [
+                    100,
+                    100
+                ]
             }
         },
         "post_delay": 1500
@@ -391,14 +532,22 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [81, 51, 205, 48],
+                "roi": [
+                    81,
+                    51,
+                    205,
+                    48
+                ],
                 "expected": "选择军事支援"
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [640, 538]
+                "target": [
+                    640,
+                    538
+                ]
             }
         },
         "post_delay": 1000
@@ -407,14 +556,22 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [81, 51, 205, 48],
+                "roi": [
+                    81,
+                    51,
+                    205,
+                    48
+                ],
                 "expected": "选择经济支援"
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [640, 538]
+                "target": [
+                    640,
+                    538
+                ]
             }
         },
         "post_delay": 1000
@@ -423,14 +580,22 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [81, 51, 205, 48],
+                "roi": [
+                    81,
+                    51,
+                    205,
+                    48
+                ],
                 "expected": "选择基建支援"
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [269, 534]
+                "target": [
+                    269,
+                    534
+                ]
             }
         },
         "post_delay": 1000
@@ -439,7 +604,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [300, 1, 979, 640],
+                "roi": [
+                    300,
+                    1,
+                    979,
+                    640
+                ],
                 "expected": [
                     "无尚之戒",
                     "拓荒",
@@ -471,7 +641,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [734, 201, 157, 418],
+                "roi": [
+                    734,
+                    201,
+                    157,
+                    418
+                ],
                 "expected": "开始探索"
             }
         },
@@ -483,7 +658,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [599, 364, 78, 46],
+                "roi": [
+                    599,
+                    364,
+                    78,
+                    46
+                ],
                 "expected": "首发"
             }
         },
@@ -505,24 +685,39 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [493, 330, 297, 56],
+                "roi": [
+                    493,
+                    330,
+                    297,
+                    56
+                ],
                 "expected": "新苏菲亚币不足"
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [100, 0]
+                "target": [
+                    100,
+                    0
+                ]
             }
         },
         "post_delay": 1000,
-        "next": ["放弃战斗_寒境曙光"]
+        "next": [
+            "放弃战斗_寒境曙光"
+        ]
     },
     "放弃战斗_寒境曙光": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [335, 448, 214, 184],
+                "roi": [
+                    335,
+                    448,
+                    214,
+                    184
+                ],
                 "expected": "放弃"
             }
         },
@@ -547,7 +742,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [690, 457, 283, 171],
+                "roi": [
+                    690,
+                    457,
+                    283,
+                    171
+                ],
                 "expected": "重启"
             }
         },
@@ -560,8 +760,16 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [810, 549, 75, 31],
-                "expected": ["跳过", "挑过"]
+                "roi": [
+                    810,
+                    549,
+                    75,
+                    31
+                ],
+                "expected": [
+                    "跳过",
+                    "挑过"
+                ]
             }
         },
         "action": {
@@ -572,7 +780,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [69, 43, 159, 63],
+                "roi": [
+                    69,
+                    43,
+                    159,
+                    63
+                ],
                 "expected": "领取奖励"
             }
         },
@@ -594,20 +807,41 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [0, 0, 491, 192],
+                "roi": [
+                    0,
+                    0,
+                    491,
+                    192
+                ],
                 "expected": "背包"
             }
         },
         "post_delay": 1000,
-        "next": ["返回"]
+        "next": [
+            "返回"
+        ]
     },
     "事件完成_寒境曙光": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [93, 41, 128, 40],
+                "roi": [
+                    93,
+                    41,
+                    128,
+                    40
+                ],
                 "expected": "港口异常点",
-                "replace": [["湖", "港"], ["異", "港"]]
+                "replace": [
+                    [
+                        "湖",
+                        "港"
+                    ],
+                    [
+                        "異",
+                        "港"
+                    ]
+                ]
             }
         },
         "post_delay": 1000,
@@ -629,7 +863,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [1045, 0, 235, 194],
+                "roi": [
+                    1045,
+                    0,
+                    235,
+                    194
+                ],
                 "expected": "暂离"
             }
         }
@@ -638,25 +877,44 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [41, 627, 125, 33],
+                "roi": [
+                    41,
+                    627,
+                    125,
+                    33
+                ],
                 "expected": "未选择队长"
             }
         },
         "post_delay": 1000,
-        "next": ["选择角色程序", "[JumpBack]选择首发_寒境曙光"]
+        "next": [
+            "选择角色程序",
+            "[JumpBack]选择首发_寒境曙光"
+        ]
     },
     "关闭未拥有人物提示": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [330, 238, 638, 154],
-                "expected": ["检测到指挥官未拥有该成员", "赛利卡补习班"]
+                "roi": [
+                    330,
+                    238,
+                    638,
+                    154
+                ],
+                "expected": [
+                    "检测到指挥官未拥有该成员",
+                    "赛利卡补习班"
+                ]
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [411, 536]
+                "target": [
+                    411,
+                    536
+                ]
             }
         },
         "post_delay": 1000
@@ -665,7 +923,12 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [59, 67, 180, 601],
+                "roi": [
+                    59,
+                    67,
+                    180,
+                    601
+                ],
                 "template": [
                     "人物索引/里/超刻/超刻.png",
                     "人物索引/里/超刻/超刻_终解.png",
@@ -710,7 +973,10 @@
         "recognition": {
             "type": "And",
             "param": {
-                "all_of": ["作战开始识别", "作战开始背景颜色识别"]
+                "all_of": [
+                    "作战开始识别",
+                    "作战开始背景颜色识别"
+                ]
             }
         },
         "post_wait_freezes": {
@@ -722,7 +988,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [941, 151, 154, 62],
+                "roi": [
+                    941,
+                    151,
+                    154,
+                    62
+                ],
                 "expected": [
                     "深红囚影",
                     "深红影",
@@ -734,13 +1005,21 @@
                     "启明",
                     "超刻"
                 ],
-                "replace": [["内", "囚"]]
+                "replace": [
+                    [
+                        "内",
+                        "囚"
+                    ]
+                ]
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [1023, 488]
+                "target": [
+                    1023,
+                    488
+                ]
             }
         },
         "post_delay": 1000
@@ -749,7 +1028,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [255, 343, 737, 103],
+                "roi": [
+                    255,
+                    343,
+                    737,
+                    103
+                ],
                 "expected": "首发"
             }
         },
@@ -762,14 +1046,22 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [530, 192, 228, 60],
+                "roi": [
+                    530,
+                    192,
+                    228,
+                    60
+                ],
                 "expected": "支援等级提升"
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [100, 100]
+                "target": [
+                    100,
+                    100
+                ]
             }
         },
         "post_delay": 1500
@@ -778,8 +1070,18 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [251, 350, 781, 42],
-                "expected": ["^升$", "^升星$", "^招$", "^招募$"]
+                "roi": [
+                    251,
+                    350,
+                    781,
+                    42
+                ],
+                "expected": [
+                    "^升$",
+                    "^升星$",
+                    "^招$",
+                    "^招募$"
+                ]
             }
         },
         "action": {
@@ -819,13 +1121,20 @@
         "action": {
             "type": "Click"
         },
-        "next": ["点击沙盘重构_寒境曙光"]
+        "next": [
+            "点击沙盘重构_寒境曙光"
+        ]
     },
     "点击沙盘重构_寒境曙光": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [421, 528, 326, 108],
+                "roi": [
+                    421,
+                    528,
+                    326,
+                    108
+                ],
                 "expected": "沙盘重构"
             }
         },
@@ -833,13 +1142,18 @@
             "type": "Click"
         },
         "post_delay": 2000,
-        "next": ["[JumpBack]退出_寒境曙光", "沙盘重构_重新进入"]
+        "next": [
+            "[JumpBack]退出_寒境曙光",
+            "沙盘重构_重新进入"
+        ]
     },
     "沙盘重构_重新进入": {
         "recognition": {
             "type": "And",
             "param": {
-                "all_of": ["启程_寒境曙光"]
+                "all_of": [
+                    "启程_寒境曙光"
+                ]
             }
         },
         "action": {
@@ -864,16 +1178,26 @@
         "recognition": {
             "type": "And",
             "param": {
-                "all_of": ["确认进入场景_寒境曙光"]
+                "all_of": [
+                    "确认进入场景_寒境曙光"
+                ]
             }
         },
-        "next": ["[JumpBack]纯色地块_寒境曙光", "空任务"]
+        "next": [
+            "[JumpBack]纯色地块_寒境曙光",
+            "空任务"
+        ]
     },
     "沙盘重构_寒境曙光_文字": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [419, 641, 145, 79],
+                "roi": [
+                    419,
+                    641,
+                    145,
+                    79
+                ],
                 "expected": "重构"
             }
         }
@@ -883,9 +1207,22 @@
             "type": "ColorMatch",
             "param": {
                 "roi": "沙盘重构_寒境曙光_文字",
-                "roi_offset": [43, 0, -23, 0],
-                "upper": [255, 255, 255],
-                "lower": [180, 180, 180],
+                "roi_offset": [
+                    43,
+                    0,
+                    -23,
+                    0
+                ],
+                "upper": [
+                    255,
+                    255,
+                    255
+                ],
+                "lower": [
+                    180,
+                    180,
+                    180
+                ],
                 "connected": true,
                 "count": 10
             }
@@ -896,7 +1233,12 @@
             "type": "OCR",
             "param": {
                 "roi": "沙盘重构_寒境曙光_数字颜色",
-                "roi_offset": [-2, -2, 4, 4],
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
                 "expected": "1",
                 "only_rec": true
             }
@@ -906,7 +1248,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [300, 1, 978, 635],
+                "roi": [
+                    300,
+                    1,
+                    978,
+                    635
+                ],
                 "expected": "未达标"
             }
         },
@@ -916,7 +1263,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [1169, 13, 83, 48],
+                "roi": [
+                    1169,
+                    13,
+                    83,
+                    48
+                ],
                 "expected": "暂离"
             }
         },
@@ -929,7 +1281,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [300, 1, 978, 635],
+                "roi": [
+                    300,
+                    1,
+                    978,
+                    635
+                ],
                 "expected": "已达标"
             }
         },
@@ -958,7 +1315,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [739, 70, 249, 50],
+                "roi": [
+                    739,
+                    70,
+                    249,
+                    50
+                ],
                 "expected": [
                     "旧国遗产",
                     "拓荒",
@@ -981,7 +1343,10 @@
         "action": {
             "type": "Click",
             "param": {
-                "target": [38, 555]
+                "target": [
+                    38,
+                    555
+                ]
             }
         },
         "post_delay": 1000
@@ -990,7 +1355,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [300, 1, 978, 635],
+                "roi": [
+                    300,
+                    1,
+                    978,
+                    635
+                ],
                 "expected": "已达标"
             }
         },
@@ -1003,15 +1373,32 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [998, 128, 206, 40],
-                "expected": ["新苏菲亚币", "资产", "不足"],
-                "replace": [["市", "币"]]
+                "roi": [
+                    998,
+                    128,
+                    206,
+                    40
+                ],
+                "expected": [
+                    "新苏菲亚币",
+                    "资产",
+                    "不足"
+                ],
+                "replace": [
+                    [
+                        "市",
+                        "币"
+                    ]
+                ]
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [822, 521]
+                "target": [
+                    822,
+                    521
+                ]
             }
         },
         "next": [
@@ -1025,7 +1412,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [742, 435, 499, 268],
+                "roi": [
+                    742,
+                    435,
+                    499,
+                    268
+                ],
                 "expected": "区域未连通"
             }
         },
@@ -1033,7 +1425,10 @@
         "action": {
             "type": "Click",
             "param": {
-                "target": [100, 100]
+                "target": [
+                    100,
+                    100
+                ]
             }
         },
         "post_wait_freezes": {
@@ -1072,7 +1467,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [300, 1, 978, 635],
+                "roi": [
+                    300,
+                    1,
+                    978,
+                    635
+                ],
                 "expected": "已达标"
             }
         },
@@ -1080,7 +1480,10 @@
             "type": "Swipe",
             "param": {
                 "begin": true,
-                "end": [1052, 342],
+                "end": [
+                    1052,
+                    342
+                ],
                 "duration": 2000
             }
         },
@@ -1092,7 +1495,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [69, 43, 159, 63],
+                "roi": [
+                    69,
+                    43,
+                    159,
+                    63
+                ],
                 "expected": "领取奖励"
             }
         },
@@ -1111,17 +1519,30 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [78, 52, 146, 46],
+                "roi": [
+                    78,
+                    52,
+                    146,
+                    46
+                ],
                 "expected": "选择图纸"
             }
         },
-        "next": ["领取战斗奖励", "[JumpBack]选择图纸2_寒境曙光"]
+        "next": [
+            "领取战斗奖励",
+            "[JumpBack]选择图纸2_寒境曙光"
+        ]
     },
     "选择图纸2_寒境曙光": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [162, 305, 1092, 60],
+                "roi": [
+                    162,
+                    305,
+                    1092,
+                    60
+                ],
                 "expected": ""
             }
         },
@@ -1133,7 +1554,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [523, 219, 235, 89],
+                "roi": [
+                    523,
+                    219,
+                    235,
+                    89
+                ],
                 "expected": "到达地区"
             }
         }
@@ -1142,7 +1568,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [1009, 619, 194, 78],
+                "roi": [
+                    1009,
+                    619,
+                    194,
+                    78
+                ],
                 "expected": "退出"
             }
         },
@@ -1160,8 +1591,16 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [80, 15, 59, 38],
-                "expected": ["返回", "暂离"]
+                "roi": [
+                    80,
+                    15,
+                    59,
+                    38
+                ],
+                "expected": [
+                    "返回",
+                    "暂离"
+                ]
             }
         },
         "action": {
@@ -1180,7 +1619,12 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [994, 551, 261, 166],
+                "roi": [
+                    994,
+                    551,
+                    261,
+                    166
+                ],
                 "template": "寒境曙光/启程.png"
             }
         },
@@ -1196,7 +1640,9 @@
             }
         },
         "post_delay": 1000,
-        "next": ["重置次数_寒境曙光"]
+        "next": [
+            "重置次数_寒境曙光"
+        ]
     },
     "重置次数_寒境曙光": {
         "action": {
@@ -1204,7 +1650,10 @@
             "param": {
                 "custom_action": "ResetCount",
                 "custom_action_param": {
-                    "nodes": ["沙盘重构_寒境曙光", "重开游戏_寒境曙光"]
+                    "nodes": [
+                        "沙盘重构_寒境曙光",
+                        "重开游戏_寒境曙光"
+                    ]
                 }
             }
         }
@@ -1213,14 +1662,22 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [522, 231, 266, 60],
+                "roi": [
+                    522,
+                    231,
+                    266,
+                    60
+                ],
                 "expected": "考核等级提升"
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [100, 100]
+                "target": [
+                    100,
+                    100
+                ]
             }
         }
     },
@@ -1228,14 +1685,22 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [540, 317, 198, 45],
+                "roi": [
+                    540,
+                    317,
+                    198,
+                    45
+                ],
                 "expected": "是否确定终止战斗"
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [766, 457]
+                "target": [
+                    766,
+                    457
+                ]
             }
         }
     },
@@ -1243,7 +1708,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [896, 617, 77, 52],
+                "roi": [
+                    896,
+                    617,
+                    77,
+                    52
+                ],
                 "expected": "终止"
             }
         },
@@ -1256,33 +1726,54 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [759, 380, 125, 57],
+                "roi": [
+                    759,
+                    380,
+                    125,
+                    57
+                ],
                 "expected": "离开山谷"
             }
         },
         "action": {
             "type": "Click"
         },
-        "next": ["继续_寒境曙光", "[JumpBack]继续对话_寒境曙光"]
+        "next": [
+            "继续_寒境曙光",
+            "[JumpBack]继续对话_寒境曙光"
+        ]
     },
     "失落白银城_寒境曙光": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [759, 380, 125, 57],
+                "roi": [
+                    759,
+                    380,
+                    125,
+                    57
+                ],
                 "expected": "暂不前往"
             }
         },
         "action": {
             "type": "Click"
         },
-        "next": ["继续_寒境曙光", "[JumpBack]继续对话_寒境曙光"]
+        "next": [
+            "继续_寒境曙光",
+            "[JumpBack]继续对话_寒境曙光"
+        ]
     },
     "继续_寒境曙光": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [1025, 617, 240, 96],
+                "roi": [
+                    1025,
+                    617,
+                    240,
+                    96
+                ],
                 "template": "寒境曙光/继续.png",
                 "threshold": 0.85
             }
@@ -1295,17 +1786,29 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [817, 78, 367, 47],
+                "roi": [
+                    817,
+                    78,
+                    367,
+                    47
+                ],
                 "expected": "港口异常点"
             }
         },
-        "next": ["选择代理_寒境曙光"]
+        "next": [
+            "选择代理_寒境曙光"
+        ]
     },
     "选择代理_寒境曙光": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [734, 487, 279, 157],
+                "roi": [
+                    734,
+                    487,
+                    279,
+                    157
+                ],
                 "expected": "代理作战"
             }
         },
@@ -1318,14 +1821,22 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [437, 120, 553, 345],
+                "roi": [
+                    437,
+                    120,
+                    553,
+                    345
+                ],
                 "expected": "雪域"
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [100, 100]
+                "target": [
+                    100,
+                    100
+                ]
             }
         },
         "next": [
@@ -1341,14 +1852,22 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [492, 258, 302, 86],
+                "roi": [
+                    492,
+                    258,
+                    302,
+                    86
+                ],
                 "expected": "港口"
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [100, 100]
+                "target": [
+                    100,
+                    100
+                ]
             }
         },
         "pre_wait_freezes": {
@@ -1366,9 +1885,22 @@
                         "recognition": {
                             "type": "ColorMatch",
                             "param": {
-                                "roi": [83, 482, 1164, 134],
-                                "lower": [27, 55, 79],
-                                "upper": [62, 80, 100],
+                                "roi": [
+                                    83,
+                                    482,
+                                    1164,
+                                    134
+                                ],
+                                "lower": [
+                                    27,
+                                    55,
+                                    79
+                                ],
+                                "upper": [
+                                    62,
+                                    80,
+                                    100
+                                ],
                                 "connected": true,
                                 "count": 1700
                             }
@@ -1379,7 +1911,12 @@
                             "type": "OCR",
                             "param": {
                                 "roi": "领取战斗奖励_文字",
-                                "roi_offset": [-10, 0, 20, 0],
+                                "roi_offset": [
+                                    -10,
+                                    0,
+                                    20,
+                                    0
+                                ],
                                 "expected": "确定"
                             }
                         }
@@ -1396,7 +1933,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [755, 558, 135, 52],
+                "roi": [
+                    755,
+                    558,
+                    135,
+                    52
+                ],
                 "expected": "进入战斗"
             }
         },
@@ -1408,14 +1950,22 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [567, 234, 157, 49],
+                "roi": [
+                    567,
+                    234,
+                    157,
+                    49
+                ],
                 "expected": "获得奖励"
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [100, 100]
+                "target": [
+                    100,
+                    100
+                ]
             }
         },
         "post_delay": 1000
@@ -1424,7 +1974,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [731, 300, 544, 415],
+                "roi": [
+                    731,
+                    300,
+                    544,
+                    415
+                ],
                 "expected": [
                     "行动点不足",
                     "^继续$",
@@ -1447,14 +2002,22 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [520, 318, 247, 45],
+                "roi": [
+                    520,
+                    318,
+                    247,
+                    45
+                ],
                 "expected": "行动点不足，是否休息"
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [724, 459]
+                "target": [
+                    724,
+                    459
+                ]
             }
         },
         "post_delay": 1000,
@@ -1473,7 +2036,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [1134, 649, 113, 45],
+                "roi": [
+                    1134,
+                    649,
+                    113,
+                    45
+                ],
                 "expected": "下一天"
             }
         },
@@ -1483,14 +2051,22 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [371, 581, 530, 138],
+                "roi": [
+                    371,
+                    581,
+                    530,
+                    138
+                ],
                 "expected": "点击空白处"
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [100, 100]
+                "target": [
+                    100,
+                    100
+                ]
             }
         },
         "post_delay": 1500
@@ -1499,7 +2075,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [900, 624, 103, 34],
+                "roi": [
+                    900,
+                    624,
+                    103,
+                    34
+                ],
                 "expected": "招募次数"
             }
         },
@@ -1513,7 +2094,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [1137, 640, 38, 26],
+                "roi": [
+                    1137,
+                    640,
+                    38,
+                    26
+                ],
                 "expected": "0/1",
                 "only_rec": true
             }
@@ -1521,13 +2107,20 @@
         "action": {
             "type": "Click"
         },
-        "next": ["刷新次数用尽失败_寒镜曙光"]
+        "next": [
+            "刷新次数用尽失败_寒镜曙光"
+        ]
     },
     "刷新人物_寒境曙光": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [1137, 640, 38, 26],
+                "roi": [
+                    1137,
+                    640,
+                    38,
+                    26
+                ],
                 "expected": "1/1",
                 "only_rec": true
             }
@@ -1540,19 +2133,38 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [199, 60, 926, 50],
-                "expected": ["深红囚影", "誓焰", "晖暮", "深谣", "终焉"]
+                "roi": [
+                    199,
+                    60,
+                    926,
+                    50
+                ],
+                "expected": [
+                    "深红囚影",
+                    "誓焰",
+                    "晖暮",
+                    "深谣",
+                    "终焉"
+                ]
             }
         },
         "post_delay": 1000,
-        "next": ["关闭提示北部港口_寒境曙光", "[JumpBack]招募人物_寒境曙光"]
+        "next": [
+            "关闭提示北部港口_寒境曙光",
+            "[JumpBack]招募人物_寒境曙光"
+        ]
     },
     "招募人物_寒境曙光": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": "选择已有战斗逻辑的人物",
-                "roi_offset": [-90, 0, 90, 330],
+                "roi_offset": [
+                    -90,
+                    0,
+                    90,
+                    330
+                ],
                 "expected": "招募"
             }
         },
@@ -1565,7 +2177,12 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [994, 551, 261, 166],
+                "roi": [
+                    994,
+                    551,
+                    261,
+                    166
+                ],
                 "template": "寒境曙光/启程.png"
             }
         },
@@ -1576,14 +2193,22 @@
             "time": 1000,
             "timeout": 6000
         },
-        "next": ["确认进入场景_寒境曙光", "强制失败"]
+        "next": [
+            "确认进入场景_寒境曙光",
+            "强制失败"
+        ]
     },
     "确认进入场景_寒境曙光": {
         "max_hit": 3,
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [1131, 651, 111, 44],
+                "roi": [
+                    1131,
+                    651,
+                    111,
+                    44
+                ],
                 "expected": "下一天"
             }
         },
@@ -1593,7 +2218,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [1131, 651, 111, 44],
+                "roi": [
+                    1131,
+                    651,
+                    111,
+                    44
+                ],
                 "expected": "下一天"
             }
         },
@@ -1629,7 +2259,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [1131, 651, 111, 44],
+                "roi": [
+                    1131,
+                    651,
+                    111,
+                    44
+                ],
                 "expected": "下一天"
             }
         },
@@ -1645,14 +2280,22 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [460, 311, 363, 61],
+                "roi": [
+                    460,
+                    311,
+                    363,
+                    61
+                ],
                 "expected": "尚有行动点未消耗，是否结束日程"
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [725, 454]
+                "target": [
+                    725,
+                    454
+                ]
             }
         }
     },
@@ -1660,24 +2303,43 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [911, 543, 119, 62],
+                "roi": [
+                    911,
+                    543,
+                    119,
+                    62
+                ],
                 "expected": "下一步"
             }
         },
         "action": {
             "type": "Swipe",
             "param": {
-                "begin": [400, 50],
-                "end": [400, 700]
+                "begin": [
+                    400,
+                    50
+                ],
+                "end": [
+                    400,
+                    700
+                ]
             }
         },
-        "next": ["选择具体难度_寒境曙光", "[JumpBack]难度切换_寒境曙光"]
+        "next": [
+            "选择具体难度_寒境曙光",
+            "[JumpBack]难度切换_寒境曙光"
+        ]
     },
     "选择具体难度_寒境曙光": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [364, 38, 178, 649],
+                "roi": [
+                    364,
+                    38,
+                    178,
+                    649
+                ],
                 "expected": "常温"
             }
         },
@@ -1685,20 +2347,31 @@
             "type": "Click"
         },
         "post_delay": 1000,
-        "next": ["选择难度完成_寒境曙光", "[JumpBack]下一步"]
+        "next": [
+            "选择难度完成_寒境曙光",
+            "[JumpBack]下一步"
+        ]
     },
     "难度切换_寒境曙光": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [911, 543, 119, 62],
+                "roi": [
+                    911,
+                    543,
+                    119,
+                    62
+                ],
                 "expected": "下一步"
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [413, 459]
+                "target": [
+                    413,
+                    459
+                ]
             }
         },
         "post_delay": 1000
@@ -1707,7 +2380,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [467, 11, 355, 159],
+                "roi": [
+                    467,
+                    11,
+                    355,
+                    159
+                ],
                 "expected": "选择开局效果"
             }
         }
@@ -1716,7 +2394,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [508, 58, 268, 61],
+                "roi": [
+                    508,
+                    58,
+                    268,
+                    61
+                ],
                 "expected": "选择开局效果"
             }
         },
@@ -1731,7 +2414,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [29, 360, 1250, 73],
+                "roi": [
+                    29,
+                    360,
+                    1250,
+                    73
+                ],
                 "expected": "通关(常温|初冷|微寒|冰冽|严霜|极寒)或以上难度解"
             }
         },
@@ -1746,7 +2434,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [29, 360, 1250, 73],
+                "roi": [
+                    29,
+                    360,
+                    1250,
+                    73
+                ],
                 "expected": "军事"
             }
         },
@@ -1754,21 +2447,35 @@
             "type": "Click"
         },
         "post_delay": 1000,
-        "next": ["选择开局完成_寒境曙光", "选择人物_寒境曙光"]
+        "next": [
+            "选择开局完成_寒境曙光",
+            "选择人物_寒境曙光"
+        ]
     },
     "开局切换_寒境曙光": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [508, 58, 268, 61],
+                "roi": [
+                    508,
+                    58,
+                    268,
+                    61
+                ],
                 "expected": "选择开局效果"
             }
         },
         "action": {
             "type": "Swipe",
             "param": {
-                "begin": [750, 600],
-                "end": [550, 600]
+                "begin": [
+                    750,
+                    600
+                ],
+                "end": [
+                    550,
+                    600
+                ]
             }
         },
         "post_delay": 1000
@@ -1778,7 +2485,12 @@
             "type": "OCR",
             "param": {
                 "roi": "选择具体开局_寒境曙光",
-                "roi_offset": [-20, 0, 40, 300],
+                "roi_offset": [
+                    -20,
+                    0,
+                    40,
+                    300
+                ],
                 "expected": "确定"
             }
         },
@@ -1797,7 +2509,12 @@
                         "recognition": {
                             "type": "TemplateMatch",
                             "param": {
-                                "roi": [38, 173, 244, 53],
+                                "roi": [
+                                    38,
+                                    173,
+                                    244,
+                                    53
+                                ],
                                 "template": "寒境曙光/分数区域.png",
                                 "green_mask": true
                             }
@@ -1808,7 +2525,12 @@
                             "type": "OCR",
                             "param": {
                                 "roi": "_当前分数区域",
-                                "roi_offset": [0, 0, 60, 0],
+                                "roi_offset": [
+                                    0,
+                                    0,
+                                    60,
+                                    0
+                                ],
                                 "expected": "^\\d*$",
                                 "only_rec": true
                             }
@@ -1829,7 +2551,12 @@
                         "recognition": {
                             "type": "TemplateMatch",
                             "param": {
-                                "roi": [80, 67, 182, 55],
+                                "roi": [
+                                    80,
+                                    67,
+                                    182,
+                                    55
+                                ],
                                 "template": "寒境曙光/目标分数区域.png",
                                 "green_mask": true
                             }
@@ -1840,7 +2567,12 @@
                             "type": "OCR",
                             "param": {
                                 "roi": "_目标分数区域",
-                                "roi_offset": [0, 0, 70, 0],
+                                "roi_offset": [
+                                    0,
+                                    0,
+                                    70,
+                                    0
+                                ],
                                 "expected": "^\\d*$",
                                 "only_rec": true
                             }
@@ -1855,7 +2587,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [90, 238, 105, 44],
+                "roi": [
+                    90,
+                    238,
+                    105,
+                    44
+                ],
                 "expected": "^\\d*$",
                 "only_rec": true
             }
@@ -1865,7 +2602,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [223, 248, 31, 29],
+                "roi": [
+                    223,
+                    248,
+                    31,
+                    29
+                ],
                 "expected": "^\\d*$",
                 "only_rec": true
             }
@@ -1875,7 +2617,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [90, 327, 105, 44],
+                "roi": [
+                    90,
+                    327,
+                    105,
+                    44
+                ],
                 "expected": "^\\d*$",
                 "only_rec": true
             }
@@ -1885,7 +2632,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [223, 336, 31, 27],
+                "roi": [
+                    223,
+                    336,
+                    31,
+                    27
+                ],
                 "expected": "^\\d*$",
                 "only_rec": true
             }
@@ -1895,7 +2647,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [90, 412, 107, 46],
+                "roi": [
+                    90,
+                    412,
+                    107,
+                    46
+                ],
                 "expected": "^\\d*$",
                 "only_rec": true
             }
@@ -1905,7 +2662,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [223, 424, 31, 24],
+                "roi": [
+                    223,
+                    424,
+                    31,
+                    24
+                ],
                 "expected": "^\\d*$",
                 "only_rec": true
             }
