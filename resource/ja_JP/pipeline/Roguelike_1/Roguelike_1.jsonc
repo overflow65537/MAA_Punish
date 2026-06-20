@@ -322,6 +322,15 @@
             }
         }
     },
+    "确认进入战斗冲突": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "動畫設定"
+                ]
+            }
+        }
+    },
     "招募奖励事件_宣叙妄响": {
         "recognition": {
             "param": {
