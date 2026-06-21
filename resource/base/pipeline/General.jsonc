@@ -177,6 +177,7 @@
             "检查主界面2",
             "点击频率过快",
             "检查主界面",
+            "[JumpBack]从战斗中返回",
             "[JumpBack]退出血清界面_err",
             "返回主菜单",
             "[JumpBack]从选人界面返回_厄愿潮声",
@@ -220,9 +221,16 @@
             }
         },
         "next": [
-            "没打过_宣叙妄响_reco",
             "返回主菜单",
+            "[JumpBack]退出_肉鸽",
+            "[JumpBack]暂离_寒境曙光",
             "[JumpBack]关闭奖励",
+            "[JumpBack]驻扎点报警_寒境曙光",
+            "[JumpBack]支援等级提升_寒境曙光",
+            "[JumpBack]选择军事支援_寒境曙光",
+            "[JumpBack]选择经济支援_寒境曙光",
+            "[JumpBack]选择基建支援_寒境曙光",
+            "[JumpBack]关闭奖励_寒境曙光",
             "[JumpBack]下一页",
             "[JumpBack]确定",
             "[JumpBack]撤退_宣叙妄响"
