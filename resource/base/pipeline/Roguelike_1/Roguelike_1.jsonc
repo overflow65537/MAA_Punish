@@ -1332,7 +1332,7 @@
             "[JumpBack]跳过选择_宣叙妄响",
             "[JumpBack]确定",
             "[JumpBack]就此收场",
-            "[JumpBack]退出结算_宣叙妄响"
+            "[JumpBack]退出_肉鸽"
         ]
     },
     "揭开帷幕_宣叙妄响_reco": {
@@ -1380,24 +1380,6 @@
         "post_wait_freezes": {
             "time": 1000
         }
-    },
-    "退出结算_宣叙妄响": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1030,
-                    626,
-                    105,
-                    74
-                ],
-                "expected": "退出"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 2000
     },
     "就此收场": {
         "recognition": {

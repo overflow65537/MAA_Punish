@@ -37,5 +37,22 @@
         "action": {
             "type": "Click"
         }
+    },
+    "退出_肉鸽": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    900,
+                    597,
+                    330,
+                    103
+                ],
+                "expected": "退出"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }

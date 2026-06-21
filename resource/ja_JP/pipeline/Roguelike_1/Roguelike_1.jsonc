@@ -584,13 +584,6 @@
             }
         }
     },
-    "退出结算_宣叙妄响": {
-        "recognition": {
-            "param": {
-                "expected": "戻る"
-            }
-        }
-    },
     "就此收场": {
         "recognition": {
             "param": {

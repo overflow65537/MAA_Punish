@@ -195,6 +195,39 @@
             "aborted": true
         }
     },
+    "从战斗中返回": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    990,
+                    567,
+                    131,
+                    131
+                ],
+                "template": [
+                    "战斗/闪避.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1217,
+                    47
+                ]
+            }
+        },
+        "next": [
+            "没打过_宣叙妄响_reco",
+            "返回主菜单",
+            "[JumpBack]关闭奖励",
+            "[JumpBack]下一页",
+            "[JumpBack]确定",
+            "[JumpBack]撤退_宣叙妄响"
+        ]
+    },
     "重启游戏": {
         "action": {
             "type": "StopApp",

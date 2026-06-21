@@ -4,7 +4,7 @@
             "神寂启示录内部",
             "没过教程提示",
             "[JumpBack]跳过剧情",
-            "[JumpBack]退出_神寂启示录",
+            "[JumpBack]退出_肉鸽",
             "[JumpBack]下一页_神寂启示录",
             "[JumpBack]废弃刻印",
             "[JumpBack]处理刻印过多",
@@ -500,23 +500,6 @@
                     61
                 ],
                 "expected": "跳过"
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "退出_神寂启示录": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    900,
-                    597,
-                    74,
-                    36
-                ],
-                "expected": "退出"
             }
         },
         "action": {
