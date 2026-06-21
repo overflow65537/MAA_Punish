@@ -9,7 +9,7 @@
                     281,
                     187
                 ],
-                "expected": "战斗"
+                "expected": "^战斗$"
             }
         },
         "action": {
