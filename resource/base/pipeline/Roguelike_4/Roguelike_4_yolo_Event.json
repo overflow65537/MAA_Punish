@@ -4,7 +4,9 @@
             "type": "NeuralNetworkDetect",
             "param": {
                 "model": "RG4_Zone.onnx",
-                "expected": [],
+                "expected": [
+                    2
+                ],
                 "threshold": [
                     0.7
                 ]
@@ -39,7 +41,9 @@
             "type": "NeuralNetworkDetect",
             "param": {
                 "model": "RG4_Zone.onnx",
-                "expected": [],
+                "expected": [
+                    4
+                ],
                 "threshold": [
                     0.8
                 ]
@@ -65,7 +69,9 @@
             "type": "NeuralNetworkDetect",
             "param": {
                 "model": "RG4_Zone.onnx",
-                "expected": [],
+                "expected": [
+                    0
+                ],
                 "threshold": [
                     0.8
                 ]

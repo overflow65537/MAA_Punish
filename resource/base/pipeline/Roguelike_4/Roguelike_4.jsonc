@@ -252,7 +252,9 @@
             "type": "NeuralNetworkDetect",
             "param": {
                 "model": "RG4_Zone.onnx",
-                "expected": [],
+                "expected": [
+                    3
+                ],
                 "threshold": [
                     0.7
                 ]
