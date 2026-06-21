@@ -168,6 +168,14 @@
         }
     },
     "滑动_选人": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of":[
+                    "返回"
+                ]
+            }
+        },
         "action": {
             "type": "Swipe",
             "param": {
