@@ -36,7 +36,7 @@
             "[JumpBack]选择首发2_矩阵循生",
             "[JumpBack]启程_矩阵循生",
             "[JumpBack]下一页",
-            "[JumpBack]点击继续_矩阵循生",
+            "[JumpBack]点击继续",
             "[JumpBack]确认结束购物_矩阵循生",
             "[JumpBack]终止_矩阵循生",
             "[JumpBack]打开矩阵循生",
@@ -53,27 +53,7 @@
             "Node.Recognition.Succeeded": "$focus.矩阵循生"
         }
     },
-    "点击继续_矩阵循生": {
-        "desc": "颜色太浅,需要only_rec",
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    591,
-                    669,
-                    99,
-                    29
-                ],
-                "expected": [
-                    "继续"
-                ],
-                "only_rec": true
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
+
     "返回_矩阵循生": {
         "recognition": {
             "type": "OCR",

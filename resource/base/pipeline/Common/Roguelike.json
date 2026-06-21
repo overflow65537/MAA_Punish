@@ -25,12 +25,13 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    454,
-                    631,
-                    426,
-                    89
+                    591,
+                    669,
+                    99,
+                    29
                 ],
-                "expected": "继续"
+                "expected": "继续",
+                "only_one": true
             }
         },
         "action": {
