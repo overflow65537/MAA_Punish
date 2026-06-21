@@ -31,7 +31,7 @@
                     29
                 ],
                 "expected": "继续",
-                "only_one": true
+                "only_rec": true
             }
         },
         "action": {
