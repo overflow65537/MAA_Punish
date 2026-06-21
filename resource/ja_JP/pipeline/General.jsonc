@@ -109,16 +109,6 @@
             }
         }
     },
-    "确定_sp": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "^OK$",
-                    "^確認$"
-                ]
-            }
-        }
-    },
     "退出血清界面_err": {
         "recognition": {
             "param": {

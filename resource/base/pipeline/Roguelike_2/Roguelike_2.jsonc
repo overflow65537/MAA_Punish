@@ -38,6 +38,25 @@
             "Node.Recognition.Succeeded": "$focus.厄愿潮声"
         }
     },
+    "从选人界面返回_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    218,
+                    114,
+                    331,
+                    176
+                ],
+                "expected": [
+                    "提示"
+                ]
+            }
+        },
+        "next": [
+            "确定"
+        ]
+    },
     "下一步_厄愿潮声": {
         "desc": "only_rec的下一步,跳过OCR缓存",
         "recognition": {

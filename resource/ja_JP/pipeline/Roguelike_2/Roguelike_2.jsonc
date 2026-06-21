@@ -1,4 +1,14 @@
 {
+    "从选人界面返回_厄愿潮声": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "ヒント",
+                    "提示"
+                ]
+            }
+        }
+    },
     "下一步_厄愿潮声": {
         "recognition": {
             "param": {

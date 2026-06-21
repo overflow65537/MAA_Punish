@@ -203,19 +203,11 @@
     "返回主菜单_err": {
         "next": [
             "点击频率过快",
-            "错误处理流程"
-        ],
-        "focus": {
-            "Node.Recognition.Succeeded": "$focus.返回主菜单_err",
-            "aborted": true
-        }
-    },
-    "错误处理流程": {
-        "next": [
             "检查主界面",
-            "退出血清界面_err",
+            "[JumpBack]退出血清界面_err",
             "返回主菜单",
             "返回主菜单_图标",
+            "从选人界面返回_厄愿潮声",
             "[JumpBack]退出_寒境曙光",
             "[JumpBack]选择宝箱奖励_厄愿潮声",
             "[JumpBack]点击继续",
@@ -225,7 +217,11 @@
         ],
         "on_error": [
             "重启游戏"
-        ]
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.返回主菜单_err",
+            "aborted": true
+        }
     },
     "重启游戏": {
         "action": {
@@ -325,7 +321,7 @@
         "next": [
             "点击频率过快_确认",
             "点击频率过快",
-            "错误处理流程"
+            "返回主菜单_err"
         ]
     },
     "点击频率过快_确认": {
@@ -345,7 +341,7 @@
             "type": "Click"
         },
         "next": [
-            "错误处理流程"
+            "返回主菜单_err"
         ]
     },
     "确定": {
@@ -369,27 +365,6 @@
             "timeout": 5000
         }
     },
-    "确定_sp": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    685,
-                    449,
-                    264,
-                    151
-                ],
-                "expected": "^确定$"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "返回主菜单"
-        ]
-    },
     "退出血清界面_err": {
         "recognition": {
             "type": "OCR",
@@ -406,10 +381,7 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 1000,
-        "next": [
-            "错误处理流程"
-        ]
+        "post_delay": 1000
     },
     "识别体力": {
         "recognition": {
