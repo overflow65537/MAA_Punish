@@ -804,23 +804,6 @@
             "type": "Click"
         }
     },
-    "点击继续": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    454,
-                    631,
-                    426,
-                    89
-                ],
-                "expected": "继续"
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
     "离开_矩阵循生": {
         "recognition": {
             "type": "OCR",
