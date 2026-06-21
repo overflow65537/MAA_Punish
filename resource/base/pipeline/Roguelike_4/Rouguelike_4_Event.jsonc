@@ -16,6 +16,9 @@
                 ]
             }
         },
+        "action": {
+            "type": "Screencap"
+        },
         "focus": {
             "Node.Recognition.Succeeded": "$focus.战斗地块_寒境曙光"
         },
@@ -311,6 +314,9 @@
                 "expected": "汇合"
             }
         },
+        "action": {
+            "type": "Screencap"
+        },
         "focus": {
             "Node.Recognition.Succeeded": "$focus.汇合_寒境曙光"
         },
@@ -384,6 +390,9 @@
                 ],
                 "expected": "拓荒"
             }
+        },
+        "action": {
+            "type": "Screencap"
         },
         "focus": {
             "Node.Recognition.Succeeded": "$focus.拓荒_寒境曙光"
@@ -483,6 +492,9 @@
                 "expected": "前方有陷阱"
             }
         },
+        "action": {
+            "type": "Screencap"
+        },
         "focus": {
             "Node.Recognition.Succeeded": "$focus.前方有陷阱_寒境曙光"
         },
@@ -541,6 +553,9 @@
                 "expected": "剩余资金"
             }
         },
+        "action": {
+            "type": "Screencap"
+        },
         "focus": {
             "Node.Recognition.Succeeded": "$focus.剩余资金_寒境曙光"
         },
@@ -596,6 +611,9 @@
                 ],
                 "expected": "冬日之"
             }
+        },
+        "action": {
+            "type": "Screencap"
         },
         "focus": {
             "Node.Recognition.Succeeded": "$focus.冬日之影_寒境曙光"
@@ -694,6 +712,9 @@
                 ]
             }
         },
+        "action": {
+            "type": "Screencap"
+        },
         "focus": {
             "Node.Recognition.Succeeded": "$focus.战马瑞恩_寒境曙光"
         },
@@ -770,6 +791,9 @@
                 ]
             }
         },
+        "action": {
+            "type": "Screencap"
+        },
         "focus": {
             "Node.Recognition.Succeeded": "$focus.鲨鱼置物箱_寒境曙光"
         },
@@ -826,6 +850,9 @@
                 "expected": "学者来访"
             }
         },
+        "action": {
+            "type": "Screencap"
+        },
         "focus": {
             "Node.Recognition.Succeeded": "$focus.学者来访_寒境曙光"
         },
@@ -880,6 +907,9 @@
                 ],
                 "expected": "运力紧张"
             }
+        },
+        "action": {
+            "type": "Screencap"
         },
         "focus": {
             "Node.Recognition.Succeeded": "$focus.运力紧张_寒境曙光"
@@ -937,6 +967,9 @@
                 "expected": "废弃港口"
             }
         },
+        "action": {
+            "type": "Screencap"
+        },
         "focus": {
             "Node.Recognition.Succeeded": "$focus.废弃港口_寒境曙光"
         },
@@ -991,6 +1024,9 @@
                 ],
                 "expected": "商队来访"
             }
+        },
+        "action": {
+            "type": "Screencap"
         },
         "focus": {
             "Node.Recognition.Succeeded": "$focus.商队来访_寒境曙光"
@@ -1051,6 +1087,9 @@
                 ]
             }
         },
+        "action": {
+            "type": "Screencap"
+        },
         "focus": {
             "Node.Recognition.Succeeded": "$focus.拦路的废墟_寒境曙光"
         },
@@ -1105,6 +1144,9 @@
                 ],
                 "expected": "难民团到访"
             }
+        },
+        "action": {
+            "type": "Screencap"
         },
         "focus": {
             "Node.Recognition.Succeeded": "$focus.难民团到访_寒境曙光"
@@ -1180,6 +1222,9 @@
                 "expected": "建筑师的建议"
             }
         },
+        "action": {
+            "type": "Screencap"
+        },
         "focus": {
             "Node.Recognition.Succeeded": "$focus.建筑师的建议_寒境曙光"
         },
@@ -1237,6 +1282,9 @@
                     "遗产"
                 ]
             }
+        },
+        "action": {
+            "type": "Screencap"
         },
         "focus": {
             "Node.Recognition.Succeeded": "$focus.旧国遗产_寒境曙光"
@@ -1310,6 +1358,9 @@
                 "order_by": "Score"
             }
         },
+        "action": {
+            "type": "Screencap"
+        },
         "focus": {
             "Node.Recognition.Succeeded": "$focus.纯色地块黄_寒境曙光"
         },
@@ -1352,6 +1403,9 @@
                 "order_by": "Score"
             }
         },
+        "action": {
+            "type": "Screencap"
+        },
         "focus": {
             "Node.Recognition.Succeeded": "$focus.纯色地块红_寒境曙光"
         },
@@ -1376,12 +1430,23 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Screencap"
         },
-        "post_delay": 1000,
         "focus": {
             "Node.Recognition.Succeeded": "$focus.纯色地块蓝_寒境曙光"
-        }
+        },
+        "next": [
+            "纯色地块蓝_寒境曙光_执行器"
+        ]
+    },
+    "纯色地块蓝_寒境曙光_执行器": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": "纯色地块蓝_寒境曙光"
+            }
+        },
+        "post_delay": 1000
     },
     "寒境蓝色地块检查": {
         "recognition": {
