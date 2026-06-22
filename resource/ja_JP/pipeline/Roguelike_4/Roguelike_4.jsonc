@@ -59,8 +59,7 @@
         "recognition": {
             "param": {
                 "expected": [
-                    "物资$",
-                    "物資"
+                    "物资$"
                 ]
             }
         }
