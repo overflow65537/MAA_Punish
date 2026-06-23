@@ -343,6 +343,53 @@ class CombatTask:
 
         return allowed[self.loop_count % len(allowed)][0]
 
+    def request_role_switch(self, requester: BaseRole) -> bool:
+        """切人统一入口：由 BaseRole.perform(switch) 或 switch_next() 调用。"""
+        from_name = resolve_role_name(requester.cls_name)
+        if not self.is_switch_enabled():
+            self.logger.info("切人跳过 [%s]: 未开启自动切换", from_name)
+            requester.on_switch_failed()
+            return False
+        if self.is_switch_disabled():
+            self.logger.info("切人跳过 [%s]: 切人已屏蔽", from_name)
+            requester.on_switch_failed()
+            return False
+        if not self.can_switch():
+            self.logger.info(
+                "切人跳过 [%s @%s]: CD 中剩余 %.1fs",
+                from_name,
+                requester.color,
+                self.switch_cooldown_remaining(),
+            )
+            requester.on_switch_failed()
+            return False
+
+        target_color = self.choose_switch_color(requester)
+        if not target_color:
+            self.logger.info(
+                "切人跳过 [%s @%s]: 无可用 QTE 目标",
+                from_name,
+                requester.color,
+            )
+            requester.on_switch_failed()
+            return False
+
+        target_cls = self.team.cls_at(target_color) if self.team else ""
+        self.logger.info(
+            "切人执行 [%s @%s] -> [%s @%s]",
+            from_name,
+            requester.color,
+            resolve_role_name(target_cls),
+            target_color,
+        )
+        if self.switch_to_color(target_color, attacker=requester):
+            requester.reset_state()
+            requester.on_switch_succeeded()
+            return True
+
+        requester.on_switch_failed()
+        return False
+
     def is_switch_enabled(self) -> bool:
         node = self.context.get_node_data("自动切换") or {}
         return bool(node.get("enabled", False))

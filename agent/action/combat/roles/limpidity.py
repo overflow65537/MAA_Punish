@@ -92,8 +92,6 @@ class Limpidity(BaseRole):
             self._phase_p2_burst()
         elif self.phase == "farm":
             self._phase_farm()
-        elif self.phase == "switch":
-            self._phase_switch()
         else:
             self.phase = "idle"
             self._phase_idle()
@@ -170,12 +168,9 @@ class Limpidity(BaseRole):
         if not self._is_atk1():
             self._enter_p1_post_ult(reason="霁梦: 未识别普攻1，跳过 p1 大招连段")
             return
-        self.action.use_skill()
+        self.action.use_skill_until_empty()
         self.action.auxiliary_machine()
         self.action.attack()
-        self._burst_ticks += 1
-        if self._burst_ticks < self._burst_total:
-            return
         self._enter_p1_post_ult()
 
     def _phase_p1_post_ult(self) -> None:
@@ -220,21 +215,14 @@ class Limpidity(BaseRole):
         self._begin_burst(_P2_BURST_TICKS, "p2_burst")
 
     def _phase_p2_burst(self) -> None:
-        self.action.use_skill()
+        self.action.use_skill_until_empty()
         self.action.auxiliary_machine()
-        self._burst_ticks += 1
-        if self._burst_ticks >= self._burst_total:
-            self.action.logger.info("霁梦: 映天地渡你新生")
-            self.action.use_qte()
-            self.phase = "switch"
+        self.action.logger.info("霁梦: 映天地渡你新生")
+        self.action.use_qte()
+        self.phase = "switch"
 
     def _phase_farm(self) -> None:
         self.action.attack()
         self._farm_ticks += 1
         if self._farm_ticks >= _FARM_MAX:
             self.phase = "idle"
-
-    def _phase_switch(self) -> None:
-        if self.switch_next():
-            self.action.logger.info("霁梦: 切换完成")
-        self.phase = "idle"

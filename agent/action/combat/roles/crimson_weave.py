@@ -277,9 +277,7 @@ class CrimsonWeave(BaseRole):
         self.action.logger.info("登龙完成")
 
         if self.action.check_Skill_energy_bar():
-            for _ in range(10):
-                self.action.use_skill()
-                time.sleep(0.02)
+            self.action.use_skill_until_empty()
             self.action.auxiliary_machine()
 
         for _ in range(10):
@@ -287,7 +285,6 @@ class CrimsonWeave(BaseRole):
             time.sleep(0.02)
 
         if self.switch_next():
-            self.action.logger.info("登龙后切换完成")
             return
 
         if self.action.check_Skill_energy_bar():
@@ -297,10 +294,10 @@ class CrimsonWeave(BaseRole):
             self.phase = "great_ball"
 
     def _cast_ult_if_ready(self) -> bool:
-        """大招条就绪则点大招；宁可误点也不漏点。"""
+        """大招条就绪则连放至能量空。"""
         if not self.action.check_Skill_energy_bar():
             return False
-        self.action.use_skill()
+        self.action.use_skill_until_empty()
         return True
 
     def _try_small_ult_now(self) -> bool:

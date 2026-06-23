@@ -56,6 +56,12 @@ class Stigmata(BaseRole):
         self._pending_switch = False
         self._last_log_key = ""
 
+    def on_switch_succeeded(self) -> None:
+        self._pending_switch = False
+
+    def on_switch_failed(self) -> None:
+        self.phase = "p2"
+
     def do_perform(self) -> None:
         if self.combat.context.tasker.stopping:
             return
@@ -74,8 +80,6 @@ class Stigmata(BaseRole):
             self._phase_core_wait()
         elif self.phase == "core_burst":
             self._phase_core_burst()
-        elif self.phase == "switch":
-            self._phase_switch()
         else:
             self.phase = "idle"
             self._phase_idle()
@@ -179,7 +183,7 @@ class Stigmata(BaseRole):
 
     def _phase_ult(self) -> None:
         if self._in_p2():
-            self.action.use_skill()
+            self.action.use_skill_until_empty()
             self.action.auxiliary_machine()
             self.action.use_qte()
             self.action.logger.info("深痕: p2 大招后 QTE 换人")
@@ -187,11 +191,8 @@ class Stigmata(BaseRole):
             self.phase = "switch"
             return
 
-        self.action.use_skill()
+        self.action.use_skill_until_empty()
         self.action.auxiliary_machine()
-        if self.action.check_Skill_energy_bar():
-            self.action.logger.info("深痕: p1 大招能量仍在，继续大招")
-            return
         self.action.logger.info("深痕: p1 大招结束")
         self.phase = "p2" if self._in_p2() else "p1"
 
@@ -230,12 +231,3 @@ class Stigmata(BaseRole):
         self._core_ticks += 1
         if self._core_ticks >= _CORE_BURST:
             self.phase = "p2" if self._in_p2() else "p1"
-
-    def _phase_switch(self) -> None:
-        if self.switch_next():
-            self.action.logger.info("深痕: 切换完成")
-            self._pending_switch = False
-            self.phase = "idle"
-            return
-        self.action.logger.info("深痕: 切人 CD 中，继续 p2 普攻")
-        self.phase = "p2"

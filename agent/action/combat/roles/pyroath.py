@@ -77,8 +77,6 @@ class Pyroath(BaseRole):
             self._phase_u3_farm()
         elif self.phase == "u3_finish":
             self._phase_u3_finish()
-        elif self.phase == "switch":
-            self._phase_switch()
         else:
             self.phase = "idle"
             self._phase_idle()
@@ -137,7 +135,7 @@ class Pyroath(BaseRole):
         self._farm_ticks += 1
 
     def _phase_u2_ult(self) -> None:
-        self.action.use_skill()
+        self.action.use_skill_until_empty()
         self.phase = "idle"
 
     def _phase_u3_farm(self) -> None:
@@ -149,12 +147,7 @@ class Pyroath(BaseRole):
 
     def _phase_u3_finish(self) -> None:
         self.action.long_press_attack(4000)
-        self.action.use_skill()
+        self.action.use_skill_until_empty()
         self.action.auxiliary_machine()
         self.action.use_qte()
         self.phase = "switch"
-
-    def _phase_switch(self) -> None:
-        if self.switch_next():
-            self.action.logger.info("誓焰: 切换完成")
-        self.phase = "idle"

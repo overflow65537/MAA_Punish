@@ -76,8 +76,6 @@ class InverseCrown(BaseRole):
             self._phase_skill()
         elif self.phase == "farm":
             self._phase_farm()
-        elif self.phase == "switch":
-            self._phase_switch()
         else:
             self.phase = "idle"
             self._phase_idle()
@@ -192,7 +190,3 @@ class InverseCrown(BaseRole):
         self._farm_ticks += 1
         if self._farm_ticks >= _FARM_MAX_TICKS:
             self.phase = "idle"
-
-    def _phase_switch(self) -> None:
-        self.switch_next()
-        self.phase = "idle"

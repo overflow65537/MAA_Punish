@@ -59,8 +59,7 @@ def finish_switch(role: BaseRole, *, attack_first: bool = False) -> None:
     if attack_first:
         role.action.attack()
     role.action.use_qte()
-    role.switch_next()
-    role.phase = "done"
+    role.phase = role.SWITCH_PHASE
 
 
 def timed_out(deadline: float | None) -> bool:

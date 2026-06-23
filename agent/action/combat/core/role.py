@@ -54,6 +54,8 @@ def resolve_role_name(cls_name: str) -> str:
 class BaseRole:
     """角色策略基类：组合 CombatActions，通过 CombatTask 切人。"""
 
+    SWITCH_PHASE = "switch"
+
     # 非 None 时覆盖 CombatTask.SWITCH_VERIFY_TIMEOUT（单次切人 QTE 尝试窗口）
     switch_verify_timeout: float | None = None
 
@@ -70,12 +72,22 @@ class BaseRole:
         self.action._role = self
 
     def perform(self) -> None:
+        if self.phase == self.SWITCH_PHASE:
+            self.combat.request_role_switch(self)
+            return
         if self.phase == "idle" and self.combat.refresh_field_role_on_idle(self):
             return
         self.do_perform()
 
     def do_perform(self) -> None:
         self.action.attack()
+
+    def on_switch_succeeded(self) -> None:
+        """切人成功后的角色侧收尾（默认 reset_state 已回到 idle）。"""
+
+    def on_switch_failed(self) -> None:
+        """切人失败后的回落 phase。"""
+        self.phase = "idle"
 
     def get_switch_priority(
         self, requester: BaseRole, has_intro: bool = False
@@ -104,24 +116,7 @@ class BaseRole:
 
     def switch_next(self) -> bool:
         """请求战斗管理器切到下一合适角色（受 Pipeline「自动切换」开关控制）。"""
-        if not self.combat.is_switch_enabled():
-            self.action.logger.info("未开启切换角色功能")
-            return False
-        if self.combat.is_switch_disabled():
-            return False
-        if not self.combat.can_switch():
-            self.action.logger.info(
-                "切人 CD 中 (剩余 %.1fs)，跳过 switch_next",
-                self.combat.switch_cooldown_remaining(),
-            )
-            return False
-        target_color = self.combat.choose_switch_color(self)
-        if not target_color:
-            return False
-        if self.combat.switch_to_color(target_color, attacker=self):
-            self.reset_state()
-            return True
-        return False
+        return self.combat.request_role_switch(self)
 
     def reset_state(self) -> None:
         self.phase = "idle"

@@ -67,8 +67,6 @@ class LostLullaby(BaseRole):
             self._phase_p2()
         elif self.phase == "ult":
             self._phase_ult()
-        elif self.phase == "switch":
-            self._phase_switch()
         else:
             self.phase = "idle"
             self._phase_idle()
@@ -160,15 +158,7 @@ class LostLullaby(BaseRole):
             self.phase = "idle"
             return
 
-        self.action.use_skill()
+        self.action.use_skill_until_empty()
         self.action.auxiliary_machine()
-        if self.action.check_Skill_energy_bar():
-            self.action.logger.info("深谣: 大招能量仍在，继续大招")
-            return
         self.action.logger.info("深谣: 大招结束")
         self.phase = "switch" if self._ult_p2 else "p1"
-
-    def _phase_switch(self) -> None:
-        if self.switch_next():
-            self.action.logger.info("深谣: 切换完成")
-        self.phase = "idle"

@@ -108,8 +108,6 @@ class Pianissimo(BaseRole):
             self._phase_p2_ult()
         elif self.phase == "p2_dodge":
             self._phase_p2_dodge()
-        elif self.phase == "switch":
-            self._phase_switch()
         else:
             self.phase = "idle"
             self._phase_idle()
@@ -310,22 +308,14 @@ class Pianissimo(BaseRole):
         self.action.attack()
 
     def _phase_p2_ult(self) -> None:
-        # 红球大招 → 辅助机 → QTE → 切人
-        self.action.use_skill()
+        self.action.use_skill_until_empty()
         self.action.auxiliary_machine()
         self.action.use_qte()
         self.phase = "switch"
 
     def _phase_p2_dodge(self) -> None:
-        # 无红球时：长闪 + 辅助机/QTE + 技能，再切人
         self.action.long_press_dodge(700)
         self.action.auxiliary_machine()
-        self.action.use_skill()
+        self.action.use_skill_until_empty()
         self.action.auxiliary_machine()
         self.phase = "switch"
-
-    def _phase_switch(self) -> None:
-        # 2 阶段输出结束，请求切到下一位（受切人 CD 约束）
-        if self.switch_next():
-            self.action.logger.info("切换完成")
-        self.phase = "idle"

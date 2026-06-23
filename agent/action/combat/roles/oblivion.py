@@ -40,7 +40,7 @@ _CRESCENT_PRESS_MS = 2000
 
 
 class Oblivion(BaseRole):
-    """终焉：攒大 → 大招循环消球 → 二段大 → 切人。"""
+    """终焉：攒大 → 大招循环消球 → 二段大 → 切人（不使用 QTE）。"""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -70,8 +70,6 @@ class Oblivion(BaseRole):
             self._phase_ult_loop()
         elif self.phase == "ult_close":
             self._phase_ult_close()
-        elif self.phase == "switch":
-            self._phase_switch()
         else:
             self.phase = "idle"
             self._phase_idle()
@@ -97,7 +95,6 @@ class Oblivion(BaseRole):
             self.action.ball_elimination_target(1)
             self._clear_ticks += 1
             self.action.attack()
-            self.action.use_qte()
 
     def _crescent_press_if_ready(self) -> None:
         if self.action.check_status(_CRESCENT_NODE) and not self.action.check_Skill_energy_bar():
@@ -119,9 +116,8 @@ class Oblivion(BaseRole):
         self._farm_ticks += 1
 
     def _phase_ult_open(self) -> None:
-        self.action.use_skill(_SKILL_DELAY_MS)
+        self.action.use_skill_until_empty(skill_delay_ms=_SKILL_DELAY_MS)
         self.action.auxiliary_machine()
-        self.action.use_qte()
         self._ult_ticks = 0
         self._clear_ticks = 0
         self.phase = "ult_loop"
@@ -141,9 +137,8 @@ class Oblivion(BaseRole):
 
     def _phase_ult_close(self) -> None:
         if self._finish_ticks == 0:
-            self.action.use_skill(_SKILL_DELAY_MS)
+            self.action.use_skill_until_empty(skill_delay_ms=_SKILL_DELAY_MS)
             self.action.auxiliary_machine()
-            self.action.use_qte()
             self._finish_ticks = 1
             return
 
@@ -151,8 +146,3 @@ class Oblivion(BaseRole):
         self._finish_ticks += 1
         if self._finish_ticks > _ULT_FINISH_ATTACK:
             self.phase = "switch"
-
-    def _phase_switch(self) -> None:
-        if self.switch_next():
-            self.action.logger.info("终焉: 切换完成")
-        self.phase = "idle"

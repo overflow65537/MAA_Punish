@@ -26,6 +26,7 @@ MAA_Punish 战斗换人 QTE（QTE.onnx 模型）
 
 from __future__ import annotations
 
+import logging
 import time
 from collections.abc import Callable
 from typing import TYPE_CHECKING, Any
@@ -35,6 +36,8 @@ from action.combat.timing import active_delay
 
 if TYPE_CHECKING:
     from maa.context import Context
+
+logger = logging.getLogger(__name__)
 
 # QTE.onnx 标签：
 #   0 red_qte / 1 red_qte_ready   —— 换人 vs 放 QTE 技能
@@ -148,6 +151,12 @@ def attempt_switch_to_color(
     target = color.upper()
     deadline = time.monotonic() + verify_timeout
     qte_pos: tuple[int, int] | None = None
+    logger.info(
+        "切人尝试: 色位=%s cls=%s 超时=%.1fs",
+        target,
+        target_cls,
+        verify_timeout,
+    )
 
     while time.monotonic() < deadline:
         if should_stop is not None and should_stop():
@@ -155,12 +164,14 @@ def attempt_switch_to_color(
 
         image = context.tasker.controller.post_screencap().wait().get()
         if is_cls_on_field(context, image, target_cls):
+            logger.info("切人到位: %s (%s)", target, target_cls)
             return True
 
         if qte_pos is None:
             qte_result = _recognize_qte(context, target, image)
             if qte_result:
                 qte_pos = _box_center(qte_result.best_result.box)  # type: ignore[attr-defined]
+                logger.info("切人 QTE 已识别: 色位=%s 坐标=%s", target, qte_pos)
             if attacker_callback is not None:
                 attacker_callback()
         else:
@@ -174,6 +185,7 @@ def attempt_switch_to_color(
             break
         time.sleep(min(poll_interval, remaining))
 
+    logger.info("切人超时: 色位=%s cls=%s", target, target_cls)
     return False
 
 

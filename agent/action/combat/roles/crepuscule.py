@@ -71,8 +71,6 @@ class Crepuscule(BaseRole):
             self._phase_core_wait()
         elif self.phase == "farm":
             self._phase_farm()
-        elif self.phase == "switch":
-            self._phase_switch()
         else:
             self.phase = "idle"
             self._phase_idle()
@@ -111,7 +109,7 @@ class Crepuscule(BaseRole):
         self.phase = "farm"
 
     def _phase_ult(self) -> None:
-        self.action.use_skill()
+        self.action.use_skill_until_empty()
         self.action.auxiliary_machine()
         self.action.use_qte()
         self.phase = "switch"
@@ -158,8 +156,3 @@ class Crepuscule(BaseRole):
             return
         self.action.attack()
         self._farm_ticks += 1
-
-    def _phase_switch(self) -> None:
-        if self.switch_next():
-            self.action.logger.info("晖暮: 切换完成")
-        self.phase = "idle"

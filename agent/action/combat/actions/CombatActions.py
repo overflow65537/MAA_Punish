@@ -41,6 +41,8 @@ from logger_component import LoggerComponent
 class CombatActions:
     """通用战斗功能"""
 
+    SKILL_BURST_TIMEOUT = 5.0
+
     def __init__(
         self, context: Context, role_name: str = "", *, skip_combat_gate: bool = False
     ):
@@ -155,6 +157,43 @@ class CombatActions:
         self.context.run_action("技能")
         time.sleep(duration / 1000)
         return True
+
+    def use_skill_until_empty(
+        self,
+        *,
+        timeout: float = SKILL_BURST_TIMEOUT,
+        skill_delay_ms: int = 0,
+        poll_interval: float = 0.05,
+    ) -> bool:
+        """
+        持续释放大招直到能量条消失或超时。
+
+        每轮：按技能 → 普攻（防卡死）→ 检查「技能_能量条」；能量空则结束。
+
+        :return: True 能量已空；False 超时或收到停止信号
+        """
+        deadline = time.monotonic() + timeout
+        presses = 0
+        while time.monotonic() < deadline:
+            if self.context.tasker.stopping:
+                self.logger.info("大招连放中止: 收到停止信号 presses=%d", presses)
+                return False
+            self.use_skill(skill_delay_ms)
+            self.attack()
+            presses += 1
+            if not self.check_Skill_energy_bar():
+                self.logger.info("大招连放结束: presses=%d", presses)
+                return True
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                break
+            time.sleep(min(poll_interval, remaining))
+        self.logger.warning(
+            "大招连放超时: %.1fs presses=%d",
+            timeout,
+            presses,
+        )
+        return False
 
     def long_press_skill(self, time: int = 1000):
         """
