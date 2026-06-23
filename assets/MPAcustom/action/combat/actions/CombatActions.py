@@ -210,37 +210,40 @@ class CombatActions:
 
     def _try_qte_by_color(self, color: str):
         """
-        尝试触发指定颜色的QTE
+        尝试触发指定颜色的 QTE 技能（QTE.onnx ready 类，走释放*QTE 节点）。
         :param color: QTE颜色(r,y,b)
         :return: 成功返回点击操作结果，失败返回False
         """
-        image = self.context.tasker.controller.post_screencap().wait().get()
-        # 颜色映射字典
         color_map = {
-            "r": "检查红色QTE待激发",
-            "y": "检查黄色QTE待激发",
-            "b": "检查蓝色QTE待激发",
+            "r": "释放红色QTE",
+            "y": "释放黄色QTE",
+            "b": "释放蓝色QTE",
         }
 
         if color not in color_map:
             return False
 
-        qte_name = color_map[color]
+        self._auto_dodge()
+        return self.context.run_action(color_map[color])
 
-        # 检查目标QTE是否存在
-        target_color_reco = self.context.run_recognition(qte_name, image)
-        if (
-            target_color_reco
-            and target_color_reco.hit
-            and isinstance(target_color_reco.best_result, ColorMatchResult)
-        ):
-            self._auto_dodge(image)
-            print(target_color_reco.best_result)
-            return self.context.tasker.controller.post_click(
-                target_color_reco.best_result.box[0],
-                target_color_reco.best_result.box[1],
-            ).wait()
-        return False
+    def _role_switch(self, color: str) -> bool:
+        role = getattr(self, "_role", None)
+        if role is None:
+            self.logger.warning("切换角色需在战斗角色脚本内调用")
+            return False
+        return role._switch_to_color(color)
+
+    def switch_red(self) -> bool:
+        """切换到红色位（进攻）。"""
+        return self._role_switch("R")
+
+    def switch_yellow(self) -> bool:
+        """切换到黄色位（装甲）。"""
+        return self._role_switch("Y")
+
+    def switch_blue(self) -> bool:
+        """切换到蓝色位（支援）。"""
+        return self._role_switch("B")
 
     def auto_qte(self, target: str = "a"):
         """

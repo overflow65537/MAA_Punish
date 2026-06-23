@@ -3,7 +3,7 @@
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
-                "model": "RG4_Zone.onnx"
+                "model": "QTE.onnx"
             }
         }
     },

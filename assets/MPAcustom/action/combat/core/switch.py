@@ -20,17 +20,37 @@
 
 """
 MAA_Punish
-MAA_Punish 战斗换人 QTE 点击
+MAA_Punish 战斗换人 QTE（QTE.onnx 模型）
 作者:overflow65537
 """
 
 from __future__ import annotations
 
+import time
 from collections.abc import Callable
 from typing import TYPE_CHECKING, Any
 
+from MPAcustom.action.combat.core.role_detect import detect_current_role
+
 if TYPE_CHECKING:
     from maa.context import Context
+
+# QTE.onnx 标签：
+#   0 red_qte / 1 red_qte_ready   —— 换人 vs 放 QTE 技能
+#   2 yellow_qte / 3 yellow_qte_ready
+#   4 blue_qte / 5 blue_qte_ready
+# 切人只匹配 *_qte；*_qte_ready 用于释放 QTE 技能。
+COLOR_TO_SWITCH_CLASS: dict[str, int] = {
+    "R": 0,
+    "Y": 2,
+    "B": 4,
+}
+
+COLOR_TO_SKILL_CLASS: dict[str, int] = {
+    "R": 1,
+    "Y": 3,
+    "B": 5,
+}
 
 COLOR_TO_QTE_NODE: dict[str, str] = {
     "R": "切换红色QTE",
@@ -38,7 +58,38 @@ COLOR_TO_QTE_NODE: dict[str, str] = {
     "Y": "切换黄色QTE",
 }
 
+COLOR_TO_LOWCODE_NODE: dict[str, str] = {
+    "R": "切换红",
+    "Y": "切换黄",
+    "B": "切换蓝",
+}
+
 _CLICK_QTE_MAX_LOOPS = 100
+_DEFAULT_VERIFY_TIMEOUT = 1.0
+_DEFAULT_VERIFY_POLL = 0.05
+
+
+def _box_center(box: Any) -> tuple[int, int]:
+    return int(box[0] + box[2] / 2), int(box[1] + box[3] / 2)
+
+
+def _click_box(context: Context, box: Any) -> None:
+    x, y = _box_center(box)
+    context.tasker.controller.post_click(x, y).wait()
+
+
+def _recognize_qte(
+    context: Context, color: str, image: Any | None
+) -> Any | None:
+    node = COLOR_TO_QTE_NODE.get(color.upper())
+    if not node:
+        return None
+    if image is None:
+        image = context.tasker.controller.post_screencap().wait().get()
+    result = context.run_recognition(node, image)
+    if result and result.hit and result.best_result:
+        return result
+    return None
 
 
 def detect_visible_team_colors(
@@ -90,31 +141,54 @@ def choose_general_rotation_color(
     return chosen
 
 
-def _recognize_qte(
-    context: Context, color: str, image: Any | None
-) -> Any | None:
-    node = COLOR_TO_QTE_NODE.get(color.upper())
-    if not node:
-        return None
-    if image is None:
-        image = context.tasker.controller.post_screencap().wait().get()
-    result = context.run_recognition(node, image)
-    if result and result.hit and result.best_result:
-        return result
-    return None
-
-
 def click_qte_by_color(
     context: Context, color: str, image: Any | None = None
 ) -> bool:
-    """按色位点击 QTE 换人区一次。"""
+    """按色位点击 QTE 换人区一次（QTE.onnx）。"""
     result = _recognize_qte(context, color, image)
     if not result:
         return False
 
     box = result.best_result.box  # type: ignore[attr-defined]
-    context.tasker.controller.post_click(box[0], box[1]).wait()
+    _click_box(context, box)
     return True
+
+
+def attempt_switch_to_color(
+    context: Context,
+    color: str,
+    target_cls: str,
+    *,
+    attacker_callback: Callable[[], None] | None = None,
+    verify_timeout: float = _DEFAULT_VERIFY_TIMEOUT,
+    poll_interval: float = _DEFAULT_VERIFY_POLL,
+    should_stop: Callable[[], bool] | None = None,
+) -> bool:
+    """
+    在 verify_timeout 内持续攻击，并用 QTE.onnx 识别目标色位 QTE 持续点击；
+    一旦 attack_template 识别到目标角色即成功，超时仍未切换则失败。
+    """
+    target = color.upper()
+    deadline = time.monotonic() + verify_timeout
+
+    while time.monotonic() < deadline:
+        if should_stop and should_stop():
+            return False
+
+        if attacker_callback is not None:
+            attacker_callback()
+
+        image = context.tasker.controller.post_screencap().wait().get()
+        _, cls_name = detect_current_role(context, image)
+        if cls_name == target_cls:
+            return True
+
+        click_qte_by_color(context, target, image)
+
+        if poll_interval > 0:
+            time.sleep(poll_interval)
+
+    return False
 
 
 def click_qte_until_done(
@@ -138,7 +212,7 @@ def click_qte_until_done(
         result = _recognize_qte(context, color, image)
         if result:
             box = result.best_result.box  # type: ignore[attr-defined]
-            context.tasker.controller.post_click(box[0], box[1]).wait()
+            _click_box(context, box)
         else:
             return True
 

@@ -30,9 +30,9 @@ import time
 from typing import TYPE_CHECKING, Any
 
 from MPAcustom.action.combat.core.provider import BaseCombatCheck
-from MPAcustom.action.combat.core.role import BaseRole, SwitchPriority
+from MPAcustom.action.combat.core.role import BaseRole, SwitchPriority, resolve_role_name
 from MPAcustom.action.combat.core.role_factory import create_role
-from MPAcustom.action.combat.core.switch import click_qte_by_color
+from MPAcustom.action.combat.core.switch import attempt_switch_to_color
 from MPAcustom.action.combat.core.team import TEAM_COLORS, TeamSnapshot
 from MPAcustom.action.combat.config.LoadSetting import ROLE_ACTIONS
 from MPAcustom.logger_component import LoggerComponent
@@ -60,8 +60,10 @@ class CombatTask:
     WAIT_POLL_INTERVAL = 0.2
     COMBAT_UI_LOST_TIMEOUT = 20.0
     SWITCH_COOLDOWN = 15.0
-    SWITCH_STUB = True  # 调试：屏蔽实际切人，相关方法直接返回 True
-    SWITCH_DISABLED = True  # 暂时屏蔽切人（含 stub 逻辑切人）
+    SWITCH_VERIFY_TIMEOUT = 1.0
+    SWITCH_VERIFY_POLL = 0.05
+    SWITCH_STUB = False
+    SWITCH_DISABLED = False
 
     def __init__(
         self,
@@ -295,9 +297,12 @@ class CombatTask:
         remaining = self.switch_cooldown - (time.monotonic() - self.last_switch_time)
         return max(0.0, remaining)
 
-    def switch_to_color(self, color: str) -> bool:
+    def switch_to_color(self, color: str, *, attacker: BaseRole | None = None) -> bool:
         """
-        按色位切人。CD 未好或 QTE 不可见时立即返回 False，不阻塞等待。
+        按色位切人：1 秒内持续攻击并用 QTE.onnx 持续点击目标 QTE，直到识别到切换。
+
+        战前 roster 已写入 team；验证用 attack_template 比对目标色位 cls。
+        CD 未好或 1 秒内仍未切换 → False，保持当前角色流程。
         """
         if self.SWITCH_DISABLED:
             self.logger.debug("切人已暂时屏蔽")
@@ -314,7 +319,8 @@ class CombatTask:
         if target == self.team.current.upper():
             return False
 
-        if not self.team.cls_at(target):
+        target_cls = self.team.cls_at(target)
+        if not target_cls:
             self.logger.debug("色位 %s 无人，跳过切人", target)
             return False
 
@@ -338,20 +344,31 @@ class CombatTask:
             )
             return False
 
-        available = self.combat_check.detect_qte_colors(self.context, self)
-        if target not in available:
-            self.logger.debug("色位 %s 不在当前 QTE 区: %s", target, available)
-            return False
-
-        if not click_qte_by_color(self.context, target, self.frame):
-            self.logger.warning("点击 QTE 失败: %s", target)
+        attacker_cb = (lambda: attacker.action.attack()) if attacker else None
+        if not attempt_switch_to_color(
+            self.context,
+            target,
+            target_cls,
+            attacker_callback=attacker_cb,
+            verify_timeout=self.SWITCH_VERIFY_TIMEOUT,
+            poll_interval=self.SWITCH_VERIFY_POLL,
+            should_stop=self._should_stop,
+        ):
+            self.logger.info(
+                "切人失败: %.1fs 内持续点击仍未切到 %s (%s)，继续当前角色",
+                self.SWITCH_VERIFY_TIMEOUT,
+                target,
+                target_cls,
+            )
             return False
 
         self.team.current = target
         self.last_switch_time = time.monotonic()
+        self.current_role_name = resolve_role_name(target_cls)
         target_role = self.roles.get(target)
         if target_role is not None:
             target_role.reset_state()
+        self._notify_current_role()
         self.logger.info(
             "切人成功 -> %s (%s)",
             target,

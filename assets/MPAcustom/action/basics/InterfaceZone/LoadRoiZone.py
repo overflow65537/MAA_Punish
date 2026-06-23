@@ -91,12 +91,15 @@ class LoadRoiZone(CustomAction):
     SWITCH_ROI_ZONE = [
         "qte1",
         "qte2",
-        "检查蓝色QTE待激发",
-        "检查红色QTE待激发",
-        "检查黄色QTE待激发",
         "切换黄色QTE",
         "切换红色QTE",
         "切换蓝色QTE",
+        "切换红",
+        "切换黄",
+        "切换蓝",
+        "释放红色QTE",
+        "释放黄色QTE",
+        "释放蓝色QTE",
     ]
     CORE_ROI_ZONE = [
         "检查极锋核心条1",

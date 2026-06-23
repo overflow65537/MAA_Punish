@@ -64,6 +64,7 @@ class BaseRole:
             role_name=resolve_role_name(cls_name),
             skip_combat_gate=True,
         )
+        self.action._role = self
 
     def perform(self) -> None:
         self.do_perform()
@@ -76,17 +77,39 @@ class BaseRole:
     ) -> SwitchPriority:
         return SwitchPriority.NORMAL
 
+    def switch_red(self) -> bool:
+        """切换到红色位（进攻）。"""
+        return self._switch_to_color("R")
+
+    def switch_yellow(self) -> bool:
+        """切换到黄色位（装甲）。"""
+        return self._switch_to_color("Y")
+
+    def switch_blue(self) -> bool:
+        """切换到蓝色位（支援）。"""
+        return self._switch_to_color("B")
+
+    def _switch_to_color(self, color: str) -> bool:
+        if not self.combat.is_switch_enabled():
+            self.action.logger.info("未开启切换角色功能")
+            return False
+        if self.combat.is_switch_disabled():
+            return False
+        return self.combat.switch_to_color(color, attacker=self)
+
     def switch_next(self) -> bool:
         """请求战斗管理器切到下一合适角色（受 Pipeline「自动切换」开关控制）。"""
         if not self.combat.is_switch_enabled():
             self.action.logger.info("未开启切换角色功能")
+            return False
+        if self.combat.is_switch_disabled():
             return False
         if not self.combat.can_switch():
             return False
         target_color = self.combat.choose_switch_color(self)
         if not target_color:
             return False
-        if self.combat.switch_to_color(target_color):
+        if self.combat.switch_to_color(target_color, attacker=self):
             self.reset_state()
             return True
         return False
