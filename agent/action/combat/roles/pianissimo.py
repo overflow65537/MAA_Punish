@@ -237,7 +237,6 @@ class Pianissimo(BaseRole):
         if self._burst_ticks >= self._burst_total:
             self._log_step("burst_complete", ticks=self._burst_total)
             self.action.auxiliary_machine()
-            self.action.auto_qte("a")
             self.action.use_qte()
             self.phase = "idle"
 
@@ -296,7 +295,6 @@ class Pianissimo(BaseRole):
         if self._burst_ticks >= self._burst_total:
             self.action.logger.info("希声2阶段核心结束")
             self._log_step("burst_complete", ticks=self._burst_total)
-            self.action.auto_qte("a")
             self._begin_clear(next_phase="p2_clear2")
 
     def _phase_p2_clear2(self) -> None:
@@ -315,7 +313,6 @@ class Pianissimo(BaseRole):
         # 红球大招 → 辅助机 → QTE → 切人
         self.action.use_skill()
         self.action.auxiliary_machine()
-        self.action.auto_qte("a")
         self.action.use_qte()
         self.phase = "switch"
 
@@ -323,10 +320,8 @@ class Pianissimo(BaseRole):
         # 无红球时：长闪 + 辅助机/QTE + 技能，再切人
         self.action.long_press_dodge(700)
         self.action.auxiliary_machine()
-        self.action.auto_qte("a")
         self.action.use_skill()
         self.action.auxiliary_machine()
-        self.action.auto_qte("a")
         self.phase = "switch"
 
     def _phase_switch(self) -> None:
