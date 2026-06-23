@@ -22,8 +22,8 @@
 
 状态机::
 
-    idle(p1) ──► farm（持续 attack）──► ult / core / core_wait
-    idle(p2) ──► farm ──► ult ──► use_qte ──► switch（CD 中回 farm 普攻）
+    idle ──► p1（优先：放大 > 照域 > 照域后消球）──► ult（p1 连放）
+      └──► p2（持续普攻攒大）──► ult ──► use_qte ──► switch
 """
 
 from __future__ import annotations
@@ -33,27 +33,28 @@ import time
 from action.combat.core.role import BaseRole
 
 _P1_NODE = "检查比安卡·深痕一阶段"
+_P2_NODE = "检查比安卡·深痕二阶段"
 _CORE_NODE = "检查核心被动_深痕"
 _CORE_BURST = 10
 _CORE_CD = 18  # 照域cd12秒，时滞演算1秒,照域本身4秒1秒误差
 
 
 class Stigmata(BaseRole):
-    """深痕：一阶段核心消球，大招就绪切人。"""
+    """深痕：一阶段照域消球，二阶段持续攻击，有大则放。"""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self._core_ticks = 0
         self._last_core_at = 0.0
-        self._p2 = False
         self._pending_switch = False
+        self._last_log_key = ""
 
     def reset_state(self) -> None:
         super().reset_state()
         self._core_ticks = 0
         self._last_core_at = 0.0
-        self._p2 = False
         self._pending_switch = False
+        self._last_log_key = ""
 
     def do_perform(self) -> None:
         if self.combat.context.tasker.stopping:
@@ -61,6 +62,10 @@ class Stigmata(BaseRole):
 
         if self.phase == "idle":
             self._phase_idle()
+        elif self.phase == "p1":
+            self._phase_p1()
+        elif self.phase == "p2":
+            self._phase_p2()
         elif self.phase == "ult":
             self._phase_ult()
         elif self.phase == "core":
@@ -69,13 +74,36 @@ class Stigmata(BaseRole):
             self._phase_core_wait()
         elif self.phase == "core_burst":
             self._phase_core_burst()
-        elif self.phase == "farm":
-            self._phase_farm()
         elif self.phase == "switch":
             self._phase_switch()
         else:
             self.phase = "idle"
             self._phase_idle()
+        self._log_state()
+
+    def _recognition_stage(self) -> str:
+        if self._in_p2():
+            return "p2"
+        if self._in_p1():
+            return "p1"
+        return "unknown"
+
+    def _log_state(self, *, note: str = "") -> None:
+        stage = self._recognition_stage()
+        key = f"{stage}|{self.phase}|{note}"
+        if key == self._last_log_key:
+            return
+        self._last_log_key = key
+        msg = f"深痕: 阶段={stage} 状态={self.phase}"
+        if note:
+            msg += f" ({note})"
+        self.action.logger.info(msg)
+
+    def _in_p1(self) -> bool:
+        return bool(self.action.check_status(_P1_NODE))
+
+    def _in_p2(self) -> bool:
+        return bool(self.action.check_status(_P2_NODE))
 
     def _needs_core(self) -> bool:
         return bool(
@@ -92,25 +120,65 @@ class Stigmata(BaseRole):
         self.action.attack()
 
         if self._pending_switch:
-            self.phase = "switch" if self.combat.can_switch() else "farm"
+            self.phase = "switch" if self.combat.can_switch() else "p2"
+            return
+
+        if self._in_p2():
+            self.phase = "p2"
+            return
+        if self._in_p1():
+            self.phase = "p1"
+            return
+        self.action.attack()
+
+    def _phase_p1(self) -> None:
+        """一阶段：放大 > 照域 > 照域后消球（core_burst），否则普攻等核心被动。"""
+        if self._in_p2():
+            self.phase = "p2"
+            return
+        if not self._in_p1():
+            self.phase = "idle"
             return
 
         if self.action.check_Skill_energy_bar():
             self.phase = "ult"
             return
 
-        if not self._p2 and self._needs_core():
-            if self._core_on_cooldown():
-                self.phase = "core_wait"
-                return
+        if self._needs_core() and not self._core_on_cooldown():
             self.action.logger.info("深痕: 开启照域")
             self.phase = "core"
             return
 
-        self.phase = "farm"
+        if self._needs_core() and self._core_on_cooldown():
+            self.phase = "core_wait"
+            return
+
+        self.action.attack()
+
+    def _phase_p2(self) -> None:
+        """二阶段：持续普攻，有大则放大后换人。"""
+        if self._in_p1() and not self._in_p2():
+            self.phase = "p1"
+            return
+        if not self._in_p2():
+            self.phase = "idle"
+            return
+
+        if self._pending_switch:
+            if self.combat.can_switch():
+                self.phase = "switch"
+                return
+            self.action.attack()
+            return
+
+        if self.action.check_Skill_energy_bar():
+            self.phase = "ult"
+            return
+
+        self.action.attack()
 
     def _phase_ult(self) -> None:
-        if self._p2:
+        if self._in_p2():
             self.action.use_skill()
             self.action.auxiliary_machine()
             self.action.use_qte()
@@ -124,10 +192,8 @@ class Stigmata(BaseRole):
         if self.action.check_Skill_energy_bar():
             self.action.logger.info("深痕: p1 大招能量仍在，继续大招")
             return
-        self.action.logger.info("深痕: p1 大招结束，QTE 进入 p2")
-        self.action.use_qte()
-        self._p2 = True
-        self.phase = "farm"
+        self.action.logger.info("深痕: p1 大招结束")
+        self.phase = "p2" if self._in_p2() else "p1"
 
     def _phase_core(self) -> None:
         self.action.long_press_dodge()
@@ -136,45 +202,34 @@ class Stigmata(BaseRole):
         self.phase = "core_burst"
 
     def _phase_core_wait(self) -> None:
-        """照域 CD 内：核心被动仍触发时只普攻，CD 结束再开照域。"""
+        """照域 CD 内：优先放大，否则普攻等 CD。"""
+        if self._in_p2():
+            self.phase = "p2"
+            return
         if self.action.check_Skill_energy_bar():
             self.phase = "ult"
             return
-        self.action.attack()
-        if not self._needs_core():
-            self.phase = "farm"
-            return
-        if not self._core_on_cooldown():
+        if self._needs_core() and not self._core_on_cooldown():
             self.action.logger.info("深痕: 照域 CD 结束，开启照域")
             self.phase = "core"
+            return
+        if not self._needs_core():
+            self.phase = "p1"
+            return
+        self.action.attack()
 
     def _phase_core_burst(self) -> None:
-        self.action.ball_elimination_target(1)
-        self.action.attack()
-        self._core_ticks += 1
-        if self._core_ticks >= _CORE_BURST:
-            self.phase = "farm"
-
-    def _phase_farm(self) -> None:
-        """持续普攻，仅在 farm 内检查大招/照域，避免反复走 idle 多重识别。"""
-        if self._pending_switch:
-            if self.combat.can_switch():
-                self.phase = "switch"
-                return
-            self.action.attack()
+        """照域后消球：有大优先放大，否则只消球。"""
+        if self._in_p2():
+            self.phase = "p2"
             return
-
         if self.action.check_Skill_energy_bar():
             self.phase = "ult"
             return
-        if not self._p2 and self._needs_core():
-            if self._core_on_cooldown():
-                self.phase = "core_wait"
-                return
-            self.action.logger.info("深痕: 开启照域")
-            self.phase = "core"
-            return
-        self.action.attack()
+        self.action.ball_elimination_target(1)
+        self._core_ticks += 1
+        if self._core_ticks >= _CORE_BURST:
+            self.phase = "p2" if self._in_p2() else "p1"
 
     def _phase_switch(self) -> None:
         if self.switch_next():
@@ -183,4 +238,4 @@ class Stigmata(BaseRole):
             self.phase = "idle"
             return
         self.action.logger.info("深痕: 切人 CD 中，继续 p2 普攻")
-        self.phase = "farm"
+        self.phase = "p2"
