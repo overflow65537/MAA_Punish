@@ -1,0 +1,15 @@
+{
+    "task": [
+        {
+            "name": "领取邮件",
+            "group": [
+                "daily"
+            ],
+            "default_check": true,
+            "entry": "邮件",
+            "description": "$task.领取邮件.description",
+            "label": "$task.领取邮件"
+        }
+    ],
+    "option": {}
+}

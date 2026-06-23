@@ -1,0 +1,25 @@
+{
+    "task": [
+        {
+            "name": "拟真围剿",
+            "group": [
+                "daily"
+            ],
+            "default_check": true,
+            "entry": "拟真围剿",
+            "description": "$task.拟真围剿.description",
+            "pipeline_override": {
+                "编入队伍": {
+                    "next": [
+                        "编入队伍",
+                        "作战界面",
+                        "[JumpBack]关闭未拥有人物提示",
+                        "[JumpBack]关闭战斗力提示"
+                    ]
+                }
+            },
+            "label": "$task.拟真围剿"
+        }
+    ],
+    "option": {}
+}

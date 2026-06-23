@@ -1,0 +1,15 @@
+{
+    "task": [
+        {
+            "name": "指挥局",
+            "group": [
+                "daily"
+            ],
+            "default_check": true,
+            "entry": "指挥局",
+            "description": "$task.指挥局.description",
+            "label": "$task.指挥局"
+        }
+    ],
+    "option": {}
+}

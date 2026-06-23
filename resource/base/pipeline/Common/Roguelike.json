@@ -1,0 +1,58 @@
+{
+    "下一步": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    891,
+                    510,
+                    389,
+                    210
+                ],
+                "expected": "下一步"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 1000
+        },
+        "post_delay": 1000
+    },
+    "点击继续": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    591,
+                    669,
+                    99,
+                    29
+                ],
+                "expected": "继续",
+                "only_rec": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "退出_肉鸽": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    900,
+                    597,
+                    330,
+                    103
+                ],
+                "expected": "退出"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}

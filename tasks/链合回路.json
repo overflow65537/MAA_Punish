@@ -1,0 +1,14 @@
+{
+    "task": [
+        {
+            "name": "链合回路",
+            "group": [
+                "tools"
+            ],
+            "entry": "链合回路",
+            "description": "$task.链合回路.description",
+            "label": "$task.链合回路"
+        }
+    ],
+    "option": {}
+}

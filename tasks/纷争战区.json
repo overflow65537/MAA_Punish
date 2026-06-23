@@ -1,0 +1,2787 @@
+{
+    "task": [
+        {
+            "name": "纷争战区",
+            "group": [
+                "daily"
+            ],
+            "default_check": true,
+            "entry": "纷争战区",
+            "option": [
+                "自行选择编队_战区"
+            ],
+            "description": "$task.纷争战区.description",
+            "label": "$task.纷争战区"
+        }
+    ],
+    "option": {
+        "自行选择编队_战区": {
+            "label": "$option.自行选择编队_战区.label",
+            "type": "select",
+            "default_case": "自动选择",
+            "description": "$option.自行选择编队_战区.description",
+            "cases": [
+                {
+                    "name": "自动选择",
+                    "pipeline_override": {},
+                    "label": "$case.自行选择编队_战区.自动选择"
+                },
+                {
+                    "name": "选择编队",
+                    "pipeline_override": {},
+                    "option": [
+                        "选择火队_战区",
+                        "选择雷队_战区",
+                        "选择冰队_战区",
+                        "选择暗队_战区",
+                        "选择空队_战区",
+                        "选择物理队_战区",
+                        "选择特性队_战区"
+                    ],
+                    "label": "$case.自行选择编队_战区.选择编队"
+                },
+                {
+                    "name": "选择人物",
+                    "pipeline_override": {},
+                    "option": [
+                        "选择火队角色_战区",
+                        "选择雷队角色_战区",
+                        "选择冰队角色_战区",
+                        "选择暗队角色_战区",
+                        "选择空队角色_战区",
+                        "选择物理队角色_战区",
+                        "选择无分类队角色_战区"
+                    ],
+                    "label": "$case.自行选择编队_战区.选择人物"
+                }
+            ]
+        },
+        "选择火队_战区": {
+            "label": "$option.选择火队_战区.label",
+            "description": "$option.选择火队_战区.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择火队_战区.编队名.pattern_msg"
+                }
+            ],
+            "pipeline_override": {
+                "查看地图_火区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择雷队_战区": {
+            "label": "$option.选择雷队_战区.label",
+            "description": "$option.选择雷队_战区.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择雷队_战区.编队名.pattern_msg"
+                }
+            ],
+            "pipeline_override": {
+                "查看地图_雷区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择冰队_战区": {
+            "label": "$option.选择冰队_战区.label",
+            "description": "$option.选择冰队_战区.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择冰队_战区.编队名.pattern_msg"
+                }
+            ],
+            "pipeline_override": {
+                "查看地图_冰区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择暗队_战区": {
+            "label": "$option.选择暗队_战区.label",
+            "description": "$option.选择暗队_战区.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择暗队_战区.编队名.pattern_msg"
+                }
+            ],
+            "pipeline_override": {
+                "查看地图_暗区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择空队_战区": {
+            "label": "$option.选择空队_战区.label",
+            "description": "$option.选择空队_战区.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择空队_战区.编队名.pattern_msg"
+                }
+            ],
+            "pipeline_override": {
+                "查看地图_空区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择物理队_战区": {
+            "label": "$option.选择物理队_战区.label",
+            "description": "$option.选择物理队_战区.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择物理队_战区.编队名.pattern_msg"
+                }
+            ],
+            "pipeline_override": {
+                "查看地图_物理区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择特性队_战区": {
+            "label": "$option.选择特性队_战区.label",
+            "description": "$option.选择特性队_战区.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "pipeline_type": "string",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.选择特性队_战区.编队名.pattern_msg"
+                }
+            ],
+            "pipeline_override": {
+                "查看地图_特性区": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        },
+        "选择火队角色_战区": {
+            "label": "$option.选择火队角色_战区.label",
+            "type": "select",
+            "description": "$option.选择火队角色_战区.description",
+            "cases": [
+                {
+                    "name": "露西亚·深红囚影",
+                    "pipeline_override": {
+                        "查看地图_火区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色_战区.露西亚·深红囚影"
+                },
+                {
+                    "name": "拉弥亚·深谣",
+                    "pipeline_override": {
+                        "查看地图_火区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色_战区.拉弥亚·深谣"
+                },
+                {
+                    "name": "露娜·终焉",
+                    "pipeline_override": {
+                        "查看地图_火区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色_战区.露娜·终焉"
+                },
+                {
+                    "name": "露西亚·誓焰",
+                    "pipeline_override": {
+                        "查看地图_火区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色_战区.露西亚·誓焰"
+                },
+                {
+                    "name": "曲·启明",
+                    "pipeline_override": {
+                        "查看地图_火区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色_战区.曲·启明"
+                },
+                {
+                    "name": "比安卡·深痕",
+                    "pipeline_override": {
+                        "查看地图_火区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色_战区.比安卡·深痕"
+                },
+                {
+                    "name": "里·超刻",
+                    "pipeline_override": {
+                        "查看地图_火区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色_战区.里·超刻"
+                },
+                {
+                    "name": "比安卡·晖暮",
+                    "pipeline_override": {
+                        "查看地图_火区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色_战区.比安卡·晖暮"
+                },
+                {
+                    "name": "赛琳娜·希声",
+                    "pipeline_override": {
+                        "查看地图_火区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色_战区.赛琳娜·希声"
+                },
+                {
+                    "name": "维罗妮卡·铮骨",
+                    "pipeline_override": {
+                        "查看地图_火区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色_战区.维罗妮卡·铮骨"
+                },
+                {
+                    "name": "布偶熊·骇影",
+                    "pipeline_override": {
+                        "查看地图_火区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择火队角色_战区.布偶熊·骇影"
+                }
+            ],
+            "default_case": "露西亚·誓焰"
+        },
+        "选择雷队角色_战区": {
+            "label": "$option.选择雷队角色_战区.label",
+            "type": "select",
+            "description": "$option.选择雷队角色_战区.description",
+            "cases": [
+                {
+                    "name": "露西亚·深红囚影",
+                    "pipeline_override": {
+                        "查看地图_雷区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色_战区.露西亚·深红囚影"
+                },
+                {
+                    "name": "拉弥亚·深谣",
+                    "pipeline_override": {
+                        "查看地图_雷区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色_战区.拉弥亚·深谣"
+                },
+                {
+                    "name": "露娜·终焉",
+                    "pipeline_override": {
+                        "查看地图_雷区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色_战区.露娜·终焉"
+                },
+                {
+                    "name": "露西亚·誓焰",
+                    "pipeline_override": {
+                        "查看地图_雷区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色_战区.露西亚·誓焰"
+                },
+                {
+                    "name": "曲·启明",
+                    "pipeline_override": {
+                        "查看地图_雷区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色_战区.曲·启明"
+                },
+                {
+                    "name": "比安卡·深痕",
+                    "pipeline_override": {
+                        "查看地图_雷区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色_战区.比安卡·深痕"
+                },
+                {
+                    "name": "里·超刻",
+                    "pipeline_override": {
+                        "查看地图_雷区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色_战区.里·超刻"
+                },
+                {
+                    "name": "比安卡·晖暮",
+                    "pipeline_override": {
+                        "查看地图_雷区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色_战区.比安卡·晖暮"
+                },
+                {
+                    "name": "赛琳娜·希声",
+                    "pipeline_override": {
+                        "查看地图_雷区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色_战区.赛琳娜·希声"
+                },
+                {
+                    "name": "维罗妮卡·铮骨",
+                    "pipeline_override": {
+                        "查看地图_雷区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色_战区.维罗妮卡·铮骨"
+                },
+                {
+                    "name": "布偶熊·骇影",
+                    "pipeline_override": {
+                        "查看地图_雷区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择雷队角色_战区.布偶熊·骇影"
+                }
+            ],
+            "default_case": "露西亚·深红囚影"
+        },
+        "选择冰队角色_战区": {
+            "label": "$option.选择冰队角色_战区.label",
+            "type": "select",
+            "description": "$option.选择冰队角色_战区.description",
+            "cases": [
+                {
+                    "name": "曲·启明",
+                    "pipeline_override": {
+                        "查看地图_冰区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色_战区.曲·启明"
+                },
+                {
+                    "name": "布偶熊·骇影",
+                    "pipeline_override": {
+                        "查看地图_冰区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色_战区.布偶熊·骇影"
+                },
+                {
+                    "name": "露西亚·深红囚影",
+                    "pipeline_override": {
+                        "查看地图_冰区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色_战区.露西亚·深红囚影"
+                },
+                {
+                    "name": "拉弥亚·深谣",
+                    "pipeline_override": {
+                        "查看地图_冰区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色_战区.拉弥亚·深谣"
+                },
+                {
+                    "name": "露娜·终焉",
+                    "pipeline_override": {
+                        "查看地图_冰区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色_战区.露娜·终焉"
+                },
+                {
+                    "name": "露西亚·誓焰",
+                    "pipeline_override": {
+                        "查看地图_冰区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色_战区.露西亚·誓焰"
+                },
+                {
+                    "name": "比安卡·深痕",
+                    "pipeline_override": {
+                        "查看地图_冰区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色_战区.比安卡·深痕"
+                },
+                {
+                    "name": "里·超刻",
+                    "pipeline_override": {
+                        "查看地图_冰区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色_战区.里·超刻"
+                },
+                {
+                    "name": "比安卡·晖暮",
+                    "pipeline_override": {
+                        "查看地图_冰区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色_战区.比安卡·晖暮"
+                },
+                {
+                    "name": "赛琳娜·希声",
+                    "pipeline_override": {
+                        "查看地图_冰区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色_战区.赛琳娜·希声"
+                },
+                {
+                    "name": "维罗妮卡·铮骨",
+                    "pipeline_override": {
+                        "查看地图_冰区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择冰队角色_战区.维罗妮卡·铮骨"
+                }
+            ],
+            "default_case": "曲·启明"
+        },
+        "选择暗队角色_战区": {
+            "label": "$option.选择暗队角色_战区.label",
+            "type": "select",
+            "description": "$option.选择暗队角色_战区.description",
+            "cases": [
+                {
+                    "name": "拉弥亚·深谣",
+                    "pipeline_override": {
+                        "查看地图_暗区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色_战区.拉弥亚·深谣"
+                },
+                {
+                    "name": "比安卡·晖暮",
+                    "pipeline_override": {
+                        "查看地图_暗区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色_战区.比安卡·晖暮"
+                },
+                {
+                    "name": "露西亚·深红囚影",
+                    "pipeline_override": {
+                        "查看地图_暗区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色_战区.露西亚·深红囚影"
+                },
+                {
+                    "name": "露娜·终焉",
+                    "pipeline_override": {
+                        "查看地图_暗区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色_战区.露娜·终焉"
+                },
+                {
+                    "name": "露西亚·誓焰",
+                    "pipeline_override": {
+                        "查看地图_暗区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色_战区.露西亚·誓焰"
+                },
+                {
+                    "name": "曲·启明",
+                    "pipeline_override": {
+                        "查看地图_暗区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色_战区.曲·启明"
+                },
+                {
+                    "name": "比安卡·深痕",
+                    "pipeline_override": {
+                        "查看地图_暗区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色_战区.比安卡·深痕"
+                },
+                {
+                    "name": "里·超刻",
+                    "pipeline_override": {
+                        "查看地图_暗区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色_战区.里·超刻"
+                },
+                {
+                    "name": "赛琳娜·希声",
+                    "pipeline_override": {
+                        "查看地图_暗区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色_战区.赛琳娜·希声"
+                },
+                {
+                    "name": "维罗妮卡·铮骨",
+                    "pipeline_override": {
+                        "查看地图_暗区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色_战区.维罗妮卡·铮骨"
+                },
+                {
+                    "name": "布偶熊·骇影",
+                    "pipeline_override": {
+                        "查看地图_暗区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择暗队角色_战区.布偶熊·骇影"
+                }
+            ],
+            "default_case": "比安卡·晖暮"
+        },
+        "选择物理队角色_战区": {
+            "label": "$option.选择物理队角色_战区.label",
+            "type": "select",
+            "description": "$option.选择物理队角色_战区.description",
+            "cases": [
+                {
+                    "name": "比安卡·深痕",
+                    "pipeline_override": {
+                        "查看地图_物理区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色_战区.比安卡·深痕"
+                },
+                {
+                    "name": "赛琳娜·希声",
+                    "pipeline_override": {
+                        "查看地图_物理区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色_战区.赛琳娜·希声"
+                },
+                {
+                    "name": "维罗妮卡·铮骨",
+                    "pipeline_override": {
+                        "查看地图_物理区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色_战区.维罗妮卡·铮骨"
+                },
+                {
+                    "name": "露西亚·深红囚影",
+                    "pipeline_override": {
+                        "查看地图_物理区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色_战区.露西亚·深红囚影"
+                },
+                {
+                    "name": "拉弥亚·深谣",
+                    "pipeline_override": {
+                        "查看地图_物理区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色_战区.拉弥亚·深谣"
+                },
+                {
+                    "name": "露娜·终焉",
+                    "pipeline_override": {
+                        "查看地图_物理区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色_战区.露娜·终焉"
+                },
+                {
+                    "name": "露西亚·誓焰",
+                    "pipeline_override": {
+                        "查看地图_物理区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色_战区.露西亚·誓焰"
+                },
+                {
+                    "name": "曲·启明",
+                    "pipeline_override": {
+                        "查看地图_物理区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色_战区.曲·启明"
+                },
+                {
+                    "name": "里·超刻",
+                    "pipeline_override": {
+                        "查看地图_物理区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色_战区.里·超刻"
+                },
+                {
+                    "name": "比安卡·晖暮",
+                    "pipeline_override": {
+                        "查看地图_物理区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色_战区.比安卡·晖暮"
+                },
+                {
+                    "name": "布偶熊·骇影",
+                    "pipeline_override": {
+                        "查看地图_物理区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择物理队角色_战区.布偶熊·骇影"
+                }
+            ],
+            "default_case": "赛琳娜·希声"
+        },
+        "选择无分类队角色_战区": {
+            "label": "$option.选择无分类队角色_战区.label",
+            "type": "select",
+            "description": "$option.选择无分类队角色_战区.description",
+            "cases": [
+                {
+                    "name": "比安卡·深痕",
+                    "pipeline_override": {
+                        "查看地图_特性区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色_战区.比安卡·深痕"
+                },
+                {
+                    "name": "赛琳娜·希声",
+                    "pipeline_override": {
+                        "查看地图_特性区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色_战区.赛琳娜·希声"
+                },
+                {
+                    "name": "维罗妮卡·铮骨",
+                    "pipeline_override": {
+                        "查看地图_特性区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色_战区.维罗妮卡·铮骨"
+                },
+                {
+                    "name": "露西亚·深红囚影",
+                    "pipeline_override": {
+                        "查看地图_特性区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色_战区.露西亚·深红囚影"
+                },
+                {
+                    "name": "拉弥亚·深谣",
+                    "pipeline_override": {
+                        "查看地图_特性区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色_战区.拉弥亚·深谣"
+                },
+                {
+                    "name": "露娜·终焉",
+                    "pipeline_override": {
+                        "查看地图_特性区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色_战区.露娜·终焉"
+                },
+                {
+                    "name": "露西亚·誓焰",
+                    "pipeline_override": {
+                        "查看地图_特性区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色_战区.露西亚·誓焰"
+                },
+                {
+                    "name": "曲·启明",
+                    "pipeline_override": {
+                        "查看地图_特性区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色_战区.曲·启明"
+                },
+                {
+                    "name": "里·超刻",
+                    "pipeline_override": {
+                        "查看地图_特性区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色_战区.里·超刻"
+                },
+                {
+                    "name": "比安卡·晖暮",
+                    "pipeline_override": {
+                        "查看地图_特性区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色_战区.比安卡·晖暮"
+                },
+                {
+                    "name": "布偶熊·骇影",
+                    "pipeline_override": {
+                        "查看地图_特性区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择无分类队角色_战区.布偶熊·骇影"
+                }
+            ],
+            "default_case": "赛琳娜·希声"
+        },
+        "选择空队角色_战区": {
+            "label": "$option.选择空队角色_战区.label",
+            "type": "select",
+            "description": "$option.选择空队角色_战区.description",
+            "cases": [
+                {
+                    "name": "露娜·终焉",
+                    "pipeline_override": {
+                        "查看地图_空区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露娜·终焉"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择空队角色_战区.露娜·终焉"
+                },
+                {
+                    "name": "伊什梅尔·幻日",
+                    "pipeline_override": {
+                        "查看地图_空区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "伊什梅尔·幻日"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "伊什梅尔·幻日"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择空队角色_战区.伊什梅尔·幻日"
+                },
+                {
+                    "name": "拉弥亚·深谣",
+                    "pipeline_override": {
+                        "查看地图_空区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "拉弥亚·深谣"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择空队角色_战区.拉弥亚·深谣"
+                },
+                {
+                    "name": "比安卡·晖暮",
+                    "pipeline_override": {
+                        "查看地图_空区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·晖暮"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择空队角色_战区.比安卡·晖暮"
+                },
+                {
+                    "name": "露西亚·深红囚影",
+                    "pipeline_override": {
+                        "查看地图_空区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·深红囚影"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择空队角色_战区.露西亚·深红囚影"
+                },
+                {
+                    "name": "露西亚·誓焰",
+                    "pipeline_override": {
+                        "查看地图_空区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "露西亚·誓焰"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择空队角色_战区.露西亚·誓焰"
+                },
+                {
+                    "name": "曲·启明",
+                    "pipeline_override": {
+                        "查看地图_空区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "曲·启明"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择空队角色_战区.曲·启明"
+                },
+                {
+                    "name": "比安卡·深痕",
+                    "pipeline_override": {
+                        "查看地图_空区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "比安卡·深痕"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择空队角色_战区.比安卡·深痕"
+                },
+                {
+                    "name": "里·超刻",
+                    "pipeline_override": {
+                        "查看地图_空区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "里·超刻"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择空队角色_战区.里·超刻"
+                },
+                {
+                    "name": "赛琳娜·希声",
+                    "pipeline_override": {
+                        "查看地图_空区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "赛琳娜·希声"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择空队角色_战区.赛琳娜·希声"
+                },
+                {
+                    "name": "维罗妮卡·铮骨",
+                    "pipeline_override": {
+                        "查看地图_空区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "维罗妮卡·铮骨"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择空队角色_战区.维罗妮卡·铮骨"
+                },
+                {
+                    "name": "布偶熊·骇影",
+                    "pipeline_override": {
+                        "查看地图_空区": {
+                            "action": {
+                                "param": {
+                                    "custom_action": "PPOverride",
+                                    "custom_action_param": {
+                                        "选择角色程序": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "选择角色程序_onlyNode": {
+                                            "attach": {
+                                                "weight_mode": "exclusive",
+                                                "pick": [
+                                                    "布偶熊·骇影"
+                                                ]
+                                            }
+                                        },
+                                        "识别人物": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择空队角色_战区.布偶熊·骇影"
+                }
+            ],
+            "default_case": "露娜·终焉"
+        }
+    }
+}

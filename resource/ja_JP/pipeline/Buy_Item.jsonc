@@ -1,0 +1,62 @@
+{
+    "检查碎片": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "逆元欠片"
+                ]
+            }
+        }
+    },
+    "滑动": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "補給ストア"
+                ]
+            }
+        }
+    },
+    "打开商店": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "ストア"
+                ]
+            }
+        }
+    },
+    "购买": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "逆元欠片"
+                ]
+            }
+        }
+    },
+    "购买碎片成功": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "購入しました"
+                ]
+            }
+        }
+    },
+    "购买碎片失败": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    521,
+                    338,
+                    300,
+                    37
+                ],
+                "expected": [
+                    "素材が足りません"
+                ]
+            }
+        }
+    }
+}

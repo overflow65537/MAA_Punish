@@ -1,0 +1,15 @@
+{
+    "task": [
+        {
+            "name": "领取任务",
+            "group": [
+                "daily"
+            ],
+            "default_check": true,
+            "description": "$task.领取任务.description",
+            "entry": "任务",
+            "label": "$task.领取任务"
+        }
+    ],
+    "option": {}
+}

@@ -1,0 +1,15 @@
+{
+    "task": [
+        {
+            "name": "诺曼复兴战",
+            "group": [
+                "daily"
+            ],
+            "default_check": true,
+            "entry": "诺曼复兴战",
+            "description": "$task.诺曼复兴战.description",
+            "label": "$task.诺曼复兴战"
+        }
+    ],
+    "option": {}
+}

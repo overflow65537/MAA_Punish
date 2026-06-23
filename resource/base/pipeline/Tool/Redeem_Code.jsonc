@@ -1,0 +1,97 @@
+{
+    "兑换码": {
+        "next": [
+            // 这里真实的 next 路径需要去检查是否需要运行的 custom 中查看
+            "[JumpBack]检查是否需要运行"
+        ]
+    },
+    "检查是否需要运行": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "CheckRedeemCode"
+            }
+        }
+    },
+    "打开个人页面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [0, 0, 236, 217],
+                "expected": ["等级", "勋阶", "[iI][dD]\\s*[：:]\\s*\\d+"]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "可以输入兑换码": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [752, 468, 528, 252],
+                "expected": "请输入兑换码"
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "RedeemCode",
+                "custom_action_param": {
+                    //兑换码放在这里
+                    "code": ["FOSANNIVERSARY", "NEWALPHA0602"]
+                }
+            }
+        }
+    },
+    "兑换码提示": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [275, 187, 585, 353],
+                "expected": ["兑换码", "不正确", "过期", "已兑换"]
+            }
+        }
+    },
+    "输入兑换码": {
+        "action": {
+            "type": "InputText",
+            "param": {
+                "input_text": "PUNISHING"
+            }
+        }
+    },
+    "确认兑换": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [1058, 395, 222, 325],
+                "expected": "兑换"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "点击兑换码": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [752, 468, 528, 252],
+                "expected": "请输入兑换码"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "按下删除": {
+        "action": {
+            "type": "LongPressKey",
+            "param": {
+                "duration": 1000,
+                "key": 67
+            }
+        }
+    }
+}

@@ -1,0 +1,379 @@
+{
+    "task": [
+        {
+            "name": "战斗辅助",
+            "group": [
+                "tools"
+            ],
+            "entry": "战斗辅助",
+            "option": [
+                "战斗模式",
+                "速通模式",
+                "跳过剧情",
+                "选择人物",
+                "是否使用体力"
+            ],
+            "pipeline_override": {
+                "速通滑动": {
+                    "enabled": true
+                },
+                "跳过剧情": {
+                    "post_wait_freezes": 500,
+                    "next": [
+                        "确认跳过",
+                        "跳过剧情",
+                        "速通滑动"
+                    ]
+                }
+            },
+            "description": "$task.战斗辅助.description",
+            "label": "$task.战斗辅助"
+        }
+    ],
+    "option": {
+        "战斗模式": {
+            "description": "$option.战斗模式.description",
+            "cases": [
+                {
+                    "name": "自动检测",
+                    "description": "<p>检测条件：</p><ul><li>观察到敌人血条。</li><li>左上角任务目标包含“消灭”“感染体”等字样。</li></ul>",
+                    "pipeline_override": {
+                        "战斗辅助": {
+                            "next": [
+                                "循环执行器",
+                                "[JumpBack]战斗重启1",
+                                "[JumpBack]播放剧情",
+                                "[JumpBack]主线跳过",
+                                "[JumpBack]跳过剧情",
+                                "[JumpBack]确认跳过",
+                                "[JumpBack]点击对话",
+                                "[JumpBack]跳过战斗对话_主线",
+                                "[JumpBack]进入战斗",
+                                "[JumpBack]自动反击",
+                                "[JumpBack]点击空白处关闭_速通",
+                                "[JumpBack]未选人",
+                                "[JumpBack]使用体力",
+                                "[JumpBack]不使用体力",
+                                "[JumpBack]点击作战开始_速通",
+                                "[JumpBack]打开速通开关",
+                                "[JumpBack]从中间开始",
+                                "[JumpBack]战斗准备_速通",
+                                "[JumpBack]点击下一关_剧情",
+                                "[JumpBack]点击下一关",
+                                "[JumpBack]退出战斗"
+                            ]
+                        }
+                    },
+                    "label": "$case.战斗模式.自动检测"
+                },
+                {
+                    "name": "持续战斗",
+                    "description": "<p>保持持续战斗，不会因为没有敌人而暂停；若关卡需要解密或跑图，请改用自动检测模式。</p>",
+                    "pipeline_override": {
+                        "进入战斗": {
+                            "enabled": false
+                        },
+                        "自动反击": {
+                            "enabled": false
+                        }
+                    },
+                    "label": "$case.战斗模式.持续战斗"
+                }
+            ],
+            "type": "select"
+        },
+        "速通模式": {
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "未选人": {
+                            "enabled": false
+                        },
+                        "点击作战开始_速通": {
+                            "enabled": false
+                        },
+                        "战斗准备_速通": {
+                            "enabled": false
+                        },
+                        "从中间开始": {
+                            "enabled": false
+                        },
+                        "打开速通开关": {
+                            "enabled": false
+                        },
+                        "点击下一关": {
+                            "enabled": false
+                        },
+                        "点击下一关_剧情": {
+                            "enabled": false
+                        },
+                        "退出战斗": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
+        "跳过剧情": {
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "跳过剧情": {
+                            "enabled": false
+                        },
+                        "播放剧情": {
+                            "enabled": false
+                        },
+                        "跳过战斗对话_主线": {
+                            "enabled": false
+                        },
+                        "点击对话": {
+                            "enabled": false
+                        },
+                        "主线跳过": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
+        "选择人物": {
+            "description": "$option.选择人物.description",
+            "cases": [
+                {
+                    "name": "露西亚·逆冕",
+                    "pipeline_override": {
+                        "选择角色程序": {
+                            "attach": {
+                                "pick": [
+                                    "露西亚·逆冕"
+                                ]
+                            }
+                        },
+                        "选择角色程序_onlyNode": {
+                            "attach": {
+                                "pick": [
+                                    "露西亚·逆冕"
+                                ]
+                            }
+                        }
+                    },
+                    "label": "$case.选择人物.露西亚·逆冕"
+                },
+                {
+                    "name": "露西亚·深红囚影",
+                    "pipeline_override": {
+                        "选择角色程序": {
+                            "attach": {
+                                "pick": [
+                                    "露西亚·深红囚影"
+                                ]
+                            }
+                        },
+                        "选择角色程序_onlyNode": {
+                            "attach": {
+                                "pick": [
+                                    "露西亚·深红囚影"
+                                ]
+                            }
+                        }
+                    },
+                    "label": "$case.选择人物.露西亚·深红囚影"
+                },
+                {
+                    "name": "丽芙·霁梦",
+                    "pipeline_override": {
+                        "选择角色程序": {
+                            "attach": {
+                                "pick": [
+                                    "丽芙·霁梦"
+                                ]
+                            }
+                        },
+                        "选择角色程序_onlyNode": {
+                            "attach": {
+                                "pick": [
+                                    "丽芙·霁梦"
+                                ]
+                            }
+                        }
+                    },
+                    "label": "$case.选择人物.丽芙·霁梦"
+                },
+                {
+                    "name": "露西亚·誓焰",
+                    "pipeline_override": {
+                        "选择角色程序": {
+                            "attach": {
+                                "pick": [
+                                    "露西亚·誓焰"
+                                ]
+                            }
+                        },
+                        "选择角色程序_onlyNode": {
+                            "attach": {
+                                "pick": [
+                                    "露西亚·誓焰"
+                                ]
+                            }
+                        }
+                    },
+                    "label": "$case.选择人物.露西亚·誓焰"
+                },
+                {
+                    "name": "比安卡·晖暮",
+                    "pipeline_override": {
+                        "选择角色程序": {
+                            "attach": {
+                                "pick": [
+                                    "比安卡·晖暮"
+                                ]
+                            }
+                        },
+                        "选择角色程序_onlyNode": {
+                            "attach": {
+                                "pick": [
+                                    "比安卡·晖暮"
+                                ]
+                            }
+                        }
+                    },
+                    "label": "$case.选择人物.比安卡·晖暮"
+                },
+                {
+                    "name": "比安卡·深痕",
+                    "pipeline_override": {
+                        "选择角色程序": {
+                            "attach": {
+                                "pick": [
+                                    "比安卡·深痕"
+                                ]
+                            }
+                        },
+                        "选择角色程序_onlyNode": {
+                            "attach": {
+                                "pick": [
+                                    "比安卡·深痕"
+                                ]
+                            }
+                        }
+                    },
+                    "label": "$case.选择人物.比安卡·深痕"
+                },
+                {
+                    "name": "露娜·终焉",
+                    "pipeline_override": {
+                        "选择角色程序": {
+                            "attach": {
+                                "pick": [
+                                    "露娜·终焉"
+                                ]
+                            }
+                        },
+                        "选择角色程序_onlyNode": {
+                            "attach": {
+                                "pick": [
+                                    "露娜·终焉"
+                                ]
+                            }
+                        }
+                    },
+                    "label": "$case.选择人物.露娜·终焉"
+                },
+                {
+                    "name": "维罗妮卡·铮骨",
+                    "pipeline_override": {
+                        "选择角色程序": {
+                            "attach": {
+                                "pick": [
+                                    "维罗妮卡·铮骨"
+                                ]
+                            }
+                        },
+                        "选择角色程序_onlyNode": {
+                            "attach": {
+                                "pick": [
+                                    "维罗妮卡·铮骨"
+                                ]
+                            }
+                        }
+                    },
+                    "label": "$case.选择人物.维罗妮卡·铮骨"
+                },
+                {
+                    "name": "拉弥亚·深谣",
+                    "pipeline_override": {
+                        "选择角色程序": {
+                            "attach": {
+                                "pick": [
+                                    "拉弥亚·深谣"
+                                ]
+                            }
+                        },
+                        "选择角色程序_onlyNode": {
+                            "attach": {
+                                "pick": [
+                                    "拉弥亚·深谣"
+                                ]
+                            }
+                        }
+                    },
+                    "label": "$case.选择人物.拉弥亚·深谣"
+                },
+                {
+                    "name": "曲·启明",
+                    "pipeline_override": {
+                        "选择角色程序": {
+                            "attach": {
+                                "pick": [
+                                    "曲·启明"
+                                ]
+                            }
+                        },
+                        "选择角色程序_onlyNode": {
+                            "attach": {
+                                "pick": [
+                                    "曲·启明"
+                                ]
+                            }
+                        }
+                    },
+                    "label": "$case.选择人物.曲·启明"
+                },
+                {
+                    "name": "里·超刻",
+                    "pipeline_override": {
+                        "选择角色程序": {
+                            "attach": {
+                                "pick": [
+                                    "里·超刻"
+                                ]
+                            }
+                        },
+                        "选择角色程序_onlyNode": {
+                            "attach": {
+                                "pick": [
+                                    "里·超刻"
+                                ]
+                            }
+                        }
+                    },
+                    "label": "$case.选择人物.里·超刻"
+                }
+            ],
+            "type": "select"
+        }
+    }
+}

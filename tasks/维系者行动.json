@@ -1,0 +1,15 @@
+{
+    "task": [
+        {
+            "name": "维系者行动",
+            "group": [
+                "daily"
+            ],
+            "default_check": true,
+            "entry": "维系者行动",
+            "description": "$task.维系者行动.description",
+            "label": "$task.维系者行动"
+        }
+    ],
+    "option": {}
+}

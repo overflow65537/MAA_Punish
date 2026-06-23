@@ -1,0 +1,606 @@
+{
+    "宣叙妄响内部_reco": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    931,
+                    602,
+                    114,
+                    113
+                ],
+                "expected": [
+                    "編成",
+                    "チーム"
+                ]
+            }
+        }
+    },
+    "宣叙妄响内部": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "編成",
+                    "チーム",
+                    "全員レベル",
+                    "平均戦力"
+                ]
+            }
+        }
+    },
+    "解锁自用角色_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "所有構造体解放",
+                    "手持ちキャラ解放"
+                ]
+            }
+        }
+    },
+    "意外点击_队伍": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "チュートリアル",
+                    "ヘルプ"
+                ]
+            }
+        }
+    },
+    "宣叙妄响内部_reco2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    954,
+                    601,
+                    108,
+                    118
+                ],
+                "expected": [
+                    "編成",
+                    "チーム"
+                ]
+            }
+        }
+    },
+    "宣叙妄响主界面_reco": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "To Be Continued",
+                    "次回へ続く"
+                ]
+            }
+        }
+    },
+    "boss_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "クライマックス",
+                    "劇幕最高潮"
+                ]
+            }
+        }
+    },
+    "战斗失败_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "作戦失敗"
+                ]
+            }
+        }
+    },
+    "没打过_宣叙妄响_reco": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "作戦失敗"
+                ]
+            }
+        }
+    },
+    "幕间准备_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "幕間準備"
+                ]
+            }
+        }
+    },
+    "幕间准备处理_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "選択確認",
+                    "決定"
+                ]
+            }
+        }
+    },
+    "结束交易_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "取引終了",
+                    "馬車を離れる"
+                ]
+            }
+        }
+    },
+    "选择增益_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "レベルアップ",
+                    "バフ"
+                ]
+            }
+        }
+    },
+    "选择增益替换_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "入れ替え",
+                    "交換"
+                ]
+            }
+        }
+    },
+    "跳过选择_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "選択スキップ"
+                ]
+            }
+        }
+    },
+    "选择增益处理_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "選択確認",
+                    "決定"
+                ]
+            }
+        }
+    },
+    "剧情节点_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "密林の奥深く",
+                    "魔法",
+                    "花と羽毛",
+                    "乗船",
+                    "物語の朗読",
+                    "焚き火",
+                    "安眠の地",
+                    "船の上",
+                    "水手",
+                    "孤島漂流"
+                ]
+            }
+        }
+    },
+    "剧情节点处理_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "選択確認",
+                    "決定"
+                ]
+            }
+        }
+    },
+    "下一步_厄愿潮声剧情": {
+        "recognition": {
+            "param": {
+                "all_of": [
+                    {
+                        "sub_name": "颜色",
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    891,
+                                    510,
+                                    389,
+                                    210
+                                ],
+                                "method": 40,
+                                "lower": [
+                                    102,
+                                    171,
+                                    180
+                                ],
+                                "upper": [
+                                    105,
+                                    240,
+                                    200
+                                ],
+                                "count": 100,
+                                "connected": true
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": "颜色",
+                                "roi_offset": [
+                                    -2,
+                                    -2,
+                                    4,
+                                    4
+                                ],
+                                "only_rec": true,
+                                "expected": "次へ"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "对话按钮_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "会話",
+                    "話す"
+                ]
+            }
+        }
+    },
+    "事件处理_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "急いでここを離れる",
+                    "あらゆる生霊を殺す魔法",
+                    "羽毛の導きに従う",
+                    "正直に話す",
+                    "物語に興味はない",
+                    "前へ進む",
+                    "灰の中を探る",
+                    "休息の地を探す",
+                    "蜘蛛の巣の張った巨木",
+                    "船室へ向かう",
+                    "頷く",
+                    "悪竜について話す",
+                    "ここはどこだ",
+                    "辺りを歩き回る",
+                    "砂浜で日光浴をする"
+                ]
+            }
+        }
+    },
+    "离开_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "立ち去る",
+                    "離れる"
+                ]
+            }
+        }
+    },
+    "战斗冲突_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "インプロビゼーション",
+                    "戦闘衝突"
+                ]
+            }
+        }
+    },
+    "意外步骤_战斗界面": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "作戦開始"
+                ]
+            }
+        }
+    },
+    "战斗冲突处理_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "選択確認",
+                    "決定"
+                ]
+            }
+        }
+    },
+    "确认进入战斗冲突": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "動畫設定"
+                ]
+            }
+        }
+    },
+    "招募奖励事件_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "キャスト募集"
+                ]
+            }
+        }
+    },
+    "未找到演员招募": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "キャスト募集"
+                ]
+            }
+        }
+    },
+    "增益奖励事件_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "選択スキップ"
+                ]
+            }
+        }
+    },
+    "未搜索到跳过选择": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "選択スキップ"
+                ]
+            }
+        }
+    },
+    "失败2_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "目標地点へ"
+                ]
+            }
+        }
+    },
+    "全队等级提升": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "チームレベルアップ",
+                    "チームLvアップ"
+                ]
+            }
+        }
+    },
+    "失败_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "作戦失敗"
+                ]
+            }
+        }
+    },
+    "刷新_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": "更新"
+            }
+        }
+    },
+    "刷新次数为0_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": "^[0０].*$"
+            }
+        }
+    },
+    "刷新次数不足_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "残り更新回数が不足しています"
+                ]
+            }
+        }
+    },
+    "一号位_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "深紅ノ影",
+                    "誓焔",
+                    "終焉",
+                    "深痕",
+                    "啓明",
+                    "超刻",
+                    "深謡"
+                ]
+            }
+        }
+    },
+    "二号位_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "深紅ノ影",
+                    "誓焔",
+                    "終焉",
+                    "深痕",
+                    "啓明",
+                    "超刻",
+                    "深謡"
+                ]
+            }
+        }
+    },
+    "三号位_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "深紅ノ影",
+                    "誓焔",
+                    "終焉",
+                    "深痕",
+                    "啓明",
+                    "超刻",
+                    "深謡"
+                ]
+            }
+        }
+    },
+    "开始招募_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^[1１]$",
+                    "^[2２]$",
+                    "^[3３]$"
+                ]
+            }
+        }
+    },
+    "开始招募_倒序_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^[1１]$",
+                    "^[2２]$",
+                    "^[3３]$"
+                ]
+            }
+        }
+    },
+    "点击招募_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^募集$"
+                ]
+            }
+        }
+    },
+    "点击招募_倒序_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^募集$"
+                ]
+            }
+        }
+    },
+    "确认招募_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": "募集"
+            }
+        }
+    },
+    "选定演员_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "キャスト決定"
+                ]
+            }
+        }
+    },
+    "跳过剧情_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "吟遊詩人",
+                    "歌を歌う"
+                ]
+            }
+        }
+    },
+    "选择难度_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "入門"
+                ]
+            }
+        }
+    },
+    "选定难度_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "難易度決定"
+                ]
+            }
+        }
+    },
+    "选择人物_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "キャスト募集"
+                ]
+            }
+        }
+    },
+    "未完待续_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "To Be Continued",
+                    "次回へ続く"
+                ]
+            }
+        }
+    },
+    "揭开帷幕_宣叙妄响_reco": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "幕を開ける"
+                ]
+            }
+        }
+    },
+    "揭开帷幕_宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "幕を開ける"
+                ]
+            }
+        }
+    },
+    "就此收场": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "ここで幕を閉じる",
+                    "ここで終幕"
+                ]
+            }
+        }
+    },
+    "打开宣叙妄响": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "空想環録"
+                ]
+            }
+        }
+    }
+}

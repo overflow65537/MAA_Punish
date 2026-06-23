@@ -1,0 +1,15 @@
+{
+    "task": [
+        {
+            "name": "宿舍任务",
+            "group": [
+                "daily"
+            ],
+            "default_check": true,
+            "entry": "宿舍任务",
+            "description": "$task.宿舍任务.description",
+            "label": "$task.宿舍任务"
+        }
+    ],
+    "option": {}
+}

@@ -1,0 +1,199 @@
+{
+    "检查是否是资源副本界面": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "隊員の欠片"
+                ]
+            }
+        }
+    },
+    "进入资源副本": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "資源"
+                ]
+            }
+        }
+    },
+    "滑动角色碎片界面": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "隊員"
+                ]
+            }
+        }
+    },
+    "A级角色": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    260,
+                    450,
+                    1000,
+                    130
+                ]
+            }
+        }
+    },
+    "未解锁自动作战": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    939,
+                    621,
+                    250,
+                    69
+                ],
+                "expected": [
+                    "^戦闘$",
+                    "^戦闘準備$",
+                    "^準備$"
+                ]
+            }
+        }
+    },
+    "使用体力刷碎片": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    955,
+                    630,
+                    100,
+                    50
+                ],
+                "expected": [
+                    "オート",
+                    "才"
+                ]
+            }
+        }
+    },
+    "A_挑战次数不足": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    450,
+                    330,
+                    300,
+                    50
+                ],
+                "expected": [
+                    "挑戦回数が不足しています",
+                    "挑戦回数",
+                    "しています"
+                ]
+            }
+        }
+    },
+    "A_MAX": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    286,
+                    497,
+                    100,
+                    60
+                ],
+                "expected": [
+                    "MAX"
+                ]
+            }
+        }
+    },
+    "A_确认出战": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "確認"
+                ]
+            }
+        },
+        "next": [
+            "A_出战结束_确认",
+            "A_血清组",
+            "返回主菜单"
+        ]
+    },
+    "补给包不足": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "黒パス"
+                ]
+            }
+        }
+    },
+    "退出自动作战": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "出撃を確認"
+                ]
+            }
+        }
+    },
+    "退出战斗界面": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "オート"
+                ]
+            }
+        }
+    },
+    "A_血清组": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "注射血清",
+                    "血清注射"
+                ]
+            }
+        }
+    },
+    "A_使用体力": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "確認"
+                ]
+            }
+        }
+    },
+    "A_体力取消": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    664,
+                    588,
+                    120,
+                    50
+                ],
+                "expected": [
+                    "キャンセル"
+                ]
+            }
+        }
+    },
+    "A_不使用体力": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "キャンセル"
+                ]
+            }
+        }
+    },
+    "A_出战结束_确认": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "確定"
+                ]
+            }
+        }
+    }
+}

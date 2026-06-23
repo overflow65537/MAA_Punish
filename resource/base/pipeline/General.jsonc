@@ -1,0 +1,440 @@
+{
+    "自动qte": {
+        "enabled": true
+    },
+    "自动切换": {
+        "enabled": true
+    },
+    "关闭奖励": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "关闭奖励_颜色",
+                    "关闭奖励_文字"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    446,
+                    30
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        }
+    },
+    "关闭奖励_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "关闭奖励_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
+                "expected": "奖励",
+                "only_rec": true
+            }
+        }
+    },
+    "关闭奖励_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    560,
+                    218,
+                    300,
+                    72
+                ],
+                "method": 40,
+                "lower": [
+                    101,
+                    210,
+                    160
+                ],
+                "upper": [
+                    105,
+                    255,
+                    200
+                ],
+                "count": 10
+            }
+        }
+    },
+    "返回主菜单": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    201,
+                    0,
+                    135,
+                    83
+                ],
+                "expected": "主界面",
+                "replace": [
+                    [
+                        "王",
+                        "主"
+                    ]
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "检查主界面2",
+            "[JumpBack]关闭奖励",
+            "[JumpBack]确定",
+            "[JumpBack]返回主菜单_reco"
+        ]
+    },
+    "返回主菜单_reco": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    238,
+                    27,
+                    78,
+                    38
+                ],
+                "expected": "主界面",
+                "replace": [
+                    [
+                        "王",
+                        "主"
+                    ]
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "意外点击_主界面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    758,
+                    199,
+                    361,
+                    368
+                ],
+                "expected": "库街区"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    10,
+                    10
+                ]
+            }
+        },
+        "post_delay": 1000
+    },
+    "返回": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    76,
+                    18,
+                    62,
+                    34
+                ],
+                "expected": "返回"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500
+    },
+    "返回_图标": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    27,
+                    10,
+                    51,
+                    53
+                ],
+                "template": "指挥局/返回.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "返回主菜单_err": {
+        "next": [
+            "检查主界面2",
+            "点击频率过快",
+            "检查主界面",
+            "[JumpBack]从战斗中返回",
+            "[JumpBack]退出血清界面_err",
+            "返回主菜单",
+            "[JumpBack]从选人界面返回_厄愿潮声",
+            "[JumpBack]退出_寒境曙光",
+            "[JumpBack]选择宝箱奖励_厄愿潮声",
+            "[JumpBack]点击继续",
+            "[JumpBack]关闭奖励",
+            "[JumpBack]等级提升",
+            "[JumpBack]关闭升级提示",
+            "[JumpBack]返回"
+        ],
+        "on_error": [
+            "重启游戏"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.返回主菜单_err",
+            "aborted": true
+        }
+    },
+    "从战斗中返回": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    990,
+                    567,
+                    131,
+                    131
+                ],
+                "template": [
+                    "战斗/闪避.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1217,
+                    47
+                ]
+            }
+        },
+        "next": [
+            "返回主菜单",
+            "[JumpBack]退出_肉鸽",
+            "[JumpBack]暂离_寒境曙光",
+            "[JumpBack]关闭奖励",
+            "[JumpBack]驻扎点报警_寒境曙光",
+            "[JumpBack]支援等级提升_寒境曙光",
+            "[JumpBack]选择军事支援_寒境曙光",
+            "[JumpBack]选择经济支援_寒境曙光",
+            "[JumpBack]选择基建支援_寒境曙光",
+            "[JumpBack]关闭奖励_寒境曙光",
+            "[JumpBack]下一页",
+            "[JumpBack]确定",
+            "[JumpBack]撤退_宣叙妄响"
+        ]
+    },
+    "重启游戏": {
+        "action": {
+            "type": "StopApp",
+            "param": {
+                "package": "com.kurogame.haru.hero"
+            }
+        },
+        "next": [
+            "启动"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.重启游戏"
+        }
+    },
+    "意外点击_物品": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1130,
+                    24,
+                    124,
+                    96
+                ],
+                "template": "幻痛囚笼/关闭奖励.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "跳过剧情": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1037,
+                    9,
+                    242,
+                    62
+                ],
+                "expected": [
+                    "跳",
+                    "过"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "确认跳过",
+            "跳过剧情",
+            "空任务"
+        ]
+    },
+    "确认跳过": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    973,
+                    581,
+                    106,
+                    45
+                ],
+                "expected": "跳过"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "速通滑动",
+            "空任务"
+        ]
+    },
+    "点击频率过快": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    257,
+                    236,
+                    339,
+                    78
+                ],
+                "expected": "消息发送过于"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "点击频率过快_确认",
+            "点击频率过快",
+            "返回主菜单_err"
+        ]
+    },
+    "点击频率过快_确认": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    812,
+                    476,
+                    86,
+                    69
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "返回主菜单_err"
+        ]
+    },
+    "确定": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    685,
+                    448,
+                    515,
+                    272
+                ],
+                "expected": "^确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 5000
+        }
+    },
+    "退出血清界面_err": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    601,
+                    533,
+                    266,
+                    148
+                ],
+                "expected": "取消"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "识别体力": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    939,
+                    61,
+                    36,
+                    31
+                ],
+                "expected": "\\d"
+            }
+        }
+    },
+    "识别黑卡": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    793,
+                    71,
+                    89,
+                    39
+                ],
+                "expected": "\\d"
+            }
+        }
+    }
+}

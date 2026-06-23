@@ -1,0 +1,539 @@
+{
+    "事件识别_寒境曙光_yolo": {
+        "recognition": {
+            "type": "NeuralNetworkDetect",
+            "param": {
+                "model": "RG4_Zone.onnx",
+                "expected": [
+                    2
+                ],
+                "threshold": [
+                    0.7
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "旧国遗产_寒境曙光_yolo",
+            "拓荒_寒境曙光_yolo",
+            "战马瑞恩_寒境曙光_yolo",
+            "冬日之影_寒境曙光_yolo",
+            "拦路的废墟_寒境曙光_yolo",
+            "建筑师的建议_寒境曙光_yolo",
+            "剩余资金_寒境曙光_yolo",
+            "前方有陷阱_寒境曙光_yolo",
+            "鲨鱼置物箱_寒境曙光_yolo",
+            "汇合_寒境曙光_yolo",
+            "难民团到访_寒境曙光_yolo",
+            "学者来访_寒境曙光_yolo",
+            "运力紧张_寒境曙光_yolo",
+            "商队来访_寒境曙光_yolo",
+            "废弃港口_寒境曙光_yolo"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.事件识别_寒境曙光_yolo"
+        }
+    },
+    "物资识别_寒境曙光_yolo": {
+        "recognition": {
+            "type": "NeuralNetworkDetect",
+            "param": {
+                "model": "RG4_Zone.onnx",
+                "expected": [
+                    4
+                ],
+                "threshold": [
+                    0.8
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "物资事件结束_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.物资识别_寒境曙光_yolo"
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
+    },
+    "战斗识别_寒境曙光_yolo": {
+        "recognition": {
+            "type": "NeuralNetworkDetect",
+            "param": {
+                "model": "RG4_Zone.onnx",
+                "expected": [
+                    0
+                ],
+                "threshold": [
+                    0.8
+                ]
+            }
+        },
+        "next": [
+            "转移视角位置"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.战斗识别_寒境曙光_yolo"
+        }
+    },
+    "拓荒_寒境曙光_yolo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    714,
+                    5,
+                    566,
+                    185
+                ],
+                "expected": "拓荒"
+            }
+        },
+        "next": [
+            "离开对话_寒境曙光",
+            "[JumpBack]继续_寒境曙光",
+            "[JumpBack]拓荒_寒境曙光_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光",
+            "[JumpBack]关闭奖励_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.拓荒_寒境曙光_yolo"
+        },
+        "post_delay": 1000,
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
+    },
+    "前方有陷阱_寒境曙光_yolo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    714,
+                    5,
+                    566,
+                    185
+                ],
+                "expected": "前方有陷阱"
+            }
+        },
+        "next": [
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]前方有陷阱_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.前方有陷阱_寒境曙光_yolo"
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
+    },
+    "剩余资金_寒境曙光_yolo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    714,
+                    5,
+                    566,
+                    185
+                ],
+                "expected": "剩余资金"
+            }
+        },
+        "next": [
+            "离开对话_寒境曙光",
+            "物资事件结束_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]剩余资金_寒境曙光_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.剩余资金_寒境曙光_yolo"
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
+    },
+    "战马瑞恩_寒境曙光_yolo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    714,
+                    5,
+                    566,
+                    185
+                ],
+                "expected": "战马瑞恩",
+                "replace": [
+                    [
+                        "嘴果",
+                        "瑞恩"
+                    ]
+                ]
+            }
+        },
+        "next": [
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]战马瑞恩_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.战马瑞恩_寒境曙光_yolo"
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
+    },
+    "鲨鱼置物箱_寒境曙光_yolo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    714,
+                    5,
+                    566,
+                    185
+                ],
+                "expected": [
+                    "鲨鱼",
+                    "置物箱"
+                ]
+            }
+        },
+        "next": [
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]鲨鱼置物箱_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光",
+            "[JumpBack]关闭奖励_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.鲨鱼置物箱_寒境曙光_yolo"
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
+    },
+    "学者来访_寒境曙光_yolo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    714,
+                    5,
+                    566,
+                    185
+                ],
+                "expected": "学者来访"
+            }
+        },
+        "next": [
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]学者来访_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.学者来访_寒境曙光_yolo"
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
+    },
+    "运力紧张_寒境曙光_yolo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    714,
+                    5,
+                    566,
+                    185
+                ],
+                "expected": "运力紧张"
+            }
+        },
+        "next": [
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]运力紧张_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.运力紧张_寒境曙光_yolo"
+        },
+        "post_delay": 1000,
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
+    },
+    "废弃港口_寒境曙光_yolo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    714,
+                    5,
+                    566,
+                    185
+                ],
+                "expected": "废弃港口"
+            }
+        },
+        "next": [
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]废弃港口_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.废弃港口_寒境曙光_yolo"
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
+    },
+    "商队来访_寒境曙光_yolo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    714,
+                    5,
+                    566,
+                    185
+                ],
+                "expected": "商队来访"
+            }
+        },
+        "next": [
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]商队来访_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.商队来访_寒境曙光_yolo"
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
+    },
+    "拦路的废墟_寒境曙光_yolo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    714,
+                    5,
+                    566,
+                    185
+                ],
+                "expected": [
+                    "拦路",
+                    "的废墟",
+                    "的废址"
+                ]
+            }
+        },
+        "next": [
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]拦路的废墟_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.拦路的废墟_寒境曙光_yolo"
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
+    },
+    "难民团到访_寒境曙光_yolo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    714,
+                    5,
+                    566,
+                    185
+                ],
+                "expected": "难民团到访"
+            }
+        },
+        "next": [
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]难民团到访_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.难民团到访_寒境曙光_yolo"
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
+    },
+    "建筑师的建议_寒境曙光_yolo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    714,
+                    5,
+                    566,
+                    185
+                ],
+                "expected": "建筑师的建议"
+            }
+        },
+        "next": [
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]建筑师的建议_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.建筑师的建议_寒境曙光_yolo"
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
+    },
+    "旧国遗产_寒境曙光_yolo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    714,
+                    5,
+                    566,
+                    185
+                ],
+                "expected": [
+                    "旧国",
+                    "遗产"
+                ]
+            }
+        },
+        "next": [
+            "离开对话_寒境曙光",
+            "[JumpBack]决定事件_寒境曙光",
+            "[JumpBack]旧国遗产_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.旧国遗产_寒境曙光_yolo"
+        },
+        "post_delay": 1000,
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
+    },
+    "物资_寒境曙光_yolo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    714,
+                    5,
+                    566,
+                    185
+                ],
+                "expected": [
+                    "物资$"
+                ]
+            }
+        },
+        "next": [
+            "物资事件结束_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.物资_寒境曙光_yolo"
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
+    },
+    "冬日之影_寒境曙光_yolo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    714,
+                    5,
+                    566,
+                    185
+                ],
+                "expected": "冬日之"
+            }
+        },
+        "next": [
+            "离开对话_寒境曙光",
+            "[JumpBack]冬日之影_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.冬日之影_寒境曙光_yolo"
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
+    },
+    "汇合_寒境曙光_yolo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    714,
+                    5,
+                    566,
+                    185
+                ],
+                "expected": "汇合"
+            }
+        },
+        "next": [
+            "离开对话_寒境曙光",
+            "[JumpBack]汇合_对话_寒境曙光",
+            "[JumpBack]开始探索_寒境曙光"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.汇合_寒境曙光_yolo"
+        },
+        "on_error": [
+            "寒境曙光"
+        ],
+        "timeout": 10000
+    }
+}

@@ -1,3 +1,2 @@
-numpy
 maafw
 json-with-comments

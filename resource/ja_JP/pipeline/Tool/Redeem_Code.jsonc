@@ -1,0 +1,70 @@
+{
+    "打开个人页面": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Lv",
+                    "[iI][dD]\\s*[：:]\\s*\\d+"
+                ]
+            }
+        }
+    },
+    "可以输入兑换码": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    830,
+                    525,
+                    250,
+                    50
+                ],
+                "expected": [
+                    "交換ID"
+                ]
+            }
+        }
+    },
+    "兑换码提示": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "交換ID",
+                    "期限切れ",
+                    "交換済み",
+                    "誤った交換IDです",
+                    "再度ご確認ください"
+                ]
+            }
+        }
+    },
+    "确认兑换": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "action": {
+            "param": {
+                "target": [
+                    1192,
+                    568,
+                    68,
+                    36
+                ]
+            }
+        }
+    },
+    "点击兑换码": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "action": {
+            "param": {
+                "target": [
+                    860,
+                    565,
+                    335,
+                    38
+                ]
+            }
+        }
+    }
+}

@@ -440,10 +440,6 @@ enc_temp_folder/*
 .nuke/temp/*
 
 # Build
-deps/*
-!deps/tools/
-deps/tools/*
-!deps/tools/*.schema.json
 build
 install
 
@@ -455,9 +451,8 @@ maapicli.spec
 assets/README.md
 install.spec
 /config
-!assets/MPAcustom/action/combat/config/
-!assets/MPAcustom/action/combat/config/**
+!agent/action/combat/config/
+!agent/action/combat/config/**
 .nicegui/storage-general.json
-assets/MPAcustom/recognition/exclusives/role_cache.json
-assets/role_cache.json
-assets/*_role_cache.json
+agent/recognition/exclusives/role_cache.json
+*_role_cache.json

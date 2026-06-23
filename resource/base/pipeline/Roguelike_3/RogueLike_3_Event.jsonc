@@ -1,0 +1,3958 @@
+{
+    "未命中选项": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    472,
+                    256,
+                    333,
+                    217
+                ],
+                "expected": "请先选择选项"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "商店_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    246,
+                    200,
+                    974,
+                    120
+                ],
+                "expected": "士多"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "进入商店_矩阵循生"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.商店_矩阵循生"
+        }
+    },
+    "意外点击藏品_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    696,
+                    52,
+                    208,
+                    124
+                ],
+                "expected": "^.品$"
+            }
+        },
+        "post_delay": 2000,
+        "next": [
+            "返回"
+        ]
+    },
+    "进入商店_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    183,
+                    469,
+                    972,
+                    63
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]确认结束购物_矩阵循生",
+            "[JumpBack]结束购物_矩阵循生"
+        ]
+    },
+    "确认结束购物_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    706,
+                    465,
+                    59,
+                    37
+                ],
+                "expected": "确认"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "结束购物_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1038,
+                    622,
+                    97,
+                    36
+                ],
+                "expected": "结束购物"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "在途存货_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "在途存货"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]在途存货_对话1",
+            "[JumpBack]在途存货_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.在途存货_矩阵循生"
+        }
+    },
+    "在途存货_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": "离开"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "在途存货_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    773,
+                    302,
+                    360,
+                    240
+                ],
+                "expected": "射击大的捕虫袋"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "亚人少女_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "亚人少女"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]亚人少女_对话2",
+            "[JumpBack]亚人少女_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.亚人少女_矩阵循生"
+        }
+    },
+    "亚人少女_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    773,
+                    400,
+                    97,
+                    39
+                ],
+                "expected": "转身逃离"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "亚人少女_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "原地观察",
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "贴心搭档_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "贴心搭档"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]出发_矩阵循生",
+            "[JumpBack]未命中选项",
+            "[JumpBack]贴心搭档_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.贴心搭档_矩阵循生"
+        }
+    },
+    "贴心搭档_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    768,
+                    305,
+                    193,
+                    47
+                ],
+                "expected": "取走沉甸甸的大包裹",
+                "replace": [["里", "裹"]]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生",
+            "出发_矩阵循生"
+        ]
+    },
+    "逃出生天_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "逃出生天"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]逃出生天_对话2",
+            "[JumpBack]逃出生天_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.逃出生天_矩阵循生"
+        }
+    },
+    "逃出生天_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "收下",
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "逃出生天_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "给巨鼠些吃的"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "隐秘工坊_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "隐秘工坊"
+            }
+        },
+        "next": [
+            "事件完成_结束_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]隐秘工坊_对话2",
+            "[JumpBack]隐秘工坊_对话",
+            "[JumpBack]转场_矩阵循生"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.隐秘工坊_矩阵循生"
+        }
+    },
+    "隐秘工坊_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "直接出发"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "隐秘工坊_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "收取",
+                    "出发"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "洁塔薇的游戏_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "洁塔薇的游戏"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]洁塔薇的游戏_对话2",
+            "[JumpBack]洁塔薇的游戏_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.洁塔薇的游戏_矩阵循生"
+        }
+    },
+    "洁塔薇的游戏_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "转头看向自己背后"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "洁塔薇的游戏_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "追上她",
+                    "答应",
+                    "起离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "禁忌验证_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    708,
+                    99,
+                    158,
+                    53
+                ],
+                "expected": "禁忌验证"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]禁忌验证_对话2",
+            "[JumpBack]禁忌验证_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.禁忌验证_矩阵循生"
+        }
+    },
+    "禁忌验证_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "检查四周",
+                    "收起卡片",
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "禁忌验证_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "寻找安全区",
+                    "转身准备战斗"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "头号玩家_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "头号玩家",
+                    "实号玩家"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]头号玩家_对话2",
+            "[JumpBack]头号玩家_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.头号玩家_矩阵循生"
+        }
+    },
+    "头号玩家_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": "离开"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "头号玩家_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "取走游戏机的芯片"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "致命失误_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "致命失误"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]致命失误_对话2",
+            "[JumpBack]致命失误_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.致命失误_矩阵循生"
+        }
+    },
+    "致命失误_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "取走东西",
+                    "赶紧离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "致命失误_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "打开实验日志阅读"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "工业怪谈_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "工业怪谈"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]工业怪谈_对话2",
+            "[JumpBack]工业怪谈_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.工业怪谈_矩阵循生"
+        }
+    },
+    "工业怪谈_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": "离开"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "工业怪谈_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "就地回收"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "动物坟场_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "动物坟场"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]动物坟场_对话2",
+            "[JumpBack]动物坟场_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.动物坟场_矩阵循生"
+        }
+    },
+    "动物坟场_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "查看周围",
+                    "搜索周边",
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "动物坟场_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "挖掘",
+                    "周边",
+                    "安葬",
+                    "骸骨"
+                ],
+                "replace": [["該", "骸"]]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "观星真相_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "观星真相"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]观星真相_对话2",
+            "[JumpBack]观星真相_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.观星真相_矩阵循生"
+        }
+    },
+    "观星真相_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "避开",
+                    "辟开",
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "观星真相_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "调查机器人的芯片",
+                    "插入新的芯片"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "异界通讯I_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    705,
+                    103,
+                    300,
+                    56
+                ],
+                "expected": "机械性故障"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]异界通讯I_对话2",
+            "[JumpBack]异界通讯I_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.异界通讯I_矩阵循生"
+        }
+    },
+    "异界通讯I_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "检查武器",
+                    "进行链接",
+                    "发送",
+                    "离开",
+                    "提出需求"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "异界通讯I_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "建立",
+                    "寻找异界通讯点",
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "步履蹒跚_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "步履",
+                    "蹒跚",
+                    "购"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]步履蹒跚_对话2",
+            "[JumpBack]步履蹒跚_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.步履蹒跚_矩阵循生"
+        }
+    },
+    "步履蹒跚_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "跟上他",
+                    "查看信封",
+                    "打开暗格",
+                    "取走补给"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "举手之劳_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "举手之劳"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]领取藏品",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]举手之劳_对话2",
+            "[JumpBack]举手之劳_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.举手之劳_矩阵循生"
+        }
+    },
+    "举手之劳_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "查看",
+                    "检查",
+                    "打开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "举手之劳_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "去花园里浇水"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "步履蹒跚_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "去看看保险柜"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "无效救援_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "无效救援"
+            }
+        },
+        "next": [
+            "事件完成_结束_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]无效救援_对话2",
+            "[JumpBack]无效救援_对话",
+            "[JumpBack]转场_矩阵循生"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.无效救援_矩阵循生"
+        }
+    },
+    "无效救援_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "往下方走",
+                    "回收物资",
+                    "出发"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "无效救援_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "直接出发"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "盛典纪行_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "盛典纪行"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]盛典纪行_对话2",
+            "[JumpBack]盛典纪行_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.盛典纪行_矩阵循生"
+        }
+    },
+    "盛典纪行_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "检查",
+                    "离开",
+                    "搜寻营地"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "盛典纪行_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "解救",
+                    "拿出武器"
+                ],
+                "replace": [["教", "解"]]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "火灾现场_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "火灾现场"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]火灾现场_对话2",
+            "[JumpBack]火灾现场_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.火灾现场_矩阵循生"
+        }
+    },
+    "火灾现场_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "推测",
+                    "调查附近"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "火灾现场_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "这是一场布局精妙的谋杀"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "棋盘难题_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "棋盘难题"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]棋盘难题_对话2",
+            "[JumpBack]棋盘难题_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.棋盘难题_矩阵循生"
+        }
+    },
+    "棋盘难题_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "向前看",
+                    "认输"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "棋盘难题_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "接受挑战"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "皇后游戏_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "后游戏"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]皇后游戏_对话2",
+            "[JumpBack]皇后游戏_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.皇后游戏_矩阵循生"
+        }
+    },
+    "皇后游戏_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "查看",
+                    "检查",
+                    "打开",
+                    "拿牌",
+                    "继续"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "皇后游戏_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "接受挑战",
+                    "同意",
+                    "^「皇后」$",
+                    "离桌"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "瑕疵造物_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "瑕疵造物",
+                "replace": [["症", "疵"], ["疝", "疵"]]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]瑕疵造物_对话2",
+            "[JumpBack]瑕疵造物_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.瑕疵造物_矩阵循生"
+        }
+    },
+    "瑕疵造物_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "决定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "瑕疵造物_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "断臂维纳斯"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "迷失之馆_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "迷失之馆"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]迷失之馆_对话2",
+            "[JumpBack]迷失之馆_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.迷失之馆_矩阵循生"
+        }
+    },
+    "迷失之馆_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "询问他"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "迷失之馆_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "帮助他"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "圣殿战役_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "圣殿战役"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]圣殿战役_对话2",
+            "[JumpBack]圣殿战役_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.圣殿战役_矩阵循生"
+        }
+    },
+    "圣殿战役_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "观察",
+                    "跟着喊",
+                    "收下"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "圣殿战役_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "协助黑衣人",
+                    "用拳开路"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "西西弗斯_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "西西弗斯"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]西西弗斯_对话2",
+            "[JumpBack]西西弗斯_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.西西弗斯_矩阵循生"
+        }
+    },
+    "西西弗斯_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": "离开"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "西西弗斯_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "询问少女"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "野性之森_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "野性之森"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]野性之森_对话2",
+            "[JumpBack]野性之森_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.野性之森_矩阵循生"
+        }
+    },
+    "野性之森_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "继续前行",
+                    "带她回去",
+                    "出发"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "野性之森_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "问女孩昆虫的品种"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "蓝色裂痕_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "蓝色裂痕"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]蓝色裂痕_对话2",
+            "[JumpBack]蓝色裂痕_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.蓝色裂痕_矩阵循生"
+        }
+    },
+    "蓝色裂痕_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "继续",
+                    "查看资料",
+                    "收起"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "蓝色裂痕_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "进入里面",
+                    "不顾一切取走资料集"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "铁石心肠_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "铁石心肠"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]铁石心肠_对话2",
+            "[JumpBack]铁石心肠_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.铁石心肠_矩阵循生"
+        }
+    },
+    "铁石心肠_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": "离开"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "铁石心肠_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "优先启动档案库"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "栩栩如生_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": [
+                    "栩栩",
+                    "如生"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]栩栩如生_对话2",
+            "[JumpBack]栩栩如生_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.栩栩如生_矩阵循生"
+        }
+    },
+    "栩栩如生_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "看向油画",
+                    "继续"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "栩栩如生_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "绝境的希望",
+                    "上前取下纸条"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "荒废古卷_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "荒废古卷"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]荒废古卷_对话2",
+            "[JumpBack]荒废古卷_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.荒废古卷_矩阵循生"
+        }
+    },
+    "荒废古卷_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "翻阅"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "荒废古卷_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "完全品"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生",
+            "回答_矩阵循生"
+        ]
+    },
+    "回答_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    618,
+                    72,
+                    42
+                ],
+                "expected": "回答"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "洁塔薇的食材_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "洁塔薇的食材"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]洁塔薇的食材_对话2",
+            "[JumpBack]洁塔薇的食材_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.洁塔薇的食材_矩阵循生"
+        }
+    },
+    "洁塔薇的食材_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "寻找食材",
+                    "等待"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "洁塔薇的食材_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "紫里透红",
+                    "兔肉火锅"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "荒废古堡_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "荒废古堡"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]荒废古堡_对话2",
+            "[JumpBack]荒废古堡_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.荒废古堡_矩阵循生"
+        }
+    },
+    "荒废古堡_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "检视"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "荒废古堡_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "转身离开"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "天台扭蛋机_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "天台扭蛋机"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]天台扭蛋机_对话2",
+            "[JumpBack]天台扭蛋机_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.天台扭蛋机_矩阵循生"
+        }
+    },
+    "天台扭蛋机_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": "离开"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "天台扭蛋机_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "还是算了"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "莫比乌斯_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "莫比乌斯"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]莫比乌斯_对话2",
+            "[JumpBack]莫比乌斯_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.莫比乌斯_矩阵循生"
+        }
+    },
+    "莫比乌斯_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "取下异物",
+                    "原地分析"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "莫比乌斯_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "不动声色"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "赝品工匠_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "品工匠"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]赝品工匠_对话2",
+            "[JumpBack]赝品工匠_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.赝品工匠_矩阵循生"
+        }
+    },
+    "赝品工匠_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "继续"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "赝品工匠_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "夜里撒入的月光"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "继承之物_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "继承之物"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]继承之物_对话2",
+            "[JumpBack]继承之物_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.继承之物_矩阵循生"
+        }
+    },
+    "继承之物_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "聆听",
+                    "玲听"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "继承之物_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "询问他关于怪物的事",
+                    "替男人继续追踪怪物"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "异界通讯II_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    705,
+                    97,
+                    324,
+                    56
+                ],
+                "expected": "意外的请求"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]异界通讯II_对话2",
+            "[JumpBack]异界通讯II_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.异界通讯II_矩阵循生"
+        }
+    },
+    "异界通讯II_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "启动机器",
+                    "迎战",
+                    "发送"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "异界通讯II_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "接受请求"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "禁忌实验_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "禁忌实验"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]禁忌实验_对话2",
+            "[JumpBack]禁忌实验_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.禁忌实验_矩阵循生"
+        }
+    },
+    "禁忌实验_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "观察",
+                    "提高功率",
+                    "查看纸条"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "禁忌实验_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "射击怪物"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "失败造物_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "失败造物"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]失败造物_对话2",
+            "[JumpBack]失败造物_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.失败造物_矩阵循生"
+        }
+    },
+    "失败造物_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "上前询问",
+                    "继续"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "失败造物_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "调查活泼开朗的粉发莉莉"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生",
+            "调查_矩阵循生",
+            "继续_矩阵循生"
+        ]
+    },
+    "继续_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    618,
+                    72,
+                    42
+                ],
+                "expected": "继续"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "调查_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    618,
+                    72,
+                    42
+                ],
+                "expected": "调查"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "旧日情谊_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "旧日情谊"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]旧日情谊_对话2",
+            "[JumpBack]旧日情谊_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.旧日情谊_矩阵循生"
+        }
+    },
+    "旧日情谊_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "上前招呼"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "旧日情谊_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "拒绝莉莉的请求"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "贫困收藏家_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "贫困收藏家"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]贫困收藏家_对话2",
+            "[JumpBack]贫困收藏家_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.贫困收藏家_矩阵循生"
+        }
+    },
+    "贫困收藏家_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": "离开"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "贫困收藏家_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "拒绝交换"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "英雄真相_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "英雄真相"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]英雄真相_对话2",
+            "[JumpBack]英雄真相_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.英雄真相_矩阵循生"
+        }
+    },
+    "英雄真相_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "继续"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "英雄真相_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "优先解救被困少女",
+                    "带着少女离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "记忆真相_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "记忆真相"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]领取藏品",
+            "[JumpBack]未命中选项",
+            "[JumpBack]记忆真相_对话2",
+            "[JumpBack]记忆真相_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.记忆真相_矩阵循生"
+        }
+    },
+    "记忆真相_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "推开",
+                    "拒绝"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "记忆真相_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "花费时间消灭怪物"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "天选者的故事_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "天选者的故事"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]天选者的故事_对话2",
+            "[JumpBack]天选者的故事_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.天选者的故事_矩阵循生"
+        }
+    },
+    "天选者的故事_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "决定",
+                    "合上日记",
+                    "入眠"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "天选者的故事_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "与天选者的相遇"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生",
+            "翻阅_矩阵循生"
+        ]
+    },
+    "翻阅_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1032,
+                    618,
+                    72,
+                    42
+                ],
+                "expected": "翻阅"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "树神之女_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "树神之女"
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]树神之女_对话2",
+            "[JumpBack]树神之女_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.树神之女_矩阵循生"
+        }
+    },
+    "树神之女_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": "离开"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "树神之女_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "开导少女"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "物归新主_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "物归新主"
+            }
+        },
+        "next": [
+            "物归新主完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]物归新主_对话2",
+            "[JumpBack]物归新主_对话",
+            "[JumpBack]转场_矩阵循生"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.物归新主_矩阵循生"
+        }
+    },
+    "物归新主_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": "出发"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "物归新主_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "打开箱子"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "无尽长廊_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "无尽长廊"
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]无尽长廊_对话2",
+            "[JumpBack]无尽长廊_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.无尽长廊_矩阵循生"
+        }
+    },
+    "无尽长廊_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "前进"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "无尽长廊_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "前进",
+                    "观察四周",
+                    "撕开巨幅油画"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "万两黄金_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "万两黄金"
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]万两黄金_对话2",
+            "[JumpBack]万两黄金_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.万两黄金_矩阵循生"
+        }
+    },
+    "万两黄金_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "搜查四周"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "万两黄金_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "去小花园调查"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "工业幽灵_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "工业幽灵"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]工业幽灵_对话2",
+            "[JumpBack]工业幽灵_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.工业幽灵_矩阵循生"
+        }
+    },
+    "工业幽灵_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": "离开"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "工业幽灵_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": [
+                    "开枪解决感染体",
+                    "查看向导机器人"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "自投罗网_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "自投罗网"
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]自投罗网_对话2",
+            "[JumpBack]自投罗网_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.自投罗网_矩阵循生"
+        }
+    },
+    "自投罗网_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "朝天开枪"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "自投罗网_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "让他交出物资"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "武器技师_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "武器技师"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]武器技师_对话2",
+            "[JumpBack]武器技师_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.武器技师_矩阵循生"
+        }
+    },
+    "武器技师_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": "离开"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "武器技师_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "接入该游戏机进行游玩"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "致命隐患_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "致命隐患"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]致命隐患_对话2",
+            "[JumpBack]致命隐患_对话"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.致命隐患_矩阵循生"
+        }
+    },
+    "致命隐患_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": [
+                    "离开",
+                    "寻找药物",
+                    "前往终端",
+                    "安葬"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "致命隐患_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "开枪鸡腿两头感染体"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "物归新主非兼容_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": "物归新主"
+            }
+        },
+        "next": [
+            "事件完成_矩阵循生",
+            "[JumpBack]关闭奖励_矩阵循生",
+            "[JumpBack]确认装备_矩阵循生",
+            "[JumpBack]意外点击藏品_矩阵循生",
+            "[JumpBack]选择装备_矩阵循生",
+            "[JumpBack]beta_过场动画",
+            "[JumpBack]未命中选项",
+            "[JumpBack]物归新主非兼容_对话2",
+            "[JumpBack]物归新主非兼容_对话",
+            "[JumpBack]转场_矩阵循生"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.物归新主非兼容_矩阵循生"
+        }
+    },
+    "物归新主非兼容_对话": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    613,
+                    170,
+                    54
+                ],
+                "expected": "出发"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "物归新主非兼容_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    690,
+                    254,
+                    554,
+                    339
+                ],
+                "expected": "打开箱子"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "决定_矩阵循生"
+        ]
+    },
+    "未知事件_矩阵循生": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    96,
+                    254,
+                    62
+                ],
+                "expected": ""
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PrintInfo"
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "链路崩溃_reco",
+            "[JumpBack]返回_矩阵循生",
+            "[JumpBack]确认结束购物_矩阵循生",
+            "[JumpBack]终止_矩阵循生"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.未知事件_矩阵循生"
+        }
+    }
+}

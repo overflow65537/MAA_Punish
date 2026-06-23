@@ -1,0 +1,15 @@
+{
+    "task": [
+        {
+            "name": "兑换码",
+            "group": [
+                "daily"
+            ],
+            "default_check": true,
+            "entry": "兑换码",
+            "description": "$task.兑换码.description",
+            "label": "$task.兑换码"
+        }
+    ],
+    "option": {}
+}

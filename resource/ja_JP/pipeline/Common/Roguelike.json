@@ -1,0 +1,33 @@
+{
+    "下一步": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "次へ"
+                ]
+            }
+        }
+    },
+    "点击继续": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "次へ",
+                    "進む",
+                    "继续",
+                    "繼續"
+                ]
+            }
+        }
+    },
+    "退出_肉鸽": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "退出",
+                    "戻る"
+                ]
+            }
+        }
+    }
+}

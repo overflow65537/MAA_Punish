@@ -1,0 +1,15 @@
+{
+    "task": [
+        {
+            "name": "领取体力",
+            "group": [
+                "daily"
+            ],
+            "default_check": true,
+            "entry": "领取体力",
+            "description": "$task.领取体力.description",
+            "label": "$task.领取体力"
+        }
+    ],
+    "option": {}
+}

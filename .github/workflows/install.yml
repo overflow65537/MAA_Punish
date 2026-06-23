@@ -8,15 +8,25 @@ on:
       - "**"
     paths:
       - ".github/workflows/install.yml"
-      - "assets/**"
-      - "**.py"
+      - "tools/ci/install.py"
+      - "agent/**"
+      - "resource/**"
+      - "tasks/**"
+      - "i18n/**"
+      - "interface.json"
+      - "requirements.txt"
   pull_request:
     branches:
       - "**"
     paths:
       - ".github/workflows/install.yml"
-      - "assets/**"
-      - "**.py"
+      - "tools/ci/install.py"
+      - "agent/**"
+      - "resource/**"
+      - "tasks/**"
+      - "i18n/**"
+      - "interface.json"
+      - "requirements.txt"
   workflow_dispatch:
 
 jobs:
@@ -27,7 +37,7 @@ jobs:
       release_body: ${{ steps.git-cliff.outputs.content }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -44,7 +54,7 @@ jobs:
   meta:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - id: set_tag
@@ -93,7 +103,7 @@ jobs:
   #        run: |
   #          curl -L -o background.png "https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/images/1764000000000/skoi7dbbzdwogxvnin-176404371364016.png"
   #
-  #      - uses: actions/upload-artifact@v6
+  #      - uses: actions/upload-artifact@v7
   #        with:
   #          name: background
   #          path: background.png
@@ -126,7 +136,7 @@ jobs:
             arch: x86_64
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           submodules: true
 
@@ -141,10 +151,10 @@ jobs:
           python -m pip install pyinstaller
           python -m pip install -r requirements.txt
           python -m pip install json-with-comments
-          python ./install.py ${{ needs.meta.outputs.tag }}
+          python ./tools/ci/install.py ${{ needs.meta.outputs.tag }}
 
       - name: Download MFW
-        uses: robinraju/release-downloader@v1
+        uses: robinraju/release-downloader@v1.13
         with:
           repository: overflow65537/MFW-PyQt6
           fileName: "MFW-PyQt6-${{ matrix.platform }}-${{ matrix.arch }}*"
@@ -228,7 +238,7 @@ jobs:
       #          name: background
       #          path: install/
 
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         with:
           name: MPA-${{ matrix.platform }}-${{ matrix.arch }}
           path: "install"
@@ -238,7 +248,7 @@ jobs:
     needs: [meta, build, changelog]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v6
+      - uses: actions/download-artifact@v7
         with:
           path: assets
 
@@ -255,7 +265,7 @@ jobs:
             fi
           done
 
-      - uses: softprops/action-gh-release@v2.2.2
+      - uses: softprops/action-gh-release@v3
         with:
           files: assets/*
           tag_name: ${{ needs.meta.outputs.tag }}

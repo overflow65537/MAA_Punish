@@ -1,0 +1,2087 @@
+{
+    "下定决心_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1084,
+                    635,
+                    112,
+                    36
+                ],
+                "expected": "下定决心"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "事件完成_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1022,
+                    600,
+                    225,
+                    83
+                ],
+                "expected": "第[一二三四五六七八九十百千]+章"
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "关闭事件奖励_厄愿潮声",
+            "事件完成_二次确认_厄愿潮声"
+        ]
+    },
+    "关闭事件奖励_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    580,
+                    248,
+                    117,
+                    35
+                ],
+                "expected": "奖励"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    600,
+                    80
+                ]
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声"
+        ]
+    },
+    "事件完成_二次确认_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1022,
+                    600,
+                    225,
+                    83
+                ],
+                "expected": "第[一二三四五六七八九十百千]+章"
+            }
+        },
+        "next": [
+            "关闭事件奖励_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "商店_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    79,
+                    153,
+                    44
+                ],
+                "expected": "鲨鲨特卖",
+                "only_rec": true
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]结束交易_厄愿潮声",
+            "[JumpBack]商店_对话2",
+            "[JumpBack]点击继续"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.商店_厄愿潮声"
+        }
+    },
+    "商店_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "继续旅途"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "结束交易_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "结束交易"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500
+    },
+    "布道者_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "布道者"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]领取人物_厄愿潮声",
+            "[JumpBack]意外点击_羁绊选择",
+            "[JumpBack]布道者_对话1",
+            "[JumpBack]布道者_对话2"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.布道者_厄愿潮声"
+        }
+    },
+    "布道者_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "选择秘血"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "布道者_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "收下物资"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "悠久之歌_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "悠久之歌"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]领取人物_厄愿潮声",
+            "[JumpBack]意外点击_羁绊选择",
+            "[JumpBack]悠久之歌_对话1",
+            "[JumpBack]悠久之歌_对话2"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.悠久之歌_厄愿潮声"
+        }
+    },
+    "悠久之歌_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "不妨听听"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "悠久之歌_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "招募同伴"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500
+        }
+    },
+    "鲨鲨置物箱_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "鲨鲨置物箱"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]鲨鲨置物箱_对话1",
+            "[JumpBack]鲨鲨置物箱_对话2"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.鲨鲨置物箱_厄愿潮声"
+        }
+    },
+    "鲨鲨置物箱_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "感觉不值"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "鲨鲨置物箱_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "继续旅途"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "名为知识的诅咒_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": [
+                    "“知识”",
+                    "的诅咒"
+                ]
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]名为知识的诅咒_对话1",
+            "[JumpBack]名为知识的诅咒_对话2"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.名为知识的诅咒_厄愿潮声"
+        }
+    },
+    "名为知识的诅咒_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "无视并离开"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "名为知识的诅咒_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "继续旅途"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "集市_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "集市"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]集市_对话1",
+            "[JumpBack]集市_对话2"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.集市_厄愿潮声"
+        }
+    },
+    "集市_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    749,
+                    568,
+                    150,
+                    33
+                ],
+                "expected": [
+                    "离开这里",
+                    "继续旅途"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "集市_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "继续旅途"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "废弃庭院_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "废弃庭院"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]废弃庭院_对话1",
+            "[JumpBack]废弃庭院_对话2"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.废弃庭院_厄愿潮声"
+        }
+    },
+    "废弃庭院_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "探索储藏室"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "废弃庭院_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "收入"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "恶魔配方_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "配方"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]恶魔配方_对话1",
+            "[JumpBack]恶魔配方_对话2"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.恶魔配方_厄愿潮声"
+        }
+    },
+    "恶魔配方_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "带走古"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "恶魔配方_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "收获满满"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "军备库_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "军备库"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]军备库_对话2",
+            "[JumpBack]军备库_对话1",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]关闭奖励_厄愿潮声",
+            "[JumpBack]点击藏品_厄愿潮声"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.军备库_厄愿潮声"
+        }
+    },
+    "军备库_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": [
+                    "秘藏品",
+                    "秘血"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "军备库_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": [
+                    "打开箱子",
+                    "收集秘血"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "迷雾之梦_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "迷雾之梦"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]迷雾之梦_对话1",
+            "[JumpBack]迷雾之梦_对话2"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.迷雾之梦_厄愿潮声"
+        }
+    },
+    "迷雾之梦_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": [
+                    "停在原地",
+                    "什么也不做"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "迷雾之梦_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "醒来"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "旅行剧团_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "旅行剧团"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]旅行剧团_对话1",
+            "[JumpBack]旅行剧团_对话2"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.旅行剧团_厄愿潮声"
+        }
+    },
+    "旅行剧团_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "你对剧目毫无兴趣"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "旅行剧团_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "继续旅途"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "返乡者_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "返乡者"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]返乡者_对话1",
+            "[JumpBack]返乡者_对话2"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.返乡者_厄愿潮声"
+        }
+    },
+    "返乡者_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "与他告别"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "返乡者_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "继续旅途"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "命运前路_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "命运前路"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]领取人物_厄愿潮声",
+            "[JumpBack]意外点击_羁绊选择",
+            "[JumpBack]命运前路_对话1",
+            "[JumpBack]命运前路_对话2",
+            "[JumpBack]点击藏品_厄愿潮声"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.命运前路_厄愿潮声"
+        }
+    },
+    "命运前路_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": [
+                    "接受占卜",
+                    "随便抽一张"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "命运前路_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "收集物品"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "领取人物_厄愿潮声",
+            "意外点击_羁绊选择",
+            "空任务"
+        ]
+    },
+    "拾荒者派对_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "拾荒者派对"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]拾荒者派对_对话1",
+            "[JumpBack]拾荒者派对_对话2"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.拾荒者派对_厄愿潮声"
+        }
+    },
+    "拾荒者派对_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "还是算了"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "拾荒者派对_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "继续旅途"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "名为禁忌的睿智_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": [
+                    "“禁忌”",
+                    "的睿智"
+                ],
+                "replace": [
+                    [
+                        "餐",
+                        "智"
+                    ],
+                    [
+                        "香",
+                        "智"
+                    ]
+                ]
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]名为禁忌的睿智_对话1",
+            "[JumpBack]名为禁忌的睿智_对话2"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.名为禁忌的睿智_厄愿潮声"
+        }
+    },
+    "名为禁忌的睿智_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "取走诅咒的古籍"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "名为禁忌的睿智_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "收下古籍"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "遗骨之滨_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "遗骨之滨"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]关闭奖励_厄愿潮声",
+            "[JumpBack]遗骨之滨_对话1",
+            "[JumpBack]遗骨之滨_对话2",
+            "[JumpBack]点击藏品_厄愿潮声"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.遗骨之滨_厄愿潮声"
+        }
+    },
+    "遗骨之滨_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "探索周围"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "遗骨之滨_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "收集物资"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "柯蕾多尔的馈赠_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "蕾多尔的馈赠"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]关闭奖励_厄愿潮声",
+            "[JumpBack]柯雷多尔的馈赠_对话1",
+            "[JumpBack]柯雷多尔的馈赠_对话2",
+            "[JumpBack]点击藏品_厄愿潮声"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.柯蕾多尔的馈赠_厄愿潮声"
+        }
+    },
+    "柯雷多尔的馈赠_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "收下赠礼"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "柯雷多尔的馈赠_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "收下礼物"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "街头艺人_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "街头艺人"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]关闭奖励_厄愿潮声",
+            "[JumpBack]街头艺人_对话1",
+            "[JumpBack]街头艺人_对话2",
+            "[JumpBack]点击藏品_厄愿潮声"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.街头艺人_厄愿潮声"
+        }
+    },
+    "街头艺人_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "对猜谜没有兴趣"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "街头艺人_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "离开这里"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "失败者_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "失败者"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]关闭奖励_厄愿潮声",
+            "[JumpBack]失败者_对话1",
+            "[JumpBack]失败者_对话2",
+            "[JumpBack]点击藏品_厄愿潮声"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.失败者_厄愿潮声"
+        }
+    },
+    "失败者_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "收下他的遗物"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "继承意志_厄愿潮声"
+        ]
+    },
+    "继承意志_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1084,
+                    635,
+                    112,
+                    36
+                ],
+                "expected": "继承"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "失败者_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "继续旅途"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "欢乐时光_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "欢乐时光"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]领取人物_厄愿潮声",
+            "[JumpBack]意外点击_羁绊选择",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]关闭奖励_厄愿潮声",
+            "[JumpBack]欢乐时光_对话1",
+            "[JumpBack]欢乐时光_对话2",
+            "[JumpBack]点击藏品_厄愿潮声"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.欢乐时光_厄愿潮声"
+        }
+    },
+    "欢乐时光_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "尽情豪饮"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "欢乐时光_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "招募同伴"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "谨听忠告_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    657,
+                    157,
+                    88,
+                    38
+                ],
+                "expected": "要塞中"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]领取人物_厄愿潮声",
+            "[JumpBack]意外点击_羁绊选择",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]关闭奖励_厄愿潮声",
+            "[JumpBack]谨听忠告_对话1",
+            "[JumpBack]谨听忠告_对话2",
+            "[JumpBack]点击藏品_厄愿潮声"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.谨听忠告_厄愿潮声"
+        }
+    },
+    "谨听忠告_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "招募更多同伴"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "谨听忠告_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": [
+                    "继续",
+                    "招募同伴"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "禁忌教堂_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "^禁忌教堂$"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]领取人物_厄愿潮声",
+            "[JumpBack]意外点击_羁绊选择",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]关闭奖励_厄愿潮声",
+            "[JumpBack]禁忌教堂_对话1",
+            "[JumpBack]禁忌教堂_对话2",
+            "[JumpBack]点击藏品_厄愿潮声"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.禁忌教堂_厄愿潮声"
+        }
+    },
+    "禁忌教堂_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "还是算了"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "禁忌教堂_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "离开这里"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "被完成的谜题_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "被完成的谜题"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]领取人物_厄愿潮声",
+            "[JumpBack]意外点击_羁绊选择",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]关闭奖励_厄愿潮声",
+            "[JumpBack]被完成的谜题_对话1",
+            "[JumpBack]被完成的谜题_对话2",
+            "[JumpBack]点击藏品_厄愿潮声"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.被完成的谜题_厄愿潮声"
+        }
+    },
+    "被完成的谜题_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "取走权杖"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "被完成的谜题_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "取走圣器"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "藏书库_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "藏书库"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]领取人物_厄愿潮声",
+            "[JumpBack]意外点击_羁绊选择",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]关闭奖励_厄愿潮声",
+            "[JumpBack]藏书库_对话1",
+            "[JumpBack]藏书库_对话2",
+            "[JumpBack]点击藏品_厄愿潮声"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.藏书库_厄愿潮声"
+        }
+    },
+    "藏书库_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "阅读古早民间的童话"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "藏书库_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "收下物品"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "另一面圆桌_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "另一面圆桌"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]领取人物_厄愿潮声",
+            "[JumpBack]意外点击_羁绊选择",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]关闭奖励_厄愿潮声",
+            "[JumpBack]另一面圆桌_对话1",
+            "[JumpBack]另一面圆桌_对话2",
+            "[JumpBack]点击藏品_厄愿潮声"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.另一面圆桌_厄愿潮声"
+        }
+    },
+    "另一面圆桌_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "拒绝变格"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "另一面圆桌_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "离开这里"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "恶魔传说_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "传说"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]领取人物_厄愿潮声",
+            "[JumpBack]意外点击_羁绊选择",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]关闭奖励_厄愿潮声",
+            "[JumpBack]恶魔传说_对话1",
+            "[JumpBack]恶魔传说_对话2",
+            "[JumpBack]点击藏品_厄愿潮声"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.恶魔传说_厄愿潮声"
+        }
+    },
+    "恶魔传说_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "默默记下故事"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "恶魔传说_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "收获满满"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "许愿之井_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "许愿之井"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]领取人物_厄愿潮声",
+            "[JumpBack]意外点击_羁绊选择",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]关闭奖励_厄愿潮声",
+            "[JumpBack]许愿之井_对话1",
+            "[JumpBack]许愿之井_对话2",
+            "[JumpBack]点击藏品_厄愿潮声"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.许愿之井_厄愿潮声"
+        }
+    },
+    "许愿之井_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "看就是骗人的把戏"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "许愿之井_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": "继续旅途"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "迷途之子_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "迷途之子"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]领取人物_厄愿潮声",
+            "[JumpBack]意外点击_羁绊选择",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]关闭奖励_厄愿潮声",
+            "[JumpBack]迷途之子_对话1",
+            "[JumpBack]迷途之子_对话2",
+            "[JumpBack]点击藏品_厄愿潮声"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.迷途之子_厄愿潮声"
+        }
+    },
+    "迷途之子_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "无视并离开"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "迷途之子_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": [
+                    "离开",
+                    "继续旅途"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "阵营冲突_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "阵营冲突"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]领取人物_厄愿潮声",
+            "[JumpBack]意外点击_羁绊选择",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]关闭奖励_厄愿潮声",
+            "[JumpBack]阵营冲突_对话1",
+            "[JumpBack]阵营冲突_对话2",
+            "[JumpBack]点击藏品_厄愿潮声"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.阵营冲突_厄愿潮声"
+        }
+    },
+    "阵营冲突_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    743,
+                    305,
+                    354,
+                    236
+                ],
+                "expected": "就此离开"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "阵营冲突_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": [
+                    "继续",
+                    "离开"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "珠宝猎人_厄愿潮声": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    101,
+                    323,
+                    54
+                ],
+                "expected": "珠宝猎人"
+            }
+        },
+        "next": [
+            "事件完成_厄愿潮声",
+            "[JumpBack]确定",
+            "[JumpBack]领取人物_厄愿潮声",
+            "[JumpBack]意外点击_羁绊选择",
+            "[JumpBack]领取藏品_厄愿潮声",
+            "[JumpBack]关闭奖励_厄愿潮声",
+            "[JumpBack]珠宝猎人_对话1",
+            "[JumpBack]珠宝猎人_对话2",
+            "[JumpBack]点击藏品_厄愿潮声"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.珠宝猎人_厄愿潮声"
+        }
+    },
+    "珠宝猎人_对话1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    746,
+                    569,
+                    161,
+                    30
+                ],
+                "expected": "表示自己没有宝石"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "下定决心_厄愿潮声",
+            "空任务"
+        ]
+    },
+    "珠宝猎人_对话2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1017,
+                    621,
+                    213,
+                    66
+                ],
+                "expected": [
+                    "离开",
+                    "继续"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    }
+}
