@@ -25,7 +25,7 @@
     idle ──大招条──► ult ──► switch ──► idle
       ├──核心被动──► core（长按闪避）──► core_burst（长按1号球）──► idle
       ├──核心 CD──► core_wait ──► idle / farm
-      └──兜底──► farm ──► idle
+      └──兜底──► farm（连段普攻攒条）──► idle
 """
 
 from __future__ import annotations
@@ -35,8 +35,9 @@ import time
 from action.combat.core.role import BaseRole
 
 _CORE_NODE = "检查核心被动_晖暮"
-_FARM_BALL_TARGET = 9
 _FARM_MAX = 100
+_FARM_ATTACK_BURST = 5
+_FARM_ATTACK_INTERVAL_MS = 50
 _CORE_CD = 13
 _CORE_DODGE_MS = 3000
 _CORE_BALL_MS = 3500
@@ -138,9 +139,10 @@ class Crepuscule(BaseRole):
             self.phase = "core"
             return
         if not self._needs_core():
-            self.phase = "idle"
+            self._farm_ticks = 0
+            self.phase = "farm"
             return
-        self.action.attack()
+        self.action.continuous_attack(_FARM_ATTACK_BURST, _FARM_ATTACK_INTERVAL_MS)
 
     def _phase_farm(self) -> None:
         if self.action.check_Skill_energy_bar():
@@ -148,11 +150,8 @@ class Crepuscule(BaseRole):
             return
         if self._try_enter_core():
             return
-        if self.action.count_signal_balls() >= _FARM_BALL_TARGET:
-            self.phase = "idle"
-            return
         if self._farm_ticks >= _FARM_MAX:
             self.phase = "idle"
             return
-        self.action.attack()
+        self.action.continuous_attack(_FARM_ATTACK_BURST, _FARM_ATTACK_INTERVAL_MS)
         self._farm_ticks += 1

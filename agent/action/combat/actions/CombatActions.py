@@ -241,7 +241,6 @@ class CombatActions:
         elif target < 1 or target > 8:
             return False
         self._auto_dodge()
-        print(f"消球{target}")
         return self.context.run_action(f"消球{target}")
 
     def trigger_qte(self, target: int = 1):
