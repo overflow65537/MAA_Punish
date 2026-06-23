@@ -20,11 +20,12 @@
 
 """深谣战斗程序
 
+消球规则：日常只消 2 号球；1 号为特殊球，仅在核心被动时消。
+
 状态机::
 
-    idle ──p1──► p1_ult / p1_core1 / p1_core2 / p1_farm ──► idle
-      └──p2──► p2_ult_charge ──► p2_ult_finish ──► p2_ult_burst ──► switch
-            └── p2_ball / p2_farm ──► idle
+    idle ──p1──► p1（有大放大 / 核心被动仅消1号球 / 消2号球 / 普攻）
+      └──p2──► p2（有大放大 / 核心被动消1号球+长按攻击 / 消2号球 / 普攻）
 """
 
 from __future__ import annotations
@@ -35,26 +36,12 @@ _P1_PHASE = "检查阶段p1_深谣"
 _P2_PHASE = "检查阶段p2_深谣"
 _CORE1_NODE = "检查核心被动1_深谣"
 _CORE2_NODE = "检查核心被动2_深谣"
-_P1_FARM_TICKS = 5
-_P2_ULT_CHARGE = 10
-_P2_ULT_BURST = 10
-_P2_FARM_TICKS = 8
+_NORMAL_BALL = 2  # 日常消球
+_CORE_BALL = 1  # 核心被动消球
 
 
 class LostLullaby(BaseRole):
-    """深谣：p1 核心消球，p2 大招连段后切人。"""
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self._farm_ticks = 0
-        self._burst_ticks = 0
-        self._burst_total = 0
-
-    def reset_state(self) -> None:
-        super().reset_state()
-        self._farm_ticks = 0
-        self._burst_ticks = 0
-        self._burst_total = 0
+    """深谣：p1/p2 日常消 2 号球，核心被动消 1 号球。"""
 
     def do_perform(self) -> None:
         if self.combat.context.tasker.stopping:
@@ -62,24 +49,10 @@ class LostLullaby(BaseRole):
 
         if self.phase == "idle":
             self._phase_idle()
-        elif self.phase == "p1_ult":
-            self._phase_p1_ult()
-        elif self.phase == "p1_core1":
-            self._phase_p1_core1()
-        elif self.phase == "p1_core2":
-            self._phase_p1_core2()
-        elif self.phase == "p1_farm":
-            self._phase_p1_farm()
-        elif self.phase == "p2_ball":
-            self._phase_p2_ball()
-        elif self.phase == "p2_farm":
-            self._phase_p2_farm()
-        elif self.phase == "p2_ult_charge":
-            self._phase_p2_ult_charge()
-        elif self.phase == "p2_ult_finish":
-            self._phase_p2_ult_finish()
-        elif self.phase == "p2_ult_burst":
-            self._phase_p2_ult_burst()
+        elif self.phase == "p1":
+            self._phase_p1()
+        elif self.phase == "p2":
+            self._phase_p2()
         elif self.phase == "switch":
             self._phase_switch()
         else:
@@ -92,10 +65,11 @@ class LostLullaby(BaseRole):
     def _in_p2(self) -> bool:
         return bool(self.action.check_status(_P2_PHASE))
 
-    def _begin_burst(self, total: int, next_phase: str) -> None:
-        self._burst_total = total
-        self._burst_ticks = 0
-        self.phase = next_phase
+    def _has_core_passive(self) -> bool:
+        return bool(
+            self.action.check_status(_CORE1_NODE)
+            or self.action.check_status(_CORE2_NODE)
+        )
 
     def _phase_idle(self) -> None:
         self.action.lens_lock()
@@ -103,85 +77,59 @@ class LostLullaby(BaseRole):
 
         if self._in_p1():
             self.action.logger.debug("深谣: p1")
-            if self.action.check_Skill_energy_bar():
-                self.phase = "p1_ult"
-                return
-            if self.action.check_status(_CORE1_NODE):
-                self.phase = "p1_core1"
-                return
-            if self.action.check_status(_CORE2_NODE):
-                self.phase = "p1_core2"
-                return
-            self._farm_ticks = 0
-            self.phase = "p1_farm"
+            self.phase = "p1"
             return
 
         if self._in_p2():
             self.action.logger.debug("深谣: p2")
-            if self.action.check_Skill_energy_bar():
-                self._begin_burst(_P2_ULT_CHARGE, "p2_ult_charge")
-                return
-            self.phase = "p2_ball"
+            self.phase = "p2"
+
+    def _phase_p1(self) -> None:
+        """p1 优先级：大招 > 核心被动(仅消1号球) > 消2号球 > 普攻。"""
+        if not self._in_p1():
+            self.phase = "idle"
             return
 
-    def _phase_p1_ult(self) -> None:
-        self.action.attack()
-        self.action.use_skill()
-        self.action.auxiliary_machine()
-        self.phase = "idle"
+        if self.action.check_Skill_energy_bar():
+            self.action.logger.info("深谣: p1 大招")
+            self.action.use_skill()
+            self.action.auxiliary_machine()
+            return
 
-    def _phase_p1_core1(self) -> None:
-        self.action.attack()
-        self.action.logger.info("深谣: p1核心被动1")
-        self.action.ball_elimination_target(1)
-        self.action.dodge()
-        self.phase = "idle"
+        if self._has_core_passive():
+            self.action.logger.info("深谣: p1 核心被动")
+            self.action.ball_elimination_target(_CORE_BALL)
+            return
 
-    def _phase_p1_core2(self) -> None:
-        self.action.logger.info("深谣: p1核心被动2")
-        self.action.attack()
-        self.action.ball_elimination_target(1)
-        self.phase = "idle"
+        if self.action.count_signal_balls() > 0:
+            self.action.ball_elimination_target(_NORMAL_BALL)
+            return
 
-    def _phase_p1_farm(self) -> None:
-        self.action.ball_elimination_target(2)
         self.action.attack()
-        self._farm_ticks += 1
-        if self._farm_ticks >= _P1_FARM_TICKS:
+
+    def _phase_p2(self) -> None:
+        """p2 优先级：大招 > 核心被动(消1号球+长按攻击) > 消2号球 > 普攻。"""
+        if not self._in_p2():
             self.phase = "idle"
+            return
 
-    def _phase_p2_ball(self) -> None:
-        self.action.ball_elimination_target(1)
-        self.action.ball_elimination_target(2)
-        self._farm_ticks = 0
-        self.phase = "p2_farm"
+        if self.action.check_Skill_energy_bar():
+            self.action.logger.info("深谣: p2 大招")
+            self.action.use_skill()
+            self.action.auxiliary_machine()
+            return
 
-    def _phase_p2_farm(self) -> None:
+        if self._has_core_passive():
+            self.action.logger.info("深谣: p2 核心被动")
+            self.action.ball_elimination_target(_CORE_BALL)
+            self.action.long_press_attack()
+            return
+
+        if self.action.count_signal_balls() > 0:
+            self.action.ball_elimination_target(_NORMAL_BALL)
+            return
+
         self.action.attack()
-        self._farm_ticks += 1
-        if self._farm_ticks >= _P2_FARM_TICKS:
-            self.phase = "idle"
-
-    def _phase_p2_ult_charge(self) -> None:
-        self.action.ball_elimination_target(1)
-        self.action.attack()
-        self._burst_ticks += 1
-        if self._burst_ticks >= self._burst_total:
-            self.phase = "p2_ult_finish"
-
-    def _phase_p2_ult_finish(self) -> None:
-        self.action.long_press_attack()
-        self.action.logger.info("深谣: 毁灭吧")
-        self._begin_burst(_P2_ULT_BURST, "p2_ult_burst")
-
-    def _phase_p2_ult_burst(self) -> None:
-        self.action.attack()
-        self.action.use_skill()
-        self.action.auxiliary_machine()
-        self._burst_ticks += 1
-        if self._burst_ticks >= self._burst_total:
-            self.action.logger.info("深谣: 沉没在这片海底")
-            self.phase = "idle"  # switch
 
     def _phase_switch(self) -> None:
         # if self.switch_next():

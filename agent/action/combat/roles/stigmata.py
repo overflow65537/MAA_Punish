@@ -22,18 +22,25 @@
 
 状态机::
 
-    idle ──大招条──► ult ──► switch ──► idle
+    idle(p1) ──大招条──► ult ──能量仍在──► ult（连放）
+      │                    └──能量空──► use_qte ──► p2
       ├──一阶段+核心被动──► core ──► core_burst ──► idle
+      ├──照域 CD 中仍需照域──► core_wait ──► core
       └──兜底──► farm ──► idle
+
+    idle(p2) ──大招条──► ult ──► use_qte ──► switch ──► idle
 """
 
 from __future__ import annotations
+
+import time
 
 from action.combat.core.role import BaseRole
 
 _P1_NODE = "检查比安卡·深痕一阶段"
 _CORE_NODE = "检查核心被动_深痕"
 _CORE_BURST = 10
+_CORE_CD = 18  # 照域cd12秒，时滞演算1秒,照域本身4秒1秒误差
 _FARM_TICKS = 8
 
 
@@ -44,11 +51,15 @@ class Stigmata(BaseRole):
         super().__init__(*args, **kwargs)
         self._core_ticks = 0
         self._farm_ticks = 0
+        self._last_core_at = 0.0
+        self._p2 = False
 
     def reset_state(self) -> None:
         super().reset_state()
         self._core_ticks = 0
         self._farm_ticks = 0
+        self._last_core_at = 0.0
+        self._p2 = False
 
     def do_perform(self) -> None:
         if self.combat.context.tasker.stopping:
@@ -60,6 +71,8 @@ class Stigmata(BaseRole):
             self._phase_ult()
         elif self.phase == "core":
             self._phase_core()
+        elif self.phase == "core_wait":
+            self._phase_core_wait()
         elif self.phase == "core_burst":
             self._phase_core_burst()
         elif self.phase == "farm":
@@ -70,6 +83,16 @@ class Stigmata(BaseRole):
             self.phase = "idle"
             self._phase_idle()
 
+    def _needs_core(self) -> bool:
+        return bool(
+            self.action.check_status(_P1_NODE) and self.action.check_status(_CORE_NODE)
+        )
+
+    def _core_on_cooldown(self) -> bool:
+        if self._last_core_at <= 0:
+            return False
+        return time.monotonic() - self._last_core_at < _CORE_CD
+
     def _phase_idle(self) -> None:
         self.action.lens_lock()
         self.action.attack()
@@ -78,7 +101,10 @@ class Stigmata(BaseRole):
             self.phase = "ult"
             return
 
-        if self.action.check_status(_P1_NODE) and self.action.check_status(_CORE_NODE):
+        if not self._p2 and self._needs_core():
+            if self._core_on_cooldown():
+                self.phase = "core_wait"
+                return
             self.action.logger.info("深痕: 开启照域")
             self.phase = "core"
             return
@@ -87,14 +113,42 @@ class Stigmata(BaseRole):
         self.phase = "farm"
 
     def _phase_ult(self) -> None:
+        if self._p2:
+            self.action.use_skill()
+            self.action.auxiliary_machine()
+            self.action.use_qte()
+            self.action.logger.info("深痕: p2 大招后 QTE 换人")
+            self.phase = "switch"
+            return
+
         self.action.use_skill()
         self.action.auxiliary_machine()
-        self.phase = "idle"  # switch
+        if self.action.check_Skill_energy_bar():
+            self.action.logger.info("深痕: p1 大招能量仍在，继续大招")
+            return
+        self.action.logger.info("深痕: p1 大招结束，QTE 进入 p2")
+        self.action.use_qte()
+        self._p2 = True
+        self.phase = "idle"
 
     def _phase_core(self) -> None:
         self.action.long_press_dodge()
+        self._last_core_at = time.monotonic()
         self._core_ticks = 0
         self.phase = "core_burst"
+
+    def _phase_core_wait(self) -> None:
+        """照域 CD 内：核心被动仍触发时只普攻，CD 结束再开照域。"""
+        if self.action.check_Skill_energy_bar():
+            self.phase = "ult"
+            return
+        self.action.attack()
+        if not self._needs_core():
+            self.phase = "idle"
+            return
+        if not self._core_on_cooldown():
+            self.action.logger.info("深痕: 照域 CD 结束，开启照域")
+            self.phase = "core"
 
     def _phase_core_burst(self) -> None:
         self.action.ball_elimination_target(1)
@@ -110,6 +164,6 @@ class Stigmata(BaseRole):
             self.phase = "idle"
 
     def _phase_switch(self) -> None:
-        # if self.switch_next():
-        #     self.action.logger.info("深痕: 切换完成")
+        if self.switch_next():
+            self.action.logger.info("深痕: 切换完成")
         self.phase = "idle"
