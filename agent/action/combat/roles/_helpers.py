@@ -55,10 +55,10 @@ def done_attack(role: BaseRole) -> bool:
     return True
 
 
-def finish_switch(role: BaseRole, *, qte: str = "a", attack_first: bool = False) -> None:
+def finish_switch(role: BaseRole, *, attack_first: bool = False) -> None:
     if attack_first:
         role.action.attack()
-    role.action.auto_qte(qte)
+    role.action.use_qte()
     role.switch_next()
     role.phase = "done"
 

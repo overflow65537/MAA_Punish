@@ -37,12 +37,12 @@ class Hyperreal(BaseRole):
             self.action.use_skill()  # 在时间的尽头,湮灭吧
             self.action.auxiliary_machine()
             time.sleep(1)
-            self.action.auto_qte("a")
+            self.action.use_qte()
 
         elif self.action.check_status("检查核心技能_超刻"):  # 核心技能就绪
             self.action.logger.info("核心技能就绪")
             self.action.long_press_attack()
-            self.action.auto_qte("a")
+            self.action.use_qte()
             self.action.auxiliary_machine()
 
             start_time = time.time()
@@ -53,7 +53,7 @@ class Hyperreal(BaseRole):
                     self.action.ball_elimination_target(1)
 
                 time.sleep(0.1)
-                self.action.auto_qte("a")
+                self.action.use_qte()
                 self.action.attack()
             self.action.logger.info("核心技能结束")
             self.action.auxiliary_machine()

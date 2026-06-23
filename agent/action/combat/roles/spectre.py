@@ -43,7 +43,7 @@ class Spectre(BaseRole):
                     time.sleep(0.05)
             time.sleep(0.1)
             self.action.auxiliary_machine()
-            self.action.auto_qte("a")
+            self.action.use_qte()
 
             # 黄球
             print("开始消黄球")
@@ -54,7 +54,7 @@ class Spectre(BaseRole):
                     self.action.ball_elimination_target(1)
                     time.sleep(0.05)
             self.action.auxiliary_machine()
-            self.action.auto_qte("a")
+            self.action.use_qte()
 
             # 蓝球
             print("开始消蓝球")

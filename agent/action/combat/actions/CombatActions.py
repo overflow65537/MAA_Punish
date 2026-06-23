@@ -34,7 +34,6 @@ from maa.define import (
 import time
 import re
 from action.combat.config.LoadSetting import ROLE_ACTIONS
-from action.combat.qte_release import click_any_release_qte, click_release_qte_if_ready
 from action.combat.timing import DEFAULT_ACTIVE_TICK, active_delay
 from logger_component import LoggerComponent
 
@@ -59,8 +58,6 @@ class CombatActions:
                     break
         self._logger_component = LoggerComponent(__name__)
         self.logger = self._logger_component.logger
-        auto_qte_config = self.context.get_node_data("自动qte") or {}
-        self.auto_qte_config = auto_qte_config.get("enabled", False)
 
     def _auto_dodge(self, image=None):
         """
@@ -227,41 +224,6 @@ class CombatActions:
         """
         self.context.run_action("qte1")
         return self.context.run_action("qte2")
-
-    def _try_qte_by_color(self, color: str, image=None):
-        """
-        尝试触发指定颜色的 QTE 技能（QTE.onnx ready 类）。
-        :param color: QTE颜色(r,y,b)
-        :param image: 可选，已截屏则复用，避免重复截图
-        :return: 成功返回 True，失败返回 False
-        """
-        if image is None:
-            self._auto_dodge()
-            image = self.context.tasker.controller.post_screencap().wait().get()
-        return click_release_qte_if_ready(self.context, color, image)
-
-    def auto_qte(self, target: str = "a"):
-        """
-        触发QTE
-        :param target: QTE颜色(r,y,b,a)，默认 a。a 表示单次截屏后按 r→b→y 检测 ready
-        :return: 命中并点击返回 True，否则 False
-        """
-        if not self.auto_qte_config:
-            self.logger.info("未开启自动QTE功能")
-            return False
-
-        self._auto_dodge()
-        image = self.context.tasker.controller.post_screencap().wait().get()
-
-        if target == "a":
-            hit = click_any_release_qte(self.context, image)
-            if hit:
-                self.logger.info("auto_qte ready 命中 color=%s", hit)
-            return bool(hit)
-
-        if target not in ("r", "y", "b"):
-            raise ValueError("target 参数必须为 r, y, b, a")
-        return self._try_qte_by_color(target, image)
 
     def _role_switch(self, color: str) -> bool:
         role = getattr(self, "_role", None)

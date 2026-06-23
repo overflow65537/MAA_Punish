@@ -40,7 +40,7 @@ class GeneralFight(BaseRole):
             self.action.use_skill()
             self.action.auxiliary_machine()
         self.action.attack()
-        self.action.auto_qte("a")
+        self.action.use_qte()
 
         self.switch_next()
         print("切换完成")

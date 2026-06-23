@@ -40,7 +40,7 @@ class Aegis(BaseRole):
                 for _ in range(10):
                     self.action.use_skill()
                     time.sleep(0.1)
-                self.action.auto_qte("a")
+                self.action.use_qte()
                 self.action.auxiliary_machine()
                 continue
 
@@ -48,12 +48,12 @@ class Aegis(BaseRole):
                 for _ in range(3):
                     self.action.ball_elimination_target()
                     time.sleep(0.1)
-                self.action.auto_qte("a")
+                self.action.use_qte()
                 if self.action.count_signal_balls() == ball_count:
                     self.action.dodge()
                     time.sleep(0.1)
                     self.action.ball_elimination_target()
-                self.action.auto_qte("a")
+                self.action.use_qte()
                 self.action.auxiliary_machine()
         self.action.attack()
         self.switch_next()
