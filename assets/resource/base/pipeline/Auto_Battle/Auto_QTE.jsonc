@@ -3,12 +3,7 @@
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
-                "roi": [
-                    1195,
-                    130,
-                    80,
-                    200
-                ],
+                
                 "model": "QTE.onnx",
                 "expected": 0,
                 "threshold": 0.5
@@ -20,12 +15,7 @@
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
-                "roi": [
-                    1195,
-                    130,
-                    80,
-                    200
-                ],
+                
                 "model": "QTE.onnx",
                 "expected": 4,
                 "threshold": 0.5
@@ -37,12 +27,7 @@
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
-                "roi": [
-                    1195,
-                    130,
-                    80,
-                    200
-                ],
+                
                 "model": "QTE.onnx",
                 "expected": 2,
                 "threshold": 0.5
@@ -54,12 +39,7 @@
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
-                "roi": [
-                    1195,
-                    130,
-                    80,
-                    200
-                ],
+                
                 "model": "QTE.onnx",
                 "expected": 1,
                 "threshold": 0.5
@@ -74,12 +54,7 @@
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
-                "roi": [
-                    1195,
-                    130,
-                    80,
-                    200
-                ],
+                
                 "model": "QTE.onnx",
                 "expected": 3,
                 "threshold": 0.5
@@ -94,12 +69,7 @@
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
-                "roi": [
-                    1195,
-                    130,
-                    80,
-                    200
-                ],
+                
                 "model": "QTE.onnx",
                 "expected": 5,
                 "threshold": 0.5
@@ -114,12 +84,7 @@
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
-                "roi": [
-                    1195,
-                    130,
-                    80,
-                    200
-                ],
+                
                 "model": "QTE.onnx",
                 "expected": 0,
                 "threshold": 0.5
@@ -134,12 +99,7 @@
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
-                "roi": [
-                    1195,
-                    130,
-                    80,
-                    200
-                ],
+                
                 "model": "QTE.onnx",
                 "expected": 2,
                 "threshold": 0.5
@@ -154,12 +114,7 @@
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
-                "roi": [
-                    1195,
-                    130,
-                    80,
-                    200
-                ],
+                
                 "model": "QTE.onnx",
                 "expected": 4,
                 "threshold": 0.5

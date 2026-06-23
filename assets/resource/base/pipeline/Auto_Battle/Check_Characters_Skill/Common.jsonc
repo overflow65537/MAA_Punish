@@ -3,13 +3,7 @@
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
-                "model": "QTE.onnx",
-                "roi": [
-                    1195,
-                    130,
-                    80,
-                    200
-                ]
+                "model": "QTE.onnx"
             }
         }
     },
