@@ -65,7 +65,8 @@ class CombatTask:
     SLEEP_CHECK_INTERVAL = 0.0
     WAIT_POLL_INTERVAL = 0.2
     COMBAT_UI_LOST_TIMEOUT = 20.0
-    SWITCH_COOLDOWN = 15.0
+    SWITCH_COOLDOWN = 15.0  # 离场后再上场 CD（每色位独立）
+    FIELD_MIN_STAY = 5.0  # 上场后最少站场才可再切走（防抖）
     SWITCH_FAIL_COOLDOWN = 2.0
     SWITCH_VERIFY_TIMEOUT = 12.0
     SWITCH_VERIFY_POLL = 0.05
@@ -82,6 +83,7 @@ class CombatTask:
         combat_ui_lost_timeout: float | None = None,
         switch_cooldown: float | None = None,
         switch_fail_cooldown: float | None = None,
+        field_min_stay: float | None = None,
     ):
         self.context = context
         self.combat_check = combat_check
@@ -106,6 +108,9 @@ class CombatTask:
             if switch_fail_cooldown is not None
             else self.SWITCH_FAIL_COOLDOWN
         )
+        self.field_min_stay = (
+            field_min_stay if field_min_stay is not None else self.FIELD_MIN_STAY
+        )
 
         self._in_combat = False
         self.combat_ui_visible = False
@@ -120,6 +125,7 @@ class CombatTask:
         self.current_role_name: str = ""
         self.last_switch_attempt_time: float = 0.0
         self._switch_attempt_cooldown: float = 0.0
+        self._role_swap_cd_until: dict[str, float] = {}
         self.current_field_since: float = 0.0
 
         self._logger_component = LoggerComponent(__name__)
@@ -272,6 +278,7 @@ class CombatTask:
 
         solo = "单人队" if snapshot.is_solo() else f"{len(snapshot.filled_colors())}人队"
         self.logger.info("识别到角色: %s (%s)", self.current_role_name, solo)
+        self.current_field_since = time.monotonic()
         self._notify_current_role()
         return True
 
@@ -312,9 +319,23 @@ class CombatTask:
         qte_colors = set(
             self.combat_check.detect_qte_colors(self.context, self)
         )
-        candidates = [
-            c for c in self.team.other_filled_colors() if c in qte_colors
-        ]
+        now = time.monotonic()
+        candidates: list[str] = []
+        for color in self.team.other_filled_colors():
+            if color not in qte_colors:
+                continue
+            cd_until = self._role_swap_cd_until.get(color, 0.0)
+            if cd_until > now:
+                role = self.roles.get(color)
+                name = resolve_role_name(role.cls_name) if role else color
+                self.logger.debug(
+                    "切人目标 %s (%s) 再上场 CD 中剩余 %.1fs",
+                    name,
+                    color,
+                    cd_until - now,
+                )
+                continue
+            candidates.append(color)
         if not candidates:
             return None
 
@@ -355,12 +376,22 @@ class CombatTask:
             requester.on_switch_failed()
             return False
         if not self.can_switch():
-            self.logger.info(
-                "切人跳过 [%s @%s]: CD 中剩余 %.1fs",
-                from_name,
-                requester.color,
-                self.switch_cooldown_remaining(),
-            )
+            retry = self.switch_retry_cooldown_remaining()
+            stay = self.field_stay_cooldown_remaining()
+            if retry > 0:
+                self.logger.info(
+                    "切人跳过 [%s @%s]: 重试 CD 中剩余 %.1fs",
+                    from_name,
+                    requester.color,
+                    retry,
+                )
+            elif stay > 0:
+                self.logger.info(
+                    "切人跳过 [%s @%s]: 站场 CD 中剩余 %.1fs",
+                    from_name,
+                    requester.color,
+                    stay,
+                )
             requester.on_switch_failed()
             return False
 
@@ -403,26 +434,45 @@ class CombatTask:
         return self.team.current_cls()
 
     def can_switch(self) -> bool:
+        """当前主站是否可发起切人（站场最短时长 + 失败重试 CD）。"""
         if self.SWITCH_STUB:
             return True
-        return self.switch_cooldown_remaining() <= 0.0
+        if self.switch_retry_cooldown_remaining() > 0:
+            return False
+        return self.field_stay_cooldown_remaining() <= 0.0
+
+    def switch_retry_cooldown_remaining(self) -> float:
+        """切人失败后的重试 CD 剩余秒数。"""
+        if self.last_switch_attempt_time <= 0 or self._switch_attempt_cooldown <= 0:
+            return 0.0
+        return max(
+            0.0,
+            self._switch_attempt_cooldown
+            - (time.monotonic() - self.last_switch_attempt_time),
+        )
+
+    def field_stay_cooldown_remaining(self) -> float:
+        """当前主站距可再切走剩余秒数（上场防抖）。"""
+        if self.current_field_since <= 0:
+            return 0.0
+        elapsed = time.monotonic() - self.current_field_since
+        return max(0.0, self.field_min_stay - elapsed)
+
+    def role_reentry_cooldown_remaining(self, color: str) -> float:
+        """指定色位离场后再切入的 CD 剩余秒数。"""
+        cd_until = self._role_swap_cd_until.get(color.upper(), 0.0)
+        return max(0.0, cd_until - time.monotonic())
+
+    def role_swap_cooldown_remaining(self, color: str) -> float:
+        """兼容旧名。"""
+        return self.role_reentry_cooldown_remaining(color)
 
     def switch_cooldown_remaining(self) -> float:
-        """距下次可切人剩余秒数（取「上次 QTE 尝试」与「当前角色上场」两者较大值）。"""
-        now = time.monotonic()
-        remainders: list[float] = []
-        if self.last_switch_attempt_time > 0 and self._switch_attempt_cooldown > 0:
-            remainders.append(
-                self._switch_attempt_cooldown
-                - (now - self.last_switch_attempt_time)
-            )
-        if self.current_field_since > 0:
-            remainders.append(
-                self.switch_cooldown - (now - self.current_field_since)
-            )
-        if not remainders:
-            return 0.0
-        return max(0.0, max(remainders))
+        """当前主站发起切人的最大阻塞剩余秒数（站场 / 重试取较大）。"""
+        return max(
+            self.switch_retry_cooldown_remaining(),
+            self.field_stay_cooldown_remaining(),
+        )
 
     def switch_to_color(self, color: str, *, attacker: BaseRole | None = None) -> bool:
         """
@@ -454,8 +504,10 @@ class CombatTask:
         if self.SWITCH_STUB:
             self.team.current = target
             now = time.monotonic()
-            self.last_switch_attempt_time = now
-            self._switch_attempt_cooldown = self.switch_cooldown
+            if attacker is not None:
+                self._role_swap_cd_until[attacker.color.upper()] = (
+                    now + self.switch_cooldown
+                )
             self.current_field_since = now
             target_role = self.roles.get(target)
             if target_role is not None:
@@ -468,11 +520,20 @@ class CombatTask:
             return True
 
         if not self.can_switch():
-            self.logger.info(
-                "切人 CD 中，剩余 %.1fs（当前 %s）",
-                self.switch_cooldown_remaining(),
-                self.team.current_cls(),
-            )
+            stay = self.field_stay_cooldown_remaining()
+            retry = self.switch_retry_cooldown_remaining()
+            if retry > 0:
+                self.logger.info(
+                    "切人重试 CD 中，剩余 %.1fs（当前 %s）",
+                    retry,
+                    self.team.current_cls(),
+                )
+            elif stay > 0:
+                self.logger.info(
+                    "站场 CD 中，剩余 %.1fs（当前 %s）",
+                    stay,
+                    self.team.current_cls(),
+                )
             return False
 
         attacker_cb = (lambda: attacker.action.click_attack()) if attacker else None
@@ -503,8 +564,15 @@ class CombatTask:
             return False
 
         now = time.monotonic()
-        self.last_switch_attempt_time = now
-        self._switch_attempt_cooldown = self.switch_cooldown
+        if attacker is not None:
+            outgoing = attacker.color.upper()
+            self._role_swap_cd_until[outgoing] = now + self.switch_cooldown
+            self.logger.info(
+                "再上场 CD: %s @%s %.0fs",
+                resolve_role_name(attacker.cls_name),
+                outgoing,
+                self.switch_cooldown,
+            )
         self.team.current = target
         self.current_field_since = now
         self.current_role_name = resolve_role_name(target_cls)
@@ -529,6 +597,7 @@ class CombatTask:
         self.current_role_name = ""
         self.last_switch_attempt_time = 0.0
         self._switch_attempt_cooldown = 0.0
+        self._role_swap_cd_until = {}
         self.current_field_since = 0.0
         reason = self.out_of_combat_reason or "unknown"
         self.logger.info("战斗结束: %s", reason)
