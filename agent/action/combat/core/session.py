@@ -480,7 +480,7 @@ class CombatTask:
         if self._should_stop() or self.sleep_check_interval <= 0:
             return
         role = self.get_current_role()
-        on_tick = role.action.post_attack if role is not None else None
+        on_tick = role.action.attack if role is not None else None
         active_delay(
             self.sleep_check_interval,
             on_tick=on_tick,

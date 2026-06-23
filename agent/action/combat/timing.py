@@ -41,7 +41,7 @@ def active_delay(
     """
     带 tick 的等待。
 
-    每个时间片开始时调用 on_tick（如 post_attack），避免 sleep 空转。
+    每个时间片开始时调用 on_tick（如 attack），避免 sleep 空转。
     返回 False 表示被 should_stop 中断。
     """
     if seconds <= 0:

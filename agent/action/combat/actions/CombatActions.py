@@ -78,10 +78,6 @@ class CombatActions:
             return True
         return False
 
-    def post_attack(self) -> None:
-        """直接向控制器发送普攻点击（坐标与 Pipeline「攻击」节点一致）。"""
-        self.context.tasker.controller.post_click(1200, 690).wait()
-
     def click_attack(self) -> None:
         """Pipeline 单击攻击（切人等场景，避免 post_click 高频连发像长按）。"""
         self.context.run_action("攻击")
@@ -90,7 +86,7 @@ class CombatActions:
         self, seconds: float, *, interval: float = DEFAULT_ACTIVE_TICK
     ) -> None:
         """等待期间周期性盲发普攻，避免 delay 空转。"""
-        active_delay(seconds, on_tick=self.post_attack, tick_interval=interval)
+        active_delay(seconds, on_tick=self.attack, tick_interval=interval)
 
     def attack(self):
         """

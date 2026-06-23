@@ -216,7 +216,7 @@ class Pianissimo(BaseRole):
         self._begin_burst(_P1_CORE_BURST, "p1_burst")
 
     def _phase_p1_burst(self) -> None:
-        # 优先消球1，普攻用 post_attack 减截屏延迟
+        # 优先消球1，再普攻
         tick = self._burst_ticks + 1
         self._log_step("burst_tick_enter", tick=f"{tick}/{self._burst_total}")
 
@@ -225,8 +225,8 @@ class Pianissimo(BaseRole):
         self.action.ball_elimination_target(1)
         self._log_step("ball1_done", elapsed_ms=int((time.monotonic() - t0) * 1000))
 
-        self._log_step("post_attack", tick=f"{tick}/{self._burst_total}")
-        self.action.post_attack()
+        self._log_step("attack", tick=f"{tick}/{self._burst_total}")
+        self.action.attack()
 
         t1 = time.monotonic()
         self._log_step("skill_start", tick=f"{tick}/{self._burst_total}")
@@ -288,8 +288,8 @@ class Pianissimo(BaseRole):
         self.action.ball_elimination_target(2)
         self._log_step("ball2_done", elapsed_ms=int((time.monotonic() - t1) * 1000))
 
-        self._log_step("post_attack", tick=f"{tick}/{self._burst_total}")
-        self.action.post_attack()
+        self._log_step("attack", tick=f"{tick}/{self._burst_total}")
+        self.action.attack()
 
         self._burst_ticks += 1
         if self._burst_ticks >= self._burst_total:
