@@ -107,15 +107,12 @@ class BaseRole:
         return self._switch_to_color("B")
 
     def _switch_to_color(self, color: str) -> bool:
-        if not self.combat.is_switch_enabled():
-            self.action.logger.info("未开启切换角色功能")
-            return False
         if self.combat.is_switch_disabled():
             return False
         return self.combat.switch_to_color(color, attacker=self)
 
     def switch_next(self) -> bool:
-        """请求战斗管理器切到下一合适角色（受 Pipeline「自动切换」开关控制）。"""
+        """请求战斗管理器切到下一合适角色。"""
         return self.combat.request_role_switch(self)
 
     def reset_state(self) -> None:

@@ -24,11 +24,15 @@
                         "max_try": 3
                     }
                 },
-                "自动切换": {
-                    "enabled": false
+                "选择角色程序_onlyNode": {
+                    "attach": {
+                        "need_multi": false
+                    }
                 },
-                "自动qte": {
-                    "enabled": false
+                "选择角色程序_矩阵循生": {
+                    "attach": {
+                        "need_multi": false
+                    }
                 }
             },
             "option": [
@@ -210,12 +214,6 @@
                                     "曲·启明"
                                 ]
                             }
-                        },
-                        "自动切换": {
-                            "enabled": false
-                        },
-                        "自动qte": {
-                            "enabled": false
                         }
                     },
                     "label": "$case.使用人物.启明"

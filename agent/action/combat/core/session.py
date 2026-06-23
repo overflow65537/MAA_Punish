@@ -367,10 +367,6 @@ class CombatTask:
     def request_role_switch(self, requester: BaseRole) -> bool:
         """切人统一入口：由 BaseRole.perform(switch) 或 switch_next() 调用。"""
         from_name = resolve_role_name(requester.cls_name)
-        if not self.is_switch_enabled():
-            self.logger.info("切人跳过 [%s]: 未开启自动切换", from_name)
-            requester.on_switch_failed()
-            return False
         if self.is_switch_disabled():
             self.logger.info("切人跳过 [%s]: 切人已屏蔽", from_name)
             requester.on_switch_failed()
@@ -420,10 +416,6 @@ class CombatTask:
 
         requester.on_switch_failed()
         return False
-
-    def is_switch_enabled(self) -> bool:
-        node = self.context.get_node_data("自动切换") or {}
-        return bool(node.get("enabled", False))
 
     def is_switch_disabled(self) -> bool:
         return bool(self.SWITCH_DISABLED)
