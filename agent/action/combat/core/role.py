@@ -70,6 +70,8 @@ class BaseRole:
         self.action._role = self
 
     def perform(self) -> None:
+        if self.phase == "idle" and self.combat.refresh_field_role_on_idle(self):
+            return
         self.do_perform()
 
     def do_perform(self) -> None:

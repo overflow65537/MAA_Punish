@@ -31,6 +31,11 @@ from typing import TYPE_CHECKING, Any
 
 from action.combat.core.provider import BaseCombatCheck
 from action.combat.core.role import BaseRole, SwitchPriority, resolve_role_name
+from action.combat.core.role_detect import (
+    attack_templates_for_cls,
+    detect_current_role,
+    is_cls_on_field,
+)
 from action.combat.core.role_factory import create_role
 from action.combat.core.switch import attempt_switch_to_color
 from action.combat.core.team import TEAM_COLORS, TeamSnapshot
@@ -192,6 +197,62 @@ class CombatTask:
         #    self.switch_cooldown_remaining(),
         #)
         role.perform()
+
+    def refresh_field_role_on_idle(self, role: BaseRole) -> bool:
+        """
+        idle 入口校验当前角色 attack_template；失配则重识别并更新 team.current。
+
+        :return: True 表示已切换主站角色，本 tick 应跳过后续 idle 逻辑。
+        """
+        if self.team is None or self.team.is_solo():
+            return False
+
+        if not attack_templates_for_cls(role.cls_name):
+            return False
+
+        image = self.frame
+        if image is None:
+            return False
+
+        if is_cls_on_field(self.context, image, role.cls_name):
+            return False
+
+        display_name, detected_cls = detect_current_role(self.context, image)
+        if detected_cls == role.cls_name:
+            return False
+
+        new_color: str | None = None
+        for color in TEAM_COLORS:
+            if self.team.cls_at(color) == detected_cls:
+                new_color = color
+                break
+
+        if new_color is None:
+            self.logger.warning(
+                "idle 校验: 期望 %s 不在场，识别为 %s（不在 roster），保持当前",
+                role.cls_name,
+                detected_cls,
+            )
+            return False
+
+        if new_color == self.team.current.upper():
+            return False
+
+        self.logger.info(
+            "idle 校验: 期望 %s 不在场，重识别为 %s (%s) @%s",
+            role.cls_name,
+            display_name,
+            detected_cls,
+            new_color,
+        )
+        self.team.current = new_color
+        self.current_role_name = display_name
+        self.current_field_since = time.monotonic()
+        target_role = self.roles.get(new_color)
+        if target_role is not None:
+            target_role.reset_state()
+        self._notify_current_role()
+        return True
 
     def load_team(self) -> bool:
         """进战识别当前角色，仅调用一次。"""
