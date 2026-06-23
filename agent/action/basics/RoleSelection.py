@@ -144,6 +144,42 @@ class RoleSelection(CustomAction):
         return name.replace("[试用]", "").strip()
 
     @staticmethod
+    def _role_type_key(role_name: str) -> str:
+        base_name = role_name.replace("[试用]", "").strip()
+        role_type_value = ROLE_ACTIONS.get(base_name, {}).get("type", "")
+        return str(role_type_value).lower()
+
+    @staticmethod
+    def _is_attacker_only_candidates(
+        candidates: list[tuple[str, float, str, str, bool]],
+    ) -> bool:
+        return bool(candidates) and all(item[2] == "attacker" for item in candidates)
+
+    def _single_attacker_team(
+        self, candidates: list[tuple[str, float, str, str, bool]]
+    ) -> dict:
+        attackers = [c for c in candidates if c[2] == "attacker"]
+        attackers.sort(key=lambda item: item[1], reverse=True)
+        top = attackers[0]
+        self.logger.info("角色库仅有进攻型，只编入一名角色: %s", top[0])
+        return {
+            "attacker": {"name": top[0], "weight": top[1]},
+            "tank": {"name": None, "weight": 0},
+            "support": {"name": None, "weight": 0},
+        }
+
+    def _finalize_team_selection(
+        self,
+        best: dict,
+        candidates: list[tuple[str, float, str, str, bool]],
+        *,
+        need_multi: bool,
+    ) -> dict:
+        if need_multi and self._is_attacker_only_candidates(candidates):
+            return self._single_attacker_team(candidates)
+        return best
+
+    @staticmethod
     def _template_match_hits(result) -> list[TemplateMatchResult]:
         """同页多实例时优先用 all_results；filtered_results 受 index 影响可能只有一条。"""
         for candidates in (result.all_results, result.filtered_results):
@@ -167,13 +203,17 @@ class RoleSelection(CustomAction):
         if not need_multi:
             return {"attacker": names[0], "tank": None, "support": None}
 
+        if all(self._role_type_key(name) == "attacker" for name in names):
+            self.logger.info("排他模式：角色库仅有进攻型，只编入一名角色: %s", names[0])
+            return {"attacker": names[0], "tank": None, "support": None}
+
         team: dict[str, str | None] = {
             "attacker": None,
             "tank": None,
             "support": None,
         }
         for name in names:
-            role_type = str(ROLE_ACTIONS.get(name, {}).get("type", "")).lower()
+            role_type = self._role_type_key(name)
             if role_type in team and team[role_type] is None:
                 team[role_type] = name
         if team["attacker"] is None:
@@ -432,7 +472,10 @@ class RoleSelection(CustomAction):
 
         role_weight = self.calculate_weight(role, condition)
         self.logger.info(f"根据识别结果计算权重完成, 共 {len(role_weight)} 个角色")
-        best_team = self.select_best_team(role_weight)
+        effective_need_multi = need_multi and roguelike_equivalent is None
+        best_team = self.select_best_team(
+            role_weight, need_multi=effective_need_multi
+        )
         self.logger.info(f"条件: {condition}")
         self.logger.info(f"角色权重: {role_weight}")
         attacker_name = best_team.get("attacker", {}).get("name")
@@ -883,8 +926,10 @@ class RoleSelection(CustomAction):
 
         return weight
 
-    def select_best_team(self, role_weight: dict) -> dict:
-        self.logger.info(f"开始从 {len(role_weight)} 个角色中筛选最佳队伍")
+    def select_best_team(self, role_weight: dict, *, need_multi: bool = True) -> dict:
+        self.logger.info(
+            f"开始从 {len(role_weight)} 个角色中筛选最佳队伍 (need_multi={need_multi})"
+        )
 
         best = {
             "attacker": {"name": None, "weight": 0},
@@ -940,7 +985,9 @@ class RoleSelection(CustomAction):
                     best[role_type_key] = {"name": role_name, "weight": w}
 
             self.logger.info(f"候选人不足三人, 使用降级策略得到队伍: {best}")
-            return best
+            return self._finalize_team_selection(
+                best, candidates, need_multi=need_multi
+            )
 
         support_candidates = []
         tank_candidates = []
@@ -973,7 +1020,9 @@ class RoleSelection(CustomAction):
                 }
 
         self.logger.info(f"筛选完成, 最终队伍: {best}")
-        return best
+        return self._finalize_team_selection(
+            best, candidates, need_multi=need_multi
+        )
 
     def save_screenshot(self, image: numpy.ndarray, img_type: str) -> bool:
 
