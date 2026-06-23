@@ -318,7 +318,7 @@ class CombatTask:
 
     def switch_to_color(self, color: str, *, attacker: BaseRole | None = None) -> bool:
         """
-        按色位切人：SWITCH_VERIFY_TIMEOUT 内持续单击攻击并点击目标 QTE，直到识别到切换。
+        按色位切人：首次截屏定位 QTE 坐标，之后盲发「攻击 + 换人」直至识别到切换或超时。
 
         战前 roster 已写入 team；验证用 attack_template 比对目标色位 cls。
         CD 未好或验证超时仍未切换 → False，保持当前角色流程。

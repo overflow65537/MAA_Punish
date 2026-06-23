@@ -140,37 +140,41 @@ def attempt_switch_to_color(
     should_stop: Callable[[], bool] | None = None,
 ) -> bool:
     """
-    在 verify_timeout 内持续单击攻击 + 点击目标 QTE；
-    一旦 attack_template 识别到目标角色即成功，超时仍未切换则失败。
+    切人：首次截屏定位目标 QTE 坐标，之后盲发「攻击 + 换人」直到成功或超时。
+    循环内不再重复识别 QTE 位置；仅截屏验证是否已切到目标角色。
     """
     target = color.upper()
     deadline = time.monotonic() + verify_timeout
 
-    def tick_attack() -> None:
-        if attacker_callback is not None:
-            attacker_callback()
+    image = context.tasker.controller.post_screencap().wait().get()
+    if is_cls_on_field(context, image, target_cls):
+        return True
+
+    qte_result = _recognize_qte(context, target, image)
+    if not qte_result:
+        return False
+
+    qte_x, qte_y = _box_center(qte_result.best_result.box)  # type: ignore[attr-defined]
+
+    def blind_switch_click() -> None:
+        context.tasker.controller.post_click(qte_x, qte_y).wait()
 
     while time.monotonic() < deadline:
         if should_stop is not None and should_stop():
             return False
 
-        tick_attack()
+        if attacker_callback is not None:
+            attacker_callback()
+        blind_switch_click()
 
         image = context.tasker.controller.post_screencap().wait().get()
         if is_cls_on_field(context, image, target_cls):
             return True
 
-        click_qte_by_color(context, target, image, burst=_QTE_CLICK_BURST)
-
         remaining = deadline - time.monotonic()
         if remaining <= 0:
             break
-        if not active_delay(
-            min(poll_interval, remaining),
-            on_tick=tick_attack,
-            should_stop=should_stop,
-        ):
-            return False
+        time.sleep(min(poll_interval, remaining))
 
     return False
 
