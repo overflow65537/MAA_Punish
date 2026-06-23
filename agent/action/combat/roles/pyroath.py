@@ -18,7 +18,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""火神战斗程序"""
+"""誓焰战斗程序"""
 
 from __future__ import annotations
 
