@@ -18,7 +18,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""启明战斗程序"""
+"""启明战斗程序
+
+状态机::
+
+    idle ──大招条──► ult_open ──► ult_clear ──► ult_close ──► switch
+      ├──球≥9──► clear ──► idle
+      └──兜底──► farm ──► idle
+"""
 
 from __future__ import annotations
 
@@ -26,45 +33,108 @@ import time
 
 from action.combat.core.role import BaseRole
 
+_CLEAR_BALL_MIN = 9
+_CLEAR_TIMEOUT = 7.0
+_ULT_CLEAR_TIMEOUT = 3.0
+_FARM_TICKS = 20
+
 
 class Shukra(BaseRole):
+    """启明：双段大招消球、满球连消、普攻攒条。"""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._clear_deadline = 0.0
+        self._ult_clear_deadline = 0.0
+        self._farm_ticks = 0
+
+    def reset_state(self) -> None:
+        super().reset_state()
+        self._clear_deadline = 0.0
+        self._ult_clear_deadline = 0.0
+        self._farm_ticks = 0
+
     def do_perform(self) -> None:
+        if self.combat.context.tasker.stopping:
+            return
+
+        if self.phase == "idle":
+            self._phase_idle()
+        elif self.phase == "ult_open":
+            self._phase_ult_open()
+        elif self.phase == "ult_clear":
+            self._phase_ult_clear()
+        elif self.phase == "ult_close":
+            self._phase_ult_close()
+        elif self.phase == "clear":
+            self._phase_clear()
+        elif self.phase == "farm":
+            self._phase_farm()
+        else:
+            self.phase = "idle"
+            self._phase_idle()
+
+    def _phase_idle(self) -> None:
         self.action.lens_lock()
         self.action.attack()
 
         if self.action.check_Skill_energy_bar():
-            self.action.use_skill()  # 万世生死,淬于寒冰
-            start_time = time.time()
-            while time.time() - start_time < 3:  # 生死喧嚣,归于寂静
-                time.sleep(0.1)
-                self.action.ball_elimination_target(1)
-            self.action.use_skill()
-            time.sleep(0.1)
-            self.action.auxiliary_machine()
-            self.switch_next()
-            print("切换完成")
+            self.phase = "ult_open"
             return
-        elif self.action.count_signal_balls() >= 9:  # 信号球数量大于9
-            start_time = time.time()
-            while time.time() - start_time < 7:
-                time.sleep(0.3)
-                target = self.action.Arrange_Signal_Balls("any")
-                self.action.ball_elimination_target(target)
-                self.action.logger.info(f"初次消球")
-                if target > 0:
-                    time.sleep(0.1)
-                    self.action.logger.info(f"三连目标,开始二次消球")
-                    self.action.ball_elimination_target(1)  # 单独消球
-                elif target == 0:
-                    self.action.logger.info(f"信号球空,结束")
-                    break
-            self.action.logger.info(f"长按攻击")
+
+        if self.action.count_signal_balls() >= _CLEAR_BALL_MIN:
+            self._clear_deadline = time.monotonic() + _CLEAR_TIMEOUT
+            self.phase = "clear"
+            return
+
+        self._farm_ticks = 0
+        self.phase = "farm"
+
+    def _phase_ult_open(self) -> None:
+        self.action.use_skill()
+        self._ult_clear_deadline = time.monotonic() + _ULT_CLEAR_TIMEOUT
+        self.phase = "ult_clear"
+
+    def _phase_ult_clear(self) -> None:
+        if time.monotonic() >= self._ult_clear_deadline:
+            self.phase = "ult_close"
+            return
+        self.action.ball_elimination_target(1)
+
+    def _phase_ult_close(self) -> None:
+        self.action.use_skill()
+        self.action.auxiliary_machine()
+        self.phase = "switch"
+
+    def _phase_clear(self) -> None:
+        if time.monotonic() >= self._clear_deadline:
+            self.action.logger.info("启明: 消球超时，长按攻击")
             self.action.long_press_attack()
-        else:
-            self.action.logger.info(f"普攻")
-            start_time = time.time()
-            while time.time() - start_time < 2:
-                self.action.attack()  # 攻击
-                time.sleep(0.1)
+            self.phase = "idle"
+            return
+
+        target = self.action.Arrange_Signal_Balls("any")
+        if target == 0:
+            self.action.logger.info("启明: 信号球空，长按攻击")
+            self.action.long_press_attack()
+            self.phase = "idle"
+            return
+
+        self.action.ball_elimination_target(target)
+        self.action.logger.info("启明: 消球")
+        if target > 0:
+            self.action.ball_elimination_target(1)
+
+    def _phase_farm(self) -> None:
+        if self.action.check_Skill_energy_bar():
+            self.phase = "ult_open"
+            return
+        if self.action.count_signal_balls() >= _CLEAR_BALL_MIN:
+            self._clear_deadline = time.monotonic() + _CLEAR_TIMEOUT
+            self.phase = "clear"
+            return
+
         self.action.attack()
-        return
+        self._farm_ticks += 1
+        if self._farm_ticks >= _FARM_TICKS:
+            self.phase = "idle"

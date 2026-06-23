@@ -18,43 +18,100 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""铮骨战斗程序"""
+"""铮骨战斗程序
+
+状态机::
+
+    idle ──► loop ──► switch
+              ├──大招条──► ult ──► loop
+              └──球≥3──► combo ──► loop
+"""
 
 from __future__ import annotations
 
-import time
-
 from action.combat.core.role import BaseRole
+
+_LOOP_MAX = 10
+_COMBO_BALL_MIN = 3
+_COMBO_CLEAR_COUNT = 3
 
 
 class Aegis(BaseRole):
+    """铮骨：循环消球/普攻，大招与三连消球穿插 QTE。"""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._loop_ticks = 0
+        self._combo_ball_count = 0
+        self._combo_clear_ticks = 0
+
+    def reset_state(self) -> None:
+        super().reset_state()
+        self._loop_ticks = 0
+        self._combo_ball_count = 0
+        self._combo_clear_ticks = 0
+
     def do_perform(self) -> None:
+        if self.combat.context.tasker.stopping:
+            return
+
+        if self.phase == "idle":
+            self._phase_idle()
+        elif self.phase == "loop":
+            self._phase_loop()
+        elif self.phase == "ult":
+            self._phase_ult()
+        elif self.phase == "combo":
+            self._phase_combo()
+        else:
+            self.phase = "idle"
+            self._phase_idle()
+
+    def _phase_idle(self) -> None:
         self.action.lens_lock()
         self.action.attack()
+        self._loop_ticks = 0
+        self.phase = "loop"
 
-        for _ in range(10):
-            self.action.ball_elimination_target(1)
-            time.sleep(0.1)
+    def _phase_loop(self) -> None:
+        if self._loop_ticks >= _LOOP_MAX:
             self.action.attack()
-            if self.action.check_Skill_energy_bar():
-                for _ in range(10):
-                    self.action.use_skill()
-                    time.sleep(0.1)
-                self.action.use_qte()
-                self.action.auxiliary_machine()
-                continue
+            self.phase = "switch"
+            return
 
-            if ball_count := self.action.count_signal_balls() >= 3:
-                for _ in range(3):
-                    self.action.ball_elimination_target()
-                    time.sleep(0.1)
-                self.action.use_qte()
-                if self.action.count_signal_balls() == ball_count:
-                    self.action.dodge()
-                    time.sleep(0.1)
-                    self.action.ball_elimination_target()
-                self.action.use_qte()
-                self.action.auxiliary_machine()
+        self.action.ball_elimination_target(1)
         self.action.attack()
-        self.switch_next()
-        return
+
+        if self.action.check_Skill_energy_bar():
+            self.phase = "ult"
+            return
+
+        if self.action.count_signal_balls() >= _COMBO_BALL_MIN:
+            self._combo_ball_count = self.action.count_signal_balls()
+            self._combo_clear_ticks = 0
+            self.phase = "combo"
+            return
+
+        self._loop_ticks += 1
+
+    def _phase_ult(self) -> None:
+        self.action.use_skill_until_empty()
+        self.action.use_qte()
+        self.action.auxiliary_machine()
+        self._loop_ticks += 1
+        self.phase = "loop"
+
+    def _phase_combo(self) -> None:
+        if self._combo_clear_ticks < _COMBO_CLEAR_COUNT:
+            self.action.ball_elimination_target()
+            self._combo_clear_ticks += 1
+            return
+
+        self.action.use_qte()
+        if self.action.count_signal_balls() == self._combo_ball_count:
+            self.action.dodge()
+            self.action.ball_elimination_target()
+        self.action.use_qte()
+        self.action.auxiliary_machine()
+        self._loop_ticks += 1
+        self.phase = "loop"
