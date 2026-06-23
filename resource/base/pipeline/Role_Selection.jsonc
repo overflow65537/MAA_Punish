@@ -624,7 +624,7 @@
                 "custom_action": "RoleSelection",
                 "custom_action_param": {
                     "selection_mode": "standard",
-                    "need_multi": false
+                    "need_multi": true
                 }
             }
         },
@@ -634,7 +634,8 @@
         "attach": {
             "cage": false,
             "need_element": "",
-            "pick": []
+            "pick": [],
+            "need_multi": true
         }
     },
     "选择角色程序_onlyNode": {
@@ -656,14 +657,15 @@
                 "custom_action": "RoleSelection",
                 "custom_action_param": {
                     "selection_mode": "standard",
-                    "need_multi": false
+                    "need_multi": true
                 }
             }
         },
         "attach": {
             "cage": false,
             "need_element": "",
-            "pick": []
+            "pick": [],
+            "need_multi": true
         }
     },
     "选人测试": {
