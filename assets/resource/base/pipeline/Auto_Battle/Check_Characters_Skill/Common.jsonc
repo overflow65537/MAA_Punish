@@ -3,24 +3,13 @@
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
-                "model": "QTE.onnx"
-            }
-        }
-    },
-    "测试": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
+                "model": "QTE.onnx",
                 "roi": [
-                    1156,
-                    594,
-                    75,
-                    81
-                ],
-                "template": [
-                    "自定义战斗/希声.png"
-                ],
-                "green_mask": true
+                    1195,
+                    130,
+                    80,
+                    200
+                ]
             }
         }
     },

@@ -33,6 +33,50 @@ from maa.context import Context
 from MPAcustom.action.combat.config.LoadSetting import ROLE_ACTIONS
 
 
+def _normalize_attack_templates(raw: Any) -> list[Any]:
+    if not raw:
+        return []
+    if isinstance(raw, str):
+        return [raw]
+    return list(raw)
+
+
+def attack_templates_for_cls(cls_name: str) -> list[Any]:
+    """按 cls_name 取 attack_template；未找到返回空列表。"""
+    for role_info in ROLE_ACTIONS.values():
+        if role_info.get("cls_name") == cls_name:
+            return _normalize_attack_templates(role_info.get("attack_template"))
+    return []
+
+
+def match_attack_template(
+    context: Context, image: Any, templates: list[Any]
+) -> bool:
+    """用给定 attack_template 列表匹配当前画面。"""
+    if not templates:
+        return False
+    result = context.run_recognition(
+        entry="检查角色",
+        image=image,
+        pipeline_override={
+            "检查角色": {
+                "recognition": {
+                    "param": {
+                        "template": templates,
+                        "threshold": [0.8] * len(templates),
+                    },
+                }
+            },
+        },
+    )
+    return bool(result and result.hit)
+
+
+def is_cls_on_field(context: Context, image: Any, cls_name: str) -> bool:
+    """仅匹配指定 cls 的 attack_template，判断该角色是否在场。"""
+    return match_attack_template(context, image, attack_templates_for_cls(cls_name))
+
+
 def detect_current_role(context: Context, image: Any) -> tuple[str, str]:
     """
     按 attack_template 模板匹配当前上场角色。
@@ -40,23 +84,9 @@ def detect_current_role(context: Context, image: Any) -> tuple[str, str]:
     :return: (ROLE_ACTIONS 键名/展示名, cls_name)
     """
     for role_name, role_info in ROLE_ACTIONS.items():
-        templates = role_info.get("attack_template") or []
+        templates = _normalize_attack_templates(role_info.get("attack_template"))
         if not templates:
             continue
-        result = context.run_recognition(
-            entry="检查角色",
-            image=image,
-            pipeline_override={
-                "检查角色": {
-                    "recognition": {
-                        "param": {
-                            "template": templates,
-                            "threshold": [0.8] * len(templates),
-                        },
-                    }
-                },
-            },
-        )
-        if result and result.hit:
+        if match_attack_template(context, image, templates):
             return role_name, str(role_info.get("cls_name", "GeneralFight"))
     return "未知", "GeneralFight"

@@ -30,7 +30,7 @@ import time
 from collections.abc import Callable
 from typing import TYPE_CHECKING, Any
 
-from MPAcustom.action.combat.core.role_detect import detect_current_role
+from MPAcustom.action.combat.core.role_detect import is_cls_on_field
 
 if TYPE_CHECKING:
     from maa.context import Context
@@ -113,34 +113,6 @@ def detect_visible_team_colors(
     return [color for _, color in candidates]
 
 
-def choose_general_rotation_color(
-    context: Context, image: Any | None = None
-) -> str | None:
-    """
-    通用轮换：按 QTE目标.post_delay 在上/下可见 QTE 间交替（对齐旧 switch()）。
-    """
-    visible = detect_visible_team_colors(context, image)
-    if not visible:
-        return None
-
-    target_node = context.get_node_data("QTE目标")
-    if not target_node:
-        return None
-
-    target = int(target_node.get("post_delay", 0))
-    if target == 0:
-        chosen = visible[-1]
-        next_target = 1
-    elif target == 1:
-        chosen = visible[0]
-        next_target = 0
-    else:
-        return None
-
-    context.override_pipeline({"QTE目标": {"post_delay": next_target}})
-    return chosen
-
-
 def click_qte_by_color(
     context: Context, color: str, image: Any | None = None
 ) -> bool:
@@ -179,8 +151,7 @@ def attempt_switch_to_color(
             attacker_callback()
 
         image = context.tasker.controller.post_screencap().wait().get()
-        _, cls_name = detect_current_role(context, image)
-        if cls_name == target_cls:
+        if is_cls_on_field(context, image, target_cls):
             return True
 
         click_qte_by_color(context, target, image)
