@@ -318,7 +318,7 @@ class CombatTask:
 
     def switch_to_color(self, color: str, *, attacker: BaseRole | None = None) -> bool:
         """
-        按色位切人：首次截屏定位 QTE 坐标，之后盲发「攻击 + 换人」直至识别到切换或超时。
+        按色位切人：verify_timeout 内等待 QTE 出现并盲发「攻击 + 换人」，直到识别到切换或超时。
 
         战前 roster 已写入 team；验证用 attack_template 比对目标色位 cls。
         CD 未好或验证超时仍未切换 → False，保持当前角色流程。
@@ -371,6 +371,7 @@ class CombatTask:
         verify_timeout = self.SWITCH_VERIFY_TIMEOUT
         if attacker is not None and attacker.switch_verify_timeout is not None:
             verify_timeout = attacker.switch_verify_timeout
+        switch_started = time.monotonic()
         if not attempt_switch_to_color(
             self.context,
             target,
@@ -380,10 +381,12 @@ class CombatTask:
             poll_interval=self.SWITCH_VERIFY_POLL,
             should_stop=self._should_stop,
         ):
+            elapsed = time.monotonic() - switch_started
             self.last_switch_attempt_time = time.monotonic()
             self._switch_attempt_cooldown = self.switch_fail_cooldown
             self.logger.info(
-                "切人失败: %.1fs 内持续点击仍未切到 %s (%s)，继续当前角色（重试 CD %.0fs）",
+                "切人失败: %.1fs/%.1fs 内未切到 %s (%s)，继续当前角色（重试 CD %.0fs）",
+                elapsed,
                 verify_timeout,
                 target,
                 target_cls,

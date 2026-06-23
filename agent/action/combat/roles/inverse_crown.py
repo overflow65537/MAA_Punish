@@ -173,7 +173,7 @@ class InverseCrown(BaseRole):
             ):
                 self._skill_sub = "finish"
         elif self._skill_sub == "finish":
-            self.action.long_press_attack(4000)
+            #self.action.long_press_attack(4000)
             self._finish_skill()
         else:
             self.phase = "idle"

@@ -140,36 +140,34 @@ def attempt_switch_to_color(
     should_stop: Callable[[], bool] | None = None,
 ) -> bool:
     """
-    切人：首次截屏定位目标 QTE 坐标，之后盲发「攻击 + 换人」直到成功或超时。
-    循环内不再重复识别 QTE 位置；仅截屏验证是否已切到目标角色。
-    """
+    切人：verify_timeout 内统一计时，含等待 QTE 出现与盲发切人。
+
+    - QTE 未出现时：周期性攻击并截屏尝试识别 QTE
+    - QTE 坐标锁定后：盲发「攻击 + 换人」，截屏验证是否已切到目标
+  """
     target = color.upper()
     deadline = time.monotonic() + verify_timeout
-
-    image = context.tasker.controller.post_screencap().wait().get()
-    if is_cls_on_field(context, image, target_cls):
-        return True
-
-    qte_result = _recognize_qte(context, target, image)
-    if not qte_result:
-        return False
-
-    qte_x, qte_y = _box_center(qte_result.best_result.box)  # type: ignore[attr-defined]
-
-    def blind_switch_click() -> None:
-        context.tasker.controller.post_click(qte_x, qte_y).wait()
+    qte_pos: tuple[int, int] | None = None
 
     while time.monotonic() < deadline:
         if should_stop is not None and should_stop():
             return False
 
-        if attacker_callback is not None:
-            attacker_callback()
-        blind_switch_click()
-
         image = context.tasker.controller.post_screencap().wait().get()
         if is_cls_on_field(context, image, target_cls):
             return True
+
+        if qte_pos is None:
+            qte_result = _recognize_qte(context, target, image)
+            if qte_result:
+                qte_pos = _box_center(qte_result.best_result.box)  # type: ignore[attr-defined]
+            if attacker_callback is not None:
+                attacker_callback()
+        else:
+            if attacker_callback is not None:
+                attacker_callback()
+            qte_x, qte_y = qte_pos
+            context.tasker.controller.post_click(qte_x, qte_y).wait()
 
         remaining = deadline - time.monotonic()
         if remaining <= 0:
