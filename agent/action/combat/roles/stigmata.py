@@ -18,34 +18,98 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""深痕战斗程序"""
+"""深痕战斗程序
+
+状态机::
+
+    idle ──大招条──► ult ──► switch ──► idle
+      ├──一阶段+核心被动──► core ──► core_burst ──► idle
+      └──兜底──► farm ──► idle
+"""
 
 from __future__ import annotations
 
-import time
-
 from action.combat.core.role import BaseRole
+
+_P1_NODE = "检查比安卡·深痕一阶段"
+_CORE_NODE = "检查核心被动_深痕"
+_CORE_BURST = 10
+_FARM_TICKS = 8
 
 
 class Stigmata(BaseRole):
+    """深痕：一阶段核心消球，大招就绪切人。"""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._core_ticks = 0
+        self._farm_ticks = 0
+
+    def reset_state(self) -> None:
+        super().reset_state()
+        self._core_ticks = 0
+        self._farm_ticks = 0
+
     def do_perform(self) -> None:
+        if self.combat.context.tasker.stopping:
+            return
+
+        if self.phase == "idle":
+            self._phase_idle()
+        elif self.phase == "ult":
+            self._phase_ult()
+        elif self.phase == "core":
+            self._phase_core()
+        elif self.phase == "core_burst":
+            self._phase_core_burst()
+        elif self.phase == "farm":
+            self._phase_farm()
+        elif self.phase == "switch":
+            self._phase_switch()
+        else:
+            self.phase = "idle"
+            self._phase_idle()
+
+    def _phase_idle(self) -> None:
         self.action.lens_lock()
         self.action.attack()
-        if self.action.check_Skill_energy_bar():
-            self.action.use_skill()  # 此刻,见证终焉之光/以此宣告,噩梦的崩解
-            self.action.auxiliary_machine()
-            self.switch_next()
-            print("切换完成")
-            return
-        elif self.action.check_status("检查比安卡·深痕一阶段"):
-            if self.action.check_status("检查核心被动_深痕"):
-                self.action.long_press_dodge()  # 开启照域
-                for _ in range(10):
-                    self.action.ball_elimination_target(1)  # 消球
-                    time.sleep(0.3)
-                    self.action.attack()
-                    time.sleep(0.1)
-                return
-        self.action.continuous_attack(8, 300)
 
-        return
+        if self.action.check_Skill_energy_bar():
+            self.phase = "ult"
+            return
+
+        if self.action.check_status(_P1_NODE) and self.action.check_status(_CORE_NODE):
+            self.action.logger.info("深痕: 开启照域")
+            self.phase = "core"
+            return
+
+        self._farm_ticks = 0
+        self.phase = "farm"
+
+    def _phase_ult(self) -> None:
+        self.action.use_skill()
+        self.action.auxiliary_machine()
+        self.phase = "idle"  # switch
+
+    def _phase_core(self) -> None:
+        self.action.long_press_dodge()
+        self._core_ticks = 0
+        self.phase = "core_burst"
+
+    def _phase_core_burst(self) -> None:
+        self.action.ball_elimination_target(1)
+        self.action.attack()
+        self._core_ticks += 1
+        if self._core_ticks >= _CORE_BURST:
+            self.phase = "idle"
+
+    def _phase_farm(self) -> None:
+        self.action.attack()
+        self._farm_ticks += 1
+        if self._farm_ticks >= _FARM_TICKS:
+            self.phase = "idle"
+
+    def _phase_switch(self) -> None:
+        # if self.switch_next():
+        #     self.action.logger.info("深痕: 切换完成")
+        self.phase = "idle"
