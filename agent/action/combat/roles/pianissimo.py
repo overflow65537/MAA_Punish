@@ -238,6 +238,7 @@ class Pianissimo(BaseRole):
             self._log_step("burst_complete", ticks=self._burst_total)
             self.action.auxiliary_machine()
             self.action.auto_qte("a")
+            self.action.use_qte()
             self.phase = "idle"
 
     def _phase_p2_clear1(self) -> None:
@@ -315,6 +316,7 @@ class Pianissimo(BaseRole):
         self.action.use_skill()
         self.action.auxiliary_machine()
         self.action.auto_qte("a")
+        self.action.use_qte()
         self.phase = "switch"
 
     def _phase_p2_dodge(self) -> None:

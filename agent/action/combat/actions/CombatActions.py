@@ -224,15 +224,13 @@ class CombatActions:
         self._auto_dodge()
         return self.context.run_action(f"qte{target}")
 
-    def use_qte(self, slot: int = 1):
+    def use_qte(self):
         """
-        直接使用 QTE（低代码 qte1 / qte2，对应上方/下方 QTE 键位）。
+        同时使用 QTE（低代码 qte1 + qte2，上方/下方 QTE 键位各触发一次）。
         不识别、不自动闪避，仅 run_action。
-        :param slot: 1 → qte1（上方），2 → qte2（下方）
         """
-        if slot not in (1, 2):
-            raise ValueError("slot 必须为 1 或 2")
-        return self.context.run_action(f"qte{slot}")
+        self.context.run_action("qte1")
+        return self.context.run_action("qte2")
 
     def _try_qte_by_color(self, color: str, image=None):
         """

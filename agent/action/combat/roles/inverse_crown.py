@@ -48,6 +48,7 @@ class InverseCrown(BaseRole):
         self._skill_sub = ""
         self._skill_switch_after = False
         self._farm_ticks = 0
+        self._post_ult_qte_used = False
 
     def reset_state(self) -> None:
         super().reset_state()
@@ -57,6 +58,7 @@ class InverseCrown(BaseRole):
         self._skill_sub = ""
         self._skill_switch_after = False
         self._farm_ticks = 0
+        self._post_ult_qte_used = False
 
     def do_perform(self) -> None:
         if self.combat.context.tasker.stopping:
@@ -105,6 +107,9 @@ class InverseCrown(BaseRole):
         self.phase = "skill"
 
     def _finish_skill(self) -> None:
+        if not self._post_ult_qte_used:
+            self.action.use_qte()
+            self._post_ult_qte_used = True
         self._skill_sub = ""
         self.phase = "switch" if self._skill_switch_after else "idle"
 

@@ -383,7 +383,7 @@ class CrimsonWeave(BaseRole):
         if self._cast_ult_if_ready():
             return
 
-        self.action.auto_qte("a")
+        self.action.use_qte()
         self._ult_wait_deadline = time.monotonic() + _SMALL_ULT_WAIT_TIMEOUT
         self.phase = "small_ult_wait"
         self.action.logger.info("小太刀大招释放完毕，等待大太刀无光值出现")
@@ -447,7 +447,7 @@ class CrimsonWeave(BaseRole):
             return
 
         self.action.auxiliary_machine()
-        self.action.auto_qte("a")
+        self.action.use_qte()
         self._ult_wait_deadline = time.monotonic() + _ULT_WAIT_TIMEOUT
         self.phase = "great_ult_wait"
         self.action.logger.info("大太刀大招释放完毕，等待回到小太刀")
