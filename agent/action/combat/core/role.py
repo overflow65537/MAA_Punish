@@ -54,6 +54,9 @@ def resolve_role_name(cls_name: str) -> str:
 class BaseRole:
     """角色策略基类：组合 CombatActions，通过 CombatTask 切人。"""
 
+    # 非 None 时覆盖 CombatTask.SWITCH_VERIFY_TIMEOUT（单次切人 QTE 尝试窗口）
+    switch_verify_timeout: float | None = None
+
     def __init__(self, combat: CombatTask, color: str, cls_name: str):
         self.combat = combat
         self.color = color.upper()

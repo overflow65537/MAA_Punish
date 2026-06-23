@@ -22,13 +22,12 @@
 
 状态机概览::
 
-    idle ──球>5──► p1_clear ──► p1_core ──► p1_burst(15 tick) ──► idle
+    idle ──球>5──► p1_clear ──► p1_core(长按) ──► p1_burst(消球1优先) ──► idle
       │                              长按攻击触发核心被动
       ├──球不足──► p1_farm
-      └──2阶段──► p2_clear1 ──► p2_core ──► p2_burst(20 tick) ──► p2_clear2
-                    │红球技能回 idle              长按攻击
-                    p2_clear2 ──红球──► p2_ult ──► switch
-                             └──无球──► p2_dodge ──► switch
+      └──2阶段──► p2_clear1 ──► p2_core ──► p2_burst ──► p2_clear2
+                    │特球(红/黄)──► p2_ult ──► switch   （clear/burst 中亦可打断）
+                    p2_clear2 ──无球──► p2_dodge ──► switch
 """
 
 from __future__ import annotations
@@ -45,10 +44,13 @@ _P1_CORE_BURST = 15  # 1 阶段核心后 burst 轮数（每轮 combat 循环 1 t
 _P2_CORE_BURST = 20  # 2 阶段核心后 burst 轮数
 _P1_FARM_MAX = 30  # 1 阶段攒球最多 tick，防止无限 farm
 _FARM_TICK_MS = 50.0  # 攒球普攻间隔（毫秒）
+_SWITCH_VERIFY_TIMEOUT = 15.0  # 希声切人动画较长，QTE 尝试窗口
 
 
 class Pianissimo(BaseRole):
     """希声：1 阶段攒球消球开核心 → 2 阶段核心消球开大/长闪 → 切人。"""
+
+    switch_verify_timeout = _SWITCH_VERIFY_TIMEOUT
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -57,6 +59,7 @@ class Pianissimo(BaseRole):
         self._burst_total = 0
         self._farm_ticks = 0
         self._next_farm_at = 0.0
+        self._core_started_at = 0.0
 
     def reset_state(self) -> None:
         super().reset_state()
@@ -65,6 +68,19 @@ class Pianissimo(BaseRole):
         self._burst_total = 0
         self._farm_ticks = 0
         self._next_farm_at = 0.0
+        self._core_started_at = 0.0
+
+    def _log_step(self, step: str, **extra: object) -> None:
+        """核心/burst 分步计时日志，便于定位长按后消球1延迟。"""
+        now = time.monotonic()
+        parts = [
+            f"希声[{self.phase}] loop={self.combat.loop_count} step={step}",
+        ]
+        if self._core_started_at:
+            parts.append(f"since_core={int((now - self._core_started_at) * 1000)}ms")
+        for key, value in extra.items():
+            parts.append(f"{key}={value}")
+        self.action.logger.info(" ".join(parts))
 
     def do_perform(self) -> None:
         if self.combat.context.tasker.stopping:
@@ -104,6 +120,11 @@ class Pianissimo(BaseRole):
     def _red_ball_ready(self) -> bool:
         return bool(self.action.check_status(_RED_BALL_NODE))
 
+    def _enter_p2_ult(self, *, reason: str) -> None:
+        """2 阶段检测到红/黄特球，进入开大 → 切人。"""
+        self.action.logger.info("希声2阶段开大 (%s)", reason)
+        self.phase = "p2_ult"
+
     def _begin_clear(self, *, next_phase: str) -> None:
         """进入消球阶段并启动超时计时。"""
         self._clear_deadline = time.monotonic() + _CLEAR_TIMEOUT
@@ -125,6 +146,9 @@ class Pianissimo(BaseRole):
 
         if self._in_phase2():
             self.action.logger.info("希声2阶段")
+            if self._red_ball_ready():
+                self._enter_p2_ult(reason="idle")
+                return
             self._begin_clear(next_phase="p2_clear1")
             return
 
@@ -179,27 +203,47 @@ class Pianissimo(BaseRole):
         self.action.attack()
 
     def _phase_p1_core(self) -> None:
-        # 核心被动：Pipeline 同步按住攻击 1s，随后 QTE/辅助机，再进 burst
-        # 本 tick 内会阻塞至长按结束，burst 从下一轮 combat 循环才开始
+        # 核心被动：长按后立即进 burst（QTE/辅助机挪到 burst 结束，避免挡消球）
+        self._core_started_at = time.monotonic()
+        self._log_step("core_enter")
+
+        t0 = time.monotonic()
+        self._log_step("long_press_attack_start")
         self.action.long_press_attack(1000)
-        self.action.auto_qte("a")
-        self.action.auxiliary_machine()
+        self._log_step("long_press_attack_done", elapsed_ms=int((time.monotonic() - t0) * 1000))
+
+        self._log_step("burst_scheduled", next="p1_burst", ticks=_P1_CORE_BURST)
         self._begin_burst(_P1_CORE_BURST, "p1_burst")
 
     def _phase_p1_burst(self) -> None:
-        # 核心后连打：每轮循环仅 1 tick（攻击 + 消球1 + 技能）
-        self.action.attack()
+        # 优先消球1，普攻用 post_attack 减截屏延迟
+        tick = self._burst_ticks + 1
+        self._log_step("burst_tick_enter", tick=f"{tick}/{self._burst_total}")
+
+        t0 = time.monotonic()
+        self._log_step("ball1_start", tick=f"{tick}/{self._burst_total}")
         self.action.ball_elimination_target(1)
+        self._log_step("ball1_done", elapsed_ms=int((time.monotonic() - t0) * 1000))
+
+        self._log_step("post_attack", tick=f"{tick}/{self._burst_total}")
+        self.action.post_attack()
+
+        t1 = time.monotonic()
+        self._log_step("skill_start", tick=f"{tick}/{self._burst_total}")
         self.action.use_skill()
+        self._log_step("skill_done", elapsed_ms=int((time.monotonic() - t1) * 1000))
+
         self._burst_ticks += 1
         if self._burst_ticks >= self._burst_total:
+            self._log_step("burst_complete", ticks=self._burst_total)
+            self.action.auxiliary_machine()
+            self.action.auto_qte("a")
             self.phase = "idle"
 
     def _phase_p2_clear1(self) -> None:
-        # 2 阶段首轮消球；已有红球则直接技能，不必等核心
+        # 2 阶段首轮消球；见特球则直接开大
         if self._red_ball_ready():
-            self.action.use_skill()
-            self.phase = "idle"
+            self._enter_p2_ult(reason="p2_clear1")
             return
         if not self.action.count_signal_balls() or self._clear_expired():
             self.action.logger.info("希声2阶段消球结束")
@@ -210,25 +254,54 @@ class Pianissimo(BaseRole):
         self.action.attack()
 
     def _phase_p2_core(self) -> None:
-        # 2 阶段核心被动，逻辑同 p1_core（无辅助机）
+        if self._red_ball_ready():
+            self._enter_p2_ult(reason="p2_core")
+            return
+        # 2 阶段核心：长按后立即 burst
+        self._core_started_at = time.monotonic()
+        self._log_step("core_enter")
+
+        t0 = time.monotonic()
+        self._log_step("long_press_attack_start")
         self.action.long_press_attack(1000)
-        self.action.auto_qte("a")
+        self._log_step("long_press_attack_done", elapsed_ms=int((time.monotonic() - t0) * 1000))
+
+        self._log_step("burst_scheduled", next="p2_burst", ticks=_P2_CORE_BURST)
         self._begin_burst(_P2_CORE_BURST, "p2_burst")
 
     def _phase_p2_burst(self) -> None:
-        # 核心后连打：每轮循环 攻击 + 消球1 + 消球2
-        self.action.attack()
+        # 每 tick 先查特球，命中则打断 burst 直接开大
+        if self._red_ball_ready():
+            self._enter_p2_ult(reason="p2_burst")
+            return
+
+        tick = self._burst_ticks + 1
+        self._log_step("burst_tick_enter", tick=f"{tick}/{self._burst_total}")
+
+        t0 = time.monotonic()
+        self._log_step("ball1_start", tick=f"{tick}/{self._burst_total}")
         self.action.ball_elimination_target(1)
+        self._log_step("ball1_done", elapsed_ms=int((time.monotonic() - t0) * 1000))
+
+        t1 = time.monotonic()
+        self._log_step("ball2_start", tick=f"{tick}/{self._burst_total}")
         self.action.ball_elimination_target(2)
+        self._log_step("ball2_done", elapsed_ms=int((time.monotonic() - t1) * 1000))
+
+        self._log_step("post_attack", tick=f"{tick}/{self._burst_total}")
+        self.action.post_attack()
+
         self._burst_ticks += 1
         if self._burst_ticks >= self._burst_total:
             self.action.logger.info("希声2阶段核心结束")
+            self._log_step("burst_complete", ticks=self._burst_total)
+            self.action.auto_qte("a")
             self._begin_clear(next_phase="p2_clear2")
 
     def _phase_p2_clear2(self) -> None:
-        # burst 后再消一轮；有红球开大，无球则长闪收尾
+        # burst 后再消一轮；见特球开大，无球则长闪收尾
         if self._red_ball_ready():
-            self.phase = "p2_ult"
+            self._enter_p2_ult(reason="p2_clear2")
             return
         if not self.action.count_signal_balls() or self._clear_expired():
             self.phase = "p2_dodge"
@@ -255,7 +328,7 @@ class Pianissimo(BaseRole):
         self.phase = "switch"
 
     def _phase_switch(self) -> None:
-        # 2 阶段输出结束，请求切到下一位（受 15s CD 约束）
+        # 2 阶段输出结束，请求切到下一位（受切人 CD 约束）
         if self.switch_next():
             self.action.logger.info("切换完成")
         self.phase = "idle"

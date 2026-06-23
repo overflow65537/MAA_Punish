@@ -66,7 +66,7 @@ COLOR_TO_LOWCODE_NODE: dict[str, str] = {
 }
 
 _CLICK_QTE_MAX_LOOPS = 100
-_DEFAULT_VERIFY_TIMEOUT = 1.0
+_DEFAULT_VERIFY_TIMEOUT = 12.0
 _DEFAULT_VERIFY_POLL = 0.05
 _QTE_CLICK_BURST = 3
 
@@ -140,13 +140,13 @@ def attempt_switch_to_color(
     should_stop: Callable[[], bool] | None = None,
 ) -> bool:
     """
-    在 verify_timeout 内持续盲发普攻 + 持续点击目标 QTE；
+    在 verify_timeout 内持续单击攻击 + 点击目标 QTE；
     一旦 attack_template 识别到目标角色即成功，超时仍未切换则失败。
     """
     target = color.upper()
     deadline = time.monotonic() + verify_timeout
 
-    def tick() -> None:
+    def tick_attack() -> None:
         if attacker_callback is not None:
             attacker_callback()
 
@@ -154,7 +154,7 @@ def attempt_switch_to_color(
         if should_stop is not None and should_stop():
             return False
 
-        tick()
+        tick_attack()
 
         image = context.tasker.controller.post_screencap().wait().get()
         if is_cls_on_field(context, image, target_cls):
@@ -167,7 +167,7 @@ def attempt_switch_to_color(
             break
         if not active_delay(
             min(poll_interval, remaining),
-            on_tick=tick,
+            on_tick=tick_attack,
             should_stop=should_stop,
         ):
             return False

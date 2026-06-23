@@ -34,6 +34,7 @@ from maa.define import (
 import time
 import re
 from action.combat.config.LoadSetting import ROLE_ACTIONS
+from action.combat.qte_release import click_any_release_qte, click_release_qte_if_ready
 from action.combat.timing import DEFAULT_ACTIVE_TICK, active_delay
 from logger_component import LoggerComponent
 
@@ -80,6 +81,10 @@ class CombatActions:
     def post_attack(self) -> None:
         """直接向控制器发送普攻点击（坐标与 Pipeline「攻击」节点一致）。"""
         self.context.tasker.controller.post_click(1200, 690).wait()
+
+    def click_attack(self) -> None:
+        """Pipeline 单击攻击（切人等场景，避免 post_click 高频连发像长按）。"""
+        self.context.run_action("攻击")
 
     def sleep_with_attack(
         self, seconds: float, *, interval: float = DEFAULT_ACTIVE_TICK
@@ -219,23 +224,40 @@ class CombatActions:
         self._auto_dodge()
         return self.context.run_action(f"qte{target}")
 
-    def _try_qte_by_color(self, color: str):
+    def _try_qte_by_color(self, color: str, image=None):
         """
-        尝试触发指定颜色的 QTE 技能（QTE.onnx ready 类，走释放*QTE 节点）。
+        尝试触发指定颜色的 QTE 技能（QTE.onnx ready 类）。
         :param color: QTE颜色(r,y,b)
-        :return: 成功返回点击操作结果，失败返回False
+        :param image: 可选，已截屏则复用，避免重复截图
+        :return: 成功返回 True，失败返回 False
         """
-        color_map = {
-            "r": "释放红色QTE",
-            "y": "释放黄色QTE",
-            "b": "释放蓝色QTE",
-        }
+        if image is None:
+            self._auto_dodge()
+            image = self.context.tasker.controller.post_screencap().wait().get()
+        return click_release_qte_if_ready(self.context, color, image)
 
-        if color not in color_map:
+    def auto_qte(self, target: str = "a"):
+        """
+        触发QTE
+        :param target: QTE颜色(r,y,b,a)，默认 a。a 表示单次截屏后按 r→b→y 检测 ready
+        :return: 命中并点击返回 True，否则 False
+        """
+        if not self.auto_qte_config:
+            self.logger.info("未开启自动QTE功能")
             return False
 
         self._auto_dodge()
-        return self.context.run_action(color_map[color])
+        image = self.context.tasker.controller.post_screencap().wait().get()
+
+        if target == "a":
+            hit = click_any_release_qte(self.context, image)
+            if hit:
+                self.logger.info("auto_qte ready 命中 color=%s", hit)
+            return bool(hit)
+
+        if target not in ("r", "y", "b"):
+            raise ValueError("target 参数必须为 r, y, b, a")
+        return self._try_qte_by_color(target, image)
 
     def _role_switch(self, color: str) -> bool:
         role = getattr(self, "_role", None)
@@ -255,31 +277,6 @@ class CombatActions:
     def switch_blue(self) -> bool:
         """切换到蓝色位（支援）。"""
         return self._role_switch("B")
-
-    def auto_qte(self, target: str = "a"):
-        """
-        触发QTE
-        :param target: QTE颜色(r,y,b,a)，默认r。a表示依次检查r、b、y
-        :return: 点击操作结果
-        """
-        if not self.auto_qte_config:
-            self.logger.info("未开启自动QTE功能")
-            return False
-
-        self._auto_dodge()
-
-        # 处理自动模式：依次检查r、b、y
-        if target == "a":
-            for color in ["r", "b", "y"]:
-                self._try_qte_by_color(color)
-                time.sleep(0.05)
-            return False
-
-        # 处理单色模式
-        result = self._try_qte_by_color(target)
-        if result is False and target not in ("r", "y", "b"):
-            raise ValueError("target 参数必须为 r, y, b, a")
-        return result
 
     def lens_lock(self):
         """

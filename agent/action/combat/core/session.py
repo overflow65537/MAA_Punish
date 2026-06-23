@@ -62,7 +62,7 @@ class CombatTask:
     COMBAT_UI_LOST_TIMEOUT = 20.0
     SWITCH_COOLDOWN = 15.0
     SWITCH_FAIL_COOLDOWN = 2.0
-    SWITCH_VERIFY_TIMEOUT = 1.0
+    SWITCH_VERIFY_TIMEOUT = 12.0
     SWITCH_VERIFY_POLL = 0.05
     SWITCH_STUB = False
     SWITCH_DISABLED = False
@@ -318,10 +318,10 @@ class CombatTask:
 
     def switch_to_color(self, color: str, *, attacker: BaseRole | None = None) -> bool:
         """
-        按色位切人：1 秒内持续攻击并用 QTE.onnx 持续点击目标 QTE，直到识别到切换。
+        按色位切人：SWITCH_VERIFY_TIMEOUT 内持续单击攻击并点击目标 QTE，直到识别到切换。
 
         战前 roster 已写入 team；验证用 attack_template 比对目标色位 cls。
-        CD 未好或 1 秒内仍未切换 → False，保持当前角色流程。
+        CD 未好或验证超时仍未切换 → False，保持当前角色流程。
         """
         if self.SWITCH_DISABLED:
             self.logger.debug("切人已暂时屏蔽")
@@ -367,13 +367,16 @@ class CombatTask:
             )
             return False
 
-        attacker_cb = (lambda: attacker.action.post_attack()) if attacker else None
+        attacker_cb = (lambda: attacker.action.click_attack()) if attacker else None
+        verify_timeout = self.SWITCH_VERIFY_TIMEOUT
+        if attacker is not None and attacker.switch_verify_timeout is not None:
+            verify_timeout = attacker.switch_verify_timeout
         if not attempt_switch_to_color(
             self.context,
             target,
             target_cls,
             attacker_callback=attacker_cb,
-            verify_timeout=self.SWITCH_VERIFY_TIMEOUT,
+            verify_timeout=verify_timeout,
             poll_interval=self.SWITCH_VERIFY_POLL,
             should_stop=self._should_stop,
         ):
@@ -381,7 +384,7 @@ class CombatTask:
             self._switch_attempt_cooldown = self.switch_fail_cooldown
             self.logger.info(
                 "切人失败: %.1fs 内持续点击仍未切到 %s (%s)，继续当前角色（重试 CD %.0fs）",
-                self.SWITCH_VERIFY_TIMEOUT,
+                verify_timeout,
                 target,
                 target_cls,
                 self.switch_fail_cooldown,
