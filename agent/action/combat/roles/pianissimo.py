@@ -209,7 +209,7 @@ class Pianissimo(BaseRole):
 
         t0 = time.monotonic()
         self._log_step("long_press_attack_start")
-        self.action.long_press_attack(1000)
+        self.action.long_press_attack(700)
         self._log_step("long_press_attack_done", elapsed_ms=int((time.monotonic() - t0) * 1000))
 
         self._log_step("burst_scheduled", next="p1_burst", ticks=_P1_CORE_BURST)
@@ -263,7 +263,7 @@ class Pianissimo(BaseRole):
 
         t0 = time.monotonic()
         self._log_step("long_press_attack_start")
-        self.action.long_press_attack(1000)
+        self.action.long_press_attack(700)
         self._log_step("long_press_attack_done", elapsed_ms=int((time.monotonic() - t0) * 1000))
 
         self._log_step("burst_scheduled", next="p2_burst", ticks=_P2_CORE_BURST)

@@ -224,6 +224,16 @@ class CombatActions:
         self._auto_dodge()
         return self.context.run_action(f"qte{target}")
 
+    def use_qte(self, slot: int = 1):
+        """
+        直接使用 QTE（低代码 qte1 / qte2，对应上方/下方 QTE 键位）。
+        不识别、不自动闪避，仅 run_action。
+        :param slot: 1 → qte1（上方），2 → qte2（下方）
+        """
+        if slot not in (1, 2):
+            raise ValueError("slot 必须为 1 或 2")
+        return self.context.run_action(f"qte{slot}")
+
     def _try_qte_by_color(self, color: str, image=None):
         """
         尝试触发指定颜色的 QTE 技能（QTE.onnx ready 类）。
