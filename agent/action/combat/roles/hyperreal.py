@@ -45,7 +45,7 @@ _CORE_CD = 13
 
 
 class Hyperreal(BaseRole):
-    """超刻：大招、核心长按消球、farm 攒条。"""
+    """超刻：大招、核心长按消 1 号球 + 普攻、farm 攒条。"""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -114,13 +114,11 @@ class Hyperreal(BaseRole):
     def _phase_ult(self) -> None:
         self.action.use_skill_until_empty()
         self.action.auxiliary_machine()
-        self.action.use_qte()
         self.phase = "idle"
 
     def _phase_core_open(self) -> None:
         self.action.long_press_attack()
         self._last_core_at = time.monotonic()
-        self.action.use_qte()
         self.action.auxiliary_machine()
         self._core_ticks = 0
         self._core_deadline = time.monotonic() + _CORE_TIMEOUT
@@ -137,9 +135,7 @@ class Hyperreal(BaseRole):
             self.phase = "switch"
             return
 
-        if self.action.count_signal_balls():
-            self.action.ball_elimination_target(1)
-        self.action.use_qte()
+        self.action.ball_elimination_target(1)
         self.action.attack()
         self._core_ticks += 1
 
