@@ -921,6 +921,31 @@
             "type": "Click"
         },
         "next": [
+            "写入预设队伍色位",
+            "[JumpBack]更换辅助机",
+            "作战开始"
+        ]
+    },
+    "写入预设队伍色位": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PPOverride",
+                "custom_action_param": {
+                    "战斗队伍色位": {
+                        "attach": {
+                            "R": "GeneralFight",
+                            "B": "GeneralFight",
+                            "Y": "GeneralFight"
+                        }
+                    }
+                }
+            }
+        },
+        "next": [
             "[JumpBack]更换辅助机",
             "作战开始"
         ]

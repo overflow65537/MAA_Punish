@@ -57,7 +57,15 @@
                 },
                 {
                     "name": "选择编队",
-                    "pipeline_override": {},
+                    "pipeline_override": {
+                        "战斗队伍色位": {
+                            "attach": {
+                                "R": "GeneralFight",
+                                "B": "GeneralFight",
+                                "Y": "GeneralFight"
+                            }
+                        }
+                    },
                     "option": [
                         "选择火队_囚笼",
                         "选择雷队_囚笼",
@@ -96,7 +104,15 @@
                 },
                 {
                     "name": "选择编队",
-                    "pipeline_override": {},
+                    "pipeline_override": {
+                        "战斗队伍色位": {
+                            "attach": {
+                                "R": "GeneralFight",
+                                "B": "GeneralFight",
+                                "Y": "GeneralFight"
+                            }
+                        }
+                    },
                     "option": [
                         "选择A区编队_囚笼",
                         "选择B区编队_囚笼",

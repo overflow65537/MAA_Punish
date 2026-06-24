@@ -39,6 +39,17 @@ logger = logging.getLogger(__name__)
 
 TEAM_COLORS = ("R", "B", "Y")
 TEAM_ROSTER_NODE = "战斗队伍色位"
+GENERIC_CLS_NAME = "GeneralFight"
+
+
+def generic_team_roster() -> dict[str, str]:
+    """预设编队未走选人程序时：三色位占位 GeneralFight，进战后由 attack_template 纠正。"""
+    return {color: GENERIC_CLS_NAME for color in TEAM_COLORS}
+
+
+def is_generic_team_roster(roster: dict[str, str]) -> bool:
+    filled = [roster.get(c, "").strip() for c in TEAM_COLORS if roster.get(c, "").strip()]
+    return len(filled) >= 2 and all(cls_name == GENERIC_CLS_NAME for cls_name in filled)
 
 _KNOWN_CLS_NAMES = {
     role_info.get("cls_name")

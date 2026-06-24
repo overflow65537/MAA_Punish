@@ -343,6 +343,16 @@ class CombatTask:
         for role in self.roles.values():
             role.reset_state()
 
+        if self.team is not None and self.team.cls_at(self.team.current) == "GeneralFight":
+            image = self.frame
+            if image is None:
+                image = self.context.tasker.controller.post_screencap().wait().get()
+            cur = self.team.current.upper()
+            actual_cls = self._correct_role_from_field(
+                cur, self.team.cls_at(cur), image
+            )
+            self.current_role_name = resolve_role_name(actual_cls)
+
         solo = "单人队" if snapshot.is_solo() else f"{len(snapshot.filled_colors())}人队"
         self.logger.info("识别到角色: %s (%s)", self.current_role_name, solo)
         self.current_field_since = time.monotonic()

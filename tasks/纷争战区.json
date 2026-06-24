@@ -28,7 +28,15 @@
                 },
                 {
                     "name": "选择编队",
-                    "pipeline_override": {},
+                    "pipeline_override": {
+                        "战斗队伍色位": {
+                            "attach": {
+                                "R": "GeneralFight",
+                                "B": "GeneralFight",
+                                "Y": "GeneralFight"
+                            }
+                        }
+                    },
                     "option": [
                         "选择火队_战区",
                         "选择雷队_战区",

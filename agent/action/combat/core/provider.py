@@ -35,6 +35,7 @@ from action.combat.core.switch import detect_visible_team_colors
 from action.combat.core.team import (
     TEAM_COLORS,
     TeamSnapshot,
+    is_generic_team_roster,
     load_team_roster_from_context,
 )
 
@@ -140,12 +141,19 @@ class CombatCheck(BaseCombatCheck):
                 current = color
                 break
         else:
-            logger.warning(
-                "主站 %s 不在战前 roster %s 中，按 solo 处理",
-                cls_name,
-                roster,
-            )
-            return TeamSnapshot.solo(cls_name)
+            if is_generic_team_roster(roster):
+                logger.info(
+                    "预设编队 GeneralFight 占位，主站识别为 %s (%s)，默认色位 R",
+                    display_name,
+                    cls_name,
+                )
+            else:
+                logger.warning(
+                    "主站 %s 不在战前 roster %s 中，按 solo 处理",
+                    cls_name,
+                    roster,
+                )
+                return TeamSnapshot.solo(cls_name)
 
         snapshot = TeamSnapshot.from_dict(
             {
