@@ -143,14 +143,12 @@ def attempt_switch_to_color(
     should_stop: Callable[[], bool] | None = None,
 ) -> bool:
     """
-    切人：verify_timeout 内统一计时，含等待 QTE 出现与盲发切人。
+    切人：首次截屏须识别到目标 QTE，之后盲发「攻击 + 换人」直到成功或超时。
 
-    - QTE 未出现时：周期性攻击并截屏尝试识别 QTE
-    - QTE 坐标锁定后：盲发「攻击 + 换人」，截屏验证是否已切到目标
-  """
+    循环内不再重复识别 QTE 位置；仅截屏验证是否已切到目标角色。
+    """
     target = color.upper()
     deadline = time.monotonic() + verify_timeout
-    qte_pos: tuple[int, int] | None = None
     logger.info(
         "切人尝试: 色位=%s cls=%s 超时=%.1fs",
         target,
@@ -158,27 +156,31 @@ def attempt_switch_to_color(
         verify_timeout,
     )
 
+    image = context.tasker.controller.post_screencap().wait().get()
+    if is_switch_arrived(context, image, target_cls):
+        logger.info("切人到位: %s (%s)", target, target_cls)
+        return True
+
+    qte_result = _recognize_qte(context, target, image)
+    if not qte_result:
+        logger.info("切人失败: 色位=%s 未识别到 QTE", target)
+        return False
+
+    qte_x, qte_y = _box_center(qte_result.best_result.box)  # type: ignore[attr-defined]
+    logger.info("切人 QTE 已识别: 色位=%s 坐标=(%s, %s)", target, qte_x, qte_y)
+
     while time.monotonic() < deadline:
         if should_stop is not None and should_stop():
             return False
+
+        if attacker_callback is not None:
+            attacker_callback()
+        context.tasker.controller.post_click(qte_x, qte_y).wait()
 
         image = context.tasker.controller.post_screencap().wait().get()
         if is_switch_arrived(context, image, target_cls):
             logger.info("切人到位: %s (%s)", target, target_cls)
             return True
-
-        if qte_pos is None:
-            qte_result = _recognize_qte(context, target, image)
-            if qte_result:
-                qte_pos = _box_center(qte_result.best_result.box)  # type: ignore[attr-defined]
-                logger.info("切人 QTE 已识别: 色位=%s 坐标=%s", target, qte_pos)
-            if attacker_callback is not None:
-                attacker_callback()
-        else:
-            if attacker_callback is not None:
-                attacker_callback()
-            qte_x, qte_y = qte_pos
-            context.tasker.controller.post_click(qte_x, qte_y).wait()
 
         remaining = deadline - time.monotonic()
         if remaining <= 0:
