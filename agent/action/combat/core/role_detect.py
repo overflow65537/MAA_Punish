@@ -90,3 +90,25 @@ def detect_current_role(context: Context, image: Any) -> tuple[str, str]:
         if match_attack_template(context, image, templates):
             return role_name, str(role_info.get("cls_name", "GeneralFight"))
     return "未知", "GeneralFight"
+
+
+_GENERIC_CLS = "GeneralFight"
+
+
+def is_switch_arrived(context: Context, image: Any, roster_cls: str) -> bool:
+    """
+    切人到位判定。
+
+    roster 标 GeneralFight 但场上为专属角色（如囚影）时，按 detect_current_role 视为到位。
+    """
+    if roster_cls and is_cls_on_field(context, image, roster_cls):
+        return True
+
+    display_name, detected_cls = detect_current_role(context, image)
+    if display_name == "未知":
+        return False
+
+    if roster_cls == _GENERIC_CLS and detected_cls != _GENERIC_CLS:
+        return True
+
+    return detected_cls == roster_cls

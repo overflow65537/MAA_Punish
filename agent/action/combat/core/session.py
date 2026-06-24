@@ -36,7 +36,7 @@ from action.combat.core.role_detect import (
     detect_current_role,
     is_cls_on_field,
 )
-from action.combat.core.role_factory import create_role
+from action.combat.core.role_factory import ROLE_CLASS_MAP, create_role
 from action.combat.core.switch import attempt_switch_to_color
 from action.combat.core.team import TEAM_COLORS, TeamSnapshot
 from action.combat.timing import active_delay
@@ -204,6 +204,58 @@ class CombatTask:
         #)
         role.perform()
 
+    def _set_team_cls_at(self, color: str, cls_name: str) -> None:
+        if self.team is None:
+            return
+        key = color.upper()
+        if key == "R":
+            self.team.R = cls_name
+        elif key == "B":
+            self.team.B = cls_name
+        elif key == "Y":
+            self.team.Y = cls_name
+
+    def _rebind_role_at(self, color: str, cls_name: str) -> None:
+        """按场上识别修正色位策略（roster 标 GeneralFight 但实际为专属角色等）。"""
+        if self.team is None:
+            return
+        key = color.upper()
+        old_cls = self.team.cls_at(key)
+        role = self.roles.get(key)
+        if old_cls == cls_name and role is not None and role.cls_name == cls_name:
+            return
+        if cls_name not in ROLE_CLASS_MAP:
+            self.logger.warning("色位 %s 识别为未知策略 %s，保持 %s", key, cls_name, old_cls)
+            return
+        self.logger.info("色位 %s roster 修正: %s -> %s", key, old_cls, cls_name)
+        self._set_team_cls_at(key, cls_name)
+        self.roles[key] = create_role(self, key, cls_name)
+
+    def _correct_role_from_field(self, color: str, roster_cls: str, image: Any) -> str:
+        """切人成功后对照 attack_template，必要时将错误 GeneralFight 修正为专属 cls。"""
+        display_name, detected_cls = detect_current_role(self.context, image)
+        key = color.upper()
+
+        if roster_cls == detected_cls:
+            return roster_cls
+
+        if roster_cls == "GeneralFight" and detected_cls not in ("GeneralFight",):
+            self._rebind_role_at(key, detected_cls)
+            return detected_cls
+
+        if detected_cls not in ("GeneralFight",) and display_name != "未知":
+            self.logger.warning(
+                "色位 %s roster=%s 与场上 %s (%s) 不一致，按识别修正",
+                key,
+                roster_cls,
+                display_name,
+                detected_cls,
+            )
+            self._rebind_role_at(key, detected_cls)
+            return detected_cls
+
+        return roster_cls
+
     def refresh_field_role_on_idle(self, role: BaseRole) -> bool:
         """
         idle 入口校验当前角色 attack_template；失配则重识别并更新 team.current。
@@ -226,6 +278,21 @@ class CombatTask:
         display_name, detected_cls = detect_current_role(self.context, image)
         if detected_cls == role.cls_name:
             return False
+
+        cur = self.team.current.upper()
+        if self.team.cls_at(cur) == role.cls_name and detected_cls != role.cls_name:
+            if display_name != "未知":
+                self.logger.info(
+                    "idle 校验: 色位 %s roster=%s，识别为 %s (%s)，修正策略",
+                    cur,
+                    role.cls_name,
+                    display_name,
+                    detected_cls,
+                )
+                self._rebind_role_at(cur, detected_cls)
+                self.current_role_name = display_name
+                self._notify_current_role()
+                return True
 
         new_color: str | None = None
         for color in TEAM_COLORS:
@@ -560,6 +627,10 @@ class CombatTask:
                 outgoing,
                 self.switch_cooldown,
             )
+        image = self.frame
+        if image is None:
+            image = self.context.tasker.controller.post_screencap().wait().get()
+        target_cls = self._correct_role_from_field(target, target_cls, image)
         self.team.current = target
         self.current_field_since = now
         self.current_role_name = resolve_role_name(target_cls)

@@ -31,7 +31,7 @@ import time
 from collections.abc import Callable
 from typing import TYPE_CHECKING, Any
 
-from action.combat.core.role_detect import is_cls_on_field
+from action.combat.core.role_detect import is_cls_on_field, is_switch_arrived
 from action.combat.timing import active_delay
 
 if TYPE_CHECKING:
@@ -163,7 +163,7 @@ def attempt_switch_to_color(
             return False
 
         image = context.tasker.controller.post_screencap().wait().get()
-        if is_cls_on_field(context, image, target_cls):
+        if is_switch_arrived(context, image, target_cls):
             logger.info("切人到位: %s (%s)", target, target_cls)
             return True
 
