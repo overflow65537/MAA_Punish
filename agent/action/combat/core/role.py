@@ -51,6 +51,34 @@ def resolve_role_name(cls_name: str) -> str:
     return cls_name
 
 
+_CLS_DISPLAY_OVERRIDES: dict[str, str] = {
+    "GeneralFight": "通用作战",
+}
+
+_COLOR_DISPLAY: dict[str, str] = {
+    "R": "红",
+    "B": "蓝",
+    "Y": "黄",
+}
+
+
+def resolve_cls_label(cls_name: str) -> str:
+    """策略 cls_name → 中文展示名（队伍快照等日志用）。"""
+    key = cls_name.strip()
+    if not key:
+        return "空"
+    if key in _CLS_DISPLAY_OVERRIDES:
+        return _CLS_DISPLAY_OVERRIDES[key]
+    for role_info in ROLE_ACTIONS.values():
+        if role_info.get("cls_name") == key:
+            return str(role_info.get("name") or key)
+    return key
+
+
+def format_color_label(color: str) -> str:
+    return _COLOR_DISPLAY.get(color.upper(), color.upper())
+
+
 class BaseRole:
     """角色策略基类：组合 CombatActions，通过 CombatTask 切人。"""
 

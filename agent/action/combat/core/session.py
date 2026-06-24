@@ -57,14 +57,10 @@ def _role_type_for_cls(cls_name: str) -> str:
 class CombatTask:
     """战斗任务：进战 → 循环 perform → 退战。"""
 
-    _ROLE_NOTIFY_NODE = (
-        "发送消息_这是程序自动生成的node所以故意写的很长来防止某一天想不开用了这个名字导致报错"
-    )
-
     WAIT_COMBAT_TIME = 30.0
     SLEEP_CHECK_INTERVAL = 0.0
     WAIT_POLL_INTERVAL = 0.2
-    COMBAT_UI_LOST_TIMEOUT = 20.0
+    COMBAT_UI_LOST_TIMEOUT = 6.0
     SWITCH_COOLDOWN = 15.0  # 离场后再上场 CD（每色位独立）
     FIELD_MIN_STAY = 5.0  # 上场后最少站场才可再切走（防抖）
     SWITCH_FAIL_COOLDOWN = 2.0
@@ -295,7 +291,6 @@ class CombatTask:
                 )
                 self._rebind_role_at(cur, detected_cls)
                 self.current_role_name = display_name
-                self._notify_current_role()
                 return True
 
         new_color: str | None = None
@@ -328,7 +323,6 @@ class CombatTask:
         target_role = self.roles.get(new_color)
         if target_role is not None:
             target_role.reset_state()
-        self._notify_current_role()
         return True
 
     def load_team(self) -> bool:
@@ -357,31 +351,8 @@ class CombatTask:
         if display_name != "未知":
             self.current_role_name = display_name
 
-        solo = "单人队" if snapshot.is_solo() else f"{len(snapshot.filled_colors())}人队"
-        self.logger.info("识别到角色: %s (%s)", self.current_role_name, solo)
         self.current_field_since = time.monotonic()
-        self._notify_current_role()
         return True
-
-    def _notify_current_role(self) -> None:
-        """向 Pipeline focus 推送当前主站角色（兼容原 RecognitionRole 日志）。"""
-        if not self.current_role_name:
-            return
-        try:
-            self.context.override_pipeline(
-                {
-                    self._ROLE_NOTIFY_NODE: {
-                        "focus": {
-                            "Node.Recognition.Succeeded": (
-                                f"识别到角色: {self.current_role_name}"
-                            )
-                        }
-                    }
-                }
-            )
-            self.context.run_task(self._ROLE_NOTIFY_NODE)
-        except Exception:
-            self.logger.debug("推送角色识别消息失败", exc_info=True)
 
     def get_current_role(self) -> BaseRole | None:
         if self.team is None:
@@ -659,7 +630,6 @@ class CombatTask:
         target_role = self.roles.get(target)
         if target_role is not None:
             target_role.reset_state()
-        self._notify_current_role()
         self.logger.info(
             "切人成功 -> %s (%s)",
             target,
@@ -692,7 +662,7 @@ class CombatTask:
         更新战斗 UI 可见状态并判断是否应退战。
 
         优先 in_combat（快路径）：命中则立即继续，跳过外部界面检查。
-        未命中时再查 in_outer_interface，最后才计 20 秒丢失超时。
+        未命中时再查 in_outer_interface，最后才计 6 秒丢失超时。
         """
         if self.combat_check.in_combat(self.context, self):
             self.combat_ui_visible = True

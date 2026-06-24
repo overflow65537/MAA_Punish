@@ -35,6 +35,7 @@ from action.combat.core.switch import detect_visible_team_colors
 from action.combat.core.team import (
     TEAM_COLORS,
     TeamSnapshot,
+    format_team_snapshot_line,
     is_generic_team_roster,
     load_team_roster_from_context,
 )
@@ -104,7 +105,7 @@ class CombatCheck(BaseCombatCheck):
         是否识别到战斗 UI。
 
         默认复用 Pipeline 节点「战斗中」（闪避键模板）。
-        部分角色攻击动画会短暂遮挡该 UI，框架侧会容忍连续未命中 20 秒。
+        部分角色攻击动画会短暂遮挡该 UI，框架侧会容忍连续未命中 6 秒。
         """
         image = self._get_frame(context, combat)
         result = context.run_recognition("战斗中", image)
@@ -166,12 +167,5 @@ class CombatCheck(BaseCombatCheck):
         if snapshot is None:
             return TeamSnapshot.solo(cls_name)
 
-        logger.info(
-            "队伍快照: R=%s B=%s Y=%s current=%s solo=%s",
-            snapshot.R,
-            snapshot.B,
-            snapshot.Y,
-            snapshot.current,
-            snapshot.is_solo(),
-        )
+        logger.info(format_team_snapshot_line(snapshot))
         return snapshot

@@ -184,3 +184,22 @@ class TeamSnapshot:
         roster = {c: "" for c in TEAM_COLORS}
         roster[current] = cls_name
         return cls(R=roster["R"], B=roster["B"], Y=roster["Y"], current=current)
+
+
+def format_team_snapshot_line(snapshot: TeamSnapshot) -> str:
+    """队伍快照日志行（中文色位与策略名）。"""
+    from action.combat.core.role import format_color_label, resolve_cls_label
+
+    roster_part = " ".join(
+        f"{format_color_label(c)}={resolve_cls_label(snapshot.cls_at(c))}"
+        for c in TEAM_COLORS
+    )
+    cur = format_color_label(snapshot.current)
+    filled = len(snapshot.filled_colors())
+    if filled <= 1:
+        team_type = "单人队"
+    elif filled == 2:
+        team_type = "两人队"
+    else:
+        team_type = "三人队"
+    return f"队伍快照: {roster_part} 当前={cur} {team_type}"

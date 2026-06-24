@@ -84,6 +84,8 @@ _SELECTION_MODE_TABLE: dict[str, dict] = {
 
 
 class RoleSelection(CustomAction):
+    _CACHE_EXCLUDE_METADATA_KEYS = frozenset({"generation"})
+
     def __init__(self):
         super().__init__()
         self._logger_component = LoggerComponent(__name__)
@@ -92,6 +94,37 @@ class RoleSelection(CustomAction):
 
     def _cache_path(self) -> Path:
         return cache_policy.cache_path(self._cache_prefix)
+
+    @classmethod
+    def _cache_entry_from_metadata(cls, metadata: dict) -> dict:
+        """扫描写入缓存：仅保留元素分等运行时字段，不含 generation。"""
+        if not isinstance(metadata, dict):
+            return {}
+        return {
+            k: v
+            for k, v in metadata.items()
+            if k not in cls._CACHE_EXCLUDE_METADATA_KEYS
+        }
+
+    @classmethod
+    def _strip_generation_from_roles(cls, role: dict) -> dict:
+        cleaned: dict = {}
+        for name, info in role.items():
+            if not isinstance(info, dict):
+                cleaned[name] = info
+                continue
+            cleaned[name] = {
+                k: v for k, v in info.items() if k not in cls._CACHE_EXCLUDE_METADATA_KEYS
+            }
+        return cleaned
+
+    @staticmethod
+    def _generation_from_config(role_name: str) -> int | float:
+        base_name = role_name.replace("[试用]", "")
+        metadata = ROLE_ACTIONS.get(base_name, {}).get("metadata", {})
+        if isinstance(metadata, dict):
+            return metadata.get("generation", 0)
+        return 0
 
     def _current_week(self) -> int:
         return datetime.date.today().isocalendar().week
@@ -110,7 +143,10 @@ class RoleSelection(CustomAction):
                     f"角色缓存未在有效期内, update_frequency={freq!r}"
                 )
             return None
-        return cache_policy.get_focus(cache_data)
+        focus = cache_policy.get_focus(cache_data)
+        if focus is None:
+            return None
+        return self._strip_generation_from_roles(focus)
 
     def _get_role_element_task(self, role_dict: dict, role_name: str) -> str | None:
         base_role_name = role_name.replace("[试用]", "")
@@ -704,9 +740,7 @@ class RoleSelection(CustomAction):
                     else role_name
                 )
                 metadata = role_action.get("metadata", {})
-                role[display_name] = (
-                    metadata.copy() if isinstance(metadata, dict) else {}
-                )
+                role[display_name] = self._cache_entry_from_metadata(metadata)
 
                 power_reco = context.run_recognition(
                     entry="识别战斗参数",
@@ -872,10 +906,10 @@ class RoleSelection(CustomAction):
         for role_name, info in role_info.items():
             # 战力
             power = info.get("power", 0)
-            # 属性分数
+            # 属性分数（按当前关卡 need_element）
             attribute_score = info.get(condition.get("need_element", ""), 0)
-            # 代数分数
-            element_score = info.get("generation", 0)
+            # 代数分数：始终从 LoadSetting 读取，不依赖 role_cache
+            element_score = self._generation_from_config(role_name)
             # 是否有次数
             has_count = info.get("cage", 0)
             # 肉鸽模式 0代表初始招募能量4，只需要提取是否被肉鸽选中。1代表初始招募能量3，只提取精通等级
@@ -1071,6 +1105,7 @@ class RoleSelection(CustomAction):
 
     def save_cache(self, role: dict, update_frequency: str = "weekly"):
         cache_path = self._cache_path()
+        role = self._strip_generation_from_roles(role)
         self.logger.info(f"正在保存缓存到 {cache_path}, 数据: {role}")
         cache_path.parent.mkdir(parents=True, exist_ok=True)
         # 保留 CacheRole 使用的字段（main_update_at / cage_update_week 等），避免被覆盖丢失。
