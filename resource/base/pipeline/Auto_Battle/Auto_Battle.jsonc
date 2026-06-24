@@ -537,11 +537,14 @@
             "param": {
                 "roi": [
                     1165,
-                    2,
-                    108,
-                    99
+                    0,
+                    115,
+                    100
                 ],
-                "template": "战斗/战斗中.png",
+                "template": [
+                    "战斗/战斗中.png",
+                    "战斗/战斗中2.png"
+                ],
                 "green_mask": true,
                 "threshold": 0.6
             }

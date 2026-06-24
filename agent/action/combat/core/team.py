@@ -86,7 +86,7 @@ def publish_team_roster(context: Context, roster: dict[str, str]) -> None:
     """RoleSelection 完成后写入 Pipeline attach，供战斗内读取。"""
     attach = {color: str(roster.get(color, "")).strip() for color in TEAM_COLORS}
     context.override_pipeline({TEAM_ROSTER_NODE: {"attach": attach}})
-    logger.info("写入 %s: %s", TEAM_ROSTER_NODE, attach)
+    #logger.info("写入 %s: %s", TEAM_ROSTER_NODE, attach)
 
 
 def load_team_roster_from_context(context: Context) -> dict[str, str] | None:
