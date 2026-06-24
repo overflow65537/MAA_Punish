@@ -26,5 +26,98 @@
         "pre_delay": 0,
         "post_delay": 0,
         "rate_limit": 0
+    },
+    "骇影二阶段红球": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    541,
+                    586,
+                    57,
+                    51
+                ],
+                "lower": [
+                    120,
+                    120,
+                    120
+                ],
+                "upper": [
+                    140,
+                    140,
+                    140
+                ],
+                "connected": true,
+                "count": 300
+            }
+        }
+    },
+    "骇影二阶段黄球": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    611,
+                    584,
+                    56,
+                    54
+                ],
+                "lower": [
+                    120,
+                    120,
+                    120
+                ],
+                "upper": [
+                    140,
+                    140,
+                    140
+                ],
+                "connected": true,
+                "count": 300
+            }
+        }
+    },
+    "骇影二阶段蓝球": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    683,
+                    584,
+                    53,
+                    53
+                ],
+                "lower": [
+                    120,
+                    120,
+                    120
+                ],
+                "upper": [
+                    140,
+                    140,
+                    140
+                ],
+                "connected": true,
+                "count": 300
+            }
+        }
+    },
+    "骇影普通": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1133,
+                    574,
+                    120,
+                    116
+                ],
+                "template": "自定义战斗/骇影.png",
+                "green_mask": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
     }
 }

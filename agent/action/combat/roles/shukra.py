@@ -22,8 +22,8 @@
 
 状态机::
 
-    idle ──大招条──► ult_open ──► ult_clear ──► ult_close ──► switch
-      ├──球≥9──► clear ──► idle
+    idle ──大招条──► ult_open ──► ult_clear ──► ult_close（QTE）──► switch
+      ├──球≥9──► clear_smart ──三消──► clear_ball1 ──球空──► 长按攻击 ──► idle
       └──兜底──► farm ──► idle
 """
 
@@ -34,23 +34,20 @@ import time
 from action.combat.core.role import BaseRole
 
 _CLEAR_BALL_MIN = 9
-_CLEAR_TIMEOUT = 7.0
 _ULT_CLEAR_TIMEOUT = 3.0
 _FARM_TICKS = 20
 
 
 class Shukra(BaseRole):
-    """启明：双段大招消球、满球连消、普攻攒条。"""
+    """启明：满球智能消球 → 三消后连消 1 号 → 球空长按攻击；双段大后切人。"""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self._clear_deadline = 0.0
         self._ult_clear_deadline = 0.0
         self._farm_ticks = 0
 
     def reset_state(self) -> None:
         super().reset_state()
-        self._clear_deadline = 0.0
         self._ult_clear_deadline = 0.0
         self._farm_ticks = 0
 
@@ -66,13 +63,23 @@ class Shukra(BaseRole):
             self._phase_ult_clear()
         elif self.phase == "ult_close":
             self._phase_ult_close()
-        elif self.phase == "clear":
-            self._phase_clear()
+        elif self.phase == "clear_smart":
+            self._phase_clear_smart()
+        elif self.phase == "clear_ball1":
+            self._phase_clear_ball1()
         elif self.phase == "farm":
             self._phase_farm()
         else:
             self.phase = "idle"
             self._phase_idle()
+
+    def _enter_clear(self) -> None:
+        self.phase = "clear_smart"
+
+    def _finish_clear_core(self) -> None:
+        self.action.logger.info("启明: 球空，长按攻击")
+        self.action.long_press_attack()
+        self.phase = "idle"
 
     def _phase_idle(self) -> None:
         self.action.lens_lock()
@@ -83,8 +90,7 @@ class Shukra(BaseRole):
             return
 
         if self.action.count_signal_balls() >= _CLEAR_BALL_MIN:
-            self._clear_deadline = time.monotonic() + _CLEAR_TIMEOUT
-            self.phase = "clear"
+            self._enter_clear()
             return
 
         self._farm_ticks = 0
@@ -104,34 +110,45 @@ class Shukra(BaseRole):
     def _phase_ult_close(self) -> None:
         self.action.use_skill()
         self.action.auxiliary_machine()
+        self.action.use_qte()
         self.phase = "switch"
 
-    def _phase_clear(self) -> None:
-        if time.monotonic() >= self._clear_deadline:
-            self.action.logger.info("启明: 消球超时，长按攻击")
-            self.action.long_press_attack()
-            self.phase = "idle"
+    def _phase_clear_smart(self) -> None:
+        if self.action.check_Skill_energy_bar():
+            self.phase = "ult_open"
+            return
+
+        if self.action.count_signal_balls() == 0:
+            self._finish_clear_core()
             return
 
         target = self.action.Arrange_Signal_Balls("any")
-        if target == 0:
-            self.action.logger.info("启明: 信号球空，长按攻击")
-            self.action.long_press_attack()
-            self.phase = "idle"
+        if target > 0:
+            self.action.ball_elimination_target(target)
+            self.action.logger.info("启明: 三消")
+            self.phase = "clear_ball1"
+            return
+        if target < 0:
+            self.action.ball_elimination_target(abs(target))
             return
 
-        self.action.ball_elimination_target(target)
-        self.action.logger.info("启明: 消球")
-        if target > 0:
-            self.action.ball_elimination_target(1)
+    def _phase_clear_ball1(self) -> None:
+        if self.action.check_Skill_energy_bar():
+            self.phase = "ult_open"
+            return
+
+        if self.action.count_signal_balls() == 0:
+            self._finish_clear_core()
+            return
+
+        self.action.ball_elimination_target(1)
 
     def _phase_farm(self) -> None:
         if self.action.check_Skill_energy_bar():
             self.phase = "ult_open"
             return
         if self.action.count_signal_balls() >= _CLEAR_BALL_MIN:
-            self._clear_deadline = time.monotonic() + _CLEAR_TIMEOUT
-            self.phase = "clear"
+            self._enter_clear()
             return
 
         self.action.attack()

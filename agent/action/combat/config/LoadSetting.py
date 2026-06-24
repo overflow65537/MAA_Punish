@@ -285,6 +285,9 @@ ROLE_ACTIONS = {
             "人物索引/布偶熊/骇影/骇影终解.png",
         ],
         "attack_template": ["自定义战斗/骇影.png"],
+        "skill_template": {
+            "red": {"识别信号球": {"template": ["信号球/超刻_红.png"]}},
+        },
     },
     "莉莉丝·谬影": {
         "name": "谬影",

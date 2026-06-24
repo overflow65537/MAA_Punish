@@ -308,7 +308,7 @@ class CombatTask:
         return self.roles.get(self.team.current.upper())
 
     def choose_switch_color(self, requester: BaseRole) -> str | None:
-        """选切人目标色位。Phase 4 可扩展 buff 优先级。"""
+        """选切人目标色位。非单人队且目标不在再上场 CD 内即可选；QTE 可见性由 switch_to_color 内等待重试。"""
         if self.team is None or self.team.is_solo():
             return None
 
@@ -316,14 +316,9 @@ class CombatTask:
             others = self.team.other_filled_colors()
             return others[0] if others else None
 
-        qte_colors = set(
-            self.combat_check.detect_qte_colors(self.context, self)
-        )
         now = time.monotonic()
         candidates: list[str] = []
         for color in self.team.other_filled_colors():
-            if color not in qte_colors:
-                continue
             cd_until = self._role_swap_cd_until.get(color, 0.0)
             if cd_until > now:
                 role = self.roles.get(color)
@@ -394,7 +389,7 @@ class CombatTask:
         target_color = self.choose_switch_color(requester)
         if not target_color:
             self.logger.info(
-                "切人跳过 [%s @%s]: 无可用 QTE 目标",
+                "切人跳过 [%s @%s]: 无可用切人目标",
                 from_name,
                 requester.color,
             )
