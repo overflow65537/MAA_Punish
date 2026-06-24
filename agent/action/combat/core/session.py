@@ -231,17 +231,19 @@ class CombatTask:
         self._set_team_cls_at(key, cls_name)
         self.roles[key] = create_role(self, key, cls_name)
 
-    def _correct_role_from_field(self, color: str, roster_cls: str, image: Any) -> str:
-        """切人成功后对照 attack_template，必要时将错误 GeneralFight 修正为专属 cls。"""
+    def _correct_role_from_field(
+        self, color: str, roster_cls: str, image: Any
+    ) -> tuple[str, str]:
+        """切人/进战后对照 attack_template，必要时将 GeneralFight 占位修正为专属 cls。"""
         display_name, detected_cls = detect_current_role(self.context, image)
         key = color.upper()
 
         if roster_cls == detected_cls:
-            return roster_cls
+            return display_name, roster_cls
 
         if roster_cls == "GeneralFight" and detected_cls not in ("GeneralFight",):
             self._rebind_role_at(key, detected_cls)
-            return detected_cls
+            return display_name, detected_cls
 
         if detected_cls not in ("GeneralFight",) and display_name != "未知":
             self.logger.warning(
@@ -252,9 +254,11 @@ class CombatTask:
                 detected_cls,
             )
             self._rebind_role_at(key, detected_cls)
-            return detected_cls
+            return display_name, detected_cls
 
-        return roster_cls
+        if display_name != "未知":
+            return display_name, roster_cls
+        return "未知", roster_cls
 
     def refresh_field_role_on_idle(self, role: BaseRole) -> bool:
         """
@@ -343,15 +347,15 @@ class CombatTask:
         for role in self.roles.values():
             role.reset_state()
 
-        if self.team is not None and self.team.cls_at(self.team.current) == "GeneralFight":
-            image = self.frame
-            if image is None:
-                image = self.context.tasker.controller.post_screencap().wait().get()
-            cur = self.team.current.upper()
-            actual_cls = self._correct_role_from_field(
-                cur, self.team.cls_at(cur), image
-            )
-            self.current_role_name = resolve_role_name(actual_cls)
+        image = self.frame
+        if image is None:
+            image = self.context.tasker.controller.post_screencap().wait().get()
+        cur = self.team.current.upper()
+        display_name, _ = self._correct_role_from_field(
+            cur, self.team.cls_at(cur), image
+        )
+        if display_name != "未知":
+            self.current_role_name = display_name
 
         solo = "单人队" if snapshot.is_solo() else f"{len(snapshot.filled_colors())}人队"
         self.logger.info("识别到角色: %s (%s)", self.current_role_name, solo)
@@ -645,10 +649,13 @@ class CombatTask:
         image = self.frame
         if image is None:
             image = self.context.tasker.controller.post_screencap().wait().get()
-        target_cls = self._correct_role_from_field(target, target_cls, image)
+        display_name, target_cls = self._correct_role_from_field(
+            target, self.team.cls_at(target), image
+        )
         self.team.current = target
         self.current_field_since = now
-        self.current_role_name = resolve_role_name(target_cls)
+        if display_name != "未知":
+            self.current_role_name = display_name
         target_role = self.roles.get(target)
         if target_role is not None:
             target_role.reset_state()

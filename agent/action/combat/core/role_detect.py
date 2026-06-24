@@ -77,22 +77,33 @@ def is_cls_on_field(context: Context, image: Any, cls_name: str) -> bool:
     return match_attack_template(context, image, attack_templates_for_cls(cls_name))
 
 
+_GENERIC_CLS = "GeneralFight"
+
+
 def detect_current_role(context: Context, image: Any) -> tuple[str, str]:
     """
     按 attack_template 模板匹配当前上场角色。
 
-    :return: (ROLE_ACTIONS 键名/展示名, cls_name)
+    专属 cls 优先于 GeneralFight，避免通用占位误匹配谬影。
+
+    :return: (展示名, cls_name)
     """
+    dedicated: list[tuple[str, dict]] = []
+    generic: list[tuple[str, dict]] = []
     for role_name, role_info in ROLE_ACTIONS.items():
         templates = _normalize_attack_templates(role_info.get("attack_template"))
         if not templates:
             continue
+        cls_name = str(role_info.get("cls_name", "GeneralFight"))
+        bucket = generic if cls_name == _GENERIC_CLS else dedicated
+        bucket.append((role_name, role_info))
+
+    for role_name, role_info in dedicated + generic:
+        templates = _normalize_attack_templates(role_info.get("attack_template"))
         if match_attack_template(context, image, templates):
-            return role_name, str(role_info.get("cls_name", "GeneralFight"))
+            display = str(role_info.get("name") or role_name)
+            return display, str(role_info.get("cls_name", "GeneralFight"))
     return "未知", "GeneralFight"
-
-
-_GENERIC_CLS = "GeneralFight"
 
 
 def is_switch_arrived(context: Context, image: Any, roster_cls: str) -> bool:
