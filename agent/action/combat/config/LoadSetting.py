@@ -295,7 +295,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "dark": 100,
-            "generation": 0,  # 未适配专属战斗逻辑
+            "generation": 0.5,  # 未适配专属战斗逻辑
         },
         "template": [
             "人物索引/莉莉丝/谬影/谬影.png",
@@ -310,7 +310,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "physical": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/亚里莎/回音/回音.png",
@@ -327,7 +327,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "ice": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/艾拉/万华/万华.png",
@@ -343,7 +343,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "lightning": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/丽芙/流光/流光.png",
@@ -358,7 +358,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "physical": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/丽芙/仰光/仰光.png",
@@ -373,7 +373,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "physical": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/丽芙/蚀暗/蚀暗.png",
@@ -387,7 +387,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "dark": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/薇拉/瑰丽/瑰丽.png",
@@ -401,7 +401,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "lightning": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/21号/森息/森息.png",
@@ -415,7 +415,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "ice": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/万事/明觉/明觉.png",
@@ -429,7 +429,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "dark": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/赛琳娜/幻奏/幻奏.png",
@@ -445,7 +445,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "lightning": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/七实/芒星之迹/芒星之迹.png",
@@ -461,7 +461,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "fire": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/渡边/尘铭/尘铭.png",
@@ -476,7 +476,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "ice": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/万事/明晰梦/明晰梦.png",
@@ -491,7 +491,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "physical": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/罗塞塔/凛冽/凛冽.png",
@@ -506,7 +506,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "physical": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/含英/檀心/檀心.png",
@@ -523,7 +523,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "fire": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/丽芙/极昼/极昼.png",
@@ -539,7 +539,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "fire": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/薇拉/灼惘/灼惘.png",
@@ -554,7 +554,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "fire": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/七实/遥星之座/遥星之座.png",
@@ -568,7 +568,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "lightning": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/薇拉/绯耀/绯耀.png",
@@ -584,7 +584,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "nihil": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/伊什梅尔/幻日/幻日.png",
@@ -600,7 +600,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "dark": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/卡列尼娜/辉晓/辉晓.png",
@@ -616,7 +616,7 @@ ROLE_ACTIONS = {
         "cls_name": "GeneralFight",
         "metadata": {
             "dark": 100,
-            "generation": 0,
+            "generation": 0.5,
         },
         "template": [
             "人物索引/罗塞塔/极锋/极锋.png",
