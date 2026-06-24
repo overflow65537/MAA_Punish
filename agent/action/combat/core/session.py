@@ -57,10 +57,10 @@ def _role_type_for_cls(cls_name: str) -> str:
 class CombatTask:
     """战斗任务：进战 → 循环 perform → 退战。"""
 
-    WAIT_COMBAT_TIME = 30.0
+    WAIT_COMBAT_TIME = 6.0
     SLEEP_CHECK_INTERVAL = 0.0
     WAIT_POLL_INTERVAL = 0.2
-    COMBAT_UI_LOST_TIMEOUT = 6.0
+    COMBAT_UI_LOST_TIMEOUT = 8.0
     SWITCH_COOLDOWN = 15.0  # 离场后再上场 CD（每色位独立）
     FIELD_MIN_STAY = 5.0  # 上场后最少站场才可再切走（防抖）
     SWITCH_FAIL_COOLDOWN = 2.0
@@ -662,7 +662,7 @@ class CombatTask:
         更新战斗 UI 可见状态并判断是否应退战。
 
         优先 in_combat（快路径）：命中则立即继续，跳过外部界面检查。
-        未命中时再查 in_outer_interface，最后才计 6 秒丢失超时。
+        未命中时再查 in_outer_interface，最后才计 8 秒丢失超时。
         """
         if self.combat_check.in_combat(self.context, self):
             self.combat_ui_visible = True

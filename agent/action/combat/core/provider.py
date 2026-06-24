@@ -105,7 +105,7 @@ class CombatCheck(BaseCombatCheck):
         是否识别到战斗 UI。
 
         默认复用 Pipeline 节点「战斗中」（闪避键模板）。
-        部分角色攻击动画会短暂遮挡该 UI，框架侧会容忍连续未命中 6 秒。
+        部分角色攻击动画会短暂遮挡该 UI，框架侧会容忍连续未命中 8 秒。
         """
         image = self._get_frame(context, combat)
         result = context.run_recognition("战斗中", image)
