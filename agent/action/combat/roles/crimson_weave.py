@@ -51,6 +51,8 @@ _DRAGON_PHASES = frozenset(
     {"great_dragon_press", "great_dragon_charge", "great_dragon_red"}
 )
 _ULT_WAIT_TIMEOUT = 12.0
+# 特殊条未出现时，闪避+攻击唤条；连续失败则回 idle 做 attack_template 校验
+_SPECIAL_SUMMON_MAX_FAILS = 5
 # 实测落地→无光 OCR 约 0.4s，在此基础上再加缓冲；超时内每 tick 盲消 1 号球
 _SMALL_ULT_LAND_DELAY = 0.5
 _SMALL_ULT_WAIT_EXTRA = 3.0
@@ -85,6 +87,7 @@ class CrimsonWeave(BaseRole):
         self._great_special_locked = False
         self._special_boot = False
         self._special_saw_bar = False
+        self._special_summon_fails = 0
         self._dragon_charge_deadline = 0.0
         self._dragon_red_deadline = 0.0
         self._dragon_start_blocked_until = 0.0
@@ -96,6 +99,7 @@ class CrimsonWeave(BaseRole):
         self._great_special_locked = False
         self._special_boot = False
         self._special_saw_bar = False
+        self._special_summon_fails = 0
         self._dragon_charge_deadline = 0.0
         self._dragon_red_deadline = 0.0
         self._dragon_start_blocked_until = 0.0
@@ -212,6 +216,7 @@ class CrimsonWeave(BaseRole):
         self._great_special_locked = False
         self._special_boot = False
         self._special_saw_bar = False
+        self._special_summon_fails = 0
 
     def _light_ready_for_dragon(self, value: int) -> bool:
         return value == _LIGHT_DRAGON_EXACT or value >= _LIGHT_DRAGON_MIN
@@ -329,22 +334,34 @@ class CrimsonWeave(BaseRole):
     def _tick_special_combo(self, special_node: str) -> bool:
         """
         闪避后首击启动 → 特殊条在则持续攻击 → 条消失则结束。
-        条未出现时闪避+攻击唤条（不再只普攻干等）。
-        返回 True 表示连段仍在进行。
+        条未出现时闪避+攻击唤条；连续失败则回 idle，下 tick 走检查角色。
+        返回 True 表示本 tick 仍在特殊连段流程（含回 idle 过渡）。
         """
         if self.action.check_status(special_node):
             self._special_saw_bar = True
             self._special_boot = False
+            self._special_summon_fails = 0
             self.action.attack()
             return True
 
         if self._special_saw_bar:
             self._special_saw_bar = False
+            self._special_summon_fails = 0
             return False
 
         if self._special_boot:
             self.action.attack()
             self._special_boot = False
+            return True
+
+        self._special_summon_fails += 1
+        if self._special_summon_fails >= _SPECIAL_SUMMON_MAX_FAILS:
+            self.action.logger.warning(
+                "特殊条唤条失败 %d 次，回退 idle 检查角色",
+                self._special_summon_fails,
+            )
+            self._clear_special_combo_state()
+            self.phase = "idle"
             return True
 
         self.action.logger.info("特殊条未识别，闪避+攻击唤条")
