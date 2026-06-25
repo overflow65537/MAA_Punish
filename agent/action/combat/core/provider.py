@@ -31,6 +31,7 @@ from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING, Any
 
 from action.combat.core.role_detect import detect_current_role
+from action.combat.core.switch import blind_attack_click
 from action.combat.core.switch import detect_visible_team_colors
 from action.combat.core.team import (
     TEAM_COLORS,
@@ -128,7 +129,11 @@ class CombatCheck(BaseCombatCheck):
         节点 attach 为空 → 单人队（仅当前识别到的角色）。
         """
         image = self._get_frame(context, combat)
-        display_name, cls_name = detect_current_role(context, image)
+        display_name, cls_name = detect_current_role(
+            context,
+            image,
+            on_tick=lambda: blind_attack_click(context),
+        )
         combat.current_role_name = display_name
 
         roster = load_team_roster_from_context(context)

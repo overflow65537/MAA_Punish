@@ -26,6 +26,7 @@ MAA_Punish 战斗中识别当前角色（复用 Pipeline「检查角色」）
 
 from __future__ import annotations
 
+from collections.abc import Callable
 from typing import Any
 
 from maa.context import Context
@@ -80,11 +81,17 @@ def is_cls_on_field(context: Context, image: Any, cls_name: str) -> bool:
 _GENERIC_CLS = "GeneralFight"
 
 
-def detect_current_role(context: Context, image: Any) -> tuple[str, str]:
+def detect_current_role(
+    context: Context,
+    image: Any,
+    *,
+    on_tick: Callable[[], None] | None = None,
+) -> tuple[str, str]:
     """
     按 attack_template 模板匹配当前上场角色。
 
     专属 cls 优先于 GeneralFight，避免通用占位误匹配谬影。
+    on_tick 会在每次模板匹配前调用（如盲发普攻，避免识别空转）。
 
     :return: (展示名, cls_name)
     """
@@ -99,6 +106,8 @@ def detect_current_role(context: Context, image: Any) -> tuple[str, str]:
         bucket.append((role_name, role_info))
 
     for role_name, role_info in dedicated + generic:
+        if on_tick is not None:
+            on_tick()
         templates = _normalize_attack_templates(role_info.get("attack_template"))
         if match_attack_template(context, image, templates):
             display = str(role_info.get("name") or role_name)

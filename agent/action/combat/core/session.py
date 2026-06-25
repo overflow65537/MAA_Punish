@@ -37,7 +37,7 @@ from action.combat.core.role_detect import (
     is_cls_on_field,
 )
 from action.combat.core.role_factory import ROLE_CLASS_MAP, create_role
-from action.combat.core.switch import attempt_switch_to_color
+from action.combat.core.switch import attempt_switch_to_color, blind_attack_click
 from action.combat.core.team import TEAM_COLORS, TeamSnapshot
 from action.combat.timing import active_delay
 from action.combat.config.LoadSetting import ROLE_ACTIONS
@@ -227,11 +227,22 @@ class CombatTask:
         self._set_team_cls_at(key, cls_name)
         self.roles[key] = create_role(self, key, cls_name)
 
+    def _blind_attack_tick(self) -> None:
+        """角色识别等阻塞流程中周期性盲发普攻。"""
+        if self._should_stop():
+            return
+        blind_attack_click(self.context)
+
     def _correct_role_from_field(
         self, color: str, roster_cls: str, image: Any
     ) -> tuple[str, str]:
         """切人/进战后对照 attack_template，必要时将 GeneralFight 占位修正为专属 cls。"""
-        display_name, detected_cls = detect_current_role(self.context, image)
+        self._blind_attack_tick()
+        display_name, detected_cls = detect_current_role(
+            self.context,
+            image,
+            on_tick=self._blind_attack_tick,
+        )
         key = color.upper()
 
         if roster_cls == detected_cls:
@@ -275,7 +286,12 @@ class CombatTask:
         if is_cls_on_field(self.context, image, role.cls_name):
             return False
 
-        display_name, detected_cls = detect_current_role(self.context, image)
+        self._blind_attack_tick()
+        display_name, detected_cls = detect_current_role(
+            self.context,
+            image,
+            on_tick=self._blind_attack_tick,
+        )
         if detected_cls == role.cls_name:
             return False
 

@@ -72,6 +72,13 @@ _CLICK_QTE_MAX_LOOPS = 100
 _DEFAULT_VERIFY_TIMEOUT = 12.0
 _DEFAULT_VERIFY_POLL = 0.05
 _QTE_CLICK_BURST = 3
+# 与 Auto_Battle_Action.jsonc「攻击」节点坐标一致
+_ATTACK_CLICK = (1200, 685)
+
+
+def blind_attack_click(context: Context) -> None:
+    """识别等待期间盲发普攻（与 Pipeline「攻击」同坐标）。"""
+    context.tasker.controller.post_click(*_ATTACK_CLICK).wait()
 
 
 def _box_center(box: Any) -> tuple[int, int]:
