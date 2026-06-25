@@ -28,7 +28,7 @@
       [p1] 兜底 ──► 连续 5 次普攻
 
       [p2] 大招条 ──► p2_ult（确认释放 → QTE → 切人）
-      [p2] 球≥3 ──► p2_drain（2 号位直至 <3 → 1 号位）
+      [p2] 球≥3 ──► 消 2 号位 → 消 1 号位（同 tick，每轮一次）
       [p2] 兜底 ──► 连续 5 次普攻
 
 Pipeline：Check_Characters_Skill/Daemonissa.jsonc
@@ -36,15 +36,18 @@ Pipeline：Check_Characters_Skill/Daemonissa.jsonc
 
 from __future__ import annotations
 
+import time
+
 from action.combat.core.role import BaseRole
 
 _P2_NODE = "检查阶段p2_谬影"
 _BALL_CLEAR_MIN = 3
 _ATTACK_BURST = 5
 _ATTACK_INTERVAL_MS = 50
-_DEFAULT_BALL_SLOT = 1
-_P2_DRAIN_SLOT = 2
-_P2_FINISH_SLOT = 1
+_P1_BALL_SLOT = 1
+_P2_FIRST_BALL_SLOT = 2
+_P2_BALL_GAP_S = 0.015
+_P2_SECOND_BALL_SLOT = 1
 
 
 class Daemonissa(BaseRole):
@@ -60,11 +63,6 @@ class Daemonissa(BaseRole):
             self._phase_p1_ult()
         elif self.phase == "p2_ult":
             self._phase_p2_ult()
-        elif self.phase == "p2_drain":
-            if not self._in_p2():
-                self.phase = "combat"
-                return
-            self._phase_p2_drain()
         elif self._in_p2():
             self._phase_p2()
         else:
@@ -73,7 +71,7 @@ class Daemonissa(BaseRole):
     def _in_p2(self) -> bool:
         return bool(self.action.check_status(_P2_NODE))
 
-    def _clear_one_ball(self, slot: int = _DEFAULT_BALL_SLOT) -> None:
+    def _clear_ball(self, slot: int) -> None:
         self.action.ball_elimination_target(slot)
 
     def _attack_burst(self) -> None:
@@ -90,7 +88,7 @@ class Daemonissa(BaseRole):
 
         if self.action.count_signal_balls() >= _BALL_CLEAR_MIN:
             self.action.logger.info("谬影: p1 消球")
-            self._clear_one_ball()
+            self._clear_ball(_P1_BALL_SLOT)
             return
 
         self._attack_burst()
@@ -112,26 +110,13 @@ class Daemonissa(BaseRole):
             return
 
         if self.action.count_signal_balls() >= _BALL_CLEAR_MIN:
-            self.action.logger.info("谬影: p2 进入消球流程")
-            self.phase = "p2_drain"
+            self.action.logger.info("谬影: p2 消球（2 号位 → 1 号位）")
+            self._clear_ball(_P2_FIRST_BALL_SLOT)
+            time.sleep(_P2_BALL_GAP_S)
+            self._clear_ball(_P2_SECOND_BALL_SLOT)
             return
 
         self._attack_burst()
-
-    def _phase_p2_drain(self) -> None:
-        if self.action.check_Skill_energy_bar():
-            self.phase = "p2_ult"
-            return
-
-        ball_count = self.action.count_signal_balls()
-        if ball_count >= _BALL_CLEAR_MIN:
-            self.action.logger.info("谬影: p2 消 2 号位（当前 %d 球）", ball_count)
-            self._clear_one_ball(_P2_DRAIN_SLOT)
-            return
-
-        self.action.logger.info("谬影: p2 消 1 号位（当前 %d 球）", ball_count)
-        self._clear_one_ball(_P2_FINISH_SLOT)
-        self.phase = "combat"
 
     def _phase_p2_ult(self) -> None:
         self.action.logger.info("谬影: p2 大招")
