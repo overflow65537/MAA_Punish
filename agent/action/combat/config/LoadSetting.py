@@ -647,4 +647,26 @@ ROLE_ACTIONS = {
         ],
         "attack_template": ["自定义战斗/涅缇娅/亡歌/亡歌.png"],
     },
+    "神威·不落日": {
+        "name": "不落日",
+        "type": "Tank",
+        "cls_name": "Aeternion",
+        "metadata": {
+            "fire": 100,
+            "generation": 3,
+        },
+        "template": [
+            "人物索引/神威/不落日/不落日.png",
+            "人物索引/神威/不落日/不落日_终解.png",
+        ],
+        "attack_template": [
+            "自定义战斗/神威/不落日/不落日.png",
+            "自定义战斗/神威/不落日/不落日_释能.png",
+        ],
+        "skill_template": {
+            "red": {"识别信号球": {"template": ["信号球/超刻_红.png"]}},
+            "blue": {"识别信号球": {"template": ["信号球/超刻_蓝.png"]}},
+            "yellow": {"识别信号球": {"template": ["信号球/超刻_黄.png"]}},
+        },
+    },
 }
