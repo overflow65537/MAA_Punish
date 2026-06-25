@@ -397,6 +397,7 @@ class CrimsonWeave(BaseRole):
         if self._cast_ult_if_ready():
             return
 
+        self.action.auxiliary_machine()
         self.action.use_qte()
         self._ult_wait_deadline = time.monotonic() + _SMALL_ULT_WAIT_TIMEOUT
         self.phase = "small_ult_wait"

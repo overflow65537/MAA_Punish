@@ -96,8 +96,8 @@ class Aegis(BaseRole):
 
     def _phase_ult(self) -> None:
         self.action.use_skill_until_empty()
-        self.action.use_qte()
         self.action.auxiliary_machine()
+        self.action.use_qte()
         self._loop_ticks += 1
         self.phase = "loop"
 

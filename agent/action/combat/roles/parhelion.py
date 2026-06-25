@@ -284,6 +284,7 @@ class Parhelion(BaseRole):
             return
 
         self.action.logger.info("幻日: p1 大招结束，QTE 等待 p2 UI")
+        self.action.auxiliary_machine()
         self.action.use_qte()
         self._p1_ult_finished_at = time.monotonic()
         self.phase = "combat"
@@ -337,6 +338,7 @@ class Parhelion(BaseRole):
             return
 
         self.action.logger.info("幻日: p2 大招结束，QTE 切人")
+        self.action.auxiliary_machine()
         self.action.use_qte()
         self.combat.request_role_switch(self)
 

@@ -86,6 +86,7 @@ class GeneralFight(BaseRole):
 
     def _phase_ult(self) -> None:
         self.action.use_skill_until_empty()
+        self.action.auxiliary_machine()
         self.phase = "finish"
 
     def _phase_finish(self) -> None:

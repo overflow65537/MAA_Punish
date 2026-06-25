@@ -106,6 +106,7 @@ class InverseCrown(BaseRole):
 
     def _finish_skill(self) -> None:
         if not self._post_ult_qte_used:
+            self.action.auxiliary_machine()
             self.action.use_qte()
             self._post_ult_qte_used = True
         self._skill_sub = ""

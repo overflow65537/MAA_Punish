@@ -230,10 +230,12 @@ class Spectre(BaseRole):
             self._p2_ult_wait_ticks += 1
             if self._p2_ult_wait_ticks >= _P2_ULT_WAIT_MAX:
                 self.action.logger.info("骇影: 等待普通图标超时，QTE 切人")
+                self.action.auxiliary_machine()
                 self.action.use_qte()
                 self._finish_p2()
             return
 
         self.action.logger.info("骇影: 普通图标消失，QTE 切人")
+        self.action.auxiliary_machine()
         self.action.use_qte()
         self._finish_p2()

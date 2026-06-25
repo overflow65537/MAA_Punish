@@ -146,6 +146,7 @@ class Limpidity(BaseRole):
         if reason:
             self.action.logger.info(reason)
         self.action.logger.info("霁梦: p1 大招结束，点2号球")
+        self.action.auxiliary_machine()
         self.action.use_qte()
         if self._is_atk2():
             self.action.logger.info("霁梦: p1 大招后识别到普攻2")
