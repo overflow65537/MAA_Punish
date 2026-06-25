@@ -113,6 +113,17 @@
         "post_delay": 0,
         "rate_limit": 0
     },
+    "松开攻击": {
+        "pre_delay": 0,
+        "action": {
+            "type": "TouchUp",
+            "param": {
+                "contact": 0
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
     "按下闪避": {
         "pre_delay": 0,
         "action": {

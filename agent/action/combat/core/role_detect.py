@@ -110,8 +110,12 @@ def is_switch_arrived(context: Context, image: Any, roster_cls: str) -> bool:
     """
     切人到位判定。
 
-    roster 标 GeneralFight 但场上为专属角色（如囚影）时，按 detect_current_role 视为到位。
+    专属 cls：仅匹配目标 attack_template，未命中视为未到位（不切全 roster）。
+    roster 为 GeneralFight：全量 detect_current_role，场上为任意专属角色即视为到位。
     """
+    if roster_cls and roster_cls != _GENERIC_CLS:
+        return is_cls_on_field(context, image, roster_cls)
+
     if roster_cls and is_cls_on_field(context, image, roster_cls):
         return True
 

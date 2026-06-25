@@ -81,6 +81,20 @@ class CombatActions:
         """Pipeline 单击攻击（切人等场景，避免 post_click 高频连发像长按）。"""
         self.context.run_action("攻击")
 
+    def down_attack(self, contact: int = 0):
+        """按下攻击键（长按普攻起始）。"""
+        self.context.override_pipeline(
+            {"按下攻击": {"action": {"param": {"contact": contact}}}}
+        )
+        return self.context.run_action("按下攻击")
+
+    def up_attack(self, contact: int = 0):
+        """松开攻击键（长按普攻结束）。"""
+        self.context.override_pipeline(
+            {"松开攻击": {"action": {"param": {"contact": contact}}}}
+        )
+        return self.context.run_action("松开攻击")
+
     def sleep_with_attack(
         self, seconds: float, *, interval: float = DEFAULT_ACTIVE_TICK
     ) -> None:
@@ -168,7 +182,7 @@ class CombatActions:
         """
         持续释放大招直到能量条消失或超时。
 
-        每轮：按技能 → 普攻（防卡死）→ 检查「技能_能量条」；能量空则结束。
+        每轮：按技能 → 检查「技能_能量条」；能量空则结束，否则普攻（防卡死）。
 
         :return: True 能量已空；False 超时或收到停止信号
         """
@@ -179,11 +193,11 @@ class CombatActions:
                 self.logger.info("大招连放中止: 收到停止信号 presses=%d", presses)
                 return False
             self.use_skill(skill_delay_ms)
-            self.attack()
             presses += 1
             if not self.check_Skill_energy_bar():
                 self.logger.info("大招连放结束: presses=%d", presses)
                 return True
+            self.attack()
             remaining = deadline - time.monotonic()
             if remaining <= 0:
                 break

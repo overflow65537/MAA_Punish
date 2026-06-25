@@ -55,6 +55,14 @@
             }
         }
     },
+    "松开攻击": {
+        "action": {
+            "type": "KeyUp",
+            "param": {
+                "key": 74
+            }
+        }
+    },
     "按下闪避": {
         "action": {
             "type": "KeyDown",

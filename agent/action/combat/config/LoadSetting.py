@@ -536,17 +536,20 @@ ROLE_ACTIONS = {
     "薇拉·灼惘": {
         "name": "灼惘",
         "type": "Support",
-        "cls_name": "GeneralFight",
+        "cls_name": "Geiravor",
         "metadata": {
             "fire": 100,
-            "generation": 0.5,
+            "generation": 2,
         },
         "template": [
             "人物索引/薇拉/灼惘/灼惘.png",
             "人物索引/薇拉/灼惘/灼惘_焰骸孤冕.png",
             "人物索引/薇拉/灼惘/灼惘_终解.png",
         ],
-        "attack_template": ["自定义战斗/灼惘.png"],
+        "attack_template": [
+            "自定义战斗/薇拉/灼惘/灼惘.png",
+            "自定义战斗/薇拉/灼惘/灼惘_p2.png",
+        ],
     },
     "七实·遥星之座": {
         "name": "遥星之座",
