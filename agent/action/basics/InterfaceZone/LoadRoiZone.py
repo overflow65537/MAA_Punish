@@ -102,6 +102,8 @@ class LoadRoiZone(CustomAction):
     ]
     CORE_ROI_ZONE = [
         "检查极锋核心条1",
+        "检查核心被动_极锋",
+        "检查p2核心条_极锋",
         "检查希声2阶段",
         "检查骇影2阶段",
         "骇影普通",

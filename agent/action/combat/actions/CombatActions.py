@@ -77,10 +77,6 @@ class CombatActions:
             return True
         return False
 
-    def click_attack(self) -> None:
-        """Pipeline 单击攻击（切人等场景，避免 post_click 高频连发像长按）。"""
-        self.context.run_action("攻击")
-
     def down_attack(self, contact: int = 0):
         """按下攻击键（长按普攻起始）。"""
         self.context.override_pipeline(
@@ -98,7 +94,7 @@ class CombatActions:
     def sleep_with_attack(
         self, seconds: float, *, interval: float = DEFAULT_ACTIVE_TICK
     ) -> None:
-        """等待期间周期性盲发普攻，避免 delay 空转。"""
+        """等待期间周期性 ``attack``，避免 delay 空转。"""
         active_delay(seconds, on_tick=self.attack, tick_interval=interval)
 
     def attack(self):

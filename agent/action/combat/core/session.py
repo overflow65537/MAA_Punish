@@ -596,7 +596,7 @@ class CombatTask:
                 )
             return False
 
-        attacker_cb = (lambda: attacker.action.click_attack()) if attacker else None
+        attacker_cb = (lambda: attacker.action.attack()) if attacker else None
         verify_timeout = self.SWITCH_VERIFY_TIMEOUT
         if attacker is not None and attacker.switch_verify_timeout is not None:
             verify_timeout = attacker.switch_verify_timeout

@@ -619,15 +619,18 @@ ROLE_ACTIONS = {
     "罗塞塔·极锋": {
         "name": "极锋",
         "type": "Tank",
-        "cls_name": "GeneralFight",
+        "cls_name": "Arete",
         "metadata": {
             "dark": 100,
-            "generation": 0.5,
+            "generation": 2,
         },
         "template": [
             "人物索引/罗塞塔/极锋/极锋.png",
             "人物索引/罗塞塔/极锋/极锋_终解.png",
         ],
-        "attack_template": ["自定义战斗/罗塞塔/极锋/极锋.png"],
+        "attack_template": [
+            "自定义战斗/罗塞塔/极锋/极锋.png",
+            "自定义战斗/罗塞塔/极锋/极锋_p2.png",
+        ],
     },
 }
