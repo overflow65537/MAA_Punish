@@ -54,10 +54,10 @@
             "type": "ColorMatch",
             "param": {
                 "roi": [
-                    936,
-                    495,
-                    100,
-                    30
+                    954,
+                    488,
+                    13,
+                    36
                 ],
                 "method": 6,
                 "lower": [
@@ -79,10 +79,10 @@
             "type": "ColorMatch",
             "param": {
                 "roi": [
-                    1051,
-                    495,
-                    100,
-                    30
+                    1058,
+                    489,
+                    18,
+                    36
                 ],
                 "method": 6,
                 "lower": [
@@ -92,6 +92,35 @@
                     255
                 ],
                 "count": 20,
+                "connected": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查核心被动_p2_芒星之迹": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    682,
+                    617,
+                    38,
+                    19
+                ],
+                "method": 40,
+                "lower": [
+                    17,
+                    132,
+                    220
+                ],
+                "upper": [
+                    28,
+                    165,
+                    255
+                ],
+                "count": 100,
                 "connected": true
             }
         },
