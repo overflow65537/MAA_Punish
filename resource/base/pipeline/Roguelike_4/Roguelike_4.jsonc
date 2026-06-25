@@ -81,9 +81,6 @@
             "param": {
                 "custom_action": "PPOverride",
                 "custom_action_param": {
-                    "识别人物": {
-                        "enabled": true
-                    }
                 }
             }
         },
@@ -699,7 +696,6 @@
         "next": [
             "战斗完成_寒境曙光",
             "战斗中_货币不足",
-            "[JumpBack]识别人物",
             "[JumpBack]重启_寒境曙光",
             "[JumpBack]战斗中",
             "[JumpBack]跳过战斗对话",
@@ -1661,9 +1657,6 @@
             "param": {
                 "custom_action": "PPOverride",
                 "custom_action_param": {
-                    "识别人物": {
-                        "enabled": true
-                    }
                 }
             }
         },

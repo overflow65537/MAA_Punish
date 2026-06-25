@@ -8,8 +8,8 @@ import datetime
 from maa.custom_recognition import CustomRecognition
 from typing import Any
 
-from agent.action.tool import role_cache_policy as cache_policy
-from agent.logger_component import LoggerComponent
+from action.basics import role_cache_policy as cache_policy
+from logger_component import LoggerComponent
 
 
 class CacheRole(CustomRecognition):

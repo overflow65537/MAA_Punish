@@ -130,21 +130,44 @@
 
 ## 开发相关
 
-目前支持的战斗逻辑：
+### 自动战斗（专属逻辑）
 
-|                                                             |                                                        |                                                          |
-| ----------------------------------------------------------- | ------------------------------------------------------ | -------------------------------------------------------- |
-| [深红囚影](assets/custom/action/exclusives/CrimsonWeave.py) | [深谣](assets/custom/action/exclusives/LostLullaby.py) | [终焉](assets/custom/action/exclusives/Oblivion.py)      |
-| [誓焰](assets/custom/action/exclusives/Pyroath.py)          | [启明](assets/custom/action/exclusives/Shukra.py)      | [深痕](assets/custom/action/exclusives/Stigmata.py)      |
-| [超刻](assets/custom/action/exclusives/Hyperreal.py)        | [晖暮](assets/custom/action/exclusives/Crepuscule.py)  | [希声](agent/action/exclusives/Pianissimo.py) |
-| [铮骨](assets/custom/action/exclusives/Aegis.py)            | [骇影](agent/action/exclusives/Spectre.py)  |                                                          |
+战斗框架位于 `agent/action/combat/`。Pipeline 通过 `CombatRunner` 统一调度；新角色只需在 `LoadSetting.py` 登记并在 `roles/` 下实现 `BaseRole` 子类（类名 = `cls_name`），**无需**逐个注册 `agent_file.py`。
 
-其余部分人物由于开发者精力有限,无法同时添加,如果希望自行添加，具体参考[如何编写战斗逻辑](docs/自动战斗框架开发指南.md)，开发途中有问题可以进群反馈 **965061066**
+详细说明见 [自动战斗框架开发指南](docs/自动战斗框架开发指南.md)，其中包含 **LLM 提示词模板**，可直接复制给 Cursor 等工具修改角色打法。
+
+当前已实现专属战斗逻辑的角色：
+
+| 角色 | cls_name | 源文件 |
+|------|----------|--------|
+| 深红囚影 | CrimsonWeave | `agent/action/combat/roles/crimson_weave.py` |
+| 深谣 | LostLullaby | `agent/action/combat/roles/lost_lullaby.py` |
+| 终焉 | Oblivion | `agent/action/combat/roles/oblivion.py` |
+| 誓焰 | Pyroath | `agent/action/combat/roles/pyroath.py` |
+| 启明 | Shukra | `agent/action/combat/roles/shukra.py` |
+| 深痕 | Stigmata | `agent/action/combat/roles/stigmata.py` |
+| 超刻 | Hyperreal | `agent/action/combat/roles/hyperreal.py` |
+| 晖暮 | Crepuscule | `agent/action/combat/roles/crepuscule.py` |
+| 希声 | Pianissimo | `agent/action/combat/roles/pianissimo.py` |
+| 铮骨 | Aegis | `agent/action/combat/roles/aegis.py` |
+| 骇影 | Spectre | `agent/action/combat/roles/spectre.py` |
+| 逆冕 | InverseCrown | `agent/action/combat/roles/inverse_crown.py` |
+| 霁梦 | Limpidity | `agent/action/combat/roles/limpidity.py` |
+| 谬影 | Daemonissa | `agent/action/combat/roles/daemonissa.py` |
+| 芒星之迹 | Startrail | `agent/action/combat/roles/startrail.py` |
+| 灼惘 | Geiravor | `agent/action/combat/roles/geiravor.py` |
+| 幻日 | Parhelion | `agent/action/combat/roles/parhelion.py` |
+| 极锋 | Arete | `agent/action/combat/roles/arete.py` |
+| 亡歌 | Dirge | `agent/action/combat/roles/dirge.py` |
+| 不落日 | Aeternion | `agent/action/combat/roles/aeternion.py` |
+| 通用 | GeneralFight | `agent/action/combat/roles/general_fight.py` |
+
+未单独实现的角色在进战后会走 **GeneralFight** 通用逻辑。欢迎 PR 补充；开发问题可加群 **965061066** 反馈。
 
 ### 开发文档
 
 - [MaaFramework 快速开始](https://github.com/MaaAssistantArknights/MaaFramework/blob/main/docs/zh_cn/1.1-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.md)
-- [如何编写战斗逻辑](docs/自动战斗框架开发指南.md)
+- [自动战斗框架开发指南（含 LLM 改战斗提示词）](docs/自动战斗框架开发指南.md)
 
 ### How to build
 

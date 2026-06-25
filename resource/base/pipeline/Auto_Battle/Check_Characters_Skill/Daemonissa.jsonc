@@ -1,0 +1,23 @@
+{
+    "检查阶段p2_谬影": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    822,
+                    542,
+                    189,
+                    178
+                ],
+                "template": [
+                    "自定义战斗/莉莉丝/谬影/谬影_p2.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.85
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    }
+}

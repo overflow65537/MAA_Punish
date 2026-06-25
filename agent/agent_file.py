@@ -3,7 +3,6 @@ from action.basics.ScreenShot import ScreenShot
 from action.basics.PPOverride import PPOverride
 from action.basics.ChainLoopCircuit import ChainLoopCircuit
 from action.basics.RoleSelection import RoleSelection
-from action.basics.RecognitionRole import RecognitionRole
 from action.basics.Post_Stop import PostStop
 from action.basics.Notice import Notice
 from action.basics.RedmeeCode import RedeemCode
@@ -12,22 +11,7 @@ from action.basics.InterfaceZone.ReadRoiZone import ReadROIZone
 from action.basics.InterfaceZone.LoadRoiZone import LoadRoiZone
 from action.basics.ResetCount import ResetCount
 
-
-from action.exclusives.CrimsonWeave import CrimsonWeave
-from action.exclusives.LostLullaby import LostLullaby
-from action.exclusives.Oblivion import Oblivion
-from action.exclusives.Pyroath import Pyroath
-from action.exclusives.Stigmata import Stigmata
-from action.exclusives.Shukra import Shukra
-from action.exclusives.Hyperreal import Hyperreal
-from action.exclusives.Crepuscule import Crepuscule
-from action.exclusives.Aegis import Aegis
-from action.exclusives.Limpidity import Limpidity
-from action.exclusives.GeneralFight import GeneralFight
-from action.exclusives.Pianissimo import Pianissimo
-from action.exclusives.Spectre import Spectre
-from action.exclusives.InverseCrown import InverseCrown
-
+from action.combat.entry.runner import CombatRunner
 
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
@@ -75,23 +59,8 @@ class Agent_Notice(Notice):
     pass
 
 
-@AgentServer.custom_action("Pianissimo")
-class Agent_Pianissimo(Pianissimo):
-    pass
-
-
-@AgentServer.custom_action("Spectre")
-class Agent_Spectre(Spectre):
-    pass
-
-
 @AgentServer.custom_action("PostStop")
 class Agent_PostStop(PostStop):
-    pass
-
-
-@AgentServer.custom_action("Limpidity")
-class Agent_Limpidity(Limpidity):
     pass
 
 
@@ -100,33 +69,8 @@ class Agent_NextStageRecognition(NextStageRecognition):
     pass
 
 
-@AgentServer.custom_action("Aegis")
-class Agent_Aegis(Aegis):
-    pass
-
-
-@AgentServer.custom_action("RecognitionRole")
-class Agent_RecognitionRole(RecognitionRole):
-    pass
-
-
 @AgentServer.custom_action("RoleSelection")
 class Agent_RoleSelection(RoleSelection):
-    pass
-
-
-@AgentServer.custom_action("GeneralFight")
-class Agent_GeneralFight(GeneralFight):
-    pass
-
-
-@AgentServer.custom_action("Hyperreal")
-class Agent_Hyperreal(Hyperreal):
-    pass
-
-
-@AgentServer.custom_action("Crepuscule")
-class Agent_Crepuscule(Crepuscule):
     pass
 
 
@@ -145,11 +89,6 @@ class Agent_ChainLoopCircuit(ChainLoopCircuit):
     pass
 
 
-@AgentServer.custom_action("Shukra")
-class Agent_Shukra(Shukra):
-    pass
-
-
 @AgentServer.custom_action("PPOverride")
 class Agent_PPOverride(PPOverride):
     pass
@@ -165,34 +104,11 @@ class Agent_ExpressionRecognition(ExpressionRecognition):
     pass
 
 
-@AgentServer.custom_action("CrimsonWeave")
-class Agent_CrimsonWeave(CrimsonWeave):
-    pass
-
-
-@AgentServer.custom_action("LostLullaby")
-class Agent_LostLullaby(LostLullaby):
-    pass
-
-
-@AgentServer.custom_action("Oblivion")
-class Agent_Oblivion(Oblivion):
-    pass
-
-
-@AgentServer.custom_action("Pyroath")
-class Agent_Pyroath(Pyroath):
-    pass
-
-
-@AgentServer.custom_action("Stigmata")
-class Agent_Stigmata(Stigmata):
-    pass
-
-@AgentServer.custom_action("InverseCrown")
-class Agent_InverseCrown(InverseCrown):
-    pass
-
 @AgentServer.custom_action("ResetCount")
 class Agent_ResetCount(ResetCount):
+    pass
+
+
+@AgentServer.custom_action("CombatRunner")
+class Agent_CombatRunner(CombatRunner):
     pass

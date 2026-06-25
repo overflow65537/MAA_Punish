@@ -40,9 +40,13 @@ from pathlib import Path
 import numpy
 
 
-from agent.action.tool.LoadSetting import ROLE_ACTIONS
-from agent.action.tool import role_cache_policy as cache_policy
-from agent.logger_component import LoggerComponent
+from action.combat.config import ROLE_ACTIONS
+from action.combat.core.team import (
+    publish_team_roster,
+    roster_from_role_selection,
+)
+from action.basics import role_cache_policy as cache_policy
+from logger_component import LoggerComponent
 
 
 _SELECTION_MODE_TABLE: dict[str, dict] = {
@@ -80,6 +84,8 @@ _SELECTION_MODE_TABLE: dict[str, dict] = {
 
 
 class RoleSelection(CustomAction):
+    _CACHE_EXCLUDE_METADATA_KEYS = frozenset({"generation"})
+
     def __init__(self):
         super().__init__()
         self._logger_component = LoggerComponent(__name__)
@@ -88,6 +94,37 @@ class RoleSelection(CustomAction):
 
     def _cache_path(self) -> Path:
         return cache_policy.cache_path(self._cache_prefix)
+
+    @classmethod
+    def _cache_entry_from_metadata(cls, metadata: dict) -> dict:
+        """扫描写入缓存：仅保留元素分等运行时字段，不含 generation。"""
+        if not isinstance(metadata, dict):
+            return {}
+        return {
+            k: v
+            for k, v in metadata.items()
+            if k not in cls._CACHE_EXCLUDE_METADATA_KEYS
+        }
+
+    @classmethod
+    def _strip_generation_from_roles(cls, role: dict) -> dict:
+        cleaned: dict = {}
+        for name, info in role.items():
+            if not isinstance(info, dict):
+                cleaned[name] = info
+                continue
+            cleaned[name] = {
+                k: v for k, v in info.items() if k not in cls._CACHE_EXCLUDE_METADATA_KEYS
+            }
+        return cleaned
+
+    @staticmethod
+    def _generation_from_config(role_name: str) -> int | float:
+        base_name = role_name.replace("[试用]", "")
+        metadata = ROLE_ACTIONS.get(base_name, {}).get("metadata", {})
+        if isinstance(metadata, dict):
+            return metadata.get("generation", 0)
+        return 0
 
     def _current_week(self) -> int:
         return datetime.date.today().isocalendar().week
@@ -106,7 +143,10 @@ class RoleSelection(CustomAction):
                     f"角色缓存未在有效期内, update_frequency={freq!r}"
                 )
             return None
-        return cache_policy.get_focus(cache_data)
+        focus = cache_policy.get_focus(cache_data)
+        if focus is None:
+            return None
+        return self._strip_generation_from_roles(focus)
 
     def _get_role_element_task(self, role_dict: dict, role_name: str) -> str | None:
         base_role_name = role_name.replace("[试用]", "")
@@ -140,6 +180,42 @@ class RoleSelection(CustomAction):
         return name.replace("[试用]", "").strip()
 
     @staticmethod
+    def _role_type_key(role_name: str) -> str:
+        base_name = role_name.replace("[试用]", "").strip()
+        role_type_value = ROLE_ACTIONS.get(base_name, {}).get("type", "")
+        return str(role_type_value).lower()
+
+    @staticmethod
+    def _is_attacker_only_candidates(
+        candidates: list[tuple[str, float, str, str, bool]],
+    ) -> bool:
+        return bool(candidates) and all(item[2] == "attacker" for item in candidates)
+
+    def _single_attacker_team(
+        self, candidates: list[tuple[str, float, str, str, bool]]
+    ) -> dict:
+        attackers = [c for c in candidates if c[2] == "attacker"]
+        attackers.sort(key=lambda item: item[1], reverse=True)
+        top = attackers[0]
+        self.logger.info("角色库仅有进攻型，只编入一名角色: %s", top[0])
+        return {
+            "attacker": {"name": top[0], "weight": top[1]},
+            "tank": {"name": None, "weight": 0},
+            "support": {"name": None, "weight": 0},
+        }
+
+    def _finalize_team_selection(
+        self,
+        best: dict,
+        candidates: list[tuple[str, float, str, str, bool]],
+        *,
+        need_multi: bool,
+    ) -> dict:
+        if need_multi and self._is_attacker_only_candidates(candidates):
+            return self._single_attacker_team(candidates)
+        return best
+
+    @staticmethod
     def _template_match_hits(result) -> list[TemplateMatchResult]:
         """同页多实例时优先用 all_results；filtered_results 受 index 影响可能只有一条。"""
         for candidates in (result.all_results, result.filtered_results):
@@ -163,18 +239,35 @@ class RoleSelection(CustomAction):
         if not need_multi:
             return {"attacker": names[0], "tank": None, "support": None}
 
+        if all(self._role_type_key(name) == "attacker" for name in names):
+            self.logger.info("排他模式：角色库仅有进攻型，只编入一名角色: %s", names[0])
+            return {"attacker": names[0], "tank": None, "support": None}
+
         team: dict[str, str | None] = {
             "attacker": None,
             "tank": None,
             "support": None,
         }
         for name in names:
-            role_type = str(ROLE_ACTIONS.get(name, {}).get("type", "")).lower()
+            role_type = self._role_type_key(name)
             if role_type in team and team[role_type] is None:
                 team[role_type] = name
         if team["attacker"] is None:
             team["attacker"] = names[0]
         return team
+
+    def _publish_combat_team_roster(
+        self,
+        context: Context,
+        attacker: str | None,
+        tank: str | None,
+        support: str | None,
+    ) -> None:
+        """战前配队完成后写入战斗队伍色位，供 CombatTask 读取。"""
+        publish_team_roster(
+            context,
+            roster_from_role_selection(attacker, tank, support),
+        )
 
     def _consume_cage_for_role(
         self, role_name: str, update_frequency: str
@@ -282,6 +375,9 @@ class RoleSelection(CustomAction):
                     time.sleep(0.5)
                     context.run_task("返回")
 
+        self._publish_combat_team_roster(
+            context, attacker_name, tank_name, support_name
+        )
         return CustomAction.RunResult(success=True)
 
     def run(
@@ -412,7 +508,10 @@ class RoleSelection(CustomAction):
 
         role_weight = self.calculate_weight(role, condition)
         self.logger.info(f"根据识别结果计算权重完成, 共 {len(role_weight)} 个角色")
-        best_team = self.select_best_team(role_weight)
+        effective_need_multi = need_multi and roguelike_equivalent is None
+        best_team = self.select_best_team(
+            role_weight, need_multi=effective_need_multi
+        )
         self.logger.info(f"条件: {condition}")
         self.logger.info(f"角色权重: {role_weight}")
         attacker_name = best_team.get("attacker", {}).get("name")
@@ -461,6 +560,9 @@ class RoleSelection(CustomAction):
                     time.sleep(0.5)
                     context.run_task("返回")
 
+        self._publish_combat_team_roster(
+            context, attacker_name, tank_name, support_name
+        )
         return CustomAction.RunResult(success=True)
 
     def find_role(
@@ -638,9 +740,7 @@ class RoleSelection(CustomAction):
                     else role_name
                 )
                 metadata = role_action.get("metadata", {})
-                role[display_name] = (
-                    metadata.copy() if isinstance(metadata, dict) else {}
-                )
+                role[display_name] = self._cache_entry_from_metadata(metadata)
 
                 power_reco = context.run_recognition(
                     entry="识别战斗参数",
@@ -806,10 +906,10 @@ class RoleSelection(CustomAction):
         for role_name, info in role_info.items():
             # 战力
             power = info.get("power", 0)
-            # 属性分数
+            # 属性分数（按当前关卡 need_element）
             attribute_score = info.get(condition.get("need_element", ""), 0)
-            # 代数分数
-            element_score = info.get("generation", 0)
+            # 代数分数：始终从 LoadSetting 读取，不依赖 role_cache
+            element_score = self._generation_from_config(role_name)
             # 是否有次数
             has_count = info.get("cage", 0)
             # 肉鸽模式 0代表初始招募能量4，只需要提取是否被肉鸽选中。1代表初始招募能量3，只提取精通等级
@@ -860,8 +960,10 @@ class RoleSelection(CustomAction):
 
         return weight
 
-    def select_best_team(self, role_weight: dict) -> dict:
-        self.logger.info(f"开始从 {len(role_weight)} 个角色中筛选最佳队伍")
+    def select_best_team(self, role_weight: dict, *, need_multi: bool = True) -> dict:
+        self.logger.info(
+            f"开始从 {len(role_weight)} 个角色中筛选最佳队伍 (need_multi={need_multi})"
+        )
 
         best = {
             "attacker": {"name": None, "weight": 0},
@@ -917,7 +1019,9 @@ class RoleSelection(CustomAction):
                     best[role_type_key] = {"name": role_name, "weight": w}
 
             self.logger.info(f"候选人不足三人, 使用降级策略得到队伍: {best}")
-            return best
+            return self._finalize_team_selection(
+                best, candidates, need_multi=need_multi
+            )
 
         support_candidates = []
         tank_candidates = []
@@ -950,7 +1054,9 @@ class RoleSelection(CustomAction):
                 }
 
         self.logger.info(f"筛选完成, 最终队伍: {best}")
-        return best
+        return self._finalize_team_selection(
+            best, candidates, need_multi=need_multi
+        )
 
     def save_screenshot(self, image: numpy.ndarray, img_type: str) -> bool:
 
@@ -999,6 +1105,7 @@ class RoleSelection(CustomAction):
 
     def save_cache(self, role: dict, update_frequency: str = "weekly"):
         cache_path = self._cache_path()
+        role = self._strip_generation_from_roles(role)
         self.logger.info(f"正在保存缓存到 {cache_path}, 数据: {role}")
         cache_path.parent.mkdir(parents=True, exist_ok=True)
         # 保留 CacheRole 使用的字段（main_update_at / cage_update_week 等），避免被覆盖丢失。

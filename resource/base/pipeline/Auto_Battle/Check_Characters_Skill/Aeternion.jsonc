@@ -1,0 +1,102 @@
+{
+    "检查阶段p1_不落日": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1113,
+                    556,
+                    138,
+                    142
+                ],
+                "template": [
+                    "自定义战斗/神威/不落日/不落日.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.85
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查阶段p2_不落日": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1113,
+                    556,
+                    138,
+                    142
+                ],
+                "template": [
+                    "自定义战斗/神威/不落日/不落日_释能.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.85
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查p1核心条_不落日": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    712,
+                    600,
+                    40,
+                    37
+                ],
+                "method": 40,
+                "lower": [
+                    5,
+                    75,
+                    250
+                ],
+                "upper": [
+                    6,
+                    96,
+                    255
+                ],
+                "count": 25,
+                "connected": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查p2核心条_不落日": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    728,
+                    594,
+                    59,
+                    55
+                ],
+                "method": 40,
+                "lower": [
+                    5,
+                    75,
+                    250
+                ],
+                "upper": [
+                    6,
+                    96,
+                    255
+                ],
+                "count": 25,
+                "connected": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    }
+}

@@ -8,7 +8,7 @@ from typing import Any
 
 from maa.context import Context
 from maa.custom_action import CustomAction
-from agent.logger_component import LoggerComponent
+from logger_component import LoggerComponent
 import json
 
 from action.basics.InterfaceZone.roi_zone_controller import (
@@ -48,8 +48,7 @@ class LoadRoiZone(CustomAction):
         "检查普攻1_霁梦",
         "检查普攻2_霁梦",
         "检查比安卡·深痕一阶段",
-        "检查阶段p1_深谣",
-        "检查阶段p2_深谣",
+        "检查比安卡·深痕二阶段",
     ]
     DODGE_ROI_ZONE = [
         "闪避",
@@ -57,7 +56,6 @@ class LoadRoiZone(CustomAction):
         "按下闪避",
         "检查闪避",
         "战斗中",
-        "识别人物",
         "检查希声长闪",
         "检查核心被动_深痕",
         "检查核心被动_晖暮",
@@ -92,22 +90,34 @@ class LoadRoiZone(CustomAction):
     SWITCH_ROI_ZONE = [
         "qte1",
         "qte2",
-        "检查蓝色QTE待激发",
-        "检查红色QTE待激发",
-        "检查黄色QTE待激发",
         "切换黄色QTE",
         "切换红色QTE",
         "切换蓝色QTE",
+        "切换红",
+        "切换黄",
+        "切换蓝",
+        "释放红色QTE",
+        "释放黄色QTE",
+        "释放蓝色QTE",
     ]
     CORE_ROI_ZONE = [
         "检查极锋核心条1",
+        "检查核心被动_极锋",
+        "检查核心被动_亡歌",
+        "检查p2核心条_极锋",
         "检查希声2阶段",
         "检查骇影2阶段",
+        "骇影普通",
         "检查核心条2_霁梦",
         "检查核心条_霁梦",
         "检查核心条_铮骨",
         "检查残月值_终焉",
-        "检查无光值_囚影",
+        "检查大太刀无光值_颜色",
+        "检查小太刀无光值_颜色",
+        "检查大太刀特殊攻击",
+        "检查小太刀特殊攻击",
+        "检查登龙充能满",
+        "检查登龙红色无光值",
         "检查u3_max",
         "检查p1动能条_誓焰",
         "检查p2动能条_深谣",

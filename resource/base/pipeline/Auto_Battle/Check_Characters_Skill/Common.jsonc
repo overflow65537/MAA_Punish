@@ -1,0 +1,206 @@
+{
+    "模型测试": {
+        "recognition": {
+            "type": "NeuralNetworkDetect",
+            "param": {
+                "model": "QTE.onnx"
+            }
+        }
+    },
+    "技能_能量条": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    15,
+                    49,
+                    243,
+                    32
+                ],
+                "lower": [
+                    90,
+                    175,
+                    225
+                ],
+                "upper": [
+                    194,
+                    255,
+                    255
+                ],
+                "connected": true,
+                "count": 30
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "统计信号球数量": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "_信号球数量",
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": "_信号球数量",
+                                "roi_offset": [
+                                    -2,
+                                    -2,
+                                    4,
+                                    4
+                                ],
+                                "expected": "16$",
+                                "only_rec": true
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "_信号球数量": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1165,
+                    551,
+                    95,
+                    29
+                ],
+                "lower": [
+                    230,
+                    230,
+                    230
+                ],
+                "upper": [
+                    255,
+                    255,
+                    255
+                ]
+            }
+        }
+    },
+    "检查血量百分比": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    27,
+                    42,
+                    217,
+                    9
+                ],
+                "lower": [
+                    249,
+                    249,
+                    250
+                ],
+                "upper": [
+                    255,
+                    255,
+                    255
+                ],
+                "connected": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查支援类型角色": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    158,
+                    70,
+                    125,
+                    577
+                ],
+                "template": [
+                    "选择角色类型/增幅.png",
+                    "选择角色类型/增幅1.png",
+                    "选择角色类型/支援.png",
+                    "选择角色类型/支援1.png"
+                ]
+            }
+        },
+        "next": [
+            "检查支援类型角色是否被选中",
+            "识别囚笼次数_辅助"
+        ]
+    },
+    "识别试用角色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": "识别角色",
+                "roi_offset": [
+                    0,
+                    -30,
+                    0,
+                    0
+                ],
+                "lower": [
+                    170,
+                    60,
+                    0
+                ],
+                "upper": [
+                    180,
+                    90,
+                    55
+                ],
+                "connected": true,
+                "count": 200
+            }
+        }
+    },
+    "检查支援类型角色是否被选中": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "检查支援类型角色",
+                "roi_offset": [
+                    -100,
+                    60,
+                    30,
+                    -10
+                ],
+                "expected": [
+                    "编队中",
+                    "編隊中"
+                ],
+                "only_rec": true
+            }
+        },
+        "next": [
+            "识别囚笼次数_辅助"
+        ]
+    },
+    "识别信号球": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    416,
+                    457,
+                    848,
+                    98
+                ],
+                "template": [],
+                "green_mask": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    }
+}

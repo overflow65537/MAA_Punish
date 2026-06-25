@@ -1,0 +1,153 @@
+{
+    "检查阶段p1_极锋": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1113,
+                    556,
+                    138,
+                    142
+                ],
+                "template": [
+                    "自定义战斗/罗塞塔/极锋/极锋.png"
+                ],
+                "green_mask": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查阶段p2_极锋": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1113,
+                    556,
+                    138,
+                    142
+                ],
+                "template": [
+                    "自定义战斗/罗塞塔/极锋/极锋_p2.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.85
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查核心被动_极锋": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    619,
+                    599,
+                    34,
+                    20
+                ],
+                "method": 40,
+                "lower": [
+                    [
+                        18,
+                        53,
+                        231
+                    ],
+                    [
+                        105,
+                        91,
+                        239
+                    ],
+                    [
+                        170,
+                        91,
+                        228
+                    ]
+                ],
+                "upper": [
+                    [
+                        25,
+                        82,
+                        239
+                    ],
+                    [
+                        108,
+                        115,
+                        254
+                    ],
+                    [
+                        178,
+                        108,
+                        251
+                    ]
+                ],
+                "connected": true,
+                "count": 10
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查极锋核心条1": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    654,
+                    632,
+                    64,
+                    41
+                ],
+                "lower": [
+                    217,
+                    216,
+                    236
+                ],
+                "upper": [
+                    236,
+                    233,
+                    254
+                ],
+                "connected": true,
+                "count": 10
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查p2核心条_极锋": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    728,
+                    636,
+                    32,
+                    8
+                ],
+                "method": 40,
+                "lower": [
+                    119,
+                    13,
+                    228
+                ],
+                "upper": [
+                    139,
+                    34,
+                    241
+                ],
+                "connected": true,
+                "count": 10
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    }
+}

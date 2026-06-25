@@ -598,7 +598,7 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": "识别人物",
+                "roi": "战斗中",
                 "roi_offset": [
                     189,
                     25,
@@ -1024,7 +1024,6 @@
             "战斗完成_矩阵循生",
             "战斗失败",
             "[JumpBack]算力单元不足",
-            "[JumpBack]识别人物",
             "[JumpBack]重启_寒境曙光",
             "[JumpBack]战斗中",
             "[JumpBack]出击_矩阵循生",
@@ -1117,9 +1116,6 @@
             "param": {
                 "custom_action": "PPOverride",
                 "custom_action_param": {
-                    "识别人物": {
-                        "enabled": true
-                    }
                 }
             }
         },
@@ -1164,9 +1160,6 @@
             "param": {
                 "custom_action": "PPOverride",
                 "custom_action_param": {
-                    "识别人物": {
-                        "enabled": true
-                    }
                 }
             }
         },

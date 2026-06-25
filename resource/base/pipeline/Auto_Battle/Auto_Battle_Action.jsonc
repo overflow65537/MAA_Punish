@@ -6,7 +6,7 @@
             "param": {
                 "target": [
                     1200,
-                    690
+                    685
                 ]
             }
         },
@@ -48,11 +48,11 @@
             "param": {
                 "begin": [
                     1200,
-                    690
+                    685
                 ],
                 "end": [
                     1200,
-                    690
+                    685
                 ],
                 "duration": 1000
             }
@@ -105,8 +105,19 @@
             "param": {
                 "target": [
                     1200,
-                    690
+                    685
                 ],
+                "contact": 0
+            }
+        },
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "松开攻击": {
+        "pre_delay": 0,
+        "action": {
+            "type": "TouchUp",
+            "param": {
                 "contact": 0
             }
         },

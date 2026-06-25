@@ -14,14 +14,6 @@
                 "是否使用体力"
             ],
             "pipeline_override": {
-                "战斗中": {
-                    "action": {
-                        "type": "custom",
-                        "param": {
-                            "custom_action": "CombatActions"
-                        }
-                    }
-                },
                 "速通滑动": {
                     "enabled": true
                 },
@@ -68,8 +60,7 @@
                                 "[JumpBack]战斗准备_速通",
                                 "[JumpBack]点击下一关_剧情",
                                 "[JumpBack]点击下一关",
-                                "[JumpBack]退出战斗",
-                                "[JumpBack]重置识别"
+                                "[JumpBack]退出战斗"
                             ]
                         }
                     },

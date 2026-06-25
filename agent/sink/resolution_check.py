@@ -6,7 +6,7 @@
 
 from maa.event_sink import NotificationType
 from maa.tasker import Tasker, TaskerEventSink
-from agent.logger_component import LoggerComponent
+from logger_component import LoggerComponent
 
 logger_component = LoggerComponent(__name__)
 logger = logger_component.logger

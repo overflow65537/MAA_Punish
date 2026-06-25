@@ -17,7 +17,6 @@
             "[JumpBack]跳过战斗对话_主线",
             "[JumpBack]进入战斗",
             // "[JumpBack]自动反击",
-            "[JumpBack]识别人物",
             "[JumpBack]战斗中",
             "[JumpBack]点击对话",
             "[JumpBack]点击空白处关闭_速通",
@@ -31,15 +30,16 @@
             "[JumpBack]战斗准备_速通",
             "[JumpBack]点击下一关_剧情",
             "[JumpBack]点击下一关",
-            "[JumpBack]退出战斗",
-            "[JumpBack]重置识别"
+            "[JumpBack]退出战斗"
         ]
     },
     "AAA_战斗测试": {
-        "next": [
-            "循环执行器",
-            "[JumpBack]战斗辅助"
-        ]
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "CombatRunner"
+            }
+        }
     },
     "点击空白处关闭_速通": {
         "recognition": {
@@ -375,8 +375,7 @@
         "pre_delay": 500,
         "post_delay": 0,
         "next": [
-            "[JumpBack]识别人物",
-            "战斗中"
+            "[JumpBack]战斗中"
         ]
     },
     "检查血量": {
@@ -505,23 +504,9 @@
         "post_delay": 0,
         "rate_limit": 0,
         "next": [
-            "识别人物",
             "[JumpBack]战斗中",
             "空任务"
         ]
-    },
-    "重置识别": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "PPOverride",
-                "custom_action_param": {
-                    "识别人物": {
-                        "enabled": true
-                    }
-                }
-            }
-        }
     },
     "主线跳过": {
         "recognition": {
@@ -546,25 +531,29 @@
     "循环执行器": {
         "inverse": true
     },
-    "识别人物": {
+    "战斗中": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    990,
-                    567,
-                    131,
-                    131
+                    1165,
+                    0,
+                    115,
+                    100
                 ],
-                "template": "战斗/闪避.png",
-                "green_mask": true
+                "template": [
+                    "战斗/战斗中.png",
+                    "战斗/战斗中2.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.6
             }
         },
         "pre_delay": 0,
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "RecognitionRole"
+                "custom_action": "CombatRunner"
             }
         },
         "post_delay": 0,
@@ -581,8 +570,8 @@
                     142
                 ],
                 "template": [
-                    "自定义战斗/逆冕大太刀.png",
-                    "自定义战斗/逆冕小太刀.png"
+                    "自定义战斗/露西亚/逆冕/逆冕_大太刀.png",
+                    "自定义战斗/露西亚/逆冕/逆冕_小太刀.png"
                 ],
                 "green_mask": true
             }

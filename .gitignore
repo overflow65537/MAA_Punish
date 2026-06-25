@@ -450,8 +450,9 @@ maapicli.spec
 .vscode/settings.json
 assets/README.md
 install.spec
-config
+/config
+!agent/action/combat/config/
+!agent/action/combat/config/**
 .nicegui/storage-general.json
 agent/recognition/exclusives/role_cache.json
-assets/role_cache.json
-assets/*_role_cache.json
+*_role_cache.json

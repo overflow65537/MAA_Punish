@@ -23,11 +23,10 @@
                         "max_try": 1
                     }
                 },
-                "自动切换": {
-                    "enabled": false
-                },
-                "自动qte": {
-                    "enabled": false
+                "选择角色程序_onlyNode": {
+                    "attach": {
+                        "need_multi": false
+                    }
                 }
             },
             "description": "$task.宣叙妄响.description",

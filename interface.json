@@ -97,9 +97,6 @@
         "缓存组件信息",
         "角色缓存更新频率",
         "多账号缓存",
-        "自动QTE",
-        "自动切换角色",
-        "同时选择多名角色",
         "自定义键位"
     ],
     "resource": [
@@ -1283,53 +1280,10 @@
                 }
             }
         },
-        "自动QTE": {
-            "description": "$option.自动QTE.description",
-            "type": "switch",
-            "cases": [
-                {
-                    "name": "Yes",
-                    "pipeline_override": {
-                        "自动qte": {
-                            "enabled": true
-                        }
-                    }
-                },
-                {
-                    "name": "No",
-                    "pipeline_override": {
-                        "自动qte": {
-                            "enabled": false
-                        }
-                    }
-                }
-            ]
-        },
-        "自动切换角色": {
-            "description": "$option.自动切换角色.description",
-            "type": "switch",
-            "cases": [
-                {
-                    "name": "Yes",
-                    "pipeline_override": {
-                        "自动切换": {
-                            "enabled": true
-                        }
-                    }
-                },
-                {
-                    "name": "No",
-                    "pipeline_override": {
-                        "自动切换": {
-                            "enabled": false
-                        }
-                    }
-                }
-            ]
-        },
         "同时选择多名角色": {
             "type": "switch",
             "description": "$option.同时选择多名角色.description",
+            "default_case": "Yes",
             "cases": [
                 {
                     "name": "Yes",

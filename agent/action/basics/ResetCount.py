@@ -1,7 +1,7 @@
 from maa.context import Context
 from maa.custom_action import CustomAction
 import json
-from agent.logger_component import LoggerComponent
+from logger_component import LoggerComponent
 
 
 logger_component = LoggerComponent(__name__)

@@ -1,0 +1,110 @@
+{
+    "检查u1_誓焰": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    837,
+                    558,
+                    163,
+                    161
+                ],
+                "template": "自定义战斗/露西亚/誓焰/誓焰_u1.png",
+                "green_mask": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查u2_誓焰": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    837,
+                    558,
+                    163,
+                    161
+                ],
+                "template": "自定义战斗/露西亚/誓焰/誓焰_u2.png",
+                "green_mask": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查u3_誓焰": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    837,
+                    558,
+                    163,
+                    161
+                ],
+                "template": "自定义战斗/露西亚/誓焰/誓焰_u3.png",
+                "threshold": 0.55
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查u3_max": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    746,
+                    622,
+                    47,
+                    17
+                ],
+                "lower": [
+                    220,
+                    219,
+                    140
+                ],
+                "upper": [
+                    245,
+                    235,
+                    165
+                ],
+                "connected": true,
+                "count": 100
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查p1动能条_誓焰": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    765,
+                    622,
+                    15,
+                    16
+                ],
+                "lower": [
+                    233,
+                    224,
+                    148
+                ],
+                "upper": [
+                    247,
+                    243,
+                    174
+                ]
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    }
+}

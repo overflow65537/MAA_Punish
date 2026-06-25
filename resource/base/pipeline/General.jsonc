@@ -1,10 +1,4 @@
 {
-    "自动qte": {
-        "enabled": true
-    },
-    "自动切换": {
-        "enabled": true
-    },
     "关闭奖励": {
         "recognition": {
             "type": "And",

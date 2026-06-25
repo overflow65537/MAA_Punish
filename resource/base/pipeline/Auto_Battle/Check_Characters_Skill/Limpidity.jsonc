@@ -1,0 +1,112 @@
+{
+    "检查核心条2_霁梦": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    705,
+                    629,
+                    15,
+                    3
+                ],
+                "lower": [
+                    90,
+                    180,
+                    210
+                ],
+                "upper": [
+                    110,
+                    210,
+                    240
+                ],
+                "connected": true,
+                "count": 10
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查核心球_霁梦": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    852,
+                    411,
+                    86,
+                    71
+                ],
+                "template": "自定义战斗/丽芙/霁梦/霁梦_核心球.png",
+                "green_mask": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查核心条_霁梦": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    679,
+                    633,
+                    50,
+                    32
+                ],
+                "lower": [
+                    110,
+                    210,
+                    230
+                ],
+                "upper": [
+                    150,
+                    240,
+                    255
+                ],
+                "connected": true,
+                "count": 50
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查普攻2_霁梦": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1133,
+                    574,
+                    120,
+                    116
+                ],
+                "template": "自定义战斗/丽芙/霁梦/霁梦_普攻2.png",
+                "green_mask": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查普攻1_霁梦": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1133,
+                    574,
+                    120,
+                    116
+                ],
+                "template": "自定义战斗/丽芙/霁梦/霁梦_普攻1.png",
+                "green_mask": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    }
+}
