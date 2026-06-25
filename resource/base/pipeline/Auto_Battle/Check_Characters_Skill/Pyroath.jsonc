@@ -9,7 +9,7 @@
                     163,
                     161
                 ],
-                "template": "自定义战斗/誓焰_u1.png",
+                "template": "自定义战斗/露西亚/誓焰/誓焰_u1.png",
                 "green_mask": true
             }
         },
@@ -27,7 +27,7 @@
                     163,
                     161
                 ],
-                "template": "自定义战斗/誓焰_u2.png",
+                "template": "自定义战斗/露西亚/誓焰/誓焰_u2.png",
                 "green_mask": true
             }
         },
@@ -45,7 +45,7 @@
                     163,
                     161
                 ],
-                "template": "自定义战斗/誓焰_u3.png",
+                "template": "自定义战斗/露西亚/誓焰/誓焰_u3.png",
                 "threshold": 0.55
             }
         },

@@ -45,7 +45,7 @@ ROLE_ACTIONS = {
             "人物索引/露西亚/逆冕/逆冕_迷霧中的輓歌.png",
         ],
         # 角色攻击按键模板,用来在战斗内识别角色
-        "attack_template": ["自定义战斗/逆冕大太刀.png", "自定义战斗/逆冕小太刀.png"],
+        "attack_template": ["自定义战斗/露西亚/逆冕/逆冕_大太刀.png", "自定义战斗/露西亚/逆冕/逆冕_小太刀.png"],
     },
     "里·超刻": {
         "name": "超刻",
@@ -61,7 +61,7 @@ ROLE_ACTIONS = {
             "人物索引/里/超刻/超刻.png",
             "人物索引/里/超刻/超刻_终解.png",
         ],
-        "attack_template": ["自定义战斗/超刻.png"],
+        "attack_template": ["自定义战斗/里/超刻/超刻.png"],
         # 角色技能模板,用来自动释放三消
         "skill_template": {
             "red": {"识别信号球": {"template": ["信号球/超刻_红.png"]}},
@@ -88,7 +88,7 @@ ROLE_ACTIONS = {
             "人物索引/露娜/终焉/终焉_终解.png",
             "人物索引/露娜/终焉/终焉_罪妄月华.png",
         ],
-        "attack_template": ["自定义战斗/终焉.png"],
+        "attack_template": ["自定义战斗/露娜/终焉/终焉.png"],
     },
     "比安卡·深痕": {
         "name": "深痕",
@@ -109,8 +109,8 @@ ROLE_ACTIONS = {
             "人物索引/比安卡/深痕/矩阵_深痕_终解.png",
         ],
         "attack_template": [
-            "自定义战斗/深痕.png",
-            "自定义战斗/深痕_p2.png",
+            "自定义战斗/比安卡/深痕/深痕.png",
+            "自定义战斗/比安卡/深痕/深痕_p2.png",
         ],
     },
     "拉弥亚·深谣": {
@@ -132,8 +132,8 @@ ROLE_ACTIONS = {
             "人物索引/拉弥亚/深谣/矩阵_深谣_茕心溯愿.png",
         ],
         "attack_template": [
-            "自定义战斗/深谣_p1.png",
-            "自定义战斗/深谣_p2.png",
+            "自定义战斗/拉弥亚/深谣/深谣_p1.png",
+            "自定义战斗/拉弥亚/深谣/深谣_p2.png",
         ],
     },
     "露西亚·深红囚影": {
@@ -154,7 +154,7 @@ ROLE_ACTIONS = {
             "人物索引/露西亚/深红囚影/矩阵_深红囚影_终解.png",
             "人物索引/露西亚/深红囚影/矩阵_深红囚影_赤樗椿.png",
         ],
-        "attack_template": ["自定义战斗/深红囚影.png"],
+        "attack_template": ["自定义战斗/露西亚/深红囚影/深红囚影.png"],
     },
     "露西亚·誓焰": {
         "name": "誓焰",
@@ -174,7 +174,7 @@ ROLE_ACTIONS = {
             "人物索引/露西亚/誓焰/誓焰_粼海浮荧.png",
             "人物索引/露西亚/誓焰/誓焰_终解.png",
         ],
-        "attack_template": ["自定义战斗/誓焰.png"],
+        "attack_template": ["自定义战斗/露西亚/誓焰/誓焰.png"],
     },
     "曲·启明": {
         "name": "启明",
@@ -193,7 +193,7 @@ ROLE_ACTIONS = {
             "人物索引/曲/启明/矩阵_启明_梨缘韶华.png",
             "人物索引/曲/启明/矩阵_启明_终解.png",
         ],
-        "attack_template": ["自定义战斗/启明.png"],
+        "attack_template": ["自定义战斗/曲/启明/启明.png"],
         "skill_template": {
             "red": {"识别信号球": {"template": ["信号球/启明_红.png"]}},
             "blue": {"识别信号球": {"template": ["信号球/启明_蓝.png"]}},
@@ -214,7 +214,7 @@ ROLE_ACTIONS = {
             "人物索引/比安卡/晖暮/晖暮_绯烬黯棘.png",
             "人物索引/比安卡/晖暮/晖暮_旖夜咏奏.png",
         ],
-        "attack_template": ["自定义战斗/晖暮.png"],
+        "attack_template": ["自定义战斗/比安卡/晖暮/晖暮.png"],
     },
     "赛琳娜·希声": {
         "name": "希声",
@@ -229,7 +229,7 @@ ROLE_ACTIONS = {
             "人物索引/赛琳娜/希声/希声_终解.png",
             "人物索引/赛琳娜/希声/希声_缘纺祈糸.png",
         ],
-        "attack_template": ["自定义战斗/希声.png"],
+        "attack_template": ["自定义战斗/赛琳娜/希声/希声.png"],
         "skill_template": {
             "red": {"识别信号球": {"template": ["信号球/希声_红.png"]}},
             "blue": {"识别信号球": {"template": ["信号球/希声_蓝.png"]}},
@@ -249,7 +249,7 @@ ROLE_ACTIONS = {
             "人物索引/维罗妮卡/铮骨/铮骨_冥神绶寂.png",
             "人物索引/维罗妮卡/铮骨/铮骨_终解.png",
         ],
-        "attack_template": ["自定义战斗/铮骨.png"],
+        "attack_template": ["自定义战斗/维罗妮卡/铮骨/铮骨.png"],
     },
     "丽芙·霁梦": {
         "name": "霁梦",
@@ -264,7 +264,7 @@ ROLE_ACTIONS = {
             "人物索引/丽芙/霁梦/霁梦_终解.png",
             "人物索引/丽芙/霁梦/霁梦_莲歌行.png",
         ],
-        "attack_template": ["自定义战斗/霁梦普攻1.png"],
+        "attack_template": ["自定义战斗/丽芙/霁梦/霁梦_普攻1.png"],
         "skill_template": {
             "red": {"识别信号球": {"template": ["信号球/霁梦红球.png"]}},
             "blue": {"识别信号球": {"template": ["信号球/霁梦蓝球.png"]}},
@@ -284,7 +284,7 @@ ROLE_ACTIONS = {
             "人物索引/布偶熊/骇影/骇影_熊迹旅诗.png",
             "人物索引/布偶熊/骇影/骇影终解.png",
         ],
-        "attack_template": ["自定义战斗/骇影.png"],
+        "attack_template": ["自定义战斗/布偶熊/骇影/骇影.png"],
         "skill_template": {
             "red": {"识别信号球": {"template": ["信号球/超刻_红.png"]}},
         },
@@ -302,7 +302,7 @@ ROLE_ACTIONS = {
             "人物索引/莉莉丝/谬影/谬影_终解.png",
             "人物索引/莉莉丝/谬影/谬影_诡诈轮契.png",
         ],
-        "attack_template": ["自定义战斗/谬影.png"],
+        "attack_template": ["自定义战斗/莉莉丝/谬影/谬影.png"],
     },
     "亚里莎·回音": {
         "name": "谬影",
@@ -319,7 +319,7 @@ ROLE_ACTIONS = {
             "人物索引/亚里莎/回音/回音_终解.png",
             "人物索引/亚里莎/回音/回音_长夜瞭望.png",
         ],
-        "attack_template": ["自定义战斗/回音.png"],
+        "attack_template": ["自定义战斗/亚里莎/回音/回音.png"],
     },
     "艾拉·万华": {
         "name": "万华",
@@ -335,7 +335,7 @@ ROLE_ACTIONS = {
             "人物索引/艾拉/万华/万华_竞跃纷斓.png",
             "人物索引/艾拉/万华/万华_终解.png",
         ],
-        "attack_template": ["自定义战斗/万华.png"],
+        "attack_template": ["自定义战斗/艾拉/万华/万华.png"],
     },
     "丽芙·流光": {
         "name": "流光",
@@ -350,7 +350,7 @@ ROLE_ACTIONS = {
             "人物索引/丽芙/流光/流光_纺光同尘.png",
             "人物索引/丽芙/流光/流光_终解.png",
         ],
-        "attack_template": ["自定义战斗/浮游炮通用.png"],
+        "attack_template": ["自定义战斗/通用/浮游炮.png"],
     },
     "丽芙·仰光": {
         "name": "仰光",
@@ -365,7 +365,7 @@ ROLE_ACTIONS = {
             "人物索引/丽芙/仰光/仰光_深海少女.png",
             "人物索引/丽芙/仰光/仰光_终解.png",
         ],
-        "attack_template": ["自定义战斗/浮游炮通用.png"],
+        "attack_template": ["自定义战斗/通用/浮游炮.png"],
     },
     "丽芙·蚀暗": {
         "name": "蚀暗",
@@ -379,7 +379,7 @@ ROLE_ACTIONS = {
             "人物索引/丽芙/蚀暗/蚀暗.png",
             "人物索引/丽芙/蚀暗/蚀暗_终解.png",
         ],
-        "attack_template": ["自定义战斗/浮游炮通用.png"],
+        "attack_template": ["自定义战斗/通用/浮游炮.png"],
     },
     "薇拉·瑰丽": {
         "name": "瑰丽",
@@ -393,7 +393,7 @@ ROLE_ACTIONS = {
             "人物索引/薇拉/瑰丽/瑰丽.png",
             "人物索引/薇拉/瑰丽/瑰丽_终解.png",
         ],
-        "attack_template": ["自定义战斗/太刀通用.png"],
+        "attack_template": ["自定义战斗/通用/太刀.png"],
     },
     "21号·森息": {
         "name": "森息",
@@ -407,7 +407,7 @@ ROLE_ACTIONS = {
             "人物索引/21号/森息/森息.png",
             "人物索引/21号/森息/森息_终解.png",
         ],
-        "attack_template": ["自定义战斗/森息.png"],
+        "attack_template": ["自定义战斗/21号/森息/森息.png"],
     },
     "万事·明觉": {
         "name": "明觉",
@@ -421,7 +421,7 @@ ROLE_ACTIONS = {
             "人物索引/万事/明觉/明觉.png",
             "人物索引/万事/明觉/明觉_终解.png",
         ],
-        "attack_template": ["自定义战斗/明觉.png"],
+        "attack_template": ["自定义战斗/万事/明觉/明觉.png"],
     },
     "赛琳娜·幻奏": {
         "name": "幻奏",
@@ -437,7 +437,7 @@ ROLE_ACTIONS = {
             "人物索引/赛琳娜/幻奏/幻奏_梦隙流形.png",
             "人物索引/赛琳娜/幻奏/幻奏_终解.png",
         ],
-        "attack_template": ["自定义战斗/幻奏.png"],
+        "attack_template": ["自定义战斗/赛琳娜/幻奏/幻奏.png"],
     },
     "七实·芒星之迹": {
         "name": "芒星之迹",
@@ -453,7 +453,10 @@ ROLE_ACTIONS = {
             "人物索引/七实/芒星之迹/芒星之迹_秘龙驰星.png",
             "人物索引/七实/芒星之迹/芒星之迹_终解.png",
         ],
-        "attack_template": ["自定义战斗/芒星之迹.png"],
+        "attack_template": [
+            "自定义战斗/七实/芒星之迹/芒星之迹.png",
+            "自定义战斗/七实/芒星之迹/芒星之迹_p2.png",
+        ],
     },
     "渡边·尘铭": {
         "name": "尘铭",
@@ -468,7 +471,7 @@ ROLE_ACTIONS = {
             "人物索引/渡边/尘铭/尘铭_终解.png",
             "人物索引/渡边/尘铭/尘铭_逐孽游骑.png",
         ],
-        "attack_template": ["自定义战斗/尘铭.png"],
+        "attack_template": ["自定义战斗/渡边/尘铭/尘铭.png"],
     },
     "万事·明晰梦": {
         "name": "明晰梦",
@@ -483,7 +486,7 @@ ROLE_ACTIONS = {
             "人物索引/万事/明晰梦/明晰梦_冥土渡魂.png",
             "人物索引/万事/明晰梦/明晰梦_终解.png",
         ],
-        "attack_template": ["自定义战斗/明晰梦.png"],
+        "attack_template": ["自定义战斗/万事/明晰梦/明晰梦.png"],
     },
     "罗塞塔·凛冽": {
         "name": "凛冽",
@@ -498,7 +501,7 @@ ROLE_ACTIONS = {
             "人物索引/罗塞塔/凛冽/凛冽_尼刻US1000.png",
             "人物索引/罗塞塔/凛冽/凛冽_终解.png",
         ],
-        "attack_template": ["自定义战斗/凛冽.png"],
+        "attack_template": ["自定义战斗/罗塞塔/凛冽/凛冽.png"],
     },
     "含英·檀心": {
         "name": "檀心",
@@ -515,7 +518,7 @@ ROLE_ACTIONS = {
             "人物索引/含英/檀心/檀心_终解.png",
             "人物索引/含英/檀心/檀心_鸿韵绣春.png",
         ],
-        "attack_template": ["自定义战斗/檀心.png"],
+        "attack_template": ["自定义战斗/含英/檀心/檀心.png"],
     },
     "丽芙·极昼": {
         "name": "极昼",
@@ -531,7 +534,7 @@ ROLE_ACTIONS = {
             "人物索引/丽芙/极昼/极昼_终解.png",
             "人物索引/丽芙/极昼/极昼_绮愿稚梦.png",
         ],
-        "attack_template": ["自定义战斗/极昼.png"],
+        "attack_template": ["自定义战斗/丽芙/极昼/极昼.png"],
     },
     "薇拉·灼惘": {
         "name": "灼惘",
@@ -563,7 +566,7 @@ ROLE_ACTIONS = {
             "人物索引/七实/遥星之座/遥星之座.png",
             "人物索引/七实/遥星之座/遥星之座_终解.png",
         ],
-        "attack_template": ["自定义战斗/芒星之迹.png"],
+        "attack_template": ["自定义战斗/七实/遥星之座/遥星之座.png"],
     },
     "薇拉·绯耀": {
         "name": "绯耀",
@@ -579,7 +582,7 @@ ROLE_ACTIONS = {
             "人物索引/薇拉/绯耀/绯耀_绮影凛然.png",
             "人物索引/薇拉/绯耀/绯耀_绯澜盛律.png",
         ],
-        "attack_template": ["自定义战斗/绯耀.png"],
+        "attack_template": ["自定义战斗/薇拉/绯耀/绯耀.png"],
     },
     "伊什梅尔·幻日": {
         "name": "幻日",
@@ -595,7 +598,7 @@ ROLE_ACTIONS = {
             "人物索引/伊什梅尔/幻日/幻日_巫渺魂祀.png",
             "人物索引/伊什梅尔/幻日/幻日_终解.png",
         ],
-        "attack_template": ["自定义战斗/幻日.png"],
+        "attack_template": ["自定义战斗/伊什梅尔/幻日/幻日.png"],
     },
     "卡列尼娜·辉晓": {
         "name": "辉晓",
@@ -611,7 +614,7 @@ ROLE_ACTIONS = {
             "人物索引/卡列尼娜/辉晓/辉晓_炸裂霓虹.png",
             "人物索引/卡列尼娜/辉晓/辉晓_终解.png",
         ],
-        "attack_template": ["自定义战斗/辉晓.png"],
+        "attack_template": ["自定义战斗/卡列尼娜/辉晓/辉晓.png"],
     },
     "罗塞塔·极锋": {
         "name": "极锋",
@@ -625,6 +628,6 @@ ROLE_ACTIONS = {
             "人物索引/罗塞塔/极锋/极锋.png",
             "人物索引/罗塞塔/极锋/极锋_终解.png",
         ],
-        "attack_template": ["自定义战斗/极锋.png"],
+        "attack_template": ["自定义战斗/罗塞塔/极锋/极锋.png"],
     },
 }

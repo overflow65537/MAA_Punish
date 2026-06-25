@@ -10,7 +10,7 @@
                     142
                 ],
                 "template": [
-                    "自定义战斗/深痕.png"
+                    "自定义战斗/比安卡/深痕/深痕.png"
                 ],
                 "green_mask": true
             }
@@ -30,7 +30,7 @@
                     142
                 ],
                 "template": [
-                    "自定义战斗/深痕_p2.png"
+                    "自定义战斗/比安卡/深痕/深痕_p2.png"
                 ],
                 "green_mask": true,
                 "threshold": 0.85

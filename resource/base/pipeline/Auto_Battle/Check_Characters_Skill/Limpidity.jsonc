@@ -37,7 +37,7 @@
                     86,
                     71
                 ],
-                "template": "自定义战斗/霁梦核心球.png",
+                "template": "自定义战斗/丽芙/霁梦/霁梦_核心球.png",
                 "green_mask": true
             }
         },
@@ -83,7 +83,7 @@
                     120,
                     116
                 ],
-                "template": "自定义战斗/霁梦普攻2.png",
+                "template": "自定义战斗/丽芙/霁梦/霁梦_普攻2.png",
                 "green_mask": true
             }
         },
@@ -101,7 +101,7 @@
                     120,
                     116
                 ],
-                "template": "自定义战斗/霁梦普攻1.png",
+                "template": "自定义战斗/丽芙/霁梦/霁梦_普攻1.png",
                 "green_mask": true
             }
         },

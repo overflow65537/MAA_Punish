@@ -9,7 +9,7 @@
                     142,
                     135
                 ],
-                "template": "自定义战斗/深谣_p1.png",
+                "template": "自定义战斗/拉弥亚/深谣/深谣_p1.png",
                 "green_mask": true
             }
         },
@@ -27,7 +27,7 @@
                     142,
                     135
                 ],
-                "template": "自定义战斗/深谣_p2.png",
+                "template": "自定义战斗/拉弥亚/深谣/深谣_p2.png",
                 "green_mask": true
             }
         },
@@ -45,7 +45,7 @@
                     116,
                     101
                 ],
-                "template": "自定义战斗/深谣_核心被动1.png",
+                "template": "自定义战斗/拉弥亚/深谣/深谣_核心被动1.png",
                 "green_mask": true
             }
         },
@@ -63,7 +63,7 @@
                     116,
                     101
                 ],
-                "template": "自定义战斗/深谣_核心被动2.png",
+                "template": "自定义战斗/拉弥亚/深谣/深谣_核心被动2.png",
                 "green_mask": true
             }
         },
