@@ -1,0 +1,103 @@
+{
+    "检查阶段p1_幻日": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    373,
+                    410,
+                    907,
+                    173
+                ],
+                "template": [
+                    "自定义战斗/伊什梅尔/幻日/幻日_p1.png",
+                    "自定义战斗/伊什梅尔/幻日/幻日_p1_2.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.85
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查阶段p2_幻日": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    373,
+                    410,
+                    907,
+                    173
+                ],
+                "template": [
+                    "自定义战斗/伊什梅尔/幻日/幻日_p2.png",
+                    "自定义战斗/伊什梅尔/幻日/幻日_p2_2.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.85
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查p2特殊攻击_幻日": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    670,
+                    562,
+                    142,
+                    104
+                ],
+                "method": 40,
+                "lower": [
+                    138,
+                    169,
+                    238
+                ],
+                "upper": [
+                    139,
+                    170,
+                    255
+                ],
+                "count": 20
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查p2核心条_幻日": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    719,
+                    624,
+                    33,
+                    5
+                ],
+                "method": 40,
+                "lower": [
+                    111,
+                    46,
+                    243
+                ],
+                "upper": [
+                    115,
+                    57,
+                    255
+                ],
+                "count": 100,
+                "connected": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    }
+}

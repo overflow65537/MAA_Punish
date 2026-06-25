@@ -587,10 +587,10 @@ ROLE_ACTIONS = {
     "伊什梅尔·幻日": {
         "name": "幻日",
         "type": "Support",
-        "cls_name": "GeneralFight",
+        "cls_name": "Parhelion",
         "metadata": {
             "nihil": 100,
-            "generation": 0.5,
+            "generation": 2,
         },
         "template": [
             "人物索引/伊什梅尔/幻日/幻日.png",
