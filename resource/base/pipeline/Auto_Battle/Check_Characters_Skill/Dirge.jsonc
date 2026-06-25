@@ -1,0 +1,31 @@
+{
+    "检查核心被动_亡歌": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    691,
+                    602,
+                    57,
+                    52
+                ],
+                "method": 40,
+                "lower": [
+                    98,
+                    82,
+                    255
+                ],
+                "upper": [
+                    112,
+                    140,
+                    255
+                ],
+                "count": 25,
+                "connected": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    }
+}

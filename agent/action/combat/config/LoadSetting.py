@@ -633,4 +633,18 @@ ROLE_ACTIONS = {
             "自定义战斗/罗塞塔/极锋/极锋_p2.png",
         ],
     },
+    "涅缇娅·亡歌": {
+        "name": "亡歌",
+        "type": "Support",
+        "cls_name": "Dirge",
+        "metadata": {
+            "nihil": 100,
+            "generation": 3,
+        },
+        "template": [
+            "人物索引/涅缇娅/亡歌/亡歌.png",
+            "人物索引/涅缇娅/亡歌/亡歌_终解.png",
+        ],
+        "attack_template": ["自定义战斗/涅缇娅/亡歌/亡歌.png"],
+    },
 }
