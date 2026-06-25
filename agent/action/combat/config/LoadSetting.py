@@ -292,10 +292,10 @@ ROLE_ACTIONS = {
     "莉莉丝·谬影": {
         "name": "谬影",
         "type": "Support",
-        "cls_name": "GeneralFight",
+        "cls_name": "Daemonissa",
         "metadata": {
             "dark": 100,
-            "generation": 0.5,  # 未适配专属战斗逻辑
+            "generation": 2,
         },
         "template": [
             "人物索引/莉莉丝/谬影/谬影.png",
