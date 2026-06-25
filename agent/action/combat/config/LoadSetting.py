@@ -442,10 +442,10 @@ ROLE_ACTIONS = {
     "七实·芒星之迹": {
         "name": "芒星之迹",
         "type": "Tank",
-        "cls_name": "GeneralFight",
+        "cls_name": "Startrail",
         "metadata": {
             "lightning": 100,
-            "generation": 0.5,
+            "generation": 2,
         },
         "template": [
             "人物索引/七实/芒星之迹/芒星之迹.png",

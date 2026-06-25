@@ -1,0 +1,102 @@
+{
+    "检查阶段p2_芒星之迹": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1113,
+                    556,
+                    138,
+                    142
+                ],
+                "template": [
+                    "自定义战斗/七实/芒星之迹/芒星之迹_p2.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.85
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查核心被动_芒星之迹": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    670,
+                    581,
+                    146,
+                    91
+                ],
+                "method": 40,
+                "lower": [
+                    23,
+                    145,
+                    235
+                ],
+                "upper": [
+                    28,
+                    178,
+                    255
+                ],
+                "count": 100,
+                "connected": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查红球大于3_芒星之迹": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    936,
+                    495,
+                    100,
+                    30
+                ],
+                "method": 6,
+                "lower": [
+                    250
+                ],
+                "upper": [
+                    255
+                ],
+                "count": 20,
+                "connected": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查蓝球大于3_芒星之迹": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1051,
+                    495,
+                    100,
+                    30
+                ],
+                "method": 6,
+                "lower": [
+                    250
+                ],
+                "upper": [
+                    255
+                ],
+                "count": 20,
+                "connected": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    }
+}
