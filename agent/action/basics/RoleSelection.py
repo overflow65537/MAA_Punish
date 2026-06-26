@@ -213,6 +213,12 @@ class RoleSelection(CustomAction):
     ) -> dict:
         if need_multi and self._is_attacker_only_candidates(candidates):
             return self._single_attacker_team(candidates)
+        if not need_multi:
+            return {
+                "attacker": best["attacker"],
+                "tank": {"name": None, "weight": 0},
+                "support": {"name": None, "weight": 0},
+            }
         return best
 
     @staticmethod
@@ -262,8 +268,14 @@ class RoleSelection(CustomAction):
         attacker: str | None,
         tank: str | None,
         support: str | None,
+        *,
+        need_multi: bool,
+        roguelike_equivalent: int | None,
     ) -> None:
         """战前配队完成后写入战斗队伍色位，供 CombatTask 读取。"""
+        if not need_multi or roguelike_equivalent is not None:
+            tank = None
+            support = None
         publish_team_roster(
             context,
             roster_from_role_selection(attacker, tank, support),
@@ -376,7 +388,12 @@ class RoleSelection(CustomAction):
                     context.run_task("返回")
 
         self._publish_combat_team_roster(
-            context, attacker_name, tank_name, support_name
+            context,
+            attacker_name,
+            tank_name,
+            support_name,
+            need_multi=need_multi,
+            roguelike_equivalent=roguelike_equivalent,
         )
         return CustomAction.RunResult(success=True)
 
@@ -561,7 +578,12 @@ class RoleSelection(CustomAction):
                     context.run_task("返回")
 
         self._publish_combat_team_roster(
-            context, attacker_name, tank_name, support_name
+            context,
+            attacker_name,
+            tank_name,
+            support_name,
+            need_multi=need_multi,
+            roguelike_equivalent=roguelike_equivalent,
         )
         return CustomAction.RunResult(success=True)
 

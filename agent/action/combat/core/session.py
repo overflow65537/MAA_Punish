@@ -692,13 +692,12 @@ class CombatTask:
 
         lost_elapsed = time.monotonic() - self._last_in_combat_time
         if lost_elapsed >= self.combat_ui_lost_timeout:
+            self.logger.info(
+                "战斗 UI 未命中超时 (%.1f/%.1fs)",
+                lost_elapsed,
+                self.combat_ui_lost_timeout,
+            )
             return "combat_ui_lost"
-
-        self.logger.debug(
-            "战斗 UI 未命中，继续战斗 (%.1f/%.1fs)",
-            lost_elapsed,
-            self.combat_ui_lost_timeout,
-        )
         return ""
 
     def _wait_in_combat(self) -> None:

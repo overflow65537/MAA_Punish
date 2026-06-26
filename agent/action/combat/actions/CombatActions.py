@@ -596,7 +596,7 @@ class CombatActions:
             text = result.best_result.sub_results[1].best_result.text
             parsed = _parse_from_ocr(text)
             if parsed is not None:
-                self.logger.info(f"识别到信号球数量: {parsed}（OCR 原文: {text!r}）")
+                #self.logger.info(f"识别到信号球数量: {parsed}（OCR 原文: {text!r}）")
                 return parsed
             self.logger.info(f"信号球 OCR 无法解析为 0～16: {text!r}")
 
