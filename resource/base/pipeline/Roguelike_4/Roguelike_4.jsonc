@@ -3,7 +3,7 @@
         "next": [
             "[JumpBack]覆盖布局菜单",
             "重开游戏_寒境曙光",
-            "标准进入方式_寒境曙光",
+            "[JumpBack]标准进入方式_寒境曙光",
             "[JumpBack]选择难度_寒境曙光",
             "[JumpBack]选择开局_寒境曙光",
             "[JumpBack]选择人物_寒境曙光",
@@ -80,8 +80,7 @@
             "type": "Custom",
             "param": {
                 "custom_action": "PPOverride",
-                "custom_action_param": {
-                }
+                "custom_action_param": {}
             }
         },
         "post_delay": 1500,
@@ -122,15 +121,7 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 1000,
-        "next": [
-            "寒境曙光",
-            "[JumpBack]选择难度_寒境曙光",
-            "[JumpBack]选择开局_寒境曙光",
-            "[JumpBack]选择人物_寒境曙光",
-            "[JumpBack]港口异常点_寒境曙光",
-            "[JumpBack]雪域异常点_寒境曙光"
-        ]
+        "post_delay": 1000
     },
     "雪域异常点_寒境曙光": {
         "recognition": {
@@ -1656,8 +1647,7 @@
             "type": "Custom",
             "param": {
                 "custom_action": "PPOverride",
-                "custom_action_param": {
-                }
+                "custom_action_param": {}
             }
         },
         "post_delay": 1000,
@@ -2325,10 +2315,10 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    911,
-                    543,
-                    119,
-                    62
+                    757,
+                    482,
+                    411,
+                    210
                 ],
                 "expected": "下一步"
             }
