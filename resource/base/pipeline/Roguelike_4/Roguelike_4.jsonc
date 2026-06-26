@@ -2624,13 +2624,50 @@
     },
     "检查军事分数": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "检查军事分数_颜色",
+                    "检查军事分数_数字"
+                ],
+                "box_index": 1
+            }
+        }
+    },
+    "检查军事分数_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
             "param": {
                 "roi": [
-                    90,
-                    238,
-                    105,
-                    44
+                    0,
+                    147,
+                    293,
+                    389
+                ],
+                "lower": [
+                    235,
+                    125,
+                    125
+                ],
+                "upper": [
+                    255,
+                    151,
+                    151
+                ],
+                "count": 10
+            }
+        }
+    },
+    "检查军事分数_数字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "检查军事分数_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ],
                 "expected": "^\\d*$",
                 "only_rec": true
@@ -2639,13 +2676,51 @@
     },
     "检查军事倍率": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "检查军事倍率_颜色",
+                    "检查军事倍率_数字"
+                ],
+                "box_index": 1
+            }
+        }
+    },
+    "检查军事倍率_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
             "param": {
                 "roi": [
+                    142,
+                    213,
+                    157,
+                    103
+                ],
+                "lower": [
                     223,
-                    248,
-                    31,
-                    29
+                    223,
+                    223
+                ],
+                "upper": [
+                    255,
+                    255,
+                    255
+                ],
+                "count": 10,
+                "connected": true
+            }
+        }
+    },
+    "检查军事倍率_数字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "检查军事倍率_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    16,
+                    4
                 ],
                 "expected": "^\\d*$",
                 "only_rec": true
@@ -2654,13 +2729,51 @@
     },
     "检查经济分数": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "检查经济分数_颜色",
+                    "检查经济分数_数字"
+                ],
+                "box_index": 1
+            }
+        }
+    },
+    "检查经济分数_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
             "param": {
                 "roi": [
-                    90,
-                    327,
-                    105,
-                    44
+                    0,
+                    147,
+                    293,
+                    389
+                ],
+                "method": 40,
+                "lower": [
+                    19,
+                    75,
+                    223
+                ],
+                "upper": [
+                    20,
+                    81,
+                    240
+                ],
+                "count": 10
+            }
+        }
+    },
+    "检查经济分数_数字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "检查经济分数_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ],
                 "expected": "^\\d*$",
                 "only_rec": true
@@ -2669,13 +2782,51 @@
     },
     "检查经济倍率": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "检查经济倍率_颜色",
+                    "检查经济倍率_数字"
+                ],
+                "box_index": 1
+            }
+        }
+    },
+    "检查经济倍率_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
             "param": {
                 "roi": [
+                    171,
+                    291,
+                    129,
+                    120
+                ],
+                "lower": [
                     223,
-                    336,
-                    31,
-                    27
+                    223,
+                    223
+                ],
+                "upper": [
+                    255,
+                    255,
+                    255
+                ],
+                "count": 10,
+                "connected": true
+            }
+        }
+    },
+    "检查经济倍率_数字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "检查经济倍率_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    16,
+                    4
                 ],
                 "expected": "^\\d*$",
                 "only_rec": true
@@ -2684,13 +2835,51 @@
     },
     "检查科研分数": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "检查科研分数_颜色",
+                    "检查科研分数_数字"
+                ],
+                "box_index": 1
+            }
+        }
+    },
+    "检查科研分数_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
             "param": {
                 "roi": [
-                    90,
-                    412,
-                    107,
-                    46
+                    0,
+                    147,
+                    293,
+                    389
+                ],
+                "method": 40,
+                "lower": [
+                    106,
+                    118,
+                    237
+                ],
+                "upper": [
+                    106,
+                    125,
+                    253
+                ],
+                "count": 10
+            }
+        }
+    },
+    "检查科研分数_数字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "检查科研分数_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ],
                 "expected": "^\\d*$",
                 "only_rec": true
@@ -2699,13 +2888,51 @@
     },
     "检查科研倍率": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "检查科研倍率_颜色",
+                    "检查科研倍率_数字"
+                ],
+                "box_index": 1
+            }
+        }
+    },
+    "检查科研倍率_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
             "param": {
                 "roi": [
+                    171,
+                    375,
+                    128,
+                    115
+                ],
+                "lower": [
                     223,
-                    424,
-                    31,
-                    24
+                    223,
+                    223
+                ],
+                "upper": [
+                    255,
+                    255,
+                    255
+                ],
+                "count": 10,
+                "connected": true
+            }
+        }
+    },
+    "检查科研倍率_数字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "检查科研倍率_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    16,
+                    4
                 ],
                 "expected": "^\\d*$",
                 "only_rec": true
