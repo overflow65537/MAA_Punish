@@ -48,6 +48,9 @@ if TYPE_CHECKING:
 
 logger = logging.getLogger(__name__)
 
+# 退战时优先于「战斗中」检测的固定 overlay 节点（全模式启用）
+COMBAT_EXIT_OVERLAY_NODES = ("重启_寒境曙光",)
+
 
 class BaseCombatCheck(ABC):
     """战斗识别基类。"""
@@ -62,6 +65,16 @@ class BaseCombatCheck(ABC):
     @abstractmethod
     def in_combat(self, context: Context, combat: CombatTask) -> bool:
         """是否识别到战斗 UI（如闪避键）。动画遮挡导致短暂未命中时，框架不会立刻退战。"""
+
+    def match_exit_overlay(self, context: Context, combat: CombatTask) -> str | None:
+        """命中固定退战 overlay（如肉鸽重启界面）时返回节点名。"""
+        image = self._get_frame(context, combat)
+        for name in COMBAT_EXIT_OVERLAY_NODES:
+            result = context.run_recognition(name, image)
+            if result and result.hit:
+                logger.info("识别到战斗退出界面: %s", name)
+                return name
+        return None
 
     def in_outer_interface(self, context: Context, combat: CombatTask) -> bool:
         """是否处于战斗外界面（结算、菜单、大地图等）。仅在 in_combat 未命中时调用。"""

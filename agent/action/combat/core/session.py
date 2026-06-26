@@ -677,9 +677,11 @@ class CombatTask:
         """
         更新战斗 UI 可见状态并判断是否应退战。
 
-        优先 in_combat（快路径）：命中则立即继续，跳过外部界面检查。
-        未命中时再查 in_outer_interface，最后才计 8 秒丢失超时。
+        固定 overlay（重启等）→ in_combat → in_outer_interface → 8 秒丢失超时。
         """
+        if self.combat_check.match_exit_overlay(self.context, self):
+            return "outer_interface"
+
         if self.combat_check.in_combat(self.context, self):
             self.combat_ui_visible = True
             self._last_in_combat_time = time.monotonic()
