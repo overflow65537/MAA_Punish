@@ -49,7 +49,6 @@
                                 "[JumpBack]点击对话",
                                 "[JumpBack]跳过战斗对话_主线",
                                 "[JumpBack]进入战斗",
-                                "[JumpBack]自动反击",
                                 "[JumpBack]点击空白处关闭_速通",
                                 "[JumpBack]未选人",
                                 "[JumpBack]使用体力",
@@ -71,9 +70,6 @@
                     "description": "<p>保持持续战斗，不会因为没有敌人而暂停；若关卡需要解密或跑图，请改用自动检测模式。</p>",
                     "pipeline_override": {
                         "进入战斗": {
-                            "enabled": false
-                        },
-                        "自动反击": {
                             "enabled": false
                         }
                     },

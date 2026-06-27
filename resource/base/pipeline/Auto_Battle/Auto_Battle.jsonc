@@ -16,7 +16,6 @@
             "[JumpBack]确认跳过",
             "[JumpBack]跳过战斗对话_主线",
             "[JumpBack]进入战斗",
-            // "[JumpBack]自动反击",
             "[JumpBack]战斗中",
             "[JumpBack]点击对话",
             "[JumpBack]点击空白处关闭_速通",
@@ -361,22 +360,6 @@
             "type": "Click",
             "param": {}
         }
-    },
-    "自动反击": {
-        "recognition": {
-            "type": "Custom",
-            "param": {
-                "custom_recognition": "AutoCounter",
-                "custom_recognition_param": {
-                    "current_hp": ""
-                }
-            }
-        },
-        "pre_delay": 500,
-        "post_delay": 0,
-        "next": [
-            "[JumpBack]战斗中"
-        ]
     },
     "检查血量": {
         "recognition": {
