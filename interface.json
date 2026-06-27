@@ -1279,34 +1279,6 @@
                     }
                 }
             }
-        },
-        "同时选择多名角色": {
-            "type": "switch",
-            "description": "$option.同时选择多名角色.description",
-            "default_case": "Yes",
-            "cases": [
-                {
-                    "name": "Yes",
-                    "pipeline_override": {
-                        "选择角色程序": {
-                            "attach": {
-                                "selection_mode": "standard",
-                                "need_multi": true
-                            }
-                        },
-                        "选择角色程序_onlyNode": {
-                            "attach": {
-                                "selection_mode": "standard",
-                                "need_multi": true
-                            }
-                        }
-                    }
-                },
-                {
-                    "name": "No",
-                    "pipeline_override": {}
-                }
-            ]
         }
     }
 }
