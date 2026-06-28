@@ -643,7 +643,7 @@ class RoleSelection(CustomAction):
                 self.logger.info(f"找到角色 {role_name}, 开始尝试编入队伍")
                 box = role_reco.box  # type: ignore[attr-defined]
                 click_x = box[0] + 34
-                click_y = box[1] + box[3] + 34
+                click_y = box[1] + 40
                 for _ in range(4):
                     context.tasker.controller.post_click(click_x, click_y).wait()
                     image = context.tasker.controller.post_screencap().wait().get()
