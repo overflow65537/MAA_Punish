@@ -40,7 +40,8 @@
                     "pipeline_override": {
                         "战斗辅助": {
                             "next": [
-                                "循环执行器",
+                                "[JumpBack]覆盖布局菜单",
+                                "[JumpBack]自动闪避后攻击",
                                 "[JumpBack]战斗重启1",
                                 "[JumpBack]播放剧情",
                                 "[JumpBack]主线跳过",

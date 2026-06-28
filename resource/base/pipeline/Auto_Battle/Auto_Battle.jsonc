@@ -8,7 +8,7 @@
         "rate_limit": 0,
         "next": [
             "[JumpBack]覆盖布局菜单",
-            "[JumpBack]自动闪避",
+            "[JumpBack]自动闪避后攻击",
             "[JumpBack]战斗重启1",
             "[JumpBack]播放剧情",
             "[JumpBack]主线跳过",
@@ -39,6 +39,19 @@
                 "custom_action": "CombatRunner"
             }
         }
+    },
+    "自动闪避后攻击": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "自动闪避"
+                ]
+            }
+        },
+        "next": [
+            "攻击"
+        ]
     },
     "点击空白处关闭_速通": {
         "recognition": {
