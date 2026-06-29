@@ -18,7 +18,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""???????????"""
+"""战斗角色 do_perform 公共辅助函数。"""
 
 from __future__ import annotations
 
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
 
 
 def complete_rotation(role: BaseRole) -> None:
-    """Pipeline ???????CombatRunner ?????? main?"""
+    """单轮 combat 结束：single_shot 进 done，否则回到 main 供 CombatRunner 继续循环。"""
     if getattr(role.combat, "single_shot", False):
         role.phase = "done"
     else:
@@ -38,7 +38,7 @@ def complete_rotation(role: BaseRole) -> None:
 
 
 def combat_start(role: BaseRole, *, next_phase: str = "main") -> bool:
-    """idle ????? + ??????? phase??? True ??? tick ????"""
+    """idle 时锁镜头并普攻，进入 next_phase；True 表示本 tick 已处理。"""
     if role.phase != "idle":
         return False
     role.action.lens_lock()
@@ -48,7 +48,7 @@ def combat_start(role: BaseRole, *, next_phase: str = "main") -> bool:
 
 
 def done_attack(role: BaseRole) -> bool:
-    """done ????????? True ??? tick ????"""
+    """done 阶段执行普攻；True 表示本 tick 已处理。"""
     if role.phase != "done":
         return False
     role.action.attack()
@@ -56,6 +56,7 @@ def done_attack(role: BaseRole) -> bool:
 
 
 def finish_switch(role: BaseRole, *, attack_first: bool = False) -> None:
+    """切人收尾：可选先普攻，释放 QTE，进入 switch phase。"""
     if attack_first:
         role.action.attack()
     role.action.use_qte()
@@ -63,8 +64,10 @@ def finish_switch(role: BaseRole, *, attack_first: bool = False) -> None:
 
 
 def timed_out(deadline: float | None) -> bool:
+    """判断 monotonic 截止时间是否已到。"""
     return deadline is not None and time.monotonic() >= deadline
 
 
 def set_deadline(seconds: float) -> float:
+    """从当前时刻起 seconds 秒后返回 deadline。"""
     return time.monotonic() + seconds
