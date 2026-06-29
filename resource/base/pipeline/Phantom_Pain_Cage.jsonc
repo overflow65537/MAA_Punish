@@ -68,6 +68,12 @@
         }
     },
     "执行A区": {
+        "timeout": 5000,
+        "max_hit": 2,
+        "on_error": [
+            "执行A区",
+            "返回主菜单_err"
+        ],
         "action": {
             "type": "Click",
             "param": {
@@ -121,6 +127,12 @@
         ]
     },
     "执行B区": {
+        "timeout": 5000,
+        "max_hit": 2,
+        "on_error": [
+            "执行B区",
+            "返回主菜单_err"
+        ],
         "action": {
             "type": "Click",
             "param": {
@@ -168,6 +180,12 @@
         ]
     },
     "执行C区": {
+        "timeout": 5000,
+        "max_hit": 2,
+        "on_error": [
+            "执行C区",
+            "返回主菜单_err"
+        ],
         "action": {
             "type": "Click",
             "param": {
