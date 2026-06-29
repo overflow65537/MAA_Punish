@@ -18,13 +18,25 @@ RESOURCE_ITEMS = (
     "interface.json",
 )
 
+# agent 打包时排除开发/测试文件
+_AGENT_COPY_IGNORE = shutil.ignore_patterns(
+    "tests",
+    "test_support",
+    "pytest.ini",
+    ".pytest_cache",
+    "pytest-cache-files-*",
+    "__pycache__",
+    "*.pyc",
+)
+
 
 def install_resource():
     for name in RESOURCE_ITEMS:
         src = REPO_ROOT / name
         dst = install_path / name
         if src.is_dir():
-            shutil.copytree(src, dst, dirs_exist_ok=True)
+            ignore = _AGENT_COPY_IGNORE if name == "agent" else None
+            shutil.copytree(src, dst, dirs_exist_ok=True, ignore=ignore)
         else:
             dst.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(src, dst)
