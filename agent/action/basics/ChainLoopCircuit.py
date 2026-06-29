@@ -34,61 +34,46 @@ import time
 
 
 class ChainLoopCircuit(CustomAction):
+    _SKILL_BALL_NODES = (
+        "识别闪星_链合回路",
+        "识别爆破_链合回路",
+        "识别纵斩_链合回路",
+        "识别快枪_链合回路",
+    )
+
+    def _click_skill_ball(self, context: Context, result) -> bool:
+        if not result or not result.hit or not result.best_result:
+            return False
+        box = result.best_result.box
+        x = box[0] + box[2] // 2
+        y = box[1] + box[3] // 2
+        context.tasker.controller.post_click(x, y)
+        time.sleep(0.1)
+        context.tasker.controller.post_click(x, y)
+        return True
+
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
         image = context.tasker.controller.post_screencap().wait().get()
-        S4_ball = context.run_recognition("识别闪星_链合回路", image)
-        if S4_ball and S4_ball.hit and S4_ball.best_result:
-            x, y = (
-                S4_ball.best_result.box[0] + S4_ball.best_result.box[2] // 2,
-                S4_ball.best_result.box[1] + S4_ball.best_result.box[3] // 2,
-            )
-            context.tasker.controller.post_click(x, y)
-            time.sleep(0.1)
-            context.tasker.controller.post_click(x, y)
-            return CustomAction.RunResult(success=True)
 
-        S2_ball = context.run_recognition("识别爆破_链合回路", image)
-        if S2_ball and S2_ball.hit and S2_ball.best_result:
-            x, y = (
-                S2_ball.best_result.box[0] + S2_ball.best_result.box[2] // 2,
-                S2_ball.best_result.box[1] + S2_ball.best_result.box[3] // 2,
-            )
-            context.tasker.controller.post_click(x, y)
-            time.sleep(0.1)
-            context.tasker.controller.post_click(x, y)
-            return CustomAction.RunResult(success=True)
-
-        S3_ball = context.run_recognition("识别纵斩_链合回路", image)
-        if S3_ball and S3_ball.hit and S3_ball.best_result:
-            x, y = (
-                S3_ball.best_result.box[0] + S3_ball.best_result.box[2] // 2,
-                S3_ball.best_result.box[1] + S3_ball.best_result.box[3] // 2,
-            )
-            context.tasker.controller.post_click(x, y)
-            time.sleep(0.1)
-            context.tasker.controller.post_click(x, y)
-            return CustomAction.RunResult(success=True)
-        S1_ball = context.run_recognition("识别快枪_链合回路", image)
-        if S1_ball and S1_ball.hit and S1_ball.best_result:
-            x, y = (
-                S1_ball.best_result.box[0] + S1_ball.best_result.box[2] // 2,
-                S1_ball.best_result.box[1] + S1_ball.best_result.box[3] // 2,
-            )
-            context.tasker.controller.post_click(x, y)
-            time.sleep(0.1)
-            context.tasker.controller.post_click(x, y)
-            return CustomAction.RunResult(success=True)
+        skill_results = {
+            node: context.run_recognition(node, image)
+            for node in self._SKILL_BALL_NODES
+        }
+        for node in self._SKILL_BALL_NODES:
+            if self._click_skill_ball(context, skill_results[node]):
+                return CustomAction.RunResult(success=True)
 
         bul_ball = context.run_recognition("识别蓝球_链合回路", image)
         red_ball = context.run_recognition("识别红球_链合回路", image)
         yel_ball = context.run_recognition("识别黄球_链合回路", image)
         gra_ball = context.run_recognition("识别灰球_链合回路", image)
 
-        S1_ball = context.run_recognition("识别快枪_链合回路", image)
-        S2_ball = context.run_recognition("识别爆破_链合回路", image)
-        S3_ball = context.run_recognition("识别纵斩_链合回路", image)
+        S4_ball = skill_results["识别闪星_链合回路"]
+        S2_ball = skill_results["识别爆破_链合回路"]
+        S3_ball = skill_results["识别纵斩_链合回路"]
+        S1_ball = skill_results["识别快枪_链合回路"]
 
         matrix = [[0] * 8 for _ in range(8)]
         reco_list = [
