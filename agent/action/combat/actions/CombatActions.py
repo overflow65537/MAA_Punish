@@ -36,6 +36,11 @@ import re
 from typing import Any
 
 from action.combat.config.LoadSetting import ROLE_ACTIONS
+from action.combat.actions.signal_ball_layout import (
+    SIGNAL_BALL_SLOT_COUNT,
+    slot_index_from_box,
+)
+from action.combat.actions.signal_ball_strategy import find_elimination_target
 from action.combat.timing import DEFAULT_ACTIVE_TICK, active_delay
 from logger_component import LoggerComponent
 
@@ -397,6 +402,37 @@ class CombatActions:
         energy_result = self._run_recognition("技能_能量条", "技能_能量条", image)
         return bool(energy_result and energy_result.hit)
 
+    def _detect_signal_ball_status(self, image) -> list:
+        """三色 TemplateMatch → 长度 8 的状态表；基础设施失败返回 []。"""
+        ball_status: list = [None] * SIGNAL_BALL_SLOT_COUNT
+        for color in ["red", "blue", "yellow"]:
+            result = self._run_recognition(
+                f"识别信号球/{color}",
+                "识别信号球",
+                image,
+                self.template.get(color, {}),
+            )
+            if result is None:
+                return []
+            has_hit = bool(result.hit)
+            self.logger.info(
+                "识别到%s球: %s",
+                color,
+                result.filtered_results if has_hit else "无",
+            )
+            if not has_hit:
+                continue
+            for item in result.filtered_results:
+                if not isinstance(item, TemplateMatchResult):
+                    continue
+                pos = slot_index_from_box(item.box)
+                if isinstance(pos, int) and 0 <= pos < len(ball_status):
+                    ball_status[pos] = color
+                else:
+                    self.logger.warning("无效的位置索引: %s", pos)
+        self.logger.info("信号球状态: %s", ball_status)
+        return ball_status
+
     def Arrange_Signal_Balls(self, target_ball: str = "any") -> int:
         """
         识别三消位置
@@ -408,161 +444,13 @@ class CombatActions:
             self.logger.error("模板未加载")
             return 0
 
-        # 信号球位置坐标（用于位置分析）
-        ball_positions = [
-            (1220, 500),  # 1
-            (1111, 500),  # 2
-            (1003, 500),  # 3
-            (894, 500),  # 4
-            (786, 500),  # 5
-            (677, 500),  # 6
-            (569, 500),  # 7
-            (460, 500),  # 8
-        ]
-
-        def analyze_position(box) -> int:
-            """分析信号球位置"""
-            try:
-                # 确保box可以解包为4个整数
-                x, y, w, h = box
-                for idx, (pos_x, pos_y) in enumerate(ball_positions):
-                    if x <= pos_x <= x + w and y <= pos_y <= y + h:
-                        return idx
-                return -1
-            except (TypeError, ValueError) as e:
-                self.logger.error(f"解析box时出错: {e}, box值: {box}")
-                return -1
-
-        def detect_balls(image) -> list:
-            """统一处理信号球识别"""
-            ball_status: list = [None] * 8
-            for color in ["red", "blue", "yellow"]:
-                result = self._run_recognition(
-                    f"识别信号球/{color}",
-                    "识别信号球",
-                    image,
-                    self.template.get(color, {}),
-                )
-                has_hit = bool(result and result.hit)
-                if result is None:
-                    return []
-                self.logger.info(
-                    f"识别到{color}球: {result.filtered_results if has_hit else '无'}"
-                )
-                if has_hit:
-                    for item in result.filtered_results:
-                        if not isinstance(item, TemplateMatchResult):
-                            continue
-                        pos = analyze_position(item.box)
-                        if isinstance(pos, int) and 0 <= pos < len(ball_status):
-                            ball_status[pos] = color
-                        else:
-                            self.logger.warning(f"无效的位置索引: {pos}")
-            self.logger.info(f"信号球状态: {ball_status}")
-            return ball_status
-
-        def _find_optimal_ball(ball_list: list, target: str) -> int:
-            """消球决策逻辑"""
-            last_non_none_index = next(
-                (i for i, x in enumerate(reversed(ball_list)) if x is not None), None
-            )
-            valid_length = (
-                len(ball_list) - last_non_none_index
-                if last_non_none_index is not None
-                else 0
-            )
-
-            self.logger.info(f"有效长度: {valid_length}")
-
-            if valid_length == 0:
-                self.logger.info("未找到有效操作")
-                return 0
-
-            is_any = target == "any"
-
-            # 按优先级顺序检查
-            if result := _check_triple_direct(ball_list, valid_length, is_any, target):
-                return result
-
-            if result := _check_combo_opportunity(
-                ball_list, valid_length, is_any, target
-            ):
-                return result
-
-            if result := _check_any_triple(ball_list):
-                return result
-
-            return _select_non_empty(ball_list)
-
-        def _check_triple_direct(
-            ball_list: list, valid_length: int, is_any: bool, target: str
-        ) -> int:
-            """检查直接三连"""
-            for i in range(valid_length - 2):
-                if (
-                    is_any and ball_list[i] == ball_list[i + 1] == ball_list[i + 2]
-                ) or (
-                    not is_any
-                    and ball_list[i] == target
-                    and ball_list[i + 1] == target
-                    and ball_list[i + 2] == target
-                ):
-                    self.logger.info(
-                        f"第一优先级：{'任意' if is_any else '目标'}三连消除"
-                    )
-                    return i + 1
-            return 0
-
-        def _check_combo_opportunity(
-            ball_list: list, valid_length: int, is_any: bool, target: str
-        ) -> int:
-            """检查连击机会"""
-            candidate = 0
-            for i in [
-                idx for idx, x in enumerate(ball_list[:valid_length]) if x is not None
-            ]:
-                temp = ball_list[:i] + ball_list[i + 1 :]
-                for j in range(min(len(temp) - 1, valid_length - 1)):
-                    if j <= len(temp) - 3:
-                        if (is_any and temp[j] == temp[j + 1] == temp[j + 2]) or (
-                            not is_any and temp[j : j + 3] == [target] * 3
-                        ):
-                            self.logger.info(
-                                f"第二优先级：可形成{'任意' if is_any else '目标'}三连"
-                            )
-                            return -i
-
-                    if (is_any and temp[j] == temp[j + 1]) or (
-                        not is_any and temp[j] == target and temp[j + 1] == target
-                    ):
-                        self.logger.info(
-                            f"第二优先级：可形成{'任意' if is_any else '目标'}二连"
-                        )
-                        candidate = -i
-            return candidate
-
-        def _check_any_triple(ball_list: list) -> int:
-            """检查任意三连"""
-            for i in range(len(ball_list)):
-                if ball_list[i] is None:
-                    continue
-                temp = ball_list[:i] + ball_list[i + 1 :]
-                for j in range(len(temp) - 2):
-                    if temp[j] is not None and temp[j] == temp[j + 1] == temp[j + 2]:
-                        self.logger.info("第三优先级：任意三连消除")
-                        return -i
-            return 0
-
-        def _select_non_empty(ball_list: list) -> int:
-            """选择非空元素"""
-            return -2 if ball_list[0] is None else -1
-
-        # 主逻辑流程
         try:
             image = self._get_image()
-            ball_list = detect_balls(image)
-            target = _find_optimal_ball(ball_list, target_ball)
-            self.logger.info(f"最终目标球: {target}")
+            ball_list = self._detect_signal_ball_status(image)
+            target = find_elimination_target(
+                ball_list, target_ball, log=self.logger
+            )
+            self.logger.info("最终目标球: %s", target)
             return target
         except _RECOGNITION_INFRA_ERRORS:
             self.logger.exception("消球决策异常")
