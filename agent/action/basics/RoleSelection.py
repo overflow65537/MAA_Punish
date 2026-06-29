@@ -42,6 +42,8 @@ import numpy
 
 from action.combat.config import ROLE_ACTIONS
 from action.combat.core.team import (
+    TEAM_COLORS,
+    TEAM_ROSTER_NODE,
     publish_team_roster,
     roster_from_role_selection,
 )
@@ -276,10 +278,12 @@ class RoleSelection(CustomAction):
         if not need_multi or roguelike_equivalent is not None:
             tank = None
             support = None
-        publish_team_roster(
-            context,
-            roster_from_role_selection(attacker, tank, support),
-        )
+        roster = roster_from_role_selection(attacker, tank, support)
+        publish_team_roster(context, roster)
+        attach = {
+            color: str(roster.get(color, "")).strip() for color in TEAM_COLORS
+        }
+        self.logger.info("%s attach: %s", TEAM_ROSTER_NODE, attach)
 
     def _consume_cage_for_role(
         self, role_name: str, update_frequency: str
