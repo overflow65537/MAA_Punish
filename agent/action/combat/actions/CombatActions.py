@@ -33,6 +33,8 @@ from maa.define import (
 )
 import time
 import re
+from typing import Any
+
 from action.combat.config.LoadSetting import ROLE_ACTIONS
 from action.combat.timing import DEFAULT_ACTIVE_TICK, active_delay
 from logger_component import LoggerComponent
@@ -61,6 +63,25 @@ class CombatActions:
         self._logger_component = LoggerComponent(__name__)
         self.logger = self._logger_component.logger
 
+    def _combat_task(self):
+        role = getattr(self, "_role", None)
+        return role.combat if role is not None else None
+
+    def _get_image(self, *, fresh: bool = False) -> Any:
+        """优先复用 CombatTask.frame；fresh 或帧已失效时再截屏。"""
+        combat = self._combat_task()
+        if not fresh and combat is not None and combat.frame is not None:
+            return combat.frame
+        image = self.context.tasker.controller.post_screencap().wait().get()
+        if combat is not None:
+            combat.frame = image
+        return image
+
+    def _invalidate_frame(self) -> None:
+        combat = self._combat_task()
+        if combat is not None:
+            combat.frame = None
+
     def _auto_dodge(self, image=None):
         """
         自动闪避
@@ -68,11 +89,12 @@ class CombatActions:
         :param image: 可选，调用方已截屏时传入以避免重复截图
         """
         if image is None:
-            image = self.context.tasker.controller.post_screencap().wait().get()
+            image = self._get_image()
         need_dodge = self.context.run_recognition("自动闪避", image)
         if need_dodge and need_dodge.hit:
             time.sleep(0.1)
             self.context.run_action("闪避")
+            self._invalidate_frame()
             self.logger.info("自动闪避")
             return True
         return False
@@ -102,13 +124,15 @@ class CombatActions:
         攻击
         执行一次攻击操作。
         """
-        image = self.context.tasker.controller.post_screencap().wait().get()
+        image = self._get_image()
         if not self.skip_combat_gate:
             result = self.context.run_recognition("战斗中", image)
             if not (result and result.hit):
                 return False
         self._auto_dodge(image)
-        return self.context.run_action("攻击")
+        action_result = self.context.run_action("攻击")
+        self._invalidate_frame()
+        return action_result
 
     def continuous_attack(self, count: int = 10, interval: int = 100) -> bool:
         """
@@ -166,6 +190,7 @@ class CombatActions:
         """
         self.context.run_action("技能")
         time.sleep(duration / 1000)
+        self._invalidate_frame()
         return True
 
     def use_skill_until_empty(
@@ -250,8 +275,10 @@ class CombatActions:
             target = 2
         elif target < 1 or target > 8:
             return False
-        self._auto_dodge()
-        return self.context.run_action(f"消球{target}")
+        self._auto_dodge(self._get_image())
+        result = self.context.run_action(f"消球{target}")
+        self._invalidate_frame()
+        return result
 
     def trigger_qte(self, target: int = 1):
         """
@@ -262,8 +289,10 @@ class CombatActions:
         """
         if target not in (1, 2):
             raise ValueError("target 参数必须为 1 或 2")
-        self._auto_dodge()
-        return self.context.run_action(f"qte{target}")
+        self._auto_dodge(self._get_image())
+        result = self.context.run_action(f"qte{target}")
+        self._invalidate_frame()
+        return result
 
     def use_qte(self):
         """
@@ -271,7 +300,9 @@ class CombatActions:
         不识别、不自动闪避，仅 run_action。
         """
         self.context.run_action("qte1")
-        return self.context.run_action("qte2")
+        result = self.context.run_action("qte2")
+        self._invalidate_frame()
+        return result
 
     def _role_switch(self, color: str) -> bool:
         role = getattr(self, "_role", None)
@@ -297,48 +328,52 @@ class CombatActions:
         镜头锁定
         执行镜头锁定操作。
         """
-        self._auto_dodge()
-        return self.context.run_action("锁定视角")
+        self._auto_dodge(self._get_image())
+        result = self.context.run_action("锁定视角")
+        self._invalidate_frame()
+        return result
 
     def auxiliary_machine(self):
         """
         辅助机
         执行辅助机操作。
         """
-        self._auto_dodge()
-        return self.context.run_action("辅助机")
+        self._auto_dodge(self._get_image())
+        result = self.context.run_action("辅助机")
+        self._invalidate_frame()
+        return result
 
-    def check_status(self, node: str, pipeline_override: dict = {}):
+    def check_status(self, node: str, pipeline_override: dict | None = None, *, image: Any = None):
         """
         检查状态
         检查指定Pipeline节点状态，返回识别结果。
         :param node: Pipeline节点名
         :param pipeline_override: 节点覆盖参数
+        :param image: 可选，复用已有截图
         :return: 识别结果或False
         """
+        if pipeline_override is None:
+            pipeline_override = {}
         try:
-            # 获取截图
-            image = self.context.tasker.controller.post_screencap().wait().get()
-            # 识别并返回结果
+            if image is None:
+                image = self._get_image()
             result = self.context.run_recognition(node, image, pipeline_override)
             if result and result.hit:
                 return result
-            else:
-                return False
+            return False
         except Exception as e:
             self.logger.exception(node + ":" + str(e))
             return False
 
-    def check_Skill_energy_bar(self) -> bool:
+    def check_Skill_energy_bar(self, *, image: Any = None) -> bool:
         """
         检查技能能量条
         检查技能能量是否足够，足够时返回True。
         :return: bool
         """
         try:
-            # 获取截图
-            image = self.context.tasker.controller.post_screencap().wait().get()
-            # 识别并返回结果
+            if image is None:
+                image = self._get_image()
             energy_result = self.context.run_recognition("技能_能量条", image)
             return bool(energy_result and energy_result.hit)
 
@@ -509,7 +544,7 @@ class CombatActions:
 
         # 主逻辑流程
         try:
-            image = self.context.tasker.controller.post_screencap().wait().get()
+            image = self._get_image()
             ball_list = detect_balls(image)
             target = _find_optimal_ball(ball_list, target_ball)
             self.logger.info(f"最终目标球: {target}")
@@ -582,7 +617,7 @@ class CombatActions:
 
             return None
 
-        image = self.context.tasker.controller.post_screencap().wait().get()
+        image = self._get_image()
         result = self.context.run_recognition("统计信号球数量", image)
 
         if (
@@ -609,7 +644,7 @@ class CombatActions:
         识别当前角色血量百分比。
         :return: int，血量百分比（0~100）
         """
-        image = self.context.tasker.controller.post_screencap().wait().get()
+        image = self._get_image()
         result = self.context.run_recognition("检查血量百分比", image)
 
         if result and result.hit and isinstance(result.best_result, ColorMatchResult):
