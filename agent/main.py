@@ -10,9 +10,12 @@ from maa.toolkit import Toolkit
 
 from agent_file import *
 
+from action.combat.config.validate_config import validate_role_actions
+
 
 def main():
     Toolkit.init_option("./")
+    validate_role_actions()
     if len(sys.argv) > 1:
         socket_id = sys.argv[-1]
     else:

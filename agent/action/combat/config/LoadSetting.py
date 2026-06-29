@@ -285,9 +285,6 @@ ROLE_ACTIONS = {
             "人物索引/布偶熊/骇影/骇影终解.png",
         ],
         "attack_template": ["自定义战斗/布偶熊/骇影/骇影.png"],
-        "skill_template": {
-            "red": {"识别信号球": {"template": ["信号球/超刻_红.png"]}},
-        },
     },
     "莉莉丝·谬影": {
         "name": "谬影",
@@ -305,7 +302,7 @@ ROLE_ACTIONS = {
         "attack_template": ["自定义战斗/莉莉丝/谬影/谬影.png"],
     },
     "亚里莎·回音": {
-        "name": "谬影",
+        "name": "回音",
         "type": "Support",
         "cls_name": "GeneralFight",
         "metadata": {
@@ -663,10 +660,5 @@ ROLE_ACTIONS = {
             "自定义战斗/神威/不落日/不落日.png",
             "自定义战斗/神威/不落日/不落日_释能.png",
         ],
-        "skill_template": {
-            "red": {"识别信号球": {"template": ["信号球/超刻_红.png"]}},
-            "blue": {"识别信号球": {"template": ["信号球/超刻_蓝.png"]}},
-            "yellow": {"识别信号球": {"template": ["信号球/超刻_黄.png"]}},
-        },
     },
 }
