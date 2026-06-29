@@ -29,6 +29,7 @@ from __future__ import annotations
 import time
 from typing import TYPE_CHECKING, Any
 
+from action.combat.core.combat_metrics import CombatMetrics, format_team_line
 from action.combat.core.provider import BaseCombatCheck
 from action.combat.core.role import BaseRole, SwitchPriority, resolve_role_name
 from action.combat.core.role_detect import (
@@ -124,8 +125,11 @@ class CombatTask:
         self._role_swap_cd_until: dict[str, float] = {}
         self.current_field_since: float = 0.0
 
-        self._logger_component = LoggerComponent(__name__)
+        self._logger_component = LoggerComponent(
+            __name__, log_prefix="combat", console=False
+        )
         self.logger = self._logger_component.logger
+        self.metrics: CombatMetrics | None = None
 
     @property
     def combat_ui_lost_elapsed(self) -> float:
@@ -143,6 +147,8 @@ class CombatTask:
 
         self._last_in_combat_time = time.monotonic()
         self.combat_ui_visible = True
+        self.loop_count = 0
+        self.metrics = CombatMetrics(start_time=time.monotonic())
         self.logger.info("进入战斗")
 
         if not self.load_team():
@@ -189,15 +195,6 @@ class CombatTask:
         if self._should_stop():
             return
 
-        #self.logger.debug(
-        #    "dispatch loop=%s cls=%s color=%s phase=%s switch=%s cd=%.1fs",
-        #    self.loop_count,
-        #    role.cls_name,
-        #    role.color,
-        #    role.phase,
-        #    self.can_switch(),
-        #    self.switch_cooldown_remaining(),
-        #)
         role.perform()
 
     def _set_team_cls_at(self, color: str, cls_name: str) -> None:
@@ -368,6 +365,12 @@ class CombatTask:
             self.current_role_name = display_name
 
         self.current_field_since = time.monotonic()
+        if self.metrics is not None and self.team is not None:
+            self.metrics.team_line = format_team_line(self.team)
+            self.logger.info(
+                "======== 战斗开始 ======== 队伍: %s",
+                self.metrics.team_line,
+            )
         return True
 
     def get_current_role(self) -> BaseRole | None:
@@ -437,6 +440,8 @@ class CombatTask:
         from_name = resolve_role_name(requester.cls_name)
         if self.is_switch_disabled():
             self.logger.info("切人跳过 [%s]: 切人已屏蔽", from_name)
+            if self.metrics is not None:
+                self.metrics.inc_switch_skip()
             requester.on_switch_failed()
             return False
         if not self.can_switch():
@@ -456,6 +461,8 @@ class CombatTask:
                     requester.color,
                     stay,
                 )
+            if self.metrics is not None:
+                self.metrics.inc_switch_skip()
             requester.on_switch_failed()
             return False
 
@@ -466,6 +473,8 @@ class CombatTask:
                 from_name,
                 requester.color,
             )
+            if self.metrics is not None:
+                self.metrics.inc_switch_skip()
             requester.on_switch_failed()
             return False
 
@@ -577,6 +586,8 @@ class CombatTask:
                 target,
                 self.team.current_cls(),
             )
+            if self.metrics is not None:
+                self.metrics.inc_switch()
             return True
 
         if not self.can_switch():
@@ -594,6 +605,8 @@ class CombatTask:
                     stay,
                     self.team.current_cls(),
                 )
+            if self.metrics is not None:
+                self.metrics.inc_switch_skip()
             return False
 
         attacker_cb = (lambda: attacker.action.attack()) if attacker else None
@@ -613,6 +626,8 @@ class CombatTask:
             elapsed = time.monotonic() - switch_started
             self.last_switch_attempt_time = time.monotonic()
             self._switch_attempt_cooldown = self.switch_fail_cooldown
+            if self.metrics is not None:
+                self.metrics.inc_switch_failure()
             self.logger.info(
                 "切人失败: %.1fs/%.1fs 内未切到 %s (%s)，继续当前角色（重试 CD %.0fs）",
                 elapsed,
@@ -651,6 +666,8 @@ class CombatTask:
             target,
             self.team.current_cls(),
         )
+        if self.metrics is not None:
+            self.metrics.inc_switch()
         return True
 
     def combat_end(self) -> None:
@@ -666,7 +683,10 @@ class CombatTask:
         self._role_swap_cd_until = {}
         self.current_field_since = 0.0
         reason = self.out_of_combat_reason or "unknown"
-        self.logger.info("战斗结束: %s", reason)
+        if self.metrics is not None:
+            self.metrics.finalize(reason, self.loop_count)
+            self.metrics.log_summary(self.logger)
+            self.metrics = None
 
     def _capture_frame(self) -> Any:
         """每轮循环截屏一次，供 in_combat / in_outer_interface 等复用。"""

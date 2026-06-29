@@ -53,6 +53,15 @@ _RECOGNITION_INFRA_ERRORS = (
     AttributeError,
 )
 
+_fallback_logger: Any = None
+
+
+def _get_fallback_logger():
+    global _fallback_logger
+    if _fallback_logger is None:
+        _fallback_logger = LoggerComponent(__name__).logger
+    return _fallback_logger
+
 
 class CombatActions:
     """通用战斗功能"""
@@ -74,12 +83,23 @@ class CombatActions:
                 if role_name == role["name"]:
                     self.template = role.get("skill_template", {})
                     break
-        self._logger_component = LoggerComponent(__name__)
-        self.logger = self._logger_component.logger
+
+    @property
+    def logger(self):
+        combat = self._combat_task()
+        if combat is not None:
+            return combat.logger
+        return _get_fallback_logger()
 
     def _combat_task(self):
         role = getattr(self, "_role", None)
         return role.combat if role is not None else None
+
+    def _metrics(self):
+        combat = self._combat_task()
+        if combat is None:
+            return None
+        return combat.metrics
 
     def _get_image(self, *, fresh: bool = False) -> Any:
         """优先复用 CombatTask.frame；fresh 或帧已失效时再截屏。"""
@@ -162,6 +182,9 @@ class CombatActions:
         self._auto_dodge(image)
         action_result = self.context.run_action("攻击")
         self._invalidate_frame()
+        metrics = self._metrics()
+        if metrics is not None:
+            metrics.inc_attack()
         return action_result
 
     def continuous_attack(self, count: int = 10, interval: int = 100) -> bool:
@@ -198,6 +221,9 @@ class CombatActions:
         闪避
         执行一次闪避操作。
         """
+        metrics = self._metrics()
+        if metrics is not None:
+            metrics.inc_dodge()
         return self.context.run_action("闪避")
 
     def long_press_dodge(self, duration: int = 1000):
@@ -210,6 +236,9 @@ class CombatActions:
             self.context.override_pipeline(
                 {"长按闪避": {"action": {"param": {"duration": duration}}}}
             )
+        metrics = self._metrics()
+        if metrics is not None:
+            metrics.inc_dodge()
         return self.context.run_action("长按闪避")
 
     def use_skill(self, duration: int = 0):
@@ -221,6 +250,9 @@ class CombatActions:
         self.context.run_action("技能")
         time.sleep(duration / 1000)
         self._invalidate_frame()
+        metrics = self._metrics()
+        if metrics is not None:
+            metrics.inc_skill()
         return True
 
     def use_skill_until_empty(
@@ -308,6 +340,9 @@ class CombatActions:
         self._auto_dodge(self._get_image())
         result = self.context.run_action(f"消球{target}")
         self._invalidate_frame()
+        metrics = self._metrics()
+        if metrics is not None:
+            metrics.inc_ball_clear()
         return result
 
     def trigger_qte(self, target: int = 1):
@@ -322,6 +357,9 @@ class CombatActions:
         self._auto_dodge(self._get_image())
         result = self.context.run_action(f"qte{target}")
         self._invalidate_frame()
+        metrics = self._metrics()
+        if metrics is not None:
+            metrics.inc_qte()
         return result
 
     def use_qte(self):
@@ -332,6 +370,9 @@ class CombatActions:
         self.context.run_action("qte1")
         result = self.context.run_action("qte2")
         self._invalidate_frame()
+        metrics = self._metrics()
+        if metrics is not None:
+            metrics.inc_qte(2)
         return result
 
     def _role_switch(self, color: str) -> bool:
@@ -415,11 +456,6 @@ class CombatActions:
             if result is None:
                 return []
             has_hit = bool(result.hit)
-            self.logger.info(
-                "识别到%s球: %s",
-                color,
-                result.filtered_results if has_hit else "无",
-            )
             if not has_hit:
                 continue
             for item in result.filtered_results:
@@ -430,7 +466,6 @@ class CombatActions:
                     ball_status[pos] = color
                 else:
                     self.logger.warning("无效的位置索引: %s", pos)
-        self.logger.info("信号球状态: %s", ball_status)
         return ball_status
 
     def Arrange_Signal_Balls(self, target_ball: str = "any") -> int:
@@ -447,10 +482,9 @@ class CombatActions:
         try:
             image = self._get_image()
             ball_list = self._detect_signal_ball_status(image)
-            target = find_elimination_target(
-                ball_list, target_ball, log=self.logger
-            )
-            self.logger.info("最终目标球: %s", target)
+            target = find_elimination_target(ball_list, target_ball)
+            if target:
+                self.logger.info("最终目标球: %s", target)
             return target
         except _RECOGNITION_INFRA_ERRORS:
             self.logger.exception("消球决策异常")
