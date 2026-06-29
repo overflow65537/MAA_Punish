@@ -399,6 +399,12 @@
         ]
     },
     "点击BOSS区_常态": {
+        "timeout": 5000,
+        "max_hits": 2,
+        "on_error": [
+            "点击BOSS区_常态",
+            "返回主菜单_err"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -439,6 +445,12 @@
         ]
     },
     "点击BOSS区_已击杀": {
+        "timeout": 5000,
+        "max_hits": 2,
+        "on_error": [
+            "点击BOSS区_已击杀",
+            "返回主菜单_err"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -469,6 +481,12 @@
         ]
     },
     "点击特遣区": {
+        "timeout": 5000,
+        "max_hits": 2,
+        "on_error": [
+            "点击特遣区",
+            "返回主菜单_err"
+        ],
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -612,6 +630,12 @@
         "post_delay": 1000
     },
     "点击常序区": {
+        "timeout": 5000,
+        "max_hits": 2,
+        "on_error": [
+            "点击常序区",
+            "返回主菜单_err"
+        ],
         "recognition": {
             "type": "TemplateMatch",
             "param": {
