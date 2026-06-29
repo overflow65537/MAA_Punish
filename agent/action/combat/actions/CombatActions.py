@@ -39,6 +39,15 @@ from action.combat.config.LoadSetting import ROLE_ACTIONS
 from action.combat.timing import DEFAULT_ACTIVE_TICK, active_delay
 from logger_component import LoggerComponent
 
+# run_recognition / 截图等基础设施故障；正常「未命中」不抛这些异常。
+_RECOGNITION_INFRA_ERRORS = (
+    RuntimeError,
+    OSError,
+    ValueError,
+    TypeError,
+    AttributeError,
+)
+
 
 class CombatActions:
     """通用战斗功能"""
@@ -81,6 +90,22 @@ class CombatActions:
         combat = self._combat_task()
         if combat is not None:
             combat.frame = None
+
+    def _run_recognition(
+        self,
+        label: str,
+        node: str,
+        image: Any,
+        pipeline_override: dict | None = None,
+    ) -> Any | None:
+        """调用 Pipeline 识别；基础设施异常记 ERROR 堆栈并返回 None（非「未命中」）。"""
+        try:
+            if pipeline_override is None:
+                return self.context.run_recognition(node, image)
+            return self.context.run_recognition(node, image, pipeline_override)
+        except _RECOGNITION_INFRA_ERRORS:
+            self.logger.exception("识别异常 [%s]", label)
+            return None
 
     def _auto_dodge(self, image=None):
         """
@@ -354,16 +379,12 @@ class CombatActions:
         """
         if pipeline_override is None:
             pipeline_override = {}
-        try:
-            if image is None:
-                image = self._get_image()
-            result = self.context.run_recognition(node, image, pipeline_override)
-            if result and result.hit:
-                return result
-            return False
-        except Exception as e:
-            self.logger.exception(node + ":" + str(e))
-            return False
+        if image is None:
+            image = self._get_image()
+        result = self._run_recognition(node, node, image, pipeline_override)
+        if result and result.hit:
+            return result
+        return False
 
     def check_Skill_energy_bar(self, *, image: Any = None) -> bool:
         """
@@ -371,15 +392,10 @@ class CombatActions:
         检查技能能量是否足够，足够时返回True。
         :return: bool
         """
-        try:
-            if image is None:
-                image = self._get_image()
-            energy_result = self.context.run_recognition("技能_能量条", image)
-            return bool(energy_result and energy_result.hit)
-
-        except Exception as e:
-            self.logger.exception("检查技能_能量条:" + str(e))
-            return False
+        if image is None:
+            image = self._get_image()
+        energy_result = self._run_recognition("技能_能量条", "技能_能量条", image)
+        return bool(energy_result and energy_result.hit)
 
     def Arrange_Signal_Balls(self, target_ball: str = "any") -> int:
         """
@@ -421,8 +437,11 @@ class CombatActions:
             """统一处理信号球识别"""
             ball_status: list = [None] * 8
             for color in ["red", "blue", "yellow"]:
-                result = self.context.run_recognition(
-                    "识别信号球", image, self.template.get(color, {})
+                result = self._run_recognition(
+                    f"识别信号球/{color}",
+                    "识别信号球",
+                    image,
+                    self.template.get(color, {}),
                 )
                 has_hit = bool(result and result.hit)
                 if result is None:
@@ -434,15 +453,11 @@ class CombatActions:
                     for item in result.filtered_results:
                         if not isinstance(item, TemplateMatchResult):
                             continue
-                        try:
-                            pos = analyze_position(item.box)
-                            # 确保pos是整数且在有效范围内
-                            if isinstance(pos, int) and 0 <= pos < len(ball_status):
-                                ball_status[pos] = color
-                            else:
-                                self.logger.warning(f"无效的位置索引: {pos}")
-                        except Exception as e:
-                            self.logger.error(f"处理信号球时出错: {e}")
+                        pos = analyze_position(item.box)
+                        if isinstance(pos, int) and 0 <= pos < len(ball_status):
+                            ball_status[pos] = color
+                        else:
+                            self.logger.warning(f"无效的位置索引: {pos}")
             self.logger.info(f"信号球状态: {ball_status}")
             return ball_status
 
@@ -549,8 +564,8 @@ class CombatActions:
             target = _find_optimal_ball(ball_list, target_ball)
             self.logger.info(f"最终目标球: {target}")
             return target
-        except Exception as e:
-            self.logger.info(f"消球决策异常: {str(e)}")
+        except _RECOGNITION_INFRA_ERRORS:
+            self.logger.exception("消球决策异常")
             return 0
 
     def count_signal_balls(self) -> int:
