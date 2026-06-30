@@ -53,7 +53,6 @@
             "Node.Recognition.Succeeded": "$focus.矩阵循生"
         }
     },
-
     "返回_矩阵循生": {
         "recognition": {
             "type": "OCR",
@@ -1115,8 +1114,7 @@
             "type": "Custom",
             "param": {
                 "custom_action": "PPOverride",
-                "custom_action_param": {
-                }
+                "custom_action_param": {}
             }
         },
         "post_delay": 1000,
@@ -1159,8 +1157,7 @@
             "type": "Custom",
             "param": {
                 "custom_action": "PPOverride",
-                "custom_action_param": {
-                }
+                "custom_action_param": {}
             }
         },
         "next": [
@@ -1587,6 +1584,9 @@
                     }
                 ]
             }
+        },
+        "post_wait_freezes": {
+            "time": 1000
         },
         "action": {
             "type": "Click"
