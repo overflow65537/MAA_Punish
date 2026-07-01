@@ -1,88 +1,636 @@
 {
     "洗词缀": {
         "next": [
-            "确认目标词缀",
-            "[JumpBack]结果检查_不可信",
-            "[JumpBack]结果检查_可信"
+            "到达指定位置",
+            "[JumpBack]进入培养界面",
+            "[JumpBack]进入意识界面",
+            "[JumpBack]打开意识界面"
         ]
     },
-    "确认目标词缀": {
+    "进入培养界面": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    410,
-                    424,
-                    699,
-                    30
-                ],
-                "expected": "目标词缀"
-            }
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "$focus.确认目标词缀"
-        }
-    },
-    "结果检查左侧_不可信": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    270,
-                    422,
-                    319,
-                    33
+                    854,
+                    620,
+                    191,
+                    100
                 ],
                 "expected": [
-                    "(?=.*攻击)(?=.*防御)",
-                    "(?=.*生命)(?=.*攻击)",
-                    "(?=.*攻击)(?=.*会心)",
-                    "(?=.*生命)(?=.*会心)",
-                    "黄球",
-                    "蓝球",
-                    "红球",
-                    "普通攻击",
-                    "必杀技",
-                    "核心被动",
-                    "qte"
+                    "培养"
                 ]
             }
         },
-        "inverse": true,
         "action": {
-            "type": "StopTask"
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    0,
+                    -90,
+                    0,
+                    0
+                ]
+            }
         },
-        "focus": {
-            "Node.Recognition.Succeeded": "$focus.结果检查左侧_不可信"
+        "post_wait_freezes": {
+            "time": 500
         }
     },
-    "结果检查_不可信": {
+    "进入意识界面": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    804,
-                    423,
-                    206,
-                    29
+                    781,
+                    43,
+                    292,
+                    150
                 ],
                 "expected": [
-                    "(?=.*攻击)(?=.*防御)",
-                    "(?=.*生命)(?=.*攻击)",
-                    "(?=.*攻击)(?=.*会心)",
-                    "(?=.*生命)(?=.*会心)",
-                    "黄球",
-                    "蓝球",
-                    "红球",
-                    "普通攻击",
-                    "必杀技",
-                    "核心被动",
-                    "职业技",
-                    "qte"
+                    "基础属性"
                 ]
             }
         },
-        "inverse": true,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    43,
+                    132,
+                    -61,
+                    -9
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500
+        }
+    },
+    "打开意识界面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    815,
+                    585,
+                    183,
+                    126
+                ],
+                "expected": [
+                    "意识"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500
+        }
+    },
+    "到达指定位置": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    2,
+                    175,
+                    238,
+                    162
+                ],
+                "expected": [
+                    "共鸣"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]1号意识",
+            "[JumpBack]2号意识",
+            "[JumpBack]3号意识",
+            "[JumpBack]4号意识",
+            "[JumpBack]5号意识",
+            "[JumpBack]6号意识",
+            "空任务"
+        ]
+    },
+    "1号意识": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    203,
+                    580,
+                    510,
+                    134
+                ],
+                "expected": [
+                    "1"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500
+        },
+        "next": [
+            "[JumpBack]1号意识上半共鸣",
+            "[JumpBack]1号意识下半共鸣",
+            "空任务"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "1号意识"
+        }
+    },
+    "1号意识上半共鸣": {
+        "max_hit": 1,
+        "next": [
+            "上半共鸣达标",
+            "上半共鸣不可信",
+            "[JumpBack]上半共鸣"
+        ]
+    },
+    "1号意识下半共鸣": {
+        "max_hit": 1,
+        "next": [
+            "下半共鸣达标",
+            "下半共鸣不可信",
+            "[JumpBack]下半共鸣"
+        ]
+    },
+    "2号意识": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    203,
+                    580,
+                    510,
+                    134
+                ],
+                "expected": [
+                    "2"
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]2号意识上半共鸣",
+            "[JumpBack]2号意识下半共鸣",
+            "空任务"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "2号意识"
+        }
+    },
+    "2号意识上半共鸣": {
+        "max_hit": 1,
+        "next": [
+            "上半共鸣达标",
+            "上半共鸣不可信",
+            "[JumpBack]上半共鸣"
+        ]
+    },
+    "2号意识下半共鸣": {
+        "max_hit": 1,
+        "next": [
+            "下半共鸣达标",
+            "下半共鸣不可信",
+            "[JumpBack]下半共鸣"
+        ]
+    },
+    "3号意识": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    203,
+                    580,
+                    510,
+                    134
+                ],
+                "expected": [
+                    "3"
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]3号意识上半共鸣",
+            "[JumpBack]3号意识下半共鸣",
+            "空任务"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "3号意识"
+        }
+    },
+    "3号意识上半共鸣": {
+        "max_hit": 1,
+        "next": [
+            "上半共鸣达标",
+            "上半共鸣不可信",
+            "[JumpBack]上半共鸣"
+        ]
+    },
+    "3号意识下半共鸣": {
+        "max_hit": 1,
+        "next": [
+            "下半共鸣达标",
+            "下半共鸣不可信",
+            "[JumpBack]下半共鸣"
+        ]
+    },
+    "4号意识": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    203,
+                    580,
+                    510,
+                    134
+                ],
+                "expected": [
+                    "4"
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]4号意识上半共鸣",
+            "[JumpBack]4号意识下半共鸣",
+            "空任务"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "4号意识"
+        }
+    },
+    "4号意识上半共鸣": {
+        "max_hit": 1,
+        "next": [
+            "上半共鸣达标",
+            "上半共鸣不可信",
+            "[JumpBack]上半共鸣"
+        ]
+    },
+    "4号意识下半共鸣": {
+        "max_hit": 1,
+        "next": [
+            "下半共鸣达标",
+            "下半共鸣不可信",
+            "[JumpBack]下半共鸣"
+        ]
+    },
+    "5号意识": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    203,
+                    580,
+                    510,
+                    134
+                ],
+                "expected": [
+                    "5"
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]5号意识上半共鸣",
+            "[JumpBack]5号意识下半共鸣",
+            "空任务"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "5号意识"
+        }
+    },
+    "5号意识上半共鸣": {
+        "max_hit": 1,
+        "next": [
+            "上半共鸣达标",
+            "上半共鸣不可信",
+            "[JumpBack]上半共鸣"
+        ]
+    },
+    "5号意识下半共鸣": {
+        "max_hit": 1,
+        "next": [
+            "下半共鸣达标",
+            "下半共鸣不可信",
+            "[JumpBack]下半共鸣"
+        ]
+    },
+    "6号意识": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    203,
+                    580,
+                    510,
+                    134
+                ],
+                "expected": [
+                    "6"
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]6号意识上半共鸣",
+            "[JumpBack]6号意识下半共鸣",
+            "空任务"
+        ],
+        "focus": {
+            "Node.Recognition.Succeeded": "6号意识"
+        }
+    },
+    "6号意识上半共鸣": {
+        "max_hit": 1,
+        "next": [
+            "上半共鸣达标",
+            "上半共鸣不可信",
+            "[JumpBack]上半共鸣"
+        ]
+    },
+    "6号意识下半共鸣": {
+        "max_hit": 1,
+        "next": [
+            "下半共鸣达标",
+            "下半共鸣不可信",
+            "[JumpBack]下半共鸣"
+        ]
+    },
+    "上半共鸣": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    839,
+                    155,
+                    391,
+                    120
+                ],
+                "expected": [
+                    "更换共鸣",
+                    "^十$"
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "开始上半共鸣",
+            "[JumpBack]选择材料",
+            "[JumpBack]消耗意识或者材料"
+        ]
+    },
+    "下半共鸣": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    855,
+                    387,
+                    415,
+                    175
+                ],
+                "expected": [
+                    "更换共鸣",
+                    "^十$"
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "开始下半共鸣",
+            "[JumpBack]选择材料",
+            "[JumpBack]消耗意识或者材料"
+        ]
+    },
+    "开始上半共鸣": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "开始共鸣颜色",
+                    "开始共鸣文字"
+                ],
+                "box_index": 1
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "确认上半目标词缀",
+            "[JumpBack]上半结果检查_不可信",
+            "[JumpBack]上半结果检查_可信"
+        ]
+    },
+    "开始下半共鸣": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "开始共鸣颜色",
+                    "开始共鸣文字"
+                ],
+                "box_index": 1
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "确认下半目标词缀",
+            "[JumpBack]下半结果检查_不可信",
+            "[JumpBack]下半结果检查_可信"
+        ]
+    },
+    "开始共鸣颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    957,
+                    550,
+                    323,
+                    170
+                ],
+                "lower": [
+                    250,
+                    250,
+                    250
+                ],
+                "upper": [
+                    255,
+                    255,
+                    255
+                ]
+            }
+        }
+    },
+    "开始共鸣文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "开始共鸣颜色",
+                "only_rec": true,
+                "expected": [
+                    "开始共鸣"
+                ]
+            }
+        }
+    },
+    "选择材料": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    290,
+                    77,
+                    265,
+                    96
+                ],
+                "expected": [
+                    "选择1种消耗"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    691,
+                    219
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500
+        },
+        "next": [
+            "确认材料"
+        ]
+    },
+    "确认材料": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    685,
+                    448,
+                    515,
+                    272
+                ],
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "消耗意识或者材料": {
+        "post_wait_freezes": {
+            "time": 500
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    999,
+                    283,
+                    279,
+                    151
+                ],
+                "expected": [
+                    "消耗材料"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "上半共鸣达标": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    938,
+                    127,
+                    237,
+                    103
+                ],
+                "expected": [
+                    "(?!)"
+                ]
+            }
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "上半共鸣达标"
+        }
+    },
+    "上半共鸣不可信": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "上半共鸣不可信颜色",
+                    "上半共鸣不可信文字"
+                ]
+            }
+        },
         "action": {
             "type": "StopTask"
         },
@@ -90,7 +638,332 @@
             "Node.Recognition.Succeeded": "$focus.结果检查_不可信"
         }
     },
-    "结果检查_可信": {
+    "上半共鸣不可信文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "上半共鸣不可信颜色",
+                "expected": [
+                    "^(?!.*(?:攻击|防御|生命|会心|黄球|蓝球|红球|普通攻击|必杀技|核心被动|职业技|qte|十)).*$"
+                ]
+            }
+        }
+    },
+    "上半共鸣不可信颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    938,
+                    127,
+                    237,
+                    103
+                ],
+                "methid": 6,
+                "lower": [
+                    0
+                ],
+                "upper": [
+                    105
+                ],
+                "count": 10
+            }
+        }
+    },
+    "下半共鸣达标": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    932,
+                    406,
+                    326,
+                    89
+                ],
+                "expected": [
+                    "(?!)"
+                ]
+            }
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "下半共鸣达标"
+        }
+    },
+    "下半共鸣不可信": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "下半共鸣不可信颜色",
+                    "下半共鸣不可信文字"
+                ]
+            }
+        },
+        "action": {
+            "type": "StopTask"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.结果检查_不可信"
+        }
+    },
+    "下半共鸣不可信文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "下半共鸣不可信颜色",
+                "expected": [
+                    "^(?!.*(?:攻击|防御|生命|会心|黄球|蓝球|红球|普通攻击|必杀技|核心被动|职业技|qte|十)).*$"
+                ]
+            }
+        }
+    },
+    "下半共鸣不可信颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    932,
+                    406,
+                    326,
+                    89
+                ],
+                "methid": 6,
+                "lower": [
+                    0
+                ],
+                "upper": [
+                    105
+                ],
+                "count": 10
+            }
+        }
+    },
+    "确认上半目标词缀": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "新技能位置",
+                    "共鸣描述颜色",
+                    "确认上半目标词缀_文字"
+                ]
+            }
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.确认目标词缀"
+        },
+        "next": [
+            "替换共鸣"
+        ]
+    },
+    "确认下半目标词缀": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "新技能位置",
+                    "共鸣描述颜色",
+                    "确认下半目标词缀_文字"
+                ]
+            }
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.确认目标词缀"
+        },
+        "next": [
+            "替换共鸣"
+        ]
+    },
+    "替换共鸣": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    610,
+                    428,
+                    670,
+                    292
+                ],
+                "expected": [
+                    "替换共鸣",
+                    "确定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "确认上半目标词缀_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "共鸣描述颜色",
+                "expected": [
+                    "(?!)"
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "确认下半目标词缀_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "共鸣描述颜色",
+                "expected": [
+                    "(?!)"
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "上半结果检查_不可信": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "新技能位置",
+                    "共鸣描述颜色",
+                    "检查结果不可信_文字"
+                ]
+            }
+        },
+        "action": {
+            "type": "StopTask"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.结果检查_不可信"
+        }
+    },
+    "下半结果检查_不可信": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "新技能位置",
+                    "共鸣描述颜色",
+                    "检查结果不可信_文字"
+                ]
+            }
+        },
+        "action": {
+            "type": "StopTask"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "$focus.结果检查_不可信"
+        }
+    },
+    "检查结果不可信_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "共鸣描述颜色",
+                "expected": [
+                    "^(?!.*(?:攻击|防御|生命|会心|黄球|蓝球|红球|普通攻击|必杀技|核心被动|职业技|qte)).*$"
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "共鸣描述颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": "新技能位置",
+                "roi_offset": [
+                    -229,
+                    33,
+                    234,
+                    57
+                ],
+                "method": 6,
+                "lower": [
+                    0
+                ],
+                "upper": [
+                    200
+                ],
+                "count": 10
+            }
+        }
+    },
+    "新技能位置": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "新技能位置颜色",
+                    "新技能位置文字"
+                ],
+                "box_index": 1
+            }
+        }
+    },
+    "新技能位置颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    404,
+                    335,
+                    876,
+                    180
+                ],
+                "method": 40,
+                "lower": [
+                    175,
+                    115,
+                    132
+                ],
+                "upper": [
+                    179,
+                    225,
+                    200
+                ],
+                "count": 100,
+                "connected": true
+            }
+        }
+    },
+    "新技能位置文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "新技能位置颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
+                "expected": [
+                    "^新技能$"
+                ]
+            }
+        }
+    },
+    "上半结果检查_可信": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    282,
+                    584,
+                    134,
+                    58
+                ],
+                "expected": "继续共鸣"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 200
+        }
+    },
+    "下半结果检查_可信": {
         "recognition": {
             "type": "OCR",
             "param": {
