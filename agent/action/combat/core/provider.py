@@ -37,7 +37,6 @@ from action.combat.core.team import (
     TEAM_COLORS,
     TeamSnapshot,
     format_team_snapshot_line,
-    is_generic_team_roster,
     load_team_roster_from_context,
 )
 
@@ -137,53 +136,38 @@ class CombatCheck(BaseCombatCheck):
 
     def detect_team(self, context: Context, combat: CombatTask) -> TeamSnapshot | None:
         """
-        进战识别：仅扫主站 attack_template；色位 roster 从「战斗队伍色位」节点读取。
+        进战识别：初次进入默认红色色位（R）为主站。
 
+        色位 roster 从「战斗队伍色位」节点读取；
         节点 attach 为空 → 单人队（仅当前识别到的角色）。
         """
-        image = self._get_frame(context, combat)
-        display_name, cls_name = detect_current_role(
-            context,
-            image,
-            on_tick=lambda: blind_attack_click(context),
-        )
-        combat.current_role_name = display_name
-
         roster = load_team_roster_from_context(context)
         if roster is None:
+            image = self._get_frame(context, combat)
+            display_name, cls_name = detect_current_role(
+                context,
+                image,
+                on_tick=lambda: blind_attack_click(context),
+            )
+            combat.current_role_name = display_name
             logger.info("战斗队伍色位为空，按单人队处理: %s", cls_name)
             return TeamSnapshot.solo(cls_name)
 
-        current = "R"
-        for color in TEAM_COLORS:
-            if roster.get(color) == cls_name:
-                current = color
-                break
-        else:
-            if is_generic_team_roster(roster):
-                logger.info(
-                    "预设编队 GeneralFight 占位，主站识别为 %s (%s)，默认色位 R",
-                    display_name,
-                    cls_name,
-                )
-            else:
-                logger.warning(
-                    "主站 %s 不在战前 roster %s 中，按 solo 处理",
-                    cls_name,
-                    roster,
-                )
-                return TeamSnapshot.solo(cls_name)
+        r_cls = roster.get("R", "")
+        if not r_cls:
+            logger.warning("战前 roster R 色位为空，按 solo 处理: %s", roster)
+            return TeamSnapshot.solo(roster.get("B") or roster.get("Y") or "GeneralFight")
 
         snapshot = TeamSnapshot.from_dict(
             {
                 "R": roster["R"],
                 "B": roster["B"],
                 "Y": roster["Y"],
-                "current": current,
+                "current": "R",
             }
         )
         if snapshot is None:
-            return TeamSnapshot.solo(cls_name)
+            return TeamSnapshot.solo(r_cls)
 
         logger.info(format_team_snapshot_line(snapshot))
         return snapshot
