@@ -254,14 +254,13 @@ class CombatTask:
 
         if detected_cls not in ("GeneralFight",) and display_name != "未知":
             self.logger.warning(
-                "色位 %s roster=%s 与场上 %s (%s) 不一致，按识别修正",
+                "色位 %s roster=%s 与场上 %s (%s) 不一致，保持原策略",
                 key,
                 roster_cls,
                 display_name,
                 detected_cls,
             )
-            self._rebind_role_at(key, detected_cls)
-            return display_name, detected_cls
+            return display_name, roster_cls
 
         if display_name != "未知":
             return display_name, roster_cls
@@ -297,7 +296,7 @@ class CombatTask:
 
         cur = self.team.current.upper()
         if self.team.cls_at(cur) == role.cls_name and detected_cls != role.cls_name:
-            if display_name != "未知":
+            if role.cls_name == "GeneralFight" and display_name != "未知":
                 self.logger.info(
                     "idle 校验: 色位 %s roster=%s，识别为 %s (%s)，修正策略",
                     cur,
