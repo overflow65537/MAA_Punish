@@ -144,7 +144,7 @@ def attempt_switch_to_color(
     color: str,
     target_cls: str,
     *,
-    attacker_callback: Callable[[], None] | None = None,
+    attacker_callback: Callable[[], Any] | None = None,
     verify_timeout: float = _DEFAULT_VERIFY_TIMEOUT,
     poll_interval: float = _DEFAULT_VERIFY_POLL,
     should_stop: Callable[[], bool] | None = None,
@@ -203,7 +203,7 @@ def click_qte_until_done(
     color: str,
     image: Any | None = None,
     *,
-    tick_callback: Callable[[], None] | None = None,
+    tick_callback: Callable[[], Any] | None = None,
     max_loops: int = _CLICK_QTE_MAX_LOOPS,
 ) -> bool:
     """

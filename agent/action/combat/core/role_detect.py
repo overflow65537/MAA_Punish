@@ -85,7 +85,7 @@ def detect_current_role(
     context: Context,
     image: Any,
     *,
-    on_tick: Callable[[], None] | None = None,
+    on_tick: Callable[[], Any] | None = None,
 ) -> tuple[str, str]:
     """
     按 attack_template 模板匹配当前上场角色。

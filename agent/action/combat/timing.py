@@ -27,6 +27,7 @@ from __future__ import annotations
 
 import time
 from collections.abc import Callable
+from typing import Any
 
 DEFAULT_ACTIVE_TICK = 0.05
 
@@ -34,7 +35,7 @@ DEFAULT_ACTIVE_TICK = 0.05
 def active_delay(
     seconds: float,
     *,
-    on_tick: Callable[[], None] | None = None,
+    on_tick: Callable[[], Any] | None = None,
     should_stop: Callable[[], bool] | None = None,
     tick_interval: float = DEFAULT_ACTIVE_TICK,
 ) -> bool:
