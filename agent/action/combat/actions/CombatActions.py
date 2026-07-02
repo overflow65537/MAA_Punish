@@ -415,11 +415,11 @@ class CombatActions:
             if result is None:
                 return []
             has_hit = bool(result.hit)
-            self.logger.info(
+            """self.logger.info(
                 "识别到%s球: %s",
                 color,
                 result.filtered_results if has_hit else "无",
-            )
+            )"""
             if not has_hit:
                 continue
             for item in result.filtered_results:
@@ -430,7 +430,7 @@ class CombatActions:
                     ball_status[pos] = color
                 else:
                     self.logger.warning("无效的位置索引: %s", pos)
-        self.logger.info("信号球状态: %s", ball_status)
+        #self.logger.info("信号球状态: %s", ball_status)
         return ball_status
 
     def Arrange_Signal_Balls(self, target_ball: str = "any") -> int:

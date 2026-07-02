@@ -25,7 +25,8 @@ def find_elimination_target(
     )
 
     if log is not None:
-        log.info("有效长度: %s", valid_length)
+        #log.info("有效长度: %s", valid_length)
+        pass
 
     if valid_length == 0:
         if log is not None:
@@ -68,10 +69,11 @@ def _check_triple_direct(
             and ball_list[i + 2] == target
         ):
             if log is not None:
-                log.info(
+                """log.info(
                     "第一优先级：%s三连消除",
                     "任意" if is_any else "目标",
-                )
+                )"""
+                pass
             return i + 1
     return 0
 
@@ -95,20 +97,22 @@ def _check_combo_opportunity(
                     not is_any and temp[j : j + 3] == [target] * 3
                 ):
                     if log is not None:
-                        log.info(
+                        """log.info(
                             "第二优先级：可形成%s三连",
                             "任意" if is_any else "目标",
-                        )
+                        )"""
+                        pass
                     return -i
 
             if (is_any and temp[j] == temp[j + 1]) or (
                 not is_any and temp[j] == target and temp[j + 1] == target
             ):
                 if log is not None:
-                    log.info(
+                    """log.info(
                         "第二优先级：可形成%s二连",
                         "任意" if is_any else "目标",
-                    )
+                    )"""
+                    pass
                 candidate = -i
     return candidate
 
