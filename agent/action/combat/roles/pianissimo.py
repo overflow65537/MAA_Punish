@@ -70,6 +70,18 @@ class Pianissimo(BaseRole):
         self._next_farm_at = 0.0
         self._core_started_at = 0.0
 
+    def _log_step(self, step: str, **extra: object) -> None:
+        """核心/burst 分步计时日志，便于定位长按后消球1延迟。"""
+        now = time.monotonic()
+        parts = [
+            f"希声[{self.phase}] loop={self.combat.loop_count} step={step}",
+        ]
+        if self._core_started_at:
+            parts.append(f"since_core={int((now - self._core_started_at) * 1000)}ms")
+        for key, value in extra.items():
+            parts.append(f"{key}={value}")
+        self.action.logger.info(" ".join(parts))
+
     def do_perform(self) -> None:
         if self.combat.context.tasker.stopping:
             return
@@ -191,17 +203,37 @@ class Pianissimo(BaseRole):
     def _phase_p1_core(self) -> None:
         # 核心被动：长按后立即进 burst（QTE/辅助机挪到 burst 结束，避免挡消球）
         self._core_started_at = time.monotonic()
+        self._log_step("core_enter")
+
+        t0 = time.monotonic()
+        self._log_step("long_press_attack_start")
         self.action.long_press_attack(700)
+        self._log_step("long_press_attack_done", elapsed_ms=int((time.monotonic() - t0) * 1000))
+
+        self._log_step("burst_scheduled", next="p1_burst", ticks=_P1_CORE_BURST)
         self._begin_burst(_P1_CORE_BURST, "p1_burst")
 
     def _phase_p1_burst(self) -> None:
         # 优先消球1，再普攻
+        tick = self._burst_ticks + 1
+        self._log_step("burst_tick_enter", tick=f"{tick}/{self._burst_total}")
+
+        t0 = time.monotonic()
+        self._log_step("ball1_start", tick=f"{tick}/{self._burst_total}")
         self.action.ball_elimination_target(1)
+        self._log_step("ball1_done", elapsed_ms=int((time.monotonic() - t0) * 1000))
+
+        self._log_step("attack", tick=f"{tick}/{self._burst_total}")
         self.action.attack()
+
+        t1 = time.monotonic()
+        self._log_step("skill_start", tick=f"{tick}/{self._burst_total}")
         self.action.use_skill()
+        self._log_step("skill_done", elapsed_ms=int((time.monotonic() - t1) * 1000))
 
         self._burst_ticks += 1
         if self._burst_ticks >= self._burst_total:
+            self._log_step("burst_complete", ticks=self._burst_total)
             self.action.auxiliary_machine()
             self.action.use_qte()
             self.phase = "idle"
@@ -225,7 +257,14 @@ class Pianissimo(BaseRole):
             return
         # 2 阶段核心：长按后立即 burst
         self._core_started_at = time.monotonic()
+        self._log_step("core_enter")
+
+        t0 = time.monotonic()
+        self._log_step("long_press_attack_start")
         self.action.long_press_attack(700)
+        self._log_step("long_press_attack_done", elapsed_ms=int((time.monotonic() - t0) * 1000))
+
+        self._log_step("burst_scheduled", next="p2_burst", ticks=_P2_CORE_BURST)
         self._begin_burst(_P2_CORE_BURST, "p2_burst")
 
     def _phase_p2_burst(self) -> None:
@@ -234,13 +273,26 @@ class Pianissimo(BaseRole):
             self._enter_p2_ult(reason="p2_burst")
             return
 
+        tick = self._burst_ticks + 1
+        self._log_step("burst_tick_enter", tick=f"{tick}/{self._burst_total}")
+
+        t0 = time.monotonic()
+        self._log_step("ball1_start", tick=f"{tick}/{self._burst_total}")
         self.action.ball_elimination_target(1)
+        self._log_step("ball1_done", elapsed_ms=int((time.monotonic() - t0) * 1000))
+
+        t1 = time.monotonic()
+        self._log_step("ball2_start", tick=f"{tick}/{self._burst_total}")
         self.action.ball_elimination_target(2)
+        self._log_step("ball2_done", elapsed_ms=int((time.monotonic() - t1) * 1000))
+
+        self._log_step("attack", tick=f"{tick}/{self._burst_total}")
         self.action.attack()
 
         self._burst_ticks += 1
         if self._burst_ticks >= self._burst_total:
             self.action.logger.info("希声2阶段核心结束")
+            self._log_step("burst_complete", ticks=self._burst_total)
             self._begin_clear(next_phase="p2_clear2")
 
     def _phase_p2_clear2(self) -> None:
