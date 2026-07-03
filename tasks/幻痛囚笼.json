@@ -277,22 +277,32 @@
                         "param": {
                             "custom_action": "PPOverride",
                             "custom_action_param": {
-                                "选择角色程序": {
-                                    "attach": {
-                                        "cage": true,
-                                        "weight_mode": "exclusive",
-                                        "pick": [
-                                            "{角色名}"
-                                        ]
-                                    }
-                                },
-                                "选择角色程序_onlyNode": {
-                                    "attach": {
-                                        "cage": true,
-                                        "weight_mode": "exclusive",
-                                        "pick": [
-                                            "{角色名}"
-                                        ]
+                                "查看终极区Boss": {
+                                    "action": {
+                                        "type": "Custom",
+                                        "param": {
+                                            "custom_action": "PPOverride",
+                                            "custom_action_param": {
+                                                "选择角色程序": {
+                                                    "attach": {
+                                                        "cage": true,
+                                                        "weight_mode": "exclusive",
+                                                        "pick": [
+                                                            "{角色名}"
+                                                        ]
+                                                    }
+                                                },
+                                                "选择角色程序_onlyNode": {
+                                                    "attach": {
+                                                        "cage": true,
+                                                        "weight_mode": "exclusive",
+                                                        "pick": [
+                                                            "{角色名}"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -320,22 +330,32 @@
                         "param": {
                             "custom_action": "PPOverride",
                             "custom_action_param": {
-                                "选择角色程序": {
-                                    "attach": {
-                                        "cage": true,
-                                        "weight_mode": "exclusive",
-                                        "pick": [
-                                            "{角色名}"
-                                        ]
-                                    }
-                                },
-                                "选择角色程序_onlyNode": {
-                                    "attach": {
-                                        "cage": true,
-                                        "weight_mode": "exclusive",
-                                        "pick": [
-                                            "{角色名}"
-                                        ]
+                                "查看终极区Boss": {
+                                    "action": {
+                                        "type": "Custom",
+                                        "param": {
+                                            "custom_action": "PPOverride",
+                                            "custom_action_param": {
+                                                "选择角色程序": {
+                                                    "attach": {
+                                                        "cage": true,
+                                                        "weight_mode": "exclusive",
+                                                        "pick": [
+                                                            "{角色名}"
+                                                        ]
+                                                    }
+                                                },
+                                                "选择角色程序_onlyNode": {
+                                                    "attach": {
+                                                        "cage": true,
+                                                        "weight_mode": "exclusive",
+                                                        "pick": [
+                                                            "{角色名}"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -363,22 +383,32 @@
                         "param": {
                             "custom_action": "PPOverride",
                             "custom_action_param": {
-                                "选择角色程序": {
-                                    "attach": {
-                                        "cage": true,
-                                        "weight_mode": "exclusive",
-                                        "pick": [
-                                            "{角色名}"
-                                        ]
-                                    }
-                                },
-                                "选择角色程序_onlyNode": {
-                                    "attach": {
-                                        "cage": true,
-                                        "weight_mode": "exclusive",
-                                        "pick": [
-                                            "{角色名}"
-                                        ]
+                                "查看终极区Boss": {
+                                    "action": {
+                                        "type": "Custom",
+                                        "param": {
+                                            "custom_action": "PPOverride",
+                                            "custom_action_param": {
+                                                "选择角色程序": {
+                                                    "attach": {
+                                                        "cage": true,
+                                                        "weight_mode": "exclusive",
+                                                        "pick": [
+                                                            "{角色名}"
+                                                        ]
+                                                    }
+                                                },
+                                                "选择角色程序_onlyNode": {
+                                                    "attach": {
+                                                        "cage": true,
+                                                        "weight_mode": "exclusive",
+                                                        "pick": [
+                                                            "{角色名}"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
