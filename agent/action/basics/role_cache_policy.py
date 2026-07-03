@@ -44,6 +44,22 @@ def resolve_cache_prefix(
     return ""
 
 
+def resolve_cache_prefix_source(
+    attach: dict | None = None,
+    param: dict | None = None,
+    cache_data: dict | None = None,
+) -> str:
+    attach = attach or {}
+    param = param or {}
+    if "cache_prefix" in attach:
+        return "attach.cache_prefix"
+    if "cache_prefix" in param:
+        return "param.cache_prefix"
+    if cache_data and "cache_prefix" in cache_data:
+        return "cache_data.cache_prefix"
+    return "default"
+
+
 def normalize_frequency(value: Any) -> str:
     if isinstance(value, str):
         key = value.strip().lower()

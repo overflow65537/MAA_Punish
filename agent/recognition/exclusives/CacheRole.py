@@ -39,6 +39,7 @@ class CacheRole(CustomRecognition):
             params.get("update_frequency")
         )
         cache_prefix = cache_policy.resolve_cache_prefix(param=params)
+        cache_prefix_source = cache_policy.resolve_cache_prefix_source(param=params)
         cache_path = cache_policy.cache_path(cache_prefix)
         logger.info(
             f"[CacheRole] 启动检查, update_frequency={update_frequency}, "
@@ -46,7 +47,16 @@ class CacheRole(CustomRecognition):
         )
         now = datetime.datetime.now()
         if not cache_path.exists():
-            logger.info("[CacheRole] 缓存文件不存在, 返回 success 触发更新")
+            logger.info(
+                "[CacheRole] 缓存文件不存在, cache_path=%s, cache_file=%s, "
+                "cache_prefix=%r, cache_prefix_source=%s, update_frequency=%s, "
+                "返回 success 触发更新",
+                cache_path,
+                cache_path.name,
+                cache_prefix,
+                cache_prefix_source,
+                update_frequency,
+            )
             try:
                 init_data = {
                     "main_update_at": now.timestamp(),

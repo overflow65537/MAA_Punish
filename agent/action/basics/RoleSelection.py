@@ -135,11 +135,30 @@ class RoleSelection(CustomAction):
         cache_path = self._cache_path()
         cache_data = cache_policy.read_cache_data(cache_path)
         freq = cache_policy.normalize_frequency(update_frequency)
+        cache_prefix_source = cache_policy.resolve_cache_prefix_source(
+            cache_data=cache_data
+        )
         if not cache_policy.is_focus_usable(cache_data, freq):
             if cache_data is None:
-                self.logger.info("角色缓存文件不存在或无法解析")
+                self.logger.info(
+                    "角色缓存文件不存在或无法解析, cache_path=%s, cache_file=%s, "
+                    "cache_prefix=%r, cache_prefix_source=%s, update_frequency=%s",
+                    cache_path,
+                    cache_path.name,
+                    self._cache_prefix,
+                    cache_prefix_source,
+                    freq,
+                )
             elif cache_policy.get_focus(cache_data) is None:
-                self.logger.info("角色缓存 focus 缺失或为空")
+                self.logger.info(
+                    "角色缓存 focus 缺失或为空, cache_path=%s, cache_file=%s, "
+                    "cache_prefix=%r, cache_prefix_source=%s, update_frequency=%s",
+                    cache_path,
+                    cache_path.name,
+                    self._cache_prefix,
+                    cache_prefix_source,
+                    freq,
+                )
             else:
                 self.logger.info(
                     f"角色缓存未在有效期内, update_frequency={freq!r}"
