@@ -687,6 +687,10 @@ class RoleSelection(CustomAction):
             if role_reco and role_reco.hit:
                 self.logger.info(f"找到角色 {role_name}, 开始尝试编入队伍")
                 box = role_reco.box  # type: ignore[attr-defined]
+                if box is None:
+                    self.logger.warning("角色 %s 识别命中但 box 为空, 继续滑动", role_name)
+                    context.run_action("滑动_选人")
+                    continue
                 click_x = box[0] + 34
                 click_y = box[1] + 40
                 for _ in range(4):
@@ -831,7 +835,9 @@ class RoleSelection(CustomAction):
                             entry="识别战力",
                             image=image,
                         )
-                        if power_reco_2 and power_reco_2.hit:
+                        if power_reco_2 and power_reco_2.hit and isinstance(
+                            power_reco_2.best_result, OCRResult
+                        ):
                             power_text = "".join(
                                 c for c in power_reco_2.best_result.text if c.isdigit()
                             )
