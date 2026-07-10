@@ -456,3 +456,7 @@ install.spec
 .nicegui/storage-general.json
 agent/recognition/exclusives/role_cache.json
 *_role_cache.json
+.python-version
+main.py
+pyproject.toml
+uv.lock

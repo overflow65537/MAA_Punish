@@ -84,6 +84,9 @@ _SELECTION_MODE_TABLE: dict[str, dict] = {
     },
 }
 
+# 肉鸽3（矩阵循生）内建角色列表：不扫描、不查缓存，直接用此列表构建角色数据
+_ROGUELIKE3_ROLE_NAMES = ["终焉", "超刻", "深痕", "深谣", "囚影", "启明", "誓焰"]
+
 
 class RoleSelection(CustomAction):
     _CACHE_EXCLUDE_METADATA_KEYS = frozenset({"generation"})
@@ -127,6 +130,23 @@ class RoleSelection(CustomAction):
         if isinstance(metadata, dict):
             return metadata.get("generation", 0)
         return 0
+
+    @classmethod
+    def _build_roguelike3_role_data(cls) -> dict:
+        """肉鸽3：从内建角色列表构建角色数据，不扫描、不查缓存。"""
+        role: dict = {}
+        for short_name in _ROGUELIKE3_ROLE_NAMES:
+            for full_name, action in ROLE_ACTIONS.items():
+                if action.get("name") == short_name:
+                    metadata = action.get("metadata", {})
+                    if not isinstance(metadata, dict):
+                        metadata = {}
+                    role[full_name] = {
+                        **cls._cache_entry_from_metadata(metadata),
+                        "power": 0,
+                    }
+                    break
+        return role
 
     def _current_week(self) -> int:
         return datetime.date.today().isocalendar().week
@@ -496,9 +516,11 @@ class RoleSelection(CustomAction):
         if roguelike_equivalent is None and not scan_then_return:
             role = self._load_cache(update_frequency)
             if role:
-                self.logger.info(
-                    f"读取文件缓存成功 (update_frequency={update_frequency})"
-                )
+                self.logger.info(f"读取文件缓存成功 (update_frequency={update_frequency})")
+        # 肉鸽3：使用内建角色列表，不扫描、不查缓存
+        elif roguelike_equivalent == 3:
+            role = self._build_roguelike3_role_data()
+            self.logger.info(f"肉鸽3内建角色列表, 共 {len(role)} 个")
 
         if not role:
             self.logger.info("未读取到缓存, 开始识别")
