@@ -465,6 +465,8 @@ class CombatTask:
                 from_name,
                 requester.color,
             )
+            self.last_switch_attempt_time = time.monotonic()
+            self._switch_attempt_cooldown = self.switch_fail_cooldown
             requester.on_switch_failed()
             return False
 

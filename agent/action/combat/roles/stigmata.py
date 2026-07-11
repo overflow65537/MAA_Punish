@@ -60,6 +60,7 @@ class Stigmata(BaseRole):
         self._pending_switch = False
 
     def on_switch_failed(self) -> None:
+        self._pending_switch = False
         self.phase = "p2"
 
     def do_perform(self) -> None:
