@@ -4,8 +4,7 @@
             "type": "Custom",
             "param": {
                 "custom_action": "PPOverride",
-                "custom_action_param": {
-                }
+                "custom_action_param": {}
             }
         },
         "next": [
@@ -687,7 +686,8 @@
             "[JumpBack]选择羁绊_蓝色1",
             "[JumpBack]选择羁绊_蓝色2",
             "[JumpBack]选择羁绊_蓝色3",
-            "[JumpBack]没有羁绊"
+            "[JumpBack]没有羁绊",
+            "[JumpBack]意外点击_羁绊选择"
         ]
     },
     "确认招募": {
