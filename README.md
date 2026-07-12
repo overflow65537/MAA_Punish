@@ -206,3 +206,7 @@
 <a href="https://github.com/overflow65537/MAA_Punish/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=overflow65537/MAA_Punish&max=1000" alt="Contributors to MAA_Punish"/>
 </a>
+
+### 贡献者列表
+
+详见 [AUTHORS.md](AUTHORS.md)
