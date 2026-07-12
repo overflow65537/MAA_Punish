@@ -682,50 +682,51 @@
         "recognition": {
             "param": {
                 "all_of": [
-                    {
-                        "sub_name": "领取战斗奖励_文字",
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    83,
-                                    482,
-                                    1164,
-                                    134
-                                ],
-                                "lower": [
-                                    27,
-                                    55,
-                                    79
-                                ],
-                                "upper": [
-                                    62,
-                                    80,
-                                    100
-                                ],
-                                "connected": true,
-                                "count": 1700
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": "领取战斗奖励_文字",
-                                "roi_offset": [
-                                    -10,
-                                    0,
-                                    20,
-                                    0
-                                ],
-                                "expected": [
-                                    "确定"
-                                ]
-                            }
-                        }
-                    }
+                    "领取战斗奖励_颜色",
+                    "领取战斗奖励_文字"
                 ]
+            }
+        }
+    },
+    "领取战斗奖励_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "领取战斗奖励_颜色",
+                "roi_offset": [
+                    -10,
+                    0,
+                    20,
+                    0
+                ],
+                "expected": [
+                    "确定"
+                ]
+            }
+        }
+    },
+    "领取战斗奖励_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    83,
+                    482,
+                    1164,
+                    134
+                ],
+                "lower": [
+                    27,
+                    55,
+                    79
+                ],
+                "upper": [
+                    62,
+                    80,
+                    100
+                ],
+                "connected": true,
+                "count": 1700
             }
         }
     },

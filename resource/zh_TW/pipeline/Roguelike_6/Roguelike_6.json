@@ -28,5 +28,80 @@
     },
     "雾夜镇魂曲内部条件3": {
         "expected": "開啓本層"
+    },
+    "确认任务_雾夜镇魂曲": {
+        "recognition": {
+            "param": {
+                "all_of": [
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    503,
+                                    443,
+                                    281,
+                                    161
+                                ],
+                                "method": 40,
+                                "lower": [
+                                    170,
+                                    70,
+                                    26
+                                ],
+                                "upper": [
+                                    180,
+                                    160,
+                                    60
+                                ],
+                                "count": 10
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    174,
+                                    492,
+                                    178,
+                                    73
+                                ],
+                                "method": 40,
+                                "lower": [
+                                    170,
+                                    70,
+                                    26
+                                ],
+                                "upper": [
+                                    180,
+                                    160,
+                                    60
+                                ],
+                                "count": 10
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    1001,
+                                    582,
+                                    279,
+                                    138
+                                ],
+                                "expected": [
+                                    "確定",
+                                    "确定"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        }
     }
 }
