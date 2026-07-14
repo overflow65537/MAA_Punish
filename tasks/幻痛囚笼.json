@@ -160,6 +160,16 @@
                                             "custom_action_param": {
                                                 "选择预设": {
                                                     "expected": "{编队名}"
+                                                },
+                                                "选择角色程序": {
+                                                    "attach": {
+                                                        "cage": true
+                                                    }
+                                                },
+                                                "选择角色程序_onlyNode": {
+                                                    "attach": {
+                                                        "cage": true
+                                                    }
                                                 }
                                             }
                                         }
@@ -202,6 +212,16 @@
                                             "custom_action_param": {
                                                 "选择预设": {
                                                     "expected": "{编队名}"
+                                                },
+                                                "选择角色程序": {
+                                                    "attach": {
+                                                        "cage": true
+                                                    }
+                                                },
+                                                "选择角色程序_onlyNode": {
+                                                    "attach": {
+                                                        "cage": true
+                                                    }
                                                 }
                                             }
                                         }
@@ -244,6 +264,16 @@
                                             "custom_action_param": {
                                                 "选择预设": {
                                                     "expected": "{编队名}"
+                                                },
+                                                "选择角色程序": {
+                                                    "attach": {
+                                                        "cage": true
+                                                    }
+                                                },
+                                                "选择角色程序_onlyNode": {
+                                                    "attach": {
+                                                        "cage": true
+                                                    }
                                                 }
                                             }
                                         }
