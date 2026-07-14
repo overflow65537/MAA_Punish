@@ -1,31 +1,4 @@
 {
-    "事件识别_寒境曙光_yolo": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    2
-                ]
-            }
-        }
-    },
-    "物资识别_寒境曙光_yolo": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    4
-                ]
-            }
-        }
-    },
-    "战斗识别_寒境曙光_yolo": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    0
-                ]
-            }
-        }
-    },
     "剩余资金_寒境曙光_yolo": {
         "recognition": {
             "param": {
