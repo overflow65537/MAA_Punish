@@ -315,7 +315,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择火队角色_战区.露西亚·深红囚影"
+                    "label": "$role.CrimsonWeave"
                 },
                 {
                     "name": "拉弥亚·深谣",
@@ -346,7 +346,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择火队角色_战区.拉弥亚·深谣"
+                    "label": "$role.LostLullaby"
                 },
                 {
                     "name": "露娜·终焉",
@@ -377,7 +377,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择火队角色_战区.露娜·终焉"
+                    "label": "$role.Oblivion"
                 },
                 {
                     "name": "露西亚·誓焰",
@@ -408,7 +408,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择火队角色_战区.露西亚·誓焰"
+                    "label": "$role.Pyroath"
                 },
                 {
                     "name": "曲·启明",
@@ -439,7 +439,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择火队角色_战区.曲·启明"
+                    "label": "$role.Shukra"
                 },
                 {
                     "name": "比安卡·深痕",
@@ -470,7 +470,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择火队角色_战区.比安卡·深痕"
+                    "label": "$role.Stigmata"
                 },
                 {
                     "name": "里·超刻",
@@ -501,7 +501,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择火队角色_战区.里·超刻"
+                    "label": "$role.Hyperreal"
                 },
                 {
                     "name": "比安卡·晖暮",
@@ -532,7 +532,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择火队角色_战区.比安卡·晖暮"
+                    "label": "$role.Crepuscule"
                 },
                 {
                     "name": "赛琳娜·希声",
@@ -563,7 +563,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择火队角色_战区.赛琳娜·希声"
+                    "label": "$role.Pianissimo"
                 },
                 {
                     "name": "维罗妮卡·铮骨",
@@ -594,7 +594,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择火队角色_战区.维罗妮卡·铮骨"
+                    "label": "$role.Aegis"
                 },
                 {
                     "name": "布偶熊·骇影",
@@ -625,7 +625,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择火队角色_战区.布偶熊·骇影"
+                    "label": "$role.Spectre"
                 }
             ],
             "default_case": "露西亚·誓焰"
@@ -664,7 +664,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择雷队角色_战区.露西亚·深红囚影"
+                    "label": "$role.CrimsonWeave"
                 },
                 {
                     "name": "拉弥亚·深谣",
@@ -695,7 +695,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择雷队角色_战区.拉弥亚·深谣"
+                    "label": "$role.LostLullaby"
                 },
                 {
                     "name": "露娜·终焉",
@@ -726,7 +726,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择雷队角色_战区.露娜·终焉"
+                    "label": "$role.Oblivion"
                 },
                 {
                     "name": "露西亚·誓焰",
@@ -757,7 +757,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择雷队角色_战区.露西亚·誓焰"
+                    "label": "$role.Pyroath"
                 },
                 {
                     "name": "曲·启明",
@@ -788,7 +788,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择雷队角色_战区.曲·启明"
+                    "label": "$role.Shukra"
                 },
                 {
                     "name": "比安卡·深痕",
@@ -819,7 +819,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择雷队角色_战区.比安卡·深痕"
+                    "label": "$role.Stigmata"
                 },
                 {
                     "name": "里·超刻",
@@ -850,7 +850,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择雷队角色_战区.里·超刻"
+                    "label": "$role.Hyperreal"
                 },
                 {
                     "name": "比安卡·晖暮",
@@ -881,7 +881,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择雷队角色_战区.比安卡·晖暮"
+                    "label": "$role.Crepuscule"
                 },
                 {
                     "name": "赛琳娜·希声",
@@ -912,7 +912,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择雷队角色_战区.赛琳娜·希声"
+                    "label": "$role.Pianissimo"
                 },
                 {
                     "name": "维罗妮卡·铮骨",
@@ -943,7 +943,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择雷队角色_战区.维罗妮卡·铮骨"
+                    "label": "$role.Aegis"
                 },
                 {
                     "name": "布偶熊·骇影",
@@ -974,7 +974,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择雷队角色_战区.布偶熊·骇影"
+                    "label": "$role.Spectre"
                 }
             ],
             "default_case": "露西亚·深红囚影"
@@ -1013,7 +1013,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择冰队角色_战区.曲·启明"
+                    "label": "$role.Shukra"
                 },
                 {
                     "name": "布偶熊·骇影",
@@ -1044,7 +1044,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择冰队角色_战区.布偶熊·骇影"
+                    "label": "$role.Spectre"
                 },
                 {
                     "name": "露西亚·深红囚影",
@@ -1075,7 +1075,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择冰队角色_战区.露西亚·深红囚影"
+                    "label": "$role.CrimsonWeave"
                 },
                 {
                     "name": "拉弥亚·深谣",
@@ -1106,7 +1106,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择冰队角色_战区.拉弥亚·深谣"
+                    "label": "$role.LostLullaby"
                 },
                 {
                     "name": "露娜·终焉",
@@ -1137,7 +1137,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择冰队角色_战区.露娜·终焉"
+                    "label": "$role.Oblivion"
                 },
                 {
                     "name": "露西亚·誓焰",
@@ -1168,7 +1168,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择冰队角色_战区.露西亚·誓焰"
+                    "label": "$role.Pyroath"
                 },
                 {
                     "name": "比安卡·深痕",
@@ -1199,7 +1199,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择冰队角色_战区.比安卡·深痕"
+                    "label": "$role.Stigmata"
                 },
                 {
                     "name": "里·超刻",
@@ -1230,7 +1230,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择冰队角色_战区.里·超刻"
+                    "label": "$role.Hyperreal"
                 },
                 {
                     "name": "比安卡·晖暮",
@@ -1261,7 +1261,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择冰队角色_战区.比安卡·晖暮"
+                    "label": "$role.Crepuscule"
                 },
                 {
                     "name": "赛琳娜·希声",
@@ -1292,7 +1292,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择冰队角色_战区.赛琳娜·希声"
+                    "label": "$role.Pianissimo"
                 },
                 {
                     "name": "维罗妮卡·铮骨",
@@ -1323,7 +1323,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择冰队角色_战区.维罗妮卡·铮骨"
+                    "label": "$role.Aegis"
                 }
             ],
             "default_case": "曲·启明"
@@ -1362,7 +1362,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择暗队角色_战区.拉弥亚·深谣"
+                    "label": "$role.LostLullaby"
                 },
                 {
                     "name": "比安卡·晖暮",
@@ -1393,7 +1393,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择暗队角色_战区.比安卡·晖暮"
+                    "label": "$role.Crepuscule"
                 },
                 {
                     "name": "露西亚·深红囚影",
@@ -1424,7 +1424,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择暗队角色_战区.露西亚·深红囚影"
+                    "label": "$role.CrimsonWeave"
                 },
                 {
                     "name": "露娜·终焉",
@@ -1455,7 +1455,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择暗队角色_战区.露娜·终焉"
+                    "label": "$role.Oblivion"
                 },
                 {
                     "name": "露西亚·誓焰",
@@ -1486,7 +1486,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择暗队角色_战区.露西亚·誓焰"
+                    "label": "$role.Pyroath"
                 },
                 {
                     "name": "曲·启明",
@@ -1517,7 +1517,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择暗队角色_战区.曲·启明"
+                    "label": "$role.Shukra"
                 },
                 {
                     "name": "比安卡·深痕",
@@ -1548,7 +1548,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择暗队角色_战区.比安卡·深痕"
+                    "label": "$role.Stigmata"
                 },
                 {
                     "name": "里·超刻",
@@ -1579,7 +1579,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择暗队角色_战区.里·超刻"
+                    "label": "$role.Hyperreal"
                 },
                 {
                     "name": "赛琳娜·希声",
@@ -1610,7 +1610,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择暗队角色_战区.赛琳娜·希声"
+                    "label": "$role.Pianissimo"
                 },
                 {
                     "name": "维罗妮卡·铮骨",
@@ -1641,7 +1641,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择暗队角色_战区.维罗妮卡·铮骨"
+                    "label": "$role.Aegis"
                 },
                 {
                     "name": "布偶熊·骇影",
@@ -1672,7 +1672,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择暗队角色_战区.布偶熊·骇影"
+                    "label": "$role.Spectre"
                 }
             ],
             "default_case": "比安卡·晖暮"
@@ -1711,7 +1711,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择物理队角色_战区.比安卡·深痕"
+                    "label": "$role.Stigmata"
                 },
                 {
                     "name": "赛琳娜·希声",
@@ -1742,7 +1742,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择物理队角色_战区.赛琳娜·希声"
+                    "label": "$role.Pianissimo"
                 },
                 {
                     "name": "维罗妮卡·铮骨",
@@ -1773,7 +1773,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择物理队角色_战区.维罗妮卡·铮骨"
+                    "label": "$role.Aegis"
                 },
                 {
                     "name": "露西亚·深红囚影",
@@ -1804,7 +1804,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择物理队角色_战区.露西亚·深红囚影"
+                    "label": "$role.CrimsonWeave"
                 },
                 {
                     "name": "拉弥亚·深谣",
@@ -1835,7 +1835,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择物理队角色_战区.拉弥亚·深谣"
+                    "label": "$role.LostLullaby"
                 },
                 {
                     "name": "露娜·终焉",
@@ -1866,7 +1866,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择物理队角色_战区.露娜·终焉"
+                    "label": "$role.Oblivion"
                 },
                 {
                     "name": "露西亚·誓焰",
@@ -1897,7 +1897,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择物理队角色_战区.露西亚·誓焰"
+                    "label": "$role.Pyroath"
                 },
                 {
                     "name": "曲·启明",
@@ -1928,7 +1928,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择物理队角色_战区.曲·启明"
+                    "label": "$role.Shukra"
                 },
                 {
                     "name": "里·超刻",
@@ -1959,7 +1959,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择物理队角色_战区.里·超刻"
+                    "label": "$role.Hyperreal"
                 },
                 {
                     "name": "比安卡·晖暮",
@@ -1990,7 +1990,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择物理队角色_战区.比安卡·晖暮"
+                    "label": "$role.Crepuscule"
                 },
                 {
                     "name": "布偶熊·骇影",
@@ -2021,7 +2021,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择物理队角色_战区.布偶熊·骇影"
+                    "label": "$role.Spectre"
                 }
             ],
             "default_case": "赛琳娜·希声"
@@ -2060,7 +2060,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择无分类队角色_战区.比安卡·深痕"
+                    "label": "$role.Stigmata"
                 },
                 {
                     "name": "赛琳娜·希声",
@@ -2091,7 +2091,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择无分类队角色_战区.赛琳娜·希声"
+                    "label": "$role.Pianissimo"
                 },
                 {
                     "name": "维罗妮卡·铮骨",
@@ -2122,7 +2122,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择无分类队角色_战区.维罗妮卡·铮骨"
+                    "label": "$role.Aegis"
                 },
                 {
                     "name": "露西亚·深红囚影",
@@ -2153,7 +2153,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择无分类队角色_战区.露西亚·深红囚影"
+                    "label": "$role.CrimsonWeave"
                 },
                 {
                     "name": "拉弥亚·深谣",
@@ -2184,7 +2184,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择无分类队角色_战区.拉弥亚·深谣"
+                    "label": "$role.LostLullaby"
                 },
                 {
                     "name": "露娜·终焉",
@@ -2215,7 +2215,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择无分类队角色_战区.露娜·终焉"
+                    "label": "$role.Oblivion"
                 },
                 {
                     "name": "露西亚·誓焰",
@@ -2246,7 +2246,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择无分类队角色_战区.露西亚·誓焰"
+                    "label": "$role.Pyroath"
                 },
                 {
                     "name": "曲·启明",
@@ -2277,7 +2277,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择无分类队角色_战区.曲·启明"
+                    "label": "$role.Shukra"
                 },
                 {
                     "name": "里·超刻",
@@ -2308,7 +2308,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择无分类队角色_战区.里·超刻"
+                    "label": "$role.Hyperreal"
                 },
                 {
                     "name": "比安卡·晖暮",
@@ -2339,7 +2339,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择无分类队角色_战区.比安卡·晖暮"
+                    "label": "$role.Crepuscule"
                 },
                 {
                     "name": "布偶熊·骇影",
@@ -2370,7 +2370,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择无分类队角色_战区.布偶熊·骇影"
+                    "label": "$role.Spectre"
                 }
             ],
             "default_case": "赛琳娜·希声"
@@ -2412,7 +2412,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择空队角色_战区.露娜·终焉"
+                    "label": "$role.Oblivion"
                 },
                 {
                     "name": "伊什梅尔·幻日",
@@ -2446,7 +2446,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择空队角色_战区.伊什梅尔·幻日"
+                    "label": "$role.Parhelion"
                 },
                 {
                     "name": "拉弥亚·深谣",
@@ -2480,7 +2480,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择空队角色_战区.拉弥亚·深谣"
+                    "label": "$role.LostLullaby"
                 },
                 {
                     "name": "比安卡·晖暮",
@@ -2514,7 +2514,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择空队角色_战区.比安卡·晖暮"
+                    "label": "$role.Crepuscule"
                 },
                 {
                     "name": "露西亚·深红囚影",
@@ -2548,7 +2548,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择空队角色_战区.露西亚·深红囚影"
+                    "label": "$role.CrimsonWeave"
                 },
                 {
                     "name": "露西亚·誓焰",
@@ -2582,7 +2582,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择空队角色_战区.露西亚·誓焰"
+                    "label": "$role.Pyroath"
                 },
                 {
                     "name": "曲·启明",
@@ -2616,7 +2616,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择空队角色_战区.曲·启明"
+                    "label": "$role.Shukra"
                 },
                 {
                     "name": "比安卡·深痕",
@@ -2650,7 +2650,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择空队角色_战区.比安卡·深痕"
+                    "label": "$role.Stigmata"
                 },
                 {
                     "name": "里·超刻",
@@ -2684,7 +2684,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择空队角色_战区.里·超刻"
+                    "label": "$role.Hyperreal"
                 },
                 {
                     "name": "赛琳娜·希声",
@@ -2718,7 +2718,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择空队角色_战区.赛琳娜·希声"
+                    "label": "$role.Pianissimo"
                 },
                 {
                     "name": "维罗妮卡·铮骨",
@@ -2752,7 +2752,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择空队角色_战区.维罗妮卡·铮骨"
+                    "label": "$role.Aegis"
                 },
                 {
                     "name": "布偶熊·骇影",
@@ -2786,7 +2786,7 @@
                             }
                         }
                     },
-                    "label": "$case.选择空队角色_战区.布偶熊·骇影"
+                    "label": "$role.Spectre"
                 }
             ],
             "default_case": "露娜·终焉"
