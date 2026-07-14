@@ -67,6 +67,10 @@ def install_chores():
         REPO_ROOT / "LICENSE",
         install_path,
     )
+    shutil.copy2(
+        REPO_ROOT / "AUTHORS.md",
+        install_path,
+    )
     # 默认简体副本（兼容未解析 i18n 的 Client）；多语言正文在 i18n/<lang>/
     shutil.copy2(
         REPO_ROOT / "i18n" / "zh_cn" / "DISCLAIMER.md",
