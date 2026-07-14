@@ -17,7 +17,8 @@
             "[JumpBack]打开挑战",
             "[JumpBack]打开战斗",
             "[JumpBack]意外点击_限定活动",
-            "[JumpBack]挑战失败_寒境曙光"
+            "[JumpBack]挑战失败_寒境曙光",
+            "[JumpBack]关闭升级提示"
         ]
     },
     "进入寒境曙光_滑动": {
@@ -263,7 +264,7 @@
         "on_error": [
             "寒境曙光"
         ],
-         "timeout": 5000,
+        "timeout": 5000,
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
@@ -284,7 +285,7 @@
         "on_error": [
             "寒境曙光"
         ],
-         "timeout": 5000,
+        "timeout": 5000,
         "recognition": {
             "type": "OCR",
             "param": {
