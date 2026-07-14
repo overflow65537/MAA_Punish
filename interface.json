@@ -92,12 +92,20 @@
             "{PROJECT_DIR}/agent/main.py"
         ]
     },
-    "global_option": [
-        "切换服务器",
-        "缓存组件信息",
-        "角色缓存更新频率",
-        "多账号缓存",
-        "自定义键位"
+    "setting": [
+        {
+            "name": "global",
+            "label": "$setting.global.label",
+            "option": [
+                "切换服务器",
+                "缓存组件信息",
+                "角色缓存更新频率",
+                "多账号缓存",
+                "自定义键位",
+                "启动重试次数"
+            ],
+            "default_expand": true
+        }
     ],
     "resource": [
         {
@@ -1277,6 +1285,25 @@
                             "key": "{辅助机}"
                         }
                     }
+                }
+            }
+        },
+        "启动重试次数": {
+            "label": "$option.启动重试次数.label",
+            "description": "$option.启动重试次数.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "最大重试次数",
+                    "default": "60",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$",
+                    "pattern_msg": "$input.启动重试次数.最大重试次数.pattern_msg"
+                }
+            ],
+            "pipeline_override": {
+                "打开应用": {
+                    "max_hit": "{最大重试次数}"
                 }
             }
         }

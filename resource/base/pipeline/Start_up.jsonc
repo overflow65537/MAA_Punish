@@ -11,14 +11,20 @@
             "[JumpBack]更新中",
             "[JumpBack]返回主菜单",
             "[JumpBack]用户账号登录失败",
-            "[JumpBack]打开应用"
+            "[JumpBack]打开应用",
+            "[JumpBack]重启任务"
         ]
     },
     "月卡续期": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [775, 129, 388, 299],
+                "roi": [
+                    775,
+                    129,
+                    388,
+                    299
+                ],
                 "expected": "每月福利"
             }
         }
@@ -27,7 +33,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [1092, 679, 97, 40],
+                "roi": [
+                    1092,
+                    679,
+                    97,
+                    40
+                ],
                 "expected": "预计时间"
             }
         },
@@ -37,7 +48,10 @@
         "recognition": {
             "type": "And",
             "param": {
-                "all_of": ["用户账号登录失败文本", "确定"],
+                "all_of": [
+                    "用户账号登录失败文本",
+                    "确定"
+                ],
                 "box_index": 1
             }
         },
@@ -49,7 +63,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [107, 65, 707, 337],
+                "roi": [
+                    107,
+                    65,
+                    707,
+                    337
+                ],
                 "expected": "用户账号登录失败"
             }
         }
@@ -58,8 +77,17 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [332, 177, 657, 299],
-                "expected": ["设备", "内存", "低于"]
+                "roi": [
+                    332,
+                    177,
+                    657,
+                    299
+                ],
+                "expected": [
+                    "设备",
+                    "内存",
+                    "低于"
+                ]
             }
         }
     },
@@ -67,13 +95,20 @@
         "recognition": {
             "type": "Or",
             "param": {
-                "any_of": ["关闭公告", "关闭拟真围剿通知", "月卡续期"]
+                "any_of": [
+                    "关闭公告",
+                    "关闭拟真围剿通知",
+                    "月卡续期"
+                ]
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [10, 10]
+                "target": [
+                    10,
+                    10
+                ]
             }
         }
     },
@@ -81,8 +116,17 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [597, 275, 426, 60],
-                "expected": ["拟真围剿", "行动", "完美达成"]
+                "roi": [
+                    597,
+                    275,
+                    426,
+                    60
+                ],
+                "expected": [
+                    "拟真围剿",
+                    "行动",
+                    "完美达成"
+                ]
             }
         }
     },
@@ -90,14 +134,27 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [337, 370, 435, 60],
-                "expected": ["纷争战区", "降级保护"]
+                "roi": [
+                    337,
+                    370,
+                    435,
+                    60
+                ],
+                "expected": [
+                    "纷争战区",
+                    "降级保护"
+                ]
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [1194, 183, 11, 12]
+                "target": [
+                    1194,
+                    183,
+                    11,
+                    12
+                ]
             }
         }
     },
@@ -105,9 +162,19 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [174, 103, 940, 483],
+                "roi": [
+                    174,
+                    103,
+                    940,
+                    483
+                ],
                 "expected": "检测到存在更新",
-                "replace": [["验", "检"]]
+                "replace": [
+                    [
+                        "验",
+                        "检"
+                    ]
+                ]
             }
         }
     },
@@ -115,23 +182,40 @@
         "recognition": {
             "type": "Or",
             "param": {
-                "any_of": ["更新", "关闭低内存提示"]
+                "any_of": [
+                    "更新",
+                    "关闭低内存提示"
+                ]
             }
         },
-        "next": ["确定", "空任务"]
+        "next": [
+            "确定",
+            "空任务"
+        ]
     },
     "进入游戏": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [24, 96, 71, 25],
-                "expected": ["适龄", "提示"]
+                "roi": [
+                    24,
+                    96,
+                    71,
+                    25
+                ],
+                "expected": [
+                    "适龄",
+                    "提示"
+                ]
             }
         },
         "action": {
             "type": "Click",
             "param": {
-                "target": [637, 645]
+                "target": [
+                    637,
+                    645
+                ]
             }
         }
     },
@@ -139,7 +223,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [999, 231, 281, 187],
+                "roi": [
+                    999,
+                    231,
+                    281,
+                    187
+                ],
                 "expected": "^战斗$"
             }
         },
@@ -155,7 +244,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [356, 594, 611, 125],
+                "roi": [
+                    356,
+                    594,
+                    611,
+                    125
+                ],
                 "expected": "点击空白处关闭"
             }
         }
@@ -164,13 +258,22 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [999, 231, 281, 187],
+                "roi": [
+                    999,
+                    231,
+                    281,
+                    187
+                ],
                 "expected": "^战斗$"
             }
         },
-        "next": ["切换主界面状态", "空任务"]
+        "next": [
+            "切换主界面状态",
+            "空任务"
+        ]
     },
     "打开应用": {
+        "max_hit": 60,
         "action": {
             "type": "StartApp",
             "param": {
@@ -178,10 +281,30 @@
             }
         },
         "post_delay": 5000,
-        "on_error": ["服务器错误提示"]
+        "on_error": [
+            "服务器错误提示"
+        ]
+    },
+    "重启任务": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "ResetCount",
+                "custom_action_param": {
+                    "nodes": [
+                        "打开应用"
+                    ]
+                }
+            }
+        },
+        "next": [
+            "停止"
+        ]
     },
     "服务器错误提示": {
-        "next": ["启动"],
+        "next": [
+            "启动"
+        ],
         "focus": {
             "Node.Recognition.Succeeded": "$focus.服务器错误提示"
         }
@@ -190,7 +313,12 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "roi": [1165, 476, 77, 62],
+                "roi": [
+                    1165,
+                    476,
+                    77,
+                    62
+                ],
                 "template": [
                     "启动/切换主界面状态_默认.png",
                     "启动/切换主界面状态_家园.png",
@@ -225,8 +353,16 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [482, 69, 316, 113],
-                "expected": ["维护公告", "服务器维护中.*"]
+                "roi": [
+                    482,
+                    69,
+                    316,
+                    113
+                ],
+                "expected": [
+                    "维护公告",
+                    "服务器维护中.*"
+                ]
             }
         },
         "action": {

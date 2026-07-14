@@ -675,5 +675,11 @@
     "role.Parhelion": "伊什梅爾·幻日",
     "role.Arete": "羅塞塔·極鋒",
     "role.Dirge": "涅緹婭·亡歌",
-    "role.Aeternion": "神威·不落日"
+    "role.Aeternion": "神威·不落日",
+    "setting.global.label": "全局設置",
+    "option.启动重试次数.label": "啟動重試次數",
+    "option.启动重试次数.description": "打開應用的最大重試次數",
+    "input.启动重试次数.最大重试次数.label": "最大重試次數",
+    "input.启动重试次数.最大重试次数.description": "打開應用失敗時的最大重試次數，預設60次",
+    "input.启动重试次数.最大重试次数.pattern_msg": "請輸入有效的數字"
 }

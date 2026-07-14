@@ -675,5 +675,11 @@
     "role.Parhelion": "伊什梅尔·幻日",
     "role.Arete": "罗塞塔·极锋",
     "role.Dirge": "涅缇娅·亡歌",
-    "role.Aeternion": "神威·不落日"
+    "role.Aeternion": "神威·不落日",
+    "setting.global.label": "グローバル設定",
+    "option.启动重试次数.label": "起動リトライ回数",
+    "option.启动重试次数.description": "アプリ起動の最大リトライ回数",
+    "input.启动重试次数.最大重试次数.label": "最大リトライ回数",
+    "input.启动重试次数.最大重试次数.description": "アプリ起動失敗時の最大リトライ回数、デフォルト60回",
+    "input.启动重试次数.最大重试次数.pattern_msg": "有効な数字を入力してください"
 }
