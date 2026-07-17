@@ -105,6 +105,27 @@
                         }
                     },
                     "label": "$case.选择角色_雾夜镇魂曲.维罗妮卡"
+                },
+                {
+                    "name": "神威",
+                    "pipeline_override": {
+                        "选择角色": {
+                            "action": {
+                                "param": {
+                                    "target": [
+                                        94,
+                                        448
+                                    ]
+                                }
+                            }
+                        },
+                        "选择角色完成": {
+                            "expected": [
+                                "神威"
+                            ]
+                        }
+                    },
+                    "label": "$case.选择角色_雾夜镇魂曲.神威"
                 }
             ],
             "type": "select"
