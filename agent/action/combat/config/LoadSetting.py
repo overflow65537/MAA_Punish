@@ -661,4 +661,21 @@ ROLE_ACTIONS = {
             "自定义战斗/神威/不落日/不落日_释能.png",
         ],
     },
+    "海伦汀·安魂": {
+        "name": "安魂",
+        "type": "Support",
+        "cls_name": "Lacrimosa",
+        "metadata": {
+            "lightning": 100,
+            "generation": 3,
+        },
+        "template": [
+            "人物索引/海伦汀/安魂/安魂.png",
+            "人物索引/海伦汀/安魂/安魂_终解.png",
+        ],
+        "attack_template": [
+            "自定义战斗/海伦汀/安魂/安魂.png",
+            "自定义战斗/海伦汀/安魂/安魂_核心.png",
+        ],
+    },
 }

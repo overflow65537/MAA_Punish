@@ -1,0 +1,107 @@
+{
+    "检查常规状态_安魂": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1113,
+                    556,
+                    138,
+                    142
+                ],
+                "template": [
+                    "自定义战斗/海伦汀/安魂/安魂.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.85
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查核心状态_安魂": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1113,
+                    556,
+                    138,
+                    142
+                ],
+                "template": [
+                    "自定义战斗/海伦汀/安魂/安魂_核心.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.85
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查核心被动冷却_安魂": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    990,
+                    567,
+                    131,
+                    131
+                ],
+                "template": [
+                    "自定义战斗/海伦汀/安魂/闪避.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.85
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查大招常规_安魂": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    734,
+                    490,
+                    434,
+                    230
+                ],
+                "template": [
+                    "自定义战斗/海伦汀/安魂/大招1.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.85
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查大招核心_安魂": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    734,
+                    490,
+                    434,
+                    230
+                ],
+                "template": [
+                    "自定义战斗/海伦汀/安魂/大招2.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.85
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    }
+}

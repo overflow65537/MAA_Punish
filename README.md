@@ -160,6 +160,7 @@
 | 极锋 | Arete | `agent/action/combat/roles/arete.py` |
 | 亡歌 | Dirge | `agent/action/combat/roles/dirge.py` |
 | 不落日 | Aeternion | `agent/action/combat/roles/aeternion.py` |
+| 安魂 | Lacrimosa | `agent/action/combat/roles/lacrimosa.py` |
 | 通用 | GeneralFight | `agent/action/combat/roles/general_fight.py` |
 
 未单独实现的角色在进战后会走 **GeneralFight** 通用逻辑。欢迎 PR 补充；开发问题可加群 **965061066** 反馈。
