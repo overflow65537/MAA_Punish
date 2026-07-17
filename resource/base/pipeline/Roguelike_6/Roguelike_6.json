@@ -6,6 +6,8 @@
             "[JumpBack]跳过剧情",
             "[JumpBack]进入战斗_雾夜镇魂曲",
             "[JumpBack]开始战斗_雾夜镇魂曲",
+            "[JumpBack]选择对手_雾夜镇魂曲",
+            "诡城交锋_雾夜镇魂曲",
             "[JumpBack]选择模式_雾夜镇魂曲",
             "[JumpBack]打开雾夜镇魂曲",
             "[JumpBack]打开时宇漫纪",
@@ -13,6 +15,99 @@
             "[JumpBack]打开挑战",
             "[JumpBack]打开战斗"
         ]
+    },
+    "诡城交锋_雾夜镇魂曲": {
+        "enabled": false,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    998,
+                    569,
+                    282,
+                    151
+                ],
+                "expected": [
+                    "防守阵容"
+                ]
+            }
+        },
+        "next": [
+            "体力不足_雾夜镇魂曲",
+            "[JumpBack]战斗中_雾夜镇魂曲",
+            "[JumpBack]选择对手_雾夜镇魂曲",
+            "[JumpBack]确定",
+            "[JumpBack]变速_雾夜镇魂曲",
+            "[JumpBack]结束战斗_雾夜镇魂曲",
+            "[JumpBack]开始挑战_雾夜镇魂曲"
+        ]
+    },
+    "体力不足_雾夜镇魂曲": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    399,
+                    247,
+                    490,
+                    236
+                ],
+                "expected": [
+                    "体力不足"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]返回",
+            "返回主菜单"
+        ]
+    },
+    "选择对手_雾夜镇魂曲": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    998,
+                    569,
+                    282,
+                    151
+                ],
+                "expected": [
+                    "防守阵容"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    292,
+                    239
+                ]
+            }
+        }
+    },
+    "开始挑战_雾夜镇魂曲": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    998,
+                    569,
+                    282,
+                    151
+                ],
+                "expected": [
+                    "挑战"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "终止_雾夜镇魂曲": {
         "recognition": {
