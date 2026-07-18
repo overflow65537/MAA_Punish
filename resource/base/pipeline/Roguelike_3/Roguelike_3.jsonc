@@ -1555,12 +1555,7 @@
                         "recognition": {
                             "type": "ColorMatch",
                             "param": {
-                                "roi": [
-                                    926,
-                                    567,
-                                    348,
-                                    153
-                                ],
+                                "roi":[925, 618, 355, 102],
                                 "method": 6,
                                 "lower": [
                                     200
