@@ -34,7 +34,10 @@
                     4,
                     4
                 ],
-                "expected": "奖励",
+                "expected": [
+                    "奖励",
+                    "详情"
+                ],
                 "only_rec": true
             }
         }
