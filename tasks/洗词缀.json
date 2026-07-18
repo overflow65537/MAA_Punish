@@ -74,9 +74,7 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "攻击\\+15、防御\\+23",
-                                        "生命\\+75、攻击\\+15",
-                                        "攻击\\+15、会心\\+15"
+                                        "攻击\\+"
                                     ]
                                 }
                             }
@@ -85,9 +83,16 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "攻击\\+15、防御\\+23",
-                                        "生命\\+75、攻击\\+15",
-                                        "攻击\\+15、会心\\+15"
+                                        "攻击\\+"
+                                    ]
+                                }
+                            }
+                        },
+                        "上半待替换已是目标": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "攻击\\+"
                                     ]
                                 }
                             }
@@ -108,6 +113,15 @@
                             }
                         },
                         "确认上半目标词缀_文字": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "普通攻击"
+                                    ]
+                                }
+                            }
+                        },
+                        "上半待替换已是目标": {
                             "recognition": {
                                 "param": {
                                     "expected": [
@@ -139,6 +153,15 @@
                                     ]
                                 }
                             }
+                        },
+                        "上半待替换已是目标": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "红球"
+                                    ]
+                                }
+                            }
                         }
                     },
                     "label": "$case.选择目标词缀.红球"
@@ -156,6 +179,15 @@
                             }
                         },
                         "确认上半目标词缀_文字": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "蓝球"
+                                    ]
+                                }
+                            }
+                        },
+                        "上半待替换已是目标": {
                             "recognition": {
                                 "param": {
                                     "expected": [
@@ -187,6 +219,15 @@
                                     ]
                                 }
                             }
+                        },
+                        "上半待替换已是目标": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "黄球"
+                                    ]
+                                }
+                            }
                         }
                     },
                     "label": "$case.选择目标词缀.黄球"
@@ -198,7 +239,7 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "攻击\\+15、会心\\+15"
+                                        "攻击.*会心"
                                     ]
                                 }
                             }
@@ -207,7 +248,16 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "攻击\\+15、会心\\+15"
+                                        "攻击.*会心"
+                                    ]
+                                }
+                            }
+                        },
+                        "上半待替换已是目标": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "攻击.*会心"
                                     ]
                                 }
                             }
@@ -222,7 +272,7 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "攻击\\+15、防御\\+23"
+                                        "攻击.*防御"
                                     ]
                                 }
                             }
@@ -231,7 +281,16 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "攻击\\+15、防御\\+23"
+                                        "攻击.*防御"
+                                    ]
+                                }
+                            }
+                        },
+                        "上半待替换已是目标": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "攻击.*防御"
                                     ]
                                 }
                             }
@@ -246,7 +305,7 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "生命\\+75、攻击\\+15"
+                                        "生命.*攻击"
                                     ]
                                 }
                             }
@@ -255,7 +314,16 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "生命\\+75、攻击\\+15"
+                                        "生命.*攻击"
+                                    ]
+                                }
+                            }
+                        },
+                        "上半待替换已是目标": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "生命.*攻击"
                                     ]
                                 }
                             }
@@ -270,7 +338,7 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "生命\\+75、会心\\+15"
+                                        "生命.*会心"
                                     ]
                                 }
                             }
@@ -279,7 +347,16 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "生命\\+75、会心\\+15"
+                                        "生命.*会心"
+                                    ]
+                                }
+                            }
+                        },
+                        "上半待替换已是目标": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "生命.*会心"
                                     ]
                                 }
                             }
@@ -299,9 +376,7 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "攻击\\+15、防御\\+23",
-                                        "生命\\+75、攻击\\+15",
-                                        "攻击\\+15、会心\\+15"
+                                        "攻击\\+"
                                     ]
                                 }
                             }
@@ -310,9 +385,16 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "攻击\\+15、防御\\+23",
-                                        "生命\\+75、攻击\\+15",
-                                        "攻击\\+15、会心\\+15"
+                                        "攻击\\+"
+                                    ]
+                                }
+                            }
+                        },
+                        "下半待替换已是目标": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "攻击\\+"
                                     ]
                                 }
                             }
@@ -327,8 +409,8 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "ate",
-                                        "qte"
+                                        "qte",
+                                        "ate"
                                     ]
                                 }
                             }
@@ -337,8 +419,18 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "ate",
-                                        "qte"
+                                        "qte",
+                                        "ate"
+                                    ]
+                                }
+                            }
+                        },
+                        "下半待替换已是目标": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "qte",
+                                        "ate"
                                     ]
                                 }
                             }
@@ -353,7 +445,7 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "核心被动\\+1"
+                                        "核心被动"
                                     ]
                                 }
                             }
@@ -362,7 +454,16 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "核心被动\\+1"
+                                        "核心被动"
+                                    ]
+                                }
+                            }
+                        },
+                        "下半待替换已是目标": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "核心被动"
                                     ]
                                 }
                             }
@@ -390,6 +491,15 @@
                                     ]
                                 }
                             }
+                        },
+                        "下半待替换已是目标": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "必杀技"
+                                    ]
+                                }
+                            }
                         }
                     },
                     "label": "$case.选择目标词缀.必杀技"
@@ -401,7 +511,7 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "必杀技"
+                                        "职业技"
                                     ]
                                 }
                             }
@@ -410,7 +520,16 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "必杀技"
+                                        "职业技"
+                                    ]
+                                }
+                            }
+                        },
+                        "下半待替换已是目标": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "职业技"
                                     ]
                                 }
                             }
@@ -425,7 +544,7 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "攻击\\+15、会心\\+15"
+                                        "攻击.*会心"
                                     ]
                                 }
                             }
@@ -434,7 +553,16 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "攻击\\+15、会心\\+15"
+                                        "攻击.*会心"
+                                    ]
+                                }
+                            }
+                        },
+                        "下半待替换已是目标": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "攻击.*会心"
                                     ]
                                 }
                             }
@@ -449,7 +577,7 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "攻击\\+15、防御\\+23"
+                                        "攻击.*防御"
                                     ]
                                 }
                             }
@@ -458,7 +586,16 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "攻击\\+15、防御\\+23"
+                                        "攻击.*防御"
+                                    ]
+                                }
+                            }
+                        },
+                        "下半待替换已是目标": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "攻击.*防御"
                                     ]
                                 }
                             }
@@ -473,7 +610,7 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "生命\\+75、攻击\\+15"
+                                        "生命.*攻击"
                                     ]
                                 }
                             }
@@ -482,7 +619,16 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "生命\\+75、攻击\\+15"
+                                        "生命.*攻击"
+                                    ]
+                                }
+                            }
+                        },
+                        "下半待替换已是目标": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "生命.*攻击"
                                     ]
                                 }
                             }
@@ -497,7 +643,7 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "生命\\+75、会心\\+15"
+                                        "生命.*会心"
                                     ]
                                 }
                             }
@@ -506,7 +652,16 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "生命\\+75、会心\\+15"
+                                        "生命.*会心"
+                                    ]
+                                }
+                            }
+                        },
+                        "下半待替换已是目标": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "生命.*会心"
                                     ]
                                 }
                             }
