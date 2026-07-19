@@ -2096,14 +2096,12 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "PPOverride",
+                "custom_action": "ResetCount",
                 "custom_action_param": {
-                    "滑动_厄愿潮声": {
-                        "max_hit": 3
-                    },
-                    "反向滑动_厄愿潮声": {
-                        "max_hit": 1
-                    }
+                    "nodes": [
+                        "滑动_厄愿潮声",
+                        "反向滑动_厄愿潮声"
+                    ]
                 }
             }
         }
