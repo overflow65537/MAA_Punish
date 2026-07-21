@@ -127,6 +127,10 @@
         ]
     },
     "领取活跃0-19": {
+        "timeout": 3000,
+        "on_error": [
+            "检查主界面2"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -148,6 +152,10 @@
         ]
     },
     "领取活跃20-39": {
+        "timeout": 3000,
+        "on_error": [
+            "检查主界面2"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -178,6 +186,10 @@
         ]
     },
     "领取活跃40-59": {
+        "timeout": 3000,
+        "on_error": [
+            "检查主界面2"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -208,6 +220,10 @@
         ]
     },
     "领取活跃60-79": {
+        "timeout": 3000,
+        "on_error": [
+            "检查主界面2"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -238,6 +254,10 @@
         ]
     },
     "领取活跃80-99": {
+        "timeout": 3000,
+        "on_error": [
+            "检查主界面2"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
@@ -268,6 +288,10 @@
         ]
     },
     "领取活跃100": {
+        "timeout": 3000,
+        "on_error": [
+            "检查主界面2"
+        ],
         "recognition": {
             "type": "OCR",
             "param": {
