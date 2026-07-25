@@ -62,26 +62,24 @@ class Notice(CustomAction):
                 return CustomAction.RunResult(success=True)
             start_black_card = resource.focus.get("start_black_card")
 
-            # 收益
+            # 收益；体力每 6 分钟回 1 点，满体力按 240 计
             if (
                 start_black_card.isdigit()
                 and end_black_card.isdigit()
                 and energy.isdigit()
             ):
                 profit = int(end_black_card) - int(start_black_card)
-                next_energy = 240 - int(energy) * 6 * 60
+                current_energy = int(energy)
+                seconds_to_full = max(0, 240 - current_energy) * 6 * 60
 
                 now_time = datetime.datetime.now()
-                next_time = now_time + datetime.timedelta(seconds=next_energy)
-                self.custom_notify(context, "初始黑卡:")
-                self.custom_notify(context, start_black_card)
-                self.custom_notify(context, "当前黑卡:")
-                self.custom_notify(context, end_black_card)
-                self.custom_notify(context, "收益:")
-                self.custom_notify(context, str(profit))
-
-                self.custom_notify(context, "下次体力恢复时间:")
-                self.custom_notify(context, next_time.strftime("%Y-%m-%d %H:%M:%S"))
+                next_time = now_time + datetime.timedelta(seconds=seconds_to_full)
+                self.custom_notify(context, f"当前黑卡:{end_black_card}")
+                self.custom_notify(context, f"收益:{profit}")
+                self.custom_notify(
+                    context,
+                    f"下次体力恢复时间:{next_time.strftime('%Y-%m-%d %H:%M:%S')}",
+                )
 
         return CustomAction.RunResult(success=True)
 
