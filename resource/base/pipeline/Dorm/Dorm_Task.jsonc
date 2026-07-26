@@ -315,14 +315,11 @@
                             "type": "ColorMatch",
                             "param": {
                                 "roi": "_目标人物",
+                                "method": 6,
                                 "lower": [
-                                    255,
-                                    255,
-                                    255
+                                    240
                                 ],
                                 "upper": [
-                                    255,
-                                    255,
                                     255
                                 ],
                                 "connected": true,
