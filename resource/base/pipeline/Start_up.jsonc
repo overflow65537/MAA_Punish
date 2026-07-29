@@ -1,9 +1,11 @@
 {
     "启动": {
+        "timeout": 60000,
         "next": [
             "[JumpBack]MAS联动处理-检查到维护公告_将发送假通知",
             "[JumpBack]关闭点击空白弹窗",
             "[JumpBack]关闭纷争战区通知",
+            "[JumpBack]游戏初始化",
             "检查主界面",
             "[JumpBack]关闭奖励",
             "[JumpBack]进入游戏",
@@ -14,6 +16,22 @@
             "[JumpBack]打开应用",
             "[JumpBack]重启任务"
         ]
+    },
+    "游戏初始化": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    424,
+                    356,
+                    474,
+                    244
+                ],
+                "expected": [
+                    "游戏初始化"
+                ]
+            }
+        }
     },
     "月卡续期": {
         "recognition": {
