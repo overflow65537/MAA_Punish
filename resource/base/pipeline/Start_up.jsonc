@@ -1,6 +1,7 @@
 {
     "启动": {
-        "timeout": 60000,
+        "timeout": 480000,
+		"on_error": ["[JumpBack]重启任务"],
         "next": [
             "[JumpBack]MAS联动处理-检查到维护公告_将发送假通知",
             "[JumpBack]关闭点击空白弹窗",
@@ -13,8 +14,7 @@
             "[JumpBack]更新中",
             "[JumpBack]返回主菜单",
             "[JumpBack]用户账号登录失败",
-            "[JumpBack]打开应用",
-            "[JumpBack]重启任务"
+            "[JumpBack]打开应用"
         ]
     },
     "游戏初始化": {
