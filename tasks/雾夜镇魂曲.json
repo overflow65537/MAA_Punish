@@ -29,10 +29,14 @@
                     "name": "剧情模式",
                     "pipeline_override": {
                         "选择模式_雾夜镇魂曲": {
-                            "expected": [
-                                "雾夜异闻",
-                                "霧夜異聞"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "雾夜异闻",
+                                        "霧夜異聞"
+                                    ]
+                                }
+                            }
                         },
                         "开始战斗_雾夜镇魂曲": {
                             "next": []
@@ -47,10 +51,14 @@
                     "name": "等级模式",
                     "pipeline_override": {
                         "选择模式_雾夜镇魂曲": {
-                            "expected": [
-                                "迷局突围",
-                                "迷局突圍"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "迷局突围",
+                                        "迷局突圍"
+                                    ]
+                                }
+                            }
                         }
                     },
                     "option": [
@@ -63,10 +71,14 @@
                     "name": "诡城交锋",
                     "pipeline_override": {
                         "选择模式_雾夜镇魂曲": {
-                            "expected": [
-                                "诡城交锋",
-                                "詭城交鋒"
-                            ],
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "诡城交锋",
+                                        "詭城交鋒"
+                                    ]
+                                }
+                            },
                             "next": [
                                 "诡城交锋_雾夜镇魂曲"
                             ]
@@ -97,10 +109,14 @@
                             }
                         },
                         "选择角色完成": {
-                            "expected": [
-                                "阿尔法",
-                                "阿爾法"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "阿尔法",
+                                        "阿爾法"
+                                    ]
+                                }
+                            }
                         }
                     },
                     "label": "$case.选择角色_雾夜镇魂曲.阿尔法"
@@ -119,10 +135,14 @@
                             }
                         },
                         "选择角色完成": {
-                            "expected": [
-                                "维罗妮卡",
-                                "維羅妮卡"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "维罗妮卡",
+                                        "維羅妮卡"
+                                    ]
+                                }
+                            }
                         }
                     },
                     "label": "$case.选择角色_雾夜镇魂曲.维罗妮卡"
@@ -141,9 +161,13 @@
                             }
                         },
                         "选择角色完成": {
-                            "expected": [
-                                "神威"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "神威"
+                                    ]
+                                }
+                            }
                         }
                     },
                     "label": "$case.选择角色_雾夜镇魂曲.神威"
@@ -158,20 +182,28 @@
                     "name": "难度1",
                     "pipeline_override": {
                         "正确选择难度": {
-                            "expected": [
-                                "难度1",
-                                "難度1"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "难度1",
+                                        "難度1"
+                                    ]
+                                }
+                            }
                         },
                         "滑动难度左": {
-                            "expected": [
-                                "难度3",
-                                "難度3",
-                                "难度2",
-                                "難度2",
-                                "难度1",
-                                "難度1"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "难度3",
+                                        "難度3",
+                                        "难度2",
+                                        "難度2",
+                                        "难度1",
+                                        "難度1"
+                                    ]
+                                }
+                            }
                         },
                         "滑动难度右": {
                             "enabled": false
@@ -183,24 +215,36 @@
                     "name": "难度2",
                     "pipeline_override": {
                         "正确选择难度": {
-                            "expected": [
-                                "难度2",
-                                "難度2"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "难度2",
+                                        "難度2"
+                                    ]
+                                }
+                            }
                         },
                         "滑动难度左": {
-                            "expected": [
-                                "难度3",
-                                "難度3",
-                                "难度2",
-                                "難度2"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "难度3",
+                                        "難度3",
+                                        "难度2",
+                                        "難度2"
+                                    ]
+                                }
+                            }
                         },
                         "滑动难度右": {
-                            "expected": [
-                                "难度2",
-                                "難度2"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "难度2",
+                                        "難度2"
+                                    ]
+                                }
+                            }
                         }
                     },
                     "label": "$case.选择难度_雾夜镇魂曲.难度2"
@@ -209,24 +253,36 @@
                     "name": "难度3",
                     "pipeline_override": {
                         "正确选择难度": {
-                            "expected": [
-                                "难度3",
-                                "難度3"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "难度3",
+                                        "難度3"
+                                    ]
+                                }
+                            }
                         },
                         "滑动难度左": {
-                            "expected": [
-                                "难度3",
-                                "難度3"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "难度3",
+                                        "難度3"
+                                    ]
+                                }
+                            }
                         },
                         "滑动难度右": {
-                            "expected": [
-                                "难度2",
-                                "難度2",
-                                "难度3",
-                                "難度3"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "难度2",
+                                        "難度2",
+                                        "难度3",
+                                        "難度3"
+                                    ]
+                                }
+                            }
                         }
                     },
                     "label": "$case.选择难度_雾夜镇魂曲.难度3"
@@ -235,23 +291,31 @@
                     "name": "难度4",
                     "pipeline_override": {
                         "正确选择难度": {
-                            "expected": [
-                                "难度4",
-                                "難度4"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "难度4",
+                                        "難度4"
+                                    ]
+                                }
+                            }
                         },
                         "滑动难度左": {
                             "enabled": false
                         },
                         "滑动难度右": {
-                            "expected": [
-                                "难度2",
-                                "難度2",
-                                "难度3",
-                                "難度3",
-                                "难度4",
-                                "難度4"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "难度2",
+                                        "難度2",
+                                        "难度3",
+                                        "難度3",
+                                        "难度4",
+                                        "難度4"
+                                    ]
+                                }
+                            }
                         }
                     },
                     "label": "$case.选择难度_雾夜镇魂曲.难度4"
