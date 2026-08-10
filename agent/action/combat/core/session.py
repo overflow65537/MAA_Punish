@@ -234,7 +234,7 @@ class CombatTask:
         blind_attack_click(self.context)
 
     def _correct_role_from_field(
-        self, color: str, roster_cls: str, image: Any
+        self, color: str, roster_cls: str, image: Any, *, solo: bool = False
     ) -> tuple[str, str]:
         """切人/进战后对照 attack_template，必要时将 GeneralFight 占位修正为专属 cls。"""
         self._blind_attack_tick()
@@ -253,6 +253,17 @@ class CombatTask:
             return display_name, detected_cls
 
         if detected_cls not in ("GeneralFight",) and display_name != "未知":
+            if solo:
+                if is_cls_on_field(self.context, image, roster_cls):
+                    return display_name, roster_cls
+                self.logger.info(
+                    "solo 进战: roster=%s 与场上 %s (%s) 不一致，按场上角色修正",
+                    roster_cls,
+                    display_name,
+                    detected_cls,
+                )
+                self._rebind_role_at(key, detected_cls)
+                return display_name, detected_cls
             self.logger.warning(
                 "色位 %s roster=%s 与场上 %s (%s) 不一致，保持原策略",
                 key,
@@ -261,6 +272,18 @@ class CombatTask:
                 detected_cls,
             )
             return display_name, roster_cls
+
+        if solo and display_name != "未知" and detected_cls != roster_cls:
+            if is_cls_on_field(self.context, image, roster_cls):
+                return display_name, roster_cls
+            self.logger.info(
+                "solo 进战: roster=%s 与场上 %s (%s) 不一致，按场上角色修正",
+                roster_cls,
+                display_name,
+                detected_cls,
+            )
+            self._rebind_role_at(key, detected_cls)
+            return display_name, detected_cls
 
         if display_name != "未知":
             return display_name, roster_cls
@@ -361,7 +384,7 @@ class CombatTask:
             image = self.context.tasker.controller.post_screencap().wait().get()
         cur = self.team.current.upper()
         display_name, _ = self._correct_role_from_field(
-            cur, self.team.cls_at(cur), image
+            cur, self.team.cls_at(cur), image, solo=self.team.is_solo()
         )
         if display_name != "未知":
             self.current_role_name = display_name
