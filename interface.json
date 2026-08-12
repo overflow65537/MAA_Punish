@@ -999,114 +999,69 @@
             ]
         },
         "输入键码": {
-            "type": "input",
+            "type": "hotkey",
             "label": "$option.输入键码.label",
             "description": "$option.输入键码.description",
-            "inputs": [
+            "hotkeys": [
                 {
                     "name": "攻击",
-                    "default": "74",
-                    "pipeline_type": "int",
-                    "verify": "^\\d+$",
-                    "pattern_msg": "$input.输入键码.攻击.pattern_msg"
+                    "default": "J"
                 },
                 {
                     "name": "闪避",
-                    "default": "75",
-                    "pipeline_type": "int",
-                    "verify": "^\\d+$",
-                    "pattern_msg": "$input.输入键码.闪避.pattern_msg"
+                    "default": "K"
                 },
                 {
                     "name": "技能",
-                    "default": "76",
-                    "pipeline_type": "int",
-                    "verify": "^\\d+$",
-                    "pattern_msg": "$input.输入键码.技能.pattern_msg"
+                    "default": "L"
                 },
                 {
                     "name": "上方QTE",
-                    "default": "81",
-                    "pipeline_type": "int",
-                    "verify": "^\\d+$",
-                    "pattern_msg": "$input.输入键码.上方QTE.pattern_msg"
+                    "default": "Q"
                 },
                 {
                     "name": "下方QTE",
-                    "default": "69",
-                    "pipeline_type": "int",
-                    "verify": "^\\d+$",
-                    "pattern_msg": "$input.输入键码.下方QTE.pattern_msg"
+                    "default": "E"
                 },
                 {
                     "name": "1号球",
-                    "default": "49",
-                    "pipeline_type": "int",
-                    "verify": "^\\d+$",
-                    "pattern_msg": "$input.输入键码.1号球.pattern_msg"
+                    "default": "1"
                 },
                 {
                     "name": "2号球",
-                    "default": "50",
-                    "pipeline_type": "int",
-                    "verify": "^\\d+$",
-                    "pattern_msg": "$input.输入键码.2号球.pattern_msg"
+                    "default": "2"
                 },
                 {
                     "name": "3号球",
-                    "default": "51",
-                    "pipeline_type": "int",
-                    "verify": "^\\d+$",
-                    "pattern_msg": "$input.输入键码.3号球.pattern_msg"
+                    "default": "3"
                 },
                 {
                     "name": "4号球",
-                    "default": "52",
-                    "pipeline_type": "int",
-                    "verify": "^\\d+$",
-                    "pattern_msg": "$input.输入键码.4号球.pattern_msg"
+                    "default": "4"
                 },
                 {
                     "name": "5号球",
-                    "default": "53",
-                    "pipeline_type": "int",
-                    "verify": "^\\d+$",
-                    "pattern_msg": "$input.输入键码.5号球.pattern_msg"
+                    "default": "5"
                 },
                 {
                     "name": "6号球",
-                    "default": "54",
-                    "pipeline_type": "int",
-                    "verify": "^\\d+$",
-                    "pattern_msg": "$input.输入键码.6号球.pattern_msg"
+                    "default": "6"
                 },
                 {
                     "name": "7号球",
-                    "default": "55",
-                    "pipeline_type": "int",
-                    "verify": "^\\d+$",
-                    "pattern_msg": "$input.输入键码.7号球.pattern_msg"
+                    "default": "7"
                 },
                 {
                     "name": "8号球",
-                    "default": "56",
-                    "pipeline_type": "int",
-                    "verify": "^\\d+$",
-                    "pattern_msg": "$input.输入键码.8号球.pattern_msg"
+                    "default": "8"
                 },
                 {
                     "name": "锁定视角",
-                    "default": "9",
-                    "pipeline_type": "int",
-                    "verify": "^\\d+$",
-                    "pattern_msg": "$input.输入键码.锁定视角.pattern_msg"
+                    "default": "Tab"
                 },
                 {
                     "name": "辅助机",
-                    "default": "67",
-                    "pipeline_type": "int",
-                    "verify": "^\\d+$",
-                    "pattern_msg": "$input.输入键码.辅助机.pattern_msg"
+                    "default": "C"
                 }
             ],
             "pipeline_override": {
@@ -1114,7 +1069,7 @@
                     "action": {
                         "type": "ClickKey",
                         "param": {
-                            "key": "{攻击}"
+                            "key": "{攻击.primary}"
                         }
                     }
                 },
@@ -1122,7 +1077,7 @@
                     "action": {
                         "type": "ClickKey",
                         "param": {
-                            "key": "{闪避}"
+                            "key": "{闪避.primary}"
                         }
                     }
                 },
@@ -1130,7 +1085,7 @@
                     "action": {
                         "type": "ClickKey",
                         "param": {
-                            "key": "{技能}"
+                            "key": "{技能.primary}"
                         }
                     }
                 },
@@ -1138,7 +1093,7 @@
                     "action": {
                         "type": "LongPressKey",
                         "param": {
-                            "key": "{攻击}"
+                            "key": "{攻击.primary}"
                         }
                     }
                 },
@@ -1146,7 +1101,7 @@
                     "action": {
                         "type": "LongPressKey",
                         "param": {
-                            "key": "{闪避}"
+                            "key": "{闪避.primary}"
                         }
                     }
                 },
@@ -1154,7 +1109,7 @@
                     "action": {
                         "type": "LongPressKey",
                         "param": {
-                            "key": "{技能}"
+                            "key": "{技能.primary}"
                         }
                     }
                 },
@@ -1162,7 +1117,7 @@
                     "action": {
                         "type": "KeyDown",
                         "param": {
-                            "key": "{攻击}"
+                            "key": "{攻击.primary}"
                         }
                     }
                 },
@@ -1170,7 +1125,7 @@
                     "action": {
                         "type": "KeyDown",
                         "param": {
-                            "key": "{闪避}"
+                            "key": "{闪避.primary}"
                         }
                     }
                 },
@@ -1178,7 +1133,7 @@
                     "action": {
                         "type": "KeyDown",
                         "param": {
-                            "key": "{技能}"
+                            "key": "{技能.primary}"
                         }
                     }
                 },
@@ -1186,7 +1141,7 @@
                     "action": {
                         "type": "ClickKey",
                         "param": {
-                            "key": "{上方QTE}"
+                            "key": "{上方QTE.primary}"
                         }
                     }
                 },
@@ -1194,7 +1149,7 @@
                     "action": {
                         "type": "ClickKey",
                         "param": {
-                            "key": "{下方QTE}"
+                            "key": "{下方QTE.primary}"
                         }
                     }
                 },
@@ -1202,7 +1157,7 @@
                     "action": {
                         "type": "LongPressKey",
                         "param": {
-                            "key": "{1号球}"
+                            "key": "{1号球.primary}"
                         }
                     }
                 },
@@ -1210,7 +1165,7 @@
                     "action": {
                         "type": "ClickKey",
                         "param": {
-                            "key": "{1号球}"
+                            "key": "{1号球.primary}"
                         }
                     }
                 },
@@ -1218,7 +1173,7 @@
                     "action": {
                         "type": "ClickKey",
                         "param": {
-                            "key": "{2号球}"
+                            "key": "{2号球.primary}"
                         }
                     }
                 },
@@ -1226,7 +1181,7 @@
                     "action": {
                         "type": "ClickKey",
                         "param": {
-                            "key": "{3号球}"
+                            "key": "{3号球.primary}"
                         }
                     }
                 },
@@ -1234,7 +1189,7 @@
                     "action": {
                         "type": "ClickKey",
                         "param": {
-                            "key": "{4号球}"
+                            "key": "{4号球.primary}"
                         }
                     }
                 },
@@ -1242,7 +1197,7 @@
                     "action": {
                         "type": "ClickKey",
                         "param": {
-                            "key": "{5号球}"
+                            "key": "{5号球.primary}"
                         }
                     }
                 },
@@ -1250,7 +1205,7 @@
                     "action": {
                         "type": "ClickKey",
                         "param": {
-                            "key": "{6号球}"
+                            "key": "{6号球.primary}"
                         }
                     }
                 },
@@ -1258,7 +1213,7 @@
                     "action": {
                         "type": "ClickKey",
                         "param": {
-                            "key": "{7号球}"
+                            "key": "{7号球.primary}"
                         }
                     }
                 },
@@ -1266,7 +1221,7 @@
                     "action": {
                         "type": "ClickKey",
                         "param": {
-                            "key": "{8号球}"
+                            "key": "{8号球.primary}"
                         }
                     }
                 },
@@ -1274,7 +1229,7 @@
                     "action": {
                         "type": "ClickKey",
                         "param": {
-                            "key": "{锁定视角}"
+                            "key": "{锁定视角.primary}"
                         }
                     }
                 },
@@ -1282,7 +1237,7 @@
                     "action": {
                         "type": "ClickKey",
                         "param": {
-                            "key": "{辅助机}"
+                            "key": "{辅助机.primary}"
                         }
                     }
                 }
