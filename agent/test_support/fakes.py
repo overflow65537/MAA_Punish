@@ -63,6 +63,7 @@ class FakeContext:
     check_role_calls: list[dict[str, Any]] = field(default_factory=list)
     node_data: dict[str, dict[str, Any]] = field(default_factory=dict)
     pipeline_overrides: list[dict[str, Any]] = field(default_factory=list)
+    actions: list[str] = field(default_factory=list)
     tasker: FakeTasker = field(default_factory=FakeTasker)
 
     def run_recognition(
@@ -97,6 +98,14 @@ class FakeContext:
             current = self.node_data.setdefault(node_name, {})
             if isinstance(node_patch, dict):
                 current.update(node_patch)
+
+    def run_action(
+        self,
+        entry: str,
+        pipeline_override: dict[str, Any] | None = None,
+    ) -> bool:
+        self.actions.append(entry)
+        return True
 
 
 def make_hit(box: tuple[int, int, int, int] = (100, 200, 40, 40)) -> FakeRecognitionResult:

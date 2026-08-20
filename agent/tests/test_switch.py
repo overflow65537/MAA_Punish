@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from action.combat.core import switch
 from action.combat.core.switch import (
-    _ATTACK_CLICK,
     attempt_switch_to_color,
     blind_attack_click,
     click_qte_by_color,
@@ -16,10 +15,17 @@ from test_support.fakes import FakeContext, make_hit, make_miss
 
 
 class TestBlindAttackClick:
-    def test_posts_attack_coordinates(self):
+    def test_runs_pipeline_attack_action(self):
         context = FakeContext()
         blind_attack_click(context)
-        assert context.tasker.controller.clicks == [_ATTACK_CLICK]
+        assert context.actions == ["攻击"]
+        assert context.tasker.controller.clicks == []
+
+    def test_dodges_then_attacks_when_warning_hits(self):
+        context = FakeContext(recognition_map={"自动闪避": make_hit()})
+        blind_attack_click(context)
+        assert context.actions == ["闪避", "攻击"]
+        assert context.tasker.controller.clicks == []
 
 
 class TestDetectVisibleTeamColors:
