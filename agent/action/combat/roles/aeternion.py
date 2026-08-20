@@ -23,12 +23,12 @@
 状态机（p1=不落日.png，p2=不落日_释能.png）::
 
     idle ──► combat
-      [p1] 大招 ──► ult ──► QTE ──► 切人
+      [p1] 大招 ──► ult ──► 切人（认到 QTE 再切，不盲点）
       [p1] 核心条 ──► 消 1 号球 ──►（进 p2 UI）
       [p1] 球≥3 ──► 消 2 号球
       [p1] 兜底 ──► 普攻连段
 
-      [p2] 大招 ──► ult ──► QTE ──► 切人
+      [p2] 大招 ──► ult ──► 切人（认到 QTE 再切，不盲点）
       [p2] p2 核心条 ──► 长按闪避 700ms ──► 长按攻击 1s
       [p2] 球≥3 ──► 消 2 号球
       [p2] 兜底 ──► 普攻连段
@@ -59,7 +59,7 @@ _ATTACK_INTERVAL_MS = 50
 
 
 class Aeternion(BaseRole):
-    """不落日：p1 核心条消 1 球进 p2；p2 核心条闪避+长按攻击；有大 QTE 切人。"""
+    """不落日：p1 核心条消 1 球进 p2；p2 核心条闪避+长按攻击；有大切人（不盲点 QTE）。"""
 
     def do_perform(self) -> None:
         if self.combat.context.tasker.stopping:
@@ -116,9 +116,8 @@ class Aeternion(BaseRole):
                 self.phase = "combat"
                 return
 
-            self.action.logger.info("不落日: 大招结束，QTE 切人")
+            self.action.logger.info("不落日: 大招结束，切人")
             self.action.attack()
-            self.action.use_qte()
             self.combat.request_role_switch(self)
 
         self._run_step(_body)
