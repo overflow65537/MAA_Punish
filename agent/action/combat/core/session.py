@@ -35,6 +35,7 @@ from action.combat.core.role_detect import (
     attack_templates_for_cls,
     detect_current_role,
     is_cls_on_field,
+    is_dodge_button_visible,
 )
 from action.combat.core.role_factory import ROLE_CLASS_MAP, create_role
 from action.combat.core.switch import attempt_switch_to_color, blind_attack_click
@@ -119,6 +120,7 @@ class CombatTask:
         self.team: TeamSnapshot | None = None
         self.roles: dict[str, BaseRole] = {}
         self.current_role_name: str = ""
+        self._last_field_cls: str = ""
         self.last_switch_attempt_time: float = 0.0
         self._switch_attempt_cooldown: float = 0.0
         self._role_swap_cd_until: dict[str, float] = {}
@@ -238,9 +240,11 @@ class CombatTask:
     ) -> tuple[str, str]:
         """切人/进战后对照 attack_template，必要时将 GeneralFight 占位修正为专属 cls。"""
         self._blind_attack_tick()
+        prefer = [roster_cls] if roster_cls else []
         display_name, detected_cls = detect_current_role(
             self.context,
             image,
+            prefer_cls=prefer,
             on_tick=self._blind_attack_tick,
         )
         key = color.upper()
@@ -289,9 +293,25 @@ class CombatTask:
             return display_name, roster_cls
         return "未知", roster_cls
 
+    def _prefer_cls_for_field_refresh(self, current_cls: str) -> list[str]:
+        """场上失配时优先认：上次命中 → 其余色位。"""
+        prefer: list[str] = []
+        last = self._last_field_cls
+        if last and last != current_cls:
+            prefer.append(last)
+        if self.team is not None:
+            for color in TEAM_COLORS:
+                cls_name = self.team.cls_at(color)
+                if cls_name and cls_name != current_cls and cls_name not in prefer:
+                    prefer.append(cls_name)
+        return prefer
+
     def refresh_field_role(self, role: BaseRole) -> bool:
         """
         每 tick 校验当前角色 attack_template；失配则重识别并更新 team.current。
+
+        先认闪避键：不在则跳过（技能特效/过场会挡 HUD）。
+        在则先匹配当前 cls；未命中再按上次结果 / 队友优先扫表。
 
         :return: True 表示已切换主站角色，本 tick 应跳过后续战斗逻辑。
         """
@@ -305,18 +325,23 @@ class CombatTask:
         if image is None:
             return False
 
-        if is_cls_on_field(self.context, image, role.cls_name):
+        if not is_dodge_button_visible(self.context, image):
             return False
 
-        self._blind_attack_tick()
+        if is_cls_on_field(self.context, image, role.cls_name):
+            self._last_field_cls = role.cls_name
+            return False
+
         display_name, detected_cls = detect_current_role(
             self.context,
             image,
-            on_tick=self._blind_attack_tick,
+            prefer_cls=self._prefer_cls_for_field_refresh(role.cls_name),
+            skip_cls=(role.cls_name,),
         )
         if detected_cls == role.cls_name or display_name == "未知":
             return False
 
+        self._last_field_cls = detected_cls
         cur = self.team.current.upper()
         if (
             self.team.cls_at(cur) == role.cls_name
@@ -711,6 +736,7 @@ class CombatTask:
         self.team = None
         self.roles = {}
         self.current_role_name = ""
+        self._last_field_cls = ""
         self.last_switch_attempt_time = 0.0
         self._switch_attempt_cooldown = 0.0
         self._role_swap_cd_until = {}

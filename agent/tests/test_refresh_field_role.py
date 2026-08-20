@@ -9,7 +9,7 @@ from action.combat.core.role_factory import create_role
 from action.combat.core.session import CombatTask
 from action.combat.core.team import TeamSnapshot
 
-from test_support.fakes import FakeContext
+from test_support.fakes import FakeContext, make_hit, make_miss
 
 
 @dataclass
@@ -26,8 +26,14 @@ class _FixedTeamCheck(BaseCombatCheck):
         return False
 
 
-def _combat_with_team(snapshot: TeamSnapshot) -> CombatTask:
-    combat = CombatTask(FakeContext(), _FixedTeamCheck(snapshot))
+def _combat_with_team(
+    snapshot: TeamSnapshot, *, dodge_visible: bool = True
+) -> CombatTask:
+    dodge = make_hit() if dodge_visible else make_miss()
+    combat = CombatTask(
+        FakeContext(recognition_map={"检查闪避": dodge}),
+        _FixedTeamCheck(snapshot),
+    )
     combat.team = snapshot
     combat.frame = b"img"
     combat.roles = {
@@ -109,3 +115,86 @@ class TestRefreshFieldRole:
         assert combat.team is not None
         assert combat.team.R == "Aeternion"
         assert combat.roles["R"].cls_name == "Aeternion"
+
+    def test_mismatch_prefers_teammates_and_skips_current(self, monkeypatch):
+        combat = _combat_with_team(
+            TeamSnapshot(R="Geiravor", B="", Y="Aeternion", current="R")
+        )
+        combat._last_field_cls = "Geiravor"
+        role = combat.roles["R"]
+        captured: dict[str, object] = {}
+
+        monkeypatch.setattr(
+            "action.combat.core.session.is_cls_on_field",
+            lambda *_args, **_kwargs: False,
+        )
+
+        def fake_detect(*_args, **kwargs):
+            captured.update(kwargs)
+            return ("不落日", "Aeternion")
+
+        monkeypatch.setattr(
+            "action.combat.core.session.detect_current_role",
+            fake_detect,
+        )
+
+        assert combat.refresh_field_role(role) is True
+        assert captured.get("prefer_cls") == ["Aeternion"]
+        assert captured.get("skip_cls") == ("Geiravor",)
+        assert "on_tick" not in captured
+        assert combat._last_field_cls == "Aeternion"
+
+    def test_hit_records_last_field_cls(self, monkeypatch):
+        combat = _combat_with_team(
+            TeamSnapshot(R="Geiravor", B="", Y="Aeternion", current="R")
+        )
+        role = combat.roles["R"]
+        monkeypatch.setattr(
+            "action.combat.core.session.is_cls_on_field",
+            lambda *_args, **_kwargs: True,
+        )
+        detect_calls = {"n": 0}
+
+        def fake_detect(*_args, **_kwargs):
+            detect_calls["n"] += 1
+            return ("灼惘", "Geiravor")
+
+        monkeypatch.setattr(
+            "action.combat.core.session.detect_current_role",
+            fake_detect,
+        )
+        assert combat.refresh_field_role(role) is False
+        assert detect_calls["n"] == 0
+        assert combat._last_field_cls == "Geiravor"
+
+    def test_skips_when_dodge_button_missing(self, monkeypatch):
+        combat = _combat_with_team(
+            TeamSnapshot(R="Geiravor", B="", Y="Aeternion", current="R"),
+            dodge_visible=False,
+        )
+        role = combat.roles["R"]
+        field_calls = {"n": 0}
+        detect_calls = {"n": 0}
+
+        def fake_field(*_args, **_kwargs):
+            field_calls["n"] += 1
+            return False
+
+        def fake_detect(*_args, **_kwargs):
+            detect_calls["n"] += 1
+            return ("不落日", "Aeternion")
+
+        monkeypatch.setattr(
+            "action.combat.core.session.is_cls_on_field",
+            fake_field,
+        )
+        monkeypatch.setattr(
+            "action.combat.core.session.detect_current_role",
+            fake_detect,
+        )
+
+        assert combat.refresh_field_role(role) is False
+        assert field_calls["n"] == 0
+        assert detect_calls["n"] == 0
+        assert combat.team is not None
+        assert combat.team.current == "R"

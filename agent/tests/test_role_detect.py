@@ -6,8 +6,10 @@ from action.combat.core import role_detect
 from action.combat.core.role_detect import (
     attack_templates_for_cls,
     detect_current_role,
+    is_dodge_button_visible,
     is_switch_arrived,
     match_attack_template,
+    ordered_role_entries,
 )
 
 from test_support.fakes import FakeContext, make_hit, make_miss
@@ -91,6 +93,35 @@ class TestDetectCurrentRole:
         detect_current_role(context, b"img", on_tick=lambda: ticks.append(1))
         assert len(ticks) == 2
 
+    def test_prefer_cls_is_scanned_before_catalog(self, monkeypatch):
+        monkeypatch.setattr(role_detect, "ROLE_ACTIONS", MINI_ROLE_ACTIONS)
+        context = FakeContext(check_role_results=[make_hit()])
+        display, cls_name = detect_current_role(
+            context, b"img", prefer_cls=["GeneralFight"]
+        )
+        assert display == "通用"
+        assert cls_name == "GeneralFight"
+        assert len(context.check_role_calls) == 1
+        templates = context.check_role_calls[0]["pipeline_override"]["检查角色"][
+            "recognition"
+        ]["param"]["template"]
+        assert templates == ["自定义战斗/通用.png"]
+
+    def test_skip_cls_omits_already_checked_role(self, monkeypatch):
+        monkeypatch.setattr(role_detect, "ROLE_ACTIONS", MINI_ROLE_ACTIONS)
+        context = FakeContext(check_role_results=[make_hit()])
+        display, cls_name = detect_current_role(
+            context, b"img", skip_cls=["Spectre"]
+        )
+        assert display == "通用"
+        assert cls_name == "GeneralFight"
+        assert len(context.check_role_calls) == 1
+
+    def test_ordered_entries_prefer_then_rest(self, monkeypatch):
+        monkeypatch.setattr(role_detect, "ROLE_ACTIONS", MINI_ROLE_ACTIONS)
+        names = [name for name, _info in ordered_role_entries(prefer_cls=["GeneralFight"])]
+        assert names == ["通用·测试", "专属·测试"]
+
 
 class TestIsSwitchArrived:
     def setup_method(self, method):
@@ -116,3 +147,13 @@ class TestIsSwitchArrived:
         monkeypatch.setattr(role_detect, "ROLE_ACTIONS", MINI_ROLE_ACTIONS)
         context = FakeContext(check_role_results=[make_miss(), make_miss()])
         assert is_switch_arrived(context, b"img", "GeneralFight") is False
+
+
+class TestIsDodgeButtonVisible:
+    def test_hit(self):
+        context = FakeContext(recognition_map={"检查闪避": make_hit()})
+        assert is_dodge_button_visible(context, b"img") is True
+
+    def test_miss(self):
+        context = FakeContext(recognition_map={"检查闪避": make_miss()})
+        assert is_dodge_button_visible(context, b"img") is False

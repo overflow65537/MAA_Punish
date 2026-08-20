@@ -164,9 +164,16 @@ class CombatCheck(BaseCombatCheck):
             return snapshot
 
         image = self._get_frame(context, combat)
+        prefer: list[str] = []
+        if published:
+            for color in TEAM_COLORS:
+                cls_name = str(published.get(color) or "").strip()
+                if cls_name and cls_name not in prefer:
+                    prefer.append(cls_name)
         display_name, field_cls = detect_current_role(
             context,
             image,
+            prefer_cls=prefer,
             on_tick=lambda: blind_attack_click(context),
         )
         combat.current_role_name = display_name

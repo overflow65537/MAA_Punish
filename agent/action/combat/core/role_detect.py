@@ -26,7 +26,7 @@ MAA_Punish 战斗中识别当前角色（复用 Pipeline「检查角色」）
 
 from __future__ import annotations
 
-from collections.abc import Callable
+from collections.abc import Callable, Sequence
 from typing import Any
 
 from maa.context import Context
@@ -78,7 +78,83 @@ def is_cls_on_field(context: Context, image: Any, cls_name: str) -> bool:
     return match_attack_template(context, image, attack_templates_for_cls(cls_name))
 
 
+_DODGE_NODE = "检查闪避"
+
+
+def is_dodge_button_visible(context: Context, image: Any) -> bool:
+    """战斗 HUD 闪避键是否可见。不可见时 attack_template 也不可靠。"""
+    result = context.run_recognition(_DODGE_NODE, image)
+    return bool(result and result.hit)
+
+
 _GENERIC_CLS = "GeneralFight"
+
+
+def _partition_role_entries() -> tuple[
+    list[tuple[str, dict]], list[tuple[str, dict]]
+]:
+    dedicated: list[tuple[str, dict]] = []
+    generic: list[tuple[str, dict]] = []
+    for role_name, role_info in ROLE_ACTIONS.items():
+        templates = _normalize_attack_templates(role_info.get("attack_template"))
+        if not templates:
+            continue
+        cls_name = str(role_info.get("cls_name", _GENERIC_CLS))
+        bucket = generic if cls_name == _GENERIC_CLS else dedicated
+        bucket.append((role_name, role_info))
+    return dedicated, generic
+
+
+def _unique_cls(names: Sequence[str] | None) -> list[str]:
+    ordered: list[str] = []
+    seen: set[str] = set()
+    for cls_name in names or ():
+        key = str(cls_name or "").strip()
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        ordered.append(key)
+    return ordered
+
+
+def ordered_role_entries(
+    *,
+    prefer_cls: Sequence[str] | None = None,
+    skip_cls: Sequence[str] | None = None,
+) -> list[tuple[str, dict]]:
+    """
+    角色模板扫描顺序：prefer_cls 先于其余专属，再通用。
+
+    skip_cls 整段跳过（例如本 tick 已对当前角色做过 is_cls_on_field）。
+    """
+    dedicated, generic = _partition_role_entries()
+    catalog = dedicated + generic
+    skip = set(_unique_cls(skip_cls))
+    prefer = [cls_name for cls_name in _unique_cls(prefer_cls) if cls_name not in skip]
+
+    ordered: list[tuple[str, dict]] = []
+    seen_names: set[str] = set()
+
+    def take_cls(cls_name: str) -> None:
+        for name, info in catalog:
+            if name in seen_names:
+                continue
+            if str(info.get("cls_name", _GENERIC_CLS)) != cls_name:
+                continue
+            ordered.append((name, info))
+            seen_names.add(name)
+
+    for cls_name in prefer:
+        take_cls(cls_name)
+
+    for name, info in catalog:
+        if name in seen_names:
+            continue
+        if str(info.get("cls_name", _GENERIC_CLS)) in skip:
+            continue
+        ordered.append((name, info))
+        seen_names.add(name)
+    return ordered
 
 
 def detect_current_role(
@@ -86,33 +162,28 @@ def detect_current_role(
     image: Any,
     *,
     on_tick: Callable[[], Any] | None = None,
+    prefer_cls: Sequence[str] | None = None,
+    skip_cls: Sequence[str] | None = None,
 ) -> tuple[str, str]:
     """
     按 attack_template 模板匹配当前上场角色。
 
-    专属 cls 优先于 GeneralFight，避免通用占位误匹配谬影。
+    默认专属 cls 优先于 GeneralFight，避免通用占位误匹配谬影。
+    prefer_cls 会插到扫描队列最前（上次识别 / 队友），skip_cls 跳过已查过的 cls。
     on_tick 会在每次模板匹配前调用（如盲发普攻，避免识别空转）。
 
     :return: (展示名, cls_name)
     """
-    dedicated: list[tuple[str, dict]] = []
-    generic: list[tuple[str, dict]] = []
-    for role_name, role_info in ROLE_ACTIONS.items():
-        templates = _normalize_attack_templates(role_info.get("attack_template"))
-        if not templates:
-            continue
-        cls_name = str(role_info.get("cls_name", "GeneralFight"))
-        bucket = generic if cls_name == _GENERIC_CLS else dedicated
-        bucket.append((role_name, role_info))
-
-    for role_name, role_info in dedicated + generic:
+    for role_name, role_info in ordered_role_entries(
+        prefer_cls=prefer_cls, skip_cls=skip_cls
+    ):
         if on_tick is not None:
             on_tick()
         templates = _normalize_attack_templates(role_info.get("attack_template"))
         if match_attack_template(context, image, templates):
             display = str(role_info.get("name") or role_name)
-            return display, str(role_info.get("cls_name", "GeneralFight"))
-    return "未知", "GeneralFight"
+            return display, str(role_info.get("cls_name", _GENERIC_CLS))
+    return "未知", _GENERIC_CLS
 
 
 def is_switch_arrived(context: Context, image: Any, roster_cls: str) -> bool:
