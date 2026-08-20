@@ -26,8 +26,9 @@
               ├──球≥3──► 消球一次 ──► p1
               └──兜底──► 一段连续普攻 ──► p1
 
-    p2 ──球≥3──► 消球一次 ──► p2
-       ├──核心被动（球数已读且<3）──► 按住普攻（≤5s，满大则放大）──► p2_ult（确认释放 → QTE → 切人）
+    p2 ──满大──► p2_ult（确认释放 → QTE → 切人）
+       ├──球≥3──► 消球一次 ──► p2
+       ├──核心被动（球数已读且<3）──► 按住普攻（≤5s，满大则放大）──► p2_ult
        └──兜底──► 普攻 ──► p2
 
 进 p2：p1 大招 + QTE。出 p2：仅 p2 大招 + QTE + 切人。
@@ -92,7 +93,7 @@ class Geiravor(BaseRole):
             while time.monotonic() < deadline:
                 if self.combat.context.tasker.stopping:
                     return False
-                if self.action.check_Skill_energy_bar():
+                if self.action.check_Skill_energy_bar(fresh=True):
                     return True
                 remaining = deadline - time.monotonic()
                 if remaining <= 0:
@@ -136,7 +137,11 @@ class Geiravor(BaseRole):
         self._enter_p2()
 
     def _phase_p2(self) -> None:
-        """p2：消球 > 核心被动（球数已读且<3）> 普攻。"""
+        """p2：满大 > 消球 > 核心被动（球数已读且<3）> 普攻。"""
+        if self.action.check_Skill_energy_bar():
+            self.phase = "p2_ult"
+            return
+
         ball_count = self.action.count_signal_balls()
         if ball_count >= _BALL_CLEAR_MIN:
             self.action.logger.info("灼惘: p2 消球")

@@ -391,14 +391,16 @@ class CombatActions:
             return result
         return False
 
-    def check_Skill_energy_bar(self, *, image: Any = None) -> bool:
+    def check_Skill_energy_bar(self, *, image: Any = None, fresh: bool = False) -> bool:
         """
         检查技能能量条
         检查技能能量是否足够，足够时返回True。
+        :param image: 已有截图时直接用；与 fresh 同时传入时以 image 为准
+        :param fresh: 为 True 时强制重新截屏，避免长按/轮询复用过期帧
         :return: bool
         """
         if image is None:
-            image = self._get_image()
+            image = self._get_image(fresh=fresh)
         energy_result = self._run_recognition("技能_能量条", "技能_能量条", image)
         return bool(energy_result and energy_result.hit)
 
