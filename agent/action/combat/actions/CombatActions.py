@@ -470,6 +470,8 @@ class CombatActions:
             """
             从 OCR 文本解析当前信号球数量（0～16）。
             预期形态接近「当前/16」；分隔符常被误识，总分也可能被拆成 1 与 6。
+            上述规则都未命中时：取文本前两位，能解析为 0～16 的整数则采用；
+            否则再试第一位。
             """
             if not text or not str(text).strip():
                 return None
@@ -520,7 +522,17 @@ class CombatActions:
                 if v is not None:
                     return v
 
-            return None
+            def _from_prefix(token: str) -> int | None:
+                if not token.isdigit():
+                    return None
+                n = int(token)
+                return n if 0 <= n <= _signal_ball_max else None
+
+            if len(s) >= 2:
+                two = _from_prefix(s[:2])
+                if two is not None:
+                    return two
+            return _from_prefix(s[:1])
 
         image = self._get_image()
         result = self.context.run_recognition("统计信号球数量", image)
