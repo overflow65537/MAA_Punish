@@ -89,7 +89,7 @@ class BaseCombatCheck(ABC):
         进战识别：场上第一人固定为红位。
 
         先看选人名单：但凡有一个专属战斗逻辑，直接采用该名单。
-        名单全是通用作战（或没有名单）时，再按当帧黄/蓝 QTE 判断 1/2/3 人。
+        名单全是通用作战（或没有名单）时，先识别场上角色，再按黄/蓝 QTE 判断人数。
         """
         return None
 
@@ -149,7 +149,7 @@ class CombatCheck(BaseCombatCheck):
         进战识别：场上第一人固定为红位。
 
         先看选人名单：但凡有一个专属战斗逻辑，直接采用该名单。
-        名单全是通用作战（或没有名单）时，再按当帧黄/蓝 QTE 判断 1/2/3 人。
+        名单全是通用作战（或没有名单）时，先识别场上角色，再截一帧看黄/蓝 QTE 定人数。
         """
         published = load_team_roster_from_context(context)
         if not should_infer_team_size_from_qte(published):
@@ -164,13 +164,16 @@ class CombatCheck(BaseCombatCheck):
             return snapshot
 
         image = self._get_frame(context, combat)
-        visible_qte = detect_visible_team_colors(context, image)
         display_name, field_cls = detect_current_role(
             context,
             image,
             on_tick=lambda: blind_attack_click(context),
         )
         combat.current_role_name = display_name
+
+        combat.frame = None
+        image = self._get_frame(context, combat)
+        visible_qte = detect_visible_team_colors(context, image)
 
         roster = roster_from_entry_qte(field_cls, visible_qte, published)
         bench = entry_qte_bench_colors(visible_qte)

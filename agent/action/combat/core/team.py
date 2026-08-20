@@ -80,7 +80,7 @@ def roster_from_entry_qte(
     published: dict[str, str] | None = None,
 ) -> dict[str, str]:
     """
-    按进战 QTE 定人数，红位为当前主站。
+    场上角色识别完成后再按黄/蓝 QTE 定人数，红位为当前主站。
 
     - 可见 Y+B → 三人队
     - 可见 Y 或 B → 两人队

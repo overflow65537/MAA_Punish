@@ -122,3 +122,27 @@ class TestDetectTeamByEntryQte:
         assert snap.B == GENERIC_CLS_NAME
         assert snap.Y == GENERIC_CLS_NAME
         assert snap.current == "R"
+
+    def test_qte_check_runs_after_field_role_detect(self, monkeypatch):
+        order: list[str] = []
+
+        def fake_detect(*_args, **_kwargs):
+            order.append("role")
+            return ("终焉", "Oblivion")
+
+        def fake_qte(*_args, **_kwargs):
+            order.append("qte")
+            return ["B", "Y"]
+
+        monkeypatch.setattr(
+            "action.combat.core.provider.detect_current_role",
+            fake_detect,
+        )
+        monkeypatch.setattr(
+            "action.combat.core.provider.detect_visible_team_colors",
+            fake_qte,
+        )
+        snap = CombatCheck().detect_team(FakeContext(), _FakeCombat())
+        assert order == ["role", "qte"]
+        assert snap is not None
+        assert snap.filled_colors() == ("R", "B", "Y")
