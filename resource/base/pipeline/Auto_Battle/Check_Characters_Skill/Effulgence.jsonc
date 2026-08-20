@@ -1,0 +1,134 @@
+{
+    "检查阶段p1_烬航": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1113,
+                    556,
+                    138,
+                    142
+                ],
+                "template": [
+                    "自定义战斗/卡列尼娜/烬航/烬航.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.85
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查阶段p2_烬航": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1113,
+                    556,
+                    138,
+                    142
+                ],
+                "template": [
+                    "自定义战斗/卡列尼娜/烬航/烬航_p2.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.85
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查p1核心条_烬航": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    712,
+                    600,
+                    40,
+                    37
+                ],
+                "method": 40,
+                "lower": [
+                    20,
+                    48,
+                    230
+                ],
+                "upper": [
+                    27,
+                    100,
+                    255
+                ],
+                "count": 25,
+                "connected": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查p2核心条_烬航": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "检查p2核心条颜色_烬航",
+                    "检查p2核心条文本_烬航"
+                ]
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查p2核心条颜色_烬航": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    538,
+                    591,
+                    118,
+                    66
+                ],
+                "method": 40,
+                "lower": [
+                    6,
+                    160,
+                    160
+                ],
+                "upper": [
+                    9,
+                    200,
+                    255
+                ],
+                "count": 10
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    },
+    "检查p2核心条文本_烬航": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "检查p2核心条颜色_烬航",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
+                "expected": "^500$",
+                "only_rec": true
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0
+    }
+}

@@ -678,4 +678,21 @@ ROLE_ACTIONS = {
             "自定义战斗/海伦汀/安魂/安魂_核心.png",
         ],
     },
+    "卡列尼娜·烬航": {
+        "name": "烬航",
+        "type": "Tank",
+        "cls_name": "Effulgence",
+        "metadata": {
+            "physical": 100,
+            "generation": 3,
+        },
+        "template": [
+            "人物索引/卡列尼娜/烬航/烬航.png",
+            "人物索引/卡列尼娜/烬航/烬航_终解.png",
+        ],
+        "attack_template": [
+            "自定义战斗/卡列尼娜/烬航/烬航.png",
+            "自定义战斗/卡列尼娜/烬航/烬航_p2.png",
+        ],
+    },
 }
