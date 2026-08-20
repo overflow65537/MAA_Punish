@@ -42,6 +42,9 @@ TEAM_ROSTER_NODE = "战斗队伍色位"
 GENERIC_CLS_NAME = "GeneralFight"
 
 
+ENTRY_QTE_BENCH_COLORS = ("B", "Y")
+
+
 def generic_team_roster() -> dict[str, str]:
     """预设编队未走选人程序时：三色位占位 GeneralFight，进战后由 attack_template 纠正。"""
     return {color: GENERIC_CLS_NAME for color in TEAM_COLORS}
@@ -49,7 +52,55 @@ def generic_team_roster() -> dict[str, str]:
 
 def is_generic_team_roster(roster: dict[str, str]) -> bool:
     filled = [roster.get(c, "").strip() for c in TEAM_COLORS if roster.get(c, "").strip()]
-    return len(filled) >= 2 and all(cls_name == GENERIC_CLS_NAME for cls_name in filled)
+    return bool(filled) and all(cls_name == GENERIC_CLS_NAME for cls_name in filled)
+
+
+def should_infer_team_size_from_qte(roster: dict[str, str] | None) -> bool:
+    """
+    选人名单全是通用作战（或没有名单）才做进战 QTE 人数判断。
+    但凡有一个专属 cls，直接采用选人结果。
+    """
+    if not roster:
+        return True
+    filled = [roster.get(c, "").strip() for c in TEAM_COLORS if roster.get(c, "").strip()]
+    if not filled:
+        return True
+    return all(cls_name == GENERIC_CLS_NAME for cls_name in filled)
+
+
+def entry_qte_bench_colors(visible_qte: list[str]) -> tuple[str, ...]:
+    """进战只认黄/蓝 QTE：场上固定为红，R QTE 忽略。"""
+    visible = {color.upper() for color in visible_qte}
+    return tuple(color for color in ENTRY_QTE_BENCH_COLORS if color in visible)
+
+
+def roster_from_entry_qte(
+    field_cls: str,
+    visible_qte: list[str],
+    published: dict[str, str] | None = None,
+) -> dict[str, str]:
+    """
+    按进战 QTE 定人数，红位为当前主站。
+
+    - 可见 Y+B → 三人队
+    - 可见 Y 或 B → 两人队
+    - 均不可见 → 单人队
+    色位 cls：此路径仅用于选人全是通用占位；红位用当场识别，黄/蓝仍占位 GeneralFight。
+    """
+    published = published or {}
+    field_cls = (field_cls or "").strip() or GENERIC_CLS_NAME
+    bench = entry_qte_bench_colors(visible_qte)
+
+    def slot_cls(color: str) -> str:
+        name = str(published.get(color, "")).strip()
+        return name or GENERIC_CLS_NAME
+
+    return {
+        "R": field_cls,
+        "B": slot_cls("B") if "B" in bench else "",
+        "Y": slot_cls("Y") if "Y" in bench else "",
+    }
+
 
 _KNOWN_CLS_NAMES = {
     role_info.get("cls_name")

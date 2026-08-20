@@ -30,14 +30,19 @@ import logging
 from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING, Any
 
+from action.combat.core.role import resolve_cls_label
 from action.combat.core.role_detect import detect_current_role
 from action.combat.core.switch import blind_attack_click
 from action.combat.core.switch import detect_visible_team_colors
 from action.combat.core.team import (
+    GENERIC_CLS_NAME,
     TEAM_COLORS,
     TeamSnapshot,
+    entry_qte_bench_colors,
     format_team_snapshot_line,
     load_team_roster_from_context,
+    roster_from_entry_qte,
+    should_infer_team_size_from_qte,
 )
 
 if TYPE_CHECKING:
@@ -80,7 +85,12 @@ class BaseCombatCheck(ABC):
         return False
 
     def detect_team(self, context: Context, combat: CombatTask) -> TeamSnapshot | None:
-        """进战后第一次识别队伍。返回 R/B/Y cls_name 及 current 色位。"""
+        """
+        进战识别：场上第一人固定为红位。
+
+        先看选人名单：但凡有一个专属战斗逻辑，直接采用该名单。
+        名单全是通用作战（或没有名单）时，再按当帧黄/蓝 QTE 判断 1/2/3 人。
+        """
         return None
 
     def detect_qte_colors(self, context: Context, combat: CombatTask) -> list[str]:
@@ -136,38 +146,49 @@ class CombatCheck(BaseCombatCheck):
 
     def detect_team(self, context: Context, combat: CombatTask) -> TeamSnapshot | None:
         """
-        进战识别：初次进入默认红色色位（R）为主站。
+        进战识别：场上第一人固定为红位。
 
-        色位 roster 从「战斗队伍色位」节点读取；
-        节点 attach 为空 → 单人队（仅当前识别到的角色）。
+        先看选人名单：但凡有一个专属战斗逻辑，直接采用该名单。
+        名单全是通用作战（或没有名单）时，再按当帧黄/蓝 QTE 判断 1/2/3 人。
         """
-        roster = load_team_roster_from_context(context)
-        if roster is None:
-            image = self._get_frame(context, combat)
-            display_name, cls_name = detect_current_role(
-                context,
-                image,
-                on_tick=lambda: blind_attack_click(context),
-            )
-            combat.current_role_name = display_name
-            logger.info("战斗队伍色位为空，按单人队处理: %s", cls_name)
-            return TeamSnapshot.solo(cls_name)
+        published = load_team_roster_from_context(context)
+        if not should_infer_team_size_from_qte(published):
+            snapshot = TeamSnapshot.from_dict({**(published or {}), "current": "R"})
+            if snapshot is None:
+                fallback = (published or {}).get("R") or GENERIC_CLS_NAME
+                logger.warning("选人名单无法组成队伍，按单人队: %s", published)
+                return TeamSnapshot.solo(fallback)
+            combat.current_role_name = resolve_cls_label(snapshot.R)
+            logger.info("进战采用选人名单，跳过 QTE 人数判断")
+            logger.info(format_team_snapshot_line(snapshot))
+            return snapshot
 
-        r_cls = roster.get("R", "")
-        if not r_cls:
-            logger.warning("战前 roster R 色位为空，按 solo 处理: %s", roster)
-            return TeamSnapshot.solo(roster.get("B") or roster.get("Y") or "GeneralFight")
-
-        snapshot = TeamSnapshot.from_dict(
-            {
-                "R": roster["R"],
-                "B": roster["B"],
-                "Y": roster["Y"],
-                "current": "R",
-            }
+        image = self._get_frame(context, combat)
+        visible_qte = detect_visible_team_colors(context, image)
+        display_name, field_cls = detect_current_role(
+            context,
+            image,
+            on_tick=lambda: blind_attack_click(context),
         )
+        combat.current_role_name = display_name
+
+        roster = roster_from_entry_qte(field_cls, visible_qte, published)
+        bench = entry_qte_bench_colors(visible_qte)
+        if len(bench) >= 2:
+            team_type = "三人队"
+        elif len(bench) == 1:
+            team_type = "两人队"
+        else:
+            team_type = "单人队"
+        logger.info(
+            "进战 QTE 检查: 可见=%s → %s",
+            ",".join(bench) or "无",
+            team_type,
+        )
+
+        snapshot = TeamSnapshot.from_dict({**roster, "current": "R"})
         if snapshot is None:
-            return TeamSnapshot.solo(r_cls)
+            return TeamSnapshot.solo(roster.get("R") or field_cls or GENERIC_CLS_NAME)
 
         logger.info(format_team_snapshot_line(snapshot))
         return snapshot

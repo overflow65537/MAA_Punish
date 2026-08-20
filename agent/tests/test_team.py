@@ -6,12 +6,15 @@ from action.combat.core.team import (
     GENERIC_CLS_NAME,
     TEAM_ROSTER_NODE,
     TeamSnapshot,
+    entry_qte_bench_colors,
     generic_team_roster,
     is_generic_team_roster,
     load_team_roster_from_context,
     publish_team_roster,
     role_display_name_to_cls,
+    roster_from_entry_qte,
     roster_from_role_selection,
+    should_infer_team_size_from_qte,
 )
 
 from test_support.fakes import FakeContext
@@ -29,8 +32,31 @@ class TestGenericTeamRoster:
         roster = {"R": "InverseCrown", "B": GENERIC_CLS_NAME, "Y": GENERIC_CLS_NAME}
         assert is_generic_team_roster(roster) is False
 
-    def test_is_generic_team_roster_false_when_only_one_slot(self):
-        assert is_generic_team_roster({"R": GENERIC_CLS_NAME, "B": "", "Y": ""}) is False
+    def test_is_generic_team_roster_true_when_only_one_slot(self):
+        assert is_generic_team_roster({"R": GENERIC_CLS_NAME, "B": "", "Y": ""}) is True
+
+    def test_is_generic_team_roster_false_when_empty(self):
+        assert is_generic_team_roster({"R": "", "B": "", "Y": ""}) is False
+
+
+class TestShouldInferTeamSizeFromQte:
+    def test_none_or_empty_infers(self):
+        assert should_infer_team_size_from_qte(None) is True
+        assert should_infer_team_size_from_qte({"R": "", "B": "", "Y": ""}) is True
+
+    def test_all_general_fight_infers(self):
+        assert should_infer_team_size_from_qte(generic_team_roster()) is True
+        assert should_infer_team_size_from_qte(
+            {"R": GENERIC_CLS_NAME, "B": "", "Y": ""}
+        ) is True
+
+    def test_any_specialized_skips(self):
+        assert should_infer_team_size_from_qte(
+            {"R": "Oblivion", "B": "Spectre", "Y": "Aeternion"}
+        ) is False
+        assert should_infer_team_size_from_qte(
+            {"R": "InverseCrown", "B": GENERIC_CLS_NAME, "Y": GENERIC_CLS_NAME}
+        ) is False
 
 
 class TestRoleDisplayNameToCls:
@@ -56,6 +82,48 @@ class TestRosterFromRoleSelection:
         assert roster["R"] == "InverseCrown"
         assert roster["Y"] == "Aeternion"
         assert roster["B"] == "Spectre"
+
+
+class TestRosterFromEntryQte:
+    def test_no_qte_is_solo_red(self):
+        roster = roster_from_entry_qte("Oblivion", ["R"], generic_team_roster())
+        assert roster == {"R": "Oblivion", "B": "", "Y": ""}
+
+    def test_one_blue_qte_is_duo(self):
+        roster = roster_from_entry_qte("Oblivion", ["B"], generic_team_roster())
+        assert roster == {
+            "R": "Oblivion",
+            "B": GENERIC_CLS_NAME,
+            "Y": "",
+        }
+
+    def test_yellow_and_blue_qte_is_trio(self):
+        published = {
+            "R": GENERIC_CLS_NAME,
+            "B": "Spectre",
+            "Y": "Aeternion",
+        }
+        roster = roster_from_entry_qte("Oblivion", ["Y", "B"], published)
+        assert roster == {"R": "Oblivion", "B": "Spectre", "Y": "Aeternion"}
+
+    def test_empty_published_uses_generic_placeholders(self):
+        roster = roster_from_entry_qte("Hyperreal", ["B", "Y"], None)
+        assert roster == {
+            "R": "Hyperreal",
+            "B": GENERIC_CLS_NAME,
+            "Y": GENERIC_CLS_NAME,
+        }
+
+    def test_empty_field_cls_falls_back_to_generic(self):
+        roster = roster_from_entry_qte("", [], None)
+        assert roster == {"R": GENERIC_CLS_NAME, "B": "", "Y": ""}
+
+
+class TestEntryQteBenchColors:
+    def test_ignores_red_and_keeps_by_order(self):
+        assert entry_qte_bench_colors(["R", "Y", "B"]) == ("B", "Y")
+        assert entry_qte_bench_colors(["Y"]) == ("Y",)
+        assert entry_qte_bench_colors([]) == ()
 
 
 class TestTeamSnapshot:
