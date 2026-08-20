@@ -103,7 +103,7 @@ class BaseRole:
         if self.phase == self.SWITCH_PHASE:
             self.combat.request_role_switch(self)
             return
-        if self.phase == "idle" and self.combat.refresh_field_role_on_idle(self):
+        if self.combat.refresh_field_role(self):
             return
         self.do_perform()
 

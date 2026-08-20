@@ -52,6 +52,7 @@ class FakeController:
 @dataclass
 class FakeTasker:
     controller: FakeController = field(default_factory=FakeController)
+    stopping: bool = False
 
 
 @dataclass

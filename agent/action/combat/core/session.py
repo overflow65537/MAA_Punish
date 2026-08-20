@@ -289,13 +289,13 @@ class CombatTask:
             return display_name, roster_cls
         return "未知", roster_cls
 
-    def refresh_field_role_on_idle(self, role: BaseRole) -> bool:
+    def refresh_field_role(self, role: BaseRole) -> bool:
         """
-        idle 入口校验当前角色 attack_template；失配则重识别并更新 team.current。
+        每 tick 校验当前角色 attack_template；失配则重识别并更新 team.current。
 
-        :return: True 表示已切换主站角色，本 tick 应跳过后续 idle 逻辑。
+        :return: True 表示已切换主站角色，本 tick 应跳过后续战斗逻辑。
         """
-        if self.team is None or self.team.is_solo():
+        if self.team is None:
             return False
 
         if not attack_templates_for_cls(role.cls_name):
@@ -314,22 +314,24 @@ class CombatTask:
             image,
             on_tick=self._blind_attack_tick,
         )
-        if detected_cls == role.cls_name:
+        if detected_cls == role.cls_name or display_name == "未知":
             return False
 
         cur = self.team.current.upper()
-        if self.team.cls_at(cur) == role.cls_name and detected_cls != role.cls_name:
-            if role.cls_name == "GeneralFight" and display_name != "未知":
-                self.logger.info(
-                    "idle 校验: 色位 %s roster=%s，识别为 %s (%s)，修正策略",
-                    cur,
-                    role.cls_name,
-                    display_name,
-                    detected_cls,
-                )
-                self._rebind_role_at(cur, detected_cls)
-                self.current_role_name = display_name
-                return True
+        if (
+            self.team.cls_at(cur) == role.cls_name
+            and role.cls_name == "GeneralFight"
+        ):
+            self.logger.info(
+                "场上校验: 色位 %s roster=%s，识别为 %s (%s)，修正策略",
+                cur,
+                role.cls_name,
+                display_name,
+                detected_cls,
+            )
+            self._rebind_role_at(cur, detected_cls)
+            self.current_role_name = display_name
+            return True
 
         new_color: str | None = None
         for color in TEAM_COLORS:
@@ -338,18 +340,38 @@ class CombatTask:
                 break
 
         if new_color is None:
-            self.logger.warning(
-                "idle 校验: 期望 %s 不在场，识别为 %s（不在 roster），保持当前",
-                role.cls_name,
-                detected_cls,
+            gf_color = next(
+                (c for c in TEAM_COLORS if self.team.cls_at(c) == "GeneralFight"),
+                None,
             )
-            return False
+            if gf_color:
+                self.logger.info(
+                    "场上校验: 期望 %s 不在场，识别为 %s (%s)，写入色位 %s",
+                    role.cls_name,
+                    display_name,
+                    detected_cls,
+                    gf_color,
+                )
+                self._rebind_role_at(gf_color, detected_cls)
+                new_color = gf_color
+            else:
+                self.logger.info(
+                    "场上校验: 期望 %s 不在场，识别为 %s (%s)，修正当前色位 %s",
+                    role.cls_name,
+                    display_name,
+                    detected_cls,
+                    cur,
+                )
+                self._rebind_role_at(cur, detected_cls)
+                self.current_role_name = display_name
+                self.current_field_since = time.monotonic()
+                return True
 
         if new_color == self.team.current.upper():
             return False
 
         self.logger.info(
-            "idle 校验: 期望 %s 不在场，重识别为 %s (%s) @%s",
+            "场上校验: 期望 %s 不在场，重识别为 %s (%s) @%s",
             role.cls_name,
             display_name,
             detected_cls,
@@ -362,6 +384,10 @@ class CombatTask:
         if target_role is not None:
             target_role.reset_state()
         return True
+
+    def refresh_field_role_on_idle(self, role: BaseRole) -> bool:
+        """兼容旧名，等同 ``refresh_field_role``。"""
+        return self.refresh_field_role(role)
 
     def load_team(self) -> bool:
         """进战识别当前角色，仅调用一次。"""
