@@ -1131,9 +1131,9 @@
                 },
                 "松开闪避": {
                     "action": {
-                        "type": "KeyDown",
+                        "type": "KeyUp",
                         "param": {
-                            "key": "{技能.primary}"
+                            "key": "{闪避.primary}"
                         }
                     }
                 },

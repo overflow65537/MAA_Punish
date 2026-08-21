@@ -35,9 +35,8 @@ _GREAT_LIGHT_NODE = "检查大太刀无光值"
 _GREAT_LIGHT_TEXT_NODE = "检查大太刀无光值_文本"
 _SMALL_LIGHT_NODE = "检查小太刀无光值"
 _SMALL_LIGHT_TEXT_NODE = "检查小太刀无光值_文本"
-# 闪避后特殊连段窗口（Check_Characters_Skill/囚影.jsonc）
-_SMALL_SPECIAL_NODE = "检查小太刀特殊攻击"
-_GREAT_SPECIAL_NODE = "检查大太刀特殊攻击"
+# 闪避起算，连续点普攻（大小太刀相同，不识别特殊条；大招可打断）
+_DODGE_ATTACK_S = 2.0
 # 登龙：无光 OCR 达标后按下闪避充能 → 松开 → 红色无光 → 长按攻击
 _LIGHT_DRAGON_EXACT = 300
 _LIGHT_DRAGON_MIN = 474
@@ -51,8 +50,6 @@ _DRAGON_PHASES = frozenset(
     {"great_dragon_press", "great_dragon_charge", "great_dragon_red"}
 )
 _ULT_WAIT_TIMEOUT = 12.0
-# 特殊条未出现时，闪避+攻击唤条；连续失败则回 idle 做 attack_template 校验
-_SPECIAL_SUMMON_MAX_FAILS = 5
 # 实测落地→无光 OCR 约 0.4s，在此基础上再加缓冲；超时内每 tick 盲消 1 号球
 _SMALL_ULT_LAND_DELAY = 0.5
 _SMALL_ULT_WAIT_EXTRA = 3.0
@@ -76,6 +73,18 @@ _PHASES_SKIP_DRAGON_PRIORITY = (
 _PHASES_SKIP_SMALL_ULT_PRIORITY = frozenset(
     {"small_ult", "small_ult_wait", "great_ult", "great_ult_wait"}
 )
+# 先点普攻再识别，避免大招落地/消球后空等（多半会进闪避普攻连段）
+_PHASES_ATTACK_WHILE_PROBE = frozenset(
+    {
+        "small_dodge",
+        "small_attack",
+        "small_ult_wait",
+        "great_ball",
+        "great_build_dodge",
+        "great_build_attack",
+        "great_ult_wait",
+    }
+)
 
 
 class CrimsonWeave(BaseRole):
@@ -84,10 +93,6 @@ class CrimsonWeave(BaseRole):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self._ult_wait_deadline = 0.0
-        self._great_special_locked = False
-        self._special_boot = False
-        self._special_saw_bar = False
-        self._special_summon_fails = 0
         self._dragon_charge_deadline = 0.0
         self._dragon_red_deadline = 0.0
         self._dragon_start_blocked_until = 0.0
@@ -96,10 +101,6 @@ class CrimsonWeave(BaseRole):
     def reset_state(self) -> None:
         super().reset_state()
         self._ult_wait_deadline = 0.0
-        self._great_special_locked = False
-        self._special_boot = False
-        self._special_saw_bar = False
-        self._special_summon_fails = 0
         self._dragon_charge_deadline = 0.0
         self._dragon_red_deadline = 0.0
         self._dragon_start_blocked_until = 0.0
@@ -111,11 +112,14 @@ class CrimsonWeave(BaseRole):
 
         self._sword_probe_cache = None
 
+        if self.phase in _PHASES_ATTACK_WHILE_PROBE:
+            self._tap_attack()
+
         # 大太刀最高优先级：无光值达标 → 登龙充能；红色无光 → 长按攻击登龙
         if self.phase not in _PHASES_SKIP_DRAGON_PRIORITY and self._try_dragon_now():
             return
 
-        # 小太刀最高优先级：大招能量满 → 立即停止一切，释放大招
+        # 小太刀大招能量满 → 立即停止当前动作（登龙仍优先于大招；大太刀大招不抢连段）
         if (
             self.phase not in _PHASES_SKIP_SMALL_ULT_PRIORITY
             and self._try_small_ult_now()
@@ -173,6 +177,8 @@ class CrimsonWeave(BaseRole):
             return self._sword_probe_cache
 
         great_hit = self._light_bar_present(_GREAT_LIGHT_NODE)
+        if self.phase in _PHASES_ATTACK_WHILE_PROBE:
+            self._tap_attack()
         small_hit = self._light_bar_present(_SMALL_LIGHT_NODE)
         great_light = (
             self._read_light_text(_GREAT_LIGHT_TEXT_NODE) if great_hit else None
@@ -212,12 +218,6 @@ class CrimsonWeave(BaseRole):
             return None
         return great_light
 
-    def _clear_special_combo_state(self) -> None:
-        self._great_special_locked = False
-        self._special_boot = False
-        self._special_saw_bar = False
-        self._special_summon_fails = 0
-
     def _light_ready_for_dragon(self, value: int) -> bool:
         return value == _LIGHT_DRAGON_EXACT or value >= _LIGHT_DRAGON_MIN
 
@@ -238,7 +238,6 @@ class CrimsonWeave(BaseRole):
 
         if self._dragon_red_ready():
             self.action.logger.info("检测到登龙红色无光，长按攻击登龙")
-            self._clear_special_combo_state()
             self._dragon_red_deadline = time.monotonic() + _DRAGON_RED_WAIT_TIMEOUT
             self.phase = "great_dragon_red"
             self._phase_great_dragon_red()
@@ -248,7 +247,6 @@ class CrimsonWeave(BaseRole):
             return False
 
         self.action.logger.info("无光值达标(%s)，开始登龙充能", great_light)
-        self._clear_special_combo_state()
         self.phase = "great_dragon_press"
         self._phase_great_dragon_press()
         return True
@@ -322,60 +320,41 @@ class CrimsonWeave(BaseRole):
         if not self._is_small_sword():
             return False
         self.action.logger.info("识别到小太刀")
-        self._clear_special_combo_state()
         self.phase = "small_dodge"
         return True
 
-    def _begin_special_combo_after_dodge(self) -> None:
-        """闪避后下一 tick 点攻击启动特殊连段。"""
-        self._special_boot = True
-        self._special_saw_bar = False
+    def _tap_attack(self) -> None:
+        """识别空档补一刀：只点攻击键，不截屏、不自动闪避。"""
+        self.action.context.run_action("攻击")
 
-    def _tick_special_combo(self, special_node: str) -> bool:
+    def _dodge_then_attack(self) -> bool:
+        """闪避起算，两秒内持续点普攻。仅小太刀大招能量满时中断；大太刀不抢。
+
+        Returns:
+            True: 小太刀且能量条就绪，调用方应马上开大；False: 打满两秒或任务停止。
         """
-        闪避后首击启动 → 特殊条在则持续攻击 → 条消失则结束。
-        条未出现时闪避+攻击唤条；连续失败则回 idle，下 tick 走检查角色。
-        返回 True 表示本 tick 仍在特殊连段流程（含回 idle 过渡）。
-        """
-        if self.action.check_status(special_node):
-            self._special_saw_bar = True
-            self._special_boot = False
-            self._special_summon_fails = 0
-            self.action.attack()
-            return True
-
-        if self._special_saw_bar:
-            self._special_saw_bar = False
-            self._special_summon_fails = 0
-            return False
-
-        if self._special_boot:
-            self.action.attack()
-            self._special_boot = False
-            return True
-
-        self._special_summon_fails += 1
-        if self._special_summon_fails >= _SPECIAL_SUMMON_MAX_FAILS:
-            self.action.logger.warning(
-                "特殊条唤条失败 %d 次，回退 idle 检查角色",
-                self._special_summon_fails,
-            )
-            self._clear_special_combo_state()
-            self.phase = "idle"
-            return True
-
-        self.action.logger.info("特殊条未识别，闪避+攻击唤条")
+        deadline = time.monotonic() + _DODGE_ATTACK_S
         self.action.dodge()
-        self.action.attack()
-        return True
+        while time.monotonic() < deadline:
+            if self.combat.context.tasker.stopping:
+                return False
+            if self._is_small_sword() and self.action.check_Skill_energy_bar(
+                fresh=True
+            ):
+                return True
+            self.action.attack()
+        return False
 
     def _phase_idle(self) -> None:
         self.action.lens_lock()
         self.phase = "small_dodge"
 
     def _phase_small_dodge(self) -> None:
-        self.action.dodge()
-        self._begin_special_combo_after_dodge()
+        if self._dodge_then_attack():
+            self.action.logger.info("小太刀大招就绪，打断持续攻击")
+            self.phase = "small_ult"
+            self._phase_small_ult()
+            return
         self.phase = "small_attack"
 
     def _phase_small_attack(self) -> None:
@@ -385,12 +364,11 @@ class CrimsonWeave(BaseRole):
                 "检测到大太刀无光值=%s，转入大太刀流程", great_light
             )
             self.phase = "great_ball"
-            return
-
-        if self._tick_special_combo(_SMALL_SPECIAL_NODE):
+            self._phase_great_ball()
             return
 
         self.phase = "small_dodge"
+        self._phase_small_dodge()
 
     def _phase_small_ult(self) -> None:
         """小太刀开大 → 进入大太刀；能量条在就持续点大招。"""
@@ -414,7 +392,7 @@ class CrimsonWeave(BaseRole):
 
         if time.monotonic() >= self._ult_wait_deadline:
             self.action.logger.warning("等待大太刀无光值超时，回到小太刀攻击")
-            self.phase = "small_attack"
+            self.phase = "small_dodge"
             return
 
         if self._cast_ult_if_ready():
@@ -425,36 +403,40 @@ class CrimsonWeave(BaseRole):
     def _phase_great_ball(self) -> None:
         """大太刀：有球则固定消 1 号球攒无光/大招；无球则闪避连段攒球。"""
         if self._maybe_leave_great_sword():
+            self._phase_small_dodge()
             return
 
         if self.action.count_signal_balls() > 0:
             self.action.ball_elimination_target(1)
-        else:
-            self.phase = "great_build_dodge"
+            return
+
+        self.phase = "great_build_dodge"
+        self._phase_great_build_dodge()
 
     def _phase_great_build_dodge(self) -> None:
         if self._maybe_leave_great_sword():
+            self._phase_small_dodge()
             return
 
-        self.action.dodge()
-        self._begin_special_combo_after_dodge()
-        self._great_special_locked = True
+        if self._dodge_then_attack():
+            self.action.logger.info("小太刀大招就绪，打断持续攻击")
+            self.phase = "small_ult"
+            self._phase_small_ult()
+            return
         self.phase = "great_build_attack"
 
     def _phase_great_build_attack(self) -> None:
         if self._maybe_leave_great_sword():
+            self._phase_small_dodge()
             return
-
-        if self._great_special_locked:
-            if self._tick_special_combo(_GREAT_SPECIAL_NODE):
-                return
-            self._great_special_locked = False
 
         if self.action.count_signal_balls() > 0:
             self.phase = "great_ball"
+            self._phase_great_ball()
             return
 
         self.phase = "great_build_dodge"
+        self._phase_great_build_dodge()
 
     def _phase_great_ult(self) -> None:
         """大太刀大招；能量条在就持续点大招。"""
