@@ -72,15 +72,17 @@ _CLICK_QTE_MAX_LOOPS = 100
 _DEFAULT_VERIFY_TIMEOUT = 12.0
 _DEFAULT_VERIFY_POLL = 0.05
 _QTE_CLICK_BURST = 3
+CHAR_CHECK_ATTACK_COUNT = 2
 
 
-def blind_attack_click(context: Context) -> None:
+def blind_attack_click(context: Context, *, attack_count: int = 1) -> None:
     """识别等待期间盲发普攻/闪避，走 Pipeline 节点（Win32 为 ClickKey）。"""
     image = context.tasker.controller.post_screencap().wait().get()
     need_dodge = context.run_recognition("自动闪避", image)
     if need_dodge and need_dodge.hit:
         context.run_action("闪避")
-    context.run_action("攻击")
+    for _ in range(max(1, attack_count)):
+        context.run_action("攻击")
 
 
 def _box_center(box: Any) -> tuple[int, int]:

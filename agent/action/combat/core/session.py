@@ -38,7 +38,7 @@ from action.combat.core.role_detect import (
     is_dodge_button_visible,
 )
 from action.combat.core.role_factory import ROLE_CLASS_MAP, create_role
-from action.combat.core.switch import attempt_switch_to_color, blind_attack_click
+from action.combat.core.switch import attempt_switch_to_color, blind_attack_click, CHAR_CHECK_ATTACK_COUNT
 from action.combat.core.team import TEAM_COLORS, TeamSnapshot
 from action.combat.timing import active_delay
 from action.combat.config.LoadSetting import ROLE_ACTIONS
@@ -230,10 +230,10 @@ class CombatTask:
         self.roles[key] = create_role(self, key, cls_name)
 
     def _blind_attack_tick(self) -> None:
-        """角色识别等阻塞流程中周期性盲发普攻。"""
+        """角色识别等阻塞流程中周期性盲发普攻（检查角色前连点两次）。"""
         if self._should_stop():
             return
-        blind_attack_click(self.context)
+        blind_attack_click(self.context, attack_count=CHAR_CHECK_ATTACK_COUNT)
 
     def _correct_role_from_field(
         self, color: str, roster_cls: str, image: Any, *, solo: bool = False
@@ -328,6 +328,7 @@ class CombatTask:
         if not is_dodge_button_visible(self.context, image):
             return False
 
+        self._blind_attack_tick()
         if is_cls_on_field(self.context, image, role.cls_name):
             self._last_field_cls = role.cls_name
             return False
@@ -337,6 +338,7 @@ class CombatTask:
             image,
             prefer_cls=self._prefer_cls_for_field_refresh(role.cls_name),
             skip_cls=(role.cls_name,),
+            on_tick=self._blind_attack_tick,
         )
         if detected_cls == role.cls_name or display_name == "未知":
             return False

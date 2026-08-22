@@ -32,8 +32,11 @@ from typing import TYPE_CHECKING, Any
 
 from action.combat.core.role import resolve_cls_label
 from action.combat.core.role_detect import detect_current_role
-from action.combat.core.switch import blind_attack_click
-from action.combat.core.switch import detect_visible_team_colors
+from action.combat.core.switch import (
+    CHAR_CHECK_ATTACK_COUNT,
+    blind_attack_click,
+    detect_visible_team_colors,
+)
 from action.combat.core.team import (
     GENERIC_CLS_NAME,
     TEAM_COLORS,
@@ -174,7 +177,9 @@ class CombatCheck(BaseCombatCheck):
             context,
             image,
             prefer_cls=prefer,
-            on_tick=lambda: blind_attack_click(context),
+            on_tick=lambda: blind_attack_click(
+                context, attack_count=CHAR_CHECK_ATTACK_COUNT
+            ),
         )
         combat.current_role_name = display_name
 
