@@ -1,26 +1,19 @@
 {
     "检查希声2阶段": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    584,
-                    608,
-                    167,
-                    12
+                    1113,
+                    556,
+                    138,
+                    142
                 ],
-                "lower": [
-                    220,
-                    220,
-                    250
+                "template": [
+                    "自定义战斗/赛琳娜/希声/希声_p2.png"
                 ],
-                "upper": [
-                    230,
-                    240,
-                    255
-                ],
-                "connected": true,
-                "count": 10
+                "green_mask": true,
+                "threshold": 0.85
             }
         },
         "pre_delay": 0,
@@ -53,47 +46,24 @@
             "type": "ColorMatch",
             "param": {
                 "roi": [
-                    962,
-                    558,
-                    190,
-                    158
+                    715,
+                    606,
+                    18,
+                    27
                 ],
+                "method": 40,
                 "lower": [
-                    [
-                        80,
-                        99,
-                        180
-                    ],
-                    [
-                        108,
-                        194,
-                        220
-                    ],
-                    [
-                        99,
-                        172,
-                        227
-                    ]
+                    113,
+                    159,
+                    234
                 ],
                 "upper": [
-                    [
-                        103,
-                        118,
-                        214
-                    ],
-                    [
-                        97,
-                        176,
-                        212
-                    ],
-                    [
-                        92,
-                        151,
-                        208
-                    ]
+                    114,
+                    180,
+                    255
                 ],
-                "connected": true,
-                "count": 10
+                "count": 10,
+                "connected": true
             }
         },
         "pre_delay": 0,

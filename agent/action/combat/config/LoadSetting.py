@@ -229,7 +229,10 @@ ROLE_ACTIONS = {
             "人物索引/赛琳娜/希声/希声_终解.png",
             "人物索引/赛琳娜/希声/希声_缘纺祈糸.png",
         ],
-        "attack_template": ["自定义战斗/赛琳娜/希声/希声.png"],
+        "attack_template": [
+            "自定义战斗/赛琳娜/希声/希声.png",
+            "自定义战斗/赛琳娜/希声/希声_p2.png",
+        ],
         "skill_template": {
             "red": {"识别信号球": {"template": ["信号球/希声_红.png"]}},
             "blue": {"识别信号球": {"template": ["信号球/希声_蓝.png"]}},
