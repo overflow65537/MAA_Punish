@@ -141,7 +141,10 @@ class TestRefreshFieldRole:
         assert combat.refresh_field_role(role) is True
         assert captured.get("prefer_cls") == ["Aeternion"]
         assert captured.get("skip_cls") == ("Geiravor",)
-        assert captured.get("on_tick") is combat._blind_attack_tick
+        on_tick = captured.get("on_tick")
+        assert callable(on_tick)
+        assert on_tick.__func__ is CombatTask._blind_attack_tick
+        assert on_tick.__self__ is combat
         assert combat._last_field_cls == "Aeternion"
 
     def test_hit_records_last_field_cls(self, monkeypatch):
