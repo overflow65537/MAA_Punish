@@ -23,7 +23,7 @@
 状态机::
 
     idle ──u1──► u1_farm ──► u1_charge ──► u1_burst ──► idle
-      ├──u2──► u2_farm ──► u2_ult（一段大，不切人）──► idle
+      ├──u2──► u2_farm（大招优先；p1动能条→长按普攻700ms）──► u2_ult ──► idle
       └──u3──► u3_farm ──► u3_finish（长按攻击 + 大 + QTE 切人）──► switch
 """
 
@@ -42,6 +42,7 @@ _U1_FARM_MAX = 100
 _U1_BURST_DURATION = 1.5
 _U2_FARM_MAX = 20
 _U3_FARM_MAX = 20
+_P2_LONG_ATTACK_MS = 700
 
 
 class Pyroath(BaseRole):
@@ -80,6 +81,17 @@ class Pyroath(BaseRole):
         else:
             self.phase = "idle"
             self._phase_idle()
+
+    def _p1_bar_ready(self) -> bool:
+        return bool(self.action.check_status(_P1_BAR_NODE))
+
+    def _try_p2_p1_bar_long_attack(self) -> bool:
+        """p2：p1 动能条命中则长按普攻（排在大招之后）。"""
+        if not self._p1_bar_ready():
+            return False
+        self.action.logger.info("誓焰: p2 p1动能条，长按普攻")
+        self.action.long_press_attack(_P2_LONG_ATTACK_MS)
+        return True
 
     def _phase_idle(self) -> None:
         self.action.lens_lock()
@@ -122,13 +134,13 @@ class Pyroath(BaseRole):
         if time.monotonic() >= self._u1_burst_deadline:
             self.phase = "idle"
             return
-        if self.action.check_status(_P1_BAR_NODE):
-            self.action.long_press_attack(700)
         self.action.attack()
 
     def _phase_u2_farm(self) -> None:
         if self.action.check_Skill_energy_bar() or self._farm_ticks >= _U2_FARM_MAX:
             self.phase = "u2_ult"
+            return
+        if self._try_p2_p1_bar_long_attack():
             return
         self.action.attack()
         self.action.ball_elimination_target()

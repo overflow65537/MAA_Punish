@@ -100,7 +100,9 @@
                     247,
                     243,
                     174
-                ]
+                ],
+                "count": 10,
+                "connected": true
             }
         },
         "pre_delay": 0,
