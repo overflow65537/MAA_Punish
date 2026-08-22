@@ -138,6 +138,7 @@
         ]
     },
     "雾夜镇魂曲内部": {
+        "timeout": 60000,
         "recognition": {
             "type": "Or",
             "param": {
