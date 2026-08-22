@@ -123,7 +123,7 @@
                     4,
                     4
                 ],
-                "expected": "^500$",
+                "expected": "^(500|475)$",
                 "only_rec": true
             }
         },
