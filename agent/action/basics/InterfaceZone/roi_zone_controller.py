@@ -78,3 +78,17 @@ def parse_param(raw_param: Any) -> dict[str, Any]:
         if isinstance(parsed, dict):
             return parsed
     return {}
+
+
+def cache_is_ready(controller: str) -> bool:
+    path = offset_path(controller)
+    if not path.exists():
+        return False
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return False
+    if not isinstance(data, dict):
+        return False
+    return any(isinstance(zone, dict) and zone.get("hit") for zone in data.values())

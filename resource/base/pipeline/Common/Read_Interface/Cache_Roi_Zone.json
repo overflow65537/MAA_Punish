@@ -147,9 +147,10 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "ReadROIZone",
+                "custom_action": "LoadROIZone",
                 "custom_action_param": {
-                    "controller": "adb"
+                    "controller": "adb",
+                    "from_screen": true
                 }
             }
         },
@@ -234,6 +235,9 @@
                     10
                 ]
             }
-        }
+        },
+        "next": [
+            "返回主菜单"
+        ]
     }
 }

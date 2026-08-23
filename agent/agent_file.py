@@ -7,7 +7,6 @@ from action.basics.Post_Stop import PostStop
 from action.basics.Notice import Notice
 from action.basics.RedmeeCode import RedeemCode
 from action.basics.RedmeeCode import CheckRedeemCode
-from action.basics.InterfaceZone.ReadRoiZone import ReadROIZone
 from action.basics.InterfaceZone.LoadRoiZone import LoadRoiZone
 from action.basics.ResetCount import ResetCount
 
@@ -19,6 +18,7 @@ from recognition.exclusives.NextStageRecognition import NextStageRecognition
 from recognition.exclusives.CacheRole import CacheRole
 from recognition.exclusives.ExpressionRecognition import ExpressionRecognition
 from recognition.exclusives.CheckBlueZone import CheckBlueZone
+from recognition.exclusives.CheckROIZoneCache import CheckROIZoneCache
 
 from sink.resolution_check import AspectRatioChecker
 
@@ -29,8 +29,10 @@ class Tasker_AspectRatioChecker(AspectRatioChecker):
 @AgentServer.custom_action("LoadROIZone")
 class Agent_LoadROIZone(LoadRoiZone):
     pass
-@AgentServer.custom_action("ReadROIZone")
-class Agent_ReadROIZone(ReadROIZone):
+
+
+@AgentServer.custom_recognition("CheckROIZoneCache")
+class Agent_CheckROIZoneCache(CheckROIZoneCache):
     pass
 
 

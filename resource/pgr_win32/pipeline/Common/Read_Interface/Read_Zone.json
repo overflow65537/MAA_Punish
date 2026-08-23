@@ -1,8 +1,8 @@
 {
     "覆盖布局菜单": {
-        "action": {
+        "recognition": {
             "param": {
-                "custom_action_param": {
+                "custom_recognition_param": {
                     "controller": "win32"
                 }
             }

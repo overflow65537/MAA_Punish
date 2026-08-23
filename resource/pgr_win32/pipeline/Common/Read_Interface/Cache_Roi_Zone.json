@@ -3,7 +3,8 @@
         "action": {
             "param": {
                 "custom_action_param": {
-                    "controller": "win32"
+                    "controller": "win32",
+                    "from_screen": true
                 }
             }
         }

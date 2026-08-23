@@ -16,27 +16,7 @@ from action.basics.InterfaceZone.roi_zone_controller import (
     parse_controller,
     parse_param,
 )
-
-_READ_ROI_NODE = "识别区域"
-_CACHE_ROI_TASK = "缓存ROI偏移配置"
-
-
-def _controller_param(controller: str) -> dict[str, str]:
-    return {"controller": controller}
-
-
-def _read_roi_override(controller: str) -> dict:
-    return {
-        _READ_ROI_NODE: {
-            "action": {
-                "type": "Custom",
-                "param": {
-                    "custom_action": "ReadROIZone",
-                    "custom_action_param": _controller_param(controller),
-                },
-            },
-        },
-    }
+from action.basics.InterfaceZone.ReadRoiZone import capture_roi_zones
 
 
 class LoadRoiZone(CustomAction):
@@ -147,32 +127,34 @@ class LoadRoiZone(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        controller = parse_controller(parse_param(argv.custom_action_param))
-        offset_file = offset_path(controller)
+        params = parse_param(argv.custom_action_param)
+        controller = parse_controller(params)
 
-        if offset_file.exists():
+        if params.get("from_screen"):
             self.logger.info(
-                "LoadRoiZone controller=%s 偏移配置已存在 (%s), 直接加载",
+                "LoadRoiZone controller=%s 在布局界面读取识别区",
+                controller,
+            )
+            capture_roi_zones(context, controller)
+
+        self.apply_offsets(context, controller)
+        return CustomAction.RunResult(success=True)
+
+    def apply_offsets(self, context: Context, controller: str) -> None:
+        offset_file = offset_path(controller)
+        if not offset_file.exists():
+            self.logger.warning(
+                "LoadRoiZone controller=%s 偏移配置不存在 (%s), 跳过加载",
                 controller,
                 offset_file,
             )
-        else:
-            self.logger.info(
-                "LoadRoiZone controller=%s 偏移配置不存在 (%s), 触发缓存",
-                controller,
-                offset_file,
-            )
-            context.run_task(
-                _CACHE_ROI_TASK,
-                pipeline_override=_read_roi_override(controller),
-            )
-            if not offset_file.exists():
-                self.logger.warning(
-                    "LoadRoiZone controller=%s 缓存后仍无配置文件 (%s)",
-                    controller,
-                    offset_file,
-                )
-                return CustomAction.RunResult(success=True)
+            return
+
+        self.logger.info(
+            "LoadRoiZone controller=%s 读取偏移配置 (%s)",
+            controller,
+            offset_file,
+        )
 
         with open(offset_file, "r", encoding="utf-8") as f:
             offset_data = json.load(f)
@@ -203,8 +185,6 @@ class LoadRoiZone(CustomAction):
             )
         else:
             self.logger.info("LoadRoiZone 本次无覆盖内容")
-
-        return CustomAction.RunResult(success=True)
 
     @staticmethod
     def _get_zone_offset(offset_data: dict, offset_key: str) -> list[int] | None:

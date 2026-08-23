@@ -83,14 +83,17 @@
     "覆盖布局菜单": {
         "enabled": false,
         "max_hit": 1,
-        "action": {
+        "recognition": {
             "type": "Custom",
             "param": {
-                "custom_action": "LoadROIZone",
-                "custom_action_param": {
+                "custom_recognition": "CheckROIZoneCache",
+                "custom_recognition_param": {
                     "controller": "adb"
                 }
             }
-        }
+        },
+        "next": [
+            "缓存ROI偏移配置"
+        ]
     }
 }
