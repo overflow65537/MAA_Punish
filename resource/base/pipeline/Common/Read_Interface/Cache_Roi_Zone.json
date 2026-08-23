@@ -10,23 +10,25 @@
     },
     "打开界面设置": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    986,
-                    478,
-                    294,
-                    242
+                    999,
+                    231,
+                    281,
+                    187
                 ],
-                "template": [
-                    "界面/打开菜单/打开菜单.png",
-                    "界面/打开菜单/打开菜单2.png",
-                    "界面/打开菜单/打开菜单3.png"
-                ]
+                "expected": "^战斗$"
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target": [
+                    1182,
+                    654
+                ]
+            }
         },
         "next": [
             "收起布局菜单",
