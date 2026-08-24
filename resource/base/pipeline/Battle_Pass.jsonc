@@ -39,17 +39,17 @@
                 ],
                 "method": 40,
                 "lower": [
-                    107,
+                    105,
                     140,
-                    190
+                    170
                 ],
                 "upper": [
                     107,
-                    150,
+                    200,
                     200
                 ],
                 "connected": true,
-                "count": 10
+                "count": 30
             }
         },
         "action": {
