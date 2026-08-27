@@ -80,6 +80,7 @@
             "type": "Click",
             "param": {}
         },
+        "pre_delay": 1000,
         "next": [
             "返回主菜单"
         ]
