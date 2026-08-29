@@ -163,6 +163,67 @@ jobs:
           latest: true
           #tag: "v4.0.0-beta.1"
 
+      # zip / upload-artifact 不保留 Unix 可执行位；Linux 为 MFW，macOS 为 MFW.app
+      - name: Restore Unix executable bits
+        if: matrix.platform != 'win'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - "install" <<'PY'
+          import sys
+          from pathlib import Path
+
+          root = Path(sys.argv[1])
+          elf = b"\x7fELF"
+          macho = {
+              b"\xcf\xfa\xed\xfe",
+              b"\xce\xfa\xed\xfe",
+              b"\xca\xfe\xba\xbe",
+              b"\xfe\xed\xfa\xcf",
+              b"\xfe\xed\xfa\xce",
+          }
+          named = {
+              "MFW",
+              "FOS",
+              "MFWUpdater",
+              "run-mfw.sh",
+              "maapicli",
+              "minicap",
+              "minitouch",
+              "maatouch",
+          }
+          restored = 0
+          for path in root.rglob("*"):
+              if not path.is_file() or path.is_symlink():
+                  continue
+              with path.open("rb") as handle:
+                  header = handle.read(4)
+              if (
+                  path.name in named
+                  or path.suffix == ".sh"
+                  or header == elf
+                  or header in macho
+              ):
+                  path.chmod(path.stat().st_mode | 0o111)
+                  restored += 1
+          print(f"restored executable bits on {restored} files")
+          PY
+          if [[ "${{ matrix.platform }}" == "macos" ]]; then
+            macos_bin="$(find install -path '*/MFW.app/Contents/MacOS/MFW' -type f -print -quit)"
+            if [[ -z "$macos_bin" ]]; then
+              echo "❌ ERROR: install/*/MFW.app/Contents/MacOS/MFW not found"
+              find install -maxdepth 4 -print
+              exit 1
+            fi
+          else
+            linux_bin="$(find install -type f \( -name 'MFW' -o -name 'FOS' \) -print -quit)"
+            if [[ -z "$linux_bin" ]]; then
+              echo "❌ ERROR: install Linux MFW/FOS binary not found"
+              find install -maxdepth 3 -print
+              exit 1
+            fi
+          fi
+
       - name: Convert PNG to ICO
         if: matrix.platform == 'win' && matrix.arch == 'x86_64'
         shell: bash
@@ -238,10 +299,55 @@ jobs:
       #          name: background
       #          path: install/
 
+      - name: Remove downloaded MFW archives
+        shell: bash
+        run: |
+          set -euo pipefail
+          find install -maxdepth 1 -type f \( \
+            -name 'MFW-PyQt6-*.zip' -o \
+            -name 'MFW-PyQt6-*.tar.gz' -o \
+            -name 'MFW-PyQt6-*.tgz' \
+          \) -delete
+
+      # 在构建机上打包，避免 upload-artifact 的 zip 丢掉 chmod
+      - name: Pack Linux tar.gz
+        if: matrix.platform == 'linux'
+        shell: bash
+        run: |
+          set -euo pipefail
+          name="MPA-${{ matrix.platform }}-${{ matrix.arch }}-${{ needs.meta.outputs.tag }}"
+          mkdir -p dist
+          tar -czf "dist/${name}.tar.gz" -C install .
+          test -s "dist/${name}.tar.gz"
+
+      - name: Pack macOS dmg
+        if: matrix.platform == 'macos'
+        shell: bash
+        run: |
+          set -euo pipefail
+          name="MPA-${{ matrix.platform }}-${{ matrix.arch }}-${{ needs.meta.outputs.tag }}"
+          stage="${RUNNER_TEMP}/mpa-dmg-root"
+          rm -rf "$stage"
+          mkdir -p "$stage"
+          cp -a install/. "$stage/"
+          mkdir -p dist
+          hdiutil create -volname "MPA" -srcfolder "$stage" -ov -format UDZO "dist/${name}.dmg"
+          test -s "dist/${name}.dmg"
+
       - uses: actions/upload-artifact@v7
+        if: matrix.platform == 'win'
         with:
           name: MPA-${{ matrix.platform }}-${{ matrix.arch }}
           path: "install"
+          include-hidden-files: true
+
+      - uses: actions/upload-artifact@v7
+        if: matrix.platform != 'win'
+        with:
+          name: MPA-${{ matrix.platform }}-${{ matrix.arch }}
+          path: dist/*
+          if-no-files-found: error
+          include-hidden-files: true
 
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
@@ -253,21 +359,35 @@ jobs:
           path: assets
 
       - run: |
+          set -euo pipefail
           cd assets
+          tag="${{ needs.meta.outputs.tag }}"
           for f in *; do
-            if [[ $f == *"macos"* ]]; then
-              find $f -type f -name "maapicli" -exec chmod +x {} \; 2>/dev/null || true
-              find $f -type f -name "MFW" -exec chmod +x {} \; 2>/dev/null || true
-              find $f -type f -name "MFWUpdater" -exec chmod +x {} \; 2>/dev/null || true
-              tar -cpzf $f-${{ needs.meta.outputs.tag }}.tar.gz -C $f .
+            [[ -d "$f" ]] || continue
+            if [[ "$f" == *-win-* ]]; then
+              (cd "$f" && zip -r "../$f-${tag}.zip" .)
             else
-              (cd $f && zip -r ../$f-${{ needs.meta.outputs.tag }}.zip .)
+              # Linux tar.gz / macOS dmg 已在构建机打包，权限已写入归档
+              found=0
+              for archive in "$f"/*.tar.gz "$f"/*.dmg; do
+                [[ -f "$archive" ]] || continue
+                mv "$archive" .
+                found=1
+              done
+              if [[ "$found" -eq 0 ]]; then
+                echo "missing packed archive in $f"
+                ls -la "$f"
+                exit 1
+              fi
             fi
           done
 
       - uses: softprops/action-gh-release@v3
         with:
-          files: assets/*
+          files: |
+            assets/*.zip
+            assets/*.tar.gz
+            assets/*.dmg
           tag_name: ${{ needs.meta.outputs.tag }}
           body: ${{ needs.changelog.outputs.release_body }}
           draft: false

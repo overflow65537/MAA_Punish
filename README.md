@@ -73,60 +73,47 @@
 
 ### macOS
 
-- 若您的 Mac 采用 Intel 处理器，请下载 `MPA-macos-x86_64-vXXX.tar.gz`
-- 若您的 Mac 采用 M1、M2 等 ARM 处理器，请下载 `MPA-macos-aarch64-vXXX.tar.gz`
+- 若您的 Mac 采用 Intel 处理器，请下载 `MPA-macos-x86_64-vXXX.dmg`
+- 若您的 Mac 采用 M1、M2 等 ARM 处理器，请下载 `MPA-macos-aarch64-vXXX.dmg`
 - 使用方法如下：
-  1. 打开终端，解压下载的压缩包，您有以下三种解压方式可供选择：
-
-     **选项 1：解压到系统目录（需管理员权限）**
-     此方式将把程序解压到系统目录，需要输入管理员密码获取权限。
-
-     ```zsh
-     sudo mkdir -p /usr/local/bin/MPA
-     sudo tar -xzf <下载的MPA压缩包路径> -C /usr/local/bin/MPA
-     ```
-
-     **选项 2：解压到用户目录（推荐）**
-     该方式无需管理员权限，操作简便且便于管理个人文件。
+  1. 双击打开 dmg，将其中全部内容复制到本地目录（请保持 `MFW.app`、`MFWUpdater`、`maafw/` 与 `resource/` 等文件在同一目录）。推荐复制到用户目录：
 
      ```zsh
      mkdir -p ~/MPA
-     tar -xzf <下载的MPA压缩包路径> -C ~/MPA
+     cp -R /Volumes/MPA/. ~/MPA/
      ```
 
-     **选项 3：直接解压到下载目录（不推荐）**
-     这种方式操作快捷，但可能会导致 `Downloads` 文件夹文件杂乱。您只需双击下载的 MPA 压缩包，即可在同级目录自动解压。
+  2. 打开程序目录并运行主程序：
 
-  2. 进入解压目录并运行程序：
-     - 根据上一步选择的解压方式操作：
-       - 若选择选项 1 ，在终端中执行以下命令打开程序目录：
+     ```zsh
+     open ~/MPA
+     ```
 
-       ```zsh
-       open /usr/local/bin/MPA
-       ```
-
-       - 若选择选项 2，在终端中执行以下命令打开程序目录：
-
-       ```zsh
-       open ~/MPA
-       ```
-
-       - 若选择选项 3，直接双击解压后的文件夹进入。
-
-     - 找到 `FOS` 程序并双击运行。
+     找到 `MFW.app`（或 `FOS`）并双击运行。不要只拷走 `.app`。
 
   ⚠️Gatekeeper 安全提示处理：
-  在 macOS 10.15 (Catalina) 及更高版本中，Gatekeeper 可能会阻止运行未签名的应用程序。若遇到“无法打开，因为无法验证开发者”,或者“已损坏”等错误，请使用以下命令移除隔离属性：
+  由于 `MFW.app` 没有 Apple 代码签名，Gatekeeper 可能拦截并提示“无法打开，因为无法验证开发者”或“已损坏”（后者多为误报，并非文件真的损坏）。请按住 **Control** 键并右键点击 `MFW.app`，选择“打开”，在弹窗中再次确认；首次放行后，之后可直接双击启动。
+
+  若从浏览器下载 dmg，macOS 还可能给文件加上隔离属性（`com.apple.quarantine`）。若上述方式仍无法打开，可在「系统设置 → 隐私与安全性」中查看是否有“仍要打开”按钮，或执行以下命令移除隔离属性（将路径改为你的实际安装目录）：
 
   ```zsh
-  sudo xattr -rd com.apple.quarantine /usr/local/bin/MPA/*
-  # 若选择选项 2，解压到用户目录，使用以下命令：xattr -rd com.apple.quarantine ~/MPA/*
-  # 若选择选项 3，直接解压到下载目录，使用以下命令：xattr -rd com.apple.quarantine <下载目录>/MPA/*
+  xattr -rd com.apple.quarantine ~/MPA
   ```
+
+  也可通过终端尝试启动一次：`open ~/MPA/MFW.app`。
 
 ### Linux
 
-~~用 Linux 的大佬应该不需要我教~~
+- x86_64：请下载 `MPA-linux-x86_64-vXXX.tar.gz`
+- aarch64：请下载 `MPA-linux-aarch64-vXXX.tar.gz`
+- 解压后在同一目录运行 `./MFW` 或 `./run-mfw.sh`（`tar.gz` 会保留可执行权限）
+
+  ```bash
+  mkdir -p ~/MPA
+  tar -xzf MPA-linux-*-vXXX.tar.gz -C ~/MPA
+  chmod +x ~/MPA/MFW ~/MPA/MFWUpdater ~/MPA/run-mfw.sh
+  ~/MPA/run-mfw.sh
+  ```
 
 ## 开发相关
 
