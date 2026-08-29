@@ -394,6 +394,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v7
         with:
+          pattern: MPA-*
           path: assets
 
       - run: |
