@@ -98,37 +98,6 @@ jobs:
       is_release: ${{ steps.set_tag.outputs.is_release }}
       is_prerelease: ${{ steps.set_tag.outputs.is_prerelease }}
 
-  resource_hash:
-    name: Compute resource hashes
-    runs-on: ubuntu-latest
-    outputs:
-      hash_comment: ${{ steps.hash.outputs.comment }}
-    steps:
-      - uses: actions/checkout@v6
-
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.12"
-
-      - name: Compute resource hashes
-        id: hash
-        run: |
-          set -euo pipefail
-          python -m pip install --upgrade pip
-          python -m pip install maafw json-with-comments
-          comment="$(python ./tools/ci/gen_resource_hash.py ./interface.json)"
-          {
-            echo "comment<<EOF"
-            echo "$comment"
-            echo "EOF"
-          } >> "$GITHUB_OUTPUT"
-
-      - uses: actions/upload-artifact@v7
-        with:
-          name: interface-json
-          path: interface.json
-
   #  background:
   #    runs-on: ubuntu-latest
   #    steps:
@@ -143,7 +112,7 @@ jobs:
   #          path: background.png
 
   build:
-    needs: [meta, resource_hash]
+    needs: [meta]
     runs-on: ${{ matrix.os }}
     name: Build ${{ matrix.platform }}-${{ matrix.arch }}
     strategy:
@@ -173,11 +142,6 @@ jobs:
       - uses: actions/checkout@v6
         with:
           submodules: true
-
-      - uses: actions/download-artifact@v7
-        with:
-          name: interface-json
-          path: .
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -375,7 +339,7 @@ jobs:
 
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
-    needs: [meta, build, changelog, resource_hash]
+    needs: [meta, build, changelog]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v7
@@ -413,10 +377,7 @@ jobs:
             assets/*.zip
             assets/*.tar.gz
           tag_name: ${{ needs.meta.outputs.tag }}
-          body: |
-            ${{ needs.changelog.outputs.release_body }}
-
-            ${{ needs.resource_hash.outputs.hash_comment }}
+          body: ${{ needs.changelog.outputs.release_body }}
           draft: false
           prerelease: ${{ needs.meta.outputs.is_prerelease }}
 
