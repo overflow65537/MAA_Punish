@@ -2,18 +2,24 @@ name: mirrorchyan_release_note
 
 on:
   workflow_dispatch:
+    inputs:
+      tag:
+        default: ""
+        required: false
   release:
     types: [edited]
 
 jobs:
   mirrorchyan:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
-      - id: uploading
-        uses: MirrorChyan/release-note-action@v1
+      - uses: MirrorChyan/release-note-action@v1
         with:
-          mirrorchyan_rid : MAA_Punish
+          mirrorchyan_rid: MAA_Punish
+          version_name: ${{ inputs.tag }}
 
-          upload_token: ${{ secrets.MirrorChyanUploadToken }}
+          owner: overflow65537
+          repo: MAA_Punish
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          upload_token: ${{ secrets.MirrorChyanUploadToken }}
