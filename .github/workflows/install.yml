@@ -348,8 +348,8 @@ jobs:
           \) -delete
 
       # 在构建机上打包，避免 upload-artifact 的 zip 丢掉 chmod
-      - name: Pack Linux tar.gz
-        if: matrix.platform == 'linux'
+      - name: Pack tar.gz
+        if: matrix.platform != 'win'
         shell: bash
         run: |
           set -euo pipefail
@@ -357,20 +357,6 @@ jobs:
           mkdir -p dist
           tar -czf "dist/${name}.tar.gz" -C install .
           test -s "dist/${name}.tar.gz"
-
-      - name: Pack macOS dmg
-        if: matrix.platform == 'macos'
-        shell: bash
-        run: |
-          set -euo pipefail
-          name="MPA-${{ matrix.platform }}-${{ matrix.arch }}-${{ needs.meta.outputs.tag }}"
-          stage="${RUNNER_TEMP}/mpa-dmg-root"
-          rm -rf "$stage"
-          mkdir -p "$stage"
-          cp -a install/. "$stage/"
-          mkdir -p dist
-          hdiutil create -volname "MPA" -srcfolder "$stage" -ov -format UDZO "dist/${name}.dmg"
-          test -s "dist/${name}.dmg"
 
       - uses: actions/upload-artifact@v7
         if: matrix.platform == 'win'
@@ -407,7 +393,7 @@ jobs:
               (cd "$f" && zip -r "../$f-${tag}.zip" .)
             else
               found=0
-              for archive in "$f"/*.tar.gz "$f"/*.dmg; do
+              for archive in "$f"/*.tar.gz; do
                 [[ -f "$archive" ]] || continue
                 mv "$archive" .
                 found=1
@@ -426,7 +412,6 @@ jobs:
           files: |
             assets/*.zip
             assets/*.tar.gz
-            assets/*.dmg
           tag_name: ${{ needs.meta.outputs.tag }}
           body: |
             ${{ needs.changelog.outputs.release_body }}

@@ -28,10 +28,10 @@ jobs:
             filename: MPA-linux-aarch64-*.tar.gz
           - os: macos
             arch: x86_64
-            filename: MPA-macos-x86_64-*.dmg
+            filename: MPA-macos-x86_64-*.tar.gz
           - os: macos
             arch: aarch64
-            filename: MPA-macos-aarch64-*.dmg
+            filename: MPA-macos-aarch64-*.tar.gz
     steps:
       - uses: MirrorChyan/uploading-action@v1
         with:
