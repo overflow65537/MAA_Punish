@@ -98,37 +98,6 @@ jobs:
       is_release: ${{ steps.set_tag.outputs.is_release }}
       is_prerelease: ${{ steps.set_tag.outputs.is_prerelease }}
 
-  resource_hash:
-    name: Compute resource hashes
-    runs-on: ubuntu-latest
-    outputs:
-      hash_comment: ${{ steps.hash.outputs.comment }}
-    steps:
-      - uses: actions/checkout@v6
-
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.12"
-
-      - name: Compute resource hashes
-        id: hash
-        run: |
-          set -euo pipefail
-          python -m pip install --upgrade pip
-          python -m pip install maafw json-with-comments
-          comment="$(python ./tools/ci/gen_resource_hash.py ./interface.json)"
-          {
-            echo "comment<<EOF"
-            echo "$comment"
-            echo "EOF"
-          } >> "$GITHUB_OUTPUT"
-
-      - uses: actions/upload-artifact@v7
-        with:
-          name: interface-json
-          path: interface.json
-
   #  background:
   #    runs-on: ubuntu-latest
   #    steps:
