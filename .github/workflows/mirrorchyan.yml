@@ -9,14 +9,31 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [win]
-        arch: [x86_64]
+        include:
+          - os: win
+            arch: x86_64
+            filename: MPA-win-x86_64-*.zip
+          - os: win
+            arch: aarch64
+            filename: MPA-win-aarch64-*.zip
+          - os: linux
+            arch: x86_64
+            filename: MPA-linux-x86_64-*.tar.gz
+          - os: linux
+            arch: aarch64
+            filename: MPA-linux-aarch64-*.tar.gz
+          - os: macos
+            arch: x86_64
+            filename: MPA-macos-x86_64-*.dmg
+          - os: macos
+            arch: aarch64
+            filename: MPA-macos-aarch64-*.dmg
     steps:
       - id: uploading
         uses: MirrorChyan/uploading-action@v1
         with:
           filetype: latest-release
-          filename: "MPA-${{ matrix.os }}-${{ matrix.arch }}-*"
+          filename: ${{ matrix.filename }}
           mirrorchyan_rid: MAA_Punish
 
           owner: overflow65537
@@ -33,7 +50,7 @@ jobs:
         uses: MirrorChyan/uploading-action@v1
         with:
           filetype: latest-release
-          filename: "MPA-win-x86_64-v*"
+          filename: MPA-win-x86_64-*.zip
           pick_files: '["resource", "interface.json", "custom"]'
           exclude_files: '["*model/ocr/**"]'
           mirrorchyan_rid: MAA_Punish
