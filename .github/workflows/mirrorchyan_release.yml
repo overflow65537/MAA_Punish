@@ -13,13 +13,30 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [win, linux, macos]
-        arch: [aarch64, x86_64]
+        include:
+          - os: win
+            arch: x86_64
+            filename: MPA-win-x86_64-*.zip
+          - os: win
+            arch: aarch64
+            filename: MPA-win-aarch64-*.zip
+          - os: linux
+            arch: x86_64
+            filename: MPA-linux-x86_64-*.tar.gz
+          - os: linux
+            arch: aarch64
+            filename: MPA-linux-aarch64-*.tar.gz
+          - os: macos
+            arch: x86_64
+            filename: MPA-macos-x86_64-*.dmg
+          - os: macos
+            arch: aarch64
+            filename: MPA-macos-aarch64-*.dmg
     steps:
       - uses: MirrorChyan/uploading-action@v1
         with:
           filetype: latest-release
-          filename: ${{ format('MPA-{0}-{1}-*', matrix.os, matrix.arch) }}
+          filename: ${{ matrix.filename }}
           mirrorchyan_rid: MAA_Punish
           tag: ${{ inputs.tag }}
 

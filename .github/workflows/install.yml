@@ -348,6 +348,16 @@ jobs:
           \) -delete
 
       # 在构建机上打包，避免 upload-artifact 的 zip 丢掉 chmod
+      - name: Pack Windows zip
+        if: matrix.platform == 'win'
+        shell: bash
+        run: |
+          set -euo pipefail
+          name="MPA-${{ matrix.platform }}-${{ matrix.arch }}-${{ needs.meta.outputs.tag }}"
+          mkdir -p dist
+          (cd install && zip -r "../dist/${name}.zip" .)
+          test -s "dist/${name}.zip"
+
       - name: Pack Linux tar.gz
         if: matrix.platform == 'linux'
         shell: bash
@@ -373,14 +383,6 @@ jobs:
           test -s "dist/${name}.dmg"
 
       - uses: actions/upload-artifact@v7
-        if: matrix.platform == 'win'
-        with:
-          name: MPA-${{ matrix.platform }}-${{ matrix.arch }}
-          path: "install"
-          include-hidden-files: true
-
-      - uses: actions/upload-artifact@v7
-        if: matrix.platform != 'win'
         with:
           name: MPA-${{ matrix.platform }}-${{ matrix.arch }}
           path: dist/*
@@ -399,26 +401,21 @@ jobs:
       - run: |
           set -euo pipefail
           cd assets
-          tag="${{ needs.meta.outputs.tag }}"
           for f in *; do
             [[ -d "$f" ]] || continue
-            if [[ "$f" == *-win-* ]]; then
-              (cd "$f" && zip -r "../$f-${tag}.zip" .)
-            else
-              # Linux tar.gz / macOS dmg 已在构建机打包，权限已写入归档
-              found=0
-              for archive in "$f"/*.tar.gz "$f"/*.dmg; do
-                [[ -f "$archive" ]] || continue
-                mv "$archive" .
-                found=1
-              done
-              if [[ "$found" -eq 0 ]]; then
-                echo "missing packed archive in $f"
-                ls -la "$f"
-                exit 1
-              fi
+            found=0
+            for archive in "$f"/*.zip "$f"/*.tar.gz "$f"/*.dmg; do
+              [[ -f "$archive" ]] || continue
+              mv "$archive" .
+              found=1
+            done
+            if [[ "$found" -eq 0 ]]; then
+              echo "missing packed archive in $f"
+              ls -la "$f"
+              exit 1
             fi
           done
+          ls -la
 
       - uses: softprops/action-gh-release@v3
         with:
