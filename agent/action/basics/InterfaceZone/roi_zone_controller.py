@@ -30,6 +30,11 @@ _WIN32_ZONES: tuple[tuple[str, str, list[int]], ...] = (
     ("switch_zone", "识别换人区", [1171, 136, 84, 184]),
 )
 
+# pipeline ROI 与 win32 默认布局一致，用于按区域重合归类节点
+REFERENCE_ZONE_RECTS: dict[str, list[int]] = {
+    zone_key: rect for zone_key, _, rect in _WIN32_ZONES
+}
+
 ZONES_BY_CONTROLLER: dict[str, tuple[tuple[str, str, list[int]], ...]] = {
     "adb": _ADB_ZONES,
     "win32": _WIN32_ZONES,
