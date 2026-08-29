@@ -193,56 +193,13 @@ jobs:
           python ./tools/ci/install.py ${{ needs.meta.outputs.tag }}
 
       - name: Download MFW
-        shell: bash
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -euo pipefail
-          repo="overflow65537/MFW-PyQt6"
-          platform="${{ matrix.platform }}"
-          arch="${{ matrix.arch }}"
-          prefix="MFW-PyQt6-${platform}-${arch}-"
-          mkdir -p install
-
-          if [[ "$platform" == "win" ]]; then
-            exts=(zip)
-          else
-            # v4.9.4+ 使用 tar.gz；旧版 linux/macos 仍为 zip
-            exts=(tar.gz tgz zip)
-          fi
-
-          mapfile -t releases < <(gh api "repos/${repo}/releases" --paginate --jq '.[] | select(.draft == false) | .tag_name')
-
-          picked=""
-          picked_tag=""
-          for tag in "${releases[@]}"; do
-            mapfile -t assets < <(gh api "repos/${repo}/releases/tags/${tag}" --jq '.assets[].name')
-            for name in "${assets[@]}"; do
-              [[ "$name" == "${prefix}"* ]] || continue
-              for ext in "${exts[@]}"; do
-                if [[ "$name" == *.${ext} ]]; then
-                  picked="$name"
-                  picked_tag="$tag"
-                  break 3
-                fi
-              done
-            done
-          done
-
-          if [[ -z "$picked" ]]; then
-            echo "::error::No MFW asset for ${platform}-${arch} (tried: ${exts[*]})"
-            gh api "repos/${repo}/releases/latest" --jq '.assets[].name' || true
-            exit 1
-          fi
-
-          echo "Using ${repo}@${picked_tag}: ${picked}"
-          gh release download --repo "$repo" --pattern "$picked" --dir /tmp/mfw-dl
-          archive="/tmp/mfw-dl/${picked}"
-          case "$picked" in
-            *.zip) unzip -q "$archive" -d install ;;
-            *.tar.gz|*.tgz) tar -xzf "$archive" -C install ;;
-            *) echo "::error::Unknown archive format: $picked"; exit 1 ;;
-          esac
+        uses: robinraju/release-downloader@v1.13
+        with:
+          repository: overflow65537/MFW-PyQt6
+          fileName: ${{ matrix.platform == 'win' && format('MFW-PyQt6-win-{0}-*.zip', matrix.arch) || format('MFW-PyQt6-{0}-{1}-*.tar.gz', matrix.platform, matrix.arch) }}
+          out-file-path: install
+          extract: true
+          latest: true
 
       # zip / upload-artifact 不保留 Unix 可执行位；Linux 为 MFW，macOS 为 MFW.app
       - name: Restore Unix executable bits
