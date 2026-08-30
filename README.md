@@ -15,7 +15,7 @@
 <p align="center">
   <img alt="license" src="https://img.shields.io/github/license/overflow65537/MAA_Punish">
   <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white">
-  <img alt="platform" src="https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-blueviolet">
+  <img alt="platform" src="https://img.shields.io/badge/platform-Android%20%7C%20Windows%20%7C%20Linux%20%7C%20macOS-blueviolet">
   <img alt="commit" src="https://img.shields.io/github/commit-activity/m/overflow65537/MAA_Punish">
   <img alt="mirrorchyan_rid" src="https://img.shields.io/badge/mirrorchyan_rid-MAA__Punish-orange">
 </p>
@@ -64,6 +64,13 @@
 ## 使用说明
 
 下载地址：[https://github.com/overflow65537/MAA_Punish/releases](https://github.com/overflow65537/MAA_Punish/releases)
+
+### Android
+
+- 下载 `MPA-android-vXXX.apk` 并安装。
+- Android 包名：com.overflow65537.maafw.punish。
+- 首次启动后按应用引导授予通知、电池优化白名单，以及 Shizuku 或 root 权限。
+- 未配置正式签名的开发构建会带有 `-debug` 后缀；安装后续正式版本前可能需要先卸载开发版。
 
 ### Windows
 
@@ -162,6 +169,8 @@
 
 **如果你要编译源码才看这节，否则直接 [下载](https://github.com/overflow65537/MAA_Punish/releases) 即可**
 
+#### 桌面端
+
 0. 完整克隆本项目及子项目
 
    ```bash
@@ -175,7 +184,13 @@
    python ./tools/ci/install.py
    ```
 
-生成的二进制及相关资源文件在 `install` 目录下
+生成的二进制及相关资源文件在 `install` 目录下。
+
+#### Android
+
+Android APK 使用 [MaaFwApp](https://github.com/Aliothmoon/MaaFwApp) 构建。仓库的 `install` 工作流会自动组装 MaaFramework Android 库、双 ABI Python agent 与本项目资源，并上传 APK artifact；标签构建还会把 APK 加入 GitHub Release。
+
+本地构建需要 JDK 17、Android SDK 和 Python 3，详细命令、打包配方及 release 签名配置见 [`.github/android/README.md`](.github/android/README.md)。
 
 ## 鸣谢
 
@@ -184,6 +199,10 @@
 - [MaaFramework](https://github.com/MaaXYZ/MaaFramework)
 
   基于图像识别的自动化黑盒测试框架 | An automation black-box testing framework based on image recognition
+
+- [MaaFwApp](https://github.com/Aliothmoon/MaaFwApp)
+
+  MaaFramework 的通用 Android GUI | A general-purpose Android GUI for MaaFramework
 
 - [MFW-ChainFlow Assistant](https://github.com/overflow65537/MFW-PyQt6)
   基于 PySide6 的 MaaFramework 前端 | A frontend based on PySide6 for MaaFramework

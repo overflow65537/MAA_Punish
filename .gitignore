@@ -460,3 +460,8 @@ agent/recognition/exclusives/role_cache.json
 main.py
 pyproject.toml
 uv.lock
+
+# Local Android signing materials (never commit)
+.android-signing/
+*.jks
+*.keystore

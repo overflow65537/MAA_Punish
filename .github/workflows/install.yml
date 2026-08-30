@@ -8,6 +8,7 @@ on:
       - "**"
     paths:
       - ".github/workflows/install.yml"
+      - ".github/android/**"
       - "tools/ci/install.py"
       - "tools/ci/gen_resource_hash.py"
       - "agent/**"
@@ -15,12 +16,14 @@ on:
       - "tasks/**"
       - "i18n/**"
       - "interface.json"
+      - "logo.png"
       - "requirements.txt"
   pull_request:
     branches:
       - "**"
     paths:
       - ".github/workflows/install.yml"
+      - ".github/android/**"
       - "tools/ci/install.py"
       - "tools/ci/gen_resource_hash.py"
       - "agent/**"
@@ -28,6 +31,7 @@ on:
       - "tasks/**"
       - "i18n/**"
       - "interface.json"
+      - "logo.png"
       - "requirements.txt"
   workflow_dispatch:
 
@@ -337,9 +341,136 @@ jobs:
           if-no-files-found: error
           include-hidden-files: true
 
+  android:
+    needs: [meta]
+    runs-on: ubuntu-latest
+    name: Build Android APK
+    env:
+      MAAFWAPP_REF: f20ff4ba0b53e83132da1015c7635ef16e8b5736
+      MAAFRAMEWORK_TAG: v5.12.3
+      PI_PROFILE: ${{ github.workspace }}/.github/android/pi-profile.yaml
+      ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+      ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+      ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+      ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+
+    steps:
+      - name: Checkout MAA_Punish
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          submodules: true
+
+      - name: Checkout MaaFwApp
+        uses: actions/checkout@v6
+        with:
+          repository: Aliothmoon/MaaFwApp
+          ref: ${{ env.MAAFWAPP_REF }}
+          path: build-android/MaaFwApp
+          fetch-depth: 1
+
+      - name: Use MAA_Punish version for the APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          # MaaFwApp 会从当前 Git 仓库生成 versionCode/versionName。移除嵌套 checkout
+          # 的 Git 元数据后，它会向上使用 MAA_Punish 的提交数与标签。
+          rm -rf build-android/MaaFwApp/.git
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Configure MAA_Punish Android package name
+        shell: bash
+        run: python .github/android/patch_maafwapp.py build-android/MaaFwApp
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: gradle
+
+      - name: Cache Android runtimes
+        uses: actions/cache@v5
+        with:
+          path: |
+            build-android/MaaFwApp/.maa-cache
+            build-android/MaaFwApp/.maafw
+          key: android-runtime-${{ runner.os }}-${{ env.MAAFRAMEWORK_TAG }}-${{ env.MAAFWAPP_REF }}
+      - name: Prepare MaaFramework and Python agent
+        working-directory: build-android/MaaFwApp
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/setup_maa_framework.py --tag "$MAAFRAMEWORK_TAG"
+          python scripts/build_agent_bundle.py \
+            --out "$GITHUB_WORKSPACE/build-android/agent-dist" \
+            --abi arm64-v8a \
+            --abi x86_64 \
+            --requirements "$GITHUB_WORKSPACE/requirements.txt"
+
+      - name: Configure Android signing
+        id: signing
+        shell: bash
+        run: |
+          set -euo pipefail
+          values=(
+            "$ANDROID_KEYSTORE_BASE64"
+            "$ANDROID_KEYSTORE_PASSWORD"
+            "$ANDROID_KEY_ALIAS"
+            "$ANDROID_KEY_PASSWORD"
+          )
+          configured=0
+          for value in "${values[@]}"; do
+            [[ -n "$value" ]] && configured=$((configured + 1))
+          done
+
+          if [[ "$configured" -eq 0 ]]; then
+            echo "No release keystore configured; building a debug-signed APK."
+            echo "gradle_task=assembleDebug" >> "$GITHUB_OUTPUT"
+            echo "variant=debug" >> "$GITHUB_OUTPUT"
+            echo "suffix=-debug" >> "$GITHUB_OUTPUT"
+          elif [[ "$configured" -ne 4 ]]; then
+            echo "Android signing secrets are only partially configured." >&2
+            echo "Set ANDROID_KEYSTORE_BASE64, ANDROID_KEYSTORE_PASSWORD, ANDROID_KEY_ALIAS and ANDROID_KEY_PASSWORD together." >&2
+            exit 1
+          else
+            keystore="$RUNNER_TEMP/android-release.jks"
+            printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$keystore"
+            test -s "$keystore"
+            echo "KEYSTORE_PATH=$keystore" >> "$GITHUB_ENV"
+            echo "KEYSTORE_PASSWORD=$ANDROID_KEYSTORE_PASSWORD" >> "$GITHUB_ENV"
+            echo "KEY_ALIAS=$ANDROID_KEY_ALIAS" >> "$GITHUB_ENV"
+            echo "KEY_PASSWORD=$ANDROID_KEY_PASSWORD" >> "$GITHUB_ENV"
+            echo "gradle_task=assembleRelease" >> "$GITHUB_OUTPUT"
+            echo "variant=release" >> "$GITHUB_OUTPUT"
+            echo "suffix=" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build APK
+        working-directory: build-android/MaaFwApp
+        shell: bash
+        run: |
+          set -euo pipefail
+          chmod +x ./gradlew
+          ./gradlew ":app:${{ steps.signing.outputs.gradle_task }}" --stacktrace
+
+          variant="${{ steps.signing.outputs.variant }}"
+          apk="$(find "app/build/outputs/apk/$variant" -maxdepth 1 -type f -name '*.apk' -print -quit)"
+          test -n "$apk"
+          mkdir -p "$GITHUB_WORKSPACE/android-dist"
+          cp "$apk" "$GITHUB_WORKSPACE/android-dist/MPA-android-${{ needs.meta.outputs.tag }}${{ steps.signing.outputs.suffix }}.apk"
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: MPA-android
+          path: android-dist/*.apk
+          if-no-files-found: error
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
-    needs: [meta, build, changelog]
+    needs: [meta, build, android, changelog]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v7
@@ -355,6 +486,18 @@ jobs:
             [[ -d "$f" ]] || continue
             if [[ "$f" == *-win-* ]]; then
               (cd "$f" && zip -r "../$f-${tag}.zip" .)
+            elif [[ "$f" == *-android* ]]; then
+              found=0
+              for apk in "$f"/*.apk; do
+                [[ -f "$apk" ]] || continue
+                mv "$apk" .
+                found=1
+              done
+              if [[ "$found" -eq 0 ]]; then
+                echo "missing APK in $f"
+                ls -la "$f"
+                exit 1
+              fi
             else
               found=0
               for archive in "$f"/*.tar.gz; do
@@ -376,6 +519,7 @@ jobs:
           files: |
             assets/*.zip
             assets/*.tar.gz
+            assets/*.apk
           tag_name: ${{ needs.meta.outputs.tag }}
           body: ${{ needs.changelog.outputs.release_body }}
           draft: false
