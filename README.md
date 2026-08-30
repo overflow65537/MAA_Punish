@@ -69,6 +69,7 @@
 
 - 下载 `MPA-android-vXXX.apk` 并安装。
 - Android 包名：com.overflow65537.maafw.punish。
+- Shizuku / root 授权及后续操作请参考 [MaaFwApp 使用说明](https://github.com/Aliothmoon/MaaFwApp#使用已打包的应用)。
 - 首次启动后按应用引导授予通知、电池优化白名单，以及 Shizuku 或 root 权限。
 - 未配置正式签名的开发构建会带有 `-debug` 后缀；安装后续正式版本前可能需要先卸载开发版。
 

@@ -345,6 +345,8 @@ jobs:
     needs: [meta]
     runs-on: ubuntu-latest
     name: Build Android APK
+    outputs:
+      variant: ${{ steps.signing.outputs.variant }}
     env:
       MAAFWAPP_REF: f20ff4ba0b53e83132da1015c7635ef16e8b5736
       MAAFRAMEWORK_TAG: v5.12.3
@@ -532,3 +534,36 @@ jobs:
         run: |
           gh workflow run --repo $GITHUB_REPOSITORY mirrorchyan_release.yml -f tag=${{ needs.meta.outputs.tag }}
           gh workflow run --repo $GITHUB_REPOSITORY mirrorchyan_release_note.yml -f tag=${{ needs.meta.outputs.tag }}
+  android_mirrorchyan:
+    name: Upload Android APK to MirrorChyan
+    if: ${{ needs.meta.outputs.is_release == 'true' && needs.android.outputs.variant == 'release' }}
+    needs: [meta, android, release]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v7
+        with:
+          name: MPA-android
+          path: android-dist
+
+      - name: Locate Android APK
+        id: apk
+        shell: bash
+        run: |
+          set -euo pipefail
+          apk="$(find android-dist -type f -name '*.apk' -print -quit)"
+          test -n "$apk"
+          echo "path=$apk" >> "$GITHUB_OUTPUT"
+
+      - name: Upload Android APK
+        uses: MirrorChyan/uploading-action@v1
+        with:
+          filetype: local
+          filename: ${{ steps.apk.outputs.path }}
+          mirrorchyan_rid: MAA_Punish_MaaFwApp
+          version_name: ${{ needs.meta.outputs.tag }}
+          os: android
+
+          owner: overflow65537
+          repo: MAA_Punish
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          upload_token: ${{ secrets.ANDROID_MIRRORCHYANUPLOADTOKEN }}
