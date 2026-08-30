@@ -3,7 +3,7 @@
         "recognition": {
             "param": {
                 "expected": [
-                    "戦闘"
+                    "^戦闘$"
                 ]
             }
         }
