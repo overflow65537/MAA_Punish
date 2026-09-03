@@ -24,14 +24,18 @@
 
     idle ──► farm ──► switch（超时未出大，不用 QTE）
               │
+              ├── 球数>1 ──► 消球循环（攻击+消球，至 0 或 5s 超时）──► farm
               └── 大招条满 ──► ult ──► finish（QTE 一次）──► switch
 """
 
 from __future__ import annotations
 
+import time
+
 from action.combat.core.role import BaseRole
 
 _FARM_MAX = 100
+_CLEAR_LOOP_TIMEOUT_S = 5.0
 
 
 class GeneralFight(BaseRole):
@@ -68,6 +72,34 @@ class GeneralFight(BaseRole):
         self._farm_ticks = 0
         self.phase = "farm"
 
+    def _clear_balls_loop(self) -> None:
+        """球数 > 1 时连续消球；球数为 0 或循环超过 5s 则退出。"""
+        deadline = time.monotonic() + _CLEAR_LOOP_TIMEOUT_S
+        self.action.logger.info("通用战斗: 开始消球循环")
+
+        while time.monotonic() < deadline:
+            if self.combat.context.tasker.stopping:
+                return
+            if self.action.check_Skill_energy_bar():
+                self.action.logger.info("通用战斗: 大招就绪")
+                self.phase = "ult"
+                return
+
+            count = self.action.count_signal_balls()
+            if count == 0:
+                self.action.logger.info("通用战斗: 球数为 0，退出消球")
+                return
+            if count <= 1:
+                self.action.logger.info("通用战斗: 球数 %s，退出消球", count)
+                return
+
+            self.action.attack()
+            self.action.ball_elimination_target()
+
+        self.action.logger.info(
+            "通用战斗: 消球循环超时 %.0fs", _CLEAR_LOOP_TIMEOUT_S
+        )
+
     def _phase_farm(self) -> None:
         if self.action.check_Skill_energy_bar():
             self.action.logger.info("通用战斗: 大招就绪")
@@ -79,8 +111,12 @@ class GeneralFight(BaseRole):
             self.phase = "switch"
             return
 
+        if self.action.count_signal_balls() > 1:
+            self._clear_balls_loop()
+            if self.phase == "ult":
+                return
+
         self.action.attack()
-        self.action.ball_elimination_target()
         self.action.auxiliary_machine()
         self._farm_ticks += 1
 
