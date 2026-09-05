@@ -343,8 +343,41 @@
             "[JumpBack]领取补签卡1",
             "[JumpBack]领取补签卡2",
             "勤务任务",
-            "[JumpBack]关闭奖励"
+            "[JumpBack]关闭奖励",
+            "[JumpBack]滚动任务"
         ]
+    },
+    "滚动任务": {
+        "max_hit": 2,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    115,
+                    324,
+                    282
+                ],
+                "expected": [
+                    "新手",
+                    "入门",
+                    "目标"
+                ]
+            }
+        },
+        "action": {
+            "type": "swipe",
+            "param": {
+                "begin": [
+                    100,
+                    500
+                ],
+                "end": [
+                    100,
+                    250
+                ]
+            }
+        }
     },
     "领取补签卡1": {
         "max_hit": 1,
