@@ -27,6 +27,7 @@ MAA_Punish 战斗识别
 from __future__ import annotations
 
 import logging
+import re
 from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING, Any
 
@@ -57,6 +58,16 @@ logger = logging.getLogger(__name__)
 
 # 退战时优先于「战斗中」检测的固定 overlay 节点（全模式启用）
 COMBAT_EXIT_OVERLAY_NODES = ("重启_寒境曙光",)
+COMBAT_HP_NODE = "检查血量"
+_HP_FRACTION_RE = re.compile(r"(\d+)\s*/\s*(\d+)")
+
+
+def parse_hp_current(text: str) -> int | None:
+    """从「当前/上限」OCR 文本解析当前血量；无法解析时返回 None。"""
+    match = _HP_FRACTION_RE.search(text or "")
+    if match is None:
+        return None
+    return int(match.group(1))
 
 
 class BaseCombatCheck(ABC):
@@ -82,6 +93,17 @@ class BaseCombatCheck(ABC):
                 logger.info("识别到战斗退出界面: %s", name)
                 return name
         return None
+
+    def read_current_hp(self, context: Context, combat: CombatTask) -> int | None:
+        """读取节点「检查血量」的当前值；未识别或无法解析时返回 None。"""
+        image = self._get_frame(context, combat)
+        result = context.run_recognition(COMBAT_HP_NODE, image)
+        if not (result and result.hit and result.best_result is not None):
+            return None
+        text = getattr(result.best_result, "text", None)
+        if not text:
+            return None
+        return parse_hp_current(str(text))
 
     def in_outer_interface(self, context: Context, combat: CombatTask) -> bool:
         """是否处于战斗外界面（结算、菜单、大地图等）。仅在 in_combat 未命中时调用。"""

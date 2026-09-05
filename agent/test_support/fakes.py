@@ -9,6 +9,7 @@ from typing import Any
 @dataclass
 class FakeBestResult:
     box: tuple[int, int, int, int]
+    text: str = ""
 
 
 @dataclass

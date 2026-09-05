@@ -62,6 +62,7 @@ class CombatTask:
     SLEEP_CHECK_INTERVAL = 0.0
     WAIT_POLL_INTERVAL = 0.2
     COMBAT_UI_LOST_TIMEOUT = 8.0
+    HP_ZERO_TIMEOUT = 5.0
     SWITCH_COOLDOWN = 15.0  # 离场后再上场 CD（每色位独立）
     FIELD_MIN_STAY = 5.0  # 上场后最少站场才可再切走（防抖）
     SWITCH_FAIL_COOLDOWN = 2.0
@@ -78,6 +79,7 @@ class CombatTask:
         wait_combat_time: float | None = None,
         sleep_check_interval: float | None = None,
         combat_ui_lost_timeout: float | None = None,
+        hp_zero_timeout: float | None = None,
         switch_cooldown: float | None = None,
         switch_fail_cooldown: float | None = None,
         field_min_stay: float | None = None,
@@ -97,6 +99,9 @@ class CombatTask:
             if combat_ui_lost_timeout is not None
             else self.COMBAT_UI_LOST_TIMEOUT
         )
+        self.hp_zero_timeout = (
+            hp_zero_timeout if hp_zero_timeout is not None else self.HP_ZERO_TIMEOUT
+        )
         self.switch_cooldown = (
             switch_cooldown if switch_cooldown is not None else self.SWITCH_COOLDOWN
         )
@@ -115,6 +120,7 @@ class CombatTask:
         self.out_of_combat_reason = ""
         self.loop_count = 0
         self._last_in_combat_time = 0.0
+        self._hp_zero_since: float | None = None
         self.frame: Any | None = None
 
         self.team: TeamSnapshot | None = None
@@ -743,6 +749,7 @@ class CombatTask:
         self._switch_attempt_cooldown = 0.0
         self._role_swap_cd_until = {}
         self.current_field_since = 0.0
+        self._hp_zero_since = None
         reason = self.out_of_combat_reason or "unknown"
         self.logger.info("战斗结束: %s", reason)
 
@@ -755,10 +762,14 @@ class CombatTask:
         """
         更新战斗 UI 可见状态并判断是否应退战。
 
-        固定 overlay（重启等）→ in_combat → in_outer_interface → 8 秒丢失超时。
+        固定 overlay（重启等）→ 血量连续为 0 → in_combat → in_outer_interface → 8 秒丢失超时。
         """
         if self.combat_check.match_exit_overlay(self.context, self):
             return "outer_interface"
+
+        hp_exit = self._check_hp_zero_exit()
+        if hp_exit:
+            return hp_exit
 
         if self.combat_check.in_combat(self.context, self):
             self.combat_ui_visible = True
@@ -778,6 +789,31 @@ class CombatTask:
                 self.combat_ui_lost_timeout,
             )
             return "combat_ui_lost"
+        return ""
+
+    def _check_hp_zero_exit(self) -> str:
+        """当前血量连续为 0 达到阈值则退战；读到非 0 会重置计时。"""
+        hp = self.combat_check.read_current_hp(self.context, self)
+        if hp is not None and hp > 0:
+            self._hp_zero_since = None
+            return ""
+        if hp is None and self._hp_zero_since is None:
+            return ""
+
+        now = time.monotonic()
+        if self._hp_zero_since is None:
+            self._hp_zero_since = now
+            self.logger.info("识别到血量为 0，开始计时")
+            return ""
+
+        elapsed = now - self._hp_zero_since
+        if elapsed >= self.hp_zero_timeout:
+            self.logger.info(
+                "血量为 0 持续超时 (%.1f/%.1fs)",
+                elapsed,
+                self.hp_zero_timeout,
+            )
+            return "hp_zero"
         return ""
 
     def _wait_in_combat(self) -> None:
