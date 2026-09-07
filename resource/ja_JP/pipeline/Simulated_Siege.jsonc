@@ -219,15 +219,6 @@
             }
         }
     },
-    "选择人物_拟真围剿": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "戦闘力"
-                ]
-            }
-        }
-    },
     "开始作战_拟真围剿": {
         "recognition": {
             "param": {

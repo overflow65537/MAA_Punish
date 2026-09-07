@@ -157,7 +157,8 @@
                     78,
                     38
                 ],
-                "expected": "^0$"
+                "expected": "^0$",
+                "only_rec": true
             }
         },
         "action": {
