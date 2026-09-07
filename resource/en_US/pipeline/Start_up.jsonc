@@ -15,9 +15,7 @@
         "recognition": {
             "param": {
                 "expected": [
-                    "Device",
-                    "[Mm]emory",
-                    "below"
+                    "Device"
                 ]
             }
         }
