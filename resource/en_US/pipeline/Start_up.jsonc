@@ -84,7 +84,7 @@
         "recognition": {
             "param": {
                 "expected": [
-                    "^Combat$"
+                    "^Battle$"
                 ]
             }
         }
@@ -93,7 +93,7 @@
         "recognition": {
             "param": {
                 "expected": [
-                    "^Combat$"
+                    "^Battle$"
                 ]
             }
         }
