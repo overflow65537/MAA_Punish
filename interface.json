@@ -5,7 +5,8 @@
     "languages": {
         "zh_cn": "./i18n/zh_cn.json",
         "zh_tw": "./i18n/zh_tw.json",
-        "ja_jp": "./i18n/ja_jp.json"
+        "ja_jp": "./i18n/ja_jp.json",
+        "en_us": "./i18n/en_us.json"
     },
     "title": "$project.label",
     "mirrorchyan_rid": "MAA_Punish",
@@ -132,6 +133,15 @@
             "path": [
                 "./resource/base",
                 "./resource/ja_JP"
+            ]
+        },
+        {
+            "name": "en_US",
+            "label": "$resource.en_US.label",
+            "description": "$resource.en_US.description",
+            "path": [
+                "./resource/base",
+                "./resource/en_US"
             ]
         }
     ],
