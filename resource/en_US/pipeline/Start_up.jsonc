@@ -118,9 +118,7 @@
         "recognition": {
             "param": {
                 "expected": [
-                    "[Tt]ap",
-                    "[Ss]tart",
-                    "begin"
+                    "[Tt]ap"
                 ],
                 "roi": [
                     24,
