@@ -668,5 +668,7 @@
     "option.启动重试次数.description": "起動待機の最大リトライ回数（アプリ起動は1回のみ）",
     "input.启动重试次数.最大重试次数.label": "最大リトライ回数",
     "input.启动重试次数.最大重试次数.description": "アプリ起動後、ゲーム進入までの最大リトライ回数。デフォルト60回",
-    "input.启动重试次数.最大重试次数.pattern_msg": "有効な数字を入力してください"
+    "input.启动重试次数.最大重试次数.pattern_msg": "有効な数字を入力してください",
+    "resource.en_US.label": "English (Global)",
+    "resource.en_US.description": "Punishing: Gray Raven Global / NA client"
 }
