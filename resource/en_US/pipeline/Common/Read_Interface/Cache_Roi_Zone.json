@@ -23,7 +23,7 @@
         "recognition": {
             "param": {
                 "expected": [
-                    "^Combat$"
+                    "^Battle$"
                 ]
             }
         }
