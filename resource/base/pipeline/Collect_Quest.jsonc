@@ -366,7 +366,7 @@
             }
         },
         "action": {
-            "type": "swipe",
+            "type": "Swipe",
             "param": {
                 "begin": [
                     100,
