@@ -9,5 +9,14 @@
                 ]
             }
         }
+    },
+    "领取全部": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Claim All"
+                ]
+            }
+        }
     }
 }
