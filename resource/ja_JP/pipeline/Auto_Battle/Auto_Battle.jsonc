@@ -142,15 +142,6 @@
             }
         }
     },
-    "对话跳过": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "SKIP"
-                ]
-            }
-        }
-    },
     "进入战斗": {
         "recognition": {
             "param": {

@@ -36,16 +36,6 @@
             }
         }
     },
-    "关闭奖励_宿舍任务": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "^獲得$",
-                    "^報酬$"
-                ]
-            }
-        }
-    },
     "选择每日任务": {
         "recognition": {
             "param": {
@@ -212,15 +202,6 @@
             "param": {
                 "expected": [
                     "願い事完了"
-                ]
-            }
-        }
-    },
-    "宿舍任务_返回": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "戻る"
                 ]
             }
         }

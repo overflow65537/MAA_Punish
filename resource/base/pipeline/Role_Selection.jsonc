@@ -141,32 +141,6 @@
             }
         }
     },
-    "识别囚笼次数_辅助": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": "检查支援类型角色",
-                "roi_offset": [
-                    -100,
-                    60,
-                    30,
-                    10
-                ],
-                "lower": [
-                    53,
-                    175,
-                    248
-                ],
-                "upper": [
-                    53,
-                    175,
-                    248
-                ],
-                "connected": true,
-                "count": 10
-            }
-        }
-    },
     "滑动_选人": {
         "recognition": {
             "type": "And",
@@ -213,23 +187,6 @@
             }
         },
         "post_delay": 1000
-    },
-    "选择人物": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    24,
-                    27,
-                    382,
-                    635
-                ],
-                "template": []
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
     },
     "编入队伍": {
         "recognition": {
@@ -379,33 +336,6 @@
         "next": [
             "卸下队伍",
             "清空黄色位"
-        ]
-    },
-    "清空蓝色位": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1032,
-                    641,
-                    148,
-                    53
-                ],
-                "expected": "作战开始"
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    287,
-                    403
-                ]
-            }
-        },
-        "next": [
-            "卸下队伍",
-            "清空蓝色位"
         ]
     },
     "清除队伍": {
@@ -668,22 +598,6 @@
             "need_multi": true
         }
     },
-    "选人测试": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "RoleSelection",
-                "custom_action_param": {
-                    "selection_mode": "standard",
-                    "need_multi": false
-                }
-            }
-        },
-        "attach": {
-            "cage": true,
-            "max_try": 1
-        }
-    },
     "缓存角色": {
         "next": [
             "缓存角色程序",
@@ -742,46 +656,6 @@
             "timeout": 2000
         },
         "post_delay": 1000
-    },
-    "点击首发": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    140,
-                    301,
-                    979,
-                    182
-                ],
-                "expected": "首发"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 2000
-    },
-    "点击A区": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    500,
-                    385,
-                    769,
-                    161
-                ],
-                "expected": [
-                    "骑士",
-                    "混沌",
-                    "地狱"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 2000
     },
     "作战准备": {
         "recognition": {

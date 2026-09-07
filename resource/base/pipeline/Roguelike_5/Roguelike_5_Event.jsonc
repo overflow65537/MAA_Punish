@@ -189,26 +189,6 @@
             }
         }
     },
-    "确认_神寂启示录": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1028,
-                    590,
-                    189,
-                    130
-                ],
-                "expected": [
-                    "确认",
-                    "确定"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
     "结束战斗_神寂启示录": {
         "recognition": {
             "type": "OCR",
@@ -874,29 +854,6 @@
                 "expected": "",
                 "order_by": "Vertical",
                 "index": 2
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "推演"
-        ]
-    },
-    "情报分析_答案4": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    969,
-                    46,
-                    277,
-                    501
-                ],
-                "expected": "",
-                "order_by": "Vertical",
-                "index": 3
             }
         },
         "action": {

@@ -301,15 +301,6 @@
             }
         }
     },
-    "返回指挥局": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "模擬討伐戦"
-                ]
-            }
-        }
-    },
     "打开指挥局": {
         "recognition": {
             "param": {

@@ -55,50 +55,6 @@
             }
         }
     },
-    "沒有分数": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    {
-                        "sub_name": "_白色文字",
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    884,
-                                    162,
-                                    260,
-                                    55
-                                ],
-                                "lower": [
-                                    240,
-                                    240,
-                                    240
-                                ],
-                                "upper": [
-                                    255,
-                                    255,
-                                    255
-                                ],
-                                "count": 10
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": "_白色文字",
-                                "expected": "^0$",
-                                "only_rec": true
-                            }
-                        }
-                    }
-                ]
-            }
-        }
-    },
     "不是最终难度": {
         "recognition": {
             "param": {
@@ -278,25 +234,6 @@
             }
         }
     },
-    "意外点击_保存分数": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "戦闘",
-                    "作戦"
-                ]
-            }
-        }
-    },
-    "检查是否在囚笼主界面": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "幻痛の檻"
-                ]
-            }
-        }
-    },
     "一键领取_囚笼": {
         "recognition": {
             "param": {
@@ -311,16 +248,6 @@
             "param": {
                 "expected": [
                     "討伐Pt"
-                ]
-            }
-        }
-    },
-    "查找目标": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "騎士",
-                    "混沌"
                 ]
             }
         }
@@ -367,31 +294,6 @@
             "param": {
                 "expected": [
                     "挑戦"
-                ]
-            }
-        }
-    },
-    "手动作战": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "作戦開始",
-                    "戦闘準備"
-                ]
-            }
-        }
-    },
-    "挑战次数不足_sub": {
-        "recognition": {
-            "param": {
-                "roi": [
-                    543,
-                    331,
-                    400,
-                    53
-                ],
-                "expected": [
-                    "挑戦回数が不足しています"
                 ]
             }
         }

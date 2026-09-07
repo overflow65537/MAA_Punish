@@ -84,21 +84,6 @@
             }
         }
     },
-    "检查宝来矿区次数": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": "检查宝来矿区",
-                "roi_offset": [
-                    0,
-                    0,
-                    0,
-                    30
-                ],
-                "expected": "^进度：3/3$"
-            }
-        }
-    },
     "打通诺曼复兴战": {
         "recognition": {
             "type": "OCR",

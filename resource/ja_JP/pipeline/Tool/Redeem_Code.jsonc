@@ -24,19 +24,6 @@
             }
         }
     },
-    "兑换码提示": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "交換ID",
-                    "期限切れ",
-                    "交換済み",
-                    "誤った交換IDです",
-                    "再度ご確認ください"
-                ]
-            }
-        }
-    },
     "确认兑换": {
         "recognition": {
             "type": "DirectHit"

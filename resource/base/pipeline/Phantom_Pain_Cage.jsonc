@@ -1012,46 +1012,6 @@
             "Node.Recognition.Succeeded": "$focus.查看Boss_罗塞塔"
         }
     },
-    "意外点击_保存分数": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    989,
-                    606,
-                    199,
-                    114
-                ],
-                "expected": "作战"
-            }
-        },
-        "post_delay": 3000
-    },
-    "检查是否在囚笼主界面": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    35,
-                    80,
-                    283,
-                    65
-                ],
-                "expected": "幻痛囚笼"
-            }
-        },
-        "post_delay": 200,
-        "next": [
-            "一键领取_囚笼",
-            "关闭囚笼奖励界面",
-            "[JumpBack]领取囚笼奖励",
-            "[JumpBack]选择区域",
-            "[JumpBack]打开幻痛囚笼",
-            "[JumpBack]打开挑战_幻痛囚笼",
-            "[JumpBack]打开战斗",
-            "[JumpBack]意外点击_限定活动"
-        ]
-    },
     "挑战次数不足": {
         "recognition": {
             "type": "OCR",
@@ -1147,44 +1107,6 @@
         "post_wait_freezes": {
             "time": 1000
         }
-    },
-    "确认目标": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    19,
-                    425,
-                    100,
-                    100
-                ],
-                "template": "幻痛囚笼/等级地狱.png"
-            }
-        },
-        "next": [
-            "返回"
-        ]
-    },
-    "查找目标": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    539,
-                    439,
-                    722,
-                    65
-                ],
-                "expected": [
-                    "骑士",
-                    "混沌"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
     },
     "选择区域": {
         "recognition": {
@@ -1300,55 +1222,6 @@
         "next": [
             "滑动_幻痛囚笼",
             "打开幻痛囚笼"
-        ]
-    },
-    "手动作战": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    979,
-                    606,
-                    228,
-                    114
-                ],
-                "expected": "作战准备"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "挑战次数不足_sub",
-            "清除队伍"
-        ]
-    },
-    "挑战次数不足_sub": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    543,
-                    331,
-                    203,
-                    53
-                ],
-                "expected": "挑战次数不足"
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    10,
-                    0
-                ]
-            }
-        },
-        "post_delay": 1000,
-        "next": [
-            "返回"
         ]
     }
 }

@@ -32,14 +32,6 @@
             "[JumpBack]退出战斗"
         ]
     },
-    "AAA_战斗测试": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "CombatRunner"
-            }
-        }
-    },
     "自动闪避后攻击": {
         "recognition": {
             "type": "And",
@@ -152,23 +144,6 @@
         "post_wait_freezes": {
             "time": 500,
             "timeout": 5000
-        }
-    },
-    "识别文字": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "lower": [
-                    255,
-                    255,
-                    255
-                ],
-                "upper": [
-                    255,
-                    255,
-                    255
-                ]
-            }
         }
     },
     "使用体力": {
@@ -410,25 +385,6 @@
         },
         "rate_limit": 0
     },
-    "对话跳过": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    787,
-                    595,
-                    50,
-                    32
-                ],
-                "expected": "跳过",
-                "only_rec": true
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        }
-    },
     "进入战斗": {
         "recognition": {
             "type": "Or",
@@ -526,9 +482,6 @@
         },
         "post_delay": 0,
         "rate_limit": 0
-    },
-    "循环执行器": {
-        "inverse": true
     },
     "战斗中": {
         "recognition": {

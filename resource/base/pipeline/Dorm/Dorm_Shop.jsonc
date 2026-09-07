@@ -1,26 +1,4 @@
 {
-    "宿舍任务_皮肤": {
-        "next": [
-            "在宿舍币商店中",
-            "[JumpBack]关闭奖励",
-            "[JumpBack]选择宿舍币商店",
-            "[JumpBack]打开宿舍商店",
-            "[JumpBack]打开宿舍",
-            "[JumpBack]切换主界面状态",
-            "[JumpBack]意外点击_商店物品"
-        ]
-    },
-    "宿舍任务_遣测": {
-        "next": [
-            "遣测商店内部",
-            "[JumpBack]关闭奖励",
-            "[JumpBack]打开遣测商店",
-            "[JumpBack]打开宿舍商店",
-            "[JumpBack]打开宿舍",
-            "[JumpBack]切换主界面状态",
-            "[JumpBack]意外点击_商店物品"
-        ]
-    },
     "意外点击_商店物品": {
         "recognition": {
             "type": "OCR",
@@ -290,45 +268,6 @@
         "next": [
             "推荐物品",
             "[JumpBack]意外点击_商店物品",
-            "返回主菜单"
-        ]
-    },
-    "翻到底了_遣测": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1023,
-                    217,
-                    246,
-                    175
-                ],
-                "expected": [
-                    "武器涂装设计图",
-                    "SOLDOUT",
-                    "售罄",
-                    "售馨"
-                ]
-            }
-        },
-        "next": [
-            "返回主菜单"
-        ]
-    },
-    "翻到底了_宿舍": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    998,
-                    297,
-                    282,
-                    130
-                ],
-                "expected": "普通礼物盒"
-            }
-        },
-        "next": [
             "返回主菜单"
         ]
     },

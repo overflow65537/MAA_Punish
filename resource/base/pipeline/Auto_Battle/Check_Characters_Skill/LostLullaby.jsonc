@@ -70,31 +70,5 @@
         "pre_delay": 0,
         "post_delay": 0,
         "rate_limit": 0
-    },
-    "检查p2动能条_深谣": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": [
-                    738,
-                    618,
-                    15,
-                    15
-                ],
-                "lower": [
-                    184,
-                    184,
-                    253
-                ],
-                "upper": [
-                    191,
-                    192,
-                    255
-                ]
-            }
-        },
-        "pre_delay": 0,
-        "post_delay": 0,
-        "rate_limit": 0
     }
 }

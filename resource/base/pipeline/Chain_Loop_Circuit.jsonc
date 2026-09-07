@@ -5,22 +5,6 @@
             "[JumpBack]任务过程"
         ]
     },
-    "使用技能_链合回路": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1114,
-                    537,
-                    41,
-                    32
-                ],
-                "expected": "\\b(2[1-9]|[3-9]\\d|\\d{3})\\b",
-                "only_rec": true
-            }
-        },
-        "next": []
-    },
     "继续_链合回路": {
         "recognition": {
             "type": "OCR",

@@ -873,30 +873,6 @@
             "[JumpBack]关闭奖励"
         ]
     },
-    "返回指挥局": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    11,
-                    328,
-                    143,
-                    63
-                ],
-                "expected": "拟真围剿"
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    54,
-                    33
-                ]
-            }
-        },
-        "post_delay": 1000
-    },
     "打开指挥局": {
         "recognition": {
             "type": "OCR",

@@ -365,23 +365,6 @@
             "寒境曙光"
         ]
     },
-    "汇合_结束对话_寒境曙光": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    997,
-                    590,
-                    208,
-                    130
-                ],
-                "expected": "收下"
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
     "汇合_对话_寒境曙光": {
         "recognition": {
             "type": "OCR",
@@ -469,46 +452,6 @@
                     231
                 ],
                 "expected": "回报边境公社"
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "无尚之戒_寒境曙光": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    743,
-                    60,
-                    454,
-                    67
-                ],
-                "expected": "无尚之戒"
-            }
-        },
-        "next": [
-            "决定事件_寒境曙光",
-            "[JumpBack]继续对话_寒境曙光",
-            "[JumpBack]无尚之戒_寒境曙光_对话_寒境曙光"
-        ],
-        "timeout": 5000,
-        "on_error": [
-            "寒境曙光"
-        ]
-    },
-    "无尚之戒_寒境曙光_对话_寒境曙光": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    755,
-                    314,
-                    257,
-                    190
-                ],
-                "expected": "不拿走戒指"
             }
         },
         "action": {
@@ -840,24 +783,6 @@
         "action": {
             "type": "Click"
         }
-    },
-    "意外点击_求生手记": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    96,
-                    80,
-                    196,
-                    71
-                ],
-                "expected": "求生手记"
-            }
-        },
-        "post_delay": 2000,
-        "next": [
-            "返回"
-        ]
     },
     "鲨鱼置物箱_寒境曙光": {
         "recognition": {
@@ -1523,158 +1448,9 @@
             "type": "Click"
         }
     },
-    "纯色地块黄_寒境曙光": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    "纯色地块黄_寒境曙光_识别器",
-                    "暂离_寒境曙光"
-                ]
-            }
-        },
-        "action": {
-            "type": "Screencap"
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "$focus.纯色地块黄_寒境曙光"
-        },
-        "next": [
-            "纯色地块黄_寒境曙光_执行器"
-        ]
-    },
-    "纯色地块黄_寒境曙光_识别器": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": [
-                    300,
-                    1,
-                    979,
-                    640
-                ],
-                "method": 40,
-                "lower": [
-                    10,
-                    50,
-                    100
-                ],
-                "upper": [
-                    25,
-                    210,
-                    255
-                ],
-                "connected": true,
-                "count": 4000,
-                "order_by": "Score"
-            }
-        }
-    },
 
-    "纯色地块黄_寒境曙光_执行器": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": "纯色地块黄_寒境曙光"
-            }
-        },
-        "post_delay": 1000
-    },
-    "纯色地块红_寒境曙光": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    "纯色地块红_寒境曙光_识别器",
-                    "暂离_寒境曙光"
-                ]
-            }
-        },
-        "action": {
-            "type": "Screencap"
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "$focus.纯色地块红_寒境曙光"
-        },
-        "next": [
-            "纯色地块红_寒境曙光_执行器"
-        ]
-    },
-    "纯色地块红_寒境曙光_识别器": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": [
-                    300,
-                    1,
-                    979,
-                    640
-                ],
-                "method": 40,
-                "lower": [
-                    160,
-                    100,
-                    100
-                ],
-                "upper": [
-                    180,
-                    160,
-                    220
-                ],
-                "connected": true,
-                "count": 3000,
-                "order_by": "Score"
-            }
-        }
-    },
 
-    "纯色地块红_寒境曙光_执行器": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": "纯色地块红_寒境曙光"
-            }
-        },
-        "post_delay": 1000
-    },
-    "纯色地块蓝_寒境曙光": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    "纯色地块蓝_寒境曙光_识别器",
-                    "暂离_寒境曙光"
-                ]
-            }
-        },
-        "action": {
-            "type": "Screencap"
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "$focus.纯色地块蓝_寒境曙光"
-        },
-        "next": [
-            "纯色地块蓝_寒境曙光_执行器"
-        ]
-    },
-    "纯色地块蓝_寒境曙光_识别器": {
-        "recognition": {
-            "type": "Custom",
-            "param": {
-                "custom_recognition": "CheckBlueZone"
-            }
-        }
-    },
 
-    "纯色地块蓝_寒境曙光_执行器": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": "纯色地块蓝_寒境曙光"
-            }
-        },
-        "post_delay": 1000
-    },
     "寒境蓝色地块检查": {
         "recognition": {
             "type": "ColorMatch",

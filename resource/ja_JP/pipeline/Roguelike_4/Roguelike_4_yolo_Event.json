@@ -116,15 +116,6 @@
             }
         }
     },
-    "物资_寒境曙光_yolo": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "物资$"
-                ]
-            }
-        }
-    },
     "汇合_寒境曙光_yolo": {
         "recognition": {
             "param": {

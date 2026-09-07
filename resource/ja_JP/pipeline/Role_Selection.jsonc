@@ -63,15 +63,6 @@
             }
         }
     },
-    "清空蓝色位": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "戦闘開始"
-                ]
-            }
-        }
-    },
     "清除队伍": {
         "recognition": {
             "param": {
@@ -147,26 +138,6 @@
             "param": {
                 "expected": [
                     "構造体"
-                ]
-            }
-        }
-    },
-    "点击首发": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "隊長",
-                    "リーダー",
-                    "先発"
-                ]
-            }
-        }
-    },
-    "点击A区": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "地獄"
                 ]
             }
         }
