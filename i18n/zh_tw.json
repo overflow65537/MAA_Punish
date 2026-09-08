@@ -616,7 +616,7 @@
     "focus.运力紧张_寒境曙光": "<span style=\"color:ForestGreen\">運力緊張</span>",
     "focus.运力紧张_寒境曙光_yolo": "<span style=\"color:ForestGreen\">運力緊張</span>",
     "focus.返乡者_厄愿潮声": "<span style=\"color:ForestGreen\">返鄉者</span>",
-    "focus.返回主菜单_err": "<span style=\"color:Tomato\">識別錯誤，返回主菜單</span>",
+    "focus.返回主菜单_err": "错误 <span style=\"color:Tomato\">識別錯誤，返回主菜單</span>",
     "focus.迷失之馆_矩阵循生": "<span style=\"color:ForestGreen\">迷失之館</span>",
     "focus.迷途之子_厄愿潮声": "<span style=\"color:ForestGreen\">迷途之子</span>",
     "focus.迷雾之梦_厄愿潮声": "<span style=\"color:ForestGreen\">迷霧之夢</span>",

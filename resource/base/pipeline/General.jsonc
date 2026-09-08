@@ -202,8 +202,7 @@
             "重启游戏"
         ],
         "focus": {
-            "Node.Recognition.Succeeded": "$focus.返回主菜单_err",
-            "aborted": true
+            "Node.Recognition.Succeeded": "$focus.返回主菜单_err"
         }
     },
     "从战斗中返回": {
