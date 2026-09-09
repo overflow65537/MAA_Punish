@@ -3,7 +3,8 @@
         "expected": "暫離"
     },
     "事件完成_寒境曙光": {
-        "expected": "港口異常點"
+        "expected": "港口異常點",
+        "replace": []
     },
     "关闭升级提示": {
         "expected": "考核等級提升"
@@ -78,7 +79,9 @@
         "expected": "重構"
     },
     "港口异常点_寒境曙光": {
-        "expected": "港口異常點"
+        "expected": "港口異常點",
+        "replace": []
+
     },
     "港口异常点end_寒境曙光": {
         "expected": "已達標"
