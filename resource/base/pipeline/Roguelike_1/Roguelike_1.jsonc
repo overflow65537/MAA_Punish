@@ -4,8 +4,7 @@
             "type": "Custom",
             "param": {
                 "custom_action": "PPOverride",
-                "custom_action_param": {
-                }
+                "custom_action_param": {}
             }
         },
         "next": [
@@ -1156,12 +1155,12 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    498,
-                    563,
-                    193,
-                    149
+                    533,
+                    561,
+                    176,
+                    131
                 ],
-                "expected": "招募"
+                "expected": "^招募$"
             }
         },
         "action": {
