@@ -51,7 +51,10 @@
                         "选择难度_矩阵循生": {
                             "recognition": {
                                 "param": {
-                                    "expected": "普通"
+                                    "expected": [
+                                        "普通",
+                                        "ノーマル"
+                                    ]
                                 }
                             }
                         }
