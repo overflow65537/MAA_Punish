@@ -14,6 +14,7 @@
             "[JumpBack]返回主菜单",
             "[JumpBack]用户账号登录失败",
             "[JumpBack]打开应用",
+            "[JumpBack]计数器",
             "[JumpBack]重启任务"
         ]
     },
@@ -291,7 +292,7 @@
         ]
     },
     "打开应用": {
-        "max_hit": 60,
+        "max_hit": 1,
         "action": {
             "type": "StartApp",
             "param": {
@@ -303,6 +304,10 @@
             "服务器错误提示"
         ]
     },
+    "计数器": {
+        "max_hit": 60,
+        "post_delay": 5000
+    },
     "重启任务": {
         "action": {
             "type": "Custom",
@@ -310,7 +315,8 @@
                 "custom_action": "ResetCount",
                 "custom_action_param": {
                     "nodes": [
-                        "打开应用"
+                        "打开应用",
+                        "计数器"
                     ]
                 }
             }
