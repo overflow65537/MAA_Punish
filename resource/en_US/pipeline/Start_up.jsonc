@@ -78,24 +78,6 @@
             }
         }
     },
-    "检查主界面": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "^Battle$"
-                ]
-            }
-        }
-    },
-    "检查主界面2": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "^Battle$"
-                ]
-            }
-        }
-    },
     "游戏初始化": {
         "recognition": {
             "param": {

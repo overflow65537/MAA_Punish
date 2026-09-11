@@ -9,14 +9,5 @@
                 ]
             }
         }
-    },
-    "打开战斗": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "^Battle$"
-                ]
-            }
-        }
     }
 }

@@ -9,14 +9,5 @@
                 ]
             }
         }
-    },
-    "确认材料": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "Confirm"
-                ]
-            }
-        }
     }
 }

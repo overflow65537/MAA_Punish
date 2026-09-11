@@ -55,15 +55,6 @@
             }
         }
     },
-    "确认区域选择": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "Confirm"
-                ]
-            }
-        }
-    },
     "选择区域": {
         "recognition": {
             "param": {
