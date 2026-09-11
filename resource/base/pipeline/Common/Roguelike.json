@@ -16,7 +16,8 @@
             "type": "Click"
         },
         "post_wait_freezes": {
-            "time": 1000
+            "time": 1000,
+            "timeout": 2000
         },
         "post_delay": 1000
     },
