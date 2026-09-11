@@ -1780,26 +1780,6 @@
         },
         "post_delay": 1000
     },
-    "点击空白处关闭": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    "点击空白处_文字"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    100,
-                    100
-                ]
-            }
-        },
-        "post_delay": 1500
-    },
     "选择人物_寒境曙光": {
         "recognition": {
             "type": "OCR",
