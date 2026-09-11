@@ -97,15 +97,11 @@
     },
     "一键领取_宿舍任务": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    1007,
-                    56,
-                    269,
-                    146
-                ],
-                "expected": "键领取"
+                "all_of": [
+                    "一键领取_文字"
+                ]
             }
         },
         "action": {
@@ -197,15 +193,11 @@
     },
     "意外点击_退出代工_取消": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    666,
-                    571,
-                    91,
-                    55
-                ],
-                "expected": "取消"
+                "all_of": [
+                    "取消_文字"
+                ]
             }
         }
     },
@@ -410,15 +402,11 @@
     },
     "宿舍任务_返回2": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    33,
-                    0,
-                    155,
-                    104
-                ],
-                "expected": "返回"
+                "all_of": [
+                    "返回_文字"
+                ]
             }
         },
         "action": {
@@ -432,15 +420,11 @@
     },
     "宿舍任务_返回3": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    33,
-                    0,
-                    155,
-                    104
-                ],
-                "expected": "返回"
+                "all_of": [
+                    "返回_文字"
+                ]
             }
         },
         "action": {

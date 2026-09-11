@@ -211,15 +211,11 @@
     },
     "确认使用": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    846,
-                    571,
-                    90,
-                    73
-                ],
-                "expected": "确定"
+                "all_of": [
+                    "确定_文字"
+                ]
             }
         },
         "action": {
@@ -233,15 +229,11 @@
     },
     "退出血清界面": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    601,
-                    533,
-                    266,
-                    148
-                ],
-                "expected": "取消"
+                "all_of": [
+                    "取消_文字"
+                ]
             }
         },
         "action": {

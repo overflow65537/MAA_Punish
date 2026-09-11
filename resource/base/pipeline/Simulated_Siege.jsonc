@@ -88,15 +88,11 @@
     },
     "确定选择": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    695,
-                    446,
-                    160,
-                    137
-                ],
-                "expected": "确定"
+                "all_of": [
+                    "确定_文字"
+                ]
             }
         },
         "action": {

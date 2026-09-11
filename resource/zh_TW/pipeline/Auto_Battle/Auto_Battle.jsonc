@@ -29,16 +29,6 @@
             "挑過"
         ]
     },
-    "使用体力_确定": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "確定",
-                    "确定"
-                ]
-            }
-        }
-    },
     "使用体力_是否使用": {
         "recognition": {
             "param": {

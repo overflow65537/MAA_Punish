@@ -94,15 +94,11 @@
     },
     "完成所有任务_重开": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    1009,
-                    619,
-                    194,
-                    78
-                ],
-                "expected": "退出"
+                "all_of": [
+                    "退出_文字"
+                ]
             }
         },
         "action": {
@@ -329,15 +325,11 @@
     },
     "物资事件结束_寒境曙光": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    517,
-                    184,
-                    257,
-                    149
-                ],
-                "expected": "获得奖励"
+                "all_of": [
+                    "获得奖励_文字"
+                ]
             }
         },
         "action": {
@@ -469,15 +461,11 @@
     },
     "挑战失败_寒境曙光": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    540,
-                    424,
-                    146,
-                    74
-                ],
-                "expected": "退出挑战"
+                "all_of": [
+                    "寒境曙光_退出挑战"
+                ]
             }
         },
         "action": {
@@ -492,29 +480,21 @@
     },
     "挑战失败_寒境曙光_reco": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    540,
-                    424,
-                    146,
-                    74
-                ],
-                "expected": "退出挑战"
+                "all_of": [
+                    "寒境曙光_退出挑战"
+                ]
             }
         }
     },
     "挑战失败rec_寒境曙光": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    540,
-                    424,
-                    146,
-                    74
-                ],
-                "expected": "退出挑战"
+                "all_of": [
+                    "寒境曙光_退出挑战"
+                ]
             }
         }
     },
@@ -783,15 +763,11 @@
     },
     "战斗完成_寒境曙光": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    69,
-                    43,
-                    159,
-                    63
-                ],
-                "expected": "领取奖励"
+                "all_of": [
+                    "寒境曙光_领取奖励标题"
+                ]
             }
         },
         "next": [
@@ -1363,15 +1339,11 @@
     },
     "领取奖励界面_结束": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    69,
-                    43,
-                    159,
-                    63
-                ],
-                "expected": "领取奖励"
+                "all_of": [
+                    "寒境曙光_领取奖励标题"
+                ]
             }
         },
         "next": [
@@ -1436,15 +1408,11 @@
     },
     "完成所有任务": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    1009,
-                    619,
-                    194,
-                    78
-                ],
-                "expected": "退出"
+                "all_of": [
+                    "退出_文字"
+                ]
             }
         },
         "action": {
@@ -1459,17 +1427,10 @@
     },
     "刷新次数用尽失败_寒镜曙光": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    30,
-                    0,
-                    159,
-                    103
-                ],
-                "expected": [
-                    "返回",
-                    "暂离"
+                "all_of": [
+                    "返回_文字"
                 ]
             }
         },
@@ -1773,15 +1734,11 @@
     },
     "关闭奖励_寒境曙光": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    517,
-                    184,
-                    257,
-                    149
-                ],
-                "expected": "获得奖励"
+                "all_of": [
+                    "获得奖励_文字"
+                ]
             }
         },
         "action": {
@@ -1825,15 +1782,11 @@
     },
     "点击空白处关闭": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    371,
-                    581,
-                    530,
-                    138
-                ],
-                "expected": "点击空白处"
+                "all_of": [
+                    "点击空白处_文字"
+                ]
             }
         },
         "action": {

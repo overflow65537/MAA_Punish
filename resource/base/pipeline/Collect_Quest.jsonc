@@ -502,15 +502,11 @@
     },
     "一键领取_定期": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    1071,
-                    103,
-                    113,
-                    65
-                ],
-                "expected": "键领取"
+                "all_of": [
+                    "一键领取_文字"
+                ]
             }
         },
         "action": {
@@ -523,15 +519,11 @@
     },
     "一键领取_勤务": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    1071,
-                    103,
-                    113,
-                    65
-                ],
-                "expected": "键领取"
+                "all_of": [
+                    "一键领取_文字"
+                ]
             }
         },
         "action": {
@@ -544,15 +536,11 @@
     },
     "一键领取_任务": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    1007,
-                    56,
-                    269,
-                    146
-                ],
-                "expected": "键领取"
+                "all_of": [
+                    "一键领取_文字"
+                ]
             }
         },
         "action": {
@@ -565,15 +553,11 @@
     },
     "关闭奖励_勤务": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    409,
-                    176,
-                    491,
-                    150
-                ],
-                "expected": "^(获得)?奖励$"
+                "all_of": [
+                    "获得奖励_文字"
+                ]
             }
         },
         "action": {
@@ -593,15 +577,11 @@
     },
     "关闭奖励_任务": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    409,
-                    176,
-                    491,
-                    150
-                ],
-                "expected": "^(获得)?奖励$"
+                "all_of": [
+                    "获得奖励_文字"
+                ]
             }
         },
         "action": {

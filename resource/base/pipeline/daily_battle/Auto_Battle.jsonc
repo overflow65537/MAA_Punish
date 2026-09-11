@@ -95,15 +95,11 @@
     },
     "检查结果_战斗完成": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    1080,
-                    602,
-                    173,
-                    118
-                ],
-                "expected": "确定"
+                "all_of": [
+                    "确定_文字"
+                ]
             }
         },
         "pre_delay": 0,

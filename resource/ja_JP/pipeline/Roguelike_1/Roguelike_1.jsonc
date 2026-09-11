@@ -16,18 +16,6 @@
             }
         }
     },
-    "宣叙妄响内部": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "編成",
-                    "チーム",
-                    "全員レベル",
-                    "平均戦力"
-                ]
-            }
-        }
-    },
     "解锁自用角色_宣叙妄响": {
         "recognition": {
             "param": {
@@ -65,16 +53,6 @@
             }
         }
     },
-    "宣叙妄响主界面_reco": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "To Be Continued",
-                    "次回へ続く"
-                ]
-            }
-        }
-    },
     "boss_宣叙妄响": {
         "recognition": {
             "param": {
@@ -85,39 +63,11 @@
             }
         }
     },
-    "战斗失败_宣叙妄响": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "作戦失敗"
-                ]
-            }
-        }
-    },
-    "没打过_宣叙妄响_reco": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "作戦失敗"
-                ]
-            }
-        }
-    },
     "幕间准备_宣叙妄响": {
         "recognition": {
             "param": {
                 "expected": [
                     "幕間準備"
-                ]
-            }
-        }
-    },
-    "幕间准备处理_宣叙妄响": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "選択確認",
-                    "決定"
                 ]
             }
         }
@@ -161,16 +111,6 @@
             }
         }
     },
-    "选择增益处理_宣叙妄响": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "選択確認",
-                    "決定"
-                ]
-            }
-        }
-    },
     "剧情节点_宣叙妄响": {
         "recognition": {
             "param": {
@@ -186,23 +126,6 @@
                     "水手",
                     "孤島漂流"
                 ]
-            }
-        }
-    },
-    "剧情节点处理_宣叙妄响": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "選択確認",
-                    "決定"
-                ]
-            }
-        }
-    },
-    "下一步_厄愿潮声剧情_文字": {
-        "recognition": {
-            "param": {
-                "expected": "次へ"
             }
         }
     },
@@ -264,16 +187,6 @@
             "param": {
                 "expected": [
                     "作戦開始"
-                ]
-            }
-        }
-    },
-    "战斗冲突处理_宣叙妄响": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "選択確認",
-                    "決定"
                 ]
             }
         }
@@ -512,34 +425,6 @@
             }
         }
     },
-    "未完待续_宣叙妄响": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "To Be Continued",
-                    "次回へ続く"
-                ]
-            }
-        }
-    },
-    "揭开帷幕_宣叙妄响_reco": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "幕を開ける"
-                ]
-            }
-        }
-    },
-    "揭开帷幕_宣叙妄响": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "幕を開ける"
-                ]
-            }
-        }
-    },
     "就此收场": {
         "recognition": {
             "param": {
@@ -555,6 +440,46 @@
             "param": {
                 "expected": [
                     "空想環録"
+                ]
+            }
+        }
+    },
+    "宣叙妄响内部_文字": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "編成",
+                    "チーム",
+                    "全員レベル",
+                    "平均戦力"
+                ]
+            }
+        }
+    },
+    "未完待续_宣叙妄响_文字": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "To Be Continued",
+                    "次回へ続く"
+                ]
+            }
+        }
+    },
+    "战斗失败_宣叙妄响_文字": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "作戦失敗"
+                ]
+            }
+        }
+    },
+    "揭开帷幕_宣叙妄响_文字": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "幕を開ける"
                 ]
             }
         }

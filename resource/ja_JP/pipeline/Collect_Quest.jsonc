@@ -68,51 +68,6 @@
             }
         }
     },
-    "一键领取_定期": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "括受取"
-                ]
-            }
-        }
-    },
-    "一键领取_勤务": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "括受取"
-                ]
-            }
-        }
-    },
-    "一键领取_任务": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "括受取"
-                ]
-            }
-        }
-    },
-    "关闭奖励_勤务": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "報酬"
-                ]
-            }
-        }
-    },
-    "关闭奖励_任务": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "報酬"
-                ]
-            }
-        }
-    },
     "逐浪拾光": {
         "recognition": {
             "param": {

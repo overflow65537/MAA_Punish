@@ -83,15 +83,6 @@
             }
         }
     },
-    "检查主界面": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "^戦闘$"
-                ]
-            }
-        }
-    },
     "关闭公告": {
         "recognition": {
             "param": {
@@ -99,15 +90,6 @@
                     "タップして閉じる",
                     "CLOSE",
                     "閉"
-                ]
-            }
-        }
-    },
-    "检查主界面2": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "^戦闘$"
                 ]
             }
         }

@@ -1,15 +1,11 @@
 {
     "打开战斗": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    999,
-                    231,
-                    281,
-                    187
-                ],
-                "expected": "^战斗$"
+                "all_of": [
+                    "主界面_战斗"
+                ]
             }
         },
         "action": {

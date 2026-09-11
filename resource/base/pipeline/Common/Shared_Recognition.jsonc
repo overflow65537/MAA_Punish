@@ -1,0 +1,273 @@
+{
+    "确定_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    685,
+                    443,
+                    595,
+                    277
+                ],
+                "expected": [
+                    "^确定",
+                    "^确认"
+                ]
+            }
+        }
+    },
+    "返回_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    26,
+                    0,
+                    163,
+                    103
+                ],
+                "expected": [
+                    "返回",
+                    "暂离"
+                ]
+            }
+        }
+    },
+    "返回主菜单_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    188,
+                    0,
+                    178,
+                    115
+                ],
+                "expected": "主界面",
+                "replace": [
+                    [
+                        "王",
+                        "主"
+                    ]
+                ]
+            }
+        }
+    },
+    "取消_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    601,
+                    491,
+                    266,
+                    190
+                ],
+                "expected": "取消"
+            }
+        }
+    },
+    "点击空白处_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    371,
+                    581,
+                    530,
+                    138
+                ],
+                "expected": "点击空白处"
+            }
+        }
+    },
+    "关闭奖励_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "关闭奖励_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
+                "expected": [
+                    "奖励",
+                    "详情"
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "关闭奖励_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    560,
+                    138,
+                    386,
+                    152
+                ],
+                "method": 40,
+                "lower": [
+                    101,
+                    210,
+                    160
+                ],
+                "upper": [
+                    105,
+                    255,
+                    200
+                ],
+                "count": 10
+            }
+        }
+    },
+    "主界面_战斗": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    999,
+                    231,
+                    281,
+                    187
+                ],
+                "expected": "^战斗$"
+            }
+        }
+    },
+    "下一步_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    891,
+                    510,
+                    389,
+                    210
+                ],
+                "method": 40,
+                "lower": [
+                    102,
+                    171,
+                    180
+                ],
+                "upper": [
+                    105,
+                    240,
+                    200
+                ],
+                "count": 100,
+                "connected": true
+            }
+        }
+    },
+    "下一步_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "下一步_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
+                "only_rec": true,
+                "expected": "下一步"
+            }
+        }
+    },
+    "底部确定_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    183,
+                    469,
+                    972,
+                    101
+                ],
+                "expected": [
+                    "确认",
+                    "选择",
+                    "确定",
+                    "确认选择"
+                ]
+            }
+        }
+    },
+    "寒境曙光_退出挑战": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    540,
+                    424,
+                    146,
+                    74
+                ],
+                "expected": "退出挑战"
+            }
+        }
+    },
+    "退出_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    900,
+                    597,
+                    330,
+                    103
+                ],
+                "expected": "退出"
+            }
+        }
+    },
+    "寒境曙光_领取奖励标题": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    69,
+                    43,
+                    159,
+                    63
+                ],
+                "expected": "领取奖励"
+            }
+        }
+    },
+    "一键领取_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1007,
+                    56,
+                    269,
+                    146
+                ],
+                "expected": "键领取"
+            }
+        }
+    },
+    "获得奖励_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    409,
+                    176,
+                    491,
+                    157
+                ],
+                "expected": "^(获得)?奖励$"
+            }
+        }
+    }
+}

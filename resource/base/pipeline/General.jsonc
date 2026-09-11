@@ -23,66 +23,43 @@
             "timeout": 2000
         }
     },
-    "关闭奖励_文字": {
+    "确定": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": "关闭奖励_颜色",
-                "roi_offset": [
-                    -2,
-                    -2,
-                    4,
-                    4
-                ],
-                "expected": [
-                    "奖励",
-                    "详情"
-                ],
-                "only_rec": true
+                "all_of": [
+                    "确定_文字"
+                ]
             }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 5000
         }
     },
-    "关闭奖励_颜色": {
+    "返回": {
         "recognition": {
-            "type": "ColorMatch",
+            "type": "And",
             "param": {
-                "roi": [
-                    560,
-                    138,
-                    386,
-                    152
-                ],
-                "method": 40,
-                "lower": [
-                    101,
-                    210,
-                    160
-                ],
-                "upper": [
-                    105,
-                    255,
-                    200
-                ],
-                "count": 10
+                "all_of": [
+                    "返回_文字"
+                ]
             }
-        }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500
     },
     "返回主菜单": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    201,
-                    0,
-                    135,
-                    83
-                ],
-                "expected": "主界面",
-                "replace": [
-                    [
-                        "王",
-                        "主"
-                    ]
+                "all_of": [
+                    "返回主菜单_文字"
                 ]
             }
         },
@@ -99,20 +76,10 @@
     },
     "返回主菜单_reco": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    188,
-                    0,
-                    178,
-                    115
-                ],
-                "expected": "主界面",
-                "replace": [
-                    [
-                        "王",
-                        "主"
-                    ]
+                "all_of": [
+                    "返回主菜单_文字"
                 ]
             }
         },
@@ -120,6 +87,34 @@
             "type": "Click"
         },
         "post_delay": 1000
+    },
+    "退出血清界面_err": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "取消_文字"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
+    },
+    "点击空白处关闭": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "点击空白处_文字"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500
     },
     "意外点击_主界面": {
         "recognition": {
@@ -144,24 +139,6 @@
             }
         },
         "post_delay": 1000
-    },
-    "返回": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    26,
-                    0,
-                    162,
-                    102
-                ],
-                "expected": "返回"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1500
     },
     "返回_图标": {
         "recognition": {
@@ -348,15 +325,11 @@
     },
     "点击频率过快_确认": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    812,
-                    476,
-                    86,
-                    69
-                ],
-                "expected": "确定"
+                "all_of": [
+                    "确定_文字"
+                ]
             }
         },
         "action": {
@@ -366,48 +339,6 @@
             "返回主菜单_err"
         ]
     },
-    "确定": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    685,
-                    448,
-                    515,
-                    272
-                ],
-                "expected": [
-                    "^确定",
-                    "^确认"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 5000
-        }
-    },
-    "退出血清界面_err": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    601,
-                    533,
-                    266,
-                    148
-                ],
-                "expected": "取消"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000
-    },
     "识别体力": {
         "recognition": {
             "type": "OCR",
@@ -415,7 +346,7 @@
                 "roi": [
                     939,
                     61,
-36,
+                    36,
                     31
                 ],
                 "expected": "\\d"

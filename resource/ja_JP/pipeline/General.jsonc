@@ -1,42 +1,10 @@
 {
-    "关闭奖励_文字": {
-        "recognition": {
-            "param": {
-                "expected": "報酬"
-            }
-        }
-    },
-    "返回主菜单": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "ホーム"
-                ]
-            }
-        }
-    },
-    "返回主菜单_reco": {
-        "recognition": {
-            "param": {
-                "expected": "ホーム"
-            }
-        }
-    },
     "意外点击_主界面": {
         "recognition": {
             "param": {
                 "expected": [
                     "库街区",
                     "庫街區"
-                ]
-            }
-        }
-    },
-    "返回": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "戻る"
                 ]
             }
         }
@@ -85,35 +53,6 @@
             "param": {
                 "expected": [
                     "メッセージの送信が速すぎます"
-                ]
-            }
-        }
-    },
-    "点击频率过快_确认": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "OK",
-                    "確認"
-                ]
-            }
-        }
-    },
-    "确定": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "OK",
-                    "^確認"
-                ]
-            }
-        }
-    },
-    "退出血清界面_err": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "キャンセル"
                 ]
             }
         }

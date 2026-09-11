@@ -1140,15 +1140,11 @@
     },
     "确认区域选择": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    871,
-                    530,
-                    213,
-                    146
-                ],
-                "expected": "确定"
+                "all_of": [
+                    "确定_文字"
+                ]
             }
         },
         "action": {

@@ -81,15 +81,11 @@
     },
     "通行证-意外处理-点击确认": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    712,
-                    443,
-                    265,
-                    103
-                ],
-                "expected": "确定"
+                "all_of": [
+                    "确定_文字"
+                ]
             }
         },
         "action": {

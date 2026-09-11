@@ -47,15 +47,11 @@
     },
     "点击空白处关闭_速通": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    371,
-                    581,
-                    530,
-                    138
-                ],
-                "expected": "点击空白处"
+                "all_of": [
+                    "点击空白处_文字"
+                ]
             }
         },
         "action": {
@@ -167,15 +163,11 @@
     },
     "使用体力_确定": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    809,
-                    536,
-                    167,
-                    138
-                ],
-                "expected": "确定"
+                "all_of": [
+                    "确定_文字"
+                ]
             }
         }
     },
@@ -195,15 +187,11 @@
     },
     "体力取消": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    614,
-                    538,
-                    157,
-                    144
-                ],
-                "expected": "取消"
+                "all_of": [
+                    "取消_文字"
+                ]
             }
         },
         "action": {
@@ -212,15 +200,11 @@
     },
     "不使用体力": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    614,
-                    538,
-                    157,
-                    144
-                ],
-                "expected": "取消"
+                "all_of": [
+                    "取消_文字"
+                ]
             }
         },
         "action": {

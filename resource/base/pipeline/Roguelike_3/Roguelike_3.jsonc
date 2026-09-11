@@ -399,7 +399,7 @@
         },
         "post_delay": 1000
     },
-    "链路崩溃": {
+    "链路崩溃_文字": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -410,6 +410,16 @@
                     69
                 ],
                 "expected": "链路崩溃"
+            }
+        }
+    },
+    "链路崩溃": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "链路崩溃_文字"
+                ]
             }
         },
         "post_delay": 1000,
@@ -465,15 +475,11 @@
     },
     "确定进入物归新主_矩阵循生": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    284,
-                    472,
-                    840,
-                    82
-                ],
-                "expected": "确定"
+                "all_of": [
+                    "底部确定_文字"
+                ]
             }
         },
         "action": {
@@ -578,15 +584,11 @@
     },
     "确定编队_矩阵循生": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    968,
-                    616,
-                    235,
-                    56
-                ],
-                "expected": "确定"
+                "all_of": [
+                    "确定_文字"
+                ]
             }
         },
         "action": {
@@ -652,15 +654,11 @@
     },
     "事件确定_矩阵循生": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    183,
-                    469,
-                    972,
-                    63
-                ],
-                "expected": "确定"
+                "all_of": [
+                    "底部确定_文字"
+                ]
             }
         },
         "action": {
@@ -847,15 +845,11 @@
     },
     "进入异度投影": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    183,
-                    469,
-                    972,
-                    63
-                ],
-                "expected": "确定"
+                "all_of": [
+                    "底部确定_文字"
+                ]
             }
         },
         "action": {
@@ -1045,15 +1039,11 @@
     },
     "战斗失败": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    547,
-                    367,
-                    183,
-                    69
-                ],
-                "expected": "链路崩溃"
+                "all_of": [
+                    "链路崩溃_文字"
+                ]
             }
         },
         "action": {
@@ -1070,15 +1060,11 @@
     },
     "进入战斗_矩阵循生": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    183,
-                    469,
-                    972,
-                    63
-                ],
-                "expected": "确定"
+                "all_of": [
+                    "底部确定_文字"
+                ]
             }
         },
         "action": {
@@ -1218,15 +1204,11 @@
     },
     "确认装备_矩阵循生": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    1083,
-                    599,
-                    165,
-                    121
-                ],
-                "expected": "确定"
+                "all_of": [
+                    "确定_文字"
+                ]
             }
         },
         "action": {
@@ -1601,15 +1583,11 @@
     },
     "链路崩溃_reco": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    547,
-                    367,
-                    183,
-                    69
-                ],
-                "expected": "链路崩溃"
+                "all_of": [
+                    "链路崩溃_文字"
+                ]
             }
         }
     },

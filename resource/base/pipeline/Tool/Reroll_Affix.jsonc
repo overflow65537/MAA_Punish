@@ -576,16 +576,10 @@
     },
     "确认材料": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    685,
-                    448,
-                    515,
-                    272
-                ],
-                "expected": [
-                    "确认"
+                "all_of": [
+                    "确定_文字"
                 ]
             }
         },

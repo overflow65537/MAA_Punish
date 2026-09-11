@@ -186,15 +186,11 @@
     },
     "A_确认出战": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    1012,
-                    486,
-                    251,
-                    63
-                ],
-                "expected": "确认"
+                "all_of": [
+                    "确定_文字"
+                ]
             }
         },
         "action": {
@@ -301,15 +297,11 @@
     },
     "A_使用体力": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    809,
-                    536,
-                    167,
-                    138
-                ],
-                "expected": "确定"
+                "all_of": [
+                    "确定_文字"
+                ]
             }
         },
         "action": {
@@ -323,15 +315,11 @@
     },
     "A_体力取消": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    614,
-                    538,
-                    157,
-                    144
-                ],
-                "expected": "取消"
+                "all_of": [
+                    "取消_文字"
+                ]
             }
         },
         "action": {
@@ -343,15 +331,11 @@
     },
     "A_不使用体力": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    614,
-                    538,
-                    157,
-                    144
-                ],
-                "expected": "取消"
+                "all_of": [
+                    "取消_文字"
+                ]
             }
         },
         "action": {
@@ -363,15 +347,11 @@
     },
     "A_出战结束_确认": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    1077,
-                    623,
-                    176,
-                    88
-                ],
-                "expected": "确定"
+                "all_of": [
+                    "确定_文字"
+                ]
             }
         },
         "action": {

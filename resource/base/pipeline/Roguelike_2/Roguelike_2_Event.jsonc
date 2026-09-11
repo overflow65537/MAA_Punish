@@ -38,15 +38,11 @@
     },
     "关闭事件奖励_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    530,
-                    198,
-                    217,
-                    135
-                ],
-                "expected": "奖励"
+                "all_of": [
+                    "获得奖励_文字"
+                ]
             }
         },
         "action": {

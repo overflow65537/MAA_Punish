@@ -37,20 +37,6 @@
             }
         }
     },
-    "确定选择": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "確認",
-                    "確定",
-                    "選択"
-                ]
-            }
-        },
-        "action": {
-            "param": {}
-        }
-    },
     "坚持作战": {
         "recognition": {
             "param": {

@@ -261,16 +261,6 @@
             }
         }
     },
-    "确认区域选择": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "確認",
-                    "確定"
-                ]
-            }
-        }
-    },
     "打开幻痛囚笼": {
         "recognition": {
             "param": {

@@ -27,15 +27,6 @@
             }
         }
     },
-    "一键领取_宿舍任务": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "括受取"
-                ]
-            }
-        }
-    },
     "选择每日任务": {
         "recognition": {
             "param": {
@@ -72,15 +63,6 @@
             "param": {
                 "expected": [
                     "ココロコ工房"
-                ]
-            }
-        }
-    },
-    "意外点击_退出代工_取消": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "キャンセル"
                 ]
             }
         }

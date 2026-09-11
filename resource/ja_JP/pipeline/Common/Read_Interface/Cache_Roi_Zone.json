@@ -1,13 +1,4 @@
 {
-    "打开界面设置": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "戦闘"
-                ]
-            }
-        }
-    },
     "打开界面布局": {
         "recognition": {
             "param": {

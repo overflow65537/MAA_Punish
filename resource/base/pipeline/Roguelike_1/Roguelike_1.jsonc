@@ -30,20 +30,7 @@
             "Node.Recognition.Succeeded": "$focus.宣叙妄响"
         }
     },
-    "宣叙妄响内部_reco": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    "宣叙妄响内部"
-                ]
-            }
-        },
-        "post_wait_freezes": {
-            "time": 1000
-        }
-    },
-    "宣叙妄响内部": {
+    "宣叙妄响内部_文字": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -63,6 +50,29 @@
                         "优",
                         "友"
                     ]
+                ]
+            }
+        }
+    },
+    "宣叙妄响内部_reco": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "宣叙妄响内部_文字"
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 1000
+        }
+    },
+    "宣叙妄响内部": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "宣叙妄响内部_文字"
                 ]
             }
         },
@@ -124,7 +134,7 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    "宣叙妄响内部"
+                    "宣叙妄响内部_文字"
                 ]
             }
         },
@@ -133,7 +143,7 @@
             "返回"
         ]
     },
-    "宣叙妄响主界面_reco": {
+    "未完待续_宣叙妄响_文字": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -149,6 +159,16 @@
                         "末",
                         "未"
                     ]
+                ]
+            }
+        }
+    },
+    "宣叙妄响主界面_reco": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "未完待续_宣叙妄响_文字"
                 ]
             }
         },
@@ -202,7 +222,7 @@
             "宣叙妄响"
         ]
     },
-    "战斗失败_宣叙妄响": {
+    "战斗失败_宣叙妄响_文字": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -214,6 +234,16 @@
                 ],
                 "expected": "作战失败"
             }
+        }
+    },
+    "战斗失败_宣叙妄响": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "战斗失败_宣叙妄响_文字"
+                ]
+            }
         },
         "action": {
             "type": "Click"
@@ -224,15 +254,11 @@
     },
     "没打过_宣叙妄响_reco": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    254,
-                    190,
-                    312,
-                    85
-                ],
-                "expected": "作战失败"
+                "all_of": [
+                    "战斗失败_宣叙妄响_文字"
+                ]
             }
         },
         "post_wait_freezes": {
@@ -265,15 +291,11 @@
     },
     "幕间准备处理_宣叙妄响": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    437,
-                    491,
-                    512,
-                    79
-                ],
-                "expected": "确认选择"
+                "all_of": [
+                    "底部确定_文字"
+                ]
             }
         },
         "action": {
@@ -380,15 +402,11 @@
     },
     "选择增益处理_宣叙妄响": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    942,
-                    614,
-                    150,
-                    60
-                ],
-                "expected": "确认选择"
+                "all_of": [
+                    "确定_文字"
+                ]
             }
         },
         "action": {
@@ -435,15 +453,11 @@
     },
     "剧情节点处理_宣叙妄响": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    437,
-                    491,
-                    512,
-                    79
-                ],
-                "expected": "确认选择"
+                "all_of": [
+                    "底部确定_文字"
+                ]
             }
         },
         "action": {
@@ -469,56 +483,14 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    "下一步_厄愿潮声剧情_颜色",
-                    "下一步_厄愿潮声剧情_文字"
+                    "下一步_颜色",
+                    "下一步_文字"
                 ],
                 "box_index": 1
             }
         },
         "action": {
             "type": "Click"
-        }
-    },
-    "下一步_厄愿潮声剧情_颜色": {
-        "recognition": {
-            "type": "ColorMatch",
-            "param": {
-                "roi": [
-                    891,
-                    510,
-                    389,
-                    210
-                ],
-                "method": 40,
-                "lower": [
-                    102,
-                    171,
-                    180
-                ],
-                "upper": [
-                    105,
-                    240,
-                    200
-                ],
-                "count": 100,
-                "connected": true
-            }
-        }
-    },
-    "下一步_厄愿潮声剧情_文字": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": "下一步_厄愿潮声剧情_颜色",
-                "roi_offset": [
-                    -2,
-                    -2,
-                    4,
-                    4
-                ],
-                "only_rec": true,
-                "expected": "下一步"
-            }
         }
     },
     "对话按钮_宣叙妄响": {
@@ -668,15 +640,11 @@
     },
     "战斗冲突处理_宣叙妄响": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    437,
-                    491,
-                    512,
-                    79
-                ],
-                "expected": "确认选择"
+                "all_of": [
+                    "底部确定_文字"
+                ]
             }
         },
         "action": {
@@ -1303,15 +1271,11 @@
     },
     "未完待续_宣叙妄响": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    916,
-                    572,
-                    227,
-                    147
-                ],
-                "expected": "未完待续"
+                "all_of": [
+                    "未完待续_宣叙妄响_文字"
+                ]
             }
         },
         "action": {
@@ -1329,7 +1293,7 @@
             "[JumpBack]退出_肉鸽"
         ]
     },
-    "揭开帷幕_宣叙妄响_reco": {
+    "揭开帷幕_宣叙妄响_文字": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1349,22 +1313,22 @@
             }
         }
     },
+    "揭开帷幕_宣叙妄响_reco": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "揭开帷幕_宣叙妄响_文字"
+                ]
+            }
+        }
+    },
     "揭开帷幕_宣叙妄响": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    913,
-                    562,
-                    250,
-                    147
-                ],
-                "expected": "开帷幕",
-                "replace": [
-                    [
-                        "惟",
-                        "帷"
-                    ]
+                "all_of": [
+                    "揭开帷幕_宣叙妄响_文字"
                 ]
             }
         },

@@ -103,20 +103,6 @@
             }
         }
     },
-    "A_确认出战": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "確認"
-                ]
-            }
-        },
-        "next": [
-            "A_出战结束_确认",
-            "A_血清组",
-            "返回主菜单"
-        ]
-    },
     "补给包不足": {
         "recognition": {
             "param": {
@@ -183,15 +169,6 @@
             "param": {
                 "expected": [
                     "キャンセル"
-                ]
-            }
-        }
-    },
-    "A_出战结束_确认": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "確定"
                 ]
             }
         }

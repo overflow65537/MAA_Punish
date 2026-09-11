@@ -265,15 +265,11 @@
     },
     "返回_重新选人": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    26,
-                    0,
-                    162,
-                    102
-                ],
-                "expected": "返回"
+                "all_of": [
+                    "返回_文字"
+                ]
             }
         },
         "action": {
