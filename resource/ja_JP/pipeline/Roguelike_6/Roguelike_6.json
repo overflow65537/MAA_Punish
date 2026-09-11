@@ -1,5 +1,4 @@
 {
-
     "终止_雾夜镇魂曲": {
         "recognition": {
             "param": {
@@ -62,77 +61,12 @@
             }
         }
     },
-    "确认任务_雾夜镇魂曲": {
+    "确认任务_雾夜镇魂曲_文字": {
         "recognition": {
             "param": {
-                "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    503,
-                                    443,
-                                    281,
-                                    161
-                                ],
-                                "method": 40,
-                                "lower": [
-                                    170,
-                                    70,
-                                    26
-                                ],
-                                "upper": [
-                                    180,
-                                    160,
-                                    60
-                                ],
-                                "count": 10
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    174,
-                                    492,
-                                    178,
-                                    73
-                                ],
-                                "method": 40,
-                                "lower": [
-                                    170,
-                                    70,
-                                    26
-                                ],
-                                "upper": [
-                                    180,
-                                    160,
-                                    60
-                                ],
-                                "count": 10
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    1001,
-                                    582,
-                                    279,
-                                    138
-                                ],
-                                "expected": [
-                                    "确定",
-                                    "確定"
-                                ]
-                            }
-                        }
-                    }
+                "expected": [
+                    "确定",
+                    "確定"
                 ]
             }
         }

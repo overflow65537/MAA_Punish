@@ -345,42 +345,43 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "sub_name": "_白色文字",
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    884,
-                                    162,
-                                    260,
-                                    55
-                                ],
-                                "lower": [
-                                    240,
-                                    240,
-                                    240
-                                ],
-                                "upper": [
-                                    255,
-                                    255,
-                                    255
-                                ],
-                                "count": 10
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": "_白色文字",
-                                "expected": "^(?!^0$).+$",
-                                "only_rec": true
-                            }
-                        }
-                    }
+                    "检查是否存在分数_颜色",
+                    "检查是否存在分数_文字"
                 ]
+            }
+        }
+    },
+    "检查是否存在分数_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    884,
+                    162,
+                    260,
+                    55
+                ],
+                "lower": [
+                    240,
+                    240,
+                    240
+                ],
+                "upper": [
+                    255,
+                    255,
+                    255
+                ],
+                "count": 10
+            }
+        }
+    },
+    "检查是否存在分数_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "检查是否存在分数_颜色",
+                "expected": "^(?!^0$).+$",
+                "only_rec": true
             }
         }
     },
@@ -411,42 +412,43 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "sub_name": "_白色文字",
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    884,
-                                    162,
-                                    260,
-                                    55
-                                ],
-                                "lower": [
-                                    240,
-                                    240,
-                                    240
-                                ],
-                                "upper": [
-                                    255,
-                                    255,
-                                    255
-                                ],
-                                "count": 10
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": "_白色文字",
-                                "expected": "^0$",
-                                "only_rec": true
-                            }
-                        }
-                    }
+                    "没有分数_颜色",
+                    "没有分数_文字"
                 ]
+            }
+        }
+    },
+    "没有分数_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    884,
+                    162,
+                    260,
+                    55
+                ],
+                "lower": [
+                    240,
+                    240,
+                    240
+                ],
+                "upper": [
+                    255,
+                    255,
+                    255
+                ],
+                "count": 10
+            }
+        }
+    },
+    "没有分数_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "没有分数_颜色",
+                "expected": "^0$",
+                "only_rec": true
             }
         }
     },

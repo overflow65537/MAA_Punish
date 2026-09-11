@@ -14,7 +14,7 @@
             "[JumpBack]意外点击_环境情报",
             "[JumpBack]意外点击_物品详情",
             "[JumpBack]意外点击_历战分数",
-            "[JumpBack]作战开始" //防止点击丢失
+            "[JumpBack]作战开始"
         ]
     },
     "活动未开启": {
@@ -42,25 +42,26 @@
             "param": {
                 "all_of": [
                     "返回",
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    985,
-                                    609,
-                                    252,
-                                    111
-                                ],
-                                "expected": "键领取"
-                            }
-                        }
-                    }
+                    "意外点击_历战分数_文字"
                 ]
             }
         },
         "action": {
             "type": "Click"
+        }
+    },
+    "意外点击_历战分数_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    985,
+                    609,
+                    252,
+                    111
+                ],
+                "expected": "键领取"
+            }
         }
     },
     "意外点击_物品详情": {

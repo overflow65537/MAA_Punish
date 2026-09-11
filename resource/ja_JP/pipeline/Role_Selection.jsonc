@@ -142,22 +142,6 @@
             }
         }
     },
-    "作战准备": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    979,
-                    574,
-                    301,
-                    146
-                ],
-                "expected": [
-                    "出撃準備"
-                ]
-            }
-        }
-    },
     "检查人物是否拥有": {
         "recognition": {
             "param": {
@@ -203,28 +187,12 @@
             }
         }
     },
-    "更换辅助机": {
+    "更换辅助机_提示": {
         "recognition": {
             "param": {
-                "all_of": [
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    105,
-                                    56,
-                                    944,
-                                    230
-                                ],
-                                "expected": [
-                                    "提示",
-                                    "既に編成されています"
-                                ]
-                            }
-                        }
-                    },
-                    "确定"
+                "expected": [
+                    "提示",
+                    "既に編成されています"
                 ]
             }
         }
@@ -256,42 +224,29 @@
             }
         }
     },
-    "意外点击_删除编队": {
+    "意外点击_删除编队_取消": {
         "recognition": {
             "param": {
-                "all_of": [
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    508,
-                                    473,
-                                    209,
-                                    85
-                                ],
-                                "expected": [
-                                    "キャンセル"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    217,
-                                    121,
-                                    730,
-                                    307
-                                ],
-                                "expected": [
-                                    "削除しますか"
-                                ]
-                            }
-                        }
-                    }
+                "expected": [
+                    "キャンセル"
+                ]
+            }
+        }
+    },
+    "意外点击_删除编队_文案": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "削除しますか"
+                ]
+            }
+        }
+    },
+    "作战准备_文字": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "出撃準備"
                 ]
             }
         }

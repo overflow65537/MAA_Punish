@@ -190,67 +190,9 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "sub_name": "_精通等级",
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    68,
-                                    71,
-                                    267,
-                                    574
-                                ],
-                                "expected": "精通等级"
-                            }
-                        }
-                    },
-                    {
-                        "sub_name": "_等级颜色",
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": "_精通等级",
-                                "roi_offset": [
-                                    88,
-                                    -2,
-                                    -32,
-                                    3
-                                ],
-                                "method": 40,
-                                "lower": [
-                                    103,
-                                    108,
-                                    187
-                                ],
-                                "upper": [
-                                    108,
-                                    255,
-                                    199
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": "_等级颜色",
-                                "roi_offset": [
-                                    -2,
-                                    -2,
-                                    4,
-                                    4
-                                ],
-                                "expected": [
-                                    "^0$",
-                                    "^1$",
-                                    "^2$"
-                                ],
-                                "only_rec": true
-                            }
-                        }
-                    }
+                    "点击精通等级低于3的人物_标题",
+                    "点击精通等级低于3的人物_颜色",
+                    "点击精通等级低于3的人物_数字"
                 ]
             }
         },
@@ -260,6 +202,65 @@
         "next": [
             "编入_矩阵循生"
         ]
+    },
+    "点击精通等级低于3的人物_标题": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    68,
+                    71,
+                    267,
+                    574
+                ],
+                "expected": "精通等级"
+            }
+        }
+    },
+    "点击精通等级低于3的人物_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": "点击精通等级低于3的人物_标题",
+                "roi_offset": [
+                    88,
+                    -2,
+                    -32,
+                    3
+                ],
+                "method": 40,
+                "lower": [
+                    103,
+                    108,
+                    187
+                ],
+                "upper": [
+                    108,
+                    255,
+                    199
+                ]
+            }
+        }
+    },
+    "点击精通等级低于3的人物_数字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "点击精通等级低于3的人物_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
+                "expected": [
+                    "^0$",
+                    "^1$",
+                    "^2$"
+                ],
+                "only_rec": true
+            }
+        }
     },
     "打开矩阵循生": {
         "recognition": {
@@ -1487,38 +1488,8 @@
             "param": {
                 "box_index": 1,
                 "all_of": [
-                    {
-                        "sub_name": "文字颜色",
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    925,
-                                    618,
-                                    355,
-                                    102
-                                ],
-                                "method": 6,
-                                "lower": [
-                                    200
-                                ],
-                                "upper": [
-                                    255
-                                ],
-                                "count": 30
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": "文字颜色",
-                                "expected": "下一步",
-                                "only_rec": true
-                            }
-                        }
-                    }
+                    "下一步_迭变藏品_颜色",
+                    "下一步_迭变藏品_文字"
                 ]
             }
         },
@@ -1527,6 +1498,37 @@
         },
         "action": {
             "type": "Click"
+        }
+    },
+    "下一步_迭变藏品_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    925,
+                    618,
+                    355,
+                    102
+                ],
+                "method": 6,
+                "lower": [
+                    200
+                ],
+                "upper": [
+                    255
+                ],
+                "count": 30
+            }
+        }
+    },
+    "下一步_迭变藏品_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "下一步_迭变藏品_颜色",
+                "expected": "下一步",
+                "only_rec": true
+            }
         }
     },
     "点击迭变投影选项": {

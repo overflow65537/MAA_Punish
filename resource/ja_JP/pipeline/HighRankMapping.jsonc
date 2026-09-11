@@ -1,25 +1,9 @@
 {
-    "意外点击_历战分数": {
+    "意外点击_历战分数_文字": {
         "recognition": {
             "param": {
-                "all_of": [
-                    "返回",
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    985,
-                                    609,
-                                    252,
-                                    111
-                                ],
-                                "expected": [
-                                    "括受取"
-                                ]
-                            }
-                        }
-                    }
+                "expected": [
+                    "括受取"
                 ]
             }
         }

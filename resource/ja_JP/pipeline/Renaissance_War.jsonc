@@ -1,51 +1,19 @@
 {
-    "打通诺曼复兴战条件2": {
-        "recognition": {
-            "param": {
-                "all_of": [
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    7,
-                                    161,
-                                    1272,
-                                    326
-                                ],
-                                "expected": [
-                                    "宝来鉱区"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": "检查宝来矿区",
-                                "roi_offset": [
-                                    0,
-                                    0,
-                                    0,
-                                    30
-                                ],
-                                "expected": [
-                                    "^進度：3/3$",
-                                    "^進捗：3/3$"
-                                ]
-                            }
-                        }
-                    }
-                ]
-            }
-        }
-    },
     "检查宝来矿区": {
         "recognition": {
             "param": {
                 "expected": [
                     "宝来鉱区"
+                ]
+            }
+        }
+    },
+    "打通诺曼复兴战条件2_进度": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^進度：3/3$",
+                    "^進捗：3/3$"
                 ]
             }
         }

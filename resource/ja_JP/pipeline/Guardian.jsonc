@@ -1,129 +1,54 @@
 {
-    "战斗任务": {
+    "战斗任务_标题": {
         "recognition": {
             "param": {
-                "all_of": [
-                    {
-                        "sub_name": "_战斗任务识别",
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    88,
-                                    592,
-                                    352,
-                                    102
-                                ],
-                                "expected": [
-                                    "戦闘任務"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": "_战斗任务识别",
-                                "roi_offset": [
-                                    85,
-                                    0,
-                                    0,
-                                    0
-                                ],
-                                "expected": [
-                                    "完了済"
-                                ],
-                                "only_rec": true
-                            }
-                        }
-                    }
+                "expected": [
+                    "戦闘任務"
                 ]
             }
         }
     },
-    "废弃仓库": {
+    "战斗任务_已完成": {
         "recognition": {
             "param": {
-                "all_of": [
-                    {
-                        "sub_name": "_废弃仓库识别",
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    88,
-                                    592,
-                                    352,
-                                    102
-                                ],
-                                "expected": [
-                                    "廃棄倉庫"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": "_废弃仓库识别",
-                                "roi_offset": [
-                                    85,
-                                    0,
-                                    0,
-                                    0
-                                ],
-                                "expected": [
-                                    "完了済"
-                                ],
-                                "only_rec": true
-                            }
-                        }
-                    }
+                "expected": [
+                    "完了済"
                 ]
             }
         }
     },
-    "支援箱": {
+    "废弃仓库_标题": {
         "recognition": {
             "param": {
-                "all_of": [
-                    {
-                        "sub_name": "_支援箱识别",
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    88,
-                                    592,
-                                    352,
-                                    102
-                                ],
-                                "expected": [
-                                    "支援箱"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": "_支援箱识别",
-                                "roi_offset": [
-                                    85,
-                                    0,
-                                    0,
-                                    0
-                                ],
-                                "expected": [
-                                    "完了済"
-                                ],
-                                "only_rec": true
-                            }
-                        }
-                    }
+                "expected": [
+                    "廃棄倉庫"
+                ]
+            }
+        }
+    },
+    "废弃仓库_已完成": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "完了済"
+                ]
+            }
+        }
+    },
+    "支援箱_标题": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "支援箱"
+                ]
+            }
+        }
+    },
+    "支援箱_已完成": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "完了済"
                 ]
             }
         }

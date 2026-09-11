@@ -325,33 +325,7 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "sub_name": "文本颜色",
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    97,
-                                    447,
-                                    713,
-                                    150
-                                ],
-                                "method": 40,
-                                "lower": [
-                                    85,
-                                    140,
-                                    70
-                                ],
-                                "upper": [
-                                    100,
-                                    210,
-                                    140
-                                ],
-                                "connected": true,
-                                "count": 10
-                            }
-                        }
-                    }
+                    "选择_雾夜镇魂曲_颜色"
                 ]
             }
         },
@@ -359,81 +333,110 @@
             "type": "Click"
         }
     },
+    "选择_雾夜镇魂曲_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    97,
+                    447,
+                    713,
+                    150
+                ],
+                "method": 40,
+                "lower": [
+                    85,
+                    140,
+                    70
+                ],
+                "upper": [
+                    100,
+                    210,
+                    140
+                ],
+                "connected": true,
+                "count": 10
+            }
+        }
+    },
     "确认任务_雾夜镇魂曲": {
         "recognition": {
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    503,
-                                    443,
-                                    281,
-                                    161
-                                ],
-                                "method": 40,
-                                "lower": [
-                                    170,
-                                    70,
-                                    26
-                                ],
-                                "upper": [
-                                    180,
-                                    160,
-                                    60
-                                ],
-                                "count": 10
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    174,
-                                    492,
-                                    178,
-                                    73
-                                ],
-                                "method": 40,
-                                "lower": [
-                                    170,
-                                    70,
-                                    26
-                                ],
-                                "upper": [
-                                    180,
-                                    160,
-                                    60
-                                ],
-                                "count": 10
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    1001,
-                                    582,
-                                    279,
-                                    138
-                                ],
-                                "expected": "确定"
-                            }
-                        }
-                    }
+                    "确认任务_雾夜镇魂曲_颜色1",
+                    "确认任务_雾夜镇魂曲_颜色2",
+                    "确认任务_雾夜镇魂曲_文字"
                 ],
                 "box_index": 2
             }
         },
         "action": {
             "type": "Click"
+        }
+    },
+    "确认任务_雾夜镇魂曲_颜色1": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    503,
+                    443,
+                    281,
+                    161
+                ],
+                "method": 40,
+                "lower": [
+                    170,
+                    70,
+                    26
+                ],
+                "upper": [
+                    180,
+                    160,
+                    60
+                ],
+                "count": 10
+            }
+        }
+    },
+    "确认任务_雾夜镇魂曲_颜色2": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    174,
+                    492,
+                    178,
+                    73
+                ],
+                "method": 40,
+                "lower": [
+                    170,
+                    70,
+                    26
+                ],
+                "upper": [
+                    180,
+                    160,
+                    60
+                ],
+                "count": 10
+            }
+        }
+    },
+    "确认任务_雾夜镇魂曲_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1001,
+                    582,
+                    279,
+                    138
+                ],
+                "expected": "确定"
+            }
         }
     },
     "离开商店_雾夜镇魂曲": {

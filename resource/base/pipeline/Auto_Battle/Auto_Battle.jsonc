@@ -151,34 +151,8 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    809,
-                                    536,
-                                    167,
-                                    138
-                                ],
-                                "expected": "确定"
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    222,
-                                    78,
-                                    223,
-                                    89
-                                ],
-                                "expected": "是否使用"
-                            }
-                        }
-                    }
+                    "使用体力_确定",
+                    "使用体力_是否使用"
                 ]
             }
         },
@@ -190,6 +164,34 @@
             "体力取消",
             "[JumpBack]关闭奖励"
         ]
+    },
+    "使用体力_确定": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    809,
+                    536,
+                    167,
+                    138
+                ],
+                "expected": "确定"
+            }
+        }
+    },
+    "使用体力_是否使用": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    222,
+                    78,
+                    223,
+                    89
+                ],
+                "expected": "是否使用"
+            }
+        }
     },
     "体力取消": {
         "recognition": {
@@ -361,7 +363,7 @@
                     141,
                     29
                 ],
-                "only_rec":true,
+                "only_rec": true,
                 "expected": "\\d+/\\d+"
             }
         }

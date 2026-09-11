@@ -469,55 +469,56 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "sub_name": "颜色",
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    891,
-                                    510,
-                                    389,
-                                    210
-                                ],
-                                "method": 40,
-                                "lower": [
-                                    102,
-                                    171,
-                                    180
-                                ],
-                                "upper": [
-                                    105,
-                                    240,
-                                    200
-                                ],
-                                "count": 100,
-                                "connected": true
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": "颜色",
-                                "roi_offset": [
-                                    -2,
-                                    -2,
-                                    4,
-                                    4
-                                ],
-                                "only_rec": true,
-                                "expected": "下一步"
-                            }
-                        }
-                    }
+                    "下一步_厄愿潮声剧情_颜色",
+                    "下一步_厄愿潮声剧情_文字"
                 ],
                 "box_index": 1
             }
         },
         "action": {
             "type": "Click"
+        }
+    },
+    "下一步_厄愿潮声剧情_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    891,
+                    510,
+                    389,
+                    210
+                ],
+                "method": 40,
+                "lower": [
+                    102,
+                    171,
+                    180
+                ],
+                "upper": [
+                    105,
+                    240,
+                    200
+                ],
+                "count": 100,
+                "connected": true
+            }
+        }
+    },
+    "下一步_厄愿潮声剧情_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "下一步_厄愿潮声剧情_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
+                "only_rec": true,
+                "expected": "下一步"
+            }
         }
     },
     "对话按钮_宣叙妄响": {

@@ -26,51 +26,14 @@
             }
         }
     },
-    "打开遣测商店": {
+    "打开遣测商店_文字": {
         "recognition": {
             "param": {
-                "all_of": [
-                    {
-                        "sub_name": "_目标文字",
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    9,
-                                    156,
-                                    267,
-                                    442
-                                ],
-                                "expected": [
-                                    "ストア"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": "_目标文字",
-                                "lower": [
-                                    167,
-                                    178,
-                                    200
-                                ],
-                                "upper": [
-                                    244,
-                                    245,
-                                    248
-                                ],
-                                "connected": true,
-                                "count": 500
-                            }
-                        }
-                    }
+                "expected": [
+                    "ストア"
                 ]
             }
-        },
-        "post_wait_freezes": 500
+        }
     },
     "购买碎片失败_宿舍": {
         "recognition": {
@@ -87,92 +50,20 @@
             }
         }
     },
-    "遣测商店内部": {
+    "遣测商店内部_文字": {
         "recognition": {
             "param": {
-                "all_of": [
-                    {
-                        "sub_name": "_目标文字",
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    9,
-                                    156,
-                                    267,
-                                    442
-                                ],
-                                "expected": [
-                                    "ストア"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": "_目标文字",
-                                "lower": [
-                                    0,
-                                    0,
-                                    0
-                                ],
-                                "upper": [
-                                    47,
-                                    47,
-                                    47
-                                ],
-                                "connected": true,
-                                "count": 500
-                            }
-                        }
-                    }
+                "expected": [
+                    "ストア"
                 ]
             }
         }
     },
-    "在宿舍币商店中": {
+    "在宿舍币商店中_文字": {
         "recognition": {
             "param": {
-                "all_of": [
-                    {
-                        "sub_name": "_目标文字",
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    9,
-                                    156,
-                                    267,
-                                    442
-                                ],
-                                "expected": [
-                                    "メダルストア"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": "_目标文字",
-                                "lower": [
-                                    0,
-                                    0,
-                                    0
-                                ],
-                                "upper": [
-                                    47,
-                                    47,
-                                    47
-                                ],
-                                "connected": true,
-                                "count": 500
-                            }
-                        }
-                    }
+                "expected": [
+                    "メダルストア"
                 ]
             }
         }
@@ -225,51 +116,14 @@
             }
         }
     },
-    "选择宿舍币商店": {
+    "选择宿舍币商店_文字": {
         "recognition": {
             "param": {
-                "all_of": [
-                    {
-                        "sub_name": "_目标文字",
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    9,
-                                    156,
-                                    267,
-                                    442
-                                ],
-                                "expected": [
-                                    "メダルストア"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": "_目标文字",
-                                "lower": [
-                                    167,
-                                    178,
-                                    200
-                                ],
-                                "upper": [
-                                    244,
-                                    245,
-                                    248
-                                ],
-                                "connected": true,
-                                "count": 500
-                            }
-                        }
-                    }
+                "expected": [
+                    "メダルストア"
                 ]
             }
-        },
-        "post_wait_freezes": 500
+        }
     },
     "推荐物品": {
         "recognition": {

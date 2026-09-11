@@ -7,5 +7,61 @@
     },
     "行动上限": {
         "expected": "每日行動次數已達上限"
+    },
+    "战斗任务_标题": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "戰鬥任務",
+                    "战斗任务"
+                ]
+            }
+        }
+    },
+    "战斗任务_已完成": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "已完成"
+                ]
+            }
+        }
+    },
+    "废弃仓库_标题": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "廢棄倉庫",
+                    "废弃仓库"
+                ]
+            }
+        }
+    },
+    "废弃仓库_已完成": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "已完成"
+                ]
+            }
+        }
+    },
+    "支援箱_标题": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "支援箱"
+                ]
+            }
+        }
+    },
+    "支援箱_已完成": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "已完成"
+                ]
+            }
+        }
     }
 }

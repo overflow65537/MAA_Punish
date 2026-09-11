@@ -171,40 +171,42 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    198,
-                                    63,
-                                    222,
-                                    67
-                                ],
-                                "expected": "库罗罗代工"
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    666,
-                                    571,
-                                    91,
-                                    55
-                                ],
-                                "expected": "取消"
-                            }
-                        }
-                    }
+                    "意外点击_退出代工_标题",
+                    "意外点击_退出代工_取消"
                 ],
                 "box_index": 1
             }
         },
         "action": {
             "type": "Click"
+        }
+    },
+    "意外点击_退出代工_标题": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    198,
+                    63,
+                    222,
+                    67
+                ],
+                "expected": "库罗罗代工"
+            }
+        }
+    },
+    "意外点击_退出代工_取消": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    666,
+                    571,
+                    91,
+                    55
+                ],
+                "expected": "取消"
+            }
         }
     },
     "选择执勤伙伴": {
@@ -268,38 +270,8 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "sub_name": "_目标人物",
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    290,
-                                    174,
-                                    770,
-                                    386
-                                ],
-                                "expected": "体力"
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": "_目标人物",
-                                "method": 6,
-                                "lower": [
-                                    240
-                                ],
-                                "upper": [
-                                    255
-                                ],
-                                "connected": true,
-                                "count": 300
-                            }
-                        }
-                    }
+                    "开始选择执勤伙伴_文字",
+                    "开始选择执勤伙伴_颜色"
                 ],
                 "box_index": 1
             }
@@ -308,6 +280,37 @@
             "type": "Click"
         },
         "post_delay": 500
+    },
+    "开始选择执勤伙伴_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    290,
+                    174,
+                    770,
+                    386
+                ],
+                "expected": "体力"
+            }
+        }
+    },
+    "开始选择执勤伙伴_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": "开始选择执勤伙伴_文字",
+                "method": 6,
+                "lower": [
+                    240
+                ],
+                "upper": [
+                    255
+                ],
+                "connected": true,
+                "count": 300
+            }
+        }
     },
     "开始执勤": {
         "recognition": {

@@ -118,42 +118,8 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "sub_name": "_破纪录颜色",
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    497,
-                                    269,
-                                    295,
-                                    198
-                                ],
-                                "method": 40,
-                                "lower": [
-                                    13,
-                                    200,
-                                    200
-                                ],
-                                "upper": [
-                                    15,
-                                    255,
-                                    250
-                                ],
-                                "count": 10
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": "_破纪录颜色",
-                                "expected": "NEW",
-                                "only_rec": true
-                            }
-                        }
-                    }
+                    "破纪录_颜色",
+                    "破纪录_文字"
                 ]
             }
         },
@@ -164,6 +130,41 @@
                     633,
                     700
                 ]
+            }
+        }
+    },
+    "破纪录_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    497,
+                    269,
+                    295,
+                    198
+                ],
+                "method": 40,
+                "lower": [
+                    13,
+                    200,
+                    200
+                ],
+                "upper": [
+                    15,
+                    255,
+                    250
+                ],
+                "count": 10
+            }
+        }
+    },
+    "破纪录_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "破纪录_颜色",
+                "expected": "NEW",
+                "only_rec": true
             }
         }
     },

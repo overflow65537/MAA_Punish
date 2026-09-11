@@ -145,7 +145,7 @@
         "recognition": {
             "type": "And",
             "param": {
-                "all_of":[
+                "all_of": [
                     "返回"
                 ]
             }
@@ -662,38 +662,8 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "sub_name": "_白色文字",
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    979,
-                                    574,
-                                    301,
-                                    146
-                                ],
-                                "expected": "作战准备"
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": "_白色文字",
-                                "method": 6,
-                                "lower": [
-                                    0
-                                ],
-                                "upper": [
-                                    48
-                                ],
-                                "count": 40,
-                                "connected": true
-                            }
-                        }
-                    }
+                    "作战准备_文字",
+                    "作战准备_颜色"
                 ]
             }
         },
@@ -703,6 +673,37 @@
         "post_wait_freezes": {
             "time": 1000,
             "timeout": 2000
+        }
+    },
+    "作战准备_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    979,
+                    574,
+                    301,
+                    146
+                ],
+                "expected": "作战准备"
+            }
+        }
+    },
+    "作战准备_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": "作战准备_文字",
+                "method": 6,
+                "lower": [
+                    0
+                ],
+                "upper": [
+                    48
+                ],
+                "count": 40,
+                "connected": true
+            }
         }
     },
     "是否需要缓存": {
@@ -829,23 +830,7 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    105,
-                                    56,
-                                    944,
-                                    230
-                                ],
-                                "expected": [
-                                    "已被携带或技能有变更",
-                                    "提示"
-                                ]
-                            }
-                        }
-                    },
+                    "更换辅助机_提示",
                     "确定"
                 ],
                 "box_index": 1
@@ -853,6 +838,23 @@
         },
         "action": {
             "type": "Click"
+        }
+    },
+    "更换辅助机_提示": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    105,
+                    56,
+                    944,
+                    230
+                ],
+                "expected": [
+                    "已被携带或技能有变更",
+                    "提示"
+                ]
+            }
         }
     },
     "滑动预设": {
@@ -895,39 +897,41 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    508,
-                                    473,
-                                    209,
-                                    85
-                                ],
-                                "expected": "取消"
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    217,
-                                    121,
-                                    730,
-                                    307
-                                ],
-                                "expected": "是否删除当前"
-                            }
-                        }
-                    }
+                    "意外点击_删除编队_取消",
+                    "意外点击_删除编队_文案"
                 ]
             }
         },
         "action": {
             "type": "Click"
+        }
+    },
+    "意外点击_删除编队_取消": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    508,
+                    473,
+                    209,
+                    85
+                ],
+                "expected": "取消"
+            }
+        }
+    },
+    "意外点击_删除编队_文案": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    217,
+                    121,
+                    730,
+                    307
+                ],
+                "expected": "是否删除当前"
+            }
         }
     },
     "打开物理属性": {

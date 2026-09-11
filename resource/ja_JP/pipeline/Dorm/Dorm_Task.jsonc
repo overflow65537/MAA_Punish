@@ -67,42 +67,20 @@
             }
         }
     },
-    "意外点击_退出代工": {
+    "意外点击_退出代工_标题": {
         "recognition": {
             "param": {
-                "all_of": [
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    198,
-                                    63,
-                                    222,
-                                    67
-                                ],
-                                "expected": [
-                                    "ココロコ工房"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    666,
-                                    571,
-                                    91,
-                                    55
-                                ],
-                                "expected": [
-                                    "キャンセル"
-                                ]
-                            }
-                        }
-                    }
+                "expected": [
+                    "ココロコ工房"
+                ]
+            }
+        }
+    },
+    "意外点击_退出代工_取消": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "キャンセル"
                 ]
             }
         }
@@ -125,47 +103,11 @@
             }
         }
     },
-    "开始选择执勤伙伴": {
+    "开始选择执勤伙伴_文字": {
         "recognition": {
             "param": {
-                "all_of": [
-                    {
-                        "sub_name": "_目标人物",
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    290,
-                                    174,
-                                    770,
-                                    386
-                                ],
-                                "expected": [
-                                    "体力"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": "_目标人物",
-                                "lower": [
-                                    255,
-                                    255,
-                                    255
-                                ],
-                                "upper": [
-                                    255,
-                                    255,
-                                    255
-                                ],
-                                "connected": true,
-                                "count": 300
-                            }
-                        }
-                    }
+                "expected": [
+                    "体力"
                 ]
             }
         }

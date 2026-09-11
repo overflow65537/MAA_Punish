@@ -1,5 +1,4 @@
 {
-
     "返回_矩阵循生": {
         "recognition": {
             "param": {
@@ -35,76 +34,25 @@
             }
         }
     },
-    "点击精通等级低于3的人物": {
+    "点击精通等级低于3的人物_标题": {
         "recognition": {
             "param": {
-                "all_of": [
-                    {
-                        "sub_name": "_精通等级",
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    68,
-                                    71,
-                                    267,
-                                    574
-                                ],
-                                "expected": [
-                                    "熟練度",
-                                    "熟練レベル",
-                                    "精通等级",
-                                    "精通等級"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "sub_name": "_等级颜色",
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": "_精通等级",
-                                "roi_offset": [
-                                    88,
-                                    -2,
-                                    -32,
-                                    3
-                                ],
-                                "method": 40,
-                                "lower": [
-                                    103,
-                                    108,
-                                    187
-                                ],
-                                "upper": [
-                                    108,
-                                    255,
-                                    199
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": "_等级颜色",
-                                "roi_offset": [
-                                    -2,
-                                    -2,
-                                    4,
-                                    4
-                                ],
-                                "expected": [
-                                    "^0$",
-                                    "^1$",
-                                    "^2$"
-                                ],
-                                "only_rec": true
-                            }
-                        }
-                    }
+                "expected": [
+                    "熟練度",
+                    "熟練レベル",
+                    "精通等级",
+                    "精通等級"
+                ]
+            }
+        }
+    },
+    "点击精通等级低于3的人物_数字": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^0$",
+                    "^1$",
+                    "^2$"
                 ]
             }
         }

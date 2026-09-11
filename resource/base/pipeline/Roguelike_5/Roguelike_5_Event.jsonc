@@ -391,39 +391,41 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    176,
-                                    545,
-                                    987,
-                                    143
-                                ],
-                                "expected": "确定"
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    528,
-                                    0,
-                                    234,
-                                    122
-                                ],
-                                "expected": "选择委托"
-                            }
-                        }
-                    }
+                    "选择委托_神寂启示录_确定",
+                    "选择委托_神寂启示录_标题"
                 ]
             }
         },
         "action": {
             "type": "Click"
+        }
+    },
+    "选择委托_神寂启示录_确定": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    176,
+                    545,
+                    987,
+                    143
+                ],
+                "expected": "确定"
+            }
+        }
+    },
+    "选择委托_神寂启示录_标题": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    528,
+                    0,
+                    234,
+                    122
+                ],
+                "expected": "选择委托"
+            }
         }
     },
     "符纹宝箱_神寂启示录": {
@@ -471,55 +473,8 @@
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    1065,
-                                    632,
-                                    182,
-                                    55
-                                ],
-                                "lower": [
-                                    173,
-                                    4,
-                                    21
-                                ],
-                                "upper": [
-                                    217,
-                                    33,
-                                    40
-                                ],
-                                "connected": true,
-                                "count": 1000
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    1065,
-                                    632,
-                                    182,
-                                    55
-                                ],
-                                "lower": [
-                                    170,
-                                    170,
-                                    170
-                                ],
-                                "upper": [
-                                    224,
-                                    222,
-                                    222
-                                ],
-                                "count": 100
-                            }
-                        }
-                    }
+                    "通用事件处理_对话1_颜色1",
+                    "通用事件处理_对话1_颜色2"
                 ]
             }
         },
@@ -527,61 +482,62 @@
             "type": "Click"
         }
     },
+    "通用事件处理_对话1_颜色1": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1065,
+                    632,
+                    182,
+                    55
+                ],
+                "lower": [
+                    173,
+                    4,
+                    21
+                ],
+                "upper": [
+                    217,
+                    33,
+                    40
+                ],
+                "connected": true,
+                "count": 1000
+            }
+        }
+    },
+    "通用事件处理_对话1_颜色2": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1065,
+                    632,
+                    182,
+                    55
+                ],
+                "lower": [
+                    170,
+                    170,
+                    170
+                ],
+                "upper": [
+                    224,
+                    222,
+                    222
+                ],
+                "count": 100
+            }
+        }
+    },
     "通用事件处理_对话2": {
         "recognition": {
             "type": "And",
             "param": {
                 "all_of": [
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    777,
-                                    352,
-                                    476,
-                                    249
-                                ],
-                                "lower": [
-                                    16,
-                                    24,
-                                    24
-                                ],
-                                "upper": [
-                                    48,
-                                    56,
-                                    61
-                                ],
-                                "connected": true,
-                                "count": 1500
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "ColorMatch",
-                            "param": {
-                                "roi": [
-                                    777,
-                                    352,
-                                    476,
-                                    249
-                                ],
-                                "lower": [
-                                    194,
-                                    198,
-                                    199
-                                ],
-                                "upper": [
-                                    214,
-                                    217,
-                                    218
-                                ],
-                                "connected": true,
-                                "count": 100
-                            }
-                        }
-                    }
+                    "通用事件处理_对话2_颜色1",
+                    "通用事件处理_对话2_颜色2"
                 ]
             }
         },
@@ -593,6 +549,56 @@
             "通用事件处理_对话1",
             "空任务"
         ]
+    },
+    "通用事件处理_对话2_颜色1": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    777,
+                    352,
+                    476,
+                    249
+                ],
+                "lower": [
+                    16,
+                    24,
+                    24
+                ],
+                "upper": [
+                    48,
+                    56,
+                    61
+                ],
+                "connected": true,
+                "count": 1500
+            }
+        }
+    },
+    "通用事件处理_对话2_颜色2": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    777,
+                    352,
+                    476,
+                    249
+                ],
+                "lower": [
+                    194,
+                    198,
+                    199
+                ],
+                "upper": [
+                    214,
+                    217,
+                    218
+                ],
+                "connected": true,
+                "count": 100
+            }
+        }
     },
     "情报分析_渡边目标1": {
         "recognition": {

@@ -19,43 +19,21 @@
             }
         }
     },
-    "使用体力": {
+    "使用体力_确定": {
         "recognition": {
             "param": {
-                "all_of": [
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    809,
-                                    536,
-                                    167,
-                                    138
-                                ],
-                                "expected": [
-                                    "確認"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": [
-                                    222,
-                                    78,
-                                    223,
-                                    89
-                                ],
-                                "expected": [
-                                    "使用しますか",
-                                    "使用"
-                                ]
-                            }
-                        }
-                    }
+                "expected": [
+                    "確認"
+                ]
+            }
+        }
+    },
+    "使用体力_是否使用": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "使用しますか",
+                    "使用"
                 ]
             }
         }

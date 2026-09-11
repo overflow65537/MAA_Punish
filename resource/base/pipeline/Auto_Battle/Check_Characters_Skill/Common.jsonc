@@ -33,28 +33,29 @@
             "param": {
                 "all_of": [
                     "_信号球数量",
-                    {
-                        "recognition": {
-                            "type": "OCR",
-                            "param": {
-                                "roi": "_信号球数量",
-                                "roi_offset": [
-                                    -2,
-                                    -2,
-                                    4,
-                                    4
-                                ],
-                                "expected": "\\d+",
-                                "only_rec": true
-                            }
-                        }
-                    }
+                    "统计信号球数量_数字"
                 ]
             }
         },
         "pre_delay": 0,
         "post_delay": 0,
         "rate_limit": 0
+    },
+    "统计信号球数量_数字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "_信号球数量",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
+                "expected": "\\d+",
+                "only_rec": true
+            }
+        }
     },
     "_信号球数量": {
         "recognition": {

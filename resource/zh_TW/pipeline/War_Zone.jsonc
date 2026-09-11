@@ -76,5 +76,14 @@
     },
     "首通未完成": {
         "expected": "未挑戰"
+    },
+    "破纪录_文字": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "NEW"
+                ]
+            }
+        }
     }
 }
