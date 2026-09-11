@@ -19,24 +19,6 @@
             }
         }
     },
-    "宿舍任务_返回2": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "Back"
-                ]
-            }
-        }
-    },
-    "宿舍任务_返回3": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "Back"
-                ]
-            }
-        }
-    },
     "打开委托界面": {
         "recognition": {
             "param": {

@@ -18,23 +18,5 @@
                 ]
             }
         }
-    },
-    "确认使用": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "Confirm"
-                ]
-            }
-        }
-    },
-    "退出血清界面": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "Cancel"
-                ]
-            }
-        }
     }
 }

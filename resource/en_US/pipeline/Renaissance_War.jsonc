@@ -45,14 +45,5 @@
                 ]
             }
         }
-    },
-    "返回至诺曼复兴战": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "Back"
-                ]
-            }
-        }
     }
 }
