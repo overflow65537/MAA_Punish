@@ -4,6 +4,9 @@ import sys
 
 import jsonc
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from gen_resource_hash import apply_resource_hashes
+
 # 仓库根目录（本脚本位于 tools/ci/）
 REPO_ROOT = Path(__file__).resolve().parents[2]
 install_path = REPO_ROOT / "install"
@@ -50,12 +53,17 @@ def install_resource():
         install_path / "CFA_setting.json",
     )
 
-    with open(install_path / "interface.json", "r", encoding="utf-8") as f:
+    interface_path = install_path / "interface.json"
+    with open(interface_path, "r", encoding="utf-8") as f:
         interface = jsonc.load(f)
 
     interface["version"] = version
-    with open(install_path / "interface.json", "w", encoding="utf-8") as f:
+    with open(interface_path, "w", encoding="utf-8") as f:
         jsonc.dump(interface, f, ensure_ascii=False, indent=4)
+
+    # 在当前构建平台上生成 hash（跨平台字节/换行差异会导致不一致）
+    comment = apply_resource_hashes(interface_path, root=install_path)
+    print(comment)
 
 
 def install_chores():

@@ -387,6 +387,7 @@ jobs:
       - name: Configure MAA_Punish Android package name
         shell: bash
         run: python .github/android/patch_maafwapp.py build-android/MaaFwApp
+
       - name: Set up JDK
         uses: actions/setup-java@v5
         with:
