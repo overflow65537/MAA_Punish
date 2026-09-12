@@ -663,5 +663,7 @@
     "option.启动重试次数.description": "打開應用的最大重試次數",
     "input.启动重试次数.最大重试次数.label": "最大重試次數",
     "input.启动重试次数.最大重试次数.description": "打開應用失敗時的最大重試次數，預設60次",
-    "input.启动重试次数.最大重试次数.pattern_msg": "請輸入有效的數字"
+    "input.启动重试次数.最大重试次数.pattern_msg": "請輸入有效的數字",
+    "resource.en_US.label": "English (Global)",
+    "resource.en_US.description": "Punishing: Gray Raven Global / NA client"
 }

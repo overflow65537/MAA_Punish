@@ -51,7 +51,7 @@ jobs:
 
       - name: Check Resource
         run: |
-          python ./tools/ci/check_resource.py ./resource/base ./resource/pgr_win32 ./resource/playcover ./resource/zh_TW ./resource/ja_JP
+          python ./tools/ci/check_resource.py ./resource/base ./resource/pgr_win32 ./resource/playcover ./resource/zh_TW ./resource/ja_JP ./resource/en_US
 
       - name: Validate JSON Schema
         run: |
