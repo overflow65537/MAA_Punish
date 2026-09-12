@@ -1,4 +1,13 @@
 {
+    "下一步": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "次へ"
+                ]
+            }
+        }
+    },
     "点击继续": {
         "recognition": {
             "param": {

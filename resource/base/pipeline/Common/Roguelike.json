@@ -1,13 +1,15 @@
 {
     "下一步": {
         "recognition": {
-            "type": "And",
+            "type": "OCR",
             "param": {
-                "all_of": [
-                    "下一步_颜色",
-                    "下一步_文字"
+                "roi": [
+                    891,
+                    510,
+                    389,
+                    210
                 ],
-                "box_index": 1
+                "expected": "下一步"
             }
         },
         "action": {
