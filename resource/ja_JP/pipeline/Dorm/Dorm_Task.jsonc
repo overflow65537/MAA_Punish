@@ -130,24 +130,6 @@
             }
         }
     },
-    "宿舍任务_返回2": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "戻る"
-                ]
-            }
-        }
-    },
-    "宿舍任务_返回3": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "戻る"
-                ]
-            }
-        }
-    },
     "无派遣任务": {
         "recognition": {
             "param": {

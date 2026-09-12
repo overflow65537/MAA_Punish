@@ -70,16 +70,6 @@
             }
         }
     },
-    "返回_厄愿潮声": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "戻る",
-                    "返回"
-                ]
-            }
-        }
-    },
     "商店事件_厄愿潮声": {
         "recognition": {
             "param": {

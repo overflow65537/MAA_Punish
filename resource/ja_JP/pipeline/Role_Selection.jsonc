@@ -36,15 +36,6 @@
             }
         }
     },
-    "返回_重新选人": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "戻る"
-                ]
-            }
-        }
-    },
     "清空红色位": {
         "recognition": {
             "param": {

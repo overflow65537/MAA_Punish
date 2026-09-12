@@ -139,38 +139,5 @@
                 ]
             }
         }
-    },
-    "A_使用体力": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "確認"
-                ]
-            }
-        }
-    },
-    "A_体力取消": {
-        "recognition": {
-            "param": {
-                "roi": [
-                    664,
-                    588,
-                    120,
-                    50
-                ],
-                "expected": [
-                    "キャンセル"
-                ]
-            }
-        }
-    },
-    "A_不使用体力": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "キャンセル"
-                ]
-            }
-        }
     }
 }

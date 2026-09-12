@@ -1,14 +1,4 @@
 {
-    "点击空白处关闭_速通": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "タップして閉じる",
-                    "画面"
-                ]
-            }
-        }
-    },
     "从中间开始": {
         "recognition": {
             "param": {
@@ -25,24 +15,6 @@
                 "expected": [
                     "使用しますか",
                     "使用"
-                ]
-            }
-        }
-    },
-    "体力取消": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "キャンセル"
-                ]
-            }
-        }
-    },
-    "不使用体力": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "キャンセル"
                 ]
             }
         }

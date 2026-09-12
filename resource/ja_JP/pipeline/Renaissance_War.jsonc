@@ -77,15 +77,6 @@
             "返回至诺曼复兴战"
         ]
     },
-    "返回至诺曼复兴战": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "戻る"
-                ]
-            }
-        }
-    },
     "返回_诺曼复兴战": {
         "recognition": {
             "param": {
