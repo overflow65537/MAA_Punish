@@ -7,6 +7,9 @@
             ],
             "entry": "历战映射",
             "description": "$task.历战映射.description",
+            "option": [
+                "刷取次数_历战映射"
+            ],
             "pipeline_override": {
                 "战斗队伍色位": {
                     "attach": {
@@ -24,5 +27,27 @@
             "label": "$task.历战映射"
         }
     ],
-    "option": {}
+    "option": {
+        "刷取次数_历战映射": {
+            "label": "$option.刷取次数_历战映射.label",
+            "description": "$option.刷取次数_历战映射.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "最大刷取次数",
+                    "label": "$input.刷取次数_历战映射.最大刷取次数.label",
+                    "description": "$input.刷取次数_历战映射.最大刷取次数.description",
+                    "default": "10",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$",
+                    "pattern_msg": "$input.刷取次数_历战映射.最大刷取次数.pattern_msg"
+                }
+            ],
+            "pipeline_override": {
+                "开始挑战": {
+                    "max_hit": "{最大刷取次数}"
+                }
+            }
+        }
+    }
 }

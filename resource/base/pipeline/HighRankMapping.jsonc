@@ -1,5 +1,9 @@
 {
     "历战映射": {
+        "on_start": [
+            "返回主菜单"
+        ],
+        "timeout": 5000,
         "next": [
             "活动未开启",
             "[JumpBack]覆盖布局菜单",
@@ -115,6 +119,7 @@
         }
     },
     "开始挑战": {
+        "max_hit": 10,
         "recognition": {
             "type": "OCR",
             "param": {
