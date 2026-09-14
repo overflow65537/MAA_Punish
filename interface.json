@@ -486,7 +486,7 @@
                     "description": "$input.角色缓存账号前缀.账号前缀.description",
                     "default": "main",
                     "pipeline_type": "string",
-                    "verify": "^[\\w\\u4e00-\\u9fff\\-]{1,32}$",
+                    "verify": "^[A-Za-z0-9_\\u4e00-\\u9fff\\-]{1,32}$",
                     "pattern_msg": "$input.角色缓存账号前缀.账号前缀.pattern_msg"
                 }
             ],

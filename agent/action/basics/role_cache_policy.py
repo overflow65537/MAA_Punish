@@ -10,14 +10,17 @@ import re
 from pathlib import Path
 from typing import Any
 
-_INVALID_PREFIX_CHARS = re.compile(r'[<>:"/\\|?*\x00-\x1f]')
+# 与 interface.json 账号前缀 verify 保持一致：仅保留安全文件名字符。
+_ALLOWED_PREFIX_CHARS = re.compile(r"[^A-Za-z0-9_\u4e00-\u9fff\-]+")
+_MAX_PREFIX_LEN = 32
 
 
 def normalize_cache_prefix(value: Any) -> str:
+    """过滤路径非法与易混淆符号，仅保留字母/数字/中文/_/-。"""
     if not isinstance(value, str):
         return ""
-    prefix = _INVALID_PREFIX_CHARS.sub("_", value.strip())
-    return prefix
+    prefix = _ALLOWED_PREFIX_CHARS.sub("", value.strip())
+    return prefix[:_MAX_PREFIX_LEN]
 
 
 def cache_path(prefix: str | None = None) -> Path:
