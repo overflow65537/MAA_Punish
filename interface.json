@@ -92,20 +92,13 @@
             "{PROJECT_DIR}/agent/main.py"
         ]
     },
-    "setting": [
-        {
-            "name": "global",
-            "label": "$setting.global.label",
-            "option": [
-                "切换服务器",
-                "缓存组件信息",
-                "角色缓存更新频率",
-                "多账号缓存",
-                "自定义键位",
-                "启动重试次数"
-            ],
-            "default_expand": true
-        }
+    "global_option": [
+        "切换服务器",
+        "缓存组件信息",
+        "角色缓存更新频率",
+        "多账号缓存",
+        "自定义键位",
+        "启动重试次数"
     ],
     "resource": [
         {
