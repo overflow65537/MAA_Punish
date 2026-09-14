@@ -14,15 +14,11 @@
     },
     "拟战场域_作战任务": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    1074,
-                    309,
-                    95,
-                    52
-                ],
-                "expected": "^战斗$"
+                "all_of": [
+                    "主界面_战斗节点"
+                ]
             }
         },
         "pre_delay": 0,

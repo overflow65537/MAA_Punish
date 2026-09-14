@@ -1,13 +1,4 @@
 {
-    "拟战场域_作战任务": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "^戦闘$"
-                ]
-            }
-        }
-    },
     "打开资源": {
         "recognition": {
             "param": {
