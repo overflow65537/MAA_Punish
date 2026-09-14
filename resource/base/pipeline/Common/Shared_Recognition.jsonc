@@ -125,17 +125,46 @@
             }
         }
     },
-    "主界面_战斗": {
+    "主界面_战斗颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1066,
+                    262,
+                    176,
+                    111
+                ],
+                "method": 6,
+                "lower": [
+                    250
+                ],
+                "upper": [
+                    255
+                ],
+                "count": 100
+            }
+        }
+    },
+     "主界面_战斗":{
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    999,
-                    231,
-                    281,
-                    187
+                "roi": "主界面_战斗颜色",
+                "expected": "^战斗$",
+                "only_rec": true
+            }
+        }
+    },
+    "主界面_战斗节点": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "主界面_战斗颜色",
+                    "主界面_战斗"
                 ],
-                "expected": "^战斗$"
+                "box_index": 1
             }
         }
     },
