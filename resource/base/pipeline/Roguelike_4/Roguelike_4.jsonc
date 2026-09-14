@@ -1955,6 +1955,27 @@
             }
         },
         "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "选择具体难度_寒境曙光",
+            "难度列表归顶_寒境曙光"
+        ]
+    },
+    "难度列表归顶_寒境曙光": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    757,
+                    482,
+                    411,
+                    210
+                ],
+                "expected": "下一步"
+            }
+        },
+        "action": {
             "type": "Swipe",
             "param": {
                 "begin": [
