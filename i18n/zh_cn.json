@@ -665,8 +665,8 @@
     "role.Effulgence": "卡列尼娜·烬航",
     "setting.global.label": "全局设置",
     "option.启动重试次数.label": "启动重试次数",
-    "option.启动重试次数.description": "打开应用的最大重试次数",
+    "option.启动重试次数.description": "启动等待的最大重试次数（打开应用仅执行一次）",
     "input.启动重试次数.最大重试次数.label": "最大重试次数",
-    "input.启动重试次数.最大重试次数.description": "打开应用失败时的最大重试次数，默认60次",
+    "input.启动重试次数.最大重试次数.description": "打开应用后等待进入游戏的最大重试次数，默认60次",
     "input.启动重试次数.最大重试次数.pattern_msg": "请输入有效的数字"
 }
