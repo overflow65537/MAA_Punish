@@ -194,6 +194,8 @@ Android APK 使用 [MaaFwApp](https://github.com/Aliothmoon/MaaFwApp) 构建。�
 <details>
 <summary>安卓版使用教程参考</summary>
 
+  [视频教程可参考](<https://www.bilibili.com/video/BV1reLp6GEeF?>)
+  
   ![安卓版教程.jpg](https://image.989464244.xyz/file/BQACAgUAAyEGAATrAAHMTwADEGqqVoBHRZQjPMkxxjiIRcf4dCmCAAJ1IAAC_uNQVeJCEKEic1NVPQQ.jpg)
 
 </details>
