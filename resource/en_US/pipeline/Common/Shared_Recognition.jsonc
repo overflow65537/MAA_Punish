@@ -51,7 +51,7 @@
         "recognition": {
             "param": {
                 "expected": [
-                    "^(Get )?Rewards?$"
+                    "^>?(Get )?Rewards?<?$"
                 ]
             }
         }

@@ -665,5 +665,10 @@
     "input.启动重试次数.最大重试次数.description": "打开应用失败时的最大重试次数，默认60次",
     "input.启动重试次数.最大重试次数.pattern_msg": "请输入有效的数字",
     "resource.en_US.label": "English (Global)",
-    "resource.en_US.description": "Punishing: Gray Raven Global / NA client (English UI)"
+    "resource.en_US.description": "Punishing: Gray Raven Global / NA client (English UI)",
+    "option.刷取次数_历战映射.label": "刷取次数",
+    "option.刷取次数_历战映射.description": "历战映射最多刷取次数",
+    "input.刷取次数_历战映射.最大刷取次数.label": "最大刷取次数",
+    "input.刷取次数_历战映射.最大刷取次数.description": "历战映射最多刷多少次，默认10次",
+    "input.刷取次数_历战映射.最大刷取次数.pattern_msg": "请输入有效的数字"
 }

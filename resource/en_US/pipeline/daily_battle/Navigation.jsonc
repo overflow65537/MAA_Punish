@@ -19,15 +19,6 @@
             }
         }
     },
-    "拟战场域_作战任务": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "^Battle$"
-                ]
-            }
-        }
-    },
     "确认进入拟战场域": {
         "recognition": {
             "param": {
