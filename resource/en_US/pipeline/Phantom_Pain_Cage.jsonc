@@ -10,6 +10,15 @@
             }
         }
     },
+    "囚笼作战程序": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Mission Start"
+                ]
+            }
+        }
+    },
     "意外处理_没识别到返回": {
         "recognition": {
             "param": {
