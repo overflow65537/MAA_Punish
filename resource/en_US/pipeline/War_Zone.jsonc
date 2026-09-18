@@ -19,6 +19,24 @@
             }
         }
     },
+    "查看地图_物理区": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Machine Factory"
+                ]
+            }
+        }
+    },
+    "查看地图_空区": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Nihil Floating Platform"
+                ]
+            }
+        }
+    },
     "滑动_纷争战区": {
         "recognition": {
             "param": {
@@ -28,11 +46,39 @@
             }
         }
     },
+    "纷争战区内部": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Points",
+                    "Ranking"
+                ]
+            }
+        }
+    },
     "退出战斗": {
         "recognition": {
             "param": {
                 "expected": [
                     "Back"
+                ]
+            }
+        }
+    },
+    "首通已完成": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Mission"
+                ]
+            }
+        }
+    },
+    "首通未完成": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Not Challenged"
                 ]
             }
         }
