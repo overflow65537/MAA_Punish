@@ -35,7 +35,7 @@
         "recognition": {
             "param": {
                 "expected": [
-                    "Siege",
+                    "[Ss][Ii][Ee][Gg][Ee]",
                     "Action",
                     "Perfect"
                 ]
