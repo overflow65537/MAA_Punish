@@ -18,5 +18,14 @@
                 ]
             }
         }
+    },
+    "识别_经典舱室": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Classic Cabin"
+                ]
+            }
+        }
     }
 }

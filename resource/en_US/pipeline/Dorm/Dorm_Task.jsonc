@@ -19,6 +19,51 @@
             }
         }
     },
+    "关闭完成事件": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Complete"
+                ]
+            }
+        }
+    },
+    "完成事件": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Complete"
+                ]
+            }
+        }
+    },
+    "宿舍事件无": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Complete"
+                ]
+            }
+        }
+    },
+    "宿舍内部": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Build"
+                ]
+            }
+        }
+    },
+    "开始选择执勤伙伴_文字": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Stamina"
+                ]
+            }
+        }
+    },
     "打开委托界面": {
         "recognition": {
             "param": {
@@ -42,6 +87,24 @@
             "param": {
                 "expected": [
                     "Chores"
+                ]
+            }
+        }
+    },
+    "退出执勤": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Begin Chores"
+                ]
+            }
+        }
+    },
+    "选择执勤伙伴": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Select Worker"
                 ]
             }
         }

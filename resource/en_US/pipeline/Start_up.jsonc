@@ -35,7 +35,7 @@
         "recognition": {
             "param": {
                 "expected": [
-                    "Siege",
+                    "[Ss][Ii][Ee][Gg][Ee]",
                     "Action",
                     "Perfect"
                 ]
@@ -100,7 +100,8 @@
         "recognition": {
             "param": {
                 "expected": [
-                    "[Tt]ap"
+                    "[Ee][Nn][Tt][Ee][Rr] ?[Gg][Aa][Mm][Ee]",
+                    "[Tt][Aa][Pp] ?[Aa][Nn][Yy][Ww][Hh][Ee][Rr][Ee]"
                 ],
                 "roi": [
                     24,
