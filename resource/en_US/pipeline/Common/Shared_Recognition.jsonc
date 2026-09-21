@@ -47,6 +47,15 @@
             }
         }
     },
+    "底部确定_文字": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Confirm"
+                ]
+            }
+        }
+    },
     "确定_文字": {
         "recognition": {
             "param": {
