@@ -10,6 +10,15 @@
             }
         }
     },
+    "使用体力刷碎片": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Auto Clear"
+                ]
+            }
+        }
+    },
     "未解锁自动作战": {
         "recognition": {
             "param": {
@@ -51,6 +60,24 @@
             "param": {
                 "expected": [
                     "Resource"
+                ]
+            }
+        }
+    },
+    "退出战斗界面": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Auto Clear"
+                ]
+            }
+        }
+    },
+    "退出自动作战": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Confirm Deployment"
                 ]
             }
         }
