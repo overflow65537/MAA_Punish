@@ -14,6 +14,7 @@
         "recognition": {
             "param": {
                 "expected": [
+                    "[Tt]eam",
                     "Preset"
                 ]
             }
@@ -51,6 +52,42 @@
             "param": {
                 "expected": [
                     "Preset"
+                ]
+            }
+        }
+    },
+    "确认进入选人界面": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Effect Filtering"
+                ]
+            }
+        }
+    },
+    "编入队伍": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Add to team"
+                ]
+            }
+        }
+    },
+    "选择角色程序": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "[Tt]eam"
+                ]
+            }
+        }
+    },
+    "选择角色程序_onlyNode": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "[Tt]eam"
                 ]
             }
         }
