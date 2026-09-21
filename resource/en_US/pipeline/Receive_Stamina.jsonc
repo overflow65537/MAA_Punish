@@ -10,11 +10,57 @@
             }
         }
     },
+    "检查限购": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Weekly Limited Pack",
+                    "Serum Daily Supply"
+                ]
+            }
+        }
+    },
+    "点击日常补给包": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Daily Supply"
+                ]
+            }
+        }
+    },
     "点击补给包": {
         "recognition": {
             "param": {
                 "expected": [
                     "Supply"
+                ]
+            }
+        }
+    },
+    "补给包售罄": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Sold Out"
+                ]
+            }
+        }
+    },
+    "进入采购": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Top-up"
+                ]
+            }
+        }
+    },
+    "领取": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Purchase"
                 ]
             }
         }
