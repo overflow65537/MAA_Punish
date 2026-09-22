@@ -35,6 +35,7 @@
     ],
     "option": {
         "选择宣叙妄响难度": {
+            "label": "$option.选择宣叙妄响难度.label",
             "cases": [
                 {
                     "name": "入门",

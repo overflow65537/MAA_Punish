@@ -23,6 +23,7 @@
     ],
     "option": {
         "选择角色": {
+            "label": "$option.选择角色.label",
             "cases": [
                 {
                     "name": "渡边",

@@ -37,6 +37,7 @@
             }
         },
         "选择A级角色": {
+            "label": "$option.选择A级角色.label",
             "type": "select",
             "cases": [
                 {
@@ -375,6 +376,7 @@
             ]
         },
         "是否使用体力": {
+            "label": "$option.是否使用体力.label",
             "type": "switch",
             "cases": [
                 {

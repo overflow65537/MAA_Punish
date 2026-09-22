@@ -62,6 +62,7 @@
     ],
     "option": {
         "选择温度": {
+            "label": "$option.选择温度.label",
             "cases": [
                 {
                     "name": "常温",
@@ -176,6 +177,7 @@
             "type": "select"
         },
         "选择效果": {
+            "label": "$option.选择效果.label",
             "cases": [
                 {
                     "name": "军事",
@@ -245,6 +247,7 @@
             "type": "select"
         },
         "放置岗哨塔": {
+            "label": "$option.放置岗哨塔.label",
             "type": "switch",
             "default_case": "Yes",
             "cases": [

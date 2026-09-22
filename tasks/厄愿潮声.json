@@ -36,6 +36,7 @@
     ],
     "option": {
         "选择难度": {
+            "label": "$option.选择难度.label",
             "cases": [
                 {
                     "name": "浅听潮涌-简单",
@@ -90,6 +91,7 @@
             "type": "select"
         },
         "调查团组建": {
+            "label": "$option.调查团组建.label",
             "cases": [
                 {
                     "name": "探潮者",

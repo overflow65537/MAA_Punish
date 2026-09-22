@@ -32,6 +32,7 @@
     ],
     "option": {
         "战斗模式": {
+            "label": "$option.战斗模式.label",
             "description": "$option.战斗模式.description",
             "cases": [
                 {
@@ -80,6 +81,7 @@
             "type": "select"
         },
         "速通模式": {
+            "label": "$option.速通模式.label",
             "type": "switch",
             "cases": [
                 {
@@ -118,6 +120,7 @@
             ]
         },
         "跳过剧情": {
+            "label": "$option.跳过剧情.label",
             "type": "switch",
             "cases": [
                 {
@@ -147,6 +150,7 @@
             ]
         },
         "选择人物": {
+            "label": "$option.选择人物.label",
             "description": "$option.选择人物.description",
             "cases": [
                 {

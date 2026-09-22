@@ -44,6 +44,7 @@
     ],
     "option": {
         "选择模式": {
+            "label": "$option.选择模式.label",
             "cases": [
                 {
                     "name": "普通模式",
