@@ -10,6 +10,33 @@
             }
         }
     },
+    "战区奖励已领取": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Go"
+                ]
+            }
+        }
+    },
+    "战斗准备": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Battle Prep"
+                ]
+            }
+        }
+    },
+    "战斗结束": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Leave Battle"
+                ]
+            }
+        }
+    },
     "打开挑战_纷争战区": {
         "recognition": {
             "param": {
@@ -24,6 +51,24 @@
             "param": {
                 "expected": [
                     "War ?Zone"
+                ]
+            }
+        }
+    },
+    "未选择队长": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Leader not selected?"
+                ]
+            }
+        }
+    },
+    "查看地图_火区": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Cycle of Fire"
                 ]
             }
         }
@@ -46,11 +91,29 @@
             }
         }
     },
+    "查看地图_雷区": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Laser Alloy"
+                ]
+            }
+        }
+    },
     "滑动_纷争战区": {
         "recognition": {
             "param": {
                 "expected": [
                     "War ?Zone"
+                ]
+            }
+        }
+    },
+    "点击更换队长": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Swap?"
                 ]
             }
         }
@@ -65,11 +128,39 @@
             }
         }
     },
+    "结算期": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Tallying"
+                ]
+            }
+        }
+    },
+    "进入战区选人界面": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Team",
+                    "Preset"
+                ]
+            }
+        }
+    },
     "退出战斗": {
         "recognition": {
             "param": {
                 "expected": [
                     "Back"
+                ]
+            }
+        }
+    },
+    "领取战区奖励": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Claim$"
                 ]
             }
         }

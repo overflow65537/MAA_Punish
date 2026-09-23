@@ -10,11 +10,57 @@
             }
         }
     },
+    "使用预设": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Use"
+                ]
+            }
+        }
+    },
     "切换预设": {
         "recognition": {
             "param": {
                 "expected": [
+                    "[Tt]eam",
                     "Preset"
+                ]
+            }
+        }
+    },
+    "意外点击_删除编队_取消": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Cancel"
+                ]
+            }
+        }
+    },
+    "意外点击_删除编队_文案": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Delete current"
+                ]
+            }
+        }
+    },
+    "打开成员列表": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Members"
+                ]
+            }
+        }
+    },
+    "更换辅助机_提示": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Tips"
                 ]
             }
         }
@@ -51,6 +97,60 @@
             "param": {
                 "expected": [
                     "Preset"
+                ]
+            }
+        }
+    },
+    "确认进入选人界面": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Effect Filtering"
+                ]
+            }
+        }
+    },
+    "缓存角色程序": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Evolve"
+                ]
+            }
+        }
+    },
+    "编入队伍": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Add to team"
+                ]
+            }
+        }
+    },
+    "选择角色程序": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "[Tt]eam"
+                ]
+            }
+        }
+    },
+    "选择角色程序_onlyNode": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "[Tt]eam"
+                ]
+            }
+        }
+    },
+    "选择预设": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Team 6"
                 ]
             }
         }
