@@ -81,7 +81,7 @@
         },
         "post_delay": 0
     },
-    "A级角色": {
+    "A级角色_自定义": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -91,7 +91,368 @@
                     1004,
                     62
                 ],
-                "expected": ""
+                "expected": "破晓"
+            }
+        }
+    },
+    "A级角色_破晓": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "破晓"
+            }
+        }
+    },
+    "A级角色_徊闪": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "徊闪"
+            }
+        }
+    },
+    "A级角色_耀炎": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "耀炎"
+            }
+        }
+    },
+    "A级角色_觅语": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "觅语"
+            }
+        }
+    },
+    "A级角色_擎驱": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "擎驱"
+            }
+        }
+    },
+    "A级角色_清商": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "清商"
+            }
+        }
+    },
+    "A级角色_琉璃": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "琉璃"
+            }
+        }
+    },
+    "A级角色_XXI": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "XXI"
+            }
+        }
+    },
+    "A级角色_明觉": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "明觉"
+            }
+        }
+    },
+    "A级角色_游麟": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "游麟"
+            }
+        }
+    },
+    "A级角色_瑰丽": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "瑰丽"
+            }
+        }
+    },
+    "A级角色_弧光": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "弧光"
+            }
+        }
+    },
+    "A级角色_银牙": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "银牙"
+            }
+        }
+    },
+    "A级角色_溢彩": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "溢彩"
+            }
+        }
+    },
+    "A级角色_重能": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "重能"
+            }
+        }
+    },
+    "A级角色_零度": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "零度"
+            }
+        }
+    },
+    "A级角色_流光": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "流光"
+            }
+        }
+    },
+    "A级角色_夙星": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "夙星"
+            }
+        }
+    },
+    "A级角色_夜刃": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "夜刃"
+            }
+        }
+    },
+    "A级角色_爆裂": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "爆裂"
+            }
+        }
+    },
+    "A级角色_异火": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "异火"
+            }
+        }
+    },
+    "A级角色_风暴": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "风暴"
+            }
+        }
+    },
+    "A级角色_蚀暗": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "蚀暗"
+            }
+        }
+    },
+    "A级角色_黎明": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "黎明"
+            }
+        }
+    },
+    "A级角色_红莲": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    253,
+                    467,
+                    1004,
+                    62
+                ],
+                "expected": "红莲"
+            }
+        }
+    },
+    "A级角色": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "A级角色_自定义"
+                ],
+                "box_index": 0
             }
         },
         "action": {

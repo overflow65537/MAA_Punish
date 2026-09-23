@@ -1993,7 +1993,7 @@
             "[JumpBack]难度切换_寒境曙光"
         ]
     },
-    "选择具体难度_寒境曙光": {
+    "选择具体难度_寒境曙光_常温": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2003,7 +2003,88 @@
                     178,
                     649
                 ],
-                "expected": "常温"
+                "expected": "^常温$"
+            }
+        }
+    },
+    "选择具体难度_寒境曙光_初冷": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    364,
+                    38,
+                    178,
+                    649
+                ],
+                "expected": "^初冷$"
+            }
+        }
+    },
+    "选择具体难度_寒境曙光_微寒": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    364,
+                    38,
+                    178,
+                    649
+                ],
+                "expected": "^微寒$"
+            }
+        }
+    },
+    "选择具体难度_寒境曙光_冰冽": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    364,
+                    38,
+                    178,
+                    649
+                ],
+                "expected": "^冰冽$"
+            }
+        }
+    },
+    "选择具体难度_寒境曙光_严霜": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    364,
+                    38,
+                    178,
+                    649
+                ],
+                "expected": "^严霜$"
+            }
+        }
+    },
+    "选择具体难度_寒境曙光_极寒": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    364,
+                    38,
+                    178,
+                    649
+                ],
+                "expected": "^极寒$"
+            }
+        }
+    },
+    "选择具体难度_寒境曙光": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "选择具体难度_寒境曙光_常温"
+                ],
+                "box_index": 0
             }
         },
         "action": {
@@ -2093,7 +2174,7 @@
             "Node.Recognition.Succeeded": "$focus.未解锁开局"
         }
     },
-    "选择具体开局_寒境曙光": {
+    "选择具体开局_寒境曙光_军事": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -2103,7 +2184,60 @@
                     1250,
                     73
                 ],
-                "expected": "军事"
+                "expected": "^军事$"
+            }
+        }
+    },
+    "选择具体开局_寒境曙光_基建": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    29,
+                    360,
+                    1250,
+                    73
+                ],
+                "expected": "^基建$"
+            }
+        }
+    },
+    "选择具体开局_寒境曙光_经济": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    29,
+                    360,
+                    1250,
+                    73
+                ],
+                "expected": "^经济$"
+            }
+        }
+    },
+    "选择具体开局_寒境曙光_启动资金": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    29,
+                    360,
+                    1250,
+                    73
+                ],
+                "expected": "^启动资金$"
+            }
+        }
+    },
+    "选择具体开局_寒境曙光": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "选择具体开局_寒境曙光_军事"
+                ],
+                "box_index": 0
             }
         },
         "action": {

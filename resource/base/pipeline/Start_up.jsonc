@@ -9,6 +9,7 @@
             "检查主界面",
             "[JumpBack]关闭奖励",
             "[JumpBack]进入游戏",
+            "[JumpBack]进入游戏_云战双",
             "[JumpBack]启动_点击确定弹窗",
             "[JumpBack]更新中",
             "[JumpBack]返回主菜单",
@@ -211,6 +212,38 @@
             "确定",
             "空任务"
         ]
+    },
+    "进入游戏_云战双_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    884,
+                    600,
+                    112,
+                    60
+                ],
+                "expected": "进入游戏"
+            }
+        }
+    },
+    "进入游戏_云战双": {
+        "enabled": false,
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "进入游戏_云战双_文字"
+                ],
+                "box_index": 0
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": true
+            }
+        }
     },
     "进入游戏": {
         "recognition": {

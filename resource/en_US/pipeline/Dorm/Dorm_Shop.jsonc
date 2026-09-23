@@ -37,7 +37,7 @@
             }
         }
     },
-    "推荐物品": {
+    "推荐物品_可购": {
         "recognition": {
             "param": {
                 "expected": [
@@ -55,7 +55,7 @@
             }
         }
     },
-    "购买_宿舍": {
+    "购买_宿舍_涂装设计草稿": {
         "recognition": {
             "param": {
                 "expected": [

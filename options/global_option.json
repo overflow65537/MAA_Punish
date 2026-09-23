@@ -245,10 +245,11 @@
                 {
                     "name": "云战双",
                     "pipeline_override": {
-                        "进入游戏_路由": {
-                            "next": [
-                                "进入游戏_云战双"
-                            ]
+                        "进入游戏": {
+                            "enabled": false
+                        },
+                        "进入游戏_云战双": {
+                            "enabled": true
                         },
                         "打开应用": {
                             "action": {

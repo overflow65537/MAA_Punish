@@ -274,7 +274,7 @@
             }
         }
     },
-    "购买_宿舍": {
+    "购买_宿舍_涂装设计草稿": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -286,6 +286,32 @@
                 ],
                 "expected": "涂装设计草稿",
                 "only_rec": true
+            }
+        }
+    },
+    "购买_宿舍_武器涂装设计图": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    551,
+                    208,
+                    178,
+                    39
+                ],
+                "expected": "武器涂装设计图",
+                "only_rec": true
+            }
+        }
+    },
+    "购买_宿舍": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "购买_宿舍_涂装设计草稿"
+                ],
+                "box_index": 0
             }
         },
         "post_delay": 1000,
@@ -411,7 +437,7 @@
             }
         }
     },
-    "推荐物品": {
+    "推荐物品_可购": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -422,6 +448,31 @@
                     144
                 ],
                 "expected": "可购"
+            }
+        }
+    },
+    "推荐物品_本月": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    218,
+                    355,
+                    1062,
+                    144
+                ],
+                "expected": "本月"
+            }
+        }
+    },
+    "推荐物品": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "推荐物品_可购"
+                ],
+                "box_index": 0
             }
         },
         "action": {

@@ -1200,7 +1200,28 @@
             }
         }
     },
-    "选择难度_宣叙妄响": {
+    "选择难度_宣叙妄响_入门": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    48,
+                    206,
+                    67,
+                    39
+                ],
+                "expected": "入门",
+                "only_rec": true,
+                "replace": [
+                    [
+                        "人",
+                        "入"
+                    ]
+                ]
+            }
+        }
+    },
+    "选择难度_宣叙妄响_通俗": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1210,13 +1231,32 @@
                     116,
                     407
                 ],
-                "expected": "入门",
-                "replace": [
-                    [
-                        "人",
-                        "入"
-                    ]
-                ]
+                "expected": "通俗"
+            }
+        }
+    },
+    "选择难度_宣叙妄响_精通": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    18,
+                    203,
+                    116,
+                    407
+                ],
+                "expected": "精通"
+            }
+        }
+    },
+    "选择难度_宣叙妄响": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "选择难度_宣叙妄响_入门"
+                ],
+                "box_index": 0
             }
         },
         "action": {
@@ -1344,9 +1384,9 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    886,
+                    842,
                     611,
-                    132,
+                    176,
                     79
                 ],
                 "expected": "至此收场"

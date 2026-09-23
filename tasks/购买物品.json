@@ -57,7 +57,9 @@
                         "推荐物品": {
                             "recognition": {
                                 "param": {
-                                    "expected": "本月"
+                                    "all_of": [
+                                        "推荐物品_本月"
+                                    ]
                                 }
                             }
                         },
@@ -75,8 +77,8 @@
                             },
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "武器涂装设计图"
+                                    "all_of": [
+                                        "购买_宿舍_武器涂装设计图"
                                     ]
                                 }
                             }

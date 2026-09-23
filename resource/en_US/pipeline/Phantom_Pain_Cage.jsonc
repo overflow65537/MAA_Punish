@@ -127,11 +127,20 @@
             }
         }
     },
-    "选择区域": {
+    "选择区域_高级区": {
         "recognition": {
             "param": {
                 "expected": [
                     "Advanced"
+                ]
+            }
+        }
+    },
+    "选择区域_终级区": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Ultimate"
                 ]
             }
         }

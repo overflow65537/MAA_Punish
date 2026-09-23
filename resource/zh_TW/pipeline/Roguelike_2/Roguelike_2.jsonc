@@ -114,8 +114,26 @@
     "选择宝箱奖励_厄愿潮声": {
         "expected": "寶箱獎勵"
     },
-    "选择策略_厄愿潮声": {
-        "expected": "旅行劇團"
+    "选择策略_厄愿潮声_旅行剧团": {
+        "recognition": {
+            "param": {
+                "expected": "旅行劇團"
+            }
+        }
+    },
+    "选择策略_厄愿潮声_生存专家": {
+        "recognition": {
+            "param": {
+                "expected": "生存專家"
+            }
+        }
+    },
+    "选择策略_厄愿潮声_远征队": {
+        "recognition": {
+            "param": {
+                "expected": "遠征隊"
+            }
+        }
     },
     "选择过秘藏品": {
         "expected": [
@@ -123,8 +141,26 @@
             "已選擇過"
         ]
     },
-    "选择难度_厄愿潮声": {
-        "expected": "淺聽潮湧"
+    "选择难度_厄愿潮声_浅听潮涌": {
+        "recognition": {
+            "param": {
+                "expected": "淺聽潮湧"
+            }
+        }
+    },
+    "选择难度_厄愿潮声_征逐浪影": {
+        "recognition": {
+            "param": {
+                "expected": "徵逐浪影"
+            }
+        }
+    },
+    "选择难度_厄愿潮声_邂逅渊流": {
+        "recognition": {
+            "param": {
+                "expected": "邂逅淵流"
+            }
+        }
     },
     "邀约选择_厄愿潮声": {
         "expected": "之邀約LV2"
