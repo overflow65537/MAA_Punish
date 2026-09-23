@@ -1,0 +1,11 @@
+{
+    "退出_厄愿潮声": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Exit"
+                ]
+            }
+        }
+    }
+}

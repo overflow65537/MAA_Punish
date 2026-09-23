@@ -482,6 +482,16 @@
             }
         }
     },
+    "退出_厄愿潮声": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "退出",
+                    "戻る"
+                ]
+            }
+        }
+    },
     "终止_厄愿潮声": {
         "recognition": {
             "param": {
