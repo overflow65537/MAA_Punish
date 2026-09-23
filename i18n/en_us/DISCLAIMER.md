@@ -10,4 +10,4 @@
 
 - Tasks such as the **roguelike** modes need to be **added manually**; you can also create a **preset** for your roguelike setup.
 - For the TW server / Steam Traditional Chinese client, select **Traditional Chinese (zh_TW)** as the resource, otherwise OCR may fail and tasks may get stuck.
-- For the Global / NA client, select **English (Global)** as the resource. On Android, leave **Server** set to **Official**.
+- For the Global / NA client, select **English (Global)** as the resource.
