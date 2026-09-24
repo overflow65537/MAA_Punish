@@ -14,7 +14,10 @@
             "param": {
                 "package": "com.herogame.gplay.punishing.grayraven.jp"
             }
-        }
+        },
+        "next": [
+            "进入游戏"
+        ]
     },
     "跳过剧情": {
         "recognition": {

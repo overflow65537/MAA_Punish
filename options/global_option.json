@@ -210,39 +210,6 @@
                     "label": "$case.切换服务器.官服"
                 },
                 {
-                    "name": "日服",
-                    "label": "$case.切换服务器.日服",
-                    "pipeline_override": {
-                        "打开应用": {
-                            "action": {
-                                "type": "StartApp",
-                                "param": {
-                                    "package": "com.herogame.gplay.punishing.grayraven.jp"
-                                }
-                            }
-                        },
-                        "停止": {
-                            "action": {
-                                "type": "StopApp",
-                                "param": {
-                                    "package": "com.herogame.gplay.punishing.grayraven.jp"
-                                }
-                            }
-                        },
-                        "重启游戏": {
-                            "action": {
-                                "type": "StopApp",
-                                "param": {
-                                    "package": "com.herogame.gplay.punishing.grayraven.jp"
-                                }
-                            },
-                            "next": [
-                                "进入游戏"
-                            ]
-                        }
-                    }
-                },
-                {
                     "name": "云战双",
                     "pipeline_override": {
                         "进入游戏": {
