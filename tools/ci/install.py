@@ -17,6 +17,7 @@ RESOURCE_ITEMS = (
     "agent",
     "resource",
     "tasks",
+    "options",
     "i18n",
     "interface.json",
 )

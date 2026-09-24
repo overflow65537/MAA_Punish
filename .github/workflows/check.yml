@@ -10,6 +10,7 @@ on:
       - "i18n/**"
       - "resource/**"
       - "tasks/**"
+      - "options/**"
       - "tools/ci/**"
       - "tools/schema/**"
   pull_request:
@@ -21,6 +22,7 @@ on:
       - "i18n/**"
       - "resource/**"
       - "tasks/**"
+      - "options/**"
       - "tools/ci/**"
       - "tools/schema/**"
   workflow_dispatch:
