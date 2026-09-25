@@ -10,6 +10,222 @@
             }
         }
     },
+    "A级角色_夙星": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Astral"
+                ]
+            }
+        }
+    },
+    "A级角色_夜刃": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Nightblade"
+                ]
+            }
+        }
+    },
+    "A级角色_异火": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Palefire"
+                ]
+            }
+        }
+    },
+    "A级角色_弧光": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Arclight"
+                ]
+            }
+        }
+    },
+    "A级角色_徊闪": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Fulgor"
+                ]
+            }
+        }
+    },
+    "A级角色_擎驱": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Indomitus"
+                ]
+            }
+        }
+    },
+    "A级角色_明觉": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Hypnos"
+                ]
+            }
+        }
+    },
+    "A级角色_流光": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Lux"
+                ]
+            }
+        }
+    },
+    "A级角色_清商": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Zitherwoe"
+                ]
+            }
+        }
+    },
+    "A级角色_游麟": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Qilin"
+                ]
+            }
+        }
+    },
+    "A级角色_溢彩": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Brilliance"
+                ]
+            }
+        }
+    },
+    "A级角色_爆裂": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Blast"
+                ]
+            }
+        }
+    },
+    "A级角色_琉璃": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Vitrum"
+                ]
+            }
+        }
+    },
+    "A级角色_瑰丽": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Rozen"
+                ]
+            }
+        }
+    },
+    "A级角色_破晓": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Daybreak"
+                ]
+            }
+        }
+    },
+    "A级角色_红莲": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Lotus"
+                ]
+            }
+        }
+    },
+    "A级角色_耀炎": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Ardeo"
+                ]
+            }
+        }
+    },
+    "A级角色_蚀暗": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Eclipse"
+                ]
+            }
+        }
+    },
+    "A级角色_觅语": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Decryptor"
+                ]
+            }
+        }
+    },
+    "A级角色_重能": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Bastion"
+                ]
+            }
+        }
+    },
+    "A级角色_银牙": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Silverfang"
+                ]
+            }
+        }
+    },
+    "A级角色_零度": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Zero"
+                ]
+            }
+        }
+    },
+    "A级角色_风暴": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Storm"
+                ]
+            }
+        }
+    },
+    "A级角色_黎明": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Dawn"
+                ]
+            }
+        }
+    },
     "使用体力刷碎片": {
         "recognition": {
             "param": {
