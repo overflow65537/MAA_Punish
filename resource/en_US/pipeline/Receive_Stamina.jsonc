@@ -42,7 +42,13 @@
         "recognition": {
             "param": {
                 "expected": [
-                    "Sold Out"
+                    "Sold ?Out"
+                ],
+                "roi": [
+                    549,
+                    247,
+                    445,
+                    83
                 ]
             }
         }
