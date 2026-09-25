@@ -187,9 +187,18 @@
 
 生成的二进制及相关资源文件在 `install` 目录下。
 
-#### Android
+### Android(安卓)
 
 Android APK 使用 [MaaFwApp](https://github.com/Aliothmoon/MaaFwApp) 构建。仓库的 `install` 工作流会自动组装 MaaFramework Android 库、双 ABI Python agent 与本项目资源，并上传 APK artifact；标签构建还会把 APK 加入 GitHub Release。
+
+<details>
+<summary>安卓版使用教程参考</summary>
+
+  [视频教程可参考](<https://www.bilibili.com/video/BV1reLp6GEeF?>)
+  
+  ![安卓版教程.jpg](https://image.989464244.xyz/file/BQACAgUAAyEGAATrAAHMTwADEGqqVoBHRZQjPMkxxjiIRcf4dCmCAAJ1IAAC_uNQVeJCEKEic1NVPQQ.jpg)
+
+</details>
 
 本地构建需要 JDK 17、Android SDK 和 Python 3，详细命令、打包配方及 release 签名配置见 [`.github/android/README.md`](.github/android/README.md)。
 
