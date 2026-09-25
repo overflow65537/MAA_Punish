@@ -29,6 +29,15 @@
             }
         }
     },
+    "卸下队伍": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Dismiss"
+                ]
+            }
+        }
+    },
     "意外点击_删除编队_取消": {
         "recognition": {
             "param": {
