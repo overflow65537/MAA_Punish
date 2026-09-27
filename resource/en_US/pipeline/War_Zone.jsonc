@@ -32,7 +32,8 @@
         "recognition": {
             "param": {
                 "expected": [
-                    "Leave Battle"
+                    "Leave Battle",
+                    "Save Score"
                 ]
             }
         }
