@@ -399,6 +399,10 @@
     },
     "MAS联动处理-检查到维护公告_将发送假通知": {
         "enabled": false,
+        // AUTO-MAS 靠这个字段识别停服维护并跳过本次运行（不计失败、不重试），请勿删除
+        "attach": {
+            "auto_mas": "server_maintenance"
+        },
         //通过发送假通知让MAS以为所有任务已经完成,不然队列整个都会卡主()
         "recognition": {
             "type": "OCR",
