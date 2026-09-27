@@ -1,5 +1,9 @@
 {
     "事件识别_寒境曙光_yolo": {
+        "on_error": [
+            "尝试重新点击事件_寒境曙光_yolo"
+        ],
+        "timeout": 10000,
         "recognition": {
             "type": "NeuralNetworkDetect",
             "param": {
@@ -36,6 +40,41 @@
         "focus": {
             "Node.Recognition.Succeeded": "$focus.事件识别_寒境曙光_yolo"
         }
+    },
+    "尝试重新点击事件_寒境曙光_yolo": {
+        "recognition": {
+            "type": "NeuralNetworkDetect",
+            "param": {
+                "model": "RG4_Zone.onnx",
+                "expected": [
+                    2
+                ],
+                "threshold": [
+                    0.7
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "旧国遗产_寒境曙光_yolo",
+            "拓荒_寒境曙光_yolo",
+            "战马瑞恩_寒境曙光_yolo",
+            "冬日之影_寒境曙光_yolo",
+            "拦路的废墟_寒境曙光_yolo",
+            "建筑师的建议_寒境曙光_yolo",
+            "剩余资金_寒境曙光_yolo",
+            "前方有陷阱_寒境曙光_yolo",
+            "鲨鱼置物箱_寒境曙光_yolo",
+            "汇合_寒境曙光_yolo",
+            "难民团到访_寒境曙光_yolo",
+            "学者来访_寒境曙光_yolo",
+            "运力紧张_寒境曙光_yolo",
+            "商队来访_寒境曙光_yolo",
+            "废弃港口_寒境曙光_yolo",
+            "意外点击战斗地块_寒境曙光"
+        ]
     },
     "意外点击战斗地块_寒境曙光": {
         "recognition": {
