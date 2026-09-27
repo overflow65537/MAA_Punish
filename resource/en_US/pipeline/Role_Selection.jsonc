@@ -74,6 +74,15 @@
             }
         }
     },
+    "检查人物是否拥有": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Shard"
+                ]
+            }
+        }
+    },
     "清空红色位": {
         "recognition": {
             "param": {
