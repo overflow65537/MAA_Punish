@@ -37,7 +37,7 @@
             "cases": [
                 {
                     "name": "自动检测",
-                    "description": "<p>检测条件：</p><ul><li>观察到敌人血条。</li><li>左上角任务目标包含“消灭”“感染体”等字样。</li></ul>",
+                    "description": "$case.战斗模式.自动检测.description",
                     "pipeline_override": {
                         "战斗辅助": {
                             "next": [
@@ -69,7 +69,7 @@
                 },
                 {
                     "name": "持续战斗",
-                    "description": "<p>保持持续战斗，不会因为没有敌人而暂停；若关卡需要解密或跑图，请改用自动检测模式。</p>",
+                    "description": "$case.战斗模式.持续战斗.description",
                     "pipeline_override": {
                         "进入战斗": {
                             "enabled": false
