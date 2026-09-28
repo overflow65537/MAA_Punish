@@ -640,7 +640,8 @@
             "[JumpBack]跳过战斗对话",
             "[JumpBack]未选人_寒境曙光",
             "[JumpBack]作战开始",
-            "[JumpBack]载入中"
+            "[JumpBack]载入中",
+            "[JumpBack]通用处理-未下载弹窗-角色皮肤没下载-检测层"
         ]
     },
     "战斗中_货币不足": {
