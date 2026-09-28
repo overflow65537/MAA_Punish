@@ -42,6 +42,7 @@
             "count": 150
         },
         "action": {
+            //点击“进入战斗”
             "type": "Click",
             "param": {
                 "target": [
@@ -77,6 +78,7 @@
         "action": {
             "type": "Click",
             "param": {
+                //点击选择本次登录不再弹出
                 "target": [
                     698,
                     598,
