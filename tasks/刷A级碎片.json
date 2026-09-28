@@ -27,7 +27,7 @@
                 }
             ],
             "pipeline_override": {
-                "A级角色": {
+                "A级角色_自定义": {
                     "recognition": {
                         "param": {
                             "expected": "{角色名}"
@@ -37,6 +37,7 @@
             }
         },
         "选择A级角色": {
+            "label": "$option.选择A级角色.label",
             "type": "select",
             "cases": [
                 {
@@ -53,7 +54,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "破晓"
+                                    "all_of": [
+                                        "A级角色_破晓"
+                                    ]
                                 }
                             }
                         }
@@ -66,7 +69,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "徊闪"
+                                    "all_of": [
+                                        "A级角色_徊闪"
+                                    ]
                                 }
                             }
                         }
@@ -79,7 +84,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "耀炎"
+                                    "all_of": [
+                                        "A级角色_耀炎"
+                                    ]
                                 }
                             }
                         }
@@ -92,7 +99,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "觅语"
+                                    "all_of": [
+                                        "A级角色_觅语"
+                                    ]
                                 }
                             }
                         }
@@ -105,7 +114,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "擎驱"
+                                    "all_of": [
+                                        "A级角色_擎驱"
+                                    ]
                                 }
                             }
                         }
@@ -118,7 +129,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "清商"
+                                    "all_of": [
+                                        "A级角色_清商"
+                                    ]
                                 }
                             }
                         }
@@ -131,7 +144,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "琉璃"
+                                    "all_of": [
+                                        "A级角色_琉璃"
+                                    ]
                                 }
                             }
                         }
@@ -144,7 +159,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "XXI"
+                                    "all_of": [
+                                        "A级角色_XXI"
+                                    ]
                                 }
                             }
                         }
@@ -157,7 +174,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "明觉"
+                                    "all_of": [
+                                        "A级角色_明觉"
+                                    ]
                                 }
                             }
                         }
@@ -170,7 +189,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "游麟"
+                                    "all_of": [
+                                        "A级角色_游麟"
+                                    ]
                                 }
                             }
                         }
@@ -183,7 +204,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "瑰丽"
+                                    "all_of": [
+                                        "A级角色_瑰丽"
+                                    ]
                                 }
                             }
                         }
@@ -196,7 +219,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "弧光"
+                                    "all_of": [
+                                        "A级角色_弧光"
+                                    ]
                                 }
                             }
                         }
@@ -209,7 +234,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "银牙"
+                                    "all_of": [
+                                        "A级角色_银牙"
+                                    ]
                                 }
                             }
                         }
@@ -222,7 +249,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "溢彩"
+                                    "all_of": [
+                                        "A级角色_溢彩"
+                                    ]
                                 }
                             }
                         }
@@ -235,7 +264,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "重能"
+                                    "all_of": [
+                                        "A级角色_重能"
+                                    ]
                                 }
                             }
                         }
@@ -248,7 +279,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "零度"
+                                    "all_of": [
+                                        "A级角色_零度"
+                                    ]
                                 }
                             }
                         }
@@ -261,7 +294,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "流光"
+                                    "all_of": [
+                                        "A级角色_流光"
+                                    ]
                                 }
                             }
                         }
@@ -274,7 +309,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "夙星"
+                                    "all_of": [
+                                        "A级角色_夙星"
+                                    ]
                                 }
                             }
                         }
@@ -287,7 +324,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "夜刃"
+                                    "all_of": [
+                                        "A级角色_夜刃"
+                                    ]
                                 }
                             }
                         }
@@ -300,7 +339,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "爆裂"
+                                    "all_of": [
+                                        "A级角色_爆裂"
+                                    ]
                                 }
                             }
                         }
@@ -313,7 +354,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "异火"
+                                    "all_of": [
+                                        "A级角色_异火"
+                                    ]
                                 }
                             }
                         }
@@ -326,7 +369,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "风暴"
+                                    "all_of": [
+                                        "A级角色_风暴"
+                                    ]
                                 }
                             }
                         }
@@ -339,7 +384,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "蚀暗"
+                                    "all_of": [
+                                        "A级角色_蚀暗"
+                                    ]
                                 }
                             }
                         }
@@ -352,7 +399,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "黎明"
+                                    "all_of": [
+                                        "A级角色_黎明"
+                                    ]
                                 }
                             }
                         }
@@ -365,7 +414,9 @@
                         "A级角色": {
                             "recognition": {
                                 "param": {
-                                    "expected": "红莲"
+                                    "all_of": [
+                                        "A级角色_红莲"
+                                    ]
                                 }
                             }
                         }
@@ -375,6 +426,7 @@
             ]
         },
         "是否使用体力": {
+            "label": "$option.是否使用体力.label",
             "type": "switch",
             "cases": [
                 {

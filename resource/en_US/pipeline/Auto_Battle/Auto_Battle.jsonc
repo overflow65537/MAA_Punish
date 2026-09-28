@@ -9,5 +9,14 @@
                 ]
             }
         }
+    },
+    "未选人": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Leader not selected?"
+                ]
+            }
+        }
     }
 }

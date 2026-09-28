@@ -10,11 +10,55 @@
             }
         }
     },
-    "检查限购": {
+    "每周限购补给包_售罄定位_文字": {
         "recognition": {
             "param": {
                 "expected": [
-                    "Weekly Limited Pack",
+                    "Weekly Limited Pack"
+                ]
+            }
+        }
+    },
+    "每周限购补给包_已售罄_文字": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Sold ?Out"
+                ]
+            }
+        }
+    },
+    "每周限购补给包_文字": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Weekly Limited Pack"
+                ]
+            }
+        }
+    },
+    "每日血清补给包_售罄定位_文字": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Serum Daily Supply"
+                ]
+            }
+        }
+    },
+    "每日血清补给包_已售罄_文字": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Sold ?Out"
+                ]
+            }
+        }
+    },
+    "每日血清补给包_文字": {
+        "recognition": {
+            "param": {
+                "expected": [
                     "Serum Daily Supply"
                 ]
             }
@@ -34,15 +78,6 @@
             "param": {
                 "expected": [
                     "Supply"
-                ]
-            }
-        }
-    },
-    "补给包售罄": {
-        "recognition": {
-            "param": {
-                "expected": [
-                    "Sold Out"
                 ]
             }
         }

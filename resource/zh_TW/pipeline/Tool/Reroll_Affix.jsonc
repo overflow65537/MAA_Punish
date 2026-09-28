@@ -1,0 +1,136 @@
+{
+    "上半共鸣": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "更換共鳴",
+                    "更换共鸣",
+                    "^十$",
+                    "^10$"
+                ]
+            }
+        }
+    },
+    "下半共鸣": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "更換共鳴",
+                    "更换共鸣",
+                    "^十$",
+                    "^10$"
+                ]
+            }
+        }
+    },
+    "到达指定位置": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "共鳴",
+                    "共鸣"
+                ]
+            }
+        }
+    },
+    "打开意识界面": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "意識",
+                    "意识"
+                ]
+            }
+        }
+    },
+    "进入培养界面": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "培養",
+                    "培养"
+                ]
+            }
+        }
+    },
+    "进入意识界面": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "基礎屬性",
+                    "基础属性"
+                ]
+            }
+        }
+    },
+    "选择材料": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "選擇1種消耗",
+                    "选择1种消耗"
+                ]
+            }
+        }
+    },
+    "消耗意识或者材料": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "消耗材料"
+                ]
+            }
+        }
+    },
+    "开始共鸣文字": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "開始共鳴",
+                    "开始共鸣"
+                ]
+            }
+        }
+    },
+    "替换共鸣": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "替換共鳴",
+                    "替换共鸣",
+                    "確定",
+                    "确定"
+                ]
+            }
+        }
+    },
+    "上半结果检查_可信": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "繼續共鳴",
+                    "继续共鸣"
+                ]
+            }
+        }
+    },
+    "下半结果检查_可信": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "繼續共鳴",
+                    "继续共鸣"
+                ]
+            }
+        }
+    },
+    "新技能位置文字": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^新技能$"
+                ]
+            }
+        }
+    }
+}

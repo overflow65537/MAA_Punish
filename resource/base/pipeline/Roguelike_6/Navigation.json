@@ -16,7 +16,21 @@
             "type": "Click"
         }
     },
-    "选择模式_雾夜镇魂曲": {
+    "选择模式_雾夜镇魂曲_剧情模式": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    444,
+                    1280,
+                    276
+                ],
+                "expected": "雾夜异闻"
+            }
+        }
+    },
+    "选择模式_雾夜镇魂曲_等级模式": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -27,6 +41,31 @@
                     276
                 ],
                 "expected": "迷局突围"
+            }
+        }
+    },
+    "选择模式_雾夜镇魂曲_诡城交锋": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    444,
+                    1280,
+                    276
+                ],
+                "expected": "诡城交锋"
+            }
+        }
+    },
+    "选择模式_雾夜镇魂曲": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "选择模式_雾夜镇魂曲_剧情模式"
+                ],
+                "box_index": 0
             }
         },
         "action": {
@@ -63,7 +102,7 @@
             "选择角色"
         ]
     },
-    "选择角色完成": {
+    "选择角色完成_阿尔法": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -74,6 +113,45 @@
                     140
                 ],
                 "expected": "阿尔法"
+            }
+        }
+    },
+    "选择角色完成_维罗妮卡": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    901,
+                    46,
+                    352,
+                    140
+                ],
+                "expected": "维罗妮卡"
+            }
+        }
+    },
+    "选择角色完成_神威": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    901,
+                    46,
+                    352,
+                    140
+                ],
+                "expected": "神威"
+            }
+        }
+    },
+    "选择角色完成": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "选择角色完成_阿尔法"
+                ],
+                "box_index": 0
             }
         }
     },
@@ -119,7 +197,35 @@
             "[JumpBack]滑动难度右"
         ]
     },
-    "正确选择难度": {
+    "正确选择难度_难度1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    481,
+                    146,
+                    318,
+                    88
+                ],
+                "expected": "难度1"
+            }
+        }
+    },
+    "正确选择难度_难度2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    481,
+                    146,
+                    318,
+                    88
+                ],
+                "expected": "难度2"
+            }
+        }
+    },
+    "正确选择难度_难度3": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -131,12 +237,72 @@
                 ],
                 "expected": "难度3"
             }
+        }
+    },
+    "正确选择难度_难度4": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    481,
+                    146,
+                    318,
+                    88
+                ],
+                "expected": "难度4"
+            }
+        }
+    },
+    "正确选择难度": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "正确选择难度_难度1"
+                ],
+                "box_index": 0
+            }
         },
         "action": {
             "type": "Click"
         }
     },
-    "滑动难度左": {
+    "滑动难度左_难度1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    142,
+                    146,
+                    118,
+                    88
+                ],
+                "expected": [
+                    "难度3",
+                    "难度2",
+                    "难度1"
+                ]
+            }
+        }
+    },
+    "滑动难度左_难度2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    142,
+                    146,
+                    118,
+                    88
+                ],
+                "expected": [
+                    "难度3",
+                    "难度2"
+                ]
+            }
+        }
+    },
+    "滑动难度左_难度3": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -147,6 +313,17 @@
                     88
                 ],
                 "expected": "难度3"
+            }
+        }
+    },
+    "滑动难度左": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "滑动难度左_难度1"
+                ],
+                "box_index": 0
             }
         },
         "action": {
@@ -159,7 +336,21 @@
             }
         }
     },
-    "滑动难度右": {
+    "滑动难度右_难度2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1009,
+                    141,
+                    125,
+                    84
+                ],
+                "expected": "难度2"
+            }
+        }
+    },
+    "滑动难度右_难度3": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -173,6 +364,35 @@
                     "难度2",
                     "难度3"
                 ]
+            }
+        }
+    },
+    "滑动难度右_难度4": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1009,
+                    141,
+                    125,
+                    84
+                ],
+                "expected": [
+                    "难度2",
+                    "难度3",
+                    "难度4"
+                ]
+            }
+        }
+    },
+    "滑动难度右": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "滑动难度右_难度3"
+                ],
+                "box_index": 0
             }
         },
         "action": {

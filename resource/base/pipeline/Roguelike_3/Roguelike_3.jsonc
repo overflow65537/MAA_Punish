@@ -96,19 +96,12 @@
     },
     "招募能量4点": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    53,
-                    593,
-                    44,
-                    60
-                ],
-                "expected": [
-                    "4",
-                    "5"
-                ],
-                "only_rec": true
+                "all_of": [
+                    "招募能量_颜色",
+                    "招募能量4点_文字"
+                ]
             }
         },
         "action": {
@@ -125,16 +118,12 @@
     },
     "招募能量3点": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    53,
-                    593,
-                    44,
-                    60
-                ],
-                "expected": "3",
-                "only_rec": true
+                "all_of": [
+                    "招募能量_颜色",
+                    "招募能量3点_文字"
+                ]
             }
         },
         "action": {
@@ -158,6 +147,55 @@
                         "enabled": true
                     }
                 }
+            }
+        }
+    },
+    "招募能量_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    3,
+                    543,
+                    144,
+                    160
+                ],
+                "method": 40,
+                "lower": [
+                    103,
+                    155,
+                    140
+                ],
+                "upper": [
+                    103,
+                    170,
+                    150
+                ],
+                "connected": true,
+                "count": 50
+            }
+        }
+    },
+    "招募能量4点_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "招募能量_颜色",
+                "expected": [
+                    "4",
+                    "5"
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "招募能量3点_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "招募能量_颜色",
+                "expected": "3",
+                "only_rec": true
             }
         }
     },
@@ -1423,7 +1461,7 @@
         },
         "post_delay": 1000
     },
-    "选择难度_矩阵循生": {
+    "选择难度_矩阵循生_普通模式": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -1434,6 +1472,48 @@
                     128
                 ],
                 "expected": "普通"
+            }
+        }
+    },
+    "选择难度_矩阵循生_困难模式": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    141,
+                    261,
+                    995,
+                    128
+                ],
+                "expected": "困难"
+            }
+        }
+    },
+    "选择难度_矩阵循生_噩梦模式": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    141,
+                    261,
+                    995,
+                    128
+                ],
+                "expected": [
+                    "梦",
+                    "漏洞爆发"
+                ]
+            }
+        }
+    },
+    "选择难度_矩阵循生": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "选择难度_矩阵循生_普通模式"
+                ],
+                "box_index": 0
             }
         },
         "action": {

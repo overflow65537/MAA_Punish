@@ -11,8 +11,9 @@
 |------|------|
 | **`expected`** | OCR ノードの期待文字列。ゲーム UI の日本語／繁体字／簡体字表記に合わせて上書きする |
 | **`roi`** | テキストが長く、簡体 `base` の領域では切れる場合のみ調整する |
+| **`action.param.package`** | Android 日服クライアント用。`Start_up.jsonc` の `打开应用`、`Stop_App.jsonc` の `停止`、`General.jsonc` の `重启游戏` で `com.herogame.gplay.punishing.grayraven.jp` を指定（グローバル「切换服务器」の日服 case は廃止） |
 
-それ以外（`recognition.type`、`action`、`next`、`focus` など）は **`base` に任せ、ここでは触らない** ことを推奨します。  
+それ以外（`recognition.type`、`action` の種類、`next`、`focus` など）は **`base` に任せ、差分だけ書く** ことを推奨します。`重启游戏` は日服向けに `next: 进入游戏` のみ上書きしています。  
 UI 文言の多言語表示は `assets/i18n/ja_jp.json` の `$focus.*` キーで管理されています。
 
 ## ローグライクタスクと `assets/tasks`
