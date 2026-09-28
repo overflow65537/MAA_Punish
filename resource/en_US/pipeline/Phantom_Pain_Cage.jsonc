@@ -64,6 +64,15 @@
             }
         }
     },
+    "查看Boss_火队": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Nozzle"
+                ]
+            }
+        }
+    },
     "查看Boss_冰队": {
         "recognition": {
             "param": {
