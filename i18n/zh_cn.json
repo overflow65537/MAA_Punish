@@ -63,8 +63,6 @@
     "option.输入键码.description": "点击后按下对应按键进行捕获，保存为可读快捷键（如 J、Ctrl+A）",
     "option.同时选择多名角色.description": "（已隐藏）日常最多1名进攻，可加装甲/支援；肉鸽除外",
     "task.进入游戏": "进入游戏",
-    "option.MAS通知处理.label": "是否启用了MAS",
-    "option.MAS通知处理.description": "若您不清楚MAS是什么的话请尽量不要启用本功能",
     "task.兑换码": "兑换码",
     "task.兑换码.description": "<p>自动使用兑换码。</p><p>不建议使用速通模式</p>",
     "task.指挥局": "指挥局",

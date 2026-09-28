@@ -63,8 +63,6 @@
     "option.输入键码.description": "Click, then press the key to capture it; it is saved as a readable shortcut (e.g. J, Ctrl+A).",
     "option.同时选择多名角色.description": "(Hidden) Daily: 1 attacker plus tank/support. Roguelike ignores this.",
     "task.进入游戏": "Start Game",
-    "option.MAS通知处理.label": "MAS enabled",
-    "option.MAS通知处理.description": "If you don't know what MAS is, please leave this off.",
     "task.兑换码": "Redeem Codes",
     "task.兑换码.description": "<p>Automatically redeems codes.</p><p>Speedrun mode is not recommended.</p>",
     "task.指挥局": "Command Bureau",

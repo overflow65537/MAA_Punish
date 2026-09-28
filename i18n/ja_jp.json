@@ -310,8 +310,6 @@
     "input.选择空队_战区.编队名.pattern_msg": "必要入力編成名",
     "input.选择雷队_囚笼.编队名.pattern_msg": "必要入力編成名",
     "input.选择雷队_战区.编队名.pattern_msg": "必要入力編成名",
-    "option.MAS通知处理.description": "内容が分からない場合はMASはい什么的话本機能は有効にしないでください",
-    "option.MAS通知处理.label": "MAS を有効にするか",
     "option.ScreenCaplimit.label": "入力スクリーンショットクールダウン（ミリ秒）",
     "option.切换服务器.description": "切换サーバー",
     "option.切换服务器.label": "切换サーバー",
