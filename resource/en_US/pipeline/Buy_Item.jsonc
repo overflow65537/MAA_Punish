@@ -35,6 +35,22 @@
                     "Inver-Shard"
                 ]
             }
+        },
+        "action": {
+            "param": {
+                "target": [
+                    726,
+                    646,
+                    222,
+                    42
+                ],
+                "target_offset": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
         }
     }
 }
