@@ -111,7 +111,7 @@
     },
     "选择每日任务": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
                     0,
@@ -119,8 +119,7 @@
                     308,
                     200
                 ],
-                "template": "任务/每日_32_293_208_40__0_243_308_140.png",
-                "threshold": 0.8
+                "expected": "每日"
             }
         },
         "action": {
