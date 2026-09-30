@@ -12,3 +12,4 @@ List of contributors in order of first contribution.
 - [akuraito](https://github.com/akuraito)
 - [fei0202](https://github.com/fei0202)
 - [Ahrisi](https://github.com/Ahrisi)
+- michaelkhoa06
