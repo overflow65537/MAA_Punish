@@ -14,24 +14,10 @@
                 "expected": "09\\s*黑星坠落"
             }
         },
-        //"action": {
-        //    "type": "Swipe",
-        //    "param": {
-        //        "begin": [
-        //            1200,
-        //            300
-        //        ],
-        //        "end": [
-        //            30,
-        //            300
-        //        ],
-        //        "duration": 100
-        //    }
-        //},
         "next": [
             "剧情通关_09",
             "[JumpBack]切换隐藏剧情",
-            "选择最新章节_09"
+            "[JumpBack]选择最新章节_09"
         ]
     },
     "剧情通关_09": {
@@ -43,7 +29,10 @@
                     "剧情通关_09_隐藏剧情文字"
                 ]
             }
-        }
+        },
+        "next": [
+            "返回"
+        ]
     },
     "剧情通关_09_隐藏剧情文字": {
         "recognition": {
@@ -93,6 +82,30 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "[JumpBack]自动闪避后攻击",
+            "[JumpBack]战斗重启1",
+            "[JumpBack]播放剧情",
+            "[JumpBack]主线跳过",
+            "[JumpBack]跳过剧情",
+            "[JumpBack]确认跳过",
+            "[JumpBack]跳过战斗对话_主线",
+            "[JumpBack]进入战斗",
+            "[JumpBack]战斗中",
+            "[JumpBack]点击对话",
+            "[JumpBack]点击空白处关闭_速通",
+            "[JumpBack]载入中",
+            "[JumpBack]通用处理-未下载弹窗-角色皮肤没下载-检测层",
+            "[JumpBack]未选人",
+            "[JumpBack]使用体力",
+            "不使用体力",
+            "[JumpBack]点击作战开始_速通",
+            "[JumpBack]打开速通开关",
+            "[JumpBack]战斗准备_速通",
+            "[JumpBack]点击下一关_剧情",
+            "[JumpBack]点击下一关",
+            "退出战斗"
+        ]
     }
 }

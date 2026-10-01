@@ -1,14 +1,40 @@
-{
-    "task": [
-        {
-            "name": "自动主线",
-            "group": [
-                "tools"
-            ],
-            "entry": "自动主线",
-            "description": "$task.自动主线.description",
-            "label": "$task.自动主线"
-        }
-    ],
-    "option": {}
-}
+{
+    "task": [
+        {
+            "name": "自动主线",
+            "group": [
+                "tools"
+            ],
+            "entry": "自动主线",
+            "option": [
+                "是否使用体力"
+            ],
+            "description": "$task.自动主线.description",
+            "label": "$task.自动主线"
+        }
+    ],
+    "option": {
+        "是否使用体力": {
+            "label": "$option.是否使用体力.label",
+            "type": "switch",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "不使用体力": {
+                            "enabled": false
+                        }
+                    }
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "使用体力": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
