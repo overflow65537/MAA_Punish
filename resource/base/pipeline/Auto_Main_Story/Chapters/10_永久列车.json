@@ -1,5 +1,7 @@
 ﻿{
     "10_永久列车": {
+        "repeat": 2,
+        "repeat_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -11,6 +13,98 @@
                 ],
                 "expected": "10\\s*永久列车"
             }
+        },
+        "next": [
+            "剧情通关_10",
+            "[JumpBack]切换隐藏剧情",
+            "[JumpBack]选择最新章节_10"
+        ]
+    },
+    "剧情通关_10": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "切换隐藏剧情_100%",
+                    "剧情通关_10_隐藏剧情文字"
+                ]
+            }
+        },
+        "next": [
+            "返回"
+        ]
+    },
+    "剧情通关_10_隐藏剧情文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "切换隐藏剧情_100%",
+                "roi_offset": [
+                    85,
+                    -3,
+                    102,
+                    6
+                ],
+                "expected": [
+                    "隐藏剧情"
+                ],
+                "only_rec": true
+            }
         }
+    },
+    "选择最新章节_10": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    512,
+                    223,
+                    57,
+                    29
+                ],
+                "expected": [
+                    "10-12",
+                    "10-11",
+                    "10-10",
+                    "10-9",
+                    "10-8",
+                    "10-7",
+                    "10-6",
+                    "10-5",
+                    "10-4",
+                    "10-3",
+                    "10-2",
+                    "10-1"
+                ],
+                "order_by": "expected"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]自动闪避后攻击",
+            "[JumpBack]战斗重启1",
+            "[JumpBack]播放剧情",
+            "[JumpBack]主线跳过",
+            "[JumpBack]跳过剧情",
+            "[JumpBack]确认跳过",
+            "[JumpBack]跳过战斗对话_主线",
+            "[JumpBack]进入战斗",
+            "[JumpBack]战斗中",
+            "[JumpBack]点击对话",
+            "[JumpBack]点击空白处关闭_速通",
+            "[JumpBack]载入中",
+            "[JumpBack]通用处理-未下载弹窗-角色皮肤没下载-检测层",
+            "[JumpBack]未选人",
+            "[JumpBack]使用体力",
+            "不使用体力",
+            "[JumpBack]点击作战开始_速通",
+            "[JumpBack]打开速通开关",
+            "[JumpBack]战斗准备_速通",
+            "[JumpBack]点击下一关_剧情",
+            "[JumpBack]点击下一关",
+            "退出战斗"
+        ]
     }
 }
