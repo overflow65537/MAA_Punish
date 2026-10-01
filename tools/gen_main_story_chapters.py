@@ -66,7 +66,10 @@ CONFIG: list[tuple[str, int, list[tuple[str, str, bool]] | None]] = [
     ("39_冬冕的凋亡", 24, None),
     ("40_更美好的明天", 23, None),
     ("ER15_烈日将烬", 25, None),
+    ("ER16_孑念空行", 20, None),
     ("41_长路归航", 28, None),
+    ("42_歧海循光", 32, None),
+    # 43_远信回响: hidden-story chapter — hand-maintained (see Chapters/43_远信回响.json)
 ]
 
 

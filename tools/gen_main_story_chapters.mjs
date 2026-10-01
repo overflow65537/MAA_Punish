@@ -49,7 +49,10 @@ const CONFIG = [
   ["39_冬冕的凋亡", 24, null],
   ["40_更美好的明天", 23, null],
   ["ER15_烈日将烬", 25, null],
+  ["ER16_孑念空行", 20, null],
   ["41_长路归航", 28, null],
+  ["42_歧海循光", 32, null],
+  // 43_远信回响: hidden-story chapter — hand-maintained (see Chapters/43_远信回响.json)
 ];
 
 function parseStem(stem) {
@@ -157,7 +160,10 @@ function buildChapter(stem, total, extras) {
   return doc;
 }
 
+const onlyStem = process.argv.find((a) => a.startsWith("--only="))?.slice(7);
+
 for (const [stem, total, extras] of CONFIG) {
+  if (onlyStem && stem !== onlyStem) continue;
   const file = path.join(OUT, `${stem}.json`);
   fs.writeFileSync(file, JSON.stringify(buildChapter(stem, total, extras), null, 4) + "\n", "utf8");
   console.log("wrote", stem);
