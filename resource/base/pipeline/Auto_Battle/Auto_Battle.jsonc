@@ -467,7 +467,7 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 0,
+        "post_delay": 1000,
         "rate_limit": 0
     },
     "战斗中": {
