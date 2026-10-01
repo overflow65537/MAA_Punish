@@ -88,7 +88,16 @@
         }
     },
     "主线_选关后战斗": {
-        "post_delay": 0,
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000,
+            "target": [
+                675,
+                0,
+                605,
+                720
+            ]
+        },
         "pre_delay": 0,
         "next": [
             "[JumpBack]自动闪避后攻击",

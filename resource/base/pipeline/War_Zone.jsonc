@@ -743,7 +743,6 @@
         ]
     },
     "速通滑动": {
-        "enabled": false,
         "action": {
             "type": "Swipe",
             "param": {
