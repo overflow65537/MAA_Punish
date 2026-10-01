@@ -1,0 +1,72 @@
+{
+    "切换隐藏剧情": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "切换隐藏剧情_100%",
+                    "切换隐藏剧情_普通剧情文字"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "点击隐藏章节"
+        ]
+    },
+    "切换隐藏剧情_100%": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    877,
+                    0,
+                    215,
+                    94
+                ],
+                "expected": [
+                    "100%"
+                ]
+            }
+        }
+    },
+    "切换隐藏剧情_普通剧情文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "切换隐藏剧情_100%",
+                "roi_offset": [
+                    85,
+                    -3,
+                    102,
+                    6
+                ],
+                "expected": [
+                    "普通剧情"
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "点击隐藏章节": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    933,
+                    0,
+                    328,
+                    133
+                ],
+                "expected": [
+                    "隐藏剧情"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "task": [
+        {
+            "name": "自动主线",
+            "group": [
+                "tools"
+            ],
+            "entry": "自动主线",
+            "description": "$task.自动主线.description",
+            "label": "$task.自动主线"
+        }
+    ],
+    "option": {}
+}

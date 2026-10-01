@@ -395,6 +395,8 @@
     "case.选择目标词缀.生命+75、会心+15": "HP +75, CRIT +15",
     "task.链合回路": "Circuit Connect",
     "task.链合回路.description": "<p>Start this after entering the Circuit Connect game screen; it automatically presses Restart.</p>",
+    "task.自动主线": "Auto Main Story",
+    "task.自动主线.description": "<p>Automatically progresses through the main story, clearing chapters including battles and story segments.</p><p>Start this task from the main menu. Chapters must already be unlocked, and your team should be strong enough for the current stage.</p>",
     "task.战斗辅助": "Combat Assist",
     "task.战斗辅助.description": "<p><b>Combat mode</b></p><ul><li><b>Auto-detect</b>: switches between continuous combat and idling based on the current battle.</li><li><b>Continuous combat</b>: stays in continuous combat and does not pause when no enemies are present.</li></ul><p><b>Recommendations</b></p><ul><li>If the stage involves puzzles or exploration while your character is still in combat, use <span style=\"color:Tomato\">Auto-detect</span>.</li><li>If the stage has no story or puzzles and fighting starts as soon as you enter the map, but your character isn't attacking, use <span style=\"color:Tomato\">Continuous combat</span>.</li></ul><p><b>Speedrun mode</b></p><ul><li><b>On</b>: automatically selects the next chapter, tries to turn on speedrun mode, then enters the battle or story.</li><li><b>Off</b>: does not select the next chapter.</li></ul><p><b>Skip story</b></p><ul><li><b>Yes</b>: skips story automatically.</li><li><b>No</b>: does not skip story.</li></ul>",
     "option.战斗模式.description": "Fight when enemies appear, or always fight",

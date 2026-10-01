@@ -300,6 +300,10 @@
                     "enabled": false
                 },
                 {
+                    "name": "自动主线",
+                    "enabled": false
+                },
+                {
                     "name": "Screencap",
                     "enabled": false
                 }
@@ -331,6 +335,7 @@
         "./tasks/洗词缀.json",
         "./tasks/链合回路.json",
         "./tasks/战斗辅助.json",
+        "./tasks/自动主线.json",
         "./tasks/宣叙妄响.json",
         "./tasks/厄愿潮声.json",
         "./tasks/矩阵循生.json",
