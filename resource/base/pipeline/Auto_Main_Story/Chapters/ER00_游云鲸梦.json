@@ -1,15 +1,5 @@
 {
     "ER00_游云鲸梦": {
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000,
-            "target": [
-                0,
-                0,
-                1280,
-                720
-            ]
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -34,6 +24,16 @@
                     200
                 ]
             }
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000,
+            "target": [
+                0,
+                0,
+                1280,
+                720
+            ]
         },
         "next": [
             "[JumpBack]选择最新关卡_ER00_10",
