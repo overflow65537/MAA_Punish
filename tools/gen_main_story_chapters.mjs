@@ -10,6 +10,7 @@ const CLICK_OFFSET = [30, 60, -30, 0];
 const SWIPE = { begin: [900, 200], end: [200, 200] };
 const POST_FREEZE = { time: 500, timeout: 2000, target: [0, 0, 1280, 720] };
 const CHAPTER_ROI = [33, 93, 500, 120];
+const LEVEL_SELECT_ROI = [245, 0, 1035, 720];
 
 const CONFIG = [
   ["ER02_枯朽为灯", 24, null],
@@ -107,7 +108,7 @@ function buildChapter(stem, total, extras) {
     [pickMain]: {
       recognition: {
         type: "OCR",
-        param: { expected: listing, order_by: "Expected" },
+        param: { roi: LEVEL_SELECT_ROI, expected: listing, order_by: "Expected" },
       },
       action: { type: "Click", param: { target_offset: CLICK_OFFSET } },
       next: ["主线_选关后战斗"],
@@ -119,24 +120,36 @@ function buildChapter(stem, total, extras) {
       const nodeName = `选择最新关卡_${prefix}${nodeSuf}`;
       doc[nodeName] = {
         max_hit: 1,
-        recognition: { type: "OCR", param: { expected: [ocr] } },
+        recognition: {
+          type: "OCR",
+          param: { roi: LEVEL_SELECT_ROI, expected: [ocr] },
+        },
         action: { type: "Click", param: { target_offset: CLICK_OFFSET } },
         next: story ? STORY_NEXT : ["主线_选关后战斗"],
       };
     }
     doc[`剧情通关_${clearSuffix}`] = {
-      recognition: { type: "OCR", param: { expected: [finaleForClear] } },
+      recognition: {
+        type: "OCR",
+        param: { roi: LEVEL_SELECT_ROI, expected: [finaleForClear] },
+      },
       next: ["返回"],
     };
   } else {
     doc[`选择最新关卡_${prefix}_${total}`] = {
       max_hit: 1,
-      recognition: { type: "OCR", param: { expected: [finalLabel] } },
+      recognition: {
+        type: "OCR",
+        param: { roi: LEVEL_SELECT_ROI, expected: [finalLabel] },
+      },
       action: { type: "Click", param: { target_offset: CLICK_OFFSET } },
       next: STORY_NEXT,
     };
     doc[`剧情通关_${clearSuffix}`] = {
-      recognition: { type: "OCR", param: { expected: [finalLabel] } },
+      recognition: {
+        type: "OCR",
+        param: { roi: LEVEL_SELECT_ROI, expected: [finalLabel] },
+      },
       next: ["返回"],
     };
   }

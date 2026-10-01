@@ -45,6 +45,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
                 "expected": [
                     "34-17",
                     "34-16",
@@ -87,6 +93,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
                 "expected": [
                     "34-18"
                 ]
@@ -113,6 +125,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
                 "expected": [
                     "34-18"
                 ]

@@ -59,7 +59,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": "切换隐藏剧情_100%",
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
                 "roi_offset": [
                     85,
                     -3,
@@ -94,7 +99,13 @@
                     "14-2",
                     "14-1"
                 ],
-                "order_by": "Expected"
+                "order_by": "Expected",
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ]
             }
         },
         "action": {

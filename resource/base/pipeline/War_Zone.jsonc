@@ -743,16 +743,17 @@
         ]
     },
     "速通滑动": {
+        "enabled": false,
         "action": {
             "type": "Swipe",
             "param": {
                 "begin": [
-                    863,
-                    259
+                    900,
+                    200
                 ],
                 "end": [
-                    307,
-                    260
+                    200,
+                    200
                 ],
                 "duration": 500
             }

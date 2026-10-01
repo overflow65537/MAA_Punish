@@ -23,6 +23,7 @@ POST_FREEZE = {
     "target": [0, 0, 1280, 720],
 }
 CHAPTER_ROI = [33, 93, 500, 120]
+LEVEL_SELECT_ROI = [245, 0, 1035, 720]
 
 # (file_stem_without_json, total_levels, extra_specials)
 # extra_specials: list of (node_suffix, ocr_label, use_story_next)
@@ -135,6 +136,7 @@ def build_chapter(
             "recognition": {
                 "type": "OCR",
                 "param": {
+                    "roi": LEVEL_SELECT_ROI,
                     "expected": listing,
                     "order_by": "Expected",
                 },
@@ -154,7 +156,10 @@ def build_chapter(
                 "max_hit": 1,
                 "recognition": {
                     "type": "OCR",
-                    "param": {"expected": [ocr]},
+                    "param": {
+                        "roi": LEVEL_SELECT_ROI,
+                        "expected": [ocr],
+                    },
                 },
                 "action": {
                     "type": "Click",
@@ -166,7 +171,10 @@ def build_chapter(
         doc[clear_key] = {
             "recognition": {
                 "type": "OCR",
-                "param": {"expected": [finale_for_clear]},
+                "param": {
+                    "roi": LEVEL_SELECT_ROI,
+                    "expected": [finale_for_clear],
+                },
             },
             "next": ["返回"],
         }
@@ -176,7 +184,10 @@ def build_chapter(
             "max_hit": 1,
             "recognition": {
                 "type": "OCR",
-                "param": {"expected": [final_label]},
+                "param": {
+                    "roi": LEVEL_SELECT_ROI,
+                    "expected": [final_label],
+                },
             },
             "action": {
                 "type": "Click",
@@ -187,7 +198,10 @@ def build_chapter(
         doc[f"剧情通关_{clear_suffix}"] = {
             "recognition": {
                 "type": "OCR",
-                "param": {"expected": [final_label]},
+                "param": {
+                    "roi": LEVEL_SELECT_ROI,
+                    "expected": [final_label],
+                },
             },
             "next": ["返回"],
         }

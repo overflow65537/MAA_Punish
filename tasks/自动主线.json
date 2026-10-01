@@ -10,6 +10,19 @@
                 "是否使用体力",
                 "作战编队_自动主线"
             ],
+            "pipeline_override": {
+                "速通滑动": {
+                    "enabled": true
+                },
+                "跳过剧情": {
+                    "post_wait_freezes": 500,
+                    "next": [
+                        "确认跳过",
+                        "跳过剧情",
+                        "速通滑动"
+                    ]
+                }
+            },
             "description": "$task.自动主线.description",
             "label": "$task.自动主线"
         }
