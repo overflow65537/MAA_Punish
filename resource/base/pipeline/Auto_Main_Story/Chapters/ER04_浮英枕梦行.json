@@ -34,6 +34,91 @@
                 1280,
                 720
             ]
-        }
+        },
+        "next": [
+            "[JumpBack]选择最新关卡_ER04_17",
+            "剧情通关_ER04",
+            "[JumpBack]选择最新关卡_ER04"
+        ]
+    },
+    "选择最新关卡_ER04": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "ER04-16",
+                    "ER04-15",
+                    "ER04-14",
+                    "ER04-13",
+                    "ER04-12",
+                    "ER04-11",
+                    "ER04-10",
+                    "ER04-9",
+                    "ER04-8",
+                    "ER04-7",
+                    "ER04-6",
+                    "ER04-5",
+                    "ER04-4",
+                    "ER04-3",
+                    "ER04-2",
+                    "ER04-1"
+                ],
+                "order_by": "Expected"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_ER04_17": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "ER04-17"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]播放剧情",
+            "[JumpBack]主线跳过",
+            "跳过剧情"
+        ]
+    },
+    "剧情通关_ER04": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "ER04-17"
+                ]
+            }
+        },
+        "next": [
+            "返回"
+        ]
     }
 }

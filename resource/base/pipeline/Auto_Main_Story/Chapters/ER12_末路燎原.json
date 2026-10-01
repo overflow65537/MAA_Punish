@@ -34,6 +34,100 @@
                 1280,
                 720
             ]
-        }
+        },
+        "next": [
+            "[JumpBack]选择最新关卡_ER12_26",
+            "剧情通关_ER12",
+            "[JumpBack]选择最新关卡_ER12"
+        ]
+    },
+    "选择最新关卡_ER12": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "ER12-25",
+                    "ER12-24",
+                    "ER12-23",
+                    "ER12-22",
+                    "ER12-21",
+                    "ER12-20",
+                    "ER12-19",
+                    "ER12-18",
+                    "ER12-17",
+                    "ER12-16",
+                    "ER12-15",
+                    "ER12-14",
+                    "ER12-13",
+                    "ER12-12",
+                    "ER12-11",
+                    "ER12-10",
+                    "ER12-9",
+                    "ER12-8",
+                    "ER12-7",
+                    "ER12-6",
+                    "ER12-5",
+                    "ER12-4",
+                    "ER12-3",
+                    "ER12-2",
+                    "ER12-1"
+                ],
+                "order_by": "Expected"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_ER12_26": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "ER12-26"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]播放剧情",
+            "[JumpBack]主线跳过",
+            "跳过剧情"
+        ]
+    },
+    "剧情通关_ER12": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "ER12-26"
+                ]
+            }
+        },
+        "next": [
+            "返回"
+        ]
     }
 }

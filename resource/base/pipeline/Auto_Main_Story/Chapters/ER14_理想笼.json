@@ -34,6 +34,88 @@
                 1280,
                 720
             ]
-        }
+        },
+        "next": [
+            "[JumpBack]选择最新关卡_ER14_14",
+            "剧情通关_ER14",
+            "[JumpBack]选择最新关卡_ER14"
+        ]
+    },
+    "选择最新关卡_ER14": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "ER14-13",
+                    "ER14-12",
+                    "ER14-11",
+                    "ER14-10",
+                    "ER14-9",
+                    "ER14-8",
+                    "ER14-7",
+                    "ER14-6",
+                    "ER14-5",
+                    "ER14-4",
+                    "ER14-3",
+                    "ER14-2",
+                    "ER14-1"
+                ],
+                "order_by": "Expected"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_ER14_14": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "ER14-14"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]播放剧情",
+            "[JumpBack]主线跳过",
+            "跳过剧情"
+        ]
+    },
+    "剧情通关_ER14": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "ER14-14"
+                ]
+            }
+        },
+        "next": [
+            "返回"
+        ]
     }
 }

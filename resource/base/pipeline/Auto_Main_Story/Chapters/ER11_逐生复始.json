@@ -34,6 +34,90 @@
                 1280,
                 720
             ]
-        }
+        },
+        "next": [
+            "[JumpBack]选择最新关卡_ER11_16",
+            "剧情通关_ER11",
+            "[JumpBack]选择最新关卡_ER11"
+        ]
+    },
+    "选择最新关卡_ER11": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "ER11-15",
+                    "ER11-14",
+                    "ER11-13",
+                    "ER11-12",
+                    "ER11-11",
+                    "ER11-10",
+                    "ER11-9",
+                    "ER11-8",
+                    "ER11-7",
+                    "ER11-6",
+                    "ER11-5",
+                    "ER11-4",
+                    "ER11-3",
+                    "ER11-2",
+                    "ER11-1"
+                ],
+                "order_by": "Expected"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_ER11_16": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "ER11-16"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]播放剧情",
+            "[JumpBack]主线跳过",
+            "跳过剧情"
+        ]
+    },
+    "剧情通关_ER11": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "ER11-16"
+                ]
+            }
+        },
+        "next": [
+            "返回"
+        ]
     }
 }

@@ -34,6 +34,95 @@
                 1280,
                 720
             ]
-        }
+        },
+        "next": [
+            "[JumpBack]选择最新关卡_ER10_21",
+            "剧情通关_ER10",
+            "[JumpBack]选择最新关卡_ER10"
+        ]
+    },
+    "选择最新关卡_ER10": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "ER10-20",
+                    "ER10-19",
+                    "ER10-18",
+                    "ER10-17",
+                    "ER10-16",
+                    "ER10-15",
+                    "ER10-14",
+                    "ER10-13",
+                    "ER10-12",
+                    "ER10-11",
+                    "ER10-10",
+                    "ER10-9",
+                    "ER10-8",
+                    "ER10-7",
+                    "ER10-6",
+                    "ER10-5",
+                    "ER10-4",
+                    "ER10-3",
+                    "ER10-2",
+                    "ER10-1"
+                ],
+                "order_by": "Expected"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_ER10_21": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "ER10-21"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]播放剧情",
+            "[JumpBack]主线跳过",
+            "跳过剧情"
+        ]
+    },
+    "剧情通关_ER10": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "ER10-21"
+                ]
+            }
+        },
+        "next": [
+            "返回"
+        ]
     }
 }
