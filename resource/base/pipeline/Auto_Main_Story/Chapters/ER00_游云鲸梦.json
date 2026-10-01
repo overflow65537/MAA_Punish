@@ -11,6 +11,85 @@
                 ],
                 "expected": "ER00\\s*游云鲸梦"
             }
-        }
+        },
+        "next": [
+            "[JumpBack]选择最新章节_ER00_10",
+            "剧情通关_ER00",
+            "[JumpBack]ER00_第十关返回",
+            "[JumpBack]选择最新章节_ER00"
+        ]
+    },
+    "选择最新章节_ER00": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    512,
+                    223,
+                    57,
+                    29
+                ],
+                "expected": [
+                    "ER00-9",
+                    "ER00-8",
+                    "ER00-7",
+                    "ER00-6",
+                    "ER00-5",
+                    "ER00-4",
+                    "ER00-3",
+                    "ER00-2",
+                    "ER00-1"
+                ],
+                "order_by": "expected"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新章节_ER00_10": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    512,
+                    223,
+                    57,
+                    29
+                ],
+                "expected": [
+                    "ER00-10"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "剧情通关_ER00": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    512,
+                    223,
+                    57,
+                    29
+                ],
+                "expected": [
+                    "ER00-10"
+                ]
+            }
+        },
+        "next": [
+            "返回"
+        ]
     }
 }
