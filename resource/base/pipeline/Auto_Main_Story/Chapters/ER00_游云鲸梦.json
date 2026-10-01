@@ -1,5 +1,15 @@
 {
     "ER00_游云鲸梦": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000,
+            "target": [
+                0,
+                0,
+                1280,
+                720
+            ]
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -9,7 +19,7 @@
                     500,
                     120
                 ],
-                "expected": "ER00\\s*游云鲸梦"
+                "expected": "游云鲸梦"
             }
         },
         "action": {
@@ -26,21 +36,15 @@
             }
         },
         "next": [
-            "[JumpBack]选择最新章节_ER00_10",
+            "[JumpBack]选择最新关卡_ER00_10",
             "[JumpBack]剧情通关_ER00",
-            "[JumpBack]选择最新章节_ER00"
+            "[JumpBack]选择最新关卡_ER00"
         ]
     },
-    "选择最新章节_ER00": {
+    "选择最新关卡_ER00": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    512,
-                    223,
-                    57,
-                    29
-                ],
                 "expected": [
                     "ER00-9",
                     "ER00-8",
@@ -56,13 +60,21 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
         },
         "next": [
             "主线_选关后战斗"
         ]
     },
-    "选择最新章节_ER00_10": {
+    "选择最新关卡_ER00_10": {
         "max_hit": 1,
         "recognition": {
             "type": "OCR",
@@ -79,7 +91,15 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
         },
         "next": [
             "主线_选关后战斗"

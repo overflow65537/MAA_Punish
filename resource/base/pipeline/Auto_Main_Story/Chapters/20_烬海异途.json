@@ -1,5 +1,15 @@
 {
     "20_烬海异途": {
+        "pre_wait_freezes": {
+            "time": 500,
+            "timeout": 2000,
+            "target": [
+                0,
+                0,
+                1280,
+                720
+            ]
+        },
         "recognition": {
             "type": "OCR",
             "param": {

@@ -88,13 +88,11 @@
             "[JumpBack]通用处理-未下载弹窗-角色皮肤没下载-检测层",
             "[JumpBack]未选人",
             "[JumpBack]使用体力",
-            "[JumpBack]不使用体力",
+            "不使用体力",
             "[JumpBack]点击作战开始_速通",
             "[JumpBack]打开速通开关",
             "[JumpBack]战斗准备_速通",
-            "[JumpBack]点击下一关_剧情",
-            "[JumpBack]点击下一关",
-            "[JumpBack]退出战斗"
+            "退出战斗"
         ]
     }
 }

@@ -1,5 +1,15 @@
 {
     "09_黑星坠落": {
+        "pre_wait_freezes": {
+            "time": 500,
+            "timeout": 2000,
+            "target": [
+                0,
+                0,
+                1280,
+                720
+            ]
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -28,7 +38,7 @@
         "next": [
             "剧情通关_09",
             "[JumpBack]切换隐藏剧情",
-            "[JumpBack]选择最新章节_09"
+            "[JumpBack]选择最新关卡_09"
         ]
     },
     "剧情通关_09": {
@@ -63,16 +73,10 @@
             }
         }
     },
-    "选择最新章节_09": {
+    "选择最新关卡_09": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    512,
-                    223,
-                    57,
-                    29
-                ],
                 "expected": [
                     "9-13",
                     "9-12",
@@ -92,7 +96,15 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
         },
         "next": [
             "主线_选关后战斗"
