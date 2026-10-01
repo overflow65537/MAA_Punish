@@ -465,3 +465,4 @@ uv.lock
 .android-signing/
 *.jks
 *.keystore
+role_cache.json
