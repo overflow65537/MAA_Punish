@@ -288,7 +288,8 @@
                     1280,
                     508
                 ],
-                "expected": "^(?:[0-9]|[1-9]\\d)%$"
+                "expected": "^(?:[0-9]|[1-9]\\d)%$",
+                "color_filter": "选择最新关卡_OCR_colorfilter"
             }
         }
     },

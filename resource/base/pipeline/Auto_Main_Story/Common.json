@@ -1,4 +1,22 @@
 {
+    "选择最新关卡_OCR_colorfilter": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "method": 40,
+                "lower": [
+                    0,
+                    0,
+                    200
+                ],
+                "upper": [
+                    0,
+                    0,
+                    255
+                ]
+            }
+        }
+    },
     "切换隐藏剧情": {
         "recognition": {
             "type": "And",

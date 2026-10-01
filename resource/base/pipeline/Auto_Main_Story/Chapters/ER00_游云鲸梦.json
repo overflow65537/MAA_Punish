@@ -37,7 +37,7 @@
         },
         "next": [
             "[JumpBack]选择最新关卡_ER00_10",
-            "[JumpBack]剧情通关_ER00",
+            "剧情通关_ER00",
             "[JumpBack]选择最新关卡_ER00"
         ]
     },
@@ -79,12 +79,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    512,
-                    223,
-                    57,
-                    29
-                ],
                 "expected": [
                     "ER00-10"
                 ]
@@ -102,19 +96,15 @@
             }
         },
         "next": [
-            "主线_选关后战斗"
+            "[JumpBack]播放剧情",
+            "[JumpBack]主线跳过",
+            "跳过剧情"
         ]
     },
     "剧情通关_ER00": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    512,
-                    223,
-                    57,
-                    29
-                ],
                 "expected": [
                     "ER00-10"
                 ]
