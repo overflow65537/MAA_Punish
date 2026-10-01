@@ -1,4 +1,4 @@
-{
+﻿{
     "11_九龙夜航": {
         "recognition": {
             "type": "OCR",
@@ -74,7 +74,7 @@
                     "11-2",
                     "11-1"
                 ],
-                "order_by": "expected"
+                "order_by": "Expected"
             }
         },
         "action": {

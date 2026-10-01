@@ -1,4 +1,4 @@
-{
+﻿{
     "16_永夜胎动": {
         "recognition": {
             "type": "OCR",
@@ -77,7 +77,7 @@
                     "16-2",
                     "16-1"
                 ],
-                "order_by": "expected"
+                "order_by": "Expected"
             }
         },
         "action": {

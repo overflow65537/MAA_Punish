@@ -1,4 +1,4 @@
-{
+﻿{
     "09_黑星坠落": {
         "recognition": {
             "type": "OCR",
@@ -75,7 +75,7 @@
                     "9-2",
                     "9-1"
                 ],
-                "order_by": "expected"
+                "order_by": "Expected"
             }
         },
         "action": {

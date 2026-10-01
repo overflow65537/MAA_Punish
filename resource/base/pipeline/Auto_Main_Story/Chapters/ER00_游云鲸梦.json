@@ -1,4 +1,4 @@
-{
+﻿{
     "ER00_游云鲸梦": {
         "recognition": {
             "type": "OCR",
@@ -39,7 +39,7 @@
                     "ER00-2",
                     "ER00-1"
                 ],
-                "order_by": "expected"
+                "order_by": "Expected"
             }
         },
         "action": {

@@ -1,4 +1,4 @@
-{
+﻿{
     "14_视线囚笼": {
         "recognition": {
             "type": "OCR",
@@ -77,7 +77,7 @@
                     "14-2",
                     "14-1"
                 ],
-                "order_by": "expected"
+                "order_by": "Expected"
             }
         },
         "action": {

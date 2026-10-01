@@ -1,4 +1,4 @@
-{
+﻿{
     "10_永久列车": {
         "recognition": {
             "type": "OCR",
@@ -74,7 +74,7 @@
                     "10-2",
                     "10-1"
                 ],
-                "order_by": "expected"
+                "order_by": "Expected"
             }
         },
         "action": {

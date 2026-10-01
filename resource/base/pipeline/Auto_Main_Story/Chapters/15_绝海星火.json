@@ -1,4 +1,4 @@
-{
+﻿{
     "15_绝海星火": {
         "recognition": {
             "type": "OCR",
@@ -79,7 +79,7 @@
                     "15-2",
                     "15-1"
                 ],
-                "order_by": "expected"
+                "order_by": "Expected"
             }
         },
         "action": {
