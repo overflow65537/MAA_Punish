@@ -115,11 +115,9 @@
         "action": {
             "type": "Click",
             "param": {
-                "target_offset": [
-                    0,
-                    100,
-                    0,
-                    0
+                "target": [
+                    768,
+                    666
                 ]
             }
         },
