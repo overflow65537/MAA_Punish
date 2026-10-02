@@ -87,6 +87,12 @@
             "type": "Click"
         }
     },
+    "空节点": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
     "主线_选关后战斗": {
         "post_wait_freezes": {
             "time": 500,
