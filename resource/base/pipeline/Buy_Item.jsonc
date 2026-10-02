@@ -101,6 +101,25 @@
     },
     "购买": {
         "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "识别购买界面逆元碎片",
+                    "识别购买界面购买"
+                ],
+                "box_index": 1
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "关闭界面",
+            "返回主菜单"
+        ]
+    },
+    "识别购买界面逆元碎片": {
+        "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
@@ -111,19 +130,21 @@
                 ],
                 "expected": "逆元碎片"
             }
-        },
-        "action": {
-            "type": "Click",
+        }
+    },
+    "识别购买界面购买": {
+        "recognition": {
+            "type": "OCR",
             "param": {
-                "target": [
-                    768,
-                    666
-                ]
+                "roi": [
+                    621,
+                    541,
+                    623,
+                    179
+                ],
+                "expected": "购买"
             }
-        },
-        "next": [
-            "关闭界面"
-        ]
+        }
     },
     "关闭界面": {
         "recognition": {
