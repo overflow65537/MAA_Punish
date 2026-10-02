@@ -38,20 +38,49 @@
         "next": [
             "[JumpBack]选择最新关卡_18_21",
             "剧情通关_18",
+            "[JumpBack]识别18章_15至17入口",
             "[JumpBack]选择最新关卡_18"
+        ]
+    },
+    "识别18章_15至17入口": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "18-15",
+                    "18-16",
+                    "18-17"
+                ],
+                "order_by": "Expected"
+            }
+        },
+        "next": [
+            "[JumpBack]选择最新关卡_18_15",
+            "[JumpBack]选择最新关卡_18_16",
+            "[JumpBack]选择最新关卡_18_17",
+            "空节点"
         ]
     },
     "选择最新关卡_18": {
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
                 "expected": [
                     "18-20",
                     "18-19",
                     "18-18",
-                    "18-17",
-                    "18-16",
-                    "18-15",
                     "18-14",
                     "18-13",
                     "18-12",
@@ -67,12 +96,99 @@
                     "18-2",
                     "18-1"
                 ],
-                "order_by": "Expected",
+                "order_by": "Expected"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_18_15": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
                 "roi": [
                     245,
                     0,
                     1035,
                     720
+                ],
+                "expected": [
+                    "18-15"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_18_16": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "18-16"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_18_17": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "18-17"
                 ]
             }
         },
@@ -96,14 +212,14 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "expected": [
-                    "18-21"
-                ],
                 "roi": [
                     245,
                     0,
                     1035,
                     720
+                ],
+                "expected": [
+                    "18-21"
                 ]
             }
         },
@@ -128,14 +244,14 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "expected": [
-                    "18-21"
-                ],
                 "roi": [
                     245,
                     0,
                     1035,
                     720
+                ],
+                "expected": [
+                    "18-21"
                 ]
             }
         },

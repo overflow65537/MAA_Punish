@@ -34,6 +34,316 @@
                 1280,
                 720
             ]
-        }
+        },
+        "next": [
+            "[JumpBack]选择最新关卡_19_11",
+            "剧情通关_19",
+            "[JumpBack]识别19章_5至10入口",
+            "[JumpBack]选择最新关卡_19"
+        ]
+    },
+    "识别19章_5至10入口": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "19-5",
+                    "19-6",
+                    "19-7",
+                    "19-8",
+                    "19-9",
+                    "19-10"
+                ],
+                "order_by": "Expected"
+            }
+        },
+        "next": [
+            "[JumpBack]选择最新关卡_19_5",
+            "[JumpBack]选择最新关卡_19_6",
+            "[JumpBack]选择最新关卡_19_7",
+            "[JumpBack]选择最新关卡_19_8",
+            "[JumpBack]选择最新关卡_19_9",
+            "[JumpBack]选择最新关卡_19_10",
+            "空节点"
+        ]
+    },
+    "选择最新关卡_19": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "19-11",
+                    "19-4",
+                    "19-3",
+                    "19-2",
+                    "19-1"
+                ],
+                "order_by": "Expected"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_19_11": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "19-11"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]播放剧情",
+            "[JumpBack]主线跳过",
+            "跳过剧情"
+        ]
+    },
+    "剧情通关_19": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "19-11"
+                ]
+            }
+        },
+        "next": [
+            "返回"
+        ]
+    },
+    "选择最新关卡_19_5": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "19-5"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_19_6": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "19-6"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_19_7": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "19-7"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_19_8": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "19-8"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_19_9": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "19-9"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_19_10": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "19-10"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
     }
 }
