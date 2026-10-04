@@ -18,7 +18,6 @@
             "[JumpBack]开始旅途_厄愿潮声",
             "[JumpBack]退出_厄愿潮声",
             "[JumpBack]下一步_厄愿潮声",
-            "[JumpBack]下一步",
             "[JumpBack]点击继续",
             "[JumpBack]确定",
             "[JumpBack]终止_厄愿潮声",
@@ -54,19 +53,57 @@
             "确定"
         ]
     },
-    "下一步_厄愿潮声": {
-        "desc": "only_rec的下一步,跳过OCR缓存",
+    "下一步_厄愿潮声_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1051,
+                    631,
+                    199,
+                    44
+                ],
+                "method": 40,
+                "lower": [
+                    0,
+                    0,
+                    100
+                ],
+                "upper": [
+                    0,
+                    0,
+                    255
+                ],
+                "count": 100
+            }
+        }
+    },
+    "下一步_厄愿潮声_文字": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    1101,
-                    631,
-                    99,
-                    44
+                "roi": "下一步_厄愿潮声_颜色",
+                "roi_offset": [
+                    -10,
+                    -2,
+                    12,
+                    4
                 ],
                 "expected": "下一步",
                 "only_rec": true
+            }
+        }
+    },
+    "下一步_厄愿潮声": {
+        "desc": "跳过OCR缓存",
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "下一步_厄愿潮声_颜色",
+                    "下一步_厄愿潮声_文字"
+                ],
+                "box_index": 1
             }
         },
         "action": {
