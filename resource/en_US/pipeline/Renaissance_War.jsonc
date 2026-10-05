@@ -73,6 +73,15 @@
             }
         }
     },
+    "扫荡作战": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Auto Clear"
+                ]
+            }
+        }
+    },
     "检查结果_扫荡完成": {
         "recognition": {
             "param": {
