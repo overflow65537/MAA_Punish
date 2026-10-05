@@ -100,6 +100,15 @@
             }
         }
     },
+    "宿舍任务_领取执勤": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Work Completed"
+                ]
+            }
+        }
+    },
     "选择执勤伙伴": {
         "recognition": {
             "param": {
