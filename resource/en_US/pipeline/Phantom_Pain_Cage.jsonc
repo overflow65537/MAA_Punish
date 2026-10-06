@@ -73,6 +73,15 @@
             }
         }
     },
+    "挑战次数不足_弹窗": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Insufficient attempts"
+                ]
+            }
+        }
+    },
     "查看Boss_冰队": {
         "recognition": {
             "param": {
