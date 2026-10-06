@@ -96,6 +96,7 @@ class RoleSelection(CustomAction):
         self._logger_component = LoggerComponent(__name__)
         self.logger = self._logger_component.logger
         self._cache_prefix = ""
+        self._refresh_hour = cache_policy.DEFAULT_REFRESH_HOUR
 
     def _cache_path(self) -> Path:
         return cache_policy.cache_path(self._cache_prefix)
@@ -481,6 +482,11 @@ class RoleSelection(CustomAction):
         update_frequency = cache_policy.resolve_update_frequency(
             attach, param, cache_data_for_freq
         )
+        # 本节点不参与刷新时刻判定，仅把当前生效值记录进缓存，
+        # 供之后没有拿到该参数的运行（如 CacheRole）回退使用。
+        self._refresh_hour = cache_policy.resolve_refresh_hour(
+            attach, param, cache_data_for_freq
+        )
         if not self._cache_prefix:
             self._cache_prefix = cache_policy.resolve_cache_prefix(
                 cache_data=cache_data_for_freq
@@ -490,7 +496,8 @@ class RoleSelection(CustomAction):
             f"开始执行配队: selection_mode={selection_mode}, roguelike_equivalent={roguelike_equivalent}, "
             f"scan_then_return={scan_then_return}, need_multi={need_multi}, "
             f"cage={cage}, need_element={need_element!r}, pick={pick}, weight_mode={weight_mode}, "
-            f"max_try={max_try}, update_frequency={update_frequency}"
+            f"max_try={max_try}, update_frequency={update_frequency}, "
+            f"refresh_hour={self._refresh_hour}"
         )
 
         if weight_mode == "exclusive" and pick and not scan_then_return:
@@ -1186,5 +1193,6 @@ class RoleSelection(CustomAction):
         cache_data["update_frequency"] = cache_policy.normalize_frequency(
             update_frequency
         )
+        cache_data["refresh_hour"] = self._refresh_hour
         cache_policy.write_cache_data(cache_data, cache_path)
         self.logger.info("缓存保存成功")

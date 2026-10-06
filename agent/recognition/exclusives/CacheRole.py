@@ -35,32 +35,45 @@ class CacheRole(CustomRecognition):
         logger_component = LoggerComponent(__name__)
         logger = logger_component.logger
         params = self._parse_params(argv.custom_recognition_param)
-        update_frequency = cache_policy.normalize_frequency(
-            params.get("update_frequency")
-        )
-        cache_prefix = cache_policy.resolve_cache_prefix(param=params)
-        cache_prefix_source = cache_policy.resolve_cache_prefix_source(param=params)
+        # 刷新周期/刷新时间都从本节点的 attach 读取（attach 是 dict merge，
+        # 多个全局选项写同一节点时不会互相覆盖；custom_recognition_param 会）。
+        node_data = context.get_node_data(argv.node_name) or {}
+        attach = node_data.get("attach", {}) or {}
+        cache_prefix = cache_policy.resolve_cache_prefix(attach, params)
+        cache_prefix_source = cache_policy.resolve_cache_prefix_source(attach, params)
         cache_path = cache_policy.cache_path(cache_prefix)
+        cache_data = cache_policy.read_cache_data(cache_path)
+        update_frequency = cache_policy.resolve_update_frequency(
+            attach, params, cache_data
+        )
+        refresh_hour = cache_policy.resolve_refresh_hour(attach, params, cache_data)
+        refresh_hour_source = cache_policy.resolve_refresh_hour_source(
+            attach, params, cache_data
+        )
         logger.info(
             f"[CacheRole] 启动检查, update_frequency={update_frequency}, "
-            f"cache_prefix={cache_prefix!r}, cache_path={cache_path}"
+            f"refresh_hour={refresh_hour}, cache_prefix={cache_prefix!r}, "
+            f"cache_path={cache_path}, node={argv.node_name!r}, attach={attach}"
         )
         now = datetime.datetime.now()
         if not cache_path.exists():
             logger.info(
                 "[CacheRole] 缓存文件不存在, cache_path=%s, cache_file=%s, "
                 "cache_prefix=%r, cache_prefix_source=%s, update_frequency=%s, "
-                "返回 success 触发更新",
+                "refresh_hour=%s, refresh_hour_source=%s, 返回 success 触发更新",
                 cache_path,
                 cache_path.name,
                 cache_prefix,
                 cache_prefix_source,
                 update_frequency,
+                refresh_hour,
+                refresh_hour_source,
             )
             try:
                 init_data = {
                     "main_update_at": now.timestamp(),
                     "update_frequency": update_frequency,
+                    "refresh_hour": refresh_hour,
                 }
                 cache_policy.write_cache_data(init_data, cache_path)
                 logger.info(
@@ -72,13 +85,13 @@ class CacheRole(CustomRecognition):
                 box=(0, 0, 100, 100), detail={"status": "success"}
             )
 
-        cache_data = cache_policy.read_cache_data(cache_path)
         if not cache_data:
             logger.info("[CacheRole] 缓存文件为空或解析失败, 返回 success 触发更新")
             try:
                 init_data = {
                     "main_update_at": now.timestamp(),
                     "update_frequency": update_frequency,
+                    "refresh_hour": refresh_hour,
                 }
                 cache_policy.write_cache_data(init_data, cache_path)
                 logger.info(f"[CacheRole] 已重置缓存文件并记录 main_update_at={now}")
@@ -89,9 +102,10 @@ class CacheRole(CustomRecognition):
             )
 
         cache_data["update_frequency"] = update_frequency
+        cache_data["refresh_hour"] = refresh_hour
 
         try:
-            if cache_policy.apply_cage_weekly_reset(cache_data, now):
+            if cache_policy.apply_cage_weekly_reset(cache_data, now, refresh_hour):
                 logger.info(
                     "[CacheRole] cage周更触发: 当前周 key 与缓存不同, 重置 cage 值为 3"
                 )
@@ -136,20 +150,22 @@ class CacheRole(CustomRecognition):
             f"[CacheRole] 上次完整更新时间: {last_update} (timestamp={stored_main_ts})"
         )
 
-        if cache_policy.needs_full_refresh(cache_data, update_frequency):
+        if cache_policy.needs_full_refresh(
+            cache_data, update_frequency, refresh_hour, now
+        ):
             if update_frequency == "monthly":
                 same_month = cache_policy.same_month(last_update, now)
-                past_threshold = cache_policy.past_monthly_threshold(now)
+                past_threshold = cache_policy.past_monthly_threshold(now, refresh_hour)
                 logger.info(
                     f"[CacheRole] 月更检查: last_update={last_update}, same_month={same_month}, "
-                    f"past_threshold={past_threshold}, needs_update=True"
+                    f"refresh_hour={refresh_hour}, past_threshold={past_threshold}, needs_update=True"
                 )
             else:
                 same_week = cache_policy.same_week(last_update, now)
-                past_threshold = cache_policy.past_weekly_threshold(now)
+                past_threshold = cache_policy.past_weekly_threshold(now, refresh_hour)
                 logger.info(
                     f"[CacheRole] 周更检查: last_update={last_update}, same_week={same_week}, "
-                    f"past_threshold={past_threshold}, needs_update=True"
+                    f"refresh_hour={refresh_hour}, past_threshold={past_threshold}, needs_update=True"
                 )
             logger.info("[CacheRole] 返回 success 触发完整更新")
             return CustomRecognition.AnalyzeResult(

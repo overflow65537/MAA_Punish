@@ -14,6 +14,11 @@ from typing import Any
 _ALLOWED_PREFIX_CHARS = re.compile(r"[^A-Za-z0-9_\u4e00-\u9fff\-]+")
 _MAX_PREFIX_LEN = 32
 
+# 游戏日切（周/月刷新）参考时刻，0-23 整点，按运行机器的本地时间。
+# 国服日切为 5 点；国际服各服务器时区不同，玩家可自行换算并覆盖。
+DEFAULT_REFRESH_HOUR = 5
+_REFRESH_HOUR_PATTERN = re.compile(r"\d{1,2}")
+
 
 def normalize_cache_prefix(value: Any) -> str:
     """过滤路径非法与易混淆符号，仅保留字母/数字/中文/_/-。"""
@@ -84,6 +89,58 @@ def normalize_frequency(value: Any) -> str:
     return alias.get(key, "weekly")
 
 
+def normalize_refresh_hour(value: Any) -> int:
+    """把刷新时刻规整为 0-23 的整点；非法值回退到 DEFAULT_REFRESH_HOUR。"""
+    if isinstance(value, bool):
+        return DEFAULT_REFRESH_HOUR
+    if isinstance(value, int):
+        hour = value
+    elif isinstance(value, float):
+        if not value.is_integer():
+            return DEFAULT_REFRESH_HOUR
+        hour = int(value)
+    elif isinstance(value, str) and _REFRESH_HOUR_PATTERN.fullmatch(value.strip()):
+        hour = int(value.strip())
+    else:
+        return DEFAULT_REFRESH_HOUR
+    if 0 <= hour <= 23:
+        return hour
+    return DEFAULT_REFRESH_HOUR
+
+
+def resolve_refresh_hour(
+    attach: dict | None = None,
+    param: dict | None = None,
+    cache_data: dict | None = None,
+) -> int:
+    """解析刷新时刻，优先级 attach > param > cache_data > 默认(5 点)。"""
+    attach = attach or {}
+    param = param or {}
+    if "refresh_hour" in attach:
+        return normalize_refresh_hour(attach["refresh_hour"])
+    if "refresh_hour" in param:
+        return normalize_refresh_hour(param["refresh_hour"])
+    if cache_data and "refresh_hour" in cache_data:
+        return normalize_refresh_hour(cache_data["refresh_hour"])
+    return DEFAULT_REFRESH_HOUR
+
+
+def resolve_refresh_hour_source(
+    attach: dict | None = None,
+    param: dict | None = None,
+    cache_data: dict | None = None,
+) -> str:
+    attach = attach or {}
+    param = param or {}
+    if "refresh_hour" in attach:
+        return "attach.refresh_hour"
+    if "refresh_hour" in param:
+        return "param.refresh_hour"
+    if cache_data and "refresh_hour" in cache_data:
+        return "cache_data.refresh_hour"
+    return "default"
+
+
 def read_cache_data(cache_file: Path | None = None) -> dict | None:
     path = cache_file or cache_path()
     if not path.exists():
@@ -133,17 +190,24 @@ def get_last_update_datetime(cache_data: dict) -> datetime.datetime | None:
     return None
 
 
-def past_weekly_threshold(now: datetime.datetime) -> bool:
+def past_weekly_threshold(
+    now: datetime.datetime, refresh_hour: int = DEFAULT_REFRESH_HOUR
+) -> bool:
+    """本周刷新时刻（周一 refresh_hour 点）是否已过。"""
     start_of_week = now - datetime.timedelta(days=now.weekday())
     threshold = datetime.datetime.combine(
-        start_of_week.date(), datetime.time(hour=5)
+        start_of_week.date(), datetime.time(hour=normalize_refresh_hour(refresh_hour))
     )
     return now >= threshold
 
 
-def past_monthly_threshold(now: datetime.datetime) -> bool:
+def past_monthly_threshold(
+    now: datetime.datetime, refresh_hour: int = DEFAULT_REFRESH_HOUR
+) -> bool:
+    """本月刷新时刻（1 号 refresh_hour 点）是否已过。"""
     threshold = datetime.datetime.combine(
-        datetime.date(now.year, now.month, 1), datetime.time(hour=5)
+        datetime.date(now.year, now.month, 1),
+        datetime.time(hour=normalize_refresh_hour(refresh_hour)),
     )
     return now >= threshold
 
@@ -156,8 +220,11 @@ def same_month(last_update: datetime.datetime, now: datetime.datetime) -> bool:
     return last_update.year == now.year and last_update.month == now.month
 
 
-def effective_week_key(now: datetime.datetime) -> int:
-    if past_weekly_threshold(now):
+def effective_week_key(
+    now: datetime.datetime, refresh_hour: int = DEFAULT_REFRESH_HOUR
+) -> int:
+    """游戏周键：未过本周刷新时刻时仍算作上一周。"""
+    if past_weekly_threshold(now, refresh_hour):
         iso = now.isocalendar()
     else:
         iso = (now - datetime.timedelta(days=7)).isocalendar()
@@ -190,7 +257,11 @@ def get_focus(cache_data: dict | None) -> dict | None:
     return focus
 
 
-def is_focus_usable(cache_data: dict | None, update_frequency: str) -> bool:
+def is_focus_usable(
+    cache_data: dict | None,
+    update_frequency: str,
+    now: datetime.datetime | None = None,
+) -> bool:
     """配队时是否可直接使用 focus 缓存（跳过滑动识别）。"""
     focus = get_focus(cache_data)
     if focus is None:
@@ -204,13 +275,18 @@ def is_focus_usable(cache_data: dict | None, update_frequency: str) -> bool:
     if last_update is None:
         return False
 
-    now = datetime.datetime.now()
+    now = now or datetime.datetime.now()
     if freq == "monthly":
         return same_month(last_update, now)
     return same_week(last_update, now)
 
 
-def needs_full_refresh(cache_data: dict | None, update_frequency: str) -> bool:
+def needs_full_refresh(
+    cache_data: dict | None,
+    update_frequency: str,
+    refresh_hour: int = DEFAULT_REFRESH_HOUR,
+    now: datetime.datetime | None = None,
+) -> bool:
     """是否应触发完整角色缓存更新（CacheRole）。"""
     freq = normalize_frequency(update_frequency)
     if freq == "never":
@@ -220,20 +296,28 @@ def needs_full_refresh(cache_data: dict | None, update_frequency: str) -> bool:
         return True
 
     last_update = get_last_update_datetime(cache_data)  # type: ignore[arg-type]
-    now = datetime.datetime.now()
     if last_update is None:
         return True
 
+    now = now or datetime.datetime.now()
     if freq == "monthly":
-        return (not same_month(last_update, now)) and past_monthly_threshold(now)
-    return (not same_week(last_update, now)) and past_weekly_threshold(now)
+        return (not same_month(last_update, now)) and past_monthly_threshold(
+            now, refresh_hour
+        )
+    return (not same_week(last_update, now)) and past_weekly_threshold(
+        now, refresh_hour
+    )
 
 
-def apply_cage_weekly_reset(cache_data: dict, now: datetime.datetime | None = None) -> bool:
+def apply_cage_weekly_reset(
+    cache_data: dict,
+    now: datetime.datetime | None = None,
+    refresh_hour: int = DEFAULT_REFRESH_HOUR,
+) -> bool:
     """新周重置 focus 内 cage；有写入返回 True。"""
     now = now or datetime.datetime.now()
     week_key_name = "cage_update_week"
-    current_week = effective_week_key(now)
+    current_week = effective_week_key(now, refresh_hour)
     stored_week_raw = cache_data.get(week_key_name)
     stored_week = int(stored_week_raw) if isinstance(stored_week_raw, int) else None
 
