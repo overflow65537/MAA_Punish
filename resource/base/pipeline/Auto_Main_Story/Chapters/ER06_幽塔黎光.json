@@ -1,0 +1,147 @@
+{
+    "ER06_幽塔黎光": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    33,
+                    93,
+                    500,
+                    120
+                ],
+                "expected": "ER06\\s*幽塔黎光"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    900,
+                    200
+                ],
+                "end": [
+                    200,
+                    200
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000,
+            "target": [
+                0,
+                0,
+                1280,
+                720
+            ]
+        },
+        "next": [
+            "[JumpBack]选择最新关卡_ER06_22",
+            "剧情通关_ER06",
+            "[JumpBack]选择最新关卡_ER06"
+        ]
+    },
+    "选择最新关卡_ER06": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "ER06-21",
+                    "ER06-20",
+                    "ER06-19",
+                    "ER06-18",
+                    "ER06-17",
+                    "ER06-16",
+                    "ER06-15",
+                    "ER06-14",
+                    "ER06-13",
+                    "ER06-12",
+                    "ER06-11",
+                    "ER06-10",
+                    "ER06-9",
+                    "ER06-8",
+                    "ER06-7",
+                    "ER06-6",
+                    "ER06-5",
+                    "ER06-4",
+                    "ER06-3",
+                    "ER06-2",
+                    "ER06-1"
+                ],
+                "order_by": "Expected"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_ER06_22": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "ER06-22"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]播放剧情",
+            "[JumpBack]主线跳过",
+            "跳过剧情"
+        ]
+    },
+    "剧情通关_ER06": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "ER06-22"
+                ]
+            }
+        },
+        "next": [
+            "返回"
+        ]
+    }
+}

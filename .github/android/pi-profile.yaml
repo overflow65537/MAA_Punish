@@ -40,6 +40,10 @@ agent:
         LD_LIBRARY_PATH: "{bundle}/prefix/lib:{nativeLibs}"
         MAAFW_BINARY_PATH: "{nativeLibs}"
 
+# 压过 interface.json 里的桌面端 mirrorchyan_rid，应用内更新走 Android APK 渠道。
+update:
+  mirrorchyanRid: MAA_Punish_MaaFwApp
+
 app:
   id: punish
   label: MAA Punish

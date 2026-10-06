@@ -37,7 +37,7 @@ _SMALL_LIGHT_NODE = "检查小太刀无光值"
 _SMALL_LIGHT_TEXT_NODE = "检查小太刀无光值_文本"
 # 闪避起算，连续点普攻（大小太刀相同，不识别特殊条；大招可打断）
 _DODGE_ATTACK_S = 2.0
-# 登龙：无光 OCR 达标后按下闪避充能 → 松开 → 红色无光 → 长按攻击
+# 登龙：无光 OCR 达标后 long_press_dodge_until(充能满) → 红色无光 → long_press_attack
 _LIGHT_DRAGON_EXACT = 300
 _LIGHT_DRAGON_MIN = 474
 _DRAGON_CHARGE_FULL_NODE = "检查登龙充能满"
@@ -46,9 +46,7 @@ _DRAGON_CHARGE_TIMEOUT = 3.0
 _DRAGON_RED_WAIT_TIMEOUT = 5.0
 # 小太刀开大落地后大太刀会闪 600 但不可操作，短暂禁止发起登龙
 _DRAGON_START_BLOCK = 2.0
-_DRAGON_PHASES = frozenset(
-    {"great_dragon_press", "great_dragon_charge", "great_dragon_red"}
-)
+_DRAGON_PHASES = frozenset({"great_dragon_red"})
 _ULT_WAIT_TIMEOUT = 12.0
 # 实测落地→无光 OCR 约 0.4s，在此基础上再加缓冲；超时内每 tick 盲消 1 号球
 _SMALL_ULT_LAND_DELAY = 0.5
@@ -93,7 +91,6 @@ class CrimsonWeave(BaseRole):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self._ult_wait_deadline = 0.0
-        self._dragon_charge_deadline = 0.0
         self._dragon_red_deadline = 0.0
         self._dragon_start_blocked_until = 0.0
         self._sword_probe_cache: tuple[str | None, int | None, int | None] | None = None
@@ -101,7 +98,6 @@ class CrimsonWeave(BaseRole):
     def reset_state(self) -> None:
         super().reset_state()
         self._ult_wait_deadline = 0.0
-        self._dragon_charge_deadline = 0.0
         self._dragon_red_deadline = 0.0
         self._dragon_start_blocked_until = 0.0
         self._sword_probe_cache = None
@@ -142,10 +138,6 @@ class CrimsonWeave(BaseRole):
             self._phase_great_build_dodge()
         elif self.phase == "great_build_attack":
             self._phase_great_build_attack()
-        elif self.phase == "great_dragon_press":
-            self._phase_great_dragon_press()
-        elif self.phase == "great_dragon_charge":
-            self._phase_great_dragon_charge()
         elif self.phase == "great_dragon_red":
             self._phase_great_dragon_red()
         elif self.phase == "great_ult":
@@ -247,27 +239,17 @@ class CrimsonWeave(BaseRole):
             return False
 
         self.action.logger.info("无光值达标(%s)，开始登龙充能", great_light)
-        self.phase = "great_dragon_press"
-        self._phase_great_dragon_press()
-        return True
-
-    def _phase_great_dragon_press(self) -> None:
-        self.action.down_dodge()
-        self._dragon_charge_deadline = time.monotonic() + _DRAGON_CHARGE_TIMEOUT
-        self.phase = "great_dragon_charge"
-
-    def _phase_great_dragon_charge(self) -> None:
-        if self.action.check_status(_DRAGON_CHARGE_FULL_NODE):
-            self.action.up_dodge()
+        if self.action.long_press_dodge_until(
+            _DRAGON_CHARGE_FULL_NODE, timeout=_DRAGON_CHARGE_TIMEOUT
+        ):
             self._dragon_red_deadline = time.monotonic() + _DRAGON_RED_WAIT_TIMEOUT
             self.phase = "great_dragon_red"
-            self.action.logger.info("登龙充能满，松开闪避等待红色无光")
-            return
-
-        if time.monotonic() >= self._dragon_charge_deadline:
-            self.action.up_dodge()
-            self.action.logger.warning("登龙充能超时，放弃登龙")
+            self.action.logger.info("登龙充能满，等待红色无光")
+        else:
+            if not self.combat.context.tasker.stopping:
+                self.action.logger.warning("登龙充能超时，放弃登龙")
             self.phase = "great_ball"
+        return True
 
     def _phase_great_dragon_red(self) -> None:
         if not self._dragon_red_ready():

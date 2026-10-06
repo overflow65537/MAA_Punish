@@ -12,7 +12,8 @@
             "[JumpBack]一键领取_宿舍任务",
             "[JumpBack]关闭奖励",
             "[JumpBack]打开宿舍任务",
-            "[JumpBack]选择每日任务"
+            "[JumpBack]选择每日任务",
+            "无法完成今日任务"
         ]
     },
     "今日任务已完成": {
@@ -26,6 +27,24 @@
                     60
                 ],
                 "expected": "今日任务已完成"
+            }
+        },
+        "next": [
+            "宿舍任务_返回3",
+            "[JumpBack]关闭奖励"
+        ]
+    },
+    "无法完成今日任务": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    243,
+                    308,
+                    200
+                ],
+                "expected": "每日"
             }
         },
         "next": [
@@ -110,8 +129,9 @@
         "post_delay": 1000
     },
     "选择每日任务": {
+        "max_hit": 2,
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
                     0,
@@ -119,8 +139,7 @@
                     308,
                     200
                 ],
-                "template": "任务/每日_32_293_208_40__0_243_308_140.png",
-                "threshold": 0.8
+                "expected": "每日"
             }
         },
         "action": {
@@ -149,10 +168,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    1181,
-                    82,
-                    56,
-                    56
+                    1136,
+                    79,
+                    101,
+                    62
                 ],
                 "template": "宿舍委托/宿舍任务_1181_82_55_55__1125_32_155_155.png"
             }

@@ -20,6 +20,7 @@
             "[JumpBack]点击对话",
             "[JumpBack]点击空白处关闭_速通",
             "[JumpBack]载入中",
+            "[JumpBack]通用处理-未下载弹窗-角色皮肤没下载-检测层",
             "[JumpBack]未选人",
             "[JumpBack]使用体力",
             "[JumpBack]不使用体力",
@@ -289,7 +290,7 @@
                     528,
                     441,
                     327,
-                    218
+                    250
                 ],
                 "expected": "OFF"
             }
@@ -466,7 +467,7 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 0,
+        "post_delay": 1000,
         "rate_limit": 0
     },
     "战斗中": {

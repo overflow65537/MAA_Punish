@@ -1,0 +1,151 @@
+{
+    "ER08_暮往长离": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    33,
+                    93,
+                    500,
+                    120
+                ],
+                "expected": "ER08\\s*暮往长离"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    900,
+                    200
+                ],
+                "end": [
+                    200,
+                    200
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000,
+            "target": [
+                0,
+                0,
+                1280,
+                720
+            ]
+        },
+        "next": [
+            "[JumpBack]选择最新关卡_ER08_26",
+            "剧情通关_ER08",
+            "[JumpBack]选择最新关卡_ER08"
+        ]
+    },
+    "选择最新关卡_ER08": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "ER08-25",
+                    "ER08-24",
+                    "ER08-23",
+                    "ER08-22",
+                    "ER08-21",
+                    "ER08-20",
+                    "ER08-19",
+                    "ER08-18",
+                    "ER08-17",
+                    "ER08-16",
+                    "ER08-15",
+                    "ER08-14",
+                    "ER08-13",
+                    "ER08-12",
+                    "ER08-11",
+                    "ER08-10",
+                    "ER08-9",
+                    "ER08-8",
+                    "ER08-7",
+                    "ER08-6",
+                    "ER08-5",
+                    "ER08-4",
+                    "ER08-3",
+                    "ER08-2",
+                    "ER08-1"
+                ],
+                "order_by": "Expected"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_ER08_26": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "ER08-26"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]播放剧情",
+            "[JumpBack]主线跳过",
+            "跳过剧情"
+        ]
+    },
+    "剧情通关_ER08": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "ER08-26"
+                ]
+            }
+        },
+        "next": [
+            "返回"
+        ]
+    }
+}

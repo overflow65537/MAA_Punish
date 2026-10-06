@@ -623,62 +623,77 @@
             "hotkeys": [
                 {
                     "name": "攻击",
+                    "label": "$hotkey.输入键码.攻击",
                     "default": "J"
                 },
                 {
                     "name": "闪避",
+                    "label": "$hotkey.输入键码.闪避",
                     "default": "K"
                 },
                 {
                     "name": "技能",
+                    "label": "$hotkey.输入键码.技能",
                     "default": "L"
                 },
                 {
                     "name": "上方QTE",
+                    "label": "$hotkey.输入键码.上方QTE",
                     "default": "Q"
                 },
                 {
                     "name": "下方QTE",
+                    "label": "$hotkey.输入键码.下方QTE",
                     "default": "E"
                 },
                 {
                     "name": "1号球",
+                    "label": "$hotkey.输入键码.1号球",
                     "default": "1"
                 },
                 {
                     "name": "2号球",
+                    "label": "$hotkey.输入键码.2号球",
                     "default": "2"
                 },
                 {
                     "name": "3号球",
+                    "label": "$hotkey.输入键码.3号球",
                     "default": "3"
                 },
                 {
                     "name": "4号球",
+                    "label": "$hotkey.输入键码.4号球",
                     "default": "4"
                 },
                 {
                     "name": "5号球",
+                    "label": "$hotkey.输入键码.5号球",
                     "default": "5"
                 },
                 {
                     "name": "6号球",
+                    "label": "$hotkey.输入键码.6号球",
                     "default": "6"
                 },
                 {
                     "name": "7号球",
+                    "label": "$hotkey.输入键码.7号球",
                     "default": "7"
                 },
                 {
                     "name": "8号球",
+                    "label": "$hotkey.输入键码.8号球",
                     "default": "8"
                 },
                 {
                     "name": "锁定视角",
+                    "label": "$hotkey.输入键码.锁定视角",
                     "default": "Tab"
                 },
                 {
                     "name": "辅助机",
+                    "label": "$hotkey.输入键码.辅助机",
                     "default": "C"
                 }
             ],

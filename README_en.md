@@ -37,7 +37,7 @@ The English UI and the **English (Global)** resource are for the Global / NA cli
 - In the launcher, select **English (Global)** as the resource. With the Chinese resource selected, the tool looks for Chinese text and won't recognise anything.
 - Keep your battle buttons in the default layout, or turn on **Cache button layout** in the resource settings if you've moved them.
 - The roguelike modes only have their setup options (difficulty, strategy, mode) in English so far; they can't complete a run on Global yet.
-- High-Rank Mapping and Guardian Operation aren't currently available on Global.
+- Clash Reflection (High-Rank Mapping) isn't translated yet; it unlocks at Commandant Level 80.
 
 If something gets stuck on Global, please open an issue with the log attached (see Notes below).
 
@@ -53,8 +53,8 @@ If something gets stuck on Global, please open an issue with the log attached (s
 - War Zone: automatic first clear
 - Norman: automatic first clear
 - Phantom Pain Cage: automatic first clear
-- High-Rank Mapping
-- Guardian Operation
+- Clash Reflection (High-Rank Mapping)
+- Operation Guardians
 - Claim mail
 - Buy Inver-Shards from the shop automatically
 - Claim Serum

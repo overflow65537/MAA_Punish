@@ -1,0 +1,145 @@
+{
+    "ER16_孑念空行": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    33,
+                    93,
+                    500,
+                    120
+                ],
+                "expected": "ER16\\s*孑念空行"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    900,
+                    200
+                ],
+                "end": [
+                    200,
+                    200
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000,
+            "target": [
+                0,
+                0,
+                1280,
+                720
+            ]
+        },
+        "next": [
+            "[JumpBack]选择最新关卡_ER16_20",
+            "剧情通关_ER16",
+            "[JumpBack]选择最新关卡_ER16"
+        ]
+    },
+    "选择最新关卡_ER16": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "ER16-19",
+                    "ER16-18",
+                    "ER16-17",
+                    "ER16-16",
+                    "ER16-15",
+                    "ER16-14",
+                    "ER16-13",
+                    "ER16-12",
+                    "ER16-11",
+                    "ER16-10",
+                    "ER16-9",
+                    "ER16-8",
+                    "ER16-7",
+                    "ER16-6",
+                    "ER16-5",
+                    "ER16-4",
+                    "ER16-3",
+                    "ER16-2",
+                    "ER16-1"
+                ],
+                "order_by": "Expected"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_ER16_20": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "ER16-20"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]播放剧情",
+            "[JumpBack]主线跳过",
+            "跳过剧情"
+        ]
+    },
+    "剧情通关_ER16": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "ER16-20"
+                ]
+            }
+        },
+        "next": [
+            "返回"
+        ]
+    }
+}
