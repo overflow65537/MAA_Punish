@@ -55,6 +55,7 @@
             "inputs": [
                 {
                     "name": "编队名",
+                    "label": "$input.输入作战编队_自动主线.编队名.label",
                     "pipeline_type": "string",
                     "default": "编队1",
                     "verify": "^\\s*\\S.*$",
