@@ -883,6 +883,8 @@
             "inputs": [
                 {
                     "name": "最大重试次数",
+                    "label": "$input.启动重试次数.最大重试次数.label",
+                    "description": "$input.启动重试次数.最大重试次数.description",
                     "default": "60",
                     "pipeline_type": "int",
                     "verify": "^\\d+$",
