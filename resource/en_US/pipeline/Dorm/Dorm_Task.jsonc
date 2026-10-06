@@ -10,11 +10,21 @@
             }
         }
     },
+    "无法完成今日任务": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Daily$"
+                ]
+            }
+        }
+    },
     "二次进入执勤": {
         "recognition": {
             "param": {
                 "expected": [
-                    "Chores"
+                    "Chores",
+                    "REST"
                 ]
             }
         }
@@ -96,6 +106,15 @@
             "param": {
                 "expected": [
                     "Begin Chores"
+                ]
+            }
+        }
+    },
+    "选择每日任务": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Daily$"
                 ]
             }
         }
