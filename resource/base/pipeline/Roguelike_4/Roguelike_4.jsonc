@@ -634,10 +634,10 @@
         "rate_limit": 0,
         "next": [
             "战斗完成_寒境曙光",
-            "战斗中_货币不足",
-            "[JumpBack]重启_寒境曙光",
-            "[JumpBack]战斗中",
             "[JumpBack]跳过战斗对话",
+            "[JumpBack]重启_寒境曙光",
+            "战斗中_货币不足",
+            "[JumpBack]战斗中",
             "[JumpBack]未选人_寒境曙光",
             "[JumpBack]作战开始",
             "[JumpBack]载入中",
