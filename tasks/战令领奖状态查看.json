@@ -1,0 +1,15 @@
+{
+    "task": [
+        {
+            "name": "战令领奖状态查看",
+            "label": "战令领奖状态查看",
+            "entry": "PGR只读_战令入口",
+            "group": [
+                "tools"
+            ],
+            "default_check": false,
+            "description": "只读观察当前客户端账号及奖励页面；不领取、不购买，成功不代表奖励校验完成。"
+        }
+    ],
+    "option": {}
+}
