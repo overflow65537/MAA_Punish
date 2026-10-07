@@ -2,31 +2,15 @@
 分辨率检查器
 
 在任务开始时检查模拟器分辨率是否为 16:9，如果不是则停止任务并输出警告。
-
-MaaFwApp（Android 通用 UI）下不做检查：Client 启动 Agent 子进程时会注入
-PI_CLIENT_NAME（Project Interface v2.5 约定），命中时本模块整体静默跳过，
-既不检查分辨率，也不输出任何日志。
 """
-
-import os
 
 from maa.event_sink import NotificationType
 from maa.tasker import Tasker, TaskerEventSink
 from logger_component import LoggerComponent
+import sys
 
 logger_component = LoggerComponent(__name__)
 logger = logger_component.logger
-
-# Client 注入的标识变量（Project Interface v2.5 约定）。
-PI_CLIENT_NAME_ENV = "PI_CLIENT_NAME"
-# 这些 Client 下跳过分辨率检查（比较时忽略大小写与首尾空白）。
-SKIP_CLIENT_NAMES = frozenset({"maafwapp"})
-
-
-def should_skip_client() -> bool:
-    """当前 Agent 是否由不需要分辨率检查的 Client（如 MaaFwApp）启动。"""
-    client_name = os.environ.get(PI_CLIENT_NAME_ENV, "")
-    return client_name.strip().lower() in SKIP_CLIENT_NAMES
 
 
 class AspectRatioChecker(TaskerEventSink):
@@ -48,8 +32,8 @@ class AspectRatioChecker(TaskerEventSink):
         noti_type: NotificationType,
         detail: TaskerEventSink.TaskerTaskDetail,
     ):
-        # MaaFwApp 下直接返回：不检查分辨率，也不输出任何日志。
-        if should_skip_client():
+        IS_ANDROID = hasattr(sys, "getandroidapilevel")
+        if IS_ANDROID:
             return
 
         if noti_type != NotificationType.Starting:
