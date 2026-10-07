@@ -24,7 +24,7 @@ def test_readonly_entries_default_off_and_never_enter_original_claim_branches():
             if key in visited: continue
             visited.add(key)
             node=pipeline[key]
-            assert 'on_error' not in node
+            assert node['on_error'] == []
             pending.extend(node.get('next',[]))
             if 'action' in node:
                 if node['action']['type'] == 'Click':
@@ -64,3 +64,19 @@ def test_navigation_uses_the_exact_official_recognition_and_action():
         source=json.loads((BASE/filename).read_text(encoding='utf-8'))[original]
         assert pipeline[added]['recognition'] == source['recognition']
         assert pipeline[added]['action'] == source['action']
+
+
+def test_daily_fraction_and_failed_observation_do_not_inherit_home_recovery():
+    import re
+    pipeline=json.loads((BASE/'Readonly_Reward_Status.jsonc').read_text(encoding='utf-8'))
+    defaults=json.loads((ROOT/'resource/base/default_pipeline.json').read_text(encoding='utf-8'))
+    assert defaults['Default']['on_error'] == ['返回主菜单_err']
+    assert all(node['on_error'] == [] for node in pipeline.values())
+    param=pipeline['PGR只读_每日状态']['recognition']['param']
+    assert param['threshold']==0.8
+    assert param['roi']==[278,645,145,70]
+    for text in ('95 /100','95/100','100 / 100','20','0'):
+        assert re.fullmatch(param['expected'],text)
+    for text in ('每日任务','领取','95/200','失败95',''):
+        assert not re.fullmatch(param['expected'],text)
+    assert pipeline['PGR只读_选择每日']['timeout']==5000
