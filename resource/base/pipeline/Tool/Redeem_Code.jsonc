@@ -1,17 +1,26 @@
 {
     "兑换码": {
         "next": [
-            // 这里真实的 next 路径需要去检查是否需要运行的 custom 中查看
-            "[JumpBack]检查是否需要运行"
+            // 由识别器 CheckRedeemCode 判断要不要兑换
+            // 命中（还有码没换）就进「检查是否需要运行」自己的 next 走兑换流程
+            // 没命中（没有要换的码）就落到空任务，直接结束
+            "[JumpBack]检查是否需要运行",
+            "空任务"
         ]
     },
     "检查是否需要运行": {
-        "action": {
+        "recognition": {
             "type": "Custom",
             "param": {
-                "custom_action": "CheckRedeemCode"
+                "custom_recognition": "CheckRedeemCode"
             }
-        }
+        },
+        "next": [
+            "[JumpBack]可以输入兑换码",
+            "[JumpBack]打开个人页面",
+            "[JumpBack]关闭奖励",
+            "[JumpBack]返回主菜单"
+        ]
     },
     "打开个人页面": {
         "recognition": {

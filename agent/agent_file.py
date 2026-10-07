@@ -46,7 +46,7 @@ class Agent_CacheRole(CacheRole):
     pass
 
 
-@AgentServer.custom_action("CheckRedeemCode")
+@AgentServer.custom_recognition("CheckRedeemCode")
 class Agent_CheckRedeemCode(CheckRedeemCode):
     pass
 
