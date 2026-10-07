@@ -33,7 +33,7 @@ def test_readonly_entries_default_off_and_never_enter_original_claim_branches():
                 else:
                     assert node['action']['type'] == 'Swipe'
                     assert key.startswith('PGR只读_战令历史_')
-                    assert node['action']['param'] == {'begin':[650,300],'end':[1060,300],'duration':700}
+                    assert node['action']['param'] == {'begin':[650,300],'end':[925,300],'duration':700}
         assert len(visited) == (6 if name == '每日领奖状态查看' else 14)
         phases=[pipeline[key]['recognition']['param']['custom_recognition_param']['phase']
                 for key in visited if pipeline[key].get('recognition',{}).get('type') == 'Custom']
