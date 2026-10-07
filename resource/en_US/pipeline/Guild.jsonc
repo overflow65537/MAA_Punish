@@ -10,6 +10,16 @@
             }
         }
     },
+    "检查指定按钮": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Get an Oracle",
+                    "Check Oracle"
+                ]
+            }
+        }
+    },
     "检查是否在指挥局内部": {
         "recognition": {
             "param": {

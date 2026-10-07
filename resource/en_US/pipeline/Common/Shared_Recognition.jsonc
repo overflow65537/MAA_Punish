@@ -69,7 +69,7 @@
         "recognition": {
             "param": {
                 "expected": [
-                    "^>?(Get )?Rewards?<?$"
+                    "^>?((Get|Obtained) )?Rewards?<?$"
                 ]
             }
         }
@@ -79,6 +79,12 @@
             "param": {
                 "expected": [
                     "Back"
+                ],
+                "roi": [
+                    26,
+                    0,
+                    110,
+                    103
                 ]
             }
         }
