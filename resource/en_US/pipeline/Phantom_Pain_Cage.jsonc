@@ -28,6 +28,16 @@
             }
         }
     },
+    "耐力值不足": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Stamina too low",
+                    "AP: ?0/3"
+                ]
+            }
+        }
+    },
     "意外处理_没识别到返回": {
         "recognition": {
             "param": {
