@@ -21,6 +21,7 @@
             "inputs": [
                 {
                     "name": "角色名",
+                    "label": "$input.输入A级角色名.角色名.label",
                     "description": "$input.输入A级角色名.角色名.description",
                     "default": "破晓",
                     "pipeline_type": "string"

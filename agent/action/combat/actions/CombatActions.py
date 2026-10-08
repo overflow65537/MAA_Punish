@@ -212,6 +212,39 @@ class CombatActions:
             )
         return self.context.run_action("长按闪避")
 
+    def long_press_dodge_until(
+        self,
+        status_node: str,
+        *,
+        timeout: float = 3.0,
+        poll_interval: float = 0.05,
+    ) -> bool:
+        """
+        长按闪避直至识别命中或超时（与 ``long_press_dodge`` 同键位，可视觉松手）。
+
+        Pipeline 的「长按闪避」为固定时长 Swipe/LongPressKey，无法在充能条满时提前松开；
+        本方法用「按下闪避 / 松开闪避」持键并轮询 ``status_node``。
+
+        :return: True 表示 status_node 命中；False 为超时或收到停止信号
+        """
+        self.down_dodge()
+        deadline = time.monotonic() + timeout
+        hit = False
+        try:
+            while time.monotonic() < deadline:
+                if self.context.tasker.stopping:
+                    return False
+                if self.check_status(status_node):
+                    hit = True
+                    break
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    break
+                time.sleep(min(poll_interval, remaining))
+        finally:
+            self.up_dodge()
+        return hit
+
     def use_skill(self, duration: int = 0):
         """
         使用技能

@@ -1,0 +1,85 @@
+{
+    "task": [
+        {
+            "name": "自动主线",
+            "group": [
+                "tools"
+            ],
+            "entry": "自动主线",
+            "option": [
+                "是否使用体力",
+                "作战编队_自动主线"
+            ],
+            "pipeline_override": {
+                "速通滑动": {
+                    "enabled": true
+                },
+                "跳过剧情": {
+                    "post_wait_freezes": 500,
+                    "next": [
+                        "确认跳过",
+                        "跳过剧情",
+                        "速通滑动"
+                    ]
+                }
+            },
+            "description": "$task.自动主线.description",
+            "label": "$task.自动主线"
+        }
+    ],
+    "option": {
+        "作战编队_自动主线": {
+            "label": "$option.作战编队_自动主线.label",
+            "description": "$option.作战编队_自动主线.description",
+            "type": "select",
+            "default_case": "默认选人",
+            "cases": [
+                {
+                    "name": "默认选人",
+                    "pipeline_override": {},
+                    "label": "$case.作战编队_自动主线.默认选人"
+                },
+                {
+                    "name": "指定编队",
+                    "option": [
+                        "输入作战编队_自动主线"
+                    ],
+                    "label": "$case.作战编队_自动主线.指定编队"
+                }
+            ]
+        },
+        "输入作战编队_自动主线": {
+            "label": "$option.输入作战编队_自动主线.label",
+            "description": "$option.输入作战编队_自动主线.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "编队名",
+                    "label": "$input.输入作战编队_自动主线.编队名.label",
+                    "pipeline_type": "string",
+                    "default": "编队1",
+                    "verify": "^\\s*\\S.*$",
+                    "pattern_msg": "$input.输入作战编队_自动主线.编队名.pattern_msg"
+                }
+            ],
+            "pipeline_override": {
+                "未选人": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "PPOverride",
+                            "custom_action_param": {
+                                "选择预设": {
+                                    "expected": "{编队名}"
+                                }
+                            }
+                        }
+                    },
+                    "next": [
+                        "切换预设"
+                    ]
+                }
+            }
+        }
+    }
+}

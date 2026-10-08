@@ -7,6 +7,7 @@
 from maa.event_sink import NotificationType
 from maa.tasker import Tasker, TaskerEventSink
 from logger_component import LoggerComponent
+import sys
 
 logger_component = LoggerComponent(__name__)
 logger = logger_component.logger
@@ -31,6 +32,10 @@ class AspectRatioChecker(TaskerEventSink):
         noti_type: NotificationType,
         detail: TaskerEventSink.TaskerTaskDetail,
     ):
+        IS_ANDROID = hasattr(sys, "getandroidapilevel")
+        if IS_ANDROID:
+            return
+
         if noti_type != NotificationType.Starting:
             return
 

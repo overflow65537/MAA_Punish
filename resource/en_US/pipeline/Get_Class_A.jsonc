@@ -262,6 +262,15 @@
             }
         }
     },
+    "A_挑战次数不足": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Insufficient attempts"
+                ]
+            }
+        }
+    },
     "补给包不足": {
         "recognition": {
             "param": {

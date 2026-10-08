@@ -1,0 +1,10 @@
+# https://editorconfig.org
+root = true
+
+[*]
+charset = utf-8
+insert_final_newline = true
+
+# MAA/MFW loads pipeline JSON with strict parse — no UTF-8 BOM.
+[*.{json,jsonc}]
+charset = utf-8

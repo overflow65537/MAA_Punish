@@ -3,6 +3,7 @@
         "切换服务器",
         "缓存组件信息",
         "角色缓存更新频率",
+        "角色缓存刷新时间",
         "多账号缓存",
         "自定义键位",
         "启动重试次数"
@@ -17,12 +18,8 @@
                     "name": "每周",
                     "pipeline_override": {
                         "是否需要缓存": {
-                            "recognition": {
-                                "param": {
-                                    "custom_recognition_param": {
-                                        "update_frequency": "weekly"
-                                    }
-                                }
+                            "attach": {
+                                "update_frequency": "weekly"
                             }
                         },
                         "选择角色程序": {
@@ -47,12 +44,8 @@
                     "name": "每月",
                     "pipeline_override": {
                         "是否需要缓存": {
-                            "recognition": {
-                                "param": {
-                                    "custom_recognition_param": {
-                                        "update_frequency": "monthly"
-                                    }
-                                }
+                            "attach": {
+                                "update_frequency": "monthly"
                             }
                         },
                         "选择角色程序": {
@@ -77,12 +70,8 @@
                     "name": "永不过期",
                     "pipeline_override": {
                         "是否需要缓存": {
-                            "recognition": {
-                                "param": {
-                                    "custom_recognition_param": {
-                                        "update_frequency": "never"
-                                    }
-                                }
+                            "attach": {
+                                "update_frequency": "never"
                             }
                         },
                         "选择角色程序": {
@@ -104,6 +93,44 @@
                     "label": "$case.角色缓存更新频率.永不过期"
                 }
             ]
+        },
+        "角色缓存刷新时间": {
+            "label": "$option.角色缓存刷新时间.label",
+            "description": "$option.角色缓存刷新时间.description",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "刷新时间",
+                    "label": "$input.角色缓存刷新时间.刷新时间.label",
+                    "description": "$input.角色缓存刷新时间.刷新时间.description",
+                    "default": "5",
+                    "pipeline_type": "int",
+                    "verify": "^(?:[01]?\\d|2[0-3])$",
+                    "pattern_msg": "$input.角色缓存刷新时间.刷新时间.pattern_msg"
+                }
+            ],
+            "pipeline_override": {
+                "是否需要缓存": {
+                    "attach": {
+                        "refresh_hour": "{刷新时间}"
+                    }
+                },
+                "选择角色程序": {
+                    "attach": {
+                        "refresh_hour": "{刷新时间}"
+                    }
+                },
+                "选择角色程序_onlyNode": {
+                    "attach": {
+                        "refresh_hour": "{刷新时间}"
+                    }
+                },
+                "选择角色程序_矩阵循生": {
+                    "attach": {
+                        "refresh_hour": "{刷新时间}"
+                    }
+                }
+            }
         },
         "多账号缓存": {
             "label": "$option.多账号缓存.label",
@@ -623,62 +650,77 @@
             "hotkeys": [
                 {
                     "name": "攻击",
+                    "label": "$hotkey.输入键码.攻击",
                     "default": "J"
                 },
                 {
                     "name": "闪避",
+                    "label": "$hotkey.输入键码.闪避",
                     "default": "K"
                 },
                 {
                     "name": "技能",
+                    "label": "$hotkey.输入键码.技能",
                     "default": "L"
                 },
                 {
                     "name": "上方QTE",
+                    "label": "$hotkey.输入键码.上方QTE",
                     "default": "Q"
                 },
                 {
                     "name": "下方QTE",
+                    "label": "$hotkey.输入键码.下方QTE",
                     "default": "E"
                 },
                 {
                     "name": "1号球",
+                    "label": "$hotkey.输入键码.1号球",
                     "default": "1"
                 },
                 {
                     "name": "2号球",
+                    "label": "$hotkey.输入键码.2号球",
                     "default": "2"
                 },
                 {
                     "name": "3号球",
+                    "label": "$hotkey.输入键码.3号球",
                     "default": "3"
                 },
                 {
                     "name": "4号球",
+                    "label": "$hotkey.输入键码.4号球",
                     "default": "4"
                 },
                 {
                     "name": "5号球",
+                    "label": "$hotkey.输入键码.5号球",
                     "default": "5"
                 },
                 {
                     "name": "6号球",
+                    "label": "$hotkey.输入键码.6号球",
                     "default": "6"
                 },
                 {
                     "name": "7号球",
+                    "label": "$hotkey.输入键码.7号球",
                     "default": "7"
                 },
                 {
                     "name": "8号球",
+                    "label": "$hotkey.输入键码.8号球",
                     "default": "8"
                 },
                 {
                     "name": "锁定视角",
+                    "label": "$hotkey.输入键码.锁定视角",
                     "default": "Tab"
                 },
                 {
                     "name": "辅助机",
+                    "label": "$hotkey.输入键码.辅助机",
                     "default": "C"
                 }
             ],
@@ -868,6 +910,8 @@
             "inputs": [
                 {
                     "name": "最大重试次数",
+                    "label": "$input.启动重试次数.最大重试次数.label",
+                    "description": "$input.启动重试次数.最大重试次数.description",
                     "default": "60",
                     "pipeline_type": "int",
                     "verify": "^\\d+$",

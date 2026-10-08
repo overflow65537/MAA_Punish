@@ -28,11 +28,20 @@
             }
         }
     },
-    "购买": {
+    "识别购买界面逆元碎片": {
         "recognition": {
             "param": {
                 "expected": [
                     "Inver-Shard"
+                ]
+            }
+        }
+    },
+    "识别购买界面购买": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Purchase$"
                 ]
             }
         }

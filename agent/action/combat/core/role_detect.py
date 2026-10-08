@@ -44,6 +44,9 @@ def _normalize_attack_templates(raw: Any) -> list[Any]:
 
 def attack_templates_for_cls(cls_name: str) -> list[Any]:
     """按 cls_name 取 attack_template；未找到返回空列表。"""
+    if cls_name == _GENERIC_CLS:
+        # 多个角色共用 GeneralFight，无单一 cls 级模板；勿取 ROLE_ACTIONS 中「第一个通用」误判
+        return []
     for role_info in ROLE_ACTIONS.values():
         if role_info.get("cls_name") == cls_name:
             return _normalize_attack_templates(role_info.get("attack_template"))

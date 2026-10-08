@@ -20,36 +20,8 @@
                     }
                 }
             },
-            "option": [
-                "MAS通知处理"
-            ],
             "label": "$task.进入游戏"
         }
     ],
-    "option": {
-        "MAS通知处理": {
-            "label": "$option.MAS通知处理.label",
-            "description": "$option.MAS通知处理.description",
-            "type": "switch",
-            "cases": [
-                {
-                    "name": "Yes",
-                    "pipeline_override": {
-                        "MAS联动处理-检查到维护公告_将发送假通知": {
-                            "enabled": true
-                        }
-                    }
-                },
-                {
-                    "name": "No",
-                    "pipeline_override": {
-                        "MAS联动处理-检查到维护公告_将发送假通知": {
-                            "enabled": false
-                        }
-                    }
-                }
-            ],
-            "default_case": "No"
-        }
-    }
+    "option": {}
 }

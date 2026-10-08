@@ -36,6 +36,7 @@ class TestAttackTemplatesForCls:
 
     def test_unknown_cls_returns_empty(self):
         assert attack_templates_for_cls("NotARealRole") == []
+        assert attack_templates_for_cls("GeneralFight") == []
 
 
 class TestMatchAttackTemplate:

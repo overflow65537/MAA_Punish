@@ -53,19 +53,71 @@
             "确定"
         ]
     },
-    "下一步_厄愿潮声": {
-        "desc": "only_rec的下一步,跳过OCR缓存",
+    "下一步_厄愿潮声_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1051,
+                    631,
+                    199,
+                    44
+                ],
+                "method": 40,
+                "lower": [
+                    [
+                        0,
+                        0,
+                        100
+                    ],
+                    [
+                        24,
+                        80,
+                        133
+                    ]
+                ],
+                "upper": [
+                    [
+                        0,
+                        0,
+                        255
+                    ],
+                    [
+                        25,
+                        84,
+                        165
+                    ]
+                ],
+                "count": 50
+            }
+        }
+    },
+    "下一步_厄愿潮声_文字": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    1101,
-                    631,
-                    99,
-                    44
+                "roi": "下一步_厄愿潮声_颜色",
+                "roi_offset": [
+                    -10,
+                    -2,
+                    12,
+                    4
                 ],
                 "expected": "下一步",
                 "only_rec": true
+            }
+        }
+    },
+    "下一步_厄愿潮声": {
+        "desc": "跳过OCR缓存",
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "下一步_厄愿潮声_颜色",
+                    "下一步_厄愿潮声_文字"
+                ],
+                "box_index": 1
             }
         },
         "action": {
@@ -150,9 +202,9 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    1022,
+                    950,
                     600,
-                    225,
+                    325,
                     83
                 ],
                 "expected": [
@@ -1844,34 +1896,61 @@
     },
     "招募次数0_厄愿潮声": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    1190,
-                    573,
-                    33,
-                    38
-                ],
-                "expected": "^0$",
-                "only_rec": true
+                "all_of": [
+                    "招募次数0_厄愿潮声_颜色",
+                    "招募次数0_厄愿潮声_文字"
+                ]
             }
         },
         "next": [
             "下一步"
         ]
     },
-    "刷新次数为0_厄愿潮声": {
+    "招募次数0_厄愿潮声_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1083,
+                    536,
+                    167,
+                    121
+                ],
+                "method": 40,
+                "lower": [
+                    100,
+                    190,
+                    240
+                ],
+                "upper": [
+                    102,
+                    210,
+                    255
+                ],
+                "count": 10
+            }
+        }
+    },
+    "招募次数0_厄愿潮声_文字": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    1201,
-                    90,
-                    28,
-                    38
-                ],
+                "roi": "招募次数0_厄愿潮声_颜色",
                 "expected": "^0$",
                 "only_rec": true
+            }
+        }
+    },
+    "刷新次数为0_厄愿潮声": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "刷新次数为0_厄愿潮声_颜色",
+                    "刷新次数为0_厄愿潮声_文字"
+                ]
             }
         },
         "post_delay": 500,
@@ -1886,6 +1965,41 @@
         ],
         "focus": {
             "Node.Recognition.Succeeded": "$focus.刷新次数为0_厄愿潮声"
+        }
+    },
+    "刷新次数为0_厄愿潮声_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1097,
+                    53,
+                    176,
+                    108
+                ],
+                "method": 40,
+                "lower": [
+                    100,
+                    190,
+                    240
+                ],
+                "upper": [
+                    102,
+                    210,
+                    255
+                ],
+                "count": 10
+            }
+        }
+    },
+    "刷新次数为0_厄愿潮声_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "刷新次数为0_厄愿潮声_颜色",
+                "expected": "^0$",
+                "only_rec": true
+            }
         }
     },
     "厄愿潮声主界面": {

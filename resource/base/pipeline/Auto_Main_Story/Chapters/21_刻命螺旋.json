@@ -1,0 +1,39 @@
+{
+    "21_刻命螺旋": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    33,
+                    93,
+                    500,
+                    120
+                ],
+                "expected": "21\\s*刻命螺旋"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    900,
+                    200
+                ],
+                "end": [
+                    200,
+                    200
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000,
+            "target": [
+                0,
+                0,
+                1280,
+                720
+            ]
+        }
+    }
+}

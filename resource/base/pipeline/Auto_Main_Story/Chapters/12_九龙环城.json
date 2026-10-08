@@ -1,0 +1,717 @@
+{
+    "12_九龙环城": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    33,
+                    93,
+                    500,
+                    120
+                ],
+                "expected": "12\\s*九龙环城"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    900,
+                    200
+                ],
+                "end": [
+                    200,
+                    200
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000,
+            "target": [
+                0,
+                0,
+                1280,
+                720
+            ]
+        },
+        "next": [
+            "剧情通关_12",
+            "[JumpBack]切换隐藏剧情",
+            "[JumpBack]选择最新关卡_12",
+            "[JumpBack]12-1",
+            "[JumpBack]12-2",
+            "[JumpBack]12-3",
+            "[JumpBack]12-4",
+            "[JumpBack]12-5",
+            "[JumpBack]12-6",
+            "[JumpBack]12-7",
+            "[JumpBack]12-8",
+            "[JumpBack]12-9",
+            "[JumpBack]12-10",
+            "[JumpBack]12-11",
+            "[JumpBack]12-12",
+            "[JumpBack]12-13",
+            "[JumpBack]12-14",
+            "[JumpBack]12-15",
+            "[JumpBack]12-16",
+            "[JumpBack]12-17",
+            "[JumpBack]12-18",
+            "[JumpBack]12-19",
+            "[JumpBack]12-20",
+            "[JumpBack]12-21",
+            "[JumpBack]12-22",
+            "[JumpBack]12-23",
+            "[JumpBack]12-24",
+            "[JumpBack]12-25",
+            "[JumpBack]12-26"
+        ]
+    },
+    "剧情通关_12": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "切换隐藏剧情_100%",
+                    "剧情通关_12_隐藏剧情文字"
+                ]
+            }
+        },
+        "next": [
+            "返回"
+        ]
+    },
+    "剧情通关_12_隐藏剧情文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "roi_offset": [
+                    85,
+                    -3,
+                    102,
+                    6
+                ],
+                "expected": [
+                    "隐藏剧情"
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "选择最新关卡_12": {
+        "enabled": false,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "12-7",
+                    "12-6",
+                    "12-5",
+                    "12-4",
+                    "12-3",
+                    "12-2",
+                    "12-1"
+                ],
+                "order_by": "Expected"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "12-1": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-1已完成",
+            "12-1未完成"
+        ]
+    },
+    "12-1已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-1未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-2": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-2已完成",
+            "12-2未完成"
+        ]
+    },
+    "12-2已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-2未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-3": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-3已完成",
+            "12-3未完成"
+        ]
+    },
+    "12-3已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-3未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-4": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-4已完成",
+            "12-4未完成"
+        ]
+    },
+    "12-4已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-4未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-5": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-5已完成",
+            "12-5未完成"
+        ]
+    },
+    "12-5已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-5未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-6": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-6已完成",
+            "12-6未完成"
+        ]
+    },
+    "12-6已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-6未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-7": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-7已完成",
+            "12-7未完成"
+        ]
+    },
+    "12-7已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-7未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-8": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-8已完成",
+            "12-8未完成"
+        ]
+    },
+    "12-8已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-8未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-9": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-9已完成",
+            "12-9未完成"
+        ]
+    },
+    "12-9已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-9未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-10": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-10已完成",
+            "12-10未完成"
+        ]
+    },
+    "12-10已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-10未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-11": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-11已完成",
+            "12-11未完成"
+        ]
+    },
+    "12-11已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-11未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-12": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-12已完成",
+            "12-12未完成"
+        ]
+    },
+    "12-12已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-12未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-13": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-13已完成",
+            "12-13未完成"
+        ]
+    },
+    "12-13已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-13未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-14": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-14已完成",
+            "12-14未完成"
+        ]
+    },
+    "12-14已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-14未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-15": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-15已完成",
+            "12-15未完成"
+        ]
+    },
+    "12-15已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-15未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-16": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-16已完成",
+            "12-16未完成"
+        ]
+    },
+    "12-16已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-16未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-17": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-17已完成",
+            "12-17未完成"
+        ]
+    },
+    "12-17已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-17未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-18": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-18已完成",
+            "12-18未完成"
+        ]
+    },
+    "12-18已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-18未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-19": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-19已完成",
+            "12-19未完成"
+        ]
+    },
+    "12-19已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-19未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-20": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-20已完成",
+            "12-20未完成"
+        ]
+    },
+    "12-20已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-20未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-21": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-21已完成",
+            "12-21未完成"
+        ]
+    },
+    "12-21已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-21未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-22": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-22已完成",
+            "12-22未完成"
+        ]
+    },
+    "12-22已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-22未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-23": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-23已完成",
+            "12-23未完成"
+        ]
+    },
+    "12-23已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-23未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-24": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-24已完成",
+            "12-24未完成"
+        ]
+    },
+    "12-24已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-24未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-25": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-25已完成",
+            "12-25未完成"
+        ]
+    },
+    "12-25已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-25未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-26": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": [
+            "12-26已完成",
+            "12-26未完成"
+        ]
+    },
+    "12-26已完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "12-26未完成": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    }
+}

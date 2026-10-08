@@ -3,11 +3,29 @@
         "next": [
             "行动上限",
             "无需任务",
+            "[JumpBack]避开战斗",
             "[JumpBack]开始行动",
             "[JumpBack]打开维系者行动",
             "[JumpBack]打开任务",
             "[JumpBack]意外点击_主界面"
         ]
+    },
+    "避开战斗": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    631,
+                    510,
+                    649,
+                    210
+                ],
+                "expected": "避开战斗"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "无需任务": {
         "recognition": {

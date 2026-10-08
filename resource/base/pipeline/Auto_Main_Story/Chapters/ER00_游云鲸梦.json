@@ -1,0 +1,135 @@
+{
+    "ER00_游云鲸梦": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    33,
+                    93,
+                    500,
+                    120
+                ],
+                "expected": "游云鲸梦"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    900,
+                    200
+                ],
+                "end": [
+                    200,
+                    200
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000,
+            "target": [
+                0,
+                0,
+                1280,
+                720
+            ]
+        },
+        "next": [
+            "[JumpBack]选择最新关卡_ER00_10",
+            "剧情通关_ER00",
+            "[JumpBack]选择最新关卡_ER00"
+        ]
+    },
+    "选择最新关卡_ER00": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "ER00-9",
+                    "ER00-8",
+                    "ER00-7",
+                    "ER00-6",
+                    "ER00-5",
+                    "ER00-4",
+                    "ER00-3",
+                    "ER00-2",
+                    "ER00-1"
+                ],
+                "order_by": "Expected",
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_ER00_10": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "ER00-10"
+                ],
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]播放剧情",
+            "[JumpBack]主线跳过",
+            "跳过剧情"
+        ]
+    },
+    "剧情通关_ER00": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "ER00-10"
+                ],
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ]
+            }
+        },
+        "next": [
+            "返回"
+        ]
+    }
+}

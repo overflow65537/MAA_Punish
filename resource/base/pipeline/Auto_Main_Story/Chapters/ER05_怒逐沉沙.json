@@ -1,0 +1,143 @@
+{
+    "ER05_怒逐沉沙": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    33,
+                    93,
+                    500,
+                    120
+                ],
+                "expected": "ER05\\s*怒逐沉沙"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    900,
+                    200
+                ],
+                "end": [
+                    200,
+                    200
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000,
+            "target": [
+                0,
+                0,
+                1280,
+                720
+            ]
+        },
+        "next": [
+            "[JumpBack]选择最新关卡_ER05_18",
+            "剧情通关_ER05",
+            "[JumpBack]选择最新关卡_ER05"
+        ]
+    },
+    "选择最新关卡_ER05": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "ER05-17",
+                    "ER05-16",
+                    "ER05-15",
+                    "ER05-14",
+                    "ER05-13",
+                    "ER05-12",
+                    "ER05-11",
+                    "ER05-10",
+                    "ER05-9",
+                    "ER05-8",
+                    "ER05-7",
+                    "ER05-6",
+                    "ER05-5",
+                    "ER05-4",
+                    "ER05-3",
+                    "ER05-2",
+                    "ER05-1"
+                ],
+                "order_by": "Expected"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_ER05_18": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "ER05-18"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]播放剧情",
+            "[JumpBack]主线跳过",
+            "跳过剧情"
+        ]
+    },
+    "剧情通关_ER05": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "ER05-18"
+                ]
+            }
+        },
+        "next": [
+            "返回"
+        ]
+    }
+}

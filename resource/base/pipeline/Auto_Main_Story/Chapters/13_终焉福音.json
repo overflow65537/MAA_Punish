@@ -1,0 +1,39 @@
+{
+    "13_终焉福音": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    33,
+                    93,
+                    500,
+                    120
+                ],
+                "expected": "13\\s*终焉福音"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    900,
+                    200
+                ],
+                "end": [
+                    200,
+                    200
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000,
+            "target": [
+                0,
+                0,
+                1280,
+                720
+            ]
+        }
+    }
+}

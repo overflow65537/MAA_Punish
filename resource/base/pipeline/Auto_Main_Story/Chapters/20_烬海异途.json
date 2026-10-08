@@ -1,0 +1,139 @@
+{
+    "20_烬海异途": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    33,
+                    93,
+                    500,
+                    120
+                ],
+                "expected": "20\\s*烬海异途"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    900,
+                    200
+                ],
+                "end": [
+                    200,
+                    200
+                ]
+            }
+        },
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000,
+            "target": [
+                0,
+                0,
+                1280,
+                720
+            ]
+        },
+        "next": [
+            "[JumpBack]选择最新关卡_20_14",
+            "剧情通关_20",
+            "[JumpBack]选择最新关卡_20"
+        ]
+    },
+    "选择最新关卡_20": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "20-13",
+                    "20-12",
+                    "20-11",
+                    "20-10",
+                    "20-9",
+                    "20-8",
+                    "20-7",
+                    "20-6",
+                    "20-5",
+                    "20-4",
+                    "20-3",
+                    "20-2",
+                    "20-1"
+                ],
+                "order_by": "Expected"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "选择最新关卡_20_14": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "20-14"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]播放剧情",
+            "[JumpBack]主线跳过",
+            "跳过剧情"
+        ]
+    },
+    "剧情通关_20": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    0,
+                    1035,
+                    720
+                ],
+                "expected": [
+                    "20-14"
+                ]
+            }
+        },
+        "next": [
+            "返回"
+        ]
+    }
+}

@@ -39,7 +39,7 @@ from action.combat.core.role_detect import (
 )
 from action.combat.core.role_factory import ROLE_CLASS_MAP, create_role
 from action.combat.core.switch import attempt_switch_to_color, blind_attack_click, CHAR_CHECK_ATTACK_COUNT
-from action.combat.core.team import TEAM_COLORS, TeamSnapshot
+from action.combat.core.team import GENERIC_CLS_NAME, TEAM_COLORS, TeamSnapshot
 from action.combat.timing import active_delay
 from action.combat.config.LoadSetting import ROLE_ACTIONS
 from logger_component import LoggerComponent
@@ -324,7 +324,10 @@ class CombatTask:
         if self.team is None:
             return False
 
-        if not attack_templates_for_cls(role.cls_name):
+        if (
+            not attack_templates_for_cls(role.cls_name)
+            and role.cls_name != GENERIC_CLS_NAME
+        ):
             return False
 
         image = self.frame
