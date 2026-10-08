@@ -83,6 +83,24 @@
             }
         }
     },
+    "领取委托完成奖励": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Recall All"
+                ]
+            }
+        }
+    },
+    "关闭委托完成通知": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "ommission"
+                ]
+            }
+        }
+    },
     "打开宿舍": {
         "recognition": {
             "param": {
