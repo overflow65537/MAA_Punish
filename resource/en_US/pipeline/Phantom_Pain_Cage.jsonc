@@ -105,7 +105,8 @@
         "recognition": {
             "param": {
                 "expected": [
-                    "Iron Maiden"
+                    "Iron Maiden",
+                    "Camu"
                 ]
             }
         }
