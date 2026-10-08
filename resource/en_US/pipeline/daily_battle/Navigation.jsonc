@@ -10,6 +10,18 @@
             }
         }
     },
+    "打开战斗_拟战场域": {
+        "action": {
+            "param": {
+                "target_offset": [
+                    60,
+                    0,
+                    -60,
+                    0
+                ]
+            }
+        }
+    },
     "打开资源": {
         "recognition": {
             "param": {
