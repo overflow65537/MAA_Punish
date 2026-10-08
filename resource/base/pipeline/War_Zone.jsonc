@@ -325,35 +325,19 @@
     },
     "战斗结束": {
         "recognition": {
-            "type": "OCR",
+            "type": "And",
             "param": {
-                "roi": [
-                    953,
-                    604,
-                    327,
-                    116
-                ],
-                "expected": [
-                    "退出战斗",
-                    "保存"
+                "all_of": [
+                    "战斗结束_颜色",
+                    "战斗结束_文字"
                 ]
             }
         },
-        "pre_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000,
-            "target": [
-                0,
-                0,
-                1280,
-                720
-            ]
-        },
-        "action": {
-            "type": "Click"
-        },
+        //"action": {
+        //    "type": "Click"
+        //},
         "post_wait_freezes": {
-            "time": 1500,
+            "time": 2000,
             "timeout": 5000,
             "target": [
                 112,
@@ -361,6 +345,45 @@
                 394,
                 461
             ]
+        }
+    },
+    "战斗结束_颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    953,
+                    604,
+                    327,
+                    116
+                ],
+                "method": 40,
+                "lower": [
+                    102,
+                    170,
+                    186
+                ],
+                "upper": [
+                    240,
+                    240,
+                    201
+                ],
+                "count": 100,
+                "connected": true
+            }
+        }
+    },
+    "战斗结束_文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "战斗结束_颜色",
+                "expected": [
+                    "退出战斗",
+                    "保存"
+                ],
+                "only_rec": true
+            }
         }
     },
     "查看地图_空区": {

@@ -114,7 +114,7 @@
             }
         }
     },
-    "战斗结束": {
+    "战斗结束_文字": {
         "recognition": {
             "param": {
                 "expected": [
