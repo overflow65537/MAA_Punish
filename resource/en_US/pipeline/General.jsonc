@@ -14,7 +14,8 @@
         "recognition": {
             "param": {
                 "expected": [
-                    "SKIP"
+                    "SKIP",
+                    "^Skip$"
                 ]
             }
         }
@@ -23,7 +24,8 @@
         "recognition": {
             "param": {
                 "expected": [
-                    "SKIP"
+                    "SKIP",
+                    "^Skip$"
                 ]
             }
         }

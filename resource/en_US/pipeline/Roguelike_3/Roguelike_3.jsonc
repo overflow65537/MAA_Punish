@@ -27,5 +27,14 @@
                 ]
             }
         }
+    },
+    "打开挑战": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Challenge$"
+                ]
+            }
+        }
     }
 }

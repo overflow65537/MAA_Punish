@@ -1,0 +1,17 @@
+{
+    "打开时宇漫纪": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Multiversal"
+                ],
+                "roi": [
+                    0,
+                    400,
+                    245,
+                    290
+                ]
+            }
+        }
+    }
+}

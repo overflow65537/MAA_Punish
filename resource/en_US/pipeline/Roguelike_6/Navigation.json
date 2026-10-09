@@ -18,5 +18,219 @@
                 ]
             }
         }
+    },
+    "选择模式_雾夜镇魂曲_等级模式": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Labyrinth Breakout"
+                ]
+            }
+        }
+    },
+    "选择模式_雾夜镇魂曲_诡城交锋": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Phantom Clash"
+                ]
+            }
+        }
+    },
+    "选择角色": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Archive$"
+                ]
+            }
+        }
+    },
+    "选择角色完成_阿尔法": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Alpha$"
+                ]
+            }
+        }
+    },
+    "选择角色完成_维罗妮卡": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Veronica$"
+                ]
+            }
+        }
+    },
+    "选择角色完成_神威": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Kamui$"
+                ]
+            }
+        }
+    },
+    "开始战斗_雾夜镇魂曲": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Enter$",
+                    "^Battle$"
+                ]
+            }
+        }
+    },
+    "正确选择难度_难度1": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Difficulty ?1$"
+                ]
+            }
+        }
+    },
+    "正确选择难度_难度2": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Difficulty ?2$"
+                ]
+            }
+        }
+    },
+    "正确选择难度_难度3": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Difficulty ?3$"
+                ]
+            }
+        }
+    },
+    "正确选择难度_难度4": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Difficulty ?4$"
+                ]
+            }
+        }
+    },
+    "滑动难度左_难度1": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "ulty ?3$",
+                    "ulty ?2$",
+                    "ulty ?1$"
+                ],
+                "roi": [
+                    125,
+                    146,
+                    165,
+                    88
+                ]
+            }
+        }
+    },
+    "滑动难度左_难度2": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "ulty ?3$",
+                    "ulty ?2$"
+                ],
+                "roi": [
+                    125,
+                    146,
+                    165,
+                    88
+                ]
+            }
+        }
+    },
+    "滑动难度左_难度3": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "ulty ?3$"
+                ],
+                "roi": [
+                    125,
+                    146,
+                    165,
+                    88
+                ]
+            }
+        }
+    },
+    "滑动难度右_难度2": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "ulty ?2$"
+                ],
+                "roi": [
+                    990,
+                    141,
+                    170,
+                    84
+                ]
+            }
+        }
+    },
+    "滑动难度右_难度3": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "ulty ?2$",
+                    "ulty ?3$"
+                ],
+                "roi": [
+                    990,
+                    141,
+                    170,
+                    84
+                ]
+            }
+        }
+    },
+    "滑动难度右_难度4": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "ulty ?2$",
+                    "ulty ?3$",
+                    "ulty ?4$"
+                ],
+                "roi": [
+                    990,
+                    141,
+                    170,
+                    84
+                ]
+            }
+        }
+    },
+    "选择难度": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Difficulty"
+                ]
+            }
+        }
+    },
+    "进入战斗_雾夜镇魂曲": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Enter Battle$"
+                ]
+            }
+        }
     }
 }
