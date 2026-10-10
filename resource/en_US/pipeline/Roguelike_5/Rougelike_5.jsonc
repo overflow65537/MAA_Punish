@@ -4,12 +4,6 @@
             "param": {
                 "expected": [
                     "Multiversal"
-                ],
-                "roi": [
-                    0,
-                    400,
-                    245,
-                    290
                 ]
             }
         }
