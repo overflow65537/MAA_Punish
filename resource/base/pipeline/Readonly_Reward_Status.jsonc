@@ -1,0 +1,504 @@
+{
+    "PGR只读_UID文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    125,
+                    78,
+                    160,
+                    43
+                ],
+                "expected": "^ID[:：]?\\s*[1-9][0-9]{6,9}$"
+            }
+        },
+        "on_error": []
+    },
+    "PGR只读_每日入口": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "ReadonlyCurrentAccount",
+                "custom_recognition_param": {
+                    "phase": "begin"
+                }
+            }
+        },
+        "timeout": 30000,
+        "next": [
+            "PGR只读_打开任务"
+        ],
+        "on_error": []
+    },
+    "PGR只读_打开任务": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    801,
+                    157,
+                    322,
+                    221
+                ],
+                "expected": "任务",
+                "replace": [
+                    [
+                        "笋",
+                        "务"
+                    ],
+                    [
+                        "托",
+                        "务"
+                    ]
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 2000,
+        "next": [
+            "PGR只读_选择每日"
+        ],
+        "on_error": []
+    },
+    "PGR只读_选择每日": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    7,
+                    124,
+                    264,
+                    406
+                ],
+                "expected": "每日"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "PGR只读_每日状态"
+        ],
+        "on_error": [],
+        "timeout": 5000
+    },
+    "PGR只读_每日状态": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    278,
+                    645,
+                    145,
+                    70
+                ],
+                "expected": "^[0-9]{1,3}(\\s*/\\s*100)?$",
+                "only_rec": true,
+                "threshold": 0.8
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "PGR只读_每日返回主页"
+        ],
+        "on_error": []
+    },
+    "PGR只读_每日返回主页": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "返回主菜单_文字"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "PGR只读_每日账号复核"
+        ],
+        "on_error": []
+    },
+    "PGR只读_每日账号复核": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "ReadonlyCurrentAccount",
+                "custom_recognition_param": {
+                    "phase": "end"
+                }
+            }
+        },
+        "timeout": 5000,
+        "on_error": []
+    },
+    "PGR只读_战令入口": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "ReadonlyCurrentAccount",
+                "custom_recognition_param": {
+                    "phase": "begin"
+                }
+            }
+        },
+        "timeout": 30000,
+        "next": [
+            "PGR只读_打开战令"
+        ],
+        "on_error": []
+    },
+    "PGR只读_打开战令": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    257,
+                    26,
+                    164,
+                    151
+                ],
+                "expected": "BP"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 4000,
+        "next": [
+            "PGR只读_战令状态"
+        ],
+        "on_error": []
+    },
+    "PGR只读_战令状态": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    915,
+                    130,
+                    222,
+                    109
+                ],
+                "expected": "获取情报值"
+            }
+        },
+        "next": [
+            "PGR只读_战令历史_0"
+        ],
+        "on_error": []
+    },
+    "PGR只读_战令返回主页": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "返回主菜单_文字"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "PGR只读_战令账号复核"
+        ],
+        "on_error": []
+    },
+    "PGR只读_战令账号复核": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "ReadonlyCurrentAccount",
+                "custom_recognition_param": {
+                    "phase": "end"
+                }
+            }
+        },
+        "timeout": 5000,
+        "on_error": []
+    },
+    "PGR只读_战令历史_0": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    915,
+                    130,
+                    222,
+                    109
+                ],
+                "expected": "获取情报值"
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "PGR只读_战令历史_1"
+        ],
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    650,
+                    300
+                ],
+                "end": [
+                    925,
+                    300
+                ],
+                "duration": 700
+            }
+        },
+        "post_delay": 900,
+        "on_error": []
+    },
+    "PGR只读_战令历史_1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    915,
+                    130,
+                    222,
+                    109
+                ],
+                "expected": "获取情报值"
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "PGR只读_战令历史_2"
+        ],
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    650,
+                    300
+                ],
+                "end": [
+                    925,
+                    300
+                ],
+                "duration": 700
+            }
+        },
+        "post_delay": 900,
+        "on_error": []
+    },
+    "PGR只读_战令历史_2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    915,
+                    130,
+                    222,
+                    109
+                ],
+                "expected": "获取情报值"
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "PGR只读_战令历史_3"
+        ],
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    650,
+                    300
+                ],
+                "end": [
+                    925,
+                    300
+                ],
+                "duration": 700
+            }
+        },
+        "post_delay": 900,
+        "on_error": []
+    },
+    "PGR只读_战令历史_3": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    915,
+                    130,
+                    222,
+                    109
+                ],
+                "expected": "获取情报值"
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "PGR只读_战令历史_4"
+        ],
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    650,
+                    300
+                ],
+                "end": [
+                    925,
+                    300
+                ],
+                "duration": 700
+            }
+        },
+        "post_delay": 900,
+        "on_error": []
+    },
+    "PGR只读_战令历史_4": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    915,
+                    130,
+                    222,
+                    109
+                ],
+                "expected": "获取情报值"
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "PGR只读_战令历史_5"
+        ],
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    650,
+                    300
+                ],
+                "end": [
+                    925,
+                    300
+                ],
+                "duration": 700
+            }
+        },
+        "post_delay": 900,
+        "on_error": []
+    },
+    "PGR只读_战令历史_5": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    915,
+                    130,
+                    222,
+                    109
+                ],
+                "expected": "获取情报值"
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "PGR只读_战令历史_6"
+        ],
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    650,
+                    300
+                ],
+                "end": [
+                    925,
+                    300
+                ],
+                "duration": 700
+            }
+        },
+        "post_delay": 900,
+        "on_error": []
+    },
+    "PGR只读_战令历史_6": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    915,
+                    130,
+                    222,
+                    109
+                ],
+                "expected": "获取情报值"
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "PGR只读_战令历史_7"
+        ],
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    650,
+                    300
+                ],
+                "end": [
+                    925,
+                    300
+                ],
+                "duration": 700
+            }
+        },
+        "post_delay": 900,
+        "on_error": []
+    },
+    "PGR只读_战令历史_7": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    915,
+                    130,
+                    222,
+                    109
+                ],
+                "expected": "获取情报值"
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "PGR只读_战令首档"
+        ],
+        "on_error": []
+    },
+    "PGR只读_战令首档": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    575,
+                    220,
+                    540,
+                    47
+                ],
+                "expected": "^1级$",
+                "threshold": 0.8
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "PGR只读_战令返回主页"
+        ],
+        "on_error": []
+    }
+}
