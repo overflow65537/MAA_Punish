@@ -1,0 +1,93 @@
+{
+    "终止_雾夜镇魂曲": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Stop Advancing"
+                ]
+            }
+        }
+    },
+    "放弃存档": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Abandon Archive"
+                ]
+            }
+        }
+    },
+    "离开商店_雾夜镇魂曲": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Leave Shop"
+                ]
+            }
+        }
+    },
+    "已经回到主界面": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Labyrinth Breakout"
+                ]
+            }
+        }
+    },
+    "雾夜镇魂曲内部条件3": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Venture Forth"
+                ]
+            }
+        }
+    },
+    "选择任务_雾夜镇魂曲": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Mission Objectives"
+                ]
+            }
+        }
+    },
+    "结束战斗_雾夜镇魂曲": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Continue$"
+                ]
+            }
+        }
+    },
+    "确定_雾夜镇魂曲": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Confirm$"
+                ]
+            }
+        }
+    },
+    "雾夜镇魂曲内部条件2": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^EASY$",
+                    "^HARD$"
+                ]
+            }
+        }
+    },
+    "战斗中_雾夜镇魂曲": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Exit$"
+                ]
+            }
+        }
+    }
+}
