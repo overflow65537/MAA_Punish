@@ -171,8 +171,59 @@
         },
         "post_delay": 4000,
         "next": [
+            "PGR只读_战令自动领取提示",
             "PGR只读_战令状态"
         ],
+        "on_error": []
+    },
+    "PGR只读_战令自动领取标题": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [310, 180, 450, 60],
+                "expected": "^系统自动领取$",
+                "threshold": 0.95
+            }
+        }
+    },
+    "PGR只读_战令自动领取说明": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [310, 238, 760, 50],
+                "expected": "系统自动为指挥官领取已完成评定任",
+                "threshold": 0.95
+            }
+        }
+    },
+    "PGR只读_战令自动领取确认": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [720, 470, 240, 65],
+                "expected": "^确定$",
+                "threshold": 0.95
+            }
+        }
+    },
+    "PGR只读_战令自动领取提示": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "PGR只读_战令自动领取标题",
+                    "PGR只读_战令自动领取说明",
+                    "PGR只读_战令自动领取确认"
+                ],
+                "box_index": 2
+            }
+        },
+        "action": {"type": "Click"},
+        "post_delay": 1000,
+        "focus": {
+            "Node.Action.Succeeded": "只读战令状态查看：关闭已由系统自动领取的提示"
+        },
+        "next": ["PGR只读_战令状态"],
         "on_error": []
     },
     "PGR只读_战令状态": {
