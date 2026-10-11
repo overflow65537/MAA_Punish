@@ -29,12 +29,13 @@ def test_readonly_entries_default_off_and_never_enter_original_claim_branches():
             if 'action' in node:
                 if node['action']['type'] == 'Click':
                     assert key in {'PGR只读_打开任务','PGR只读_选择每日','PGR只读_每日返回主页',
-                                   'PGR只读_打开战令','PGR只读_战令返回主页'}
+                                   'PGR只读_打开战令','PGR只读_战令返回主页',
+                                   'PGR只读_战令自动领取提示'}
                 else:
                     assert node['action']['type'] == 'Swipe'
                     assert key.startswith('PGR只读_战令历史_')
                     assert node['action']['param'] == {'begin':[650,300],'end':[925,300],'duration':700}
-        assert len(visited) == (6 if name == '每日领奖状态查看' else 14)
+        assert len(visited) == (6 if name == '每日领奖状态查看' else 15)
         phases=[pipeline[key]['recognition']['param']['custom_recognition_param']['phase']
                 for key in visited if pipeline[key].get('recognition',{}).get('type') == 'Custom']
         assert sorted(phases) == ['begin','end']
@@ -71,7 +72,8 @@ def test_daily_fraction_and_failed_observation_do_not_inherit_home_recovery():
     pipeline=json.loads((BASE/'Readonly_Reward_Status.jsonc').read_text(encoding='utf-8'))
     defaults=json.loads((ROOT/'resource/base/default_pipeline.json').read_text(encoding='utf-8'))
     assert defaults['Default']['on_error'] == ['返回主菜单_err']
-    assert all(node['on_error'] == [] for node in pipeline.values())
+    observation_helpers={'PGR只读_战令自动领取标题','PGR只读_战令自动领取说明','PGR只读_战令自动领取确认'}
+    assert all(node['on_error'] == [] for key,node in pipeline.items() if key not in observation_helpers)
     param=pipeline['PGR只读_每日状态']['recognition']['param']
     assert param['threshold']==0.8
     assert param['roi']==[278,645,145,70]
@@ -80,3 +82,19 @@ def test_daily_fraction_and_failed_observation_do_not_inherit_home_recovery():
     for text in ('每日任务','领取','95/200','失败95',''):
         assert not re.fullmatch(param['expected'],text)
     assert pipeline['PGR只读_选择每日']['timeout']==5000
+
+
+def test_automatic_reward_dialog_requires_all_three_scoped_matches():
+    pipeline=json.loads((BASE/'Readonly_Reward_Status.jsonc').read_text(encoding='utf-8'))
+    dialog=pipeline['PGR只读_战令自动领取提示']
+    assert pipeline['PGR只读_打开战令']['next']==['PGR只读_战令自动领取提示','PGR只读_战令状态']
+    names=['PGR只读_战令自动领取标题','PGR只读_战令自动领取说明','PGR只读_战令自动领取确认']
+    assert dialog['recognition']=={'type':'And','param':{'all_of':names,'box_index':2}}
+    assert dialog['action']=={'type':'Click'}
+    assert dialog['next']==['PGR只读_战令状态']
+    assert dialog['on_error']==[]
+    for name,roi,expected in zip(names,([310,180,450,60],[310,238,760,50],[720,470,240,65]),
+                                 ('^系统自动领取$','系统自动为指挥官领取已完成评定任','^确定$')):
+        helper=pipeline[name]
+        assert set(helper)=={'recognition'}
+        assert helper['recognition']=={'type':'OCR','param':{'roi':roi,'expected':expected,'threshold':0.95}}
