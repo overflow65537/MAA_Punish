@@ -163,5 +163,15 @@
                 ]
             }
         }
+    },
+    "无派遣任务": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "No idle members",
+                    "available commissions"
+                ]
+            }
+        }
     }
 }
