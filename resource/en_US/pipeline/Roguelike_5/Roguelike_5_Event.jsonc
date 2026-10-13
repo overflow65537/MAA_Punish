@@ -1,0 +1,128 @@
+{
+    "通用事件处理_神寂启示录_文本": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Character$"
+                ]
+            }
+        }
+    },
+    "通用事件处理_对话2_颜色2": {
+        "recognition": {
+            "param": {
+                "connected": false
+            }
+        }
+    },
+    "选择奖励_神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Select Rewards"
+                ]
+            }
+        }
+    },
+    "点击选择奖励_神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Select$"
+                ]
+            }
+        }
+    },
+    "选择技能_神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Choose ?A? ?Skill"
+                ]
+            }
+        }
+    },
+    "获得奖励_神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Obtain ?Rewards",
+                    "obtained"
+                ]
+            }
+        }
+    },
+    "装备技能_神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Select$"
+                ]
+            }
+        }
+    },
+    "点击开战_神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Fight$"
+                ]
+            }
+        }
+    },
+    "战斗中_神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Exit$"
+                ]
+            }
+        }
+    },
+    "结束战斗_神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^End$"
+                ]
+            }
+        }
+    },
+    "背包已满_神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Inventory is full"
+                ]
+            }
+        }
+    },
+    "选择界面未关闭": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Select$"
+                ]
+            }
+        }
+    },
+    "出售_神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Sell",
+                    "^Discard"
+                ]
+            }
+        }
+    },
+    "战斗失败_神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Defeat"
+                ]
+            }
+        }
+    }
+}

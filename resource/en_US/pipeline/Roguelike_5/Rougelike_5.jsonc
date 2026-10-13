@@ -7,5 +7,115 @@
                 ]
             }
         }
+    },
+    "时宇漫纪_滑动": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Shrouded Requiem"
+                ]
+            }
+        }
+    },
+    "打开神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Godfall"
+                ]
+            }
+        }
+    },
+    "打开启示之路": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Path of"
+                ]
+            }
+        }
+    },
+    "选择成员": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Select member$"
+                ]
+            }
+        }
+    },
+    "进入战斗_启示之路": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Engage",
+                    "^Intel"
+                ]
+            }
+        }
+    },
+    "选择事件_神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Select$"
+                ]
+            }
+        }
+    },
+    "终止_神寂启示录_文字": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^End$"
+                ]
+            }
+        }
+    },
+    "下一页_神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Next Page$"
+                ]
+            }
+        }
+    },
+    "主界面_神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "Scorched",
+                    "Bounty"
+                ]
+            }
+        }
+    },
+    "失败_神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Defeat"
+                ]
+            }
+        }
+    },
+    "退出战斗2_神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Choose ?A? ?Skill"
+                ]
+            }
+        }
+    },
+    "退出战斗_神寂启示录": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Fight$"
+                ]
+            }
+        }
     }
 }
