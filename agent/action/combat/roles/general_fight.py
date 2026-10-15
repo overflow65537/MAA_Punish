@@ -22,7 +22,7 @@
 
 状态机::
 
-    idle ──► farm（消球2 + 普攻 交替，直至大招条满）──► ult（技能 + 消球2 + 普攻）──► switch
+    idle ──► farm（5 连普攻 + 5 连消球2，直至大招条满）──► ult（技能 + 5 连普攻 + 5 连消球2）──► switch
               └── 长时间未出大 ──► switch
 """
 
@@ -34,6 +34,10 @@ from action.combat.core.role import BaseRole
 
 _FARM_MAX = 100
 _BALL_SLOT = 2
+_ATTACK_BURST = 5
+_BALL_BURST = 5
+# 连打间隔（毫秒）：0 太快（实测输入易被吞），先用 25ms
+_BURST_INTERVAL_MS = 25
 _ULT_POLL_INTERVAL = 0.05
 
 
@@ -48,10 +52,10 @@ class GeneralFight(BaseRole):
         super().reset_state()
         self._farm_ticks = 0
 
-    def _ball_then_attack(self) -> None:
-        """一轮：消球一次 → 普攻一次（先球后攻，避免普攻连段吞掉消球输入）。"""
-        self.action.ball_elimination_target(_BALL_SLOT)
-        self.action.attack()
+    def _burst(self) -> None:
+        """一轮：连续 5 次普攻 → 连续 5 次消球，每下间隔 25ms（每段开头各做一次自动闪避判定）。"""
+        self.action.attack_burst(_ATTACK_BURST, _BURST_INTERVAL_MS)
+        self.action.ball_elimination_burst(_BALL_SLOT, _BALL_BURST, _BURST_INTERVAL_MS)
 
     def do_perform(self) -> None:
         if self.combat.context.tasker.stopping:
@@ -70,7 +74,7 @@ class GeneralFight(BaseRole):
     def _phase_idle(self) -> None:
         self.action.logger.info("通用战斗: 开始")
         self.action.lens_lock()
-        self._ball_then_attack()
+        self._burst()
         self._farm_ticks = 0
         self.phase = "farm"
 
@@ -85,14 +89,14 @@ class GeneralFight(BaseRole):
             self.phase = "switch"
             return
 
-        self._ball_then_attack()
+        self._burst()
         self._farm_ticks += 1
 
     def _phase_ult(self) -> None:
         timeout = self.action.SKILL_BURST_TIMEOUT
         deadline = time.monotonic() + timeout
         presses = 0
-        self.action.logger.info("通用战斗: 大招循环（技能 + 消球2 + 普攻）")
+        self.action.logger.info("通用战斗: 大招循环（技能 + 5 连普攻 + 5 连消球）")
 
         while time.monotonic() < deadline:
             if self.combat.context.tasker.stopping:
@@ -103,7 +107,7 @@ class GeneralFight(BaseRole):
             if not self.action.check_Skill_energy_bar(fresh=True):
                 self.action.logger.info("通用战斗: 大招结束 presses=%d", presses)
                 break
-            self._ball_then_attack()
+            self._burst()
             remaining = deadline - time.monotonic()
             if remaining <= 0:
                 break
