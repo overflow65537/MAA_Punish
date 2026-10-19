@@ -96,7 +96,8 @@
         "recognition": {
             "param": {
                 "expected": [
-                    "Roseblade"
+                    "Roseblade",
+                    "Huaxu"
                 ]
             }
         }
