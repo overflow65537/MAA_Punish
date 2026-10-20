@@ -96,13 +96,7 @@
                     "10-2",
                     "10-1"
                 ],
-                "order_by": "Expected",
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ]
+                "order_by": "Expected"
             }
         },
         "action": {

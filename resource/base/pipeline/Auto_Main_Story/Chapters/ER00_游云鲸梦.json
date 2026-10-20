@@ -56,13 +56,7 @@
                     "ER00-2",
                     "ER00-1"
                 ],
-                "order_by": "Expected",
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ]
+                "order_by": "Expected"
             }
         },
         "action": {
@@ -87,12 +81,6 @@
             "param": {
                 "expected": [
                     "ER00-10"
-                ],
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
                 ]
             }
         },
