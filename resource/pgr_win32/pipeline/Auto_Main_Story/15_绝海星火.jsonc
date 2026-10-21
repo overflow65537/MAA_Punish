@@ -1,0 +1,10 @@
+{
+    "进入战斗_15": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 87
+            }
+        }
+    }
+}
