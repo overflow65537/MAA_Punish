@@ -88,8 +88,68 @@
             }
         },
         "next": [
-            "主线_选关后战斗"
+            "主线26_选关后战斗"
         ]
+    },
+    "主线26_选关后战斗": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000,
+            "target": [
+                675,
+                0,
+                605,
+                720
+            ]
+        },
+        "pre_delay": 0,
+        "next": [
+            "[JumpBack]自动闪避后攻击",
+            "[JumpBack]战斗重启1",
+            "[JumpBack]播放剧情",
+            "[JumpBack]主线跳过",
+            "[JumpBack]跳过剧情",
+            "[JumpBack]确认跳过",
+            "[JumpBack]跳过战斗对话_主线",
+            "[JumpBack]进入战斗",
+            "[JumpBack]战斗中",
+            "[JumpBack]点击对话",
+            "[JumpBack]点击空白处关闭_速通",
+            "[JumpBack]载入中",
+            "[JumpBack]通用处理-未下载弹窗-角色皮肤没下载-检测层",
+            "[JumpBack]未选人",
+            "[JumpBack]使用体力",
+            "不使用体力",
+            "[JumpBack]点击作战开始_速通",
+            "[JumpBack]打开速通开关",
+            "[JumpBack]战斗准备_速通",
+            "[JumpBack]退出战斗",
+            "[JumpBack]26章黑屏",
+            "回到章节界面"
+        ]
+    },
+    "26章黑屏": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "lower": [
+                    0,
+                    0,
+                    0
+                ],
+                "upper": [
+                    0,
+                    0,
+                    0
+                ],
+                "count": 920000,
+                "connected": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000
     },
     "选择最新关卡_26_27": {
         "max_hit": 1,
