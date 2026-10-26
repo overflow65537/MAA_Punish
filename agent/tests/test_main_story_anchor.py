@@ -11,13 +11,23 @@ import json
 
 import pytest
 
+from action.main_story import stage_anchor
 from action.main_story.stage_anchor import (
     ANCHOR_ADVANCE,
     ANCHOR_STAGE,
     MainStoryAdvance,
     MainStoryInitStage,
+    MainStoryRollback,
 )
 from test_support.fakes import FakeBestResult, FakeContext, FakeRecognitionResult
+
+
+@pytest.fixture(autouse=True)
+def _clear_rollback_budget():
+    """回退预算是模块级状态，逐用例清零，避免互相污染。"""
+    stage_anchor._rollbacks.clear()
+    yield
+    stage_anchor._rollbacks.clear()
 
 
 class _Arg:
@@ -135,6 +145,62 @@ def test_advance_bad_param_does_not_raise():
     MainStoryAdvance().run(ctx, _Arg({"chapter": "09", "stages": "not-a-number"}))
 
     assert ctx.anchors[ANCHOR_STAGE] == "09_03"
+
+
+# ------------------------------------------------------------ rollback
+
+def test_rollback_steps_back_one_stage():
+    ctx = FakeContext()
+    ctx.anchors[ANCHOR_STAGE] = "09_08"
+
+    MainStoryRollback().run(ctx, _Arg({}))
+
+    assert ctx.anchors[ANCHOR_STAGE] == "09_07"
+
+
+def test_rollback_gives_up_after_budget():
+    """连着回退超过预算就收手，别在"打过-退回来"之间弹。"""
+    ctx = FakeContext()
+    ctx.anchors[ANCHOR_STAGE] = "09_08"
+
+    MainStoryRollback().run(ctx, _Arg({}))
+    MainStoryRollback().run(ctx, _Arg({}))
+    assert ctx.anchors[ANCHOR_STAGE] == "09_06"
+
+    MainStoryRollback().run(ctx, _Arg({}))
+    assert ctx.anchors[ANCHOR_STAGE] == "退出本章_09"
+
+
+def test_rollback_gives_up_at_first_stage():
+    ctx = FakeContext()
+    ctx.anchors[ANCHOR_STAGE] = "09_01"
+
+    MainStoryRollback().run(ctx, _Arg({}))
+
+    assert ctx.anchors[ANCHOR_STAGE] == "退出本章_09"
+
+
+def test_rollback_without_anchor_terminates():
+    """没有锚点说明不是锚点流程，返回失败让链条结束，不要继续回退。"""
+    ctx = FakeContext()
+
+    result = MainStoryRollback().run(ctx, _Arg({}))
+
+    assert result.success is False
+    assert ctx.anchors == {}
+
+
+def test_advance_resets_rollback_budget():
+    ctx = FakeContext()
+    ctx.anchors[ANCHOR_STAGE] = "09_08"
+
+    MainStoryRollback().run(ctx, _Arg({}))
+    MainStoryRollback().run(ctx, _Arg({}))          # 预算用光
+    MainStoryAdvance().run(ctx, _Arg(_advance_param()))  # 推进成功 → 预算清零
+
+    assert ctx.anchors[ANCHOR_STAGE] == "09_07"
+    MainStoryRollback().run(ctx, _Arg({}))
+    assert ctx.anchors[ANCHOR_STAGE] == "09_06"
 
 
 if __name__ == "__main__":

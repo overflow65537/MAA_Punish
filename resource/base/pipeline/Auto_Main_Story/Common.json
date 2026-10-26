@@ -239,6 +239,23 @@
         "next": [
             "[Anchor]当前关卡",
             "[JumpBack]主线_滑动关卡"
+        ],
+        "on_error": [
+            "回退关卡"
+        ]
+    },
+    "回退关卡": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "MainStoryRollback"
+            }
+        },
+        "next": [
+            "主线_打当前关"
         ]
     },
     "主线_滑动关卡": {

@@ -11,7 +11,11 @@ from action.basics.InterfaceZone.LoadRoiZone import LoadRoiZone
 from action.basics.ResetCount import ResetCount
 
 from action.combat.entry.runner import CombatRunner
-from action.main_story.stage_anchor import MainStoryAdvance, MainStoryInitStage
+from action.main_story.stage_anchor import (
+    MainStoryAdvance,
+    MainStoryInitStage,
+    MainStoryRollback,
+)
 
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
@@ -124,4 +128,9 @@ class Agent_MainStoryInitStage(MainStoryInitStage):
 
 @AgentServer.custom_action("MainStoryAdvance")
 class Agent_MainStoryAdvance(MainStoryAdvance):
+    pass
+
+
+@AgentServer.custom_action("MainStoryRollback")
+class Agent_MainStoryRollback(MainStoryRollback):
     pass

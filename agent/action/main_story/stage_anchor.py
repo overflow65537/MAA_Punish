@@ -54,6 +54,11 @@ ANCHOR_ADVANCE = "当前章节推进"
 # 全屏 OCR 节点，识别结果由本文件自己过滤（关号前缀随章节变化，不能写死在节点里）
 STAGE_LIST_NODE = "主线_关卡列表"
 
+# 同一章里允许连续回退几次（成功推进一次就清零）。回退是真会重打上一关的，
+# 所以不能一路退到底，否则会在"打过-退回来"之间来回弹。
+ROLLBACK_BUDGET = 2
+_rollbacks: dict[str, int] = {}
+
 
 def _load_param(raw: str | None) -> dict:
     try:
@@ -89,6 +94,7 @@ class MainStoryInitStage(CustomRecognition):
             return None
 
         picked, box = self._detect_stage(context, argv, prefix, stages)
+        _rollbacks.pop(chapter, None)
         ok_stage = context.set_anchor(ANCHOR_STAGE, f"{chapter}_{picked:02d}")
         ok_advance = context.set_anchor(ANCHOR_ADVANCE, f"推进关卡_{chapter}")
         logger.info(
@@ -175,5 +181,54 @@ class MainStoryAdvance(CustomAction):
             target = f"{chapter}_{stage + 1:02d}"
 
         ok = context.set_anchor(ANCHOR_STAGE, target)
+        _rollbacks.pop(chapter, None)
         logger.info(f"[MainStoryAdvance] chapter={chapter} {current} → {target} (ok={ok})")
+        return CustomAction.RunResult(success=True)
+
+
+class MainStoryRollback(CustomAction):
+    """on_error 兜底：锚点指向的关卡在屏幕上找不到时，退回上一关再试。
+
+    触发条件：`主线_打当前关` 的 next 列表（锚点关卡 + 滑动重试）轮询超时——
+    也就是这一关的标签怎么滚都找不到，通常是初始化把锚点设高了
+    （例如把还没解锁的关卡当成了当前关），或者关卡列表停在了错误的位置。
+
+    注意：这里只覆盖"找不到"，不覆盖"点了但没进战斗"——后者的界面依然停在
+    关卡列表，全程没有任何识别失败，走不到 on_error。
+    """
+
+    def run(
+        self,
+        context,
+        argv: CustomAction.RunArg,
+    ) -> CustomAction.RunResult:
+        current = context.get_anchor(ANCHOR_STAGE)
+        if not current:
+            logger.warning("[MainStoryRollback] 当前关卡锚点未设置，结束回退")
+            return CustomAction.RunResult(success=False)
+
+        match = re.fullmatch(r"(.+)_(\d+)", current)
+        if not match:
+            # 已经是 退出本章_XX 之类的收尾节点，别在这里打转
+            logger.warning(f"[MainStoryRollback] 锚点 {current!r} 不是关卡节点，跳过回退")
+            return CustomAction.RunResult(success=False)
+
+        chapter, stage = match.group(1), int(match.group(2))
+        used = _rollbacks.get(chapter, 0)
+        if stage <= 1 or used >= ROLLBACK_BUDGET:
+            logger.error(
+                f"[MainStoryRollback] 第 {chapter} 章回退到头"
+                f"(stage={stage}, used={used}/{ROLLBACK_BUDGET})，放弃本章"
+            )
+            context.set_anchor(ANCHOR_STAGE, f"退出本章_{chapter}")
+            _rollbacks.pop(chapter, None)
+            return CustomAction.RunResult(success=True)
+
+        _rollbacks[chapter] = used + 1
+        target = f"{chapter}_{stage - 1:02d}"
+        ok = context.set_anchor(ANCHOR_STAGE, target)
+        logger.warning(
+            f"[MainStoryRollback] chapter={chapter} {current} → {target} "
+            f"(第 {used + 1}/{ROLLBACK_BUDGET} 次回退, ok={ok})"
+        )
         return CustomAction.RunResult(success=True)
