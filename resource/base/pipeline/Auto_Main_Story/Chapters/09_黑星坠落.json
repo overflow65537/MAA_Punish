@@ -38,29 +38,33 @@
         "next": [
             "剧情通关_隐藏剧情",
             "[JumpBack]切换隐藏剧情",
-            "[JumpBack]选择最新关卡_09"
+            "初始化关卡_09"
         ]
     },
-    "选择最新关卡_09": {
+    "初始化关卡_09": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "MainStoryInitStage",
+                "custom_recognition_param": {
+                    "chapter": "09",
+                    "label_prefix": "9",
+                    "stages": 13
+                }
+            }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "主线_打当前关"
+        ]
+    },
+    "09_01": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "expected": [
-                    "9-13",
-                    "9-12",
-                    "9-11",
-                    "9-10",
-                    "9-9",
-                    "9-8",
-                    "9-7",
-                    "9-6",
-                    "9-5",
-                    "9-4",
-                    "9-3",
-                    "9-2",
-                    "9-1"
-                ],
-                "order_by": "Expected"
+                "expected": "^9-1(?!\\d)"
             }
         },
         "action": {
@@ -76,6 +80,304 @@
         },
         "next": [
             "主线_选关后战斗"
+        ]
+    },
+    "09_02": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "^9-2(?!\\d)"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "09_03": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "^9-3(?!\\d)"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "09_04": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "^9-4(?!\\d)"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "09_05": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "^9-5(?!\\d)"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "09_06": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "^9-6(?!\\d)"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "09_07": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "^9-7(?!\\d)"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "09_08": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "^9-8(?!\\d)"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "09_09": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "^9-9(?!\\d)"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "09_10": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "^9-10(?!\\d)"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "09_11": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "^9-11(?!\\d)"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "09_12": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "^9-12(?!\\d)"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "09_13": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "^9-13(?!\\d)"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    30,
+                    60,
+                    -30,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "主线_选关后战斗"
+        ]
+    },
+    "推进关卡_09": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "MainStoryAdvance",
+                "custom_action_param": {
+                    "chapter": "09",
+                    "label_prefix": "9",
+                    "stages": 13
+                }
+            }
+        },
+        "next": [
+            "主线_打当前关"
+        ]
+    },
+    "退出本章_09": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "anchor": {
+            "当前关卡": "",
+            "当前章节推进": ""
+        },
+        "next": [
+            "返回"
         ]
     }
 }

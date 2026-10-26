@@ -11,6 +11,7 @@ from action.basics.InterfaceZone.LoadRoiZone import LoadRoiZone
 from action.basics.ResetCount import ResetCount
 
 from action.combat.entry.runner import CombatRunner
+from action.main_story.stage_anchor import MainStoryAdvance, MainStoryInitStage
 
 from recognition.exclusives.CheckResolution import CheckResolution
 from recognition.exclusives.AutoCounter import AutoCounter
@@ -113,4 +114,14 @@ class Agent_ResetCount(ResetCount):
 
 @AgentServer.custom_action("CombatRunner")
 class Agent_CombatRunner(CombatRunner):
+    pass
+
+
+@AgentServer.custom_recognition("MainStoryInitStage")
+class Agent_MainStoryInitStage(MainStoryInitStage):
+    pass
+
+
+@AgentServer.custom_action("MainStoryAdvance")
+class Agent_MainStoryAdvance(MainStoryAdvance):
     pass

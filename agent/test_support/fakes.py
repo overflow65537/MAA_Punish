@@ -17,6 +17,7 @@ class FakeRecognitionResult:
     hit: bool = False
     best_result: FakeBestResult | None = None
     filtered_results: list[FakeBestResult] = field(default_factory=list)
+    all_results: list[FakeBestResult] = field(default_factory=list)
 
 
 @dataclass
@@ -66,7 +67,15 @@ class FakeContext:
     node_data: dict[str, dict[str, Any]] = field(default_factory=dict)
     pipeline_overrides: list[dict[str, Any]] = field(default_factory=list)
     actions: list[str] = field(default_factory=list)
+    anchors: dict[str, str] = field(default_factory=dict)
     tasker: FakeTasker = field(default_factory=FakeTasker)
+
+    def set_anchor(self, anchor_name: str, node_name: str) -> bool:
+        self.anchors[anchor_name] = node_name
+        return True
+
+    def get_anchor(self, anchor_name: str) -> str | None:
+        return self.anchors.get(anchor_name)
 
     def run_recognition(
         self,
