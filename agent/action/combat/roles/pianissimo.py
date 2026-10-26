@@ -287,7 +287,9 @@ class Pianissimo(BaseRole):
         if self._burst_ticks >= self._burst_total:
             self._log_step("burst_complete", ticks=self._burst_total)
             self.action.auxiliary_machine()
-            self.action.use_qte()
+            # qte1/qte2 就是右上角的队友换人键，盲点会把主 C 直接换走
+            # （2026-10-23 17:57:01 日志：点完 1 秒后场上变成安魂，此后 60s 无输出直至战斗失败）
+            # self.action.use_qte()
             self.phase = "idle"
 
     def _phase_p2_farm(self) -> None:
@@ -360,5 +362,7 @@ class Pianissimo(BaseRole):
     def _phase_p2_ult(self) -> None:
         self.action.use_skill_until_empty()
         self.action.auxiliary_machine()
-        self.action.use_qte()
+        # 同上：盲点 qte1/qte2 会先换到随机队友，再让下面的 switch 阶段重复切人；
+        # 换人统一交给 switch 阶段（会按色位识别 + 校验到位）
+        # self.action.use_qte()
         self.phase = "switch"
