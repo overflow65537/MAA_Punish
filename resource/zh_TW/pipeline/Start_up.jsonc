@@ -46,5 +46,12 @@
             "適齡",
             "提示"
         ]
+    },
+    "打开应用": {
+        "action": {
+            "param": {
+                "package": "com.herogame.gplay.punishing.grayraven.tw"
+            }
+        }
     }
 }

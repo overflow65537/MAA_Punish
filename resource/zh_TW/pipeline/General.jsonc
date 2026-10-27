@@ -12,5 +12,12 @@
         "expected": [
             "(?i)SKIP"
         ]
+    },
+    "重启游戏": {
+        "action": {
+            "param": {
+                "package": "com.herogame.gplay.punishing.grayraven.tw"
+            }
+        }
     }
 }
