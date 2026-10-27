@@ -144,6 +144,20 @@
             }
         }
     },
+    "选择角色完成_涅缇娅": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    901,
+                    46,
+                    352,
+                    140
+                ],
+                "expected": "涅缇娅"
+            }
+        }
+    },
     "选择角色完成": {
         "recognition": {
             "type": "And",
