@@ -47,6 +47,7 @@
             "param": {
                 "custom_recognition": "MainStoryInitStage",
                 "custom_recognition_param": {
+                    "anchor": "09_当前关卡",
                     "chapter": "09",
                     "label_prefix": "9",
                     "stages": 13
@@ -57,7 +58,7 @@
             "type": "DoNothing"
         },
         "next": [
-            "主线_打当前关"
+            "主线_09_打当前关"
         ]
     },
     "09_01": {
@@ -346,6 +347,33 @@
             "主线_选关后战斗"
         ]
     },
+    "主线_09_打当前关": {
+        "next": [
+            "[Anchor]09_当前关卡",
+            "[JumpBack]主线_滑动关卡"
+        ],
+        "on_error": [
+            "09_回退关卡"
+        ]
+    },
+    "09_回退关卡": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "MainStoryRollback",
+                "custom_action_param": {
+                    "anchor": "09_当前关卡",
+                    "chapter": "09"
+                }
+            }
+        },
+        "next": [
+            "主线_09_打当前关"
+        ]
+    },
     "推进关卡_09": {
         "recognition": {
             "type": "DirectHit"
@@ -355,14 +383,14 @@
             "param": {
                 "custom_action": "MainStoryAdvance",
                 "custom_action_param": {
+                    "anchor": "09_当前关卡",
                     "chapter": "09",
-                    "label_prefix": "9",
                     "stages": 13
                 }
             }
         },
         "next": [
-            "主线_打当前关"
+            "主线_09_打当前关"
         ]
     },
     "退出本章_09": {
@@ -373,8 +401,8 @@
             "type": "DoNothing"
         },
         "anchor": {
-            "当前关卡": "",
-            "当前章节推进": ""
+            "09_当前关卡": "",
+            "当前章节推进": "主线_旧流程结束"
         },
         "next": [
             "返回"

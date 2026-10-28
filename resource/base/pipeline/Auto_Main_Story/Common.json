@@ -97,8 +97,7 @@
             }
         },
         "anchor": {
-            "当前关卡": "",
-            "当前章节推进": ""
+            "当前章节推进": "主线_旧流程结束"
         },
         "next": [
             "返回"
@@ -235,28 +234,11 @@
             "[Anchor]当前章节推进"
         ]
     },
-    "主线_打当前关": {
-        "next": [
-            "[Anchor]当前关卡",
-            "[JumpBack]主线_滑动关卡"
-        ],
-        "on_error": [
-            "回退关卡"
-        ]
-    },
-    "回退关卡": {
+    "主线_旧流程结束": {
         "recognition": {
             "type": "DirectHit"
         },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "MainStoryRollback"
-            }
-        },
-        "next": [
-            "主线_打当前关"
-        ]
+        "next": []
     },
     "主线_滑动关卡": {
         "recognition": {

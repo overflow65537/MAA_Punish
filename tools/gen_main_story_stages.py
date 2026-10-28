@@ -3,12 +3,17 @@
 
 背景：原来的 `选择最新关卡_XX` 每帧都用 OCR 结果的几何顺序猜"该打第几关"，
 选到哪一关取决于当前滚动位置和标签框的像素坐标，于是会出现 9/10 来回跳。
-这里改成"一关一个节点 + 锚点推进"：
+这里改成"一关一个节点 + 锚点推进"，且**锚点按章节隔离**（`09_当前关卡`）：
 
     进入章节 → 滑动到最新关卡
-      → MainStoryInitStage 用一次 OCR 把锚点 `当前关卡` 设到当前这一关
-      → `[Anchor]当前关卡` 跳到该关节点 → 点击 → 战斗
-      → 回到章节界面 → `[Anchor]当前章节推进` → MainStoryAdvance 把锚点往前推一格
+      → MainStoryInitStage 用一次 OCR 把 `09_当前关卡` 设到当前这一关
+      → `[Anchor]09_当前关卡` 跳到该关节点 → 点击 → 战斗
+      → 回到章节界面 → `[Anchor]当前章节推进` → 本文件生成的 `推进关卡_09`
+        把 `09_当前关卡` 往前推一格
+
+跨章节只有 `当前章节推进` 一个共享锚点：它挂在所有章节共用的 `主线_选关后战斗`
+尾巴上，所以任务入口（Main.json 的 `自动主线`）会先把它设成 `主线_旧流程结束`，
+未接入锚点的章节照旧结束并回跳；每章初始化时再覆盖成本章的推进节点。
 
 锚点只会往前推，OCR 只负责"把这一关的卡片找出来点下去"，不再负责"该打第几关"。
 
@@ -64,6 +69,8 @@ def build(chapter: dict, entry: dict, local_nodes: set[str]) -> dict:
     head["next"] = kept + [f"初始化关卡_{num}"]
 
     doc: dict = {key: head}
+    anchor = f"{num}_当前关卡"
+    fight = f"主线_{num}_打当前关"
 
     doc[f"初始化关卡_{num}"] = {
         "recognition": {
@@ -71,6 +78,7 @@ def build(chapter: dict, entry: dict, local_nodes: set[str]) -> dict:
             "param": {
                 "custom_recognition": "MainStoryInitStage",
                 "custom_recognition_param": {
+                    "anchor": anchor,
                     "chapter": num,
                     "label_prefix": prefix,
                     "stages": stages,
@@ -78,7 +86,7 @@ def build(chapter: dict, entry: dict, local_nodes: set[str]) -> dict:
             },
         },
         "action": {"type": "DoNothing"},
-        "next": ["主线_打当前关"],
+        "next": [fight],
     }
 
     for i in range(1, stages + 1):
@@ -91,6 +99,24 @@ def build(chapter: dict, entry: dict, local_nodes: set[str]) -> dict:
             "next": ["主线_选关后战斗"],
         }
 
+    # 章内的"打哪一关"只引用本章的锚点，跨章节互不影响
+    doc[fight] = {
+        "next": [f"[Anchor]{anchor}", "[JumpBack]主线_滑动关卡"],
+        "on_error": [f"{num}_回退关卡"],
+    }
+
+    doc[f"{num}_回退关卡"] = {
+        "recognition": {"type": "DirectHit"},
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "MainStoryRollback",
+                "custom_action_param": {"anchor": anchor, "chapter": num},
+            },
+        },
+        "next": [fight],
+    }
+
     doc[f"推进关卡_{num}"] = {
         "recognition": {"type": "DirectHit"},
         "action": {
@@ -98,21 +124,21 @@ def build(chapter: dict, entry: dict, local_nodes: set[str]) -> dict:
             "param": {
                 "custom_action": "MainStoryAdvance",
                 "custom_action_param": {
+                    "anchor": anchor,
                     "chapter": num,
-                    "label_prefix": prefix,
                     "stages": stages,
                 },
             },
         },
-        "next": ["主线_打当前关"],
+        "next": [fight],
     }
 
     doc[f"退出本章_{num}"] = {
         "recognition": {"type": "DirectHit"},
         "action": {"type": "DoNothing"},
-        # 清锚点：否则任务切到未接入锚点的章节后，残留的 `当前章节推进`
-        # 会在那边的"回到章节界面"被重新解析，把流程拖回本章的节点。
-        "anchor": {"当前关卡": "", "当前章节推进": ""},
+        # 只清本章锚点；共享钩子恢复成默认值，好让后面未接入锚点的章节
+        # 在 `回到章节界面` 仍然有一个有效目标，而不是走到 on_error。
+        "anchor": {anchor: "", "当前章节推进": "主线_旧流程结束"},
         "next": ["返回"],
     }
 

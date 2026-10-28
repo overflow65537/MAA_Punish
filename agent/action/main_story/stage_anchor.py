@@ -23,17 +23,24 @@ MAA_Punish
 MAA_Punish 主线章节内的关卡锚点推进
 作者:overflow65537
 
+每条锚点按章节隔离（`09_当前关卡` / `20_当前关卡` …），某一章初始化失败或中途
+退出都不会影响别的章。只有一处跨章节的接缝：
+
+    共享战斗链的终点 `回到章节界面` → `[Anchor]当前章节推进`
+
+这个钩子必须全局，因为它挂在所有章节共用的 `主线_选关后战斗` 尾巴上。所以它
+永远有一个有效值：任务入口把它设成 `主线_旧流程结束`（未接入锚点的章节照旧
+结束并回跳），每章初始化时再覆盖成本章的 `推进关卡_XX`。
+
 pipeline 侧约定（见 tools/gen_main_story_stages.py 生成的节点）：
 
     进入章节 → 滑动 → 初始化关卡_XX（本文件 MainStoryInitStage）
-        ├─ 用一次 OCR 找出当前可见的最大关号
-        ├─ 锚点 当前关卡     = XX_NN   （这次要打的那一关）
-        └─ 锚点 当前章节推进 = 推进关卡_XX
-    → [Anchor]当前关卡 → XX_NN 点击 → 主线_选关后战斗
+        ├─ 锚点 XX_当前关卡   = XX_NN        （这次要打的那一关）
+        └─ 锚点 当前章节推进  = 推进关卡_XX
+    → [Anchor]XX_当前关卡 → XX_NN 点击 → 主线_选关后战斗
     → 回到章节界面 → [Anchor]当前章节推进 → 推进关卡_XX（本文件 MainStoryAdvance）
-        ├─ 锚点 当前关卡 +1
-        └─ 已经是本章最后一关时，锚点指向 退出本章_XX
-    → 主线_打当前关 → [Anchor]当前关卡 → ...
+        ├─ 锚点 XX_当前关卡 +1
+        └─ 本章最后一关打完时指向 退出本章_XX（清本章锚点、恢复钩子默认值）
 """
 
 from __future__ import annotations
@@ -48,8 +55,10 @@ from logger_component import LoggerComponent
 
 logger = LoggerComponent(__name__).logger
 
-ANCHOR_STAGE = "当前关卡"
+# 跨章节唯一的共享锚点：共享战斗链终点用它找"这一章的推进节点"
 ANCHOR_ADVANCE = "当前章节推进"
+# 未接入锚点的章节（legacy）走这个空节点收尾，保证 [Anchor] 永远有有效目标
+LEGACY_TAIL = "主线_旧流程结束"
 
 # 全屏 OCR 节点，识别结果由本文件自己过滤（关号前缀随章节变化，不能写死在节点里）
 STAGE_LIST_NODE = "主线_关卡列表"
@@ -68,8 +77,17 @@ def _load_param(raw: str | None) -> dict:
         return {}
 
 
+def _chapter_anchor(param: dict) -> str:
+    """本章的关卡锚点名，默认 `09_当前关卡`。"""
+    name = param.get("anchor")
+    if isinstance(name, str) and name:
+        return name
+    chapter = str(param.get("chapter", ""))
+    return f"{chapter}_当前关卡" if chapter else ""
+
+
 class MainStoryInitStage(CustomRecognition):
-    """进入章节后把锚点设到"当前这一关"。
+    """进入章节后把本章的关卡锚点设到"当前这一关"。
 
     判定依据：关卡列表里可见的最大关号。进入章节前的滑动已经把列表推到最新，
     所以可见最大关号就是当前要打的那一关。
@@ -85,28 +103,32 @@ class MainStoryInitStage(CustomRecognition):
         param = _load_param(argv.custom_recognition_param)
         chapter = str(param.get("chapter", ""))
         prefix = str(param.get("label_prefix", ""))
+        anchor = _chapter_anchor(param)
         try:
             stages = int(param.get("stages", 0))
         except (TypeError, ValueError):
             stages = 0
-        if not chapter or not prefix:
+        if not chapter or not prefix or not anchor:
             logger.error(f"main_story: 初始化参数不完整: {param!r}")
             return None
 
         picked, box = self._detect_stage(context, argv, prefix, stages)
         _rollbacks.pop(chapter, None)
-        ok_stage = context.set_anchor(ANCHOR_STAGE, f"{chapter}_{picked:02d}")
+
+        target = f"{chapter}_{picked:02d}"
+        ok_stage = context.set_anchor(anchor, target)
         ok_advance = context.set_anchor(ANCHOR_ADVANCE, f"推进关卡_{chapter}")
         logger.info(
             f"[MainStoryInitStage] chapter={chapter} prefix={prefix} stages={stages} "
-            f"→ {chapter}_{picked:02d} (set_anchor stage={ok_stage} advance={ok_advance})"
+            f"anchor={anchor} → {target} (set={ok_stage}/{ok_advance})"
         )
         return CustomRecognition.AnalyzeResult(
             box=box,
             detail={
                 "chapter": chapter,
                 "stage": picked,
-                "anchor_stage": f"{chapter}_{picked:02d}",
+                "anchor": anchor,
+                "anchor_stage": target,
                 "anchor_advance": f"推进关卡_{chapter}",
             },
         )
@@ -147,7 +169,7 @@ class MainStoryInitStage(CustomRecognition):
 
 
 class MainStoryAdvance(CustomAction):
-    """把锚点往前推一格：打完第 N 关，下一关就是 N+1。"""
+    """把本章锚点往前推一格：打完第 N 关，下一关就是 N+1。"""
 
     def run(
         self,
@@ -156,21 +178,22 @@ class MainStoryAdvance(CustomAction):
     ) -> CustomAction.RunResult:
         param = _load_param(argv.custom_action_param)
         chapter = str(param.get("chapter", ""))
+        anchor = _chapter_anchor(param)
         try:
             stages = int(param.get("stages", 0))
         except (TypeError, ValueError):
             stages = 0
 
-        current = context.get_anchor(ANCHOR_STAGE)
+        current = context.get_anchor(anchor) if anchor else None
         if not current:
-            # 旧流程（未接入锚点）走不到这里，真走到了也别动锚点
-            logger.warning("[MainStoryAdvance] 当前关卡锚点未设置，跳过推进")
+            # 锚点没初始化（或已被本章退出清掉）时什么都不做，交给外层流程
+            logger.warning(f"[MainStoryAdvance] 锚点 {anchor!r} 未设置，跳过推进")
             return CustomAction.RunResult(success=True)
 
         match = re.fullmatch(rf"{re.escape(chapter)}_(\d+)", current)
         if not match:
             logger.warning(
-                f"[MainStoryAdvance] 锚点 {current!r} 不属于第 {chapter} 章，跳过推进"
+                f"[MainStoryAdvance] 锚点 {anchor!r}={current!r} 不是第 {chapter} 章的关卡，跳过推进"
             )
             return CustomAction.RunResult(success=True)
 
@@ -180,17 +203,19 @@ class MainStoryAdvance(CustomAction):
         else:
             target = f"{chapter}_{stage + 1:02d}"
 
-        ok = context.set_anchor(ANCHOR_STAGE, target)
+        ok = context.set_anchor(anchor, target)
         _rollbacks.pop(chapter, None)
-        logger.info(f"[MainStoryAdvance] chapter={chapter} {current} → {target} (ok={ok})")
+        logger.info(
+            f"[MainStoryAdvance] chapter={chapter} anchor={anchor} {current} → {target} (ok={ok})"
+        )
         return CustomAction.RunResult(success=True)
 
 
 class MainStoryRollback(CustomAction):
     """on_error 兜底：锚点指向的关卡在屏幕上找不到时，退回上一关再试。
 
-    触发条件：`主线_打当前关` 的 next 列表（锚点关卡 + 滑动重试）轮询超时——
-    也就是这一关的标签怎么滚都找不到，通常是初始化把锚点设高了
+    触发条件：本章 `主线_XX_打当前关` 的 next 列表（锚点关卡 + 滑动重试）轮询
+    超时——也就是这一关的标签怎么滚都找不到，通常是初始化把锚点设高了
     （例如把还没解锁的关卡当成了当前关），或者关卡列表停在了错误的位置。
 
     注意：这里只覆盖"找不到"，不覆盖"点了但没进战斗"——后者的界面依然停在
@@ -202,33 +227,38 @@ class MainStoryRollback(CustomAction):
         context,
         argv: CustomAction.RunArg,
     ) -> CustomAction.RunResult:
-        current = context.get_anchor(ANCHOR_STAGE)
+        param = _load_param(argv.custom_action_param)
+        chapter = str(param.get("chapter", ""))
+        anchor = _chapter_anchor(param)
+        current = context.get_anchor(anchor) if anchor else None
         if not current:
-            logger.warning("[MainStoryRollback] 当前关卡锚点未设置，结束回退")
+            logger.warning(f"[MainStoryRollback] 锚点 {anchor!r} 未设置，结束回退")
             return CustomAction.RunResult(success=False)
 
-        match = re.fullmatch(r"(.+)_(\d+)", current)
+        match = re.fullmatch(rf"{re.escape(chapter)}_(\d+)", current)
         if not match:
             # 已经是 退出本章_XX 之类的收尾节点，别在这里打转
-            logger.warning(f"[MainStoryRollback] 锚点 {current!r} 不是关卡节点，跳过回退")
+            logger.warning(
+                f"[MainStoryRollback] 锚点 {anchor!r}={current!r} 不是本章关卡节点，跳过回退"
+            )
             return CustomAction.RunResult(success=False)
 
-        chapter, stage = match.group(1), int(match.group(2))
+        stage = int(match.group(1))
         used = _rollbacks.get(chapter, 0)
         if stage <= 1 or used >= ROLLBACK_BUDGET:
             logger.error(
                 f"[MainStoryRollback] 第 {chapter} 章回退到头"
                 f"(stage={stage}, used={used}/{ROLLBACK_BUDGET})，放弃本章"
             )
-            context.set_anchor(ANCHOR_STAGE, f"退出本章_{chapter}")
+            context.set_anchor(anchor, f"退出本章_{chapter}")
             _rollbacks.pop(chapter, None)
             return CustomAction.RunResult(success=True)
 
         _rollbacks[chapter] = used + 1
         target = f"{chapter}_{stage - 1:02d}"
-        ok = context.set_anchor(ANCHOR_STAGE, target)
+        ok = context.set_anchor(anchor, target)
         logger.warning(
-            f"[MainStoryRollback] chapter={chapter} {current} → {target} "
+            f"[MainStoryRollback] chapter={chapter} anchor={anchor} {current} → {target} "
             f"(第 {used + 1}/{ROLLBACK_BUDGET} 次回退, ok={ok})"
         )
         return CustomAction.RunResult(success=True)
