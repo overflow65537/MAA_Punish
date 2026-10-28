@@ -13,7 +13,7 @@
             }
         }
     },
-    "剩余资金_寒境曙光_yolo": {
+    "剩余资金_寒境曙光_yolo_文本": {
         "recognition": {
             "param": {
                 "expected": [
@@ -23,7 +23,7 @@
             }
         }
     },
-    "战马瑞恩_寒境曙光_yolo": {
+    "战马瑞恩_寒境曙光_yolo_文本": {
         "recognition": {
             "param": {
                 "expected": [
@@ -33,7 +33,7 @@
             }
         }
     },
-    "鲨鱼置物箱_寒境曙光_yolo": {
+    "鲨鱼置物箱_寒境曙光_yolo_文本": {
         "recognition": {
             "param": {
                 "expected": [
@@ -44,7 +44,7 @@
             }
         }
     },
-    "学者来访_寒境曙光_yolo": {
+    "学者来访_寒境曙光_yolo_文本": {
         "recognition": {
             "param": {
                 "expected": [
@@ -54,7 +54,7 @@
             }
         }
     },
-    "运力紧张_寒境曙光_yolo": {
+    "运力紧张_寒境曙光_yolo_文本": {
         "recognition": {
             "param": {
                 "expected": [
@@ -64,7 +64,7 @@
             }
         }
     },
-    "废弃港口_寒境曙光_yolo": {
+    "废弃港口_寒境曙光_yolo_文本": {
         "recognition": {
             "param": {
                 "expected": [
@@ -74,7 +74,7 @@
             }
         }
     },
-    "商队来访_寒境曙光_yolo": {
+    "商队来访_寒境曙光_yolo_文本": {
         "recognition": {
             "param": {
                 "expected": [
@@ -84,7 +84,7 @@
             }
         }
     },
-    "拦路的废墟_寒境曙光_yolo": {
+    "拦路的废墟_寒境曙光_yolo_文本": {
         "recognition": {
             "param": {
                 "expected": [
@@ -98,7 +98,7 @@
             }
         }
     },
-    "难民团到访_寒境曙光_yolo": {
+    "难民团到访_寒境曙光_yolo_文本": {
         "recognition": {
             "param": {
                 "expected": [
@@ -108,7 +108,7 @@
             }
         }
     },
-    "建筑师的建议_寒境曙光_yolo": {
+    "建筑师的建议_寒境曙光_yolo_文本": {
         "recognition": {
             "param": {
                 "expected": [
@@ -118,7 +118,7 @@
             }
         }
     },
-    "旧国遗产_寒境曙光_yolo": {
+    "旧国遗产_寒境曙光_yolo_文本": {
         "recognition": {
             "param": {
                 "expected": [
@@ -130,7 +130,7 @@
             }
         }
     },
-    "汇合_寒境曙光_yolo": {
+    "汇合_寒境曙光_yolo_文本": {
         "recognition": {
             "param": {
                 "expected": [

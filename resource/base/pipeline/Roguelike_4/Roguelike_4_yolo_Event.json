@@ -98,9 +98,9 @@
             "准备战斗_寒境曙光"
         ]
     },
-    "拓荒_寒境曙光_yolo": {
+    "事件标题_寒境曙光_yolo_颜色": {
         "recognition": {
-            "type": "OCR",
+            "type": "ColorMatch",
             "param": {
                 "roi": [
                     714,
@@ -108,7 +108,31 @@
                     566,
                     185
                 ],
-                "expected": "拓荒"
+                "method": 40,
+                "lower": [
+                    99,
+                    84,
+                    72
+                ],
+                "upper": [
+                    105,
+                    94,
+                    82
+                ],
+                "count": 100,
+                "connected": false
+            }
+        }
+    },
+    "拓荒_寒境曙光_yolo": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "事件标题_寒境曙光_yolo_颜色",
+                    "拓荒_寒境曙光_yolo_文本"
+                ],
+                "box_index": 1
             }
         },
         "next": [
@@ -127,17 +151,31 @@
         ],
         "timeout": 10000
     },
-    "前方有陷阱_寒境曙光_yolo": {
+    "拓荒_寒境曙光_yolo_文本": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
+                "roi": "事件标题_寒境曙光_yolo_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ],
-                "expected": "前方有陷阱"
+                "expected": "拓荒",
+                "only_rec": true
+            }
+        }
+    },
+    "前方有陷阱_寒境曙光_yolo": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "事件标题_寒境曙光_yolo_颜色",
+                    "前方有陷阱_寒境曙光_yolo_文本"
+                ],
+                "box_index": 1
             }
         },
         "next": [
@@ -154,17 +192,31 @@
         ],
         "timeout": 10000
     },
-    "剩余资金_寒境曙光_yolo": {
+    "前方有陷阱_寒境曙光_yolo_文本": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
+                "roi": "事件标题_寒境曙光_yolo_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ],
-                "expected": "剩余资金"
+                "expected": "前方有陷阱",
+                "only_rec": true
+            }
+        }
+    },
+    "剩余资金_寒境曙光_yolo": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "事件标题_寒境曙光_yolo_颜色",
+                    "剩余资金_寒境曙光_yolo_文本"
+                ],
+                "box_index": 1
             }
         },
         "next": [
@@ -182,23 +234,31 @@
         ],
         "timeout": 10000
     },
-    "战马瑞恩_寒境曙光_yolo": {
+    "剩余资金_寒境曙光_yolo_文本": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
+                "roi": "事件标题_寒境曙光_yolo_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ],
-                "expected": "战马瑞恩",
-                "replace": [
-                    [
-                        "嘴果",
-                        "瑞恩"
-                    ]
-                ]
+                "expected": "剩余资金",
+                "only_rec": true
+            }
+        }
+    },
+    "战马瑞恩_寒境曙光_yolo": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "事件标题_寒境曙光_yolo_颜色",
+                    "战马瑞恩_寒境曙光_yolo_文本"
+                ],
+                "box_index": 1
             }
         },
         "next": [
@@ -215,20 +275,37 @@
         ],
         "timeout": 10000
     },
-    "鲨鱼置物箱_寒境曙光_yolo": {
+    "战马瑞恩_寒境曙光_yolo_文本": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
+                "roi": "事件标题_寒境曙光_yolo_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ],
-                "expected": [
-                    "鲨鱼",
-                    "置物箱"
-                ]
+                "expected": "战马瑞恩",
+                "replace": [
+                    [
+                        "嘴果",
+                        "瑞恩"
+                    ]
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "鲨鱼置物箱_寒境曙光_yolo": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "事件标题_寒境曙光_yolo_颜色",
+                    "鲨鱼置物箱_寒境曙光_yolo_文本"
+                ],
+                "box_index": 1
             }
         },
         "next": [
@@ -246,17 +323,34 @@
         ],
         "timeout": 10000
     },
-    "学者来访_寒境曙光_yolo": {
+    "鲨鱼置物箱_寒境曙光_yolo_文本": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
+                "roi": "事件标题_寒境曙光_yolo_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ],
-                "expected": "学者来访"
+                "expected": [
+                    "鲨鱼",
+                    "置物箱"
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "学者来访_寒境曙光_yolo": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "事件标题_寒境曙光_yolo_颜色",
+                    "学者来访_寒境曙光_yolo_文本"
+                ],
+                "box_index": 1
             }
         },
         "next": [
@@ -273,17 +367,31 @@
         ],
         "timeout": 10000
     },
-    "运力紧张_寒境曙光_yolo": {
+    "学者来访_寒境曙光_yolo_文本": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
+                "roi": "事件标题_寒境曙光_yolo_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ],
-                "expected": "运力紧张"
+                "expected": "学者来访",
+                "only_rec": true
+            }
+        }
+    },
+    "运力紧张_寒境曙光_yolo": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "事件标题_寒境曙光_yolo_颜色",
+                    "运力紧张_寒境曙光_yolo_文本"
+                ],
+                "box_index": 1
             }
         },
         "next": [
@@ -301,17 +409,31 @@
         ],
         "timeout": 10000
     },
-    "废弃港口_寒境曙光_yolo": {
+    "运力紧张_寒境曙光_yolo_文本": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
+                "roi": "事件标题_寒境曙光_yolo_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ],
-                "expected": "废弃港口"
+                "expected": "运力紧张",
+                "only_rec": true
+            }
+        }
+    },
+    "废弃港口_寒境曙光_yolo": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "事件标题_寒境曙光_yolo_颜色",
+                    "废弃港口_寒境曙光_yolo_文本"
+                ],
+                "box_index": 1
             }
         },
         "next": [
@@ -328,17 +450,31 @@
         ],
         "timeout": 10000
     },
-    "商队来访_寒境曙光_yolo": {
+    "废弃港口_寒境曙光_yolo_文本": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
+                "roi": "事件标题_寒境曙光_yolo_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ],
-                "expected": "商队来访"
+                "expected": "废弃港口",
+                "only_rec": true
+            }
+        }
+    },
+    "商队来访_寒境曙光_yolo": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "事件标题_寒境曙光_yolo_颜色",
+                    "商队来访_寒境曙光_yolo_文本"
+                ],
+                "box_index": 1
             }
         },
         "next": [
@@ -355,21 +491,31 @@
         ],
         "timeout": 10000
     },
-    "拦路的废墟_寒境曙光_yolo": {
+    "商队来访_寒境曙光_yolo_文本": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
+                "roi": "事件标题_寒境曙光_yolo_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ],
-                "expected": [
-                    "拦路",
-                    "的废墟",
-                    "的废址"
-                ]
+                "expected": "商队来访",
+                "only_rec": true
+            }
+        }
+    },
+    "拦路的废墟_寒境曙光_yolo": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "事件标题_寒境曙光_yolo_颜色",
+                    "拦路的废墟_寒境曙光_yolo_文本"
+                ],
+                "box_index": 1
             }
         },
         "next": [
@@ -386,17 +532,35 @@
         ],
         "timeout": 10000
     },
-    "难民团到访_寒境曙光_yolo": {
+    "拦路的废墟_寒境曙光_yolo_文本": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
+                "roi": "事件标题_寒境曙光_yolo_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ],
-                "expected": "难民团到访"
+                "expected": [
+                    "拦路",
+                    "的废墟",
+                    "的废址"
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "难民团到访_寒境曙光_yolo": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "事件标题_寒境曙光_yolo_颜色",
+                    "难民团到访_寒境曙光_yolo_文本"
+                ],
+                "box_index": 1
             }
         },
         "next": [
@@ -413,17 +577,31 @@
         ],
         "timeout": 10000
     },
-    "建筑师的建议_寒境曙光_yolo": {
+    "难民团到访_寒境曙光_yolo_文本": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
+                "roi": "事件标题_寒境曙光_yolo_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ],
-                "expected": "建筑师的建议"
+                "expected": "难民团到访",
+                "only_rec": true
+            }
+        }
+    },
+    "建筑师的建议_寒境曙光_yolo": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "事件标题_寒境曙光_yolo_颜色",
+                    "建筑师的建议_寒境曙光_yolo_文本"
+                ],
+                "box_index": 1
             }
         },
         "next": [
@@ -440,20 +618,31 @@
         ],
         "timeout": 10000
     },
-    "旧国遗产_寒境曙光_yolo": {
+    "建筑师的建议_寒境曙光_yolo_文本": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
+                "roi": "事件标题_寒境曙光_yolo_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ],
-                "expected": [
-                    "旧国",
-                    "遗产"
-                ]
+                "expected": "建筑师的建议",
+                "only_rec": true
+            }
+        }
+    },
+    "旧国遗产_寒境曙光_yolo": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "事件标题_寒境曙光_yolo_颜色",
+                    "旧国遗产_寒境曙光_yolo_文本"
+                ],
+                "box_index": 1
             }
         },
         "next": [
@@ -471,17 +660,34 @@
         ],
         "timeout": 10000
     },
-    "冬日之影_寒境曙光_yolo": {
+    "旧国遗产_寒境曙光_yolo_文本": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
+                "roi": "事件标题_寒境曙光_yolo_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ],
-                "expected": "冬日之"
+                "expected": [
+                    "旧国",
+                    "遗产"
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "冬日之影_寒境曙光_yolo": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "事件标题_寒境曙光_yolo_颜色",
+                    "冬日之影_寒境曙光_yolo_文本"
+                ],
+                "box_index": 1
             }
         },
         "next": [
@@ -497,17 +703,31 @@
         ],
         "timeout": 10000
     },
-    "汇合_寒境曙光_yolo": {
+    "冬日之影_寒境曙光_yolo_文本": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    714,
-                    5,
-                    566,
-                    185
+                "roi": "事件标题_寒境曙光_yolo_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
                 ],
-                "expected": "汇合"
+                "expected": "冬日之",
+                "only_rec": true
+            }
+        }
+    },
+    "汇合_寒境曙光_yolo": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "事件标题_寒境曙光_yolo_颜色",
+                    "汇合_寒境曙光_yolo_文本"
+                ],
+                "box_index": 1
             }
         },
         "next": [
@@ -522,5 +742,21 @@
             "寒境曙光"
         ],
         "timeout": 10000
+    },
+    "汇合_寒境曙光_yolo_文本": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "事件标题_寒境曙光_yolo_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
+                "expected": "汇合",
+                "only_rec": true
+            }
+        }
     }
 }
