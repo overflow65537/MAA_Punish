@@ -325,6 +325,8 @@
         "./tasks/维系者行动.json",
         "./tasks/领取任务.json",
         "./tasks/战令.json",
+        "./tasks/每日领奖状态查看.json",
+        "./tasks/战令领奖状态查看.json",
         "./tasks/结束游戏.json",
         "./tasks/手动更新角色缓存.json",
         "./tasks/手动更新组件区域.json",
