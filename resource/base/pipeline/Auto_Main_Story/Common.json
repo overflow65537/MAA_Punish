@@ -96,6 +96,9 @@
                 ]
             }
         },
+        "anchor": {
+            "当前章节推进": "主线_旧流程结束"
+        },
         "next": [
             "返回"
         ]
@@ -226,6 +229,49 @@
                     "43\\s*远信回响"
                 ]
             }
+        },
+        "next": [
+            "[Anchor]当前章节推进"
+        ]
+    },
+    "主线_旧流程结束": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "next": []
+    },
+    "主线_滑动关卡": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "回到章节界面"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    900,
+                    200
+                ],
+                "end": [
+                    200,
+                    200
+                ]
+            }
+        },
+        "max_hit": 20,
+        "post_wait_freezes": {
+            "time": 300,
+            "timeout": 1500
+        }
+    },
+    "主线_关卡列表": {
+        "recognition": {
+            "type": "OCR",
+            "param": {}
         }
     }
 }

@@ -1,0 +1,359 @@
+{
+    "version": 1,
+    "chapters": [
+        {
+            "key": "09_黑星坠落",
+            "mode": "anchor",
+            "chapter": "09",
+            "label_prefix": "9",
+            "stages": 13
+        },
+        {
+            "key": "10_永久列车",
+            "mode": "anchor",
+            "chapter": "10",
+            "label_prefix": "10",
+            "stages": 12
+        },
+        {
+            "key": "11_九龙夜航",
+            "mode": "anchor",
+            "chapter": "11",
+            "label_prefix": "11",
+            "stages": 12
+        },
+        {
+            "key": "12_九龙环城",
+            "mode": "legacy",
+            "chapter": "12",
+            "label_prefix": "12",
+            "stages": 7
+        },
+        {
+            "key": "13_终焉福音",
+            "mode": "legacy",
+            "reason": "no stage labels"
+        },
+        {
+            "key": "14_视线囚笼",
+            "mode": "anchor",
+            "chapter": "14",
+            "label_prefix": "14",
+            "stages": 15
+        },
+        {
+            "key": "15_绝海星火",
+            "mode": "anchor",
+            "chapter": "15",
+            "label_prefix": "15",
+            "stages": 17
+        },
+        {
+            "key": "16_永夜胎动",
+            "mode": "anchor",
+            "chapter": "16",
+            "label_prefix": "16",
+            "stages": 15
+        },
+        {
+            "key": "17_湮灭残昼",
+            "mode": "legacy",
+            "reason": "no stage labels"
+        },
+        {
+            "key": "18_曙星致意",
+            "mode": "legacy",
+            "chapter": "18",
+            "label_prefix": "18",
+            "stages": 21
+        },
+        {
+            "key": "19_空晓界限",
+            "mode": "legacy",
+            "chapter": "19",
+            "label_prefix": "19",
+            "stages": 11
+        },
+        {
+            "key": "20_烬海异途",
+            "mode": "anchor",
+            "chapter": "20",
+            "label_prefix": "20",
+            "stages": 14
+        },
+        {
+            "key": "21_刻命螺旋",
+            "mode": "legacy",
+            "reason": "no stage labels"
+        },
+        {
+            "key": "22_创绘映想",
+            "mode": "legacy",
+            "chapter": "22",
+            "label_prefix": "22",
+            "stages": 28
+        },
+        {
+            "key": "23_凛桎鸣渊",
+            "mode": "anchor",
+            "chapter": "23",
+            "label_prefix": "23",
+            "stages": 17
+        },
+        {
+            "key": "24_萦森歧路",
+            "mode": "anchor",
+            "chapter": "24",
+            "label_prefix": "24",
+            "stages": 16
+        },
+        {
+            "key": "25_爝火长明",
+            "mode": "anchor",
+            "chapter": "25",
+            "label_prefix": "25",
+            "stages": 21
+        },
+        {
+            "key": "26_摇篮游行",
+            "mode": "legacy",
+            "chapter": "26",
+            "label_prefix": "26",
+            "stages": 27
+        },
+        {
+            "key": "27_碑火铸脊",
+            "mode": "anchor",
+            "chapter": "27",
+            "label_prefix": "27",
+            "stages": 29
+        },
+        {
+            "key": "28_络勾陈",
+            "mode": "anchor",
+            "chapter": "28",
+            "label_prefix": "28",
+            "stages": 38
+        },
+        {
+            "key": "29_源解信标",
+            "mode": "anchor",
+            "chapter": "29",
+            "label_prefix": "29",
+            "stages": 18
+        },
+        {
+            "key": "30_镜像星尘",
+            "mode": "anchor",
+            "chapter": "30",
+            "label_prefix": "30",
+            "stages": 17
+        },
+        {
+            "key": "31_剪身成蝶",
+            "mode": "legacy",
+            "reason": "no stage labels"
+        },
+        {
+            "key": "32_遥行循星",
+            "mode": "anchor",
+            "chapter": "32",
+            "label_prefix": "32",
+            "stages": 25
+        },
+        {
+            "key": "33_锈夜逐光",
+            "mode": "anchor",
+            "chapter": "33",
+            "label_prefix": "33",
+            "stages": 33
+        },
+        {
+            "key": "34_梦赴光寥之乡",
+            "mode": "anchor",
+            "chapter": "34",
+            "label_prefix": "34",
+            "stages": 18
+        },
+        {
+            "key": "35_覆海离声",
+            "mode": "anchor",
+            "chapter": "35",
+            "label_prefix": "35",
+            "stages": 22
+        },
+        {
+            "key": "36_溯梦归途",
+            "mode": "anchor",
+            "chapter": "36",
+            "label_prefix": "36",
+            "stages": 14
+        },
+        {
+            "key": "37_眠于厄寐之境",
+            "mode": "anchor",
+            "chapter": "37",
+            "label_prefix": "37",
+            "stages": 26
+        },
+        {
+            "key": "38_推想视限",
+            "mode": "anchor",
+            "chapter": "38",
+            "label_prefix": "38",
+            "stages": 21
+        },
+        {
+            "key": "39_冬冕的凋亡",
+            "mode": "anchor",
+            "chapter": "39",
+            "label_prefix": "39",
+            "stages": 24
+        },
+        {
+            "key": "40_更美好的明天",
+            "mode": "anchor",
+            "chapter": "40",
+            "label_prefix": "40",
+            "stages": 23
+        },
+        {
+            "key": "41_长路归航",
+            "mode": "anchor",
+            "chapter": "41",
+            "label_prefix": "41",
+            "stages": 28
+        },
+        {
+            "key": "42_歧海循光",
+            "mode": "anchor",
+            "chapter": "42",
+            "label_prefix": "42",
+            "stages": 32
+        },
+        {
+            "key": "43_远信回响",
+            "mode": "legacy",
+            "chapter": "43",
+            "label_prefix": "43",
+            "stages": 29
+        },
+        {
+            "key": "ER00_游云鲸梦",
+            "mode": "anchor",
+            "chapter": "ER00",
+            "label_prefix": "ER00",
+            "stages": 10
+        },
+        {
+            "key": "ER01_遥岸方舟",
+            "mode": "legacy",
+            "reason": "no stage labels"
+        },
+        {
+            "key": "ER02_枯朽为灯",
+            "mode": "anchor",
+            "chapter": "ER02",
+            "label_prefix": "ER02",
+            "stages": 24
+        },
+        {
+            "key": "ER03_未语庭言",
+            "mode": "anchor",
+            "chapter": "ER03",
+            "label_prefix": "ER03",
+            "stages": 13
+        },
+        {
+            "key": "ER04_浮英枕梦行",
+            "mode": "anchor",
+            "chapter": "ER04",
+            "label_prefix": "ER04",
+            "stages": 17
+        },
+        {
+            "key": "ER05_怒逐沉沙",
+            "mode": "anchor",
+            "chapter": "ER05",
+            "label_prefix": "ER05",
+            "stages": 18
+        },
+        {
+            "key": "ER06_幽塔黎光",
+            "mode": "anchor",
+            "chapter": "ER06",
+            "label_prefix": "ER06",
+            "stages": 22
+        },
+        {
+            "key": "ER07_云梁觅影",
+            "mode": "anchor",
+            "chapter": "ER07",
+            "label_prefix": "ER07",
+            "stages": 17
+        },
+        {
+            "key": "ER08_暮往长离",
+            "mode": "anchor",
+            "chapter": "ER08",
+            "label_prefix": "ER08",
+            "stages": 26
+        },
+        {
+            "key": "ER09_晨昏庭影",
+            "mode": "anchor",
+            "chapter": "ER09",
+            "label_prefix": "ER09",
+            "stages": 19
+        },
+        {
+            "key": "ER10_醉狱谲笼",
+            "mode": "anchor",
+            "chapter": "ER10",
+            "label_prefix": "ER10",
+            "stages": 21
+        },
+        {
+            "key": "ER11_逐生复始",
+            "mode": "anchor",
+            "chapter": "ER11",
+            "label_prefix": "ER11",
+            "stages": 16
+        },
+        {
+            "key": "ER12_末路燎原",
+            "mode": "anchor",
+            "chapter": "ER12",
+            "label_prefix": "ER12",
+            "stages": 26
+        },
+        {
+            "key": "ER13_织奏序言",
+            "mode": "legacy",
+            "chapter": "ER13",
+            "label_prefix": "ER13",
+            "stages": 17
+        },
+        {
+            "key": "ER14_理想笼",
+            "mode": "anchor",
+            "chapter": "ER14",
+            "label_prefix": "ER14",
+            "stages": 14
+        },
+        {
+            "key": "ER15_烈日将烬",
+            "mode": "anchor",
+            "chapter": "ER15",
+            "label_prefix": "ER15",
+            "stages": 25
+        },
+        {
+            "key": "ER16_孑念空行",
+            "mode": "anchor",
+            "chapter": "ER16",
+            "label_prefix": "ER16",
+            "stages": 20
+        }
+    ]
+}
