@@ -104,9 +104,9 @@
         "recognition": {
             "param": {
                 "roi": [
-                    1095,
+                    1015,
                     610,
-                    100,
+                    180,
                     40
                 ],
                 "expected": [
@@ -137,9 +137,9 @@
         "recognition": {
             "param": {
                 "roi": [
-                    1095,
+                    1015,
                     610,
-                    100,
+                    180,
                     40
                 ],
                 "expected": [

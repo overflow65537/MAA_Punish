@@ -13,9 +13,9 @@
         "recognition": {
             "param": {
                 "roi": [
-                    830,
+                    750,
                     525,
-                    250,
+                    330,
                     50
                 ],
                 "expected": [
