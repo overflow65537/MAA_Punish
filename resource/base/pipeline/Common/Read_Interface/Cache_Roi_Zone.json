@@ -8,6 +8,23 @@
             "Node.Recognition.Succeeded": "$focus.缓存ROI偏移配置"
         }
     },
+    "设置齿轮": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1000,
+                    580,
+                    280,
+                    140
+                ],
+                "template": [
+                    "界面/设置.png"
+                ],
+                "threshold": 0.55
+            }
+        }
+    },
     "打开界面设置": {
         "recognition": {
             "type": "And",
@@ -20,10 +37,7 @@
         "action": {
             "type": "Click",
             "param": {
-                "target": [
-                    1182,
-                    654
-                ]
+                "target": "设置齿轮"
             }
         },
         "next": [
