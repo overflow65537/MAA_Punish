@@ -71,12 +71,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ],
                 "expected": [
                     "18-20",
                     "18-19",
@@ -119,12 +113,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ],
                 "expected": [
                     "18-15"
                 ]
@@ -150,12 +138,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ],
                 "expected": [
                     "18-16"
                 ]
@@ -181,12 +163,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ],
                 "expected": [
                     "18-17"
                 ]
@@ -212,12 +188,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ],
                 "expected": [
                     "18-21"
                 ]

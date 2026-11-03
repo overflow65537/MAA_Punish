@@ -11,6 +11,7 @@
 |------|------|
 | **`expected`** | OCR 節點的預期文字，需對應遊戲介面的繁體（或簡繁混排）顯示 |
 | **`roi`** | 僅在文字過長、base 的識別區域會裁切時再調整 |
+| **`action.param.package`** | Android 台服客戶端用。`Start_up.jsonc` 的 `打开应用`（自動啟動）、`Stop_App.jsonc` 的 `停止`（關閉）、`General.jsonc` 的 `重启游戏`（重啟）都要指定 `com.herogame.gplay.punishing.grayraven.tw`；Steam 繁中走 `pgr_win32`，不受影響 |
 
 其餘欄位（`recognition.type`、`action`、`next`、`focus` 等）**建議不要在此重寫**，由 base 統一維護。  
 介面提示的多語言文案由 `assets/i18n/zh_tw.json` 的 `$focus.*` 鍵負責。

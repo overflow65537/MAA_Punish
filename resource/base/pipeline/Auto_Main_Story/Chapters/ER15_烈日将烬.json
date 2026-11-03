@@ -45,12 +45,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ],
                 "expected": [
                     "ER15-24",
                     "ER15-23",
@@ -100,12 +94,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ],
                 "expected": [
                     "ER15-25"
                 ]

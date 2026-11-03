@@ -73,6 +73,15 @@
             }
         }
     },
+    "选择角色完成_涅缇娅": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "^Nirvatia$"
+                ]
+            }
+        }
+    },
     "开始战斗_雾夜镇魂曲": {
         "recognition": {
             "param": {

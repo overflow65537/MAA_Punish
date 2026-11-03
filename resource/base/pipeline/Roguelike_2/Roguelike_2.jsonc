@@ -435,8 +435,8 @@
             "战斗完成_厄愿潮声",
             "战斗失败_厄愿潮声",
             "[JumpBack]重启_寒境曙光",
-            "[JumpBack]战斗中",
             "[JumpBack]跳过战斗对话",
+            "[JumpBack]战斗中",
             "[JumpBack]未选人_寒境曙光",
             "[JumpBack]作战开始",
             "[JumpBack]进入战斗_厄愿潮声",
@@ -1997,6 +1997,12 @@
             "type": "OCR",
             "param": {
                 "roi": "刷新次数为0_厄愿潮声_颜色",
+                "roi_offset": [
+                    -2,
+                    -2,
+                    4,
+                    4
+                ],
                 "expected": "^0$",
                 "only_rec": true
             }

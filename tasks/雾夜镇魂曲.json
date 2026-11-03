@@ -166,6 +166,31 @@
                         }
                     },
                     "label": "$case.选择角色_雾夜镇魂曲.神威"
+                },
+                {
+                    "name": "涅缇娅",
+                    "pipeline_override": {
+                        "选择角色": {
+                            "action": {
+                                "param": {
+                                    "target": [
+                                        97,
+                                        555
+                                    ]
+                                }
+                            }
+                        },
+                        "选择角色完成": {
+                            "recognition": {
+                                "param": {
+                                    "all_of": [
+                                        "选择角色完成_涅缇娅"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "label": "$case.选择角色_雾夜镇魂曲.涅缇娅"
                 }
             ],
             "type": "select"

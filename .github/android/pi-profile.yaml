@@ -2,9 +2,13 @@
 # 所有相对路径均以本文件所在目录（.github/android）为基准。
 assets: ../..
 
+# 写了 include 就完全以配方为准（不会回落 MaaFwApp 的默认列表），所以 interface.json
+# 里 import 的分片目录必须逐个列进来：桌面端的 tools/ci/install.py 是整目录复制，
+# 这里漏一个目录，Android 上就会把整片 option/setting 静默跳过。
 include:
   - interface.json
   - tasks/**
+  - options/**
   - resource/**
   - i18n/**
   - agent/**

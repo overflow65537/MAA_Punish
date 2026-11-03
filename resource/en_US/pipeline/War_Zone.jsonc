@@ -4,6 +4,9 @@
     "查看地图_冰区": {
         "recognition": {
             "param": {
+                "expected": [
+                    "Crimson Frostland"
+                ],
                 "roi": [
                     0,
                     57,
@@ -137,6 +140,9 @@
     "查看地图_暗区": {
         "recognition": {
             "param": {
+                "expected": [
+                    "Shadow Forest"
+                ],
                 "roi": [
                     0,
                     57,

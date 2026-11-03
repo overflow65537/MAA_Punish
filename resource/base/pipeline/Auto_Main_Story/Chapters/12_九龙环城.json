@@ -36,7 +36,7 @@
             ]
         },
         "next": [
-            "剧情通关_12",
+            "剧情通关_隐藏剧情",
             "[JumpBack]切换隐藏剧情",
             "[JumpBack]选择最新关卡_12",
             "[JumpBack]12-1",
@@ -67,54 +67,11 @@
             "[JumpBack]12-26"
         ]
     },
-    "剧情通关_12": {
-        "recognition": {
-            "type": "And",
-            "param": {
-                "all_of": [
-                    "切换隐藏剧情_100%",
-                    "剧情通关_12_隐藏剧情文字"
-                ]
-            }
-        },
-        "next": [
-            "返回"
-        ]
-    },
-    "剧情通关_12_隐藏剧情文字": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ],
-                "roi_offset": [
-                    85,
-                    -3,
-                    102,
-                    6
-                ],
-                "expected": [
-                    "隐藏剧情"
-                ],
-                "only_rec": true
-            }
-        }
-    },
     "选择最新关卡_12": {
         "enabled": false,
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ],
                 "expected": [
                     "12-7",
                     "12-6",

@@ -24,6 +24,7 @@ POST_FREEZE = {
 }
 CHAPTER_ROI = [33, 93, 500, 120]
 LEVEL_SELECT_ROI = [245, 0, 1035, 720]
+# "选择最新关卡" nodes match full-screen (no roi); only "剧情通关" still uses LEVEL_SELECT_ROI.
 
 # (file_stem_without_json, total_levels, extra_specials)
 # extra_specials: list of (node_suffix, ocr_label, use_story_next)
@@ -139,7 +140,6 @@ def build_chapter(
             "recognition": {
                 "type": "OCR",
                 "param": {
-                    "roi": LEVEL_SELECT_ROI,
                     "expected": listing,
                     "order_by": "Expected",
                 },
@@ -160,7 +160,6 @@ def build_chapter(
                 "recognition": {
                     "type": "OCR",
                     "param": {
-                        "roi": LEVEL_SELECT_ROI,
                         "expected": [ocr],
                     },
                 },
@@ -188,7 +187,6 @@ def build_chapter(
             "recognition": {
                 "type": "OCR",
                 "param": {
-                    "roi": LEVEL_SELECT_ROI,
                     "expected": [final_label],
                 },
             },

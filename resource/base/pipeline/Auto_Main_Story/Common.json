@@ -68,6 +68,38 @@
             }
         }
     },
+    "切换隐藏剧情_隐藏剧情文字": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "切换隐藏剧情_100%",
+                "roi_offset": [
+                    85,
+                    -3,
+                    102,
+                    6
+                ],
+                "expected": [
+                    "隐藏剧情"
+                ],
+                "only_rec": true
+            }
+        }
+    },
+    "剧情通关_隐藏剧情": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "切换隐藏剧情_100%",
+                    "切换隐藏剧情_隐藏剧情文字"
+                ]
+            }
+        },
+        "next": [
+            "返回"
+        ]
+    },
     "点击隐藏章节": {
         "recognition": {
             "type": "OCR",

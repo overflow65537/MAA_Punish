@@ -1,0 +1,9 @@
+{
+    "停止": {
+        "action": {
+            "param": {
+                "package": "com.herogame.gplay.punishing.grayraven.tw"
+            }
+        }
+    }
+}

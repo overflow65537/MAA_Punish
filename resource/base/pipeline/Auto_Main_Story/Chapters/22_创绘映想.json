@@ -79,12 +79,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ],
                 "expected": [
                     "22-27",
                     "22-26",
@@ -130,12 +124,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ],
                 "expected": [
                     "22-28"
                 ]
@@ -182,12 +170,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ],
                 "expected": [
                     "22-16"
                 ]
@@ -213,12 +195,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ],
                 "expected": [
                     "22-17"
                 ]
@@ -244,12 +220,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ],
                 "expected": [
                     "22-18"
                 ]
@@ -267,20 +237,168 @@
             }
         },
         "next": [
-            "主线_选关后战斗"
+            "主线_选关后战斗_22_18"
         ]
+    },
+    "主线_选关后战斗_22_18": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000,
+            "target": [
+                675,
+                0,
+                605,
+                720
+            ]
+        },
+        "pre_delay": 0,
+        "next": [
+            "[JumpBack]自动闪避后攻击",
+            "[JumpBack]战斗重启1",
+            "[JumpBack]播放剧情",
+            "[JumpBack]主线跳过",
+            "[JumpBack]跳过剧情",
+            "[JumpBack]确认跳过",
+            "[JumpBack]跳过战斗对话_主线",
+            "[JumpBack]进入战斗",
+            "[JumpBack]战斗中",
+            "[JumpBack]点击对话",
+            "[JumpBack]点击空白处关闭_速通",
+            "[JumpBack]载入中",
+            "[JumpBack]通用处理-未下载弹窗-角色皮肤没下载-检测层",
+            "[JumpBack]未选人",
+            "[JumpBack]使用体力",
+            "不使用体力",
+            "[JumpBack]点击作战开始_速通",
+            "[JumpBack]打开速通开关",
+            "[JumpBack]战斗准备_速通",
+            "[JumpBack]退出战斗",
+            "回到22章选关界面_18"
+        ]
+    },
+    "回到22章选关界面_18": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    33,
+                    93,
+                    500,
+                    120
+                ],
+                "expected": "22\\s*创绘映想"
+            }
+        },
+        "next": [
+            "滑动_22_18后"
+        ]
+    },
+    "滑动_22_18后": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "22-18"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": true,
+                "end": [
+                    1279,
+                    200
+                ],
+                "end_hold": 500
+            }
+        },
+        "next": []
+    },
+    "主线_选关后战斗_22_20": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000,
+            "target": [
+                675,
+                0,
+                605,
+                720
+            ]
+        },
+        "pre_delay": 0,
+        "next": [
+            "[JumpBack]自动闪避后攻击",
+            "[JumpBack]战斗重启1",
+            "[JumpBack]播放剧情",
+            "[JumpBack]主线跳过",
+            "[JumpBack]跳过剧情",
+            "[JumpBack]确认跳过",
+            "[JumpBack]跳过战斗对话_主线",
+            "[JumpBack]进入战斗",
+            "[JumpBack]战斗中",
+            "[JumpBack]点击对话",
+            "[JumpBack]点击空白处关闭_速通",
+            "[JumpBack]载入中",
+            "[JumpBack]通用处理-未下载弹窗-角色皮肤没下载-检测层",
+            "[JumpBack]未选人",
+            "[JumpBack]使用体力",
+            "不使用体力",
+            "[JumpBack]点击作战开始_速通",
+            "[JumpBack]打开速通开关",
+            "[JumpBack]战斗准备_速通",
+            "[JumpBack]退出战斗",
+            "回到22章选关界面_20"
+        ]
+    },
+    "回到22章选关界面_20": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    33,
+                    93,
+                    500,
+                    120
+                ],
+                "expected": "22\\s*创绘映想"
+            }
+        },
+        "next": [
+            "滑动_22_20后"
+        ]
+    },
+    "滑动_22_20后": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "22-20"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": true,
+                "end": [
+                    1279,
+                    200
+                ],
+                "end_hold": 500
+            }
+        },
+        "next": []
     },
     "选择最新关卡_22_19": {
         "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ],
                 "expected": [
                     "22-19"
                 ]
@@ -306,12 +424,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ],
                 "expected": [
                     "22-20"
                 ]
@@ -329,7 +441,7 @@
             }
         },
         "next": [
-            "主线_选关后战斗"
+            "主线_选关后战斗_22_20"
         ]
     },
     "选择最新关卡_22_21": {
@@ -337,12 +449,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ],
                 "expected": [
                     "22-21"
                 ]
@@ -368,12 +474,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    245,
-                    0,
-                    1035,
-                    720
-                ],
                 "expected": [
                     "22-22"
                 ]

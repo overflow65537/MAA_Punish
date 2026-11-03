@@ -181,6 +181,28 @@ class CombatActions:
                 time.sleep(remaining_ms / 1000)
         return True
 
+    def attack_burst(self, count: int = 5, interval: int = 0) -> bool:
+        """
+        连打普攻（少识别版）
+        只在开头做一次自动闪避判定，随后连续发「攻击」动作，不再逐次识别，
+        用于把连打间隔压到最小。
+        :param count: 攻击次数，默认5
+        :param interval: 每次攻击间隔（毫秒），默认0（尽可能短）
+        :return: True
+        """
+        image = self._get_image()
+        if not self.skip_combat_gate:
+            result = self.context.run_recognition("战斗中", image)
+            if not (result and result.hit):
+                return False
+        self._auto_dodge(image)
+        for _ in range(max(1, count)):
+            self.context.run_action("攻击")
+            if interval > 0:
+                time.sleep(interval / 1000)
+        self._invalidate_frame()
+        return True
+
     def long_press_attack(self, duration: int = 1000):
         """
         长按攻击
@@ -342,6 +364,28 @@ class CombatActions:
         result = self.context.run_action(f"消球{target}")
         self._invalidate_frame()
         return result
+
+    def ball_elimination_burst(self, target: int = 2, count: int = 5, interval: int = 0):
+        """
+        连续消同一位球（少识别版）
+        只在开头做一次自动闪避判定，随后连续点同一位球，不再逐次识别。
+        :param target: 消球位置（1~8），默认2
+        :param count: 消球次数，默认5
+        :param interval: 每次消球间隔（毫秒），默认0（尽可能短）
+        :return: True（次数用尽）/ False（位置非法）
+        """
+        target = abs(target)
+        if target == 0:
+            target = 2
+        elif target < 1 or target > 8:
+            return False
+        self._auto_dodge(self._get_image())
+        for _ in range(max(1, count)):
+            self.context.run_action(f"消球{target}")
+            if interval > 0:
+                time.sleep(interval / 1000)
+        self._invalidate_frame()
+        return True
 
     def trigger_qte(self, target: int = 1):
         """
