@@ -17,6 +17,7 @@ from recognition.exclusives.AutoCounter import AutoCounter
 from recognition.exclusives.NextStageRecognition import NextStageRecognition
 from recognition.exclusives.CacheRole import CacheRole
 from recognition.exclusives.ExpressionRecognition import ExpressionRecognition
+from recognition.exclusives.ReadonlyCurrentAccount import ReadonlyCurrentAccount
 from recognition.exclusives.CheckBlueZone import CheckBlueZone
 from recognition.exclusives.CheckROIZoneCache import CheckROIZoneCache
 
@@ -103,6 +104,11 @@ class Agent_ScreenShot(ScreenShot):
 
 @AgentServer.custom_recognition("ExpressionRecognition")
 class Agent_ExpressionRecognition(ExpressionRecognition):
+    pass
+
+
+@AgentServer.custom_recognition("ReadonlyCurrentAccount")
+class Agent_ReadonlyCurrentAccount(ReadonlyCurrentAccount):
     pass
 
 
