@@ -408,6 +408,11 @@ jobs:
       - name: Prepare MaaFramework and Python agent
         working-directory: build-android/MaaFwApp
         shell: bash
+        env:
+          # scripts/setup_maa_framework.py 会访问 api.github.com 取 MaaFramework 发布物，
+          # 匿名请求只有 60 次/小时的共享 IP 限额，容易 403。优先用专用 PAT（MAAFW_TOKEN），
+          # 没配置时退回 Actions 自带的 GITHUB_TOKEN（对公开仓库同样能把限额提到 5000 次/小时）。
+          GITHUB_TOKEN: ${{ secrets.MAAFW_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           python scripts/setup_maa_framework.py --tag "$MAAFRAMEWORK_TAG"
