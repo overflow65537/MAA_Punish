@@ -1,0 +1,10 @@
+{
+    "跳过战斗对话": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 162
+            }
+        }
+    }
+}
