@@ -350,8 +350,8 @@ jobs:
     outputs:
       variant: ${{ steps.signing.outputs.variant }}
     env:
-      # Aliothmoon/MaaFwApp main @ 2026-10-16
-      MAAFWAPP_REF: bc55dac4c8231ab73e7ee42bd38c43e322838b14
+      # Aliothmoon/MaaFwApp main @ 2026-11-13
+      MAAFWAPP_REF: f29a0b0d5e5ebdc845368f0e98e8104911765c1a
       MAAFRAMEWORK_TAG: v5.14.2
       PI_PROFILE: ${{ github.workspace }}/.github/android/pi-profile.yaml
       ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
