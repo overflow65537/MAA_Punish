@@ -9,6 +9,7 @@ from action.basics.RedmeeCode import RedeemCode
 from action.basics.RedmeeCode import CheckRedeemCode
 from action.basics.InterfaceZone.LoadRoiZone import LoadRoiZone
 from action.basics.ResetCount import ResetCount
+from action.basics.ClickAnchor import ClickAnchor
 
 from action.combat.entry.runner import CombatRunner
 
@@ -113,4 +114,9 @@ class Agent_ResetCount(ResetCount):
 
 @AgentServer.custom_action("CombatRunner")
 class Agent_CombatRunner(CombatRunner):
+    pass
+
+
+@AgentServer.custom_action("ClickAnchor")
+class Agent_ClickAnchor(ClickAnchor):
     pass

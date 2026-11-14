@@ -9,14 +9,13 @@
             }
         },
         "action": {
-            "type": "Click",
+            "type": "Custom",
             "param": {
-                "target_offset": [
-                    60,
-                    0,
-                    -60,
-                    0
-                ]
+                "custom_action": "ClickAnchor",
+                "custom_action_param": {
+                    "position": "right",
+                    "x": -20
+                }
             }
         },
         "post_wait_freezes": {
