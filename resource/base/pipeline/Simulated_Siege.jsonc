@@ -205,7 +205,15 @@
                 ]
             }
         },
-        "action": "Click",
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "ClickAnchor",
+                "custom_action_param": {
+                    "position": "left"
+                }
+            }
+        },
         "next": [
             "常序区作战完成"
         ]
@@ -287,7 +295,15 @@
                 ]
             }
         },
-        "action": "Click",
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "ClickAnchor",
+                "custom_action_param": {
+                    "position": "left"
+                }
+            }
+        },
         "next": [
             "特遣区作战完成"
         ]
@@ -373,7 +389,15 @@
                 ]
             }
         },
-        "action": "Click",
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "ClickAnchor",
+                "custom_action_param": {
+                    "position": "left"
+                }
+            }
+        },
         "next": [
             "BOSS区作战完成"
         ]
