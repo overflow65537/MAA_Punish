@@ -26,7 +26,13 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Custom",
+            "param": {
+                "custom_action": "ClickAnchor",
+                "custom_action_param": {
+                    "position": "left"
+                }
+            }
         }
     },
     "打通诺曼复兴战条件2": {
