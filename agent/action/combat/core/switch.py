@@ -160,7 +160,7 @@ def attempt_switch_to_color(
     """
     target = color.upper()
     deadline = time.monotonic() + verify_timeout
-    logger.info(
+    logger.debug(
         "切人尝试: 色位=%s cls=%s 超时=%.1fs",
         target,
         target_cls,
@@ -169,16 +169,16 @@ def attempt_switch_to_color(
 
     image = context.tasker.controller.post_screencap().wait().get()
     if is_switch_arrived(context, image, target_cls):
-        logger.info("切人到位: %s (%s)", target, target_cls)
+        logger.debug("切人到位: %s (%s)", target, target_cls)
         return True
 
     qte_result = _recognize_qte(context, target, image)
     if not qte_result:
-        logger.info("切人失败: 色位=%s 未识别到 QTE", target)
+        logger.debug("切人失败: 色位=%s 未识别到 QTE", target)
         return False
 
     qte_x, qte_y = _box_center(qte_result.best_result.box)  # type: ignore[attr-defined]
-    logger.info("切人 QTE 已识别: 色位=%s 坐标=(%s, %s)", target, qte_x, qte_y)
+    logger.debug("切人 QTE 已识别: 色位=%s 坐标=(%s, %s)", target, qte_x, qte_y)
 
     while time.monotonic() < deadline:
         if should_stop is not None and should_stop():
@@ -190,7 +190,7 @@ def attempt_switch_to_color(
 
         image = context.tasker.controller.post_screencap().wait().get()
         if is_switch_arrived(context, image, target_cls):
-            logger.info("切人到位: %s (%s)", target, target_cls)
+            logger.debug("切人到位: %s (%s)", target, target_cls)
             return True
 
         remaining = deadline - time.monotonic()
@@ -198,7 +198,7 @@ def attempt_switch_to_color(
             break
         time.sleep(min(poll_interval, remaining))
 
-    logger.info("切人超时: 色位=%s cls=%s", target, target_cls)
+    logger.debug("切人超时: 色位=%s cls=%s", target, target_cls)
     return False
 
 
